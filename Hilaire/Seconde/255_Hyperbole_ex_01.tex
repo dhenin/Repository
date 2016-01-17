@@ -1,0 +1,29 @@
+% \input{preambule-sacha-utf8.ltx}
+
+% \begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.8]
+\draw[->] (-5.5,0) -- (4.56,0);
+\foreach \x in {-5,-4,-3,-2,-1,1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-4.28) -- (0,5.3);
+\foreach \y in {-4,-3,-2,-1,1,2,3,4,5}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-5.5,-4.28) rectangle (4.56,5.3);
+\draw[smooth,samples=100,domain=-5.5:-1.01] plot(\x,{((\x)-1)/((\x)+1)});
+\draw[smooth,samples=100,domain=-.99:4.5] plot(\x,{((\x)-1)/((\x)+1)});
+\draw [color=red,domain=-5.5:4.56] plot(\x,{(--1-0*\x)/1});
+\draw [color=red] (-1,-4.28) -- (-1,5.3);
+\draw [color=red] (-1,1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw[color=red] (-1,1) node [above left]{$I$};
+\draw [color=black] (-2,3)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=black] (-3,2)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-5.5,-4.28) grid (4.56,5.3) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-5.5,-4.28) grid (4.56,5.3) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-5.5,-4.28) grid (4.56,5.3) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-5.5,-4.28) grid (4.56,5.3) ;
+\end{pgfonlayer} 
+\end{tikzpicture}
+% \end{document}

@@ -1,0 +1,1510 @@
+\subsection{Loi normale centrée réduite $N\left(0 \; ; \; 1\right)$}
+
+\subsubsection{Définition}
+
+Soit $X$ une variable aléatoire continue sur $\R$. \\
+Soit $f$ la fonction de densité de la loi de probabilité de $X$. \\
+
+On dit que \underline{$X$ suit la loi normale centrée réduite sur $\R$}, noté $N\left(0 \; ; \; 1\right)$, si et seulement si : \\
+pour tout $x \in \R, f\left(x\right) = \dfrac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}$.
+
+\subsubsection{Étude et représentation graphique de $f$}
+
+\begin{tabular}{llll}
+\hspace*{-.3cm} Soit la fonction $f:$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}$
+\end{tabular}. \\
+
+\begin{itemize}
+\item[•] On a $D_{f} = \R$. 
+
+\item[•] On étudie les variations de $f$. \\
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} $\forall x \in \R, f'(x)$ & $=$ & $\dfrac{1}{\sqrt{2\pi}} \times \left(-\dfrac{1}{2}\right) \times 2xe^{-\frac{1}{2}x^2}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{-x}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}$.
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+\hspace{-.3cm} On a $f'(x) = 0$ & $\Longleftrightarrow$ & $\dfrac{-x}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2} = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $\dfrac{-x}{\sqrt{2\pi}} = 0$ ou $e^{-\frac{1}{2}x^2} = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $-x = 0$ ou Impossible \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $x=0$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Le signe de $f'(x)$ est le signe de $-x$ car pour tout $x \in D_f, e^{-\frac{1}{2}x^2}>0$. \\
+
+\vspace*{.3cm}
+
+On a : $ \displaystyle {\lim_{x \rightarrow -\infty}} \; f(x) = 0$ \\
+
+De plus, $ \displaystyle {\lim_{x \rightarrow +\infty}} \; f(x) = 0$
+
+\vspace*{.3cm}
+
+Enfin, $f(0) = \dfrac{1}{\sqrt{2\pi}}e^0 = \dfrac{1}{\sqrt{2\pi}} \approx 0,4$. \\
+
+\vspace*{.3cm}
+
+On en déduit le tableau de signes et de variations suivant : \\ 
+
+\variations
+x & -\infty & & 0 & & +\infty \\
+f'(x) & & + & \z & - & \\
+f(x) & \b{0} & \cl & \h{\dfrac{1}{\sqrt{2\pi}}} & \dl & \b{0} \\
+\fin
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=1.3]
+
+\draw[red] (-5.5,0.001) -- (5.5,0.001);
+\draw[->] (-5.9,0) -- (5.9,0);
+\foreach \x in {-5,...,-1,1,2,3,4,5}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-.05) -- (0,.57);
+\foreach \y in {0.1,0.2,0.3,0.4,0.5}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=-5:5,smooth,samples=100] plot (\x,{gauss(0,1)}) ; 
+\clip (-6,-0.1) rectangle (6,0.6) ;
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-6,-0.1) grid (6,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-6,-0.1) grid (6,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-6,-0.1) grid (6,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-6,-0.1) grid (6,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+\textbf{Remarque :} Cette courbe est appelée « Courbe en cloche de Gauss ». Elle est symétrique par rapport à l'ace des abscisses. \\
+
+\item[•] Montrons que $f$ est une fonction de densité sur $\R$. \\
+
+\begin{itemize}
+\item[*] $f$ est définie, continue et positive sur $\R$. \\
+\item[*] On a $\displaystyle{\int_{-\infty}^{+\infty} f(x) \; \diff x} = 1$. \\
+
+Vérification à la calculatrice : $\displaystyle{\int_{-1000}^{1000} f(x) \; \diff x} = 1$.
+\end{itemize}
+
+\end{itemize}
+
+\newpage
+
+\vspace*{-1cm}
+
+\subsubsection{Probabilité d'un événement}
+
+\vspace*{.3cm}
+
+\begin{minipage}{25cm}
+
+Soit $X$ une variable aléatoire continue sur $\R$ suivant la loi normale contrée réduite. \\
+
+Soient $a\in \R$ et $b \in \R$, avec $a < b$. On a $p\left(a \leqslant X  \leqslant b\right) = \displaystyle{\int_a^b \dfrac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}x^2} \; \diff x}$. \vspace*{.3cm} \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=1]
+
+\draw[->] (-1.5,0) -- (9.9,0);
+\foreach \x in {-5,...,-1,1,2,3,4,5}
+\draw[shift={(4+\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (4,-.05) -- (4,.57);
+\foreach \y in {0.1,0.2,0.3,0.5}
+\draw[shift={(4,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (4,0.42) node [left] {\footnotesize $0.4$} ;
+\draw (4,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=0:10,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+\draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=3:6] (3,0)  -- plot (\x,{gauss(4,1)}) -- (6,0) -- cycle ;
+
+\draw (3,-10pt) node [below] {\footnotesize $a$} ;  \draw (6,-10pt) node [below] {\footnotesize $b$} ; 
+
+\draw [DarkGreen,pattern color=DarkGreen, pattern=north east lines] (7,.3) node[anchor=south east] {\footnotesize Aire} rectangle (7.5,.35) ; 
+
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (10.5,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+\begin{minipage}{10cm}
+
+\textbf{Quelques propriétés :} L'aire totale sous la courbe est $1$. 
+
+\vspace*{.3cm}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=1]
+
+\draw[->] (-1.5,0) -- (9.9,0);
+\draw[->] (4,-.05) -- (4,.47);
+
+\draw [domain=0:10,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+\draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [red, pattern color=red, pattern=north east lines, smooth, samples=100,domain=0:4] (0,0)  -- plot (\x,{gauss(4,1)}) -- (4,0) -- cycle ;
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=4:7] (4,0)  -- plot (\x,{gauss(4,1)}) -- (7,0) -- cycle ;
+
+ 
+\node [blue] (g) at (0,.2) {$p(x \leqslant 0) = 0.5$} ;
+\node [black] at (1,.41) {$p(x \leqslant 0) = p(x \geqslant 0) = 0,5$} ; 
+\node (n) at (2,.22) {} ; 
+\node (G) at (3,.2) {} ;
+\draw[->,red] (g.east) parabola bend (n) (G);
+
+\node [blue] (h) at (8,.2) { $p(x \geqslant 0) =0.5$ } ; 
+\node (m) at (6,.22) {} ; 
+\node (H) at (5,.2) {} ;
+\draw[->,DarkGreen] (h.west) parabola bend (m) (H);
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (10.5,0.5) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (10.5,0.5) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (10.5,0.5) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (10.5,0.5) ;
+\end{pgfonlayer}
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=1]
+
+\draw[->] (-1.5,0) -- (9.9,0);
+\draw[->] (4,-.05) -- (4,.57);
+
+
+\draw [domain=0:10,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+\draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=0:2.5] (0,0)  -- plot (\x,{gauss(4,1)}) -- (2.5,0) -- cycle ;
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=5.5:8] (5.5,0)  -- plot (\x,{gauss(4,1)}) -- (8,0) -- cycle ;
+
+\node [black] at (1,.41) {\begin{tabular}{l}
+                              Soit $a>0$ \\
+                           $p(x \leqslant -a) = p(x \geqslant a) $
+                          \end{tabular}} ; 
+                          
+\node [DarkGreen] at (0,.05) {$p(x \leqslant -a) = p(x \geqslant a)$} ; 
+
+\node [DarkGreen] at (8.3,.05) {$p(x \leqslant -a) = p(x \geqslant a)$} ; 
+
+
+
+\node (G) at (.2,-1) {} ;
+
+\draw (2.5,0) node [below] {\footnotesize $-a$} ;  \draw (5.5,0) node [below] {\footnotesize $a$} ; 
+
+
+
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (10.5,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+
+\end{minipage}
+\end{minipage}
+
+\newpage
+
+\vspace*{-2cm}
+
+\subsubsection{Exemples}
+
+Soit $X$ une variable aléatoire continue sur $\R$, suivant la loi normale centrée réduit. \\
+
+\begin{itemize}
+\item[1)] Calculons tout d'abord $p\left(1 \leqslant X \leqslant 2\right)$. On a deux manière de procéder :
+
+\begin{itemize}
+\item[*] Calculatrice : $\approx 0,136$. 
+\item[*] $\mathrm{Distrib/normalFrép(1;2)} \approx 0,136$. \\
+\end{itemize} 
+
+\item[2)] Calculons $p\left(X \leqslant 1\right)$. 
+
+\begin{itemize}
+\item[*] Approximativement : $p\left(-1000 \leqslant X \leqslant 1\right) \approx 0,84$. 
+\item[*] Beaucoup mieux : $p\left(X \leqslant 1\right) = 0,5 + p\left(0 \leqslant X \leqslant 1\right)$, d'après le dessin ci-dessous. \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.5]
+
+\draw[->] (-1.5,0) -- (9.9,0);
+% \foreach \x in {-5,...,-1,1,2,3,4,5}
+% \draw[shift={(4+\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (4,-.05) -- (4,.57);
+% \foreach \y in {0.1,0.2,0.3,0.5}
+% \draw[shift={(4,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+% \draw (4,0.42) node [left] {\footnotesize $0.4$} ;
+% \draw (4,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=0:10,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+% \draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=0:6] (0,0)  -- plot (\x,{gauss(4,1)}) -- (6,0) -- cycle ;
+
+
+\draw (6,0) node [below] {\footnotesize $1$} ; 
+
+
+
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (10.5,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (10.5,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+
+Donc $p\left( X\leqslant 1\right) = 0,841$. \\
+\end{itemize} 
+
+\item[3)] Calculons $p\left(X \geqslant 0,5\right)$. 
+
+\begin{itemize}
+\item[*] Approximativement : $p\left(0,5 \leqslant X \leqslant 1000\right) \approx 0,309$. 
+\item[*] Beaucoup mieux : $p\left(X \geqslant 0,5\right) = p\left(X \leqslant -0,5\right) = 0,5 - p\left(-0,5 \leqslant X \leqslant 0\right) = 0,309$.
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Intervalles particuliers}
+
+\begin{tabular}{ll}
+\begin{minipage}{8cm}
+1. $p(-1 \leqslant X \leqslant 1) = 0.68$. \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+
+\draw[->] (0,0) -- (7.9,0);
+\foreach \x in {-3,...,-1,1,2,3}
+\draw[shift={(4+\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (4,-.05) -- (4,.57);
+\foreach \y in {0.1,0.2,0.3,0.5}
+\draw[shift={(4,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (4,0.42) node [left] {\footnotesize $0.4$} ;
+\draw (4,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=0:8,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+\draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=3:5] (3,0)  -- plot (\x,{gauss(4,1)}) -- (5,0) -- cycle ;
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-0,-0.1) grid (8.5,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture} 
+\end{minipage}
+&
+\begin{minipage}{5cm}
+2. $p(-2 \leqslant X \leqslant 2) = 0.954$. \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+
+\draw[->] (0,0) -- (7.9,0);
+\foreach \x in {-3,...,-1,1,2,3}
+\draw[shift={(4+\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (4,-.05) -- (4,.57);
+\foreach \y in {0.1,0.2,0.3,0.5}
+\draw[shift={(4,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (4,0.42) node [left] {\footnotesize $0.4$} ;
+\draw (4,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=0:8,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+\draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=2:6] (2,0)  -- plot (\x,{gauss(4,1)}) -- (6,0) -- cycle ;
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-0,-0.1) grid (8.5,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+\vspace*{.6cm} \\
+
+\begin{minipage}{5cm}
+
+3. $p(-3 \leqslant X \leqslant 3) = 0.997$. \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+
+\draw[->] (0,0) -- (7.9,0);
+\foreach \x in {-3,...,-1,1,2,3}
+\draw[shift={(4+\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (4,-.05) -- (4,.57);
+\foreach \y in {0.1,0.2,0.3,0.5}
+\draw[shift={(4,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (4,0.42) node [left] {\footnotesize $0.4$} ;
+\draw (4,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=0:8,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+\draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=1:7] (1,0)  -- plot (\x,{gauss(4,1)}) -- (7,0) -- cycle ;
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-0,-0.1) grid (8.5,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+&
+\begin{minipage}{5cm}
+4. $p(-1.96 \leqslant X \leqslant 1.96) = 0.95$. \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+
+\draw[->] (0,0) -- (7.9,0);
+\foreach \x in {-3,...,-1,1,2,3}
+\draw[shift={(4+\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (4,-.05) -- (4,.57);
+\foreach \y in {0.1,0.2,0.3,0.5}
+\draw[shift={(4,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (4,0.42) node [left] {\footnotesize $0.4$} ;
+\draw (4,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=0:8,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+\draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=2.1:5.9] (2.1,0)  -- plot (\x,{gauss(4,1)}) -- (5.9,0) -- cycle ;
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0,-0.1) grid (8.5,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-0,-0.1) grid (8.5,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+\end{tabular}
+
+\vspace*{-5cm}
+
+\newpage
+
+\vspace*{-2cm}
+
+\subsubsection{Exercice : résolution d'équations avec loi loi normale centrée réduite}
+
+Soit $X$ une variable aléatoire continue suivant la loi normale centrée réduite. \\
+
+\begin{itemize}
+\item[1.] Déterminer le nombre réel $a$ tel que : $p\left(X \leqslant a\right) = 0,4856$. 
+
+\begin{itemize}
+\item[•] À la calculatrice : $\mathrm{Distrib/FracNormale} \Longrightarrow -0,0361$. 
+\item[•] Vérification : $\mathrm{Distrib/normaleFrép} \Longrightarrow \left(-1000 \; ; \; -0,0361\right) = 0,4856$. 
+\end{itemize}
+
+\vspace*{.3cm}
+
+\item[2.] Déterminer le réel $a$ tel que $p\left(X \geqslant a\right) = 0,2347$. \\
+
+On a $p\left(X \geqslant a\right) = p\left(X \leqslant -a\right)$ (voir la représentation graphique ci-dessous). \\
+
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+
+\draw[->] (1.5,0) -- (8,0);
+\draw[->] (4,-.05) -- (4,.47);
+
+
+\draw [domain=2:8,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+% \draw [<->,DarkGreen] (3.5, 0.4) -- (4.5, 0.4) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=0:2.5] (0,0)  -- plot (\x,{gauss(4,1)}) -- (2.5,0) -- cycle ;
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=5.5:8] (5.5,0)  -- plot (\x,{gauss(4,1)}) -- (8,0) -- cycle ;
+
+
+\draw (2.5,0) node [below] {\footnotesize $-a$} ;  \draw (5.5,0) node [below] {\footnotesize $a$} ; 
+
+\draw[<->,DarkGreen] (1.5,-.03) parabola bend (4,-.08)  (6.5,-.03);
+\draw  (4,-.08) node [below] {$=$} ; 
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-0,-0.1) grid (8.5,0.5) ;
+\end{pgfonlayer}
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] À la calculatrice : $\mathrm{Distrib/FracNormale} \Longrightarrow -a = -0,7235$. Donc $a = 0,7235$. 
+\item[•] Vérification : $\mathrm{Distrib/normaleFrép} \Longrightarrow \left(0,7235 \; ; \; 1000\right) = 0,2347$. 
+\end{itemize}
+
+\vspace*{.3cm}
+
+\samepage
+
+\item[3.] Déterminer le nombre réel $a$ tel que $p\left(-a \leqslant X \leqslant a\right) = 0,95$.
+
+On pose $\varphi\left(a\right) = p\left(X \leqslant a\right)$. Ainsi $\varphi\left(-a\right) = p\left(X \leqslant -a\right) = p\left(X \geqslant a\right)$, d'après la figure précédente. \\
+
+On a alors $\varphi\left(a\right) + \varphi\left(-a\right) = p\left(X \leqslant a\right) + p\left(X \geqslant a\right) = 1$ (voir la figure 1. ci-dessous). \\ D'où $\varphi\left(-a\right) = 1 - \varphi\left(a\right)$. \\
+
+On a donc $p\left(-a \leqslant X \leqslant a\right) = p\left(X \leqslant a\right) - p\left(X \leqslant -a\right)$, comme le montre la figure 2. ci-dessous. \\
+\end{itemize}
+
+\vspace*{-.2cm}
+
+\begin{tabular}{cc}
+\begin{minipage}{8cm}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+
+\draw[->] (1.5,0) -- (8,0);
+\draw[->] (4,-.05) -- (4,.47);
+
+
+\draw [domain=0:8,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=0:5.5] (0,0)  -- plot (\x,{gauss(4,1)}) -- (5.5,0) -- cycle ;
+\draw [DarkGreen, pattern color=DarkGreen!30, pattern=north west lines, smooth, samples=100,domain=5.5:8] (5.5,0)  -- plot (\x,{gauss(4,1)}) -- (8,0) -- cycle ;
+ 
+% \draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=5.5:8] (5.5,0)  -- plot (\x,{gauss(4,1)}) -- (8,0) -- cycle ;
+
+
+% \draw (2.5,0) node [below] {\footnotesize $-a$} ; 
+\draw (5.5,0) node [below] {\footnotesize $a$} ; 
+ 
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-0,-0.1) grid (8.5,0.5) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+&
+\begin{minipage}{8cm}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+
+\draw[->] (0.5,0) -- (8,0);
+\draw[->] (4,-.05) -- (4,.47);
+
+
+\draw [domain=0:8,smooth,samples=100] plot (\x,{gauss(4,1)}) ; 
+ 
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=2.5:5.5] (2.5,0)  -- plot (\x,{gauss(4,1)}) -- (5.5,0) -- cycle ;
+\draw [DarkGreen, pattern color=DarkGreen!30, pattern=north west lines, smooth, samples=100,domain=5.5:8] (5.5,0)  -- plot (\x,{gauss(4,1)}) -- (8,0) -- cycle ;
+\draw [DarkGreen, pattern color=DarkGreen!30, pattern=north west lines, smooth, samples=100,domain=0:5.5] (0,0)  -- plot (\x,{gauss(4,1)}) -- (5.5,0) -- cycle ;
+
+\draw (2.5,0) node [below] {\footnotesize $-a$} ; 
+\draw (5.5,0) node [below] {\footnotesize $a$} ; 
+ 
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0,-0.1) grid (8.5,0.5) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-0,-0.1) grid (8.5,0.5) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+\\
+Figure 1. & Figure 2. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+D'où $p\left(-a \leqslant X \leqslant a\right)$ & $=$ & $\varphi\left(a\right) - \varphi\left(-a\right)$ \\
+& $=$ & $\varphi\left(a\right) - \left[1 - \varphi\left(a\right) \right]$ \\
+& $=$ & $2 \varphi\left(a\right) - 1$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+On cherche $a$ tel que $p\left(-a\leqslant X \leqslant a\right) = 0,95$ & $\Longleftrightarrow$ & $2 \varphi\left(a\right) - 1 = 0,95$ \\
+& $\Longleftrightarrow$ & $2\varphi\left(a\right) = 1,95$ \\
+& $\Longleftrightarrow$ & $\varphi\left(a\right) = 0,975$ \\
+& $\Longleftrightarrow$ & $p\left(X\leqslant a\right) = 0,975$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\hspace{.15cm} Grâce à la calculatrice, on trouve : $ a \approx 1,96$. 
+
+\vspace*{-5cm}
+
+\newpage
+
+\subsection{Loi normale $N\left(\mu \; ; \; \sigma^2\right)$, avec $\mu$ la moyenne et $\sigma$ l'écart-type de la variable aléatoire}
+
+\subsubsection{Introduction et rappel : la loi binomiale}
+
+Soit $X$ une variable aléatoire suivant la loi binomiale de paramètres $n$ et $p$. \\
+
+On a $p\left(X = k\right) = \begin{pmatrix}
+n \\
+k \\
+\end{pmatrix} p^k \left(1 - p\right)^{n-k}$, avec $k \leqslant n$. \\
+
+On a aussi $E\left(x\right) = np$ et $\sigma\left(x\right) = \sqrt{np\left(1-p\right)}$.
+
+\subsubsection{Exercice}
+
+Une entreprise fabrique des parapluies. La production hebdomadaire est fidèle aux précisions avec une probabilité de 0,7. \\
+O, suppose que les productions hebdomadaires sont indépendantes les unes des autres. \\
+On fait une étude sur 84 semaines. \\
+Soit $X$ la variable aléatoire égale au nombre de semaines où la production est fidèle aux précisions. \\
+
+\begin{itemize}
+\item[1.] Quelle est la loi de probabilité suivie par $X$ ? \\
+Déterminer une espérance mathématique $\mu$. \\ Déterminer son écart-type $\sigma$. \\
+
+$X$ suit la loi binomiale de paramètres $n = 84$ et $p = 0,7$. \\
+
+On a $\mu = np$, donc $\mu = 84 \times 0,7 = 58,8$. \\
+On a aussi $\sigma = \sqrt{np\left(1-p\right)}$, donc $\sigma = \sqrt{84 \times 0,7 \times \left(1-0,7\right)} = 4,2$.
+
+\item[2.] On pose $T = \dfrac{X - \mu}{\sigma}$. On a donc $T = \dfrac{X - 58,8}{4,2}$. \\
+
+On admet que $T$ suit la loi normale centrée réduite. \\
+
+Déterminer un intervalle $\left[a \; ; \; b\right]$ d'amplitude minimale tel que $p\left(a \leqslant X \leqslant b\right) = 0,95$. \\ Interpréter. \\
+
+On sait que $p\left(-1,96 \leqslant T \leqslant 1,96 \right) = 0,95$. \\
+
+\begin{tabular}{lll}
+\hspace{-.3cm} Donc $p\left(-1,96 \leqslant \dfrac{X-58,8}{4,2} \leqslant 1,96\right) = 0,95$ & $\Longleftrightarrow$ & $p\left(-8,232 \leqslant X - 58,8 \leqslant 8,232\right) = 0,95$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(50,568 \leqslant X \leqslant 67,032\right) = 0,95$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On a : \\
+
+La probabilité d'avoir entre $51$ et $67$ semaines est de $0,95$.
+
+\end{itemize}
+
+
+\newpage
+
+\subsubsection{Loi normale d'espérance $\mu$ et d'écart-type $\sigma$ : définition}
+
+Soit $X$ une variable aléatoire continue sur $\R$. On note $E\left(x\right) = \mu$ et $\sigma\left(x\right) = \sigma$. \\
+
+On dit que $X$ suite la loi normale, notée $N\left(\mu \; ; \; \sigma^2\right)$ si et seulement si la variable aléatoire $T = \dfrac{X - \mu}{\sigma}$ suit la loi normale centré réduite $N\left(0 \; ; \; 1\right)$.
+
+\subsubsection{Influence des paramètres}
+
+$f$, une fonction de densité associée à une variable aléatoire suivant la loi normale $N\left(\mu \; ; \; \sigma^2\right)$, est une fonction similaire à la fonction de densité de densité associée à une variable aléatoire suivant la loi normale centrée réduite. \\
+
+\begin{tabular}{llll}
+\hspace{-.3cm} On a $f:$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$. \\
+\end{tabular}
+
+\vspace*{.3cm} 
+
+Pour le cas particulier $\mu = 0$ et $\sigma = 1$, on a : \\
+
+\begin{tabular}{llll}
+$f:$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}$. \\
+\end{tabular}
+
+\vspace*{.5cm}
+
+On a les représentations graphiques suivantes : \\
+
+\begin{tabular}{cc}
+Figure $F_1$ & Figure $F_2$ \vspace*{.3cm} \\
+\begin{minipage}{8cm}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.85]
+\draw[->] (-2,0) -- (6.9,0);
+\draw[->] (0,-.05) -- (0,.57);
+\draw (0,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=-2:6,smooth,samples=100] plot (\x,{gauss(2,1)}) ; 
+\clip (-2,-0.1) rectangle (7,0.6) ;
+
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=.5:3.5] (.5,0)  -- plot (\x,{gauss(2,1)}) -- (3.5,0) -- cycle ;
+
+\draw [DarkGreen] (.5,0) node [below] {\footnotesize $\mu - \sigma $} ; 
+\draw [dashed] (2,0) node [below] {\footnotesize $\mu$} -- (2,.4) ; 
+\draw [DarkGreen] (3.5,0) node [below] {\footnotesize $\mu + \sigma$} ; 
+
+\draw[<-] (2.3,.3) parabola bend (2.8,.35)  (3.5,.4) node [right] {$p \simeq 0.68$} ;
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (7,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (7,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+&
+\begin{minipage}{5cm}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.85]
+\draw[->] (-2,0) -- (6.9,0);
+\draw[->] (0,-.05) -- (0,.57);
+\draw (0,-8pt) node[left] {\footnotesize $0$};
+
+\draw [domain=-2:6,smooth,samples=100] plot (\x,{gauss(2,2)}) ; 
+\clip (-2,-0.1) rectangle (7,0.6) ;
+
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=-1:5] (-1,0)  -- plot (\x,{gauss(2,2)}) -- (5,0) -- cycle ;
+
+\draw [DarkGreen] (-1,0) node [below] {\footnotesize $\mu - \sigma $} ; 
+\draw [dashed] (2,0) node [below] {\footnotesize $\mu$} -- (2,.2) ; 
+\draw [DarkGreen] (5,0) node [below] {\footnotesize $\mu + \sigma$} ; 
+
+\draw[<-] (2.3,.15) parabola bend (2.8,.22)  (3.5,.2) node [right] {$p \simeq 0.68$} ;
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (7,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (7,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+\\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Les courbes sont symétriques par rapport à la droite d'équation $x = \mu$. \\
+$\sigma$ est une mesure de dispersion par rapport à la moyenne. \\
+
+Sur la figure 1, on peut dire que $\sigma$ est « petit ». \\
+Sur la figure 2, on peut dire que $\sigma$ est « grand ». \\
+En effet, la courbe de la figure $F_1$ est plus petite que la courbe de la figure $F_2$ car la bourbe de la figure $F_2$ est moins haute et donc compense en largeur.
+
+\newpage
+\subsubsection{Intervalle « un sigma », « deux sigmas », « trois sigmas »}
+
+Soit $X$ une variable aléatoire continue suivant la loi normale $N\left(\mu \; ; \; \sigma^2\right)$. Soit $T = \dfrac{X - \mu}{\sigma}$. \\
+
+On sait que $T$ suit la loi normale centrée réduite $N\left(0 \; ; \; 1\right)$. \\
+
+\begin{tabular}{ll}
+\hspace{-.3cm} On sait que : & • $p\left(-1 \leqslant T \leqslant 1\right) = 0,68$ \\
+& • $p\left(-2 \leqslant T \leqslant 2\right) = 0,954$ \\
+& • $p\left(-3 \leqslant T \leqslant 3\right) = 0,997$ \\
+& • $p\left(-1,96 \leqslant T \leqslant 1,96\right) = 0,95$ \\
+\end{tabular}
+
+\vspace*{.5cm}
+
+\begin{tabular}{lll}
+\hspace{-.3cm} Puisque $T = \dfrac{X - \mu}{\sigma}$, on a $p\left(-1 \leqslant T \leqslant 1\right) = 0,68$ & $\Longleftrightarrow$ & $p\left(-1 \leqslant \dfrac{X-\mu}{\sigma} \leqslant 1\right) = 0,68$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(-\sigma \leqslant X - \mu \leqslant \sigma\right) = 0,68$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(\mu - \sigma \leqslant X \leqslant \mu + \sigma\right) = 0,68$ \\
+\end{tabular}
+
+\vspace*{.5cm}
+
+\begin{tabular}{lll}
+\hspace{-.3cm} On a de plus $p\left(-2 \leqslant T \leqslant 2\right) = 0,954$ & $\Longleftrightarrow$ & $p\left(-2 \leqslant \dfrac{X-\mu}{\sigma} \leqslant 2\right) = 0,954$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(-2\sigma \leqslant X - \mu \leqslant 2\sigma\right) = 0,954$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(\mu - 2\sigma \leqslant X \leqslant \mu + 2\sigma\right) = 0,954$ \\
+\end{tabular}
+
+\vspace*{.5cm}
+
+\begin{tabular}{lll}
+\hspace{-.3cm} On a enfin $p\left(-3 \leqslant T \leqslant 3\right) = 0,997$ & $\Longleftrightarrow$ & $p\left(-3 \leqslant \dfrac{X-\mu}{\sigma} \leqslant 3\right) = 0,997$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(-3\sigma \leqslant X - \mu \leqslant 3\sigma\right) = 0,997$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(\mu - 3\sigma \leqslant X \leqslant \mu + 3\sigma\right) = 0,997$ \\
+\end{tabular}
+
+\vspace*{.5cm}
+
+On peut en déduire la représentation graphique suivante : \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=1]
+
+\draw[->] (-2,0) -- (6.9,0);
+\draw[->] (0,-.05) -- (0,.57);
+
+\clip (-2,-0.1) rectangle (7,0.6) ;
+\draw [domain=-2:6,smooth,samples=100] plot (\x,{gauss(2,1)}) ; 
+
+\draw [blue, pattern color=blue!40, 
+       pattern=dots, 
+       smooth, samples=100,domain=-1:5] 
+       (-1,0)  -- plot (\x,{gauss(2,1)}) -- (5,0) -- cycle ;  
+\draw [blue] (-1,0) node [below] {\tiny $\mu - \sigma $} ; 
+\draw [blue] (5,0) node [below] {\tiny $\mu + \sigma$} ;        
+
+\draw [red, pattern color=white, 
+       pattern=north east lines, 
+       smooth, samples=100,domain=0:4] 
+       (0,0)  -- plot (\x,{gauss(2,1)}) -- (4,0) -- cycle ; 
+
+\draw [red, pattern color=red!70, 
+      pattern=north east lines, smooth, samples=100,domain=0:4] 
+      (0,0)  -- plot (\x,{gauss(2,1)}) -- (4,0) -- cycle ;
+\draw [red] (0,0) node [below] {\tiny $\mu - \sigma $} ; 
+\draw [red] (4,0) node [below] {\tiny $\mu + \sigma$} ;
+
+\draw [DarkGreen,pattern color=white,
+       pattern=horizontal lines,
+       smooth, samples=100,domain=1:3] 
+       (1,0)  -- plot (\x,{gauss(2,1)}) -- (3,0) -- cycle ;
+\draw [DarkGreen,
+       pattern color=DarkGreen,
+       pattern=horizontal lines,
+       smooth, samples=100,domain=1:3] 
+       (1,0)  -- plot (\x,{gauss(2,1)}) -- (3,0) -- cycle ;
+
+\draw [DarkGreen] (1,0) node [below] {\tiny $\mu - \sigma $} ; 
+\draw [DarkGreen] (3,0) node [below] {\tiny $\mu + \sigma$} ; 
+\draw [dashed,thick] (2,0) node [below] {\footnotesize $\mu$} -- (2,.4) ; 
+
+\draw [DarkGreen,pattern color=DarkGreen, pattern=horizontal lines] (4.5,.35)  rectangle (5,.4) node[anchor=north west] {\footnotesize $68\%$} ; 
+
+\draw [red,pattern color=red, pattern=north east lines] (4.5,.25)  rectangle (5,.3) node[anchor=north west] {\footnotesize $95.4\%$} ; 
+
+\draw [blue,pattern color=blue, pattern=dots] (4.5,.15) rectangle (5,.2) node[anchor=north west] {\footnotesize $99.7\%$} ; 
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (7,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (7,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+\begin{tabular}{ll}
+\hspace{-.3cm} \textbf{Remarques :} & • On a aussi $p\left(\mu -1,96\sigma \leqslant X \leqslant \mu + 1,96 \sigma\right) = 0,95 = 95 \; $ \%. \vspace*{.3cm} \\
+& • Ainsi, les probabilités ne dépendent ni de $\mu$ ni de $\sigma$. 
+\end{tabular}
+
+\newpage
+
+\vspace*{-1.7cm}
+
+\subsubsection{Exercices}
+
+\textbf{Exercice n°1} 
+
+Les \hbox{températures du mois de juillet autour du lac Léman suivent la loi normale d'espérance $18,2^{\circ}$ C} et d'écart-type $3,6^{\circ}$ C. \\
+
+Quelle est la probabilité que la température un jour du mois de juillet soit : \\
+
+\begin{itemize}
+\item[1.] comprise entre $20^{\circ}$ C et $24,5^{\circ}$. 
+\item[2.] inférieure à $16^{\circ}$ C. 
+\item[3.] Supérieure à $21^{\circ}$ C. 
+\end{itemize}
+
+\vspace*{.3cm}
+
+\textbf{Solution} 
+
+Soit $X$ la variable aléatoire continue correspondant à la température. \\
+
+\begin{itemize}
+\item[1.] On cherche $p\left(20 \leqslant X \leqslant 24,5\right)$. 
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/2/\left(20 \; ; \; 24,5 \; ; \; 18,2 \; ; \; 3,6\right)$, on trouve $0,27$. 
+
+Il y a donc $27 \;$ \% de chance que la température soit comprise entre $20$ et $24,5^{\circ}$ C. \\
+
+\item[2.] On cherche $p\left(X \leqslant 16\right)$. 
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/2/\left(-1000 \; ; \; 16 \; ; \; 18,2 \; ; \; 3,6\right)$, on trouve $0,271$. \\
+
+\textbf{Autre méthode :} Beaucoup plus élégant : On a $p\left(X \leqslant 16\right) = 0,5 - p\left(16 \leqslant X \leqslant 18,2\right)$. (on peut vérifier avec le dessin ci-dessous). \\
+
+\begin{tabular}{ll}
+\begin{minipage}{8cm}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+
+\draw[->] (-2,0) -- (6.9,0);
+\draw[->] (0,-.05) -- (0,.57);
+
+\clip (-2,-0.1) rectangle (7,0.6) ;
+\draw [domain=-2:6,smooth,samples=100] plot (\x,{gauss(2,1)}) ; 
+
+\draw [DarkGreen, pattern color=DarkGreen, pattern=north east lines, smooth, samples=100,domain=-2:1] (-2,0)  -- plot (\x,{gauss(2,1)}) -- (1,0) -- cycle ;
+
+\draw [blue, pattern color=blue, pattern=north west lines, smooth, samples=100,domain=1:2] (1,0)  -- plot (\x,{gauss(2,1)}) -- (2,0) -- cycle ;
+
+\draw [red, pattern color=red, pattern=north east lines, smooth, samples=100,domain=2:6] (2,0)  -- plot (\x,{gauss(2,1)}) -- (6,0) -- cycle ;
+
+\draw [DarkGreen] (1,0) node [below] {\footnotesize $16$} ; 
+\draw  (2,0) node [below] {\footnotesize $\mu = 18.2$} -- (2,.4) ; 
+
+\newcommand{\TextSoulign}[3]{\emph{\textcolor{#1}{\underline{#2\textcolor{black}{#3}}}}}
+
+\TextSoulign{red}{phrase soulignée en rouge : début de phrase rouge }{ et fin de phrase noire}
+
+\draw [blue] (3.5,.45) node  {$p(X\leqslant 16) = {\textcolor{red} {\underline{\textcolor{blue}{0.5}}}} -p \underline{(16\leqslant X \leqslant 18.2)}$} ;
+
+\draw[<-,red] (2.3,.3) parabola bend (2.8,.38)  (3,.435) ;
+\draw[<-,blue] (1.7,.2) parabola bend (4,.3)  (5,.435) ;
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (7,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (7,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+&
+\begin{minipage}{8cm}
+D'après la calculatrice, \\ en tapant $\mathrm{distrib}/2/\left(16 \; ; \; 18,2 \; ; \; 18,2 \; ; \; 3,6\right)$, \\ on trouve $0,229$. \\
+
+D'où $p\left(X \leqslant 16\right) = 0,5 - 0,229= 0,271$. \\
+
+Les résultats sont cohérents. 
+\end{minipage}
+\\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\item[3.] On cherche $p\left(X \geqslant 21\right)$, ce que l'on ne sais pas faire avec la calculatrice. 
+
+On sait que $p\left(X \leqslant -21\right) + p\left(X \geqslant 21\right) = 1 \Longleftrightarrow p\left(X \geqslant 21\right) = 1 - p\left(X \leqslant 21\right)$. \\
+
+\begin{tabular}{ll}
+\begin{minipage}{8cm}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+\draw[->] (-2,0) -- (6.9,0);
+\draw[->] (0,-.05) -- (0,.57);
+
+\draw [domain=-2:6,smooth,samples=100] plot (\x,{gauss(2,1)}) ; 
+\clip (-2,-0.1) rectangle (7,0.6) ;
+
+% \draw [red, pattern color=red, pattern=north east lines, smooth, samples=100,domain=3.5,6] (3.5,0)  -- plot (\x,{gauss(2,1)}) -- (6,0) -- cycle ;
+
+\draw [red, pattern color=red, 
+       pattern=north east lines, 
+       smooth, samples=100,domain=3.5:6] 
+       (3.5,0)  -- plot (\x,{gauss(2,1)}) -- (6,0) -- cycle ;        
+       
+\draw [dashed] (2,0) node [below,blue] { $\begin{array}{c} 18.2\\ \mu \end{array}$} -- (2,.4) ; 
+\draw [blue] (3.5,0) node [below] { $21$} ; 
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (7,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (7,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\end{minipage}
+&
+\begin{minipage}{8cm}
+D'après la calculatrice, en tapant $\mathrm{distrib}/2/\left(-1000 \; ; \; 21 \; ; \; 18,2 \; ; \; 3,6\right)$, on trouve $0,781$. \\
+
+D'où $p\left(X \geqslant 21\right) = 1 - 0,781 = 0,219$. \\
+
+\textbf{Autre méthode} : beaucoup plus élégant : on a $p\left(X \geqslant 21\right) = 1 - \left[0,5 + p\left(18,2 \leqslant X \leqslant 21\right)\right] = 0,5 - p\left(18,2 \geqslant 21\right)$. \\
+
+On trouve $p\left(X \leqslant 21\right) = 0,219$. \\ Les résultats sont cohérents. 
+\end{minipage}
+\\
+\end{tabular}
+\end{itemize}
+
+\vspace*{-5cm}
+
+\newpage
+
+\vspace*{-1cm}
+
+\textbf{Exercice n°2} \\
+
+Le test de C.A.T.E.L. est un test destinée à mesurer le coefficient intellectuel d'un individu. Les résultats suivent la loi normale d'espérance $100$ et d'écart-type  $24$. \\
+
+\begin{itemize}
+\item[1.] Quel pourcentage de la population : \\
+\begin{itemize}
+\item[a)] a un Q.I. compris entre $76$ et $124$ ?
+\item[b)] a un Q.I. inférieur à $70$ ? \\
+\end{itemize}
+
+\item[2.] L'organisation M.E.N.S.A. est ouverte aux personnes dont le Q.I. est supérieur à celui de $98 \;$ \% de la population. L'actrice Sharon Stone a prétendu faire partie de la M.E.N.S.A. \\
+Si tel est le cas, que peut-on en déduire concernant son Q.I. ?
+\end{itemize}
+
+\vspace*{.3cm}
+
+\textbf{Solution} \\
+
+Soit $X$ a variable aléatoire continue correspondant au Q.I. de la population. \\
+
+\begin{itemize}
+\item[1.] 
+\begin{itemize}
+\item[a)] On a $p\left(76 \leqslant X \leqslant 124\right) = p\left(100 - 24 \leqslant X \leqslant 100 + 24 \right)$. \\
+
+On sait que $p\left(\mu - \sigma \leqslant X \leqslant \mu + \sigma\right) \approx 0,68$. \\
+
+Donc $68 \;$ \% de la population a un Q.I. compris entre $76$ et $124$. \\ 
+
+\item[b)] On a $p\left(X \leqslant 70\right) = 0,5 - p\left(70 \leqslant X \leqslant 100\right)$, comme le montre la représentation graphique suivante : \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=10cm,scale=.8]
+\draw[->] (-2,0) -- (6.9,0);
+\draw[->] (0,-.05) -- (0,.57);
+
+\draw [domain=-2:6,smooth,samples=100] plot (\x,{gauss(2,1)}) ; 
+\clip (-2,-0.1) rectangle (7,0.6) ;
+
+\draw [red, pattern color=red, 
+       pattern=north east lines, 
+       smooth, samples=100,domain=-6:1] 
+       (6,0)  -- plot (\x,{gauss(2,1)}) -- (1,0) -- cycle ;        
+       
+\draw [dashed] (2,0) node [below,blue] { $\begin{array}{c} 100\\ \mu \end{array}$} -- (2,.4) ; 
+\draw [blue] (1,0) node [below] { $70$} ; 
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2,-0.1) grid (7,0.6) ;
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2,-0.1) grid (7,0.6) ;
+\draw[step=5cm,thin,AntiqueWhite]          (-2,-0.1) grid (7,0.6) ;
+\end{pgfonlayer}
+
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/2/\left(70 \; ; \; 100 \; ; \; 100 \; ; \; 24\right)$, on a $p\left(70 \leqslant X \leqslant 100\right) = 0,39$. \\
+
+Donc $p\left(X \leqslant 70\right) = 0,5 - 0,39 = 0,11$. \\
+
+Donc $11 \;$ \% de la population a un Q.I. inférieur à $70$. \\ 
+\end{itemize}
+\item[2.] Soit $a$ le Q.I. de Sharon Stone. \\
+
+On cherche $a$ tel que $p\left(X \leqslant a\right) = 0,98$. \\
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/3/\mathrm{fracnormale}\left(0,98 \; ; \; 100 \; ; \; 24\right)$, on trouve $a = 149$. \\
+
+Donc le Q.I. de Sharon Stone est supérieur ou égal à $149$.
+
+\vspace*{-50cm}
+
+\end{itemize}
+
+\vspace*{-50cm}
+
+\newpage
+
+\subsubsection{Résolution d'équations avec la loi normale}
+
+Soit $X$ une variable aléatoire continue suivant la loi normale $N\left(\mu \; ; \; \sigma^2\right)$, avec $\mu = 90$ et $\sigma = 20$. \\
+
+\begin{itemize}
+\item[1.] Déterminer le nombre réel $a$ tel que $p\left(X \leqslant a\right) = 0,98$. \\
+
+\textbf{Solution} 
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/3/\mathrm{fracnormale}\left(0,98 \; ; \; 90 \; ; \; 20\right)$, on a $a = 131,1$. \\
+
+\item[2.] Déterminer le nombre réel $a $tel que $p\left(X \geqslant a\right) = 0,60$. \\
+
+\textbf{Solution} 
+
+On sait que $p\left(X \geqslant a\right) = 1 - p\left(X \leqslant a\right)$. \\
+
+Donc $1 - p\left(X \leqslant a\right) = 0,60 \Longleftrightarrow -p\left(X \leqslant a\right) = -0,40 \Longleftrightarrow p\left(X \leqslant a\right) = 0,40$. \\
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/3/\mathrm{fracnormale}\left(0,40 \; ; \; 90 \; ; \; 20\right)$, on a $a = 84,9$. \\
+
+\item[3.] Déterminer le nombre réel $a$ tel que $p\left(\mu - a\leqslant X \leqslant a\right) = 0,85$. \\
+
+\textbf{Solution} 
+
+Puisque $X$ suit la loi normale $N\left(90 \; ; \; 20^2\right)$, on sait que la variable aléatoire $T = \dfrac{X - \mu}{\sigma}$ suit la loi normale centrée réduite. Donc $T = \dfrac{X - 90}{20}$ suit la loi normale centrée réduite. \\
+
+De plus, $T = \dfrac{X - 90}{20} \Longleftrightarrow X = 20T + 90$. \\
+
+\begin{tabular}{lll}
+\hspace{-.3cm} On a alors $p\left(90 - a \leqslant X \leqslant 90 + a\right) = 0,85$ & $\Longleftrightarrow$ & $p\left(90 - a \leqslant 20T + 90 \leqslant 90 + a\right) = 0,85$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(-a \leqslant 90T \leqslant a \right) = 0,85$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(-\dfrac{20}{a} \leqslant T \leqslant \dfrac{20}{a}\right) = 0,85$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On pose $\phi\left(\dfrac{a}{20}\right) = p\left(T \leqslant \dfrac{a}{20}\right)$. \\
+
+\vspace*{.1cm}
+
+\begin{tabular}{lll}
+\hspace{-.3cm} On a alors $p\left(-\dfrac{20}{a} \leqslant T \leqslant \dfrac{20}{a}\right) = 0,85$ & $\Longleftrightarrow$ & $2\phi\left(\dfrac{a}{20}\right) - 1 = 0,85$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $2\phi\left(\dfrac{a}{20}\right) = 1,85$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $\phi\left(\dfrac{a}{20}\right) = 0,925$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(T \leqslant \dfrac{a}{20}\right) = 0,925$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/3/\mathrm{fracnormale}\left(0,925 \; ; \; 90 \; ; \; 20\right)$, on a $\dfrac{a}{20} = 1,439$, \\ donc $a = 28,8$. \\
+
+Conclusion : $p\left(90 - 28,8 \leqslant X \leqslant 90 + 28,8\right) = 0,85$, c'est-à-dire $p\left(61,2 \leqslant X \leqslant 118,8\right) = 0,85$. \\
+
+On peut vérifier à la calculatrice, en tapant $\mathrm{distrib}/2/\left(61,2 \; ; \; 118,8 \; ; \; 90 \; ; \; 20\right) = 0,85$. 
+
+\end{itemize}
+
+\vspace*{-5cm}
+
+\newpage
+
+\subsection{Exercices}
+
+\subsubsection{Détermination d'une espérance mathématique}
+
+Lors d'un test de connaissances, $70 \;$ \% des candidats ont eu un score supérieur à $60$ points. \\
+On sait que les résultats du test suivent la loi normale d'écart-type $\sigma = 20$. \\
+
+Déterminer l'espérance mathématique de cette loi. \\
+
+\textbf{Solution} \\
+
+On pose $T = \dfrac{X - \mu}{\sigma}$, donc $T = \dfrac{X - \mu}{20}$. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} On a $T = \dfrac{X - \mu}{20}$ & $\Longleftrightarrow$ & $20T = X - \mu$. \\
+& $\Longleftrightarrow$ & $X = 20T - \mu$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} On a alors $p\left(X \leqslant 60\right) = 0,7$ & $\Longleftrightarrow$ & $p\left(20T - \mu \leqslant 60\right) = 0,7$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(20T \leqslant 60 + \mu\right) = 0,7$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(T \leqslant \dfrac{60 + \mu}{20}\right) = 0,7$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+D'après la calculatrice, $\mathrm{distrib \;} / \; 3 \; / \; \left(0,7\right)$, on a $\dfrac{60 - \mu}{20} = 0,524$. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} Or, $\dfrac{60 - \mu}{20} = 0,524$ & $\Longleftrightarrow$ & $60 - \mu = 20 \times 0,524$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $-\mu = 20 \times 0,524 - 60$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $-\mu = 49,5$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $\mu = 49,5$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Donc l'espérance mathématique de cette loi est $\mu = 49,5$. 
+
+\newpage
+
+\vspace*{-.5cm}
+
+\subsubsection{Détermination d'un écart-type}
+
+\textbf{Première partie} \\\
+
+Un objet en forme de tube est accepté au contrôle si son épaisseur est comprise \\ entre $1,35$ mm et $1,65$ mm. \\
+On note $X$ la variable aléatoire continue qui a chaque tube associe son épaisseur en mm. \\
+
+On peut alors dire que $X$ suit une loi normale  d'espérance mathématique $\mu = 1,5$ \\ et d'écart-type $\sigma = 0,075$. \\
+
+Déterminer la probabilité qu'un objet pris au hasard soit accepté au contrôle. \\
+
+\textbf{Solution} 
+
+On cherche $p\left(1,35 \leqslant X \leqslant 1,65\right)$. 
+
+Grâce à la calculatrice, en tapant $\mathrm{distrib}/2/\left(1,35 \; ; \; 1,65 \; ; \; 1,5 \; ; \; 0,075\right)$, on trouve $0,954$. 
+
+D'où $p\left(1,39 \leqslant X \leqslant 1,65\right) = 0,954$. \\
+
+\textbf{Remarque :} $X$ suit une loi normale de paramètres $\mu = 1,5$ et $\sigma^2 = 0,075^2$. \\
+
+On remarque que $1,35 = 1,5 - 2 \times 0,075$ et $1,65 = 1,5 + 2 \times 0,075$. 
+
+On est dans le cas d'un intervalle $2\sigma$,  et on sait que $p\left(\mu - 2\sigma \leqslant X \leqslant \mu + 2\sigma\right) = 0,954$. \\
+
+Les résultats sont cohérents. \\
+
+\textbf{Seconde partie} \\
+
+L'entreprise envisage d'améliorer la qualité des objets. \\
+La probabilité qu'un objet soit accepté au contrôle doit être supérieure à $0,997$. \\
+
+Soit $X$ la variable aléatoire continue qui à chaque objet associe son épaisseur, définie telle que $X$ suit une loi normale d'espérance mathématique $\mu$ et d'écart-type $\sigma$. \\
+
+Déterminer $\sigma$ pour que $p\left(1,35 \leqslant X \leqslant 1,65\right) = 0,997$. \\
+
+\textbf{Solution} 
+
+On est dans le cas d'un intervalle $3 \sigma$. \\
+
+On sait que $p\left(1,5 - 3\sigma \leqslant X \leqslant 1,5 + 3\sigma\right) = 0,997$. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} Ainsi $\left\{
+  \begin{array}{l}
+    1,5 - 3\sigma = 1,35 \\
+    1,5 + 3\sigma = 1,65 \\
+  \end{array}
+\right.$ & $\Longleftrightarrow$ & $\left\{
+  \begin{array}{l}
+    -3\sigma = -0,15 \\
+     3\sigma = 0,15 \\ 
+  \end{array}
+\right.$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $\left\{
+  \begin{array}{l}
+    \sigma = 0,05 \\
+    \sigma = 0,05 \\
+  \end{array}
+\right.$ \\
+\end{tabular}
+
+D'où $\sigma = 0,05$. \\
+
+On vérifie grâce à la calculatrice, en tapant $\mathrm{distrib}/2/\left(1,35 \; ; \; 1,65 \; ; \; 1,5 \; ; \; 0,05\right) = 0,997$. \\
+
+Les résultats sont cohérents.
+
+\vspace*{-50cm}
+
+\vspace*{-50cm}
+
+\vspace*{-50cm}
+
+\newpage
+
+\textbf{Autre méthode} : utile si ce n'est pas $0,997$, donc si ce n'est pas un cas particulier. \\
+
+On cherche $\sigma$ tel que $p\left(1,35 \leqslant X \leqslant 1,65\right) = 0,997$. \\
+
+On sait que $X$ suit une loi normale d'espérance mathématique $\mu = 1,5$ et d'écart-type $\sigma$, \\ donc $T = \dfrac{X - \mu}{\sigma}$ suit une loi normale contrée réduite. De plus, on a $T = \dfrac{X - 1,5}{\sigma} \Longleftrightarrow X = \sigma T + 1,5$. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} Ainsi $p\left(1,35 \leqslant X \leqslant 1,65\right) = 0,997$ & $\Longleftrightarrow$ & $p\left(1,35 \leqslant \sigma T + 1,5 \leqslant 1,65\right) = 0,997$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(-0,15 \leqslant \sigma T \leqslant 0,15\right) = 0,997$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(-\dfrac{0,15}{\sigma} \leqslant T \leqslant \dfrac{0,15}{\sigma}\right) = 0,997$ \\ 
+\end{tabular}
+
+\vspace*{.3cm}
+
+On pose $\phi\left(\dfrac{0,15}{\sigma}\right) = p\left(T \leqslant \dfrac{0,15}{\sigma}\right)$. \\
+
+Or, on sait que $p\left(-a \leqslant T \leqslant a\right) = 2\phi\left(a\right) - 1$. \\
+
+\begin{tabular}{lll}
+\hspace{-.3cm} D'où $p\left(-\dfrac{0,15}{\sigma} \leqslant T \leqslant \dfrac{0,15}{\sigma}\right) = 0,997$ & $\Longleftrightarrow$ & $2 \phi\left(\dfrac{0,15}{\sigma}\right) - 1 = 0,997$. \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $2 \phi\left(\dfrac{0,15}{\sigma}\right) = 1,997$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $\phi\left(\dfrac{0,15}{\sigma}\right) = 0,9985$ \\
+\end{tabular}
+
+\vspace*{.3cm} 
+
+D'après la calculatrice, en tapant $d\mathrm{distrib}/3/\mathrm{fracnormal}\left(0,9985\right) = 2,97$. \\
+
+Ainsi, $\dfrac{0,15}{\sigma} \approx 2,97 \Longleftrightarrow \sigma \approx \dfrac{0,05}{2,97}$. \\
+
+Ainsi, $\sigma = 0,05$. \\
+
+\textbf{Remarque :} On peut taper $\sigma = \dfrac{0,15}{\mathrm{ANS}}$ à la calculatrice, ce qui donne un résultat plus précis. \\
+
+En arrondissant le résultat, on trouve aussi $\sigma = 0,05$.
+
+\vspace*{-5cm}
+
+\newpage
+
+\subsubsection{Détermination d'une espérance mathématique et d'un écart-type}
+
+Soit $X$ une variable aléatoire continue suivant la loi normale $N\left(\mu \; ; \; \sigma^2\right)$. \\
+
+On donne $\left\{
+  \begin{array}{l}
+    p\left(X \leqslant 55\right) = 0,7977 \\
+    p\left(X \geqslant 48\right) = 0,6306 \\
+  \end{array}
+\right.$.
+
+\vspace*{.3cm}
+
+Déterminer $\mu$ et $\sigma$. \\
+
+\textbf{Solution} \\
+
+On pose $X = \sigma T + \mu$. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} On a alors $p\left(X \leqslant 55\right) = 0,7977$ & $\Longleftrightarrow$ & $p\left(\sigma T + \mu \leqslant 55\right) = 0,7977$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(\sigma T \leqslant 55 - \mu\right) = 0,7977$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(T \leqslant \dfrac{55 - \mu}{\sigma}\right) = 0,7977$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/3/\mathrm{fracnormale}\left(0,7977\right)$, on a $\dfrac{55 - \mu}{\sigma} = 0,8334$. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} Ainsi $\dfrac{55 - \mu}{\sigma} = 0,8334$ & $\Longleftrightarrow$ & $55 - \mu = 0,8334\sigma$. \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $0,8334\sigma + \mu = 55$. \\ 
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} De plus, on a $p\left(X \geqslant 48\right) = 6306$ & $\Longleftrightarrow$ & $1 - p\left(X \leqslant 48\right) = 6306$ \\
+& $\Longleftrightarrow$ & $-p\left(X \leqslant 48\right) = -0,3694$ \\
+& $\Longleftrightarrow$ & $p\left(X \leqslant 48\right) = 0,3694$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} Comme précédemment, on a $p\left(X \leqslant 48\right) = 0,3694$ & $\Longleftrightarrow$ & $p\left(\sigma T + \mu \leqslant 48\right) = 0,3694$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $p\left(T \leqslant \dfrac{48 - \mu}{\sigma}\right) = 0,3694$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+D'après la calculatrice, en tapant $\mathrm{distrib}/3/\mathrm{fracnormale}\left(0,3694\right)$, on a $\dfrac{55 - \mu}{\sigma} = -0,3334$. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} Ainsi $\dfrac{48 - \mu}{\sigma} = -0,3334$. & $\Longleftrightarrow$ & $48 - \mu = -0,3334\sigma$. \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $0,3334\sigma - \mu = -48$. \\ 
+\end{tabular}
+
+\vspace*{.5cm}
+
+On a donc le système $\left\{
+  \begin{array}{l}
+   \mu + 0,8334\sigma = 55 \\
+   -\mu + 0,3334\sigma = -48 
+  \end{array}
+\right.$
+
+\vspace*{.3cm}
+
+Il vient que $1,1668\sigma = 7 \Longleftrightarrow \sigma = \dfrac{7}{1,1668}$, donc $\sigma = 5,9993$. \\
+
+On choisit $\sigma = 6$. \\
+
+Il vient aussi que $\mu = 55 - 0,8334 \times 6 = 49,9996$. \\
+
+On choisit $\mu = 50$. 
+
+\newpage
+
+\subsubsection{Exercices récapitulatifs}
+
+\textbf{Exercice n°1} \\
+
+À partir de $7$h, un bus passe toutes les $15$ minutes à un arrêt donné. \\
+Tous les jours, un usager se présente entre $7$h et $7$h$30$ à cet arrêt. \\
+
+Soit $X$ la variable aléatoire correspondant au nombre de minutes s'écoulant entre $7h$ et l'arrivée de l'usager à cet arrêt. \\
+
+On peut dire que $X$ suit la loi uniforme sur $\left[0 \; ; \; 30\right]$. \\
+
+\begin{itemize}
+\item[1.] Déterminer la probabilité que l'usager doie attendre : \\
+\begin{itemize}
+\item[a)] moins de $5$ minutes ;
+\item[b)] plus de $10$ minutes ;
+\item[c)] plus de $10$ minutes sachant qu'il est arrivé après $7$h$10$. \\
+\end{itemize}
+
+\item[2.] Déterminer le temps moyen probable d'attente de l'usager.
+\end{itemize}
+
+\vspace*{.3cm}
+
+\textbf{Solution} \\
+
+\begin{itemize}
+\item[1.]
+\begin{itemize}
+\item[a)] On note $A$ l'événement : « L'usager est arrivé entre 7h10 et 7h15. » \\
+On note $B$ l'événement : « L'usager est arrivé entre 7h25 et 7h30. » \\
+
+D'après l'énoncé, on cherche $p\left(A \cup B\right)$, où $A$ et $B$ sont deux événements incompatibles. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} Ainsi $p\left(A \cup B\right)$ & $=$ & $p\left(A\right) + p\left(B\right)$ \vspace*{.3cm} \\
+& $=$ & $p\left(10 \leqslant X \leqslant 15\right) + p\left(25 \leqslant X \leqslant 30\right)$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{15 - 10}{30 - 0} + \dfrac{30 - 25}{30 - 0}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{6} + \dfrac{1}{6}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{3}$. \\
+\end{tabular}
+
+\vspace*{.3cm} 
+
+\item[b)] On note $C$ l'événement : « L'usager est arrivé entre 7h et 7h05. » \\
+On note $D$ l'événement : « L'usager est arrivé entre 7h15 et 7h20. » \\
+
+D'après l'énoncé, on cherche $p\left(C \cup D\right)$, où $C$ et $D$ sont deux événements incompatibles. \\
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} Ainsi $p\left(C \cup D\right)$ & $=$ & $p\left(C\right) + p\left(D\right)$ \vspace*{.3cm} \\
+& $=$ & $p\left(0 \leqslant X \leqslant 5\right) + p\left(15 \leqslant X \leqslant 20\right)$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{5 - 0}{30 - 0} + \dfrac{20 - 15}{30 - 0}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{6} + \dfrac{1}{6}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{3}$. 
+\end{tabular}
+
+\vspace*{-5cm}
+
+\newpage
+
+\item[c)] On cherche la probabilité que l'usager attende plus de $10$ minutes sachant qu'il est arrivé entre 7h15 et 7h20. \\
+
+On cherche $p_{X \geqslant 10}\left(15 \leqslant X \leqslant 20\right)$. \vspace*{.3cm} \\
+
+On rappelle que $p_A\left(B\right) = \dfrac{p\left(A \cap B\right)}{p\left(A\right)}$. \vspace*{.3cm} \\
+
+D'où $p_{X \geqslant 10}\left(15 \leqslant X \leqslant 20\right) = \dfrac{p\left[\left(X \geqslant 10\right) \cap \left(15 \leqslant X \leqslant 20\right)\right]}{p\left(X \geqslant 10\right)}$. \vspace*{.3cm} \\
+
+\begin{tikzpicture}
+     \tkzInit[xmin=1,xmax=25,xstep=3] % Le pas fixe la longueur
+     \tkzDrawX[label={},noticks,nograd]
+     
+     \tkzText(10,.5){10}
+     \tkzText(15,.5){15}
+     \tkzText(20,.5){20}
+          
+     \tkzXH[color=blue] 
+     {
+        1/T//15/T/[,
+        20/T/]/25/T/      
+     }
+
+      \tkzXHW[color=red]  
+     {
+        1/T//10/T/[  
+     }
+
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+\hspace*{-.3cm} $p_{X \geqslant 10}\left(15 \leqslant X \leqslant 20\right)$ & $ = $ & $\dfrac{p\left(15 \leqslant X \leqslant 20\right)}{p\left(X \geqslant 10\right)}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{20 - 15}{30 - 0}}{\dfrac{30 - 10}{30 - 0}}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{1}{6}}{\dfrac{2}{3}}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{6} \times \dfrac{3}{2}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{4}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\end{itemize}
+\item[2.] On rappelle que si $X$ suit la loi uniforme, alors on a $E\left(X\right) = \dfrac{a + b}{2}$. \\
+
+Ici, on a alors $E\left(X\right) = \dfrac{0 + 15}{2} = 7,5$. \\
+
+Donc l'usager attend en moyenne $7$ minutes et $30$ secondes.
+\end{itemize}
+
+\newpage
+
+\textbf{Exercice n°2} \\
+
+Un magasin de bricolage commercialise des ponceuses. \\
+
+\textbf{Partie A} \\
+
+On désigne par $A$ l'événement : « une ponceuse prélevée au hasard dans un lot important ne présente pas de défauts » \\
+
+On donne $p\left(A\right) = 0,55$. \\
+
+Soit $X$ la variable aléatoire correspondant au nombre de ponceuses ne présentant pas de défauts. \\
+
+\begin{itemize}
+\item[1.] Déterminer la probabilité qu'il y ait dans un prélèvement exactement $30$ ponceuses ne présentant pas de défaut. Donner un résultat arrondi à $10^{-4}$ près. \\
+\item[2.] Déterminer l'espérance mathématique de $X$ puis l'écart-type de $X$. \\
+\end{itemize}
+
+\textbf{Solution} \\
+
+\begin{itemize}
+\item[1.]
+\item[2.]
+\end{itemize}
+
+\newpage
+
+\textbf{Partie B} \\
+
+On décide d'approcher la loi de $X$ par une loi normale $N\left(\mu \; ; \; \sigma^2\right)$. Que convient-il de choisir comme valeurs pour $\mu$ et $\sigma$. ? \\
+
+Soit $Y$ la variable aléatoire liée à cette représentation et suivant cette loi normale. \\
+
+\begin{itemize}
+\item[1.] Déterminer la probabilité qu'il y ait entre $29$ et $31$ ponceuses ne présentant pas de défauts. \\ Donner un résultat arrondi à $10^{-4}$ près. \\
+\item[2.] Le caractère continu de la loi de $Y$ fait que l'on peut remplacer $p\left(X = 30\right)$ par $p\left(29,5 \leqslant Y \leqslant 30,5\right)$. \\
+Justifier cette affirmation.
+\end{itemize}
+
+\vspace*{.3cm}
+
+\textbf{Solution} \\
+
+\begin{itemize}
+\item[1.]
+\item[2.]
+\end{itemize}

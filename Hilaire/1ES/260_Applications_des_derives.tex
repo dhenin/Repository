@@ -1,0 +1,1255 @@
+\section{Application des dérivées : Étude de fonctions}
+
+\subsection{Caractéristiques du fonction}
+
+\begin{tabular}{lllll}
+Soit $f :$ & $\R$ & $\longrightarrow$ & $\R$ & une fonction \\
+& $x$ & $\longmapsto$ & $f(x)$ & \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Soit $D_f$ le domaine de définition de la fonction $f$. \\
+Soit $I$ un intervalle inclus dans $D_f$. \\
+On suppose que $f$ est dérivable sur $I$, c'est-à-dire dérivable en $x_0$ pour tout $x_0 \in I$. 
+
+\subsubsection{Sens de variation}
+
+L'étude du signe de $f'(x)$ sur $I$ permet de connaître le sens de variation de $f$ sur $I$. \\
+
+\textbf{Théorème fondamental :} \\
+
+\begin{itemize}
+\item[•] Pour tout $x \in I$, $f'(x) > 0 \Longleftrightarrow$ $f$ est strictement croissante sur $I$. 
+\item[•] Pour tout $x \in I$, $f'(x) < 0 \Longleftrightarrow$ $f$ est strictement décroissante sur $I$. 
+\item[•] Pour tout $x \in I$, $f'(x) = 0 \Longleftrightarrow$ $f$ est strictement constante sur $I$. 
+\end{itemize}
+
+\vspace*{.3cm}
+
+Pour étudier le sens de variations de $f$ sur $D_f$, on partage $D_f$ en intervalles sur lesquels $f'(x)$ garde un signe constant. 
+
+\subsubsection{Extremum}
+
+Soit $\left( O \; ; \; \overrightarrow{i} \; ; \; \overrightarrow{j} \right)$ un repère. \\
+
+Soit $C_f$ la représentation graphique de $f$ dans $\left( O \; ; \; \overrightarrow{i} \; ; \; \overrightarrow{j} \right)$. \\
+
+Soit $M_0\left(x_0\; ; \; f(x_0)\right) \in C_f$. \\
+
+$M_0$ est un extremum $\Longleftrightarrow$ $\left\{
+  \begin{array}{l}
+    f'(x_0) = 0 \\
+    f'(x) \mathrm{\; change \; de \; signe \; en \; x_0} \\
+  \end{array}
+\right.$
+
+\vspace*{.3cm}
+
+\variations
+x & -\infty & & x_0 & & +\infty \\
+f'(x) & & - & \z & + & \\
+f(x) & & \dl & \b{f(x_0)} & \cl & \\
+\fin 
+
+
+\vspace*{-2.7cm}
+
+\hspace*{9cm}
+\variations
+x & -\infty & & x_0 & & +\infty \\
+f'(x) & & - & \z & + & \\
+f(x) & & \cl & \h{f(x_0)} & \dl & \\
+\fin 
+
+\vspace*{.3cm}
+
+\hspace*{2cm} $m_0\left(x_0 \; ; \; f(x_0)\right)$ est un minimum. \hspace*{3.3cm} $M_0\left(x_0 \; ; \; f(x_0)\right)$ est un maximum. \\
+
+\textbf{Attention !} \\
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = x^3$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+$f'(x) = 3x^2$. \\
+$f'(x) = 0 \Longleftrightarrow x = 0$. \\
+
+\vspace*{-3cm}
+
+\hspace*{9cm}
+\variations
+x & -\infty & & x_0 & & +\infty \\
+f'(x) & & + & \z & + & \\
+f(x) & \b{-\infty} & \tcb & 0 & \ch & \h{+\infty} \\
+\fin 
+
+\vspace*{.1cm}
+
+\hspace*{8.3cm}
+Cependant, $O(0 \; ; \; 0)$ n'est pas un extremum.
+
+\newpage
+
+\subsubsection{Tangente horizontale}
+
+Soit $\left( O \; ; \; \overrightarrow{i} \; ; \; \overrightarrow{j} \right)$ un repère. \\
+
+Soit $C_f$ la représentation graphique de $f$ dans $\left( O \; ; \; \overrightarrow{i} \; ; \; \overrightarrow{j} \right)$. \\
+
+Soit $M_0\left(x_0\; ; \; f(x_0)\right) \in C_f$ tel que $f'(x_0) = 0$ \\
+
+On cherche l'équation de la tangente au point $M_0\left(x_0 \; ; \; f(x_0)\right)$\\
+
+$y = f'(x_0)\left(x-x_0\right) + f(x_0)$ \\
+$y = 0\left(x-x_0\right) + f(x_0)$ \\
+$y = f(x_0)$. \\
+
+La tangente est au point $M_0$ est donc une droite parallèle à l'axe des abscisses. \\
+
+\begin{tabular}{ll}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-1,0) -- (4.26,0);
+\foreach \x in {,1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-0.92) -- (0,3.42);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-1,-0.88) rectangle (4.26,3.46);
+\draw [samples=50,rotate around={0:(2,1)},xshift=2cm,yshift=1cm,domain=-3.0:3.0)] plot (\x,{(\x)^2/2/0.5});
+\draw [<->, color=black] (1.5,1) -- (2.5,1);
+\draw [dashed] (0,1) -- (2,1) -- (2,0) ; 
+\node at (0,1) [left] {$f(x_0)$} ; 
+\node at (2,0) [below] {$x_0$} ; 
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-1,-0.88) grid  (4.26,3.46);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-1,-0.88) grid  (4.26,3.46);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-1,-0.88) grid  (4.26,3.46);
+\draw[step=5cm,thin,AntiqueWhite]          (-1,-0.88) grid  (4.26,3.46);
+\end{pgfonlayer}
+\end{tikzpicture}
+&
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-0.78,0) -- (4.26,0);
+\foreach \x in {,1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-0.92) -- (0,3.42);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-1.5,-0.92) rectangle (4.26,3.42);
+\draw [samples=50,rotate around={-180:(2,2)},xshift=2cm,yshift=2cm,domain=-3.0:3.0)] plot (\x,{(\x)^2/2/0.5});
+\draw [<->, color=black] (1.5,2) -- (2.5,2);
+\draw [dashed] (0,2) -- (2,2) -- (2,0) ; 
+\node at (0,2) [left] {$f(x_0)$} ; 
+\node at (2,0) [below] {$x_0$} ; 
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0.78,-0.92) grid (4.26,3.42);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0.78,-0.92) grid (4.26,3.42);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0.78,-0.92) grid (4.26,3.42);
+\draw[step=5cm,thin,AntiqueWhite]          (-0.78,-0.92) grid (4.26,3.42);
+\end{pgfonlayer}
+\end{tikzpicture}
+\\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On en conclut que les tangentes à la courbe aux extrema de la fonction sont parallèles à l'axe des abscisses. \\
+
+\begin{tabular}{llll}
+Cependant, on a aussi, pour la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = x^3$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-2.26,0) -- (2.78,0);
+\foreach \x in {-2,-1,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0,-1.9) -- (0,2.44);
+\foreach \y in {-1,1,2}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\clip(-2.26,-1.9) rectangle (2.78,2.44);
+\draw[smooth,samples=100,domain=-2.26:2.78] plot(\x,{(\x)*(\x)*(\x)});
+\draw [<->, color=black] (-0.5,0) -- (0.5,0);
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2.26,-1.9) grid (2.78,2.44);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2.26,-1.9) grid (2.78,2.44);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2.26,-1.9) grid (2.78,2.44);
+\draw[step=5cm,thin,AntiqueWhite]          (-2.26,-1.9) grid (2.78,2.44); 
+\end{pgfonlayer}
+\end{tikzpicture}
+
+\newpage
+
+\subsection{Études de fonctions}
+
+\subsubsection{Exemple \no 1}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = x^2 - 2x - 3$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$} \\
+
+$D_f = \R$. \\
+
+$\forall x \in D_f, f'(x) = 2x - 2$ \\
+
+\begin{tabular}{lll}
+$f'(x) = 0$ & $\Longleftrightarrow$ & $2x - 2 = 0$ \\
+& $\Longleftrightarrow$ & $x = 1$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On peut en déduire le signe de $f'(x)$ et les variations de $f$ : \\
+
+\variations
+x & -\infty & & 1 & & +\infty \\
+f'(x) & & - & \z & + & \\
+f(x) & \h{+\infty} & \dl & \b{f(1) = 4} & \cl & \h{+\infty} \\
+\fin 
+
+\vspace*{.3cm}
+
+Le sommet de la parabole est le point $S(1 \; ; \; 4)$. \\ C'est un minimum absolu. \\
+
+La courbe admet une tangente horizontale au point $S$ d'équation $y = 4$. \\
+
+\textbf{Deuxième partie : Représentation graphique} \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+% ci-dessous la "grille" 
+% \draw [color=lightgray,dash pattern=on 3pt off 3pt, xstep=1.0cm,ystep=1.0cm] (-2.8,-5.2) grid (6.28,2.52);
+\draw[->] (-2.8,0) -- (6.28,0);
+\foreach \x in {-2,-1,1,2,3,4,5,6}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-5.2) -- (0,2.52);
+\foreach \y in {-5,-4,-3,-2,-1,1,2}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-2.8,-5.2) rectangle (6.28,2.52);
+\draw [samples=50,rotate around={0:(1,-4)},xshift=1cm,yshift=-4cm,domain=-4.0:4.0)] plot (\x,{(\x)^2/2/0.5});
+% Ci-dessous la tangente au choix
+\draw [<->, color=black] (0.25,-4) -- (1.75,-4); % Plus petite
+%\draw [very thin] (-0.5,-4) -- (2.5,-4);
+\begin{scriptsize}
+%\draw (0.46,-2.82) node {$c$};
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2.8,-5.2) grid (6.28,2.52);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2.8,-5.2) grid (6.28,2.52);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2.8,-5.2) grid (6.28,2.52);
+\draw[step=5cm,thin,AntiqueWhite]          (-2.8,-5.2) grid (6.28,2.52); 
+\end{pgfonlayer}
+\end{scriptsize}
+\end{tikzpicture}
+
+\newpage
+
+\subsubsection{Exercice \no 2}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = x^3 - 6x^2 + 9x +1$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$} \\
+
+$D_f = \R$. \\
+
+$\forall x \in D_f, f'(x) = 3x^2 - 12x + 9$ \\
+
+\begin{tabular}{lll}
+$f'(x) = 0$ & $\Longleftrightarrow$ & $3x^2 - 12 + 9 = 0$ \\
+& $\Longleftrightarrow$ & $x = 1$ ou $x = 3$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On peut en déduire le signe de $f'(x)$ et les variations de $f$ : \\
+
+\variations
+x & -\infty & & 1 & & 3 & & +\infty \\
+f'(x) & & + & \z & - & \z & + & \\
+f(x) & \b{-\infty} & \cl & \h{5} & \dl & \b{1} & \cl & \h{+\infty} \\
+\fin 
+
+\vspace*{.3cm}
+
+On a : \\
+
+\begin{itemize}
+\item[•] $M\left(1 \; ; \; 5\right)$ est un maximum local, où passe une tangente horizontale.
+\item[•] $m\left(3 \; ; \; 1\right)$ est un minimum local, où passe une tangente horizontale.
+\end{itemize}
+
+\vspace*{.5cm}
+
+\textbf{Deuxième partie : Représentation graphique} \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-1.8,0) -- (7.28,0);
+\foreach \x in {-1,1,2,3,4,5,6,7}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-1.4) -- (0,6.32);
+\foreach \y in {-1,1,2,3,4,5,6}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-1.8,-1.4) rectangle (7.28,6.32);
+\draw[smooth,samples=100,domain=-1.8:7.3] plot(\x,{(\x)*(\x)*(\x)-6*(\x)*(\x)+9*(\x)+1});
+\node at (1,5) [above] {$M$} ; \node at (3,1) [below] {$m$} ; 
+% Ci-dessous les tangentes au choix
+\draw [<->, color=black] (0.5,5) -- (1.5,5);
+\draw [<->, color=black] (2.5,1) -- (3.5,1);
+%\draw [very thin] (0.5,5) -- (1.5,5);
+%\draw [very thin] (2,1) -- (4,1);
+\begin{scriptsize}
+%\draw (4,3) node {$f$};
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-1.8,-1.4) grid (7.28,6.32);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-1.8,-1.4) grid (7.28,6.32);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-1.8,-1.4) grid (7.28,6.32);
+\draw[step=5cm,thin,AntiqueWhite]          (-1.8,-1.4) grid (7.28,6.32);
+\end{pgfonlayer}
+\end{scriptsize}
+\end{tikzpicture}
+
+\newpage
+
+\textbf{Troisième partie : Un petit problème} \\
+
+Déterminer le nombre de solution de l'équation $f'(x) = 0$, et donner un encadrement de la solution. \\
+
+On résout graphiquement l'équation $f(x) = 0$, c'est-à-dire que l'on cherche le nombre de points d'intersection de la courbe $C_f$ avec l'axe des abscisses. \\
+
+Il y a un point d'intersection entre $C_f$ et l'axe des abscisses, donc l'équation $f(x) = 0$ admet une et une seule solution $x_1$. \\
+
+On a $-1 < x_1 < 0$. \\
+
+Plus précisément, on a : $-0,2 < x_1 < -0,1$ \\
+
+\begin{tabular}{ll}
+Car & $f(-0,2) < 0$ \\
+et & $f(-0,1) > 0$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Encore plus précisément, on a même : $-0,11 < x_1 < -0,10$ \\
+
+\begin{tabular}{ll}
+Car & $f(-0,11) < 0$ \\
+et & $f(-0,10) > 0$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+À $10^{-3}$ près, on a $x_1 \approx -0,105$. \\
+
+\newpage
+
+\subsubsection{Exercice \no 3}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{1}{4}x^4 - 2x^3 + 4x^2 + 1$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$.} \\
+
+On a $D_f = \R$. \\
+
+\begin{tabular}{llll}
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $x^3 - 6x^2 + 8x$ \\
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $x\left(x^2 - 6x + 8\right)$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+$f'(x) = 0$ & $\Longleftrightarrow$ & $x = 0$ ou $x^2 - 6x + 8 = 0$ \\
+& $\Longleftrightarrow$ & $x = 0$ ou $x = 2$ ou $x= 4$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On en déduit le signe de $f'(x)$ et les variations de $f$ : \\
+
+\variations
+x & -\infty & & 0 & & 2 & & 4 & +\infty \\
+x & & - & \z & + & \l & + & \l & + & \\
+x^2 -6x + 8 & & + & \l & + & \z & - & \z & + & \\
+f'(x) & & - & \z & + & \z & - & \z & + & \\
+f(x) & \h{+\infty} & \dl & \b{1} & \cl & \h{5} & \dl & \b{1} & \cl & \h{+\infty} \\
+\fin 
+
+\vspace*{.3cm}
+
+\textbf{Deuxième partie : Représentation graphique}
+
+\vspace*{.5cm}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-1.8,0) -- (7.28,0);
+\foreach \x in {-1,1,2,3,4,5,6,7}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-1.4) -- (0,6.32);
+\foreach \y in {-1,2,3,4,5,6}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-1.8,-1.4) rectangle (7.28,6.32);
+\draw[smooth,samples=100,domain=-1.8:7.3] plot(\x,{0.25*(\x)*(\x)*(\x)*(\x)-2*(\x)*(\x)*(\x)+4*(\x)*(\x)+1});
+\begin{scriptsize}
+\node at (0.25,0.95) [below] {$m_1$};\node at (2,5) [above] {$M$};\node at (4,1) [below] {$m_2$}; 
+\draw [<->, color=black] (-0.5,1) -- (0.5,1);
+\draw [<->, color=black] (1.5,5) -- (2.5,5);
+\draw [<->, color=black] (3.5,1) -- (4.5,1);
+%\draw (-0.5,1)-- (0.5,1);
+%\draw (1.5,5)-- (2.5,5);
+%\draw (3.5,1)-- (4.5,1);
+%\draw[color=black] (-1,4.62) node {$f$};
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-1.8,-1.4) grid (7.28,6.32);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-1.8,-1.4) grid (7.28,6.32);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-1.8,-1.4) grid (7.28,6.32);
+\draw[step=5cm,thin,AntiqueWhite]          (-1.8,-1.4) grid (7.28,6.32);
+\end{pgfonlayer}
+\end{scriptsize}
+\end{tikzpicture}
+
+On a \\
+
+\begin{itemize}
+\item[•] $m_1(0 \; ; \; 1)$ est un minimum absolu, où passe une tangente horizontale.
+\item[•] $M(2 \; ; \; 5)$ est un maximum local, où passe une tangente horizontale.
+\item[•] $m_1(4 \; ; \; 1)$ est un minimum absolu, où passe une tangente horizontale.
+\end{itemize}
+
+\newpage
+
+\textbf{Troisième partie : Un petit problème} \\
+
+Soit $m \in \R$. \\
+
+Discutez le nombre et le signe des solutions de l'équation $f(x) = m$, selon les valeurs de $m$. \\
+
+\begin{itemize}
+\item[•] $y = f(x)$ est l'équation de la courbe représentative de $f(x)$, notée $C_f$. \\
+\item[•] $y = m$ est l'équation d'une droite parallèle à l'axe des abscisses. \\
+\end{itemize}
+
+On cherche donc le nombre de point d'intersection entre $C_f$ et les droites d'équation $y = m$, selon les valeurs de $m$. \\
+
+\begin{tikzpicture}% [scale=0.5] scale impossible 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+%
+\tkzTabInit[lgt=1.9,espcl=4.6, nocadre,lw=0.0001pt]%
+%\tkzTabInit[lgt=1.9,espcl=4.6,help]%
+%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$m$ / .8, $\genfrac{}{}{0pt}{0} {\text{Équation}} {f(x)=m}$ /2, $\,$ /1.5}
+                          {$-\infty$, $1$, $5$, $+\infty$}
+\tkzTabLine[]{, 
+% \genfrac voir  http://www-sop.inria.fr/marelle/tralics/doc-g.html
+                {\text{pas de solution}} , d,
+              \genfrac{}{}{0pt}{0}      
+              {\genfrac{}{}{0pt}{0}
+                {\text{quatre solutions }} 
+                {x_1, x_2, x_3 \text{ et } x_4 \text{ avec}}
+              }  
+              {\genfrac{}{}{0pt}{0}
+                {x_1<0 \ x_2>0, x_3 > 0   \text{ et } x_4>0}
+                  {} 
+              }
+                              , d,
+          \genfrac{}{}{0pt}{0}
+                {\text{deux solutions } x_1 et x_2}
+                {\text{ avec } x_1 < 0 \text{ et } x_2 > 0 }
+             }
+\draw [decorate, line width=2pt, color=white] 
+     (T13) -- (T12) -- (T02) -- (T03) -- (T23) -- (T22) -- (T12) ; 
+\draw [decorate, line width=1, color=black] 
+      (T02) -- (T00) -- (T20) -- (T22) -- (T21) -- (T01)  ;      
+\draw [decorate, line width=1, color=black] (T10) -- (T12)  ;    
+\draw [decorate, line width=1, color=black] (T20) -- (T22)  ;    
+\draw [decorate, line width=1, color=black] (N21) -- (N22)  ; 
+\draw [decorate, line width=1, color=black] (N31) -- (N32)  ;                     
+\draw [decorate, line width=1, color=black] 
+            (M13) -- (N22) -- (M23) -- (N32) -- (M33) ; 
+\node  at (N23) {$\genfrac{}{}{0pt}{0}
+                            {x_1=0, x_2=4} {\text{ double car minimum }}
+                 $} ; 
+\node  at (N33) {$\genfrac{}{}{0pt}{0} {x_1<0,} 
+                   {\genfrac{}{}{0pt}{0}
+         {x_2=2, \text{ et } x_3>0} {x_2 \text{ est une solution double }}}$ } ;              
+\end{tikzpicture}  
+
+\newpage
+
+\subsubsection{Exercice \no 4}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{x-1}{x+1}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$.} \\
+
+Il ne faut pas que $x + 1 = 0 \Longleftrightarrow x = -1$. \\
+
+Donc $D_f = \R \setminus \lb -1 \rb = \left]-\infty \; ; \; -1\right[\cup \left]-1 \; ; \; +\infty\right[$ \\
+
+\begin{tabular}{ll}
+On note & $u(x) = x - 1$ et $v(x) = x + 1$. \\
+Donc & $u'(x) = 1$ et $v'(x) = 1$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+$f' = \dfrac{u'v - uv'}{v^2}$, on a donc : \\
+
+\begin{tabular}{llll}
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{1 \times \left(x+1\right) - \left(x-1\right) \times 1}{\left(x+1\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{x+1 - x +1}{\left(x+1\right)^2}$ \vspace*{.3cm} \\
+$\forall x \in D_f,$ & $f'(x)$ & $=$ & $\dfrac{2}{\left(x+1\right)^2}$ \vspace*{.3cm} \\
+\end{tabular}
+
+On a : $\forall x \neq -1, f'(x) > 0$. \\
+
+On peut en déduire les variations de $f$ : \\
+
+\variations
+x & -\infty & & & -1 & & & +\infty \\
+f'(x) & & + & & \bb & & + & \\
+f(x) & \b{1} & \cl & \h{+\infty} & \bb & \b{-\infty} & \cl & \h{1} \\
+\fin 
+
+\vspace*{.3cm} 
+
+On appelle \textbf{asymptote horizontale} à la courbe $C_f$ la droite d'équation $y = 1$. \\
+
+On appelle \textbf{asymptote verticale} à la courbe $C_f$ la droite d'équation $x = -1$. 
+
+\newpage
+
+\textbf{Deuxième partie : Représentation graphique} \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-7,0) -- (8.24,0);
+\foreach \x in {-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-5.13) -- (0,7.83);
+\foreach \y in {-5,-4,-3,-2,-1,1,2,3,4,5,6,7}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-7,-5.13) rectangle (8.24,7.83);
+\draw[smooth,samples=100,domain=-6.99:-1.01] plot(\x,{((\x)-1)/((\x)+1)});
+\draw[smooth,samples=100,domain=-0.98:8.24] plot(\x,{((\x)-1)/((\x)+1)});
+\draw [color=red,domain=-7:8.24] plot(\x,{(--1-0*\x)/1});
+\draw [color=red] (-1,-5.13) -- (-1,7.83);
+\begin{scriptsize}
+%\draw(-4.25,2.12) node {$f$};
+%\draw[color=red] (-6.73,1.55) node {$a$};
+%\draw[color=red] (-0.65,7.59) node {$b$};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-7,-5.13) grid (8.24,7.83);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-7,-5.13) grid (8.24,7.83);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-7,-5.13) grid (8.24,7.83);
+\draw[step=5cm,thin,AntiqueWhite]          (-7,-5.13) grid (8.24,7.83);
+\end{pgfonlayer}
+\end{tikzpicture}
+
+\newpage
+
+\vspace*{-2cm}
+
+\subsubsection{Exemple \no 5}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{2x^2 - 7x + 5}{x^2 - 5x + 7}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$.} \\
+
+Il ne faut pas que $x^2 - 5x + 7 = 0$. Or, $\Delta = b^2 - 4ac < 0$, donc $D_f = \R$. \\
+
+N.B. : Il n'y a pas de valeurs interdites, donc pas d'asymptotes verticales. \\
+
+On a $u(x) = 2x^2 - 7x +5$ et $v(x) = x^2 - 5x + 7$. \\
+D'où $u'(x) = 4x - 7$ et $v'(x) = 2x - 5$. \\
+
+\vspace*{.3cm}
+
+$f' = \dfrac{u'v - uv'}{v^2}$, on a donc :
+
+\begin{tabular}{llll}
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{\left(4x-7\right)\left(x^2 - 5x + 7\right)-\left(2x^2 - 7x + 5\right)\left(2x-5\right)}{\left(x^2 - 5x + 7\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{\left(4x^3 - 20x^2 + 28x - 7x^2 - 35x - 49\right)-\left(4x^3 - 10x^2 - 14x^2 - 35x + 10x - 25\right)}{\left(x^2 - 5x + 7\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{\left(4x^3 - 27x^2 - 7x - 49\right)-\left(4x^3 - 24x^2 - 25x - 25\right)}{\left(x^2 - 5x + 7\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{4x^3 - 27x^2 - 7x - 49 - 4x^3 + 24x^2 + 25x + 25}{\left(x^2 - 5x + 7\right)^2}$ \vspace*{.3cm} \\
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{-3x^2 + 18x - 24}{\left(x^2 - 5x + 7\right)^2}$ \vspace*{.3cm} \\
+\end{tabular}
+
+On étudie le signe de $f'(x)$. \\
+
+\begin{tabular}{lll}
+$f'(x) = 0$ & $\Longleftrightarrow$ & $\dfrac{-3x^2 + 18x - 24}{\left(x^2 - 5x + 7\right)^2} = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $-3x^2 + 18x - 24 = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $x= 2$ ou $x = 4$ \vspace*{.3cm}\\
+\end{tabular}
+
+On peut ainsi en déduire le signe de $f'$ et les variations de $f$ : 
+
+\vspace*{.2cm}
+
+\variations
+x & -\infty & & 2 & & \;4 & & +\infty \\
+f'(x) & & - & \z & + & \z & - & \\
+f(x) & \h{2} & \dl & \b{-1} & \cl & \h{3} & \dl & \b2 \\
+\fin
+
+\vspace*{.3cm}
+
+On a : \\
+
+\begin{itemize}
+\item[•] un minimum absolu au point $m(2 \; ; \; -1)$
+\item[•] un maximum absolu au point $M(4 \; ; \; 3)$
+\end{itemize}
+
+\vspace*{.3cm}
+
+On a aussi une asymptote horizontale : la droite d'équation $y = 2$. 
+
+\vspace*{-5cm}
+
+\newpage
+
+\textbf{Deuxième partie : Représentation graphique} \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-6.73,0) -- (10.66,0);
+\foreach \x in {-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-2.98) -- (0,4.98);
+\foreach \y in {-2,-1,1,2,3,4}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-6.73,-2.98) rectangle (10.66,4.98);
+\draw[smooth,samples=100,domain=-6.7:10.6] plot(\x,{(2*(\x)*(\x)-7*(\x)+5)/((\x)*(\x)-5*(\x)+7)});
+\draw [line width=0.4pt,color=red,domain=-6.73:10.66] plot(\x,{(--2-0*\x)/1});
+\draw [<->, color=black] (2.5,3) -- (5.5,3);
+\draw [<->, color=black] (1,-1) -- (3,-1);
+\begin{scriptsize}
+%\draw (-6.46,1.45) node {$f$};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-6.73,-2.98) grid (10.66,4.98);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-6.73,-2.98) grid (10.66,4.98);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-6.73,-2.98) grid (10.66,4.98);
+\draw[step=5cm,thin,AntiqueWhite]          (-6.73,-2.98) grid (10.66,4.98);
+\end{pgfonlayer}
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+\textbf{\hbox{Troisième partie : Étudier l'intersection de l'asymptote horizontale et de la représentation graphique de $\mathbf{f}$.}} \\
+
+On cherche le point d'intersection de $C_f$ et de l'asymptote horizontale. \\
+
+\begin{tabular}{lll}
+$f(x) = 2$ & $\Longleftrightarrow$ & $\dfrac{2x^2 - 7x +5}{x^2 - 5x + 7} = 2$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $2x^2 - 7x + 5 = 2\left(x^2 - 5x + 7\right)$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $2x^2 - 7x +5 = 2x^2 - 10x + 14$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $-7x + 5 = -10x + 14$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $3x = 9$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $x = 3$ \vspace*{.3cm} \\
+\end{tabular}
+
+On a une solution unique, donc un seul point d'intersection, qui est le point $I(3 \; ; \; 2)$.
+
+\newpage
+
+\vspace*{-2.8cm}
+
+\subsubsection{Exemple \no 6}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{2x^2 - 9x +4}{x^2 + x - 12}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$.} 
+
+Il ne faut pas que $x^2 + x - 12 = 0 \Longleftrightarrow x = -4$ ou $x = 3$. \\
+
+D'où $D_f = \R \setminus \lb -4 \; ; \; 3 \rb = \left]-\infty \; ; \; -4\right[\cup\left]-4 \; ; \; 3\right[\cup\left]3 \; ; \; +\infty\right[$ \\
+
+N.B. : \hbox{On peut d'ores et déjà dire que l'on a 2 asymptotes verticales, les droites d'équations $x = -4$ et $x = 3$.} \\ 
+
+On a $u(x) = 2x^2 - 9x +4$ et $v(x) = x^2 + x - 12$. \\
+D'où $u'(x) = 4x - 9$ et $v'(x) = 2x +1 $. 
+
+\vspace*{.3cm}
+
+$f' = \dfrac{u'v - uv'}{v^2}$, on a donc :
+
+\begin{tabular}{llll}
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{\left(4x - 9\right)\left(x^2 + x -12\right)-\left(2x^2 - 9x +4\right)\left(2x +1\right)}{\left(x^2 + x - 12\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{\left(4x^3 + 4x^2 - 48x - 9x^2 - 9x + 108\right)-\left(4x^3 + 2x^2 - 18x^2 - 9x + 8x +4\right)}{\left(x^2 + x - 12\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{\left(4x^3 - 5x^2 - 57x + 108\right)-\left(4x^3 - 16x^2 - x + 4\right)}{\left(x^2 + x - 12\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{4x^3 - 5x^2 - 57x + 108 - 4x^3 + 16x^2 + x - 4}{\left(x^2 + x - 12\right)^2}$ \vspace*{.3cm} \\
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{11x^2 - 56x + 104}{\left(x^2 + x - 12\right)^2}$ \\
+\end{tabular}
+
+On étudie le signe de $f'(x)$. \\
+
+\begin{tabular}{lll}
+$f'(x) = 0$ & $\Longleftrightarrow$ & $\dfrac{11x^2 - 56x + 104}{\left(x^2 + x - 12\right)^2} = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $11x^2 - 56x + 104 = 0$ \vspace*{.3cm} \\
+\end{tabular}
+
+$\Delta < 0$, donc le trinôme est du signe de a pour tout réel x appartenant à $D_f$. \\
+$ a = 11$, d'où $\forall x \in D_f, 11x^2 - 56x + 104 > 0$. \\
+
+On peut ainsi en déduire les variations de $f$ : 
+
+\vspace*{.2cm}
+
+\variations
+x & -\infty & & & -4 & & & & \;3 & & & +\infty \\
+f'(x) & & + & & \bb & & + & & \bb & & + & \\
+f(x) & \b{2} & \cl & \h{+\infty} & \bb & \b{-\infty} & \cl &  \h{+\infty} & \bb & \b{-\infty} & \cl & \h{2} \\
+\fin
+
+\vspace*{.3cm}
+
+On a : 
+
+\begin{itemize}
+\item[*] 2 asymptotes verticales : 
+\begin{itemize}
+\item[•] la droite d'équation $x = -4$ 
+\item[•] la droite d'équation $x = 3$ 
+\end{itemize}
+\item[*] 1 asymptote horizontale : 
+\begin{itemize}
+\item[•] la droite d'équation $ y = 2$ 
+\end{itemize}
+\end{itemize}
+
+\vspace*{-10cm}
+
+\newpage
+
+\textbf{Deuxième partie : Représentation graphique} \\
+
+\centerline{
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.7]
+\draw[->] (-14.15,0) -- (14.99,0);
+\foreach \x in {-14,-12,-10,-8,-6,-4,-2,2,4,6,8,10,12,14}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-4.69) -- (0,9.24);
+\foreach \y in {-4,-2,2,4,6,8}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-14.15,-4.69) rectangle (14.99,9.24);
+\draw[smooth,samples=100,domain=-14.149:-4.1] plot(\x,{(2*(\x)*(\x)-9*(\x)+4)/((\x)*(\x)+(\x)-12)});
+\draw[smooth,samples=100,domain=-3.89:2.98] plot(\x,{(2*(\x)*(\x)-9*(\x)+4)/((\x)*(\x)+(\x)-12)});
+\draw[smooth,samples=100,domain=3.05:14.9] plot(\x,{(2*(\x)*(\x)-9*(\x)+4)/((\x)*(\x)+(\x)-12)});
+\draw [line width=0.4pt,color=red] (3,-4.69) -- (3,9.24);
+\draw [line width=0.4pt,color=red,domain=-14.15:14.99] plot(\x,{(--2-0*\x)/1});
+\draw [line width=0.4pt,color=red] (-4,-4.69) -- (-4,9.24);
+\begin{scriptsize}
+%\draw(-11.43,3.94) node {$f$};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-14.15,-4.69) grid (14.99,9.24);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-14.15,-4.69) grid (14.99,9.24);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-14.15,-4.69) grid (14.99,9.24);
+\draw[step=5cm,thin,AntiqueWhite]          (-14.15,-4.69) grid (14.99,9.24);
+\end{pgfonlayer}
+\end{tikzpicture}}
+
+\vspace*{.3cm}
+
+\textbf{\hbox{Troisième partie : Étudier l'intersection de l'asymptote horizontale et de la représentation graphique de $\mathbf{f}$.}} \\
+
+On cherche le point d'intersection de $C_f$ et de l'asymptote horizontale. \\
+
+\begin{tabular}{lll}
+$f(x) = 2$ & $\Longleftrightarrow$ & $\dfrac{2x^2 - 9x +4}{x^2 + x - 12} = 2$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $2x^2 - 9x + 4 = 2\left(x^2 + x - 12\right)$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $2x^2 - 9x +4 = 2x^2 + 2x - 24$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $-9x + 4 = 2x - 24$ \vspace*{.3cm} \\
+&$\Longleftrightarrow$ & $-11x = -28$ \vspace*{.3cm} \\
+&$\Longleftrightarrow$ & $x = \dfrac{28}{11}$ \\
+\end{tabular}
+
+On a une solution unique, donc un seul point d'intersection, qui est le point $I(\dfrac{28}{11} \; ; \; 2)$.
+
+\newpage
+
+\vspace*{-1.5cm}
+
+\subsubsection{Exemple \no 7 : Exercice type bac}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{2x^2 + x -13}{x^2 - x - 2}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$.} \\
+
+Il ne faut pas que $x^2 - x - 2 = 0 \Longleftrightarrow x = -1$ ou $x = 2$. \\
+
+N.B. : \hbox{On peut d'ores et déjà dire que l'on a 2 asymptotes verticales, les droites d'équations $x = -1$ et $x = 2$.} \\ 
+
+On a $u(x) = 2x^2 + x -13$ et $v(x) = x^2 - x - 2$. \\
+D'où $u'(x) = 4x +1 $ et $v'(x) = 2x -1 $. 
+
+\vspace*{.3cm}
+
+$f' = \dfrac{u'v - uv'}{v^2}$, on a donc :
+
+\begin{tabular}{llll}
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{\left(4x + 1\right)\left(x^2 - x -2\right)-\left(2x^2 + x - 13\right)\left(2x - 1\right)}{\left(x^2 - x - 2\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{\left(4x^3 - 4x^2 - 8x + x^2 - x - 2\right)-\left(4x^3 - 2x^2 + 2x^2 - x - 26x + 13\right)}{\left(x^2 - x - 2\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{\left(4x^3 - 3x^2 - 9x - 2\right)-\left(4x^3 - 27x + 13\right)}{\left(x^2 - x - 2\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{4x^3 - 3x^2 - 9x - 2 - 4x^3 + 27x - 13}{\left(x^2 - x - 2\right)^2}$ \vspace*{.3cm} \\
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{-3x^2 + 18x - 15}{\left(x^2 - x - 2\right)^2}$ \vspace*{.3cm} \\
+\end{tabular}
+
+On étudie le signe de $f'(x)$. \\
+
+\begin{tabular}{lll}
+$f'(x) = 0$ & $\Longleftrightarrow$ & $\dfrac{-3x^2 + 18x - 15}{\left(x^2 - x - 2\right)^2} = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $-3x^2 + 18x - 15 = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $x = 1$ ou $x = 5$ \vspace*{.3cm} \\
+\end{tabular}
+
+On peut ainsi en déduire le signe de $f'(x)$ les variations de $f$ : \\
+
+\centerline{
+\variations
+x & -\infty & & & -1 & & & 1 & & & 2 & & & 5 & & +\infty \\
+f'(x) & & - & & \bb & & - & \z & + & & \bb & & + & \z & - & \\
+f(x) & \h{2} & \dl & \b{-\infty} & \bb & \h{+\infty} & \dl &  \b{5} & \cl & \h{+\infty} & \bb & \b{-\infty} & \cl & \h{\dfrac{7}{3}} & \dl & \b{2} \\
+\fin}
+
+\vspace*{.3cm}
+
+
+
+\begin{tabular}{ll}
+\begin{minipage}{5cm}
+On a :
+\begin{itemize}
+\item[•] $m\left(1 \; ; \; 5\right)$ est un minimum. \\
+\item[•] $M\left(5 \; ; \; \dfrac{7}{3}\right)$ est un maximum.
+\end{itemize}
+\end{minipage}
+\hspace*{3cm}&
+\begin{minipage}{7cm}
+On a aussi :
+\begin{itemize}
+\item[*] 2 asymptotes verticales : 
+\begin{itemize}
+\item[•] la droite d'équation $x = -1$ 
+\item[•] la droite d'équation $x = 2$ 
+\end{itemize}
+\item[*] 1 asymptote horizontale : 
+\begin{itemize}
+\item[•] la droite d'équation $ y = 2$ 
+\end{itemize}
+\end{itemize}
+\end{minipage}
+\end{tabular}
+
+\vspace*{-5cm}
+
+\newpage
+
+\textbf{Deuxième partie : Représentation graphique} \\
+
+\centerline{
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-8.88,0) -- (9.15,0);
+\foreach \x in {-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-4.05) -- (0,9.88);
+\foreach \y in {-4,-3,-2,-1,1,2,3,4,5,6,7,8,9}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-8.88,-4.05) rectangle (9.15,9.88);
+\draw[smooth,samples=100,domain=-8.879:-1.05] plot(\x,{(2*(\x)*(\x)+(\x)-13)/((\x)*(\x)-(\x)-2)});
+\draw[smooth,samples=100,domain=-0.95:1.95] plot(\x,{(2*(\x)*(\x)+(\x)-13)/((\x)*(\x)-(\x)-2)});
+\draw[smooth,samples=100,domain=2.05:9.148] plot(\x,{(2*(\x)*(\x)+(\x)-13)/((\x)*(\x)-(\x)-2)});
+\draw [line width=0.4pt,color=red,domain=-8.88:9.15] plot(\x,{(--2-0*\x)/1});
+\draw [line width=0.4pt,color=red] (-1,-4.05) -- (-1,9.88);
+\draw [line width=0.4pt,color=red] (2,-4.05) -- (2,9.88);
+% ,line width=0.4pt pour extrémités plus discretes
+\draw  (1,5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\node at (1,4.8) {$m$} ;
+\node at (5,2.5) {$M$} ;
+\draw [<->,line width=0.4pt,>=latex] (0.5,5) -- (1.5,5);
+\draw  (5,7/3)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [<->,line width=0.4pt,>=latex] (4.5,7/3) -- (5.5,7/3);
+% Une tangeante en (4,2) est impossible puisque y=2 est une asymptote 
+\draw [line width=0.4pt,color=black,domain=-8.38:12.2] plot(\x,{1/4*(3*(\x)-1) });
+%\draw  (4,2)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\begin{scriptsize}
+%\draw (-5.92,1.05) node {$f$};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-8.88,-4.05) grid (9.15,9.88);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-8.88,-4.05) grid (9.15,9.88);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-8.88,-4.05) grid (9.15,9.88);
+\draw[step=5cm,thin,AntiqueWhite]          (-8.88,-4.05) grid (9.15,9.88);
+\end{pgfonlayer}
+\end{tikzpicture}}
+
+\vspace*{.3cm}
+
+\textbf{\hbox{Troisième partie : Étudier l'intersection de l'asymptote horizontale et de la représentation graphique de $\mathbf{f}$.}} \\
+
+On cherche le point d'intersection de $C_f$ et de l'asymptote horizontale. \\
+
+\begin{tabular}{lll}
+$f(x) = 2$ & $\Longleftrightarrow$ & $\dfrac{2x^2 + x - 13}{x^2 - x - 2} = 2$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $2x^2 + x - 13 = 2\left(x^2 - x - 2\right)$ \vspace*{.3cm} \\
+&$\Longleftrightarrow$ & $2x^2 + x - 13 = 2x^2 - 2x - 4$ \vspace*{.3cm} \\
+&$\Longleftrightarrow$ & $x - 13 = -2x - 4$ \vspace*{.3cm} \\
+&$\Longleftrightarrow$ & $3x = 9$ \vspace*{.3cm} \\
+&$\Longleftrightarrow$ & $x = 3$ \vspace*{.3cm} \\
+\end{tabular}
+
+On a une solution unique, donc un seul point d'intersection, qui est le point $I(3 \; ; \; 2)$.
+
+\newpage
+
+\textbf{Quatrième partie : Déterminer l'équation de la tangente à la courbe au point $\mathbf{I(3 \; ; \; 2)}$} \\
+
+$y = f'(3)(x-3) + f(3)$ \\
+
+$y = \dfrac{3}{4}(x - 3) + 2$ \\
+
+$y = \dfrac{3}{4}x - \dfrac{9}{4} + 2$ \\
+
+$ y = \dfrac{3}{4}x - \dfrac{1}{4}$ \\
+
+\textbf{Cinquième partie : Discuter le nombre et le signe des solutions de l'équation $\mathbf{f(x) = m}$} \\
+
+Soit $m \in \R$. \\
+
+Discutez le nombre et le signe des solutions de l'équation $f(x) = m$, selon les valeurs de $m$. \\
+
+\begin{itemize}
+\item[•] $y = f(x)$ est l'équation de la courbe représentative de $f(x)$, notée $C_f$. \\
+\item[•] $y = m$ est l'équation d'une droite parallèle à l'axe des abscisses. \\
+\end{itemize}
+
+On cherche donc le nombre de point d'intersection entre $C_f$ et les droites d'équation $y = m$, selon les valeurs de $m$. \\
+
+
+
+\variations
+   m      &  -\infty  &   & 2  &  &   \frac{7}{3} & & 5 & & +\infty \\
+%   \filet
+\genfrac{}{}{0pt}{0} {\text{Équation}} {f(x)=m} 
+ & &  \genfrac{}{}{0pt}{0} 
+                  {} % Une ligne blache pour aérer
+                  {  \genfrac{}{}{0pt}{0} 
+                     {\genfrac{}{}{0pt}{0} 
+                                  {\text{Deux solutions }}
+                                 {x_1 \text{ et } x_2}
+                   }  {} }\quad & \l &  
+           \quad \genfrac{}{}{0pt}{0} 
+                  {} % Une ligne blache pour aérer
+                  {  \genfrac{}{}{0pt}{0} 
+                     {\genfrac{}{}{0pt}{0} 
+                                  {\text{Deux solutions }}
+                                 {x_1 \text{ et } x_2}
+                   }  {} }\quad & \l &  
+           \quad   \genfrac{}{}{0pt}{0} 
+                  {} {\text{Pas de  solutions}} \quad & \l & 
+           \quad  \genfrac{}{}{0pt}{0} 
+                  {}{\text{Deux solutions}} &\\
+\fin  
+
+\vspace*{.3cm}
+
+{\bfseries Et plus précisément}
+
+\bigskip 
+         
+
+         
+ \footnotesize
+\begin{tikzpicture}
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+%
+\tkzTabInit[lgt=1.9,espcl=2.3]%
+%\tkzTabInit[lgt=1.9,espcl=2.3,help]%
+%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$x$ / .8, $f(x)=m$ /2, $\,$ /1.5}
+                          {$-\infty$, $-1$, $\dfrac{7}{3}$,5, 
+                           $\dfrac{13}{2}$, $+\infty$
+                          }
+                          % Garder la ligne blanche ci-dessous avant les obliques                         
+\draw [decorate, line width=2pt, color=white] 
+     (T13) -- (T12) -- (T02) -- (T03) -- (T23) -- (T22) -- (T12) ;      
+\tkzTabLine[]{, 
+% \genfrac voir  http://www-sop.inria.fr/marelle/tralics/doc-g.html
+          \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1<0 , x_2 > 0}, d,                      
+          \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1>0 , x_2 > 0}, d, 
+                h, d,
+           \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1 > 0 , x_2 > 0}, d,      
+           \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1 < 0 , x_2 > 0}
+             }         
+\draw [decorate, line width=1, color=black] 
+            (M13) -- (N22) -- (M23) -- (N32) -- (M33) 
+            -- (N42) -- (M43) -- (N52) -- (M53) ;       
+\fill [pattern=north west lines] (N32) -- (M33) --   (N42) -- cycle ;                                
+\node [above] at (N23) {$\genfrac{}{}{0pt}{0}{x=3}{\text{Simple}} $} ;
+\node [above] at (N33) {$\genfrac{}{}{0pt}{0}{x=5}{\text{Double}}$} ;
+\node [above] at (N43) {$\genfrac{}{}{0pt}{0}{x=1}{\text{Double} }$} ;
+\node [above] at (N53) {$\genfrac{}{}{0pt}{0} {x=0} {x_2>0} $} ;
+    
+\end{tikzpicture}\\
+
+\newpage
+
+\subsection{Supplément gratuit !}
+
+\subsubsection{Exercice \no 1}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{x^2 + 3}{x - 1}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$.} \\
+
+Il ne faut pas que $x-1 = 0 \Longleftrightarrow x = 1$. \\
+
+Donc $D_f = \R \setminus \lb 1 \rb = \left]-\infty\; ; \; 1\right[\cup\left]1\; ; \; +\infty\right[$. \\
+
+On a $u(x) = x^2 + 3$ et $v(x) = x - 1$. \\
+D'où $u'(x) = 2x$ et $v'(x) = 1$. \\
+
+\vspace*{.3cm}
+
+$f' = \dfrac{u'v - uv'}{v^2}$, on a donc :
+
+\begin{tabular}{llll}
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{2x\left(x-1\right)-\left(x^2 + 3\right)\times 1}{\left(x-1\right)^2}$ \vspace*{.3cm} \\
+& & $=$ & $\dfrac{2x^2 - 2x - x^2 - 3}{\left(x-1\right)^2} \vspace*{.3cm}$ \\
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{x^2 - 2x - 3}{\left(x-1\right)^2}$ \vspace*{.3cm} \\
+\end{tabular}
+
+On étudie le signe de $f'(x)$. \\
+
+\begin{tabular}{lll}
+$f'(x) = 0$ & $\Longleftrightarrow$ & $\dfrac{x^2 - 2x - 3}{\left(x-1\right)^2} = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $x^2 - 2x - 3 = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $x= -1$ ou $x = 3$ \vspace*{.3cm}\\
+\end{tabular}
+
+On peut ainsi en déduire le signe de $f'$ et les variations de $f$ : 
+
+\vspace*{.2cm}
+
+\variations
+x & -\infty & & -1 & & & \;1 & & & 3 & & +\infty \\
+f'(x) & & + & \z & - & & \bb & & - & \z & + & \\
+f(x) & \b{-\infty} & \cl & \h{-2} & \dl & \b{-\infty} & \bb & \h{+\infty} & \dl & \b{6} & \cl & \h{+\infty} \\
+\fin
+
+\vspace*{.3cm}
+
+On a :
+
+\begin{itemize}
+\item[•] un maximum local au point $M(-1 \; ; \; -2)$
+\item[•] un minimum local au point $m(3 \; ; \; 6)$
+\end{itemize}
+
+\vspace*{.3cm}
+
+On a aussi :
+
+\begin{itemize}
+\item[•] Une asymptote verticale : la droite d'équation $x = 1$.
+\item[•] Aucun asymptote horizontale.
+\item[•] Une \textbf{asymptote oblique} : la droite d'équation $y = x+1$.
+\end{itemize}
+
+\vspace*{-5cm}
+
+\newpage
+
+\textbf{Seconde partie : Représentation graphique} \\
+
+\centerline{
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-8.38,0) -- (12.2,0);
+\foreach \x in {-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11,12}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-9.9) -- (0,12.73);
+\foreach \y in {-9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11,12}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw(0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-8.38,-9.9) rectangle (12.2,12.73);
+\draw[smooth,samples=100,domain=-8.375:0.95] plot(\x,{((\x)*(\x)+3)/((\x)-1)});
+\draw[smooth,samples=100,domain=1.05:12.2] plot(\x,{((\x)*(\x)+3)/((\x)-1)});
+\draw [line width=0.4pt,color=red] (1,-9.9) -- (1,12.73);
+\draw [line width=0.4pt,color=red,domain=-8.38:12.2] plot(\x,{(\x)+1 });
+\draw  (-1,-2)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt) node [above] {$M$};
+\draw [<->,line width=0.4pt,>=latex] (-1.5,-2) -- (-.5,-2);
+\draw  (3,6)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt) node [below] {$m$} ;
+\draw [<->,line width=0.4pt,>=latex] (2.5,6) -- (3.5,6);
+\begin{scriptsize}
+\draw (-8.11,-7.88) node {$f$};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-8.38,-9.9) grid (12.2,12.73);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-8.38,-9.9) grid (12.2,12.73);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-8.38,-9.9) grid (12.2,12.73);
+\draw[step=5cm,thin,AntiqueWhite]          (-8.38,-9.9) grid (12.2,12.73);
+\end{pgfonlayer}
+\end{tikzpicture}}
+
+\newpage
+
+\subsubsection{Exercice \no 2}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = \dfrac{-x^2 + 5}{x + 1}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Première partie : Étudier les variations de $\mathbf{f}$.} \\
+
+Il ne faut pas que $x+1 = 0 \Longleftrightarrow x = -1$. \\
+
+Donc $D_f = \R \setminus \lb -1 \rb = \left]-\infty\; ; \; -1\right[\cup\left]-1\; ; \; +\infty\right[$. \\
+
+On a $u(x) = -x^2 + 5$ et $v(x) = x + 1$. \\
+D'où $u'(x) = -2x$ et $v'(x) = 1$. \\
+
+\vspace*{.3cm}
+
+$f' = \dfrac{u'v - uv'}{v^2}$, on a donc :
+
+\begin{tabular}{llll}
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{-2x\left(x+1\right)-\left(-x^2 + 5\right) \times 1}{\left(x+1\right)^2}$\vspace*{.3cm} \\
+& & $=$ & $\dfrac{-2x^2 - 2x + x^5 - 5}{\left(x+1\right)^2}$ \vspace*{.3cm} \\
+$\forall x \in D_f$, & $f'(x)$ & $=$ & $\dfrac{-x^2 - 2x - 5}{\left(x+1\right)^2}$ \vspace*{.3cm} \\
+\end{tabular}
+
+On étudie le signe de $f'(x)$. \\
+
+\begin{tabular}{lll}
+$f'(x) = 0$ & $\Longleftrightarrow$ & $\dfrac{-x^2 - 2x - 5}{\left(x+1\right)^2} = 0$ \vspace*{.3cm} \\
+& $\Longleftrightarrow$ & $-x^2 - 2x - 5 = 0$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm} 
+
+$\Delta < 0$, donc le trinôme $-x^2 - 2x -5$ est négatif pour tout $x$ appartenant à $D_f$. \\
+
+On peut ainsi en déduire le signe de $f'$ et les variations de $f$ : 
+
+\vspace*{.2cm}
+
+\variations
+x & -\infty & & & -1 & & & +\infty \\
+f'(x) & & - & & \bb & & - & \\
+f(x) & \h{+\infty} & \dl & \b{-\infty} & \bb & \h{+\infty} & \dl & \b{-\infty} \\
+\fin
+
+\vspace*{.3cm}
+
+On n'a aucun extremum. Cependant, on a : \\ 
+
+\begin{itemize}
+\item[•] Une asymptote verticale : la droite d'équation $x = -1$.
+\item[•] Aucun asymptote horizontale.
+\item[•] Une asymptote oblique : la droite d'équation $y = -x+1$.
+\end{itemize}
+
+\vspace*{-5cm}
+
+\newpage
+
+\textbf{Seconde partie : Représentation graphique} \\
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+\draw[->] (-13.91,0) -- (11.78,0);
+\foreach \x in {-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-11.59) -- (0,14.03);
+\foreach \y in {-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11,12,13}
+\draw[shift={(0,\y)},color=black] (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw(0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-13.91,-11.59) rectangle (11.78,14.03);
+\draw[smooth,samples=100,domain=-13.8:-1.05] plot(\x,{(-(\x)*(\x)+5)/((\x)+1)});
+\draw[smooth,samples=100,domain=-0.95:11.67] plot(\x,{(-(\x)*(\x)+5)/((\x)+1)});
+\draw [line width=0.4pt,color=red] (-1,-11.59) -- (-1,14.03);
+\draw [line width=0.4pt,color=red,domain=-13.91:11.78] plot(\x,{(--1-1*\x)/1});
+\begin{scriptsize}
+%\draw (-10.45,9.93) node {$f$};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-13.91,-11.59) grid (11.78,14.03);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-13.91,-11.59) grid (11.78,14.03);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-13.91,-11.59) grid (11.78,14.03);
+\draw[step=5cm,thin,AntiqueWhite]          (-13.91,-11.59) grid (11.78,14.03);
+\end{pgfonlayer}
+\end{tikzpicture}
+
+\newpage

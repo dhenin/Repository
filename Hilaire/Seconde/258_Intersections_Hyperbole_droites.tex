@@ -1,0 +1,47 @@
+%\input{preambule-sacha-utf8.ltx}
+%\begin{document}
+
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\definecolor{yqqqqq}{rgb}{0.5,0,0}
+\definecolor{wwffqq}{rgb}{0.4,1,0}
+\definecolor{qqzzqq}{rgb}{0,0.6,0}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.8]
+\draw[->] (-6.76,0) -- (6.08,0);
+\foreach \x in {-6,-5,-4,-3,-2,-1,1,2,3,4,5,6}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-7.04) -- (0,7.66);
+\foreach \y in {-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\draw (0,0) node [below left] {$O$};
+\draw (0,3) node [above left] {$3$};
+\draw (0,1) node [above left] {$1$};
+\draw (1,0) node [below] {$1$};
+\draw (0,7) node [right] {$7$};
+\draw (-.8,0) node [above left] {$-1$};
+\clip(-6.76,-7.04) rectangle (6.08,7.66);
+\draw[smooth,samples=100,domain=-6.75:-1.02] plot(\x,{((\x)-1)/((\x)+1)});
+\draw[smooth,samples=100,domain=-.8:6.1] plot(\x,{((\x)-1)/((\x)+1)});
+\draw [color=blue,domain=-6.76:6.08] plot(\x,{(--3-0*\x)/1});
+\draw [color=qqzzqq,domain=-6.76:6.08] plot(\x,{(--1-1*\x)/1});
+\draw [color=wwffqq,domain=-6.76:6.08] plot(\x,{(--1--1*\x)/1});
+\draw [color=yqqqqq,domain=-6.76:6.08] plot(\x,{(--7--2*\x)/1});
+\draw [color=ffqqqq,domain=-6.76:6.08] plot(\x,{(--1-0*\x)/1});
+\draw [color=ffqqqq] (-1,-7.04) -- (-1,7.66);
+\draw (-6,1.5) node [above] {$f$};
+\draw (-.8,-6) node [right] {$f$};
+\draw (5,3) node [above] {$\Delta$};
+\draw (5,-4) node [right]{$\Delta_1$};
+\draw (5,6) node [below right] {$\Delta_2$};
+\draw (-5,-3) node [left] {$\Delta_3$};
+
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-6.76,-7.04) grid (6.08,7.66);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-6.76,-7.04) grid (6.08,7.66);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-6.76,-7.04) grid (6.08,7.66);
+\draw[step=5cm,thin,AntiqueWhite]          (-6.76,-7.04) grid (6.08,7.66);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+%\end{document}

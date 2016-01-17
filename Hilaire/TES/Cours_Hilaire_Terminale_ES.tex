@@ -1,0 +1,121 @@
+\input{./preambule-sacha-utf8.ltx}
+\usepackage[T1]{fontenc} 
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} 
+\usepackage{lmodern} 
+\usepackage{graphicx} 
+%\usepackage[french]{babel} 
+\usepackage{fancyhdr}
+
+% \usepackage[french]{babel}
+
+\usepackage{textcomp}
+\usepackage{texgraph}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+
+\usepackage{variations}
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((\x-#1)^2)/(2*#2^2))}%
+}
+
+\newcommand*{\OUVRAGE}{}% Autorise la compilation de illustrations
+                        % soit isolées, soit inluses 
+
+%\iffalse
+
+\title {  \Huge     Mathématiques\\
+             Terminale Économique et Sociale \\
+       }
+
+\author{ \Large   Monsieur Pierre-Étienne Hilaire  }
+
+\date  { \large  Année 2014-2015   }
+
+%\fi
+
+\begin{document}
+
+%\iffalse
+
+\maketitle\thispagestyle{empty} % Cette forme est obligatoire, sinon numero
+\vfill
+
+\centerline {\large  Lycée International de Saint-Germain-en-Laye} 
+
+\newpage
+
+\thispagestyle{empty}
+
+\def\TikZ{{\fontfamily{cmr}Ti{\em k}Z}} 
+    \begin {quote}
+    Ce document a été composé sous  Unix\footnote{Unix  est une
+    marque déposée des  Laboratoires  Bell d'{\sc att}} au moyen  
+    du logiciel \LaTeX (domaine  public),
+    et de l'éditeur {\TeX}{Maker}\footnote{TeXmaker (créé par Pascal Brachet en 2003) est un éditeur libre de documents LaTeX, utilisable sur Linux, Mac et Windows.} (domain public). 
+    Les figures ont été réalisées avec {\TikZ}\footnote{TikZ est une extension permettant de générer des images PGF. Selon son auteur Till Tantau, TikZ est un acronyme récursif qui veut dire « TikZ ist kein Zeichenprogramm » : TikZ n'est pas un logiciel de dessin - au sens de « TikZ est un langage pour graphiques ».} (domaine
+   public)  et  intégrées  directement  dans le  document  final.
+    \end {quote}
+
+   \vspace {15cm}
+% \centerline {\large \textcopyleft Lycée International de Saint-Germain-en-Laye} 
+
+   \begin {quote}
+   \em Les enseignants et formateurs demeurent titulaires des droits d'auteur sur les cours qu'ils dispensent.    
+Dans la mesure où l'auteur n'a pas renoncé à ses droits, les modifications de sa création, qui constituent une œuvre dérivée, nécessitent son autorisation. 
+    Toute  reproduction,  sans le consentement de l'auteur, 
+    même  partielle,  de ce document est
+    interdite.  Une copie ou reproduction  par quelque procédé que
+    ce   soit,   photographie,    photocopie,   microfilm,   bande
+    magnétique,   disque  ou  autre,   constitue  une  contrefaçon
+   passible  de la loi du 11  mars  1957  sur la  protection  des
+    droits d'auteur.
+    \end {quote}
+\newpage
+
+%\fi
+
+\setcounter{page}{1}
+
+\tableofcontents
+\newpage
+~ % On veut commencer sur une page de droite 
+\newpage
+
+%\input{Trim_01.tex}
+%\input{Trim_02.tex}
+%\input{Trim_03.tex}
+
+
+% PREMIÈRE PARTIE : LES SUITES
+
+\input{010_Raisonnement_par_recurrence.tex} \newpage
+
+\input{020_Suites_generalites.tex} \newpage
+
+
+\input{030_Suites_arithmetiques.tex} \newpage
+\input{040_Suites_geometriques.tex} \newpage
+\input{050_Suites_arithmetico_geometrique.tex} \newpage
+\input{060_Suites_arithmetico_geometrique_doubles.tex}                         \newpage
+\input{070_Applications_des_suites.tex}                         \newpage
+
+% DEUXIÈME PARTIE : LES FONCTIONS NUMÉRIQUES À UNE VARIABLE
+
+
+\input{110_Fonctions_generalites.tex}\newpage
+\input{120_Fonctions_exponentielles.tex} \newpage
+\input{130_Fonctions_log_neperien.tex} \newpage
+\input{140_Integration.tex} \newpage
+
+% TROISIÈME PARTIE : STATISTIQUES
+
+\input{310_Statistiques.tex} \newpage
+
+% QUATRIÈME PARTIE : LES PROBABILITÉS
+
+\input{210_Probas_Generalites.tex} \newpage
+\input{220_Probas_Conditionnelles.tex} \newpage
+\input{230_Lois_a_densites_1.tex} \newpage
+\input{240_Lois_a_densites_2.tex} \newpage
+
+\end{document}

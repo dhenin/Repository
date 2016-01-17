@@ -1,0 +1,334 @@
+\section{Fluctuation d'échantillonnage}
+
+\subsection{Dans les statistiques}
+
+On conçoit que si on lance un dé à 6 faces, non truqué, chacun des 6 numéros $1, 2, 3, 4, 5$  et $ 6$,  a environ une chance sur 6 de sortir.
+
+Dans cette activité, nous nous proposons de comparer les résultats fournis par plusieurs séries de lancers, puis de voir si, lorsque le nombre de lancers est « grand », la fréquence d'apparition de chacun de ces 6 nombres est approximativement égale à $\dfrac{1}{6}$. 
+
+\subsubsection*{Première série}
+
+Effectuez 50 lancers d'un dé à 6 faces et remplissez le tableau ci-dessous : \\
+
+\begin{tabular}{|l|ccc|ccc|ccc|ccc|ccc|ccc|ccc|}
+\hline
+Valeurs & 1 & & & 2 & & & 3 & & & 4 & & & 5 & & & 6 & & & $\Sigma$ & &  \\
+\hline
+Effectifs & 6 & & & 8 & & & 11 & & & 8 & & & 8 & & & 9 & & & 50 & & \\
+\hline
+Fréquences & 0,12 & & & 0,16 & & & 0,22 & & & 0,16 & & & 0,16 & & & 0,18 & & & 1 & & \\
+\hline
+\end{tabular}
+
+\vspace*{.3cm}
+
+Par exemple, si le 1 est sorti 8 fois, on dira que la fréquance est égale à $\dfrac{8}{50}$, c'est-à-dire 0,16 ou encore, en pourcentage, 16 \%. \\
+
+Construisez le diagramme en bâtons des fréquences. On choisira un centimètre pour 10 \% sur l'axe des ordonnées.
+
+%Inclure le premier dessin.
+
+\begin{center}
+
+\begin{tikzpicture}[scale=.84]
+    \tkzInit[xmax=6,ymax=.24, ystep=.02]
+
+    \tkzGrid[color=AntiqueWhite]
+    \tkzDrawX[label=$~$]
+    \tkzLabelX[orig=false, color=black ]
+   \tkzDrawY[label=$~$]
+%     \tkzLabelY[orig=false]
+    \tkzLabelY
+    \tkzBardiagram[wd = 0.1,
+                   pos = {below,outer sep = 5pt},
+                   sp = 1,
+                   noval]           
+      { /.12, /.16, /.22, /.16, /.16, /.18}
+     \draw (3,14) node{\large Diagramme en bâtons des fréquences} ;  
+\end{tikzpicture}
+
+\end{center}
+
+\newpage
+
+\subsubsection*{Deuxième série}
+
+Effectuez une autre série de 50 lancers, en utilisant votre calculatrice. \\
+
+Avec la calculatrice, on obtient un nombre aléatoire supérieur ou égal à 0, et strictement inférieur à 1, en appuyant sur les touches suivantes : 
+
+\begin{itemize}
+\item[*] Sur CASIO : (OPT PROB) \textbf{Ran\#}
+\item[*] Sur TI : (MATH PRB) \textbf{rand} (ou rand0 sur TI 89-90).
+\end{itemize}
+
+\vspace*{.3cm}
+
+Et la partie entière d'un nombre est donnée par la fonction :
+
+\begin{itemize}
+\item[*] Sur CASIO : (OPT NUM) \textbf{Int}
+\item[*] Sur TI : (MATH NUM) \textbf{rint}.
+\end{itemize}
+
+\vspace*{.3cm}
+
+On a ainsi un moyen d'obtenir un nombre aléatoire entier de 1 à 6 avec la calculatrice, en tapant : \textbf{Int(6rand) + 1}. \\
+
+Maintenant, effectuez une série de lancers de dé avec votre calculatrice, et complétez le tableau suivant :
+
+\begin{tabular}{|l|ccc|ccc|ccc|ccc|ccc|ccc|ccc|}
+\hline
+Valeurs & 1 & & & 2 & & & 3 & & & 4 & & & 5 & & & 6 & & & $\Sigma$ & &  \\
+\hline
+Effectifs & 12 & & & 11 & & & 6 & & & 3 & & & 5 & & & 13 & & & 50 & & \\
+\hline
+Fréquences & 0,24 & & & 0,22 & & & 0,12 & & & 0,06 & & & 0,10 & & & 0,26 & & & 1 & & \\
+\hline
+\end{tabular}
+
+\vspace*{.3cm}
+
+Construisez le diagramme en bâtons des fréquences.
+
+\begin{center}
+
+\begin{tikzpicture}[scale=.77]
+    \tkzInit[xmax=7,ymax=.28, ystep=.02]
+
+    \tkzGrid[color=AntiqueWhite]
+    \tkzDrawX[label=$~$]
+    \tkzLabelX[orig=false, color=black ]
+   \tkzDrawY[label=$~$]
+%     \tkzLabelY[orig=false]
+    \tkzLabelY
+    \tkzBardiagram[wd = 0.1,
+                   pos = {below,outer sep = 5pt},
+                   sp = 1,
+                   noval]           
+      { /.24, /.22, /.12, /.06, /.1, /.26}
+     \draw (3,16) node{\large Diagramme en bâtons des fréquences} ;  
+\end{tikzpicture}
+
+\end{center}
+
+\newpage
+
+\subsubsection*{Troisième série}
+
+Regroupez les résultats des deux séries de lancers, puis complétez le tableau associé à cette nouvelle série de 100 lancers, puis le diagramme en bâtons associé.\\
+
+\begin{tabular}{|l|ccc|ccc|ccc|ccc|ccc|ccc|ccc|}
+\hline
+Valeurs & 1 & & & 2 & & & 3 & & & 4 & & & 5 & & & 6 & & & $\Sigma$ & &  \\
+\hline
+Effectifs & 18 & & & 19 & & & 17 & & & 11 & & & 13 & & & 22 & & & 100 & & \\
+\hline
+Fréquences & 0,18 & & & 0,19 & & & 0,17 & & & 0,11 & & & 0,13 & & & 0,22 & & & 1 & & \\
+\hline
+\end{tabular}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1]
+    \tkzInit[xmax=7,ymax=.22, ystep=.02]
+
+    \tkzGrid[color=AntiqueWhite]
+    \tkzDrawX[label=$~$]
+    \tkzLabelX[orig=false, color=black ]
+   \tkzDrawY[label=$~$]
+%     \tkzLabelY[orig=false]
+    \tkzLabelY
+    \tkzBardiagram[wd = 0.1,
+                   pos = {below,outer sep = 5pt},
+                   sp = 1,
+                   noval]           
+      { /.18, /.19, /.17, /.11, /.13, /.22}
+     \draw (3,13) node{\large Diagramme en bâtons des fréquences} ;  
+\end{tikzpicture}
+
+\end{center}
+
+\newpage
+
+\subsubsection*{Conclusion}
+
+Les fréquences obtenues lors de ce trois séries de lancers sont différentes. Vous observez que pour chacun des nombres la distribution des fréquences \textbf{fluctue}. \\Ce phénomène est appelé \underline{fluctuation d'échantillonnage}. \\
+
+Regroupons les résultats obtenus par groupe de 4 échantillons de la classe : \\
+
+\centerline{
+\begin{tabular}{|l|ccc|ccc|ccc|ccc|ccc|ccc|ccc|}
+\hline
+Valeurs & 1 & & & 2 & & & 3 & & & 4 & & & 5 & & & 6 & & & $\Sigma$ & &  \\
+\hline
+Fréquences de l'échantillon 1 & 140 & & & 108 & & & 109 & & & 118 & & & 102 & & & 123 & & & 700 & & \\
+\hline
+Fréquences de l'échantillon 2 & 135 & & & 131 & & & 106 & & & 102 & & & 98 & & & 128 & & & 700 & & \\
+\hline
+Fréquences de l'échantillon 3 & 122 & & & 131 & & & 119 & & & 107 & & & 103 & & & 118 & & & 700 & & \\
+\hline
+Fréquences de l'échantillon 4 & 119 & & & 129 & & & 117 & & & 109 & & & 103 & & & 123 & & & 700 & & \\
+\hline
+Totaux & 516 & & & 499 & & & 451 & & & 436 & & & 406 & & & 492 & & & 2800 & & \\
+\hline
+Fréquences & 0,18 & & & 0,18 & & & 0,16 & & & 0,16 & & & 0,15 & & & 0,18 & & & 1,01 & & \\
+\hline
+\end{tabular}}
+
+\vspace*{.3cm}
+
+On constate que $p \approx \dfrac{1}{6} \approx 0,17$. \\
+
+\textbf{Remarque :} $\Sigma_{f_i} = 1$. Ici, il y a un problème d'arrondi. 
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \tkzInit[xmax=7,ymax=.20, ystep=.02]
+
+    \tkzGrid[color=AntiqueWhite]
+    \tkzDrawX[label=$~$]
+    \tkzLabelX[orig=false, color=black ]
+   \tkzDrawY[label=$~$]
+%     \tkzLabelY[orig=false]
+    \tkzLabelY
+    \tkzBardiagram[wd = 0.1,
+                   pos = {below,outer sep = 5pt},
+                   sp = 1,
+                   noval]           
+      { /.18, /.18, /.16, /.16, /.15, /.18}
+     \draw (3,11) node{\large Diagramme en bâtons des fréquences} ;  
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
+\subsection{Intervalle de fluctuation d'une fréquence au seuil de 95  \%}
+
+Soit un caractère dont la proportion dans une population donnée est $p$.  
+
+On considère un échantillon de taille $n$. \\
+
+Si $0,2\leq p \leq 0,8$ et si $n \geq 25$, alors dans au moins 95  \% des cas, \\
+la fréquence appartient à l'intervalle $I = \left[p - \dfrac{1}{\sqrt{n}} ; p + \dfrac{1}{\sqrt{n}}\right]$.
+
+\subsubsection{Exemple \no 1}
+
+On considère dans une rivière une population de truites. \\ La proportion mâles-femelles est de 0,5 pour chaque sexe. On prélève 100 truites. \\
+On constate que la proportion de femelles dans l'échantillon est de 0,64. \\
+Au seuil de 95  \%, peut-on suspecter une anomalie ? \\
+
+On note $p$ la proportion de femelles dans la rivière. $p = 0,5$, on a bien $0,2\leq p \leq 0,8$. \\
+
+On note $n$ la taille de l'échantillon prélevé. $n = 100$, et on a bien $n \geq 25$. \\
+
+$ p - \dfrac{1}{\sqrt{n}} = 0, 5- \dfrac{1}{\sqrt{100}} = 0,4 $ \\
+
+$ p + \dfrac{1}{\sqrt{n}} = 0, 5 + \dfrac{1}{\sqrt{100}} = 0,6 $ \\
+
+Ainsi, $ I \left[0,4 ; 0,6 \right]$ \\
+
+Donc $f = 0,64$, et $f \notin I $ \\
+
+La fréquence de 0,64 n'est pas due à une fluctuation. On peut suspecter une anomalie, par exemple une pollution. \\
+
+N.B. : Le nombre total de truites dans la rivière est inconnu, mais nous est indifférent. \\
+
+\newpage
+
+\subsubsection{Exemple \no 2}
+
+Dans une commune de 50 000 habitants, il y a 25 500 hommes. \\ Au conseil municipal, composé de 43 élus, il y a 17 femmes. \\ Au seuil de 95  \%, peut-on considérer que la parité hommes / femmes est respectée ? \\
+
+On note $p$ la proportion de femmes dans la commune. On a $p = \dfrac{25500}{50 000} = 0,51$. On a bien $0,2\leq p \leq 0,8$. \\
+
+On note $n$ la taille de l'échantillon (conseil municipal). Avec $n = 43$, on a bien $n \geq 25$. \\
+
+$ p - \dfrac{1}{\sqrt{n}} = 0, 51- \dfrac{1}{\sqrt{43}} $ \\
+
+$ p + \dfrac{1}{\sqrt{n}} = 0, 51 + \dfrac{1}{\sqrt{43}}  $ \\
+
+$ f = \dfrac{17}{43} $. \\
+
+On a $ 0,51 - \dfrac{1}{\sqrt{43}} \leq \dfrac{17}{48} \leq 0,51 + \dfrac{1}{\sqrt{43}} $, car : \\
+
+\begin{itemize}
+\item[*] $ \left(0,51 + \dfrac{1}{\sqrt{43}}\right) - \dfrac{17}{43} > 0  $
+\item[*] $ \left(0,51 - \dfrac{1}{\sqrt{43}}\right) - \dfrac{17}{43} < 0 $
+\end{itemize}
+
+\vspace{.3cm}
+
+Ainsi, On a $ 0,51 - \dfrac{1}{\sqrt{43}} \leq f \leq 0,51 + \dfrac{1}{\sqrt{43}} $. \\
+
+Au seuil de 95  \%, on peut considérer qu'une fréquence égale à $\dfrac{17}{43}$ est due à une fluctuation d'échantillonnage. La parité au conseil général est donc respectée. 
+
+\newpage 
+
+\subsubsection{Exemple \no 3}
+
+Lors d'une élection, un sondage portant sur 1 000 personnes donne 400 votants pour le candidat A. \\ Avec un risque d'erreur de 5  \%, quelles informations peut-on obtenir sur la proportion réelle de votants pour A ? \\
+
+Cette fois, on cherche $p$. \\
+
+On a $n = 1000 $, avec $ n \geq 25 $. \\
+
+$ f = \dfrac{400}{1000} = 0,4 $ \\
+
+On doit avoir $ p - \dfrac{1}{\sqrt{n}} \leq f \leq p + \dfrac{1}{\sqrt{n}} $.
+
+\vspace*{.3cm}
+
+\begin{tabular}{ll}
+$ p - \dfrac{1}{\sqrt{n}} \leq f $ & $ p + \dfrac{1}{\sqrt{n}} \geq f $ \\
+$ p \leq f + \dfrac{1}{\sqrt{n}}$ & $ p \geq f - \dfrac{1}{\sqrt{n}}$ \\
+\end{tabular}
+
+\vspace{.3cm}
+
+Donc $ f - \dfrac{1}{\sqrt{n}} \leq p \leq f + \dfrac{1}{\sqrt{n}} $ \\
+
+Ainsi : $ 0,4 - \dfrac{1}{\sqrt{1000}} \leq p \leq 0,4 + \dfrac{1}{\sqrt{1000}} $ \\
+
+$ 0,4 - \dfrac{1}{\sqrt{1000}} \approx 0,3684 $ \\
+
+$ 0,4 + \dfrac{1}{\sqrt{1000}} \approx 0,4316 $ \\
+
+$ 0,3683 \leq p \leq 0,4316 $ \\
+
+A va obtenir entre 37  \% et 43  \% des voies. Il ne sera donc pas élu.
+
+\newpage 
+
+\subsubsection{Exemple \no 4}
+
+Lors d'une élection, un sondage portant sur 900 personnes donne 459 votants pour le candidat A. \\ Avec un risque d'erreur de 5  \%, quelles informations peut-on obtenir sur la proportions réelle de votants pour A ? \\
+
+On cherche $p$. \\
+
+On a $n = 900 $, avec $ n \geq 25 $. \\
+
+$ f = \dfrac{459}{900} = 0,51 $ \\
+
+On doit avoir $ p - \dfrac{1}{\sqrt{n}} \leq f \leq p + \dfrac{1}{\sqrt{n}} $.
+
+\vspace*{.3cm}
+
+\begin{tabular}{ll}
+$ p - \dfrac{1}{\sqrt{n}} \leq f $ & $ p + \dfrac{1}{\sqrt{n}} \geq f $ \\
+$ p \leq f + \dfrac{1}{\sqrt{n}}$ & $ p \geq f - \dfrac{1}{\sqrt{n}}$ \\
+\end{tabular}
+
+\vspace{.3cm}
+
+Donc $ f - \dfrac{1}{\sqrt{n}} \leq p \leq f + \dfrac{1}{\sqrt{n}} $ \\
+
+Ainsi : $ 0,51 - \dfrac{1}{\sqrt{900}} \leq p \leq 0,51 + \dfrac{1}{\sqrt{900}} $ \\
+
+$ 0,51 - \dfrac{1}{\sqrt{900}} \approx 0,4767 $ \\
+
+$ 0,51 + \dfrac{1}{\sqrt{900}} \approx 0,5433 $ \\
+
+$ 0,0,4767 \leq p \leq 0,5433 $ \\
+
+A va obtenir entre 47  \% et 54  \% des voies. On ne peut pas savoir si A sera élu.

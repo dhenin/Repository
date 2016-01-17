@@ -1,0 +1,384 @@
+\vspace*{-1.5cm}
+
+\section{Suites arithmético-géométriques}
+
+\subsection{Exemple \no 1}
+
+Soit $\left(u_n\right)_{n\; \in \; \N}$ la suite définie par : $\left\{
+  \begin{array}{lll}
+    u_0 = 11 \\
+    \forall n \in \N, u_{n+1} = \dfrac{3}{4}u_n + 1
+  \end{array}
+\right.$
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[1.] Déterminer $u_1$, $u_2$, $u_3$ et $u_4$. \\
+\end{itemize}
+
+\begin{itemize}
+\item[•] $u_1 = \dfrac{3}{4}u_0 + 1 = \dfrac{3}{4} \times 11 + 1 = \dfrac{33}{4} + \dfrac{4}{4} = \dfrac{37}{4}$ \vspace*{.3cm} \\
+\item[•] $u_2 = \dfrac{3}{4}u_1 + 1 = \dfrac{3}{4} \times \dfrac{37}{4} + 1 = \dfrac{111}{16} + \dfrac{16}{16} = \dfrac{127}{16}$ \vspace*{.3cm} \\
+\item[•] $u_3 = \dfrac{3}{4}u_2 + 1 = \dfrac{3}{4} \times \dfrac{127}{16} + 1 = \dfrac{381}{64} + \dfrac{64}{64} = \dfrac{445}{64}$ \vspace*{.3cm} \\
+\item[•] $u_4 = \dfrac{3}{4}u_3 + 1 = \dfrac{3}{4} \times \dfrac{445}{64} + 1 = \dfrac{1335}{256} + \dfrac{256}{256} = \dfrac{1591}{256}$ \vspace*{.3cm} \\
+\end{itemize}
+
+\begin{itemize}
+\item[2.] Soit $\left(v_n\right)_{n\; \in \; \N}$ la suite définie par $v_n = u_n - 4$. \\ Montrer que $\left(v_n\right)_{n\; \in \; \N}$ est une suite géométrique donc on précisera le premier terme et la raison.
+\end{itemize}
+
+\vspace*{.3cm}
+
+On a $v_n = u_n - 4$ et $u_n = v_n + 4$. \\
+
+\begin{tabular}{lll}
+$v_{n+1}$ & $=$ & $u_{n+1} - 4$ \vspace*{.3cm} \\
+& $=$ & $\left(\dfrac{3}{4}u_n + 1\right) - 4$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{3}{4}u_n - 3$ \vspace*{.3cm}
+\\
+& $=$ & $\dfrac{3}{4}\left(v_n + 4\right) - 3$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{3}{4}v_n + 3 - 3$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{3}{4}v_n$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Pour tout $n \in \N$, on a $v_{n+1} = \dfrac{3}{4}v_n$, dont $\left(v_n\right)_{n \in \N}$ est une suite géométrique de raison $q = \dfrac{3}{4}$ et de premier terme $v_0 = u_0 - 4 = 11 - 4 = 7$. \\
+
+\begin{itemize}
+\item[3.] Exprimer $v_n$ en fonction de $n$, puis $u_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_0 =7$ et de raison $q =\dfrac{3}{4}$. \\
+
+Ainsi, l'expression de son terme général est $v_n = v_0 \times q^n = 7 \times \left(\dfrac{3}{4}\right)^n$. \\
+
+On a $u_n = v_n + 4 = 7 \times \left(\dfrac{3}{4}\right)^n + 4$. \\
+
+Ainsi $\forall n \in \N, u_n = 7 \times \left(\dfrac{3}{4}\right)^n + 4$. 
+
+\vspace*{-5cm}
+
+\newpage
+
+\vspace*{-1cm}
+
+\begin{itemize}
+\item[4.] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n$ puis $ \displaystyle {\lim_{n \rightarrow +\infty}} \; u_n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_0 =7$ et de raison $q =\dfrac{3}{4}$. \\
+
+On a $0 < \dfrac{3}{4} < 1$. \\
+
+Donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n = 0$. \\ 
+
+On a $u_n = v_n + 4$, d'où $ \displaystyle {\lim_{n \rightarrow +\infty}} \; u_n = 4$. \\
+
+\begin{itemize}
+\item[5.] Soit $S_n = v_0 + v_1 + v_2 + v_3 + ... + v_n$ et $\Sigma_n = u_0 + u_1 + u_2 + u_3 + ... + u_n$. \\ Exprimer $S_n$ et $\Sigma_n$ en fonction de $n$. \\
+\end{itemize}
+
+$S_n$ est la somme des termes d'une suite géométrique $\left(v_n\right)$ de raison $q = \dfrac{3}{4}$ et de premier terme $v_0 = 7$. \\
+
+Donc $S_n = v_0 \times \dfrac{1 - q^{n+1}}{1 - q}$. \\
+
+\begin{tabular}{lll}
+D'où $S_n$ & $=$ & $7 \times \dfrac{1 - \left(\dfrac{3}{4}\right)^{n+1}}{1 - \dfrac{3}{4}}$ \vspace*{.3cm} \\
+& $=$ & $7 \times \dfrac{1 - \left(\dfrac{3}{4}\right)^{n+1}}{\dfrac{1}{4}}$ \vspace*{.3cm} \\
+& $=$ & $28 \left[1 - \left(\dfrac{3}{4}\right)^{n+1}\right]$ \\
+\end{tabular}
+
+\vspace*{.3cm} 
+
+\begin{tabular}{lll}
+$\Sigma_n$ & $=$ & $u_0 + u_1 + u_2 + u_3 + ... + u_n$ \\
+& $=$ & $\left(v_0 + 4\right) + \left(v_1 + 4 \right) + \left(v_2 + 4\right) + \left(v_3 + 4\right) + ... + \left(v_n + 4\right)$ \\
+& $=$ & $v_0 + v_1 + v_2 + v_3 + ... + v_n + 4\left(n+1\right)$ \\
+& $=$ & $S_n + 4\left(n+1\right)$ \vspace*{.1cm} \\
+& $=$ & $28\left[1 - \left(\dfrac{3}{4}\right)^{n+1} \right] + 4n + 4$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[6.] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; S_n$ puis $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \Sigma_n$. \\
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+$S_n$ & $=$ & $28\left[1 - \left(\dfrac{3}{4}\right)^{n+1}\right]$ \vspace*{.1cm} \\
+& $=$ & $28 - 28 \times \left(\dfrac{3}{4}\right)^{n+1}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On a $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \left(\dfrac{3}{4}\right)^{n+1} = 0$. \\
+
+Donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; S_n = 28$. \\
+
+On a $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \Sigma_n = S_n + 4n + 4$. \\
+
+Ainsi $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \Sigma_n = +\infty$. 
+
+\vspace*{-5cm}
+
+\newpage
+
+\subsection{Exemple \no 2}
+
+Soit $\left(u_n\right)_{n\; \in \; \N}$ la suite définie par : $\left\{
+  \begin{array}{lll}
+    u_0 = -2 \\
+    \forall n \in \N, u_{n+1} = -\dfrac{3}{4}u_n + 7
+  \end{array}
+\right.$
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[1.] Déterminer $u_1$, $u_2$, $u_3$ et $u_4$. \\
+\end{itemize}
+
+\begin{itemize}
+\item[•] $u_1 = -\dfrac{3}{4}u_0 + 7 = -\dfrac{3}{4} \times \left(-2\right) + 7 = \dfrac{6}{4} + \dfrac{28}{4} = \dfrac{34}{4} = \dfrac{17}{2}$ \vspace*{.3cm} \\
+\item[•] $u_2 = -\dfrac{3}{4}u_1 + 7 = -\dfrac{3}{4} \times \dfrac{17}{2} + 7 = -\dfrac{51}{8} + \dfrac{56}{8} = \dfrac{5}{8}$ \vspace*{.3cm} \\
+\item[•] $u_3 = -\dfrac{3}{4}u_2 + 7 = -\dfrac{3}{4} \times \dfrac{5}{8} + 7 = -\dfrac{15}{32} + \dfrac{224}{32} = \dfrac{209}{32}$ \vspace*{.3cm} \\ 
+\item[•] $u_4 = -\dfrac{3}{4}u_3 + 7 = -\dfrac{3}{4} \times \dfrac{209}{32} + 7 = -\dfrac{627}{128} + \dfrac{896}{128} = \dfrac{269}{128}$ \\ 
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[2.] Soit $\left(v_n\right)_{n\; \in \; \N}$ la suite définie par $v_n =u_n - 4$. \\ Montrer que $\left(v_n\right)_{n\; \in \; \N}$ est une suite géométrique dont on précisera le premier terme et la raison.
+\end{itemize}
+
+\vspace*{.3cm}
+
+On a $v_n = u_n - 4$ et $u_n = v_n + 4$. \\
+
+\begin{tabular}{lll}
+$v_{n+1}$ & $=$ & $u_{n+1} - 4$ \vspace*{.3cm} \\
+& $=$ & $\left(-\dfrac{3}{4}u_n + 1\right) - 4$ \vspace*{.3cm} \\
+& $=$ & $-\dfrac{3}{4}u_n - 3$ \vspace*{.3cm}
+\\
+& $=$ & $-\dfrac{3}{4}\left(v_n + 4\right) - 3$ \vspace*{.3cm} \\
+& $=$ & $-\dfrac{3}{4}v_n + 3 - 3$ \vspace*{.3cm} \\
+& $=$ & $-\dfrac{3}{4}v_n$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Pour tout $n \in \N$, on a $v_{n+1} =-\dfrac{3}{4}v_n$, donc $\left(v_n\right)_{n \in \N}$ est une suite géométrique de raison $q = -\dfrac{3}{4}$ et de premier terme $v_0 = u_0 - 4 = -2 - 4 = -6$. \\
+
+\begin{itemize}
+\item[3.] Exprimer $v_n$ en fonction de $n$, puis $u_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_0 =-6$ et de raison $q = -\dfrac{3}{4}$. \\
+
+Ainsi, l'expression de son terme général est $v_n = v_0 \times q^n = -6 \times \left(-\dfrac{3}{4}\right)^n$. \\
+
+On a $u_n = v_n + 4$. \\
+
+Donc $\forall n \in \N, u_n = -6 \times \left(-\dfrac{3}{4}\right)^n + 4$. 
+
+\vspace*{-5cm}
+
+\newpage
+
+\vspace*{-1.8cm}
+
+\begin{itemize}
+\item[4.] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n$ puis $ \displaystyle {\lim_{n \rightarrow +\infty}} \; u_n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_0 = -6$ et de raison $q = -\dfrac{3}{4}$. \\
+
+On a $-1 < -\dfrac{3}{4} < 0$. \\
+
+Donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n = 0$. \\
+
+On a $u_n = v_n + 4$. \\
+
+Donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; u_n = 4$. \\
+
+\begin{itemize}
+\item[5.] Soit $S_n = v_0 + v_1 + v_2 + v_3 + ... + v_n$ et $\Sigma_n = u_0 + u_1 + u_2 + u_3 + ... + u_n$. \\ Exprimer $S_n$ et $\Sigma_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_0 = -6$ et de raison $q = -\dfrac{3}{4} $. \\
+
+Donc $S_n = v_0 \times \dfrac{1 - q^{n+1}}{1 - q}$. \vspace*{.3cm} \\
+
+D'où $S_n = -6 \times \dfrac{1 - \left(-\dfrac{3}{4}\right)^{n+1}}{1 - \left(-\dfrac{3}{4}\right)}$. \vspace*{.3cm} \\
+
+$S_n = -6 \times \dfrac{1 - \left(-\dfrac{3}{4}\right)^{n+1}}{\dfrac{7}{4}}$ \vspace*{.3cm} \\
+
+Donc $S_n = -\dfrac{24}{7} \left[1 - \left(-\dfrac{3}{4}\right)^{n+1}\right]$ \vspace*{.3cm} \\
+
+\begin{tabular}{lll}
+On a aussi $\Sigma_n$ & $=$ & $u_0 + u_1 + u_2 + u_3 + ... + u_n$ \\
+& $=$ & $\left(v_0 + 4\right) + \left(v_1 + 4\right) + \left(v_2 + 4\right) + \left(v_3 + 4\right) + ... + \left(v_n + 4\right)$ \\
+& $=$ & $v_0 + v_1 + v_2 + v_3 + ... + v_n + 4\left(n+1\right)$ \\
+& $=$ & $S_n + 4n + 4$ \vspace*{.1cm} \\
+& $=$ & $-\dfrac{24}{7}\left[1 - \left(-\dfrac{3}{4}\right)^{n+1}\right] + 4n + 4$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[6.] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; S_n$ puis $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \Sigma_n$. \\
+\end{itemize}
+
+\begin{tabular}{lll}
+On a $S_n$ & $=$ & $-\dfrac{24}{7} \left[1 - \left(-\dfrac{3}{4}\right)^{n+1}\right]$ \vspace*{.3cm} \\
+& $=$ & $-\dfrac{24}{7} + \dfrac{24}{7} \times \left(-\dfrac{3}{4}\right)^{n+1}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On a $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \left(-\dfrac{3}{4}\right)^{n+1} = 0$. \\
+
+D'où $ \displaystyle {\lim_{n \rightarrow +\infty}} \; S_n = -\dfrac{24}{7}$. \\
+
+On a $\Sigma_n = S_n + 4n + 4$. \\
+
+D'où $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \Sigma_n = +\infty$. 
+
+\vspace*{-5cm}
+
+\newpage
+
+\vspace*{-2cm}
+
+\subsection{Exemple \no 3} 
+
+% A VERIFIER !!!! PAS CERTAIN DES RESULTATS (SN = -5/9 ... ou SN = -55/9)
+
+Soit $\left(u_n\right)_{n\; \in \; \N^*}$ la suite définie par : $\left\{
+  \begin{array}{lll}
+    u_1 = -2 \\
+    \forall n \in \N^*, u_{n+1} = \dfrac{2}{5}u_n + 1
+  \end{array}
+\right.$
+
+\begin{itemize}
+\item[1.] Déterminer $u_2$, $u_3$, $u_4$ et $u_5$. \\
+\end{itemize}
+
+\begin{itemize}
+\item[•] $u_2 = \dfrac{2}{5}u_1 + 1 = \dfrac{2}{5} \times \left(-2\right) + 1 = \dfrac{-4}{5} + \dfrac{5}{5} = \dfrac{1}{5}$ \vspace*{.3cm} \\
+\item[•] $u_3 = \dfrac{2}{5}u_2 + 1 = \dfrac{2}{5} \times \dfrac{1}{5} + 1 = \dfrac{2}{25} + \dfrac{25}{25} = \dfrac{27}{25}$ \vspace*{.3cm} \\
+\item[•] $u_4 = \dfrac{2}{5}u_3 + 1 = \dfrac{2}{5} \times \dfrac{27}{25} + 1 = \dfrac{54}{125} + \dfrac{125}{125} = \dfrac{179}{125}$ \vspace*{.3cm} \\
+\item[•] $u_5 = \dfrac{2}{5}u_4 + 1 = \dfrac{2}{5} \times \dfrac{179}{125} + 1 = \dfrac{358}{625} + \dfrac{625}{625} = \dfrac{983}{625}$ \\
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[2.] Soit $\left(v_n\right)_{n\; \in \; \N^*}$ la suite définie par $v_n =u_n + \alpha$. \\ Déterminer $\alpha$ tel que $\left(v_n\right)_{n\; \in \; \N^*}$ soit une \hbox{suite géométrique dont on précisera le premier terme et la raison.}
+\end{itemize}
+
+\vspace*{.3cm}
+
+On a $v_n = u_n + \alpha$ et $u_n = v_n - \alpha$. \\
+
+\begin{tabular}{lll}
+$v_{n+1}$ & $=$ & $u_{n+1} + \alpha$ \vspace*{.2cm} \\
+& $=$ & $\left(\dfrac{2}{5}u_n + 1\right) + \alpha$ \vspace*{.2cm} \\
+& $=$ & $\dfrac{2}{5}\left(v_n - \alpha\right) + 1 + \alpha$ \vspace*{.2cm} \\
+& $=$ & $\dfrac{2}{5}v_n - \dfrac{2}{5}\alpha + 1 + \alpha$ \vspace*{.2cm} \\
+& $=$ & $\dfrac{2}{5}v_n + \dfrac{3}{5}\alpha + 1$. \\
+\end{tabular}
+
+\vspace*{.1cm}
+
+$\left(v_n\right)_{n \in \N^*}$ est une suite géométrique si et seulement si $\dfrac{3}{5} \alpha + 1 = 0$. \\
+
+\begin{tabular}{lll}
+$\dfrac{3}{5}\alpha + 1 = 0$ & $\Longleftrightarrow$ & $\dfrac{3}{5}\alpha = -1$ \\
+& $\Longleftrightarrow$ & $\alpha = -\dfrac{5}{3}$ \\
+\end{tabular}
+
+On a donc la suite $\left(v_n\right)_{n \in \N^*}$ définie par $v_n = u_n - \dfrac{5}{3}$. On a aussi $v_{n+1} = \dfrac{2}{5}v_n$. \\
+
+Donc $\left(v_n\right)_{n \in \N}$ est une suite géométrique de raison $q = \dfrac{2}{5}$ \vspace*{.1cm} \\ et de premier terme $v_1 = u_1 - \dfrac{5}{3} = -2 -\dfrac{5}{3} = -\dfrac{6}{3} - \dfrac{5}{3} = -\dfrac{11}{3}$. \\
+
+%VERIFIER CE RESULTAT
+
+\begin{itemize}
+\item[3.] Exprimer $v_n$ en fonction de $n$, puis $u_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_1 =-\dfrac{11}{3}$ et de raison $q =\dfrac{2}{5}$. \\
+
+Ainsi, l'expression de son terme général est $v_n = v_1 \times q^{n-1} = -\dfrac{11}{3} \times \left(\dfrac{2}{5}\right)^{n-1} $. \\
+
+On a $u_n = v_n + \dfrac{5}{3}$. \\
+
+Ainsi $\forall n \in \N, u_n = -\dfrac{11}{3} \times \left(\dfrac{2}{5}\right)^n + \dfrac{5}{3}$. 
+
+\vspace*{-5cm}
+
+\newpage
+
+\vspace*{-1cm}
+
+\begin{itemize}
+\item[4.] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n$ puis $ \displaystyle {\lim_{n \rightarrow +\infty}} \; u_n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_1 =-\dfrac{11}{3}$ et de raison $q =\dfrac{2}{5}$. \\
+
+On a $0 < \dfrac{2}{5} < 1$. \\
+
+Donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n = 0$. \\
+
+On a $u_n = v_n + \dfrac{5}{3}$. \\
+
+D'où $ \displaystyle {\lim_{n \rightarrow +\infty}} \; u_n = \dfrac{5}{3}$. \\
+
+\begin{itemize}
+\item[5.] Soit $S_n = v_1 + v_2 + v_3 + v_4 + ... + v_n$ et $\Sigma_n = u_1 + u_2 + u_3 + u_4 + ... + u_n$. \\ Exprimer $S_n$ et $\Sigma_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_1 = -\dfrac{11}{3} $ et de raison $q = \dfrac{2}{5}$. \\
+
+Donc $S_n = v_1 \times \dfrac{1 - q^{n}}{1 - q} =$. \\
+
+\begin{tabular}{lll}
+Donc $S_n$ & $=$ & $-\dfrac{11}{3} \times \dfrac{1 - \left(\dfrac{2}{5}\right)^n}{1 - \dfrac{2}{5}}$ \vspace*{.3cm} \\
+& $=$ & $-\dfrac{11}{3} \times \dfrac{1 - \left(\dfrac{2}{5}\right)^n}{\dfrac{3}{5}}$ \vspace*{.3cm} \\
+& $=$ & $-\dfrac{55}{9} \left[1 - \left(\dfrac{2}{5}\right)^n\right]$ \\
+\end{tabular} 
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+$\Sigma_n$ & $=$ & $u_1 + u_2 + u_3 + u_4 + ... + u_n$ \vspace*{.2cm} \\
+& $=$ & $\left(v_1 + \dfrac{5}{3}\right) + \left(v_2 + \dfrac{5}{3}\right) + \left(v_3 + \dfrac{5}{3}\right) + \left(v_4 + \dfrac{5}{3}\right) + ... + \left(v_n + \dfrac{5}{3}\right)$ \vspace*{.2cm} \\
+& $=$ & $v_1 + v_2 + v_3 + v_4 + ... + v_n + \dfrac{5}{3}n$ \vspace*{.2cm} \\
+& $=$ & $S_n + \dfrac{5}{3}n$ \vspace*{.2cm} \\
+& $=$ & $-\dfrac{55}{9}\left[1 - \left(\dfrac{2}{5}\right)^n\right] + \dfrac{5}{3}n$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[6.] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; S_n$ puis $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \Sigma_n$. \\
+\end{itemize}
+
+On a $S_n = -\dfrac{55}{9} \left[1 - \left(\dfrac{2}{5}\right)^n\right] = -\dfrac{55}{9} + \dfrac{55}{9} \times \left(\dfrac{2}{5}\right)^n$. \\
+
+On a $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \left(\dfrac{2}{5}\right)^n = 0$, donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; S_n = -\dfrac{55}{9}$. \vspace*{.3cm} \\
+
+On a $\Sigma_n = S_n + \dfrac{5}{3}n$ \\
+
+D'où $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \Sigma_n = +\infty$.
+
+\vspace*{-5cm}
+
+\newpage

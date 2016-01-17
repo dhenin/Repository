@@ -1,0 +1,359 @@
+\newpage
+
+\section{Suites arithmétiques}
+
+\subsection{Définition}
+
+\subsubsection{Expression et vocabulaire}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite. \\
+
+$\left(u_n\right)_{n \in \N}$ est une suite arithmétique si, et seulement si, il existe un réel $r$ tel que : \\
+$\forall n \in \N, u_{n+1} = u_n + r$. \\
+
+$r$ est appelé la \textbf{raison de la suite arithmétique}. 
+
+\subsubsection{Exemple}
+Soit $\left(u_n\right)_{n \in \N}$ une suite définie par $u_n = 3n - 5$. \\
+
+On a : 
+
+\begin{itemize}
+\item[•] $u_0 = -5$
+\item[•] $u_1 = -2$
+\item[•] $u_2 = 1$
+\item[•] $u_3 = 4$
+\item[•] $u_4 = 7$
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+On a $u_{n+1}$ & $ = $ & $ 3\left(n+1\right)-5$ \\
+& $=$ & $3n + 3 - 5$ \\
+& $=$ & $3n - 5 + 3$ \\
+& $=$ & $u_n + 3$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+D'où $\forall n \in \N, u_{n+1} = u_n + 3$. \\
+
+Donc $\left(u_n\right)_{n \in \N}$ est une suite arithmétique de 1$^{\mathrm{er}}$ terme $u_0 = -5$ et de raison $r = 3$. 
+
+\subsection{Terme général d'une suite arithmétique}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite arithmétique de premier terme $u_0$ et de raison $r$. \\
+
+On a :
+
+\begin{itemize}
+\item[•] $u_1 = u_0 + r$
+\item[•] $u_2 = u_1 + r = u_0 + r + r = u_0 + 2r$
+\item[•] $u_3 = u_2 + r = u_0 + 2r + r = u_0 + 3r$
+\item[•] $u_4 = u_3 + r = u_0 + 3r + r = u_0 + 4r$
+\end{itemize}
+
+\vspace*{.3cm}
+
+On conjecture que : $\forall n \in \N, u_n = u_0 + nr$ \\
+
+\newpage
+
+Montrons que $\forall n \in \N, u_n = u_0 + nr$ \\
+
+On vérifie que la formule conjecturée est vraie pour la première valeur de $n$, c'est-à-dire $n = 0$ : \\
+
+$u_0 = u_0 + 0r$. \\
+
+Puis, on démontre que, si la formule conjecturée est vraie pour $n$, alors elle est vraie pour $n+1$, \\ c'est-à-dire que si $u_n = u_0 + nr$, alors $u_{n+1} = u_0 + \left(n+1\right)r$ \\
+
+Hypothèse de récurrence : $u_n = u_0 + nr$. \\
+
+On calcule $u_{n+1}$. \\
+
+\begin{tabular}{lll}
+$u_{n+1}$ & $ = $ & $u_n + r$ \\
+& $=$ & $u_0 + nr + r$ \\
+& $=$ & $u_0 + r\left(n+1\right)$ \\ 
+\end{tabular}
+
+\vspace*{.3cm}
+
+Donc $\forall n \in \N, u_n = u_0 + nr$ \\
+
+\textbf{Attention !}
+
+Soit $\left(u_n\right)_{n \in \N^*}$ une suite arithmétique de premier terme $u_1$ et de raison $r$. \\
+
+On a :
+
+\begin{itemize}
+\item[•] $u_2 = u_1 + r$
+\item[•] $u_3 = u_2 + r = u_1 + r + r = u_1 + 2r$
+\item[•] $u_4 = u_3 + r = u_1 + 2r + r = u_1 + 3r$
+\item[•] $u_5 = u_4 + r = u_1 + 3r + r = u_1 + 4r$
+\end{itemize}
+
+\vspace*{.3cm}
+
+On a ici : $\forall n \in \N^*, u_n = u_1 + \left(n-1\right)r$. 
+
+\newpage
+
+\subsection{Somme des termes d'une suite arithmétique}
+
+\subsubsection{Formule et démonstration}
+
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite arithmétique de premier terme $u_0$ et de raison $r$. \\
+
+$ S = \underbrace{u_0 + u_1 + u_2 + u_3 + ... + u_n}_{n+1 \; \mathrm{termes}}$ \vspace*{.5cm} \\
+
+\centerline{\footnotesize
+\begin{tabular}{llrlllllllllllll}
+On peut écrire : & & $S$ & $=$ &$u_0$ & $+$ &$u_1$ & $+$ &$u_2$ & $+$ & $...$ & $+$ &$u_{n-1}$ & $+$ &$u_n$ \\
+& $+$ & $S$ & $=$ &$u_n$ & $+$ &$u_{n-1}$ & $+$ &$u_{n-2}$ & $+$ & $...$ & $+$ &$u_1$ & $+$ &$u_0$ \\
+\hline
+En posant l'addition, on a : & & $2S$ & $=$ & $\left(u_0 + u_n\right)$& $+$ & $\left(u_1 + u_{n-1}\right)$ & $+$ & $\left(u_2 + u_{n-2}\right)$ & $+$ & $...$ & $+$ & $\left(u_{n-1} + u_1\right)$ & $+$ & $\left(u_n + u_0\right)$ \\ 
+\end{tabular}}
+
+\vspace*{.3cm}
+
+On observe, grâce à la propriété démontrée au paragraphe précédent, que :  \\
+
+\begin{itemize}
+\item[•]$u_0 + u_n = u_0 + \left(u_0 + nr\right) = 2u_0 + nr$ \\
+\item[•] $u_1 + u_{n-1} = \left(u_0 + r\right) + \left[u_0+\left(n-1\right)r\right] = u_0 + r + u_0 + nr - r = 2u_0 + nr$ \\ 
+\item[•] $u_2 + u_{n-2} = \left(u_0 + 2r\right) + \left[u_0 + \left(n-2\right)r\right] = u_0 + 2r + u_0 + nr -2r = 2u_0 + nr$ \\
+\end{itemize}
+
+On cherche à montrer que $u_p + u_{n-p} = 2u_0 + nr$ \\
+
+Toujours d'après la propriété du paragraphe 2.2, on a : \\
+
+\begin{tabular}{lll}
+$u_p + u_{n-p}$ & $ = $ & $ \left(u_0 + pr\right) + \left[u_0 + \left(n-p\right)r\right]$ \\
+& $=$ & $u_0 + pr + u_0 + nr - pr$ \\
+& $=$ & $2u_0 + nr$. \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Or, $2u_0 + nr = u_0 + \left(u_0 + nr\right) =  u_0 + u_n$. \\ 
+
+\begin{tabular}{rll}
+On a donc $2S$ & $=$ & $\left(u_0 + u_n\right) + \left(u_0 + u_n\right) + \left(u_0 + u_n\right) + ... + \left(u_0 + u_n\right)$ \vspace*{.3cm} \\
+$2S$ & $ = $ & $ \left(n+1\right)\left(u_0 + u_n\right)$ \vspace*{.3cm} \\
+$S$ & $=$ & $\left(n+1\right)\dfrac{\left(u_0 + u_n\right)}{2}$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm} 
+
+Ainsi, on a $u_0 + u_1 + u_2 + u_3 + ... + u_n = \left(n+1\right) \dfrac{u_0 + u_n}{2}$ \\
+
+\textbf{Attention !} \\
+
+Soit $\left(u_n\right)_{n\in \N^*}$ une suite arithmétique de premier terme $u_1$ et de raison $r$. \\
+
+$u_1 + u_2 + u_3 + ... + u_n = n\dfrac{u_1 + u_n}{2}$
+
+\newpage
+
+\subsubsection{Exercice \no 1 : la suite de Gauß}
+
+Soit $S = 1 + 2 + 3 + 4 + ... + n$. Donner la valeur de $S$. \\
+
+Soit $\left(u_n\right)_{n \in \N^*}$ une suite arithmétique de premier terme $u_1 = 1$ et de raison $1$. \\
+
+On peut écrire $ S = u_1 + u_2 + u_3 + u_4 + ... + u_n$ \\
+
+Donc $S = n\dfrac{1+n}{2}$ 
+
+Ainsi, $1 + 2+ 3 + 4 + ... + n = \dfrac{n\left(n+1\right)}{2}$ \\
+
+Vérification : $1 + 2 + 3 + 4 + 5 = \dfrac{5 \times 6}{2} = 15$ \\
+
+$1 + 2 + 3 + 4 + ... + 1000 = \dfrac{1000 \times 1001}{2} = 500\; 500$.
+
+\subsubsection{Exercice \no 2}
+
+Soit $S = 7 + 18 + 29 + 40 + ... + 2856$. Donner la valeur de $S$. \\
+
+Soit $\left(u_n\right)_{n \in \N^*}$ une suite arithmétique de premier terme $u_1 = 7$ et de raison $r = 11$. \\
+
+La somme des termes de la suite est donnée par $S = n\dfrac{u_1+u_n}{2}$. \\
+
+On cherche à connaître le rang $n$ du terme $u_n = 2856$. \\
+
+\begin{tabular}{lll}
+$u_n$ & $=$ & $ u_1 + \left(n-1\right)r$ \\
+& $=$ & $7 + 11\left(n-1\right)$ \\
+& $=$ & $7 + 11n - 11$ \\
+& $=$ & $11n - 4$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{rll}
+On a donc $11n - 4$ & $=$ & $2856$ \\
+$11n$ & $=$ &$2860$ \\
+$n$ & $=$ & $260$ \\ 
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+D'où $S$ & $ \! \! \! \! \! \! \! \! \! \! =$ & $\! \! \! \! \! \! \! \! \! \! n\dfrac{u_1+u_n}{2}$ \vspace*{.3cm} \\
+& $ \! \! \! \! \! \! \! \! \! \! =$ & $ \! \! \! \! \! 260 \times \dfrac{7 + 2856}{2}$ \vspace*{.3cm} \\
+& $ \! \! \! \! \! \! \! \! \! \! =$ & $ \! \! \! \! \! 372 190$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+D'où $S = 372 190$.
+
+\newpage
+
+\vspace*{-1.8cm} 
+
+\subsubsection{Exercice \no 3}
+
+Soit $S = 3 + 8 + 13 + 18 + ... + 1003$. Donner la valeur de $S$. \\
+
+Soit $\left(u_n\right)_{n \in \N^*}$ une suite arithmétique de premier terme $u_1 = 3$ et de raison $r = 5$. \\
+
+La somme des termes de la suite est donnée par $S = n\dfrac{u_1+u_n}{2}$. \\
+
+On cherche à connaître le rang $n$ du terme $u_n = 1003$. \\
+
+
+\begin{tabular}{lll}
+$u_n$ & $=$ & $ u_1 + \left(n-1\right)r$ \\
+& $=$ & $3 + 5\left(n-1\right)$ \\
+& $=$ & $3 + 5n - 5$ \\
+& $=$ & $5n - 2$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{rll}
+On a donc $5n - 2$ & $=$ & $1003$ \\
+$5n$ & $=$ &$1005$ \\
+$n$ & $=$ & $201$ \\ 
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+D'où $S$ & $=$ & $n\dfrac{u_1+u_n}{2}$ \vspace*{.3cm} \\
+& $=$ & $201 \times \dfrac{3 + 1003}{2}$ \vspace*{.3cm} \\
+& $=$ & $101 103$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+D'où $S = 101 103$.
+
+\subsection{Sens de variation d'une suite arithmétique}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite arithmétique de premier terme $u_0$ et de raison $r \neq 0$. \\
+
+On a donc : $\forall n \in \N, u_{n+1} = u_n + r$. \\
+
+On étudie le signe de $u_{n+1} - u_{n}$. \\
+
+On a  $u_{n+1} - u_{n} = r$. \\
+
+Donc :
+
+\begin{itemize}
+\item[•] Si $r > 0$, alors $\left(u_n\right)_{n \in \N}$ est strictement croissante. 
+\item[•] Si $r < 0$, alors $\left(u_n\right)_{n \in \N}$ est strictement décroissante. 
+\end{itemize}
+
+\subsection{Notion de limite d'une suite arithmétique}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite arithmétique de premier terme $u_0$ et de raison $r \neq 0$. \\
+
+On a donc : $\forall n \in \N, u_{n} = u_0 + nr$. \\
+
+On étudie la limite de la suite arithmétique, ce qui s'écrit $\lim\limits_{n \to +\infty} u_n$. \\
+
+On a : \\
+
+\begin{itemize}
+\item[•] Si $r > 0$, alors $\lim\limits_{n \to +\infty} u_n = +\infty$ 
+\item[•] Si $r < 0$, alors $\lim\limits_{n \to +\infty} u_n = -\infty$ 
+\end{itemize}
+
+\vspace*{-5cm}
+
+\newpage
+
+\vspace*{-1cm}
+
+\subsection{Un superbe exercice}
+
+1) Soit $\left(u_n\right)_{u \in \N}$ la suite arithmétique décroissante définie par :$ \; \; \; \begin{cases}
+u_0 + u_1 + u_2 = 270 \\
+u_0 \times u_1 \times u_2 = 720 000 \\
+\end{cases}$ \\
+
+Déterminer $u_0$, $u_1$ et $u_2$. \\
+
+On peut dire que $u_1 = u_0 + r$ et $u_2 = u_0 + 2r$. \\ On peut aussi dire $u_0 = u_1 - r$ et $u_2 = u_1 + r$. \\
+
+On a alors $\left(u_1 - r\right) + u_1 + \left(u_1 + r\right) = 270$ \\
+
+Ainsi, $3u_1 = 270$ et $u_1 = 90$. \\
+
+On sait que $u_0 \times u_1 \times u_2 = 720 000$ \\
+
+Il vient que $\left(90 - r\right) \times 90 \times \left(90+r\right) = 720 000$. \\
+
+$\left(90-r\right)\left(90+r\right) = \dfrac{720 000}{90}$ \\
+
+$8100 - r^2 = 8000$ 
+
+$-r^2 = -100$ 
+
+$r^2 = 100$ 
+
+Donc $r = 10$ ou $r = -10$. \\
+
+Cependant, on sait que la suite $\left(u_n\right)_{n \in \N}$ est décroissante. Donc $r < 0$. \\
+
+Ainsi, $r = -10$. \\
+
+On a donc $u_0 = 100$, $u_1 = 90$ et $u_2 = 80$. \\
+
+2) Soit $S = u_0 + u_1 + u_2 + ... + u_n$ 
+
+Déterminer $n$ tel que $S = 450$. \\
+
+On cherche à trouver $n$ tel que $\left(n+1\right)\dfrac{u_0 + u_n}{2} = 450$ \\
+
+$\left(u_n\right)_{n \in \N}$ est une suite arithmétique de premier terme $u_0 = 100$ et de raison $r = -10$. \\
+
+On a $u_n = u_0 + nr = 100 - 10n$ \\
+
+Donc on résout $\left(n+1\right)\dfrac{100 + \left(100 -10n\right)}{2} = 450$ \\
+
+$\left(n+1\right)\left(100 - 5n\right) = 450$ 
+
+$100n -5n^2 + 100 - 5n = 450$ 
+
+$-5n^2 + 95n - 350 = 0$ 
+
+$ n = 5$ ou $n = 14$ \\
+
+Et en effet : \\
+
+\centerline{\footnotesize
+\begin{tabular}{rllllllllllllllllllllllllllll}
+$u_0$ & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_1$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm}$u_2$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm}$u_3$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} &  \hspace*{-.3cm} $u_4$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_5$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_6$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_7$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_8$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_9$\hspace*{-.3cm} &  \hspace*{-.3cm}$+$ \hspace*{-.3cm} &  \hspace*{-.3cm}$u_{10}$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_{11}$ \hspace*{-.3cm} &  \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_{12}$ \hspace*{-.3cm} & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_{13}$ \hspace*{-.3cm} &  \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_{14}$ \\
+$100$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $90$  & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $80$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $70$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $60$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $50$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $40$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $30$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $20$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $10$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $0$ & \hspace*{-.3cm} $-$ & \hspace*{-.3cm} $10$ & \hspace*{-.3cm} $-$ & \hspace*{-.3cm} $20$ & \hspace*{-.3cm} $-$ & \hspace*{-.3cm} $30$ & \hspace*{-.3cm} $-$ & \hspace*{-.3cm} $40$ \\
+\end{tabular}}
+
+\newpage

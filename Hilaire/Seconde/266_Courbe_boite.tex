@@ -1,0 +1,28 @@
+% \input{preambule-sacha-utf8.ltx}
+
+
+% \begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=.01cm,scale=.8]
+\draw[->] (-5,0) -- (45,0);
+\foreach \x in {5,10,15,20,25,30,35,40}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-50) -- (0,1450);
+\foreach \y in {,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-5pt) node[left] {\footnotesize $0$};
+\clip(-8,-55) rectangle (50,1400);
+\draw[smooth,samples=100,domain=1:50.0] plot(\x,{(\x)^2+2000/(\x)});
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-8,-55)  grid (45,1400);
+\draw[step=5mm,very thin,AntiqueWhite!30]   (-8,-55)  grid (45,1400);
+\draw[step=1cm,very thin,AntiqueWhite!50]   (-8,-55)  grid (45,1400);
+\draw[step=5cm,thin,AntiqueWhite]          (-8,-55)  grid (45,1400);
+\end{pgfonlayer} 
+
+\end{tikzpicture}
+
+
+
+% \end{document}

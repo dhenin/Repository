@@ -1,0 +1,30 @@
+%\input{preambule-sacha-utf8.ltx}
+%\begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-4.06,0) -- (9.4,0);
+\foreach \x in {-4,-3,-2,-1,1,2,3,4,5,6,7,8,9}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-3.24) -- (0,6.06);
+\foreach \y in {-3,-2,-1,1,2,3,4,5,6}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\clip(-4.06,-3.24) rectangle (9.4,6.06);
+% Le dessin doit etre fait en deux parties sinon erreur autour de l'asymptote verticale
+\draw[smooth,samples=100,domain=-4.06:2.9] plot(\x,{(2*\x - 8 ) / (\x - 3)});
+\draw[smooth,samples=100,domain=3.1:9.4] plot(\x,{(2*\x - 8 ) / (\x - 3)});
+\draw (0,0) node[below left] {O};
+\draw (0,2) node[below left] {2};
+\draw (3,0) node[below left] {3};
+\draw (3,2) node[below left] {$I$};
+\draw [color=red] (3,-3.24) -- (3,6.06);
+\draw [color=red,domain=-4.06:9.4] plot(\x,{(--2-0*\x)/1});
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-4.06,-3.24) grid (9.4,6.06);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-4.06,-3.24) grid (9.4,6.06);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-4.06,-3.24) grid (9.4,6.06);
+\draw[step=5cm,thin,AntiqueWhite]          (-4.06,-3.24) grid (9.4,6.06);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+%\end{document}

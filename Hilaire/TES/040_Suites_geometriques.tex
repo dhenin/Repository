@@ -1,0 +1,319 @@
+\section{Suites géométriques}
+
+\subsection{Définition}
+
+\subsubsection{Expression et vocabulaire}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite. \\
+
+$\left(u_n\right)_{n \in \N}$ est une suite géométrique si, et seulement si, il existe un réel $q$ \textbf{non nul} tel que : \\
+$\forall n \in \N, u_{n+1} = u_n \times q$. \\
+
+$q$ est appelé la \textbf{raison de la suite géométrique}. 
+
+\subsubsection{Exemple}
+Soit $\left(u_n\right)_{n \in \N}$ une suite définie par $u_n = 2 \times 3^n$. \\
+
+On a : 
+
+\begin{itemize}
+\item[•] $u_0 = 2 \times 3^0 = 2 \times 1 = 2$
+\item[•] $u_1 = 2 \times 3^1 = 2 \times 3 = 6$
+\item[•] $u_2 = 2 \times 3^2 = 2 \times 9 = 18$
+\item[•] $u_3 = 2 \times 3^3 = 2 \times 27 = 54$
+\item[•] $u_4 = 2 \times 3^4 = 2 \times 81 = 162$
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+On a $u_{n+1}$ & $ = $ & $ 2 \times 3^{n+1}$ \\
+& $=$ & $2 \times \left(3^n \times 3\right)$ \\
+& $=$ & $\left(2 \times 3^n\right) \times 3$ \\
+& $=$ & $u_n \times 3$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+D'où $\forall n \in \R, u_{n+1} = u_n \times 3$. \\
+
+Donc $\left(u_n\right)_{n \in \N}$ est une suite arithmétique de 1$^{\mathrm{er}}$ terme $u_0 = 2$ et de raison $q = 3$. 
+
+\subsection{Terme général d'une suite géométrique}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite géométrique de premier terme $u_0$ et de raison $q$. \\
+
+On a :
+
+\begin{itemize}
+\item[•] $u_1 = u_0 \times q$
+\item[•] $u_2 = u_1 \times q = u_0 \times q \times q = u_0 \times q^2$
+\item[•] $u_3 = u_2 \times q = u_0 \times q^2 \times q = u_0 \times q^3$
+\item[•] $u_4 = u_3 \times q = u_0 \times q^3 \times q = u_0 \times q^4$
+\end{itemize}
+
+\vspace*{.3cm}
+
+On conjecture que : $\forall n \in \N, u_n = u_0 \times q^n$ \\
+
+\newpage
+
+Montrons que $\forall n \in \N, u_n = u_0 \times q^n$ \\
+
+On vérifie que la formule conjecturée est vraie pour la première valeur de $n$, c'est-à-dire $n = 0$. \\
+
+$u_0 = u_0 \times q^0 = u_0$. 
+
+Puis, on démontre que, si la formule conjecturée est vraie pour $n$, alors elle est vraie pour $n+1$, c'est-à-dire que si $u_n = u_0 \times q^n$, alors $u_{n+1} = u_0 \times q^{n+1}$ \\
+
+Hypothèse de récurrence : $u_n = u_0 \times q^n$. \\
+
+On calcule $u_{n+1}$. \\
+
+\begin{tabular}{lll}
+$u_{n+1}$ & $ = $ & $u_n \times q$ \\
+& $=$ & $u_0 \times q^n \times q$ \\
+& $=$ & $u_0 \times q^{n+1}$ \\ 
+\end{tabular}
+
+Donc $\forall n \in \N, u_n = u_0 + nr$ \\
+
+\textbf{Attention !}
+
+Soit $\left(u_n\right)_{n \in \N^*}$ une suite géométrique de premier terme $u_1$ et de raison $r$. \\
+
+On a :
+
+\begin{itemize}
+\item[•] $u_2 = u_1 \times q$
+\item[•] $u_3 = u_2 \times q = u_1 \times q \times q = u_1 \times q^2$
+\item[•] $u_4 = u_3 \times q = u_1 \times q^2 \times q = u_1 + \times q^3$
+\item[•] $u_5 = u_4 \times q = u_1 \times q^3 \times q = u_1 \times q^4$
+\end{itemize}
+
+\vspace*{.3cm}
+
+On a ici : $\forall n \in \N^*, u_n = u_1 \times q^{n-1}$. 
+
+\newpage
+
+\subsection{Somme des termes d'une suite géométrique}
+
+\subsubsection{Formule et démonstration}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite géométrique de premier terme $u_0$ et de raison $q$. \\
+
+$ S = \underbrace{u_0 + u_1 + u_2 + u_3 + ... + u_n}_{n+1 \; \mathrm{termes}}$ \vspace*{.5cm} \\
+
+\centerline{\footnotesize
+\begin{tabular}{llrlllllllllllll}
+On peut écrire : & & $S$ & $=$ &$u_0$ & $+$ &$u_1$ & $+$ &$u_2$ & $+$ & $...$ & $+$ &$u_{n-1}$ & $+$ &$u_n$ \\
+& et & $S$ & $=$ &$u_0$ & $+$ &$u_0 \times q$ & $+$ &$u_0 \times q^2$ & $+$ & $...$ & $+$ &$u_0 \times \times q^{n-1}$ & $+$ &$u_0 \times q^n$ \\
+En multipliant par $q$ chaque \\
+membre de l'égalité, on a : & & $qS$ & $=$ & $u_0 \times q$& $+$ & $u_0 \times q^2$ & $+$ & $u_0 \times q^3$ & $+$ & $...$ & $+$ & $u_0 \times q^n$ & $+$ & $u_0 \times q^{n+1}$ \\ 
+\end{tabular}}
+
+\vspace*{.3cm}
+
+Ainsi, on peut dire que : \\
+
+\begin{itemize}
+\item[•]$ S - qS = u_0 - u_0 \times q^{n+1}$ \\
+\item[•] $\left(1 \times q\right)S = u_0 \left(1 - q^{n+1}\right)$ \\
+\item[•] $S = u_0 \times \dfrac{1 - q^{n+1}}{1 - q}$ \\
+\end{itemize}
+
+\vspace*{.3cm}
+
+Donc, on a $u_0 + u_1 + u_2 + u_3 + ... + u_n = u_0 \dfrac{1 - q^{n+1}}{1 - q}$ \\
+
+\textbf{Attention !} \\
+
+Soit $\left(u_n\right)_{n\in \N^*}$ une suite géométrique de premier terme $u_1$ et de raison $q$. \\
+
+$u_1 + u_2 + u_3 + ... + u_n = u_1 \dfrac{1 - q^n}{1 - q}$
+
+\newpage
+
+\vspace*{-1.5cm}
+
+\subsubsection{Exemple fondamental : somme des puissances de 2}
+
+$S = 2^0 + 2^1 + 2^2 + 2^3 + 2^4 + ... + 2^n$. Calculer $S$. \\
+
+$S = u_0 + u_1 + u_2 + u_3 + u_4 + ... + u_n$. \\
+
+Soit $\left(u_n\right)_{n \in \N^*}$ une suite géométrique de premier terme $u_0 = 1$ et de raison $q = 2$. \\
+
+\textbf{Attention !}  \\
+
+\textbf{$\mathbf{S}$ n'est pas une suites géométriques mais la sommes des termes d'une suites géométrique.} \\
+
+La somme des termes de la suite est donnée par $S = u_0\dfrac{1 - q^{n+1}}{1 - q}$. \\
+
+$S = 1 \times \dfrac{1 - 2^{n+1}}{1-2}$ \\
+
+$ S = -1 \times \left(1 - 2^{n+1}\right)$ \\
+
+$ S = -1 + 2^{n+1}$ \\
+
+Donc $2^0 + 2^1 + 2^2 + 2^3 + ... + 2^n = -1 + 2^{n+1}$ \\
+
+\textbf{N.B. : Tout nombre de la forme $\mathbf{2^p - 1}$ est appelé \underline{nombre de Mersenne}. Les nombres premiers de Mersenne ont des propriétés \hbox{très particulières pour trouver rapidement de grands nombres parfaits}. }
+
+\subsubsection{Exemple \no 2}
+
+Soit $S = 5 + 15 + 45 + 135 + ... + 295 245$. Calculer $S$. \\
+
+$ S = u_1 + u_2 + u_3 + u_4 + ... + u_n$ \\
+
+Soit $\left(u_n\right)_{n \in \N^*}$ une suite géométrique de premier terme $u_1 = 5$ et de raison $q = 3$. \\
+
+\textbf{Attention !}  \\
+
+\textbf{$\mathbf{S}$ n'est pas une suites géométriques mais la sommes des termes d'une suites géométrique.} \\
+
+La somme des termes de la suite est donnée par $S = u_1\dfrac{1 - q^n}{1 - q}$. \\
+
+On cherche à connaître le rang $n$ du terme $u_n = 295 245 $. \\
+
+\begin{tabular}{lll}
+$u_n$ & $=$ & $295 245$ \\
+$u_1q^{n-1}$& $=$ & $295 245$ \\
+$5 \times 3^{n-1}$ & $=$ & $295 245$ \\
+$3^{n-1}$& $=$ & $59049$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On a $n - 1 = 10$ car $3^{10} = 59049$. \\
+
+D'où $n = 11$. \\
+
+Enfin, $S = 5 \times \dfrac{1 - 3^{11}}{1 - 3} = 442 865$ 
+
+\vspace*{-5cm}
+
+\newpage
+
+\vspace*{-1.4cm}
+
+\subsection{Sens de variation d'une suite géométrique}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite arithmétique de premier terme $u_0 \neq 0$ et de raison $q \neq 1$. \\
+
+On a donc : $\forall n \in \N, u_{n} = u_0 \times q^n$. \\
+
+On étudie le signe de $u_{n+1} - u_{n}$ \\
+
+\begin{tabular}{lll}
+On a  $u_{n+1} - u_{n}$ & $ = $ &$ u_0 \times q^{n+1} - u_0 \times q^{n}$ \\
+& $=$ & $u_0q^n \left(q-1\right)$
+\end{tabular}
+
+\vspace*{.3cm}
+
+On a donc trois cas possibles : \\
+\begin{itemize}
+\item[•] Si $q > 1$, $q^n > 0$ et $q - 1 > 0$ alors on a :
+\begin{itemize}
+\item[*] Si $u_0 > 0$, alors $u_{n+1} - u_n > 0$ et $\left(u_n\right)_{n \in \N}$ est strictement croissante. \\
+\item[*] Si $u_0 < 0$, alors $u_{n+1} - u_n < 0$ et $\left(u_n\right)_{n \in \N}$ est strictement décroissante. \\
+\end{itemize} 
+\item[•] Si $q > 1$, $q^n > 0$ et $q - 1 < 0$ alors on a :
+\begin{itemize}
+\item[*] Si $u_0 > 0$, alors $u_{n+1} - u_n < 0$ et $\left(u_n\right)_{n \in \N}$ est strictement décroissante. \\
+\item[*] Si $u_0 < 0$, alors $u_{n+1} - u_n > 0$ et $\left(u_n\right)_{n \in \N}$ est strictement croissante. \\
+\end{itemize} 
+\item[•] Si $q < 0$, alors le signe de $q^n$ dépend de $n$ et $\left(u_n\right)_{n \in \N}$ est non monotone.
+\end{itemize}
+
+\subsection{Notion de limite d'une suite géométrique}
+
+Soit $\left(u_n\right)_{n \in \N}$ une suite géométrique de premier terme $u_0$ et de raison $q$. \\
+
+On peut étudier ici deux limites : \\
+
+\begin{itemize}
+\item[1.] Étudions la limites de $q^n$ selon les valeurs de $q$ :
+\begin{itemize}
+\item[•] Si $q > 1$, alors $\lim\limits_{n \to +\infty} q^n = + \infty$ \\ 
+\item[•] Si $0 < q < 1$, alors $\lim\limits_{n \to +\infty} q^n = 0$. Exemple : Si $q = \dfrac{1}{2}$, alors $\lim\limits_{n \to +\infty} \left(\dfrac{1}{2}\right)^n = 0$ \\ 
+\item[•] Si $-1 < q < 0$, alors $\lim\limits_{n \to +\infty} q^n = 0$. Exemple : Si $q = -\dfrac{1}{2}$, alors $\lim\limits_{n \to +\infty} \left(-\dfrac{1}{2}\right)^n = 0$ \\ 
+\item[•] Si $q < -1$, alors $\lim\limits_{n \to +\infty} q^n$ n'existe pas. Exemple : Si $q = -2$, alors $\lim\limits_{n \to +\infty} \left(-2\right)^n$ n'existe pas. \\ 
+\end{itemize}
+\item[2.] Étudions la limite de $u_n$ selon les valeurs de $q$ et les valeurs de $u_0$, en rappelant que  : $u_n = u_0q^n$ :
+\begin{itemize}
+\item[•] Si $q > 1$, alors on a deux cas possibles :
+\begin{itemize}
+\item[*] Si $u_0 > 0$, alors $\lim\limits_{n \to +\infty} u_n = +\infty$ \\
+\item[*] Si $u_0 < 0$, alors $\lim\limits_{n \to +\infty} u_n = -\infty$ \\
+\end{itemize}
+\item[•] Si $0 < q < 1$, alors $\lim\limits_{n \to +\infty} u_n = 0$ \\
+\item[•] Si $-1 < q < 0$, alors $\lim\limits_{n \to +\infty} u_n = 0$ \\
+\item[•] Si $q < -1$, alors $\lim\limits_{n \to +\infty} u_n$ n'existe pas. 
+\end{itemize}
+\end{itemize}
+
+\vspace*{-5cm}
+
+\newpage
+
+\subsection{Un superbe exercice}
+
+1) Soit $\left(u_n\right)_{u \in \N}$ la suite géométrique décroissante définie par :$ \; \; \; \begin{cases}
+u_0 + u_1 + u_2 = 999 \\
+u_0 \times u_1 \times u_2 = 729 000 \\
+\end{cases}$ \\
+
+Déterminer $u_0$, $u_1$ et $u_2$ \\
+
+2) Soit $S = u_0 + u_1 + u_2 + ... + u_n$ \\
+
+Déterminer $n$ tel que $S = 999 999$. \\
+
+1) On peut dire que $u_1 = u_0 \times q $ et $u_2 = u_0 + \times q^2$. \\ On peut aussi dire $u_0 = \dfrac{u_1}{q}$ et $u_2 = u_1 \times q$. \\
+
+On a alors $\dfrac{u_1}{q} \times u_1 \times \left(u_1 \times q\right) = 729 000$ \\
+
+Ainsi, $u_1^3 = 729 000$ et $u_1 = 729 000^{\dfrac{1}{3}}$. \\
+
+D'où $u_1 = 90$ \\
+
+On sait que $u_0 + u_1 + u_2 = 999$ \\
+
+Il vient que $\dfrac{90}{q} + 90 + 90q = 999$. \\
+
+$\dfrac{90}{q} + 90q = 909$ \\
+
+$\dfrac{90 + 90q^2}{q} = 909$ \\
+
+$90q^2 + 90 = 909q$ \\
+
+$90q^2 - 909 + 90 = 0$ \\ 
+
+Donc $q = \dfrac{1}{10}$ ou $q = 1$. \\
+
+Cependant, on sait que la suite $\left(u_n\right)_{n \in \N}$ est décroissante. Donc $q \neq 10$. \\
+
+Ainsi, $q = \dfrac{1}{10}$. \\
+
+On a donc $u_0 = \dfrac{u_1}{q} = \dfrac{90}{\dfrac{1}{10}} = 900$, $u_1 = 90$ et $u_2 = u_1q = 90 \times \dfrac{1}{10} = 9$. \\
+
+\newpage
+
+2) On cherche à trouver $n$ tel que $u_0\dfrac{1-q^{n+1}}{1-q} = 999 999$ \vspace*{.3cm} \\
+
+$900\dfrac{1- \left(\dfrac{1}{10}\right)^{n+1}}{1 - \dfrac{1}{10}} = 999 999$ \vspace*{.3cm} \\
+
+$1000 \left[1 - \left(\dfrac{1}{10}\right)^{n+1}\right] = 999 999$ \vspace*{.3cm} \\
+
+$1 - \left(\dfrac{1}{10}\right)^{n+1} = 0,999999$ \vspace*{.3cm} \\
+
+$ - \left(\dfrac{1}{10}\right)^{n+1} = -0,000001$ \vspace*{.3cm} \\
+
+$\left(\dfrac{1}{10}\right)^{n+1} = 0,000001$ \vspace*{.3cm} \\
+
+$ n + 1 = 6$ \\
+
+$ n = 5$. 

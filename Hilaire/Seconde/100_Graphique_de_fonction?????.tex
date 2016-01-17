@@ -1,0 +1,52 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+% \renewcommand\@makefnbreak{\hspace{2em}}
+\begin{document}
+%\shorthandoff{:}
+
+%\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\begin{tikzpicture}
+
+\draw[->,color=black] (-0.3,0) -- (8.28,0);
+\foreach \x in {,1,2,3,4,5,6,7,8}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-0.38) -- (0,6.94);
+\foreach \y in {,1,2,3,4,5,6}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-0.3,-0.4) rectangle (9,7);
+
+\draw[smooth,samples=100,domain=-0.301:8.284] plot(\x,{
+-(29/840)*(\x)^4 
++(213/280)*(\x)^3 
+-(4699/840)*(\x)^2 
++(4443/280)*\x 
+-11});
+
+\draw [dashed] (3,4)-- (3,0);
+\draw [dashed] (0,4)-- (7,4);
+\draw [dashed] (7,4)-- (7,0);
+\draw [dashed] (0,2)-- (5,2);
+\draw [dashed] (5,2)-- (5,0);
+\draw [dashed] (0,6)-- (8,6);
+\draw [dashed] (8,6)-- (8,0);
+
+\draw[smooth,samples=100,domain=-0.301:8.284] plot(\x,{(\x)});
+\draw (6.59,3.17) node[anchor=north west] {y=f(x)};
+\draw (4.78,5.72) node[anchor=north west] {y=x};
+\begin{scriptsize}
+\fill (1,0) circle (1.5pt);
+\fill (3,4) circle (1.5pt);
+\fill (5,2) circle (1.5pt);
+\fill (7,4) circle (1.5pt);
+\draw(0.98,-0.29) node {$f$};
+\fill (8,6) circle (1.5pt);
+\end{scriptsize}
+
+\end{tikzpicture}
+
+%\shorthandon{:}
+\end{document}

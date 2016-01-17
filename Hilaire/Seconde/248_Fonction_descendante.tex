@@ -1,0 +1,33 @@
+% \input{preambule-sacha-utf8.ltx}
+% \begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-1.23,0) -- (5.31,0);
+\foreach \x in {,2,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-1.1) -- (0,5.03);
+\foreach \y in {,2,4}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\clip(-1.23,-1.1) rectangle (5.31,5.03);
+\draw[smooth,samples=100,domain=0.2:5.0] plot(\x,{0.5+4/(\x)});
+
+\draw  (1.38,0)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1.38,0) node [below]{$x_1$};
+\fill  (0,3.41) circle (1.5pt);
+\draw (0,3.41) node [left]{$f(x_1)$};
+\fill  (0,1.68) circle (1.5pt);
+\draw (0,1.68) node [left]{$f(x_2)$};
+\fill  (3.38,0) circle (1.5pt);
+\draw (3.58,0) node [below]{$x_2$};
+\draw  (1.38,3.41)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw  (3.38,1.68)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-1.23,-1.1) grid (5.31,5.03);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-1.23,-1.1) grid (5.31,5.03);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-1.23,-1.1) grid (5.31,5.03);
+\draw[step=5cm,thin,AntiqueWhite]          (-1.23,-1.1) grid (5.31,5.03);
+\end{pgfonlayer} 
+
+\end{tikzpicture}
+% \end{document}

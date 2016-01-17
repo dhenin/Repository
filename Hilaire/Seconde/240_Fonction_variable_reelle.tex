@@ -1,0 +1,3556 @@
+\vspace*{-2cm}
+
+% ------------ Pour elargir la double barre dans les tableaux de signes --------
+
+\tikzset{double style/.style = {double,thick, double distance=1pt}}
+
+%-------------------------------------------------------------------------------
+
+
+\section{Fonctions numériques de la variable réelle}
+
+\subsection{Introduction}
+
+\subsubsection{Exemples de représentations graphiques de fonctions polynômes.}
+
+\paragraph{Exercice \no 1}% Garder le tilde ci-dessous, sinon pas de saut de ligne
+~\\
+ 
+\begin{tabular}{l@{$\;$ }l}
+$f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+      & $ x \longmapsto f(x) = x^3 -3x^2 +4$\\
+\end{tabular}\\
+
+$\mathscr{D}_f = \mathbb{R} = ] -\infty, +\infty [ $ \\
+
+$
+\begin{array}{l@{}l}
+          x_{min} &= -3 \\
+          x_{max} &= 5  \\
+          y_{min} &= -3 \\
+          y_{max} &= 5  \\
+\end{array}
+ %    \qquad  \text{(3 mouvements = }3^{\text{me}} \text{ degré } \longrightarrow \text{ normal) }
+$
+
+\vspace*{-2cm}
+\centerline{\input {241_Fonction_degre_3.tex} }
+
+\textbf{Commentaires :}
+
+ Sens de variation 
+
+$f$ est croissante sur $]- \infty, 0]$ \\
+$f$ est décroissante sur $[0, 2]$ \\
+$f$ est croissante sur $[2, \infty[$ \\
+
+\smallskip 
+
+$M(0,4) \longrightarrow $ un maximum (des maxima) local (sinon absolu) \\
+$M(2,0) \longrightarrow $ un minimum (des minima) local (sinon absolu)\\
+
+$\lim\limits_{\substack{x \to -\infty}} f(x) = -\infty \qquad \qquad \lim\limits_{\substack{x \to +\infty}} f(x) = +\infty $ \\
+
+
+\textbf{Tableau de variations}\\
+
+\begin{tikzpicture}
+\tkzTabInit[espcl=4]{
+    $x$   /.8,
+    $f(x)$ /1}     {$-\infty$ , $0$ ,$2$, $+\infty$}
+\tkzTabVar{-/$-\infty$,+/$4$,-/$0$,+/ $+\infty$}
+\end{tikzpicture}\\
+
+$\mathscr{C}_f$ est symétrique par rapport à $I(1,2)$ . (Symétrie centrale). 
+
+\newpage
+
+\paragraph{Exercice \no 2}~\\
+
+\begin{tabular}{l@{$\;$ }l}
+ $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+       & $ x \longmapsto f(x) = \dfrac{1}{4}x^4 -2x^3 +4x^2 +1$ 
+\end{tabular}\\
+
+$\mathscr{D}_f = \mathbb{R} = ] -\infty, +\infty [ $ \\
+
+\vspace{1cm}
+\hspace*{7.5cm}$\;$\footnote{Où on peut voir un chameau ou un $\Omega$ (oméga dodu)}
+
+\input {242_Fonction_Omega.tex} \hspace{1cm}%
+    \raisebox{40ex}{\begin{minipage}{.4\textwidth}%
+       \begin{tabular}{l@{$\quad$}l}
+        $f$ est décroissante & sur $]-\infty, 0]$\\ 
+        $f$ est croissante   & sur $[0, 2]$\\
+        $f$ est décroissante & sur $[2,4]$\\
+        $f$ est croissante   & sur $[4,+\infty[$\\    
+       \end{tabular} \\
+      
+      $M(2,5) \longrightarrow $ maximum local \\
+      $m_1(0,1)$ et $m_2(4,1) \longrightarrow $ minima absolus.\\
+      
+      
+      $\lim\limits_{\substack{x \to -\infty}} f(x) = +\infty $ \\
+
+      $\lim\limits_{\substack{x \to +\infty}} f(x) = +\infty $ \\
+     
+ \begin{center}      
+ 
+\begin{tikzpicture}
+\tkzTabInit[lgt=1,espcl=1.5]{
+    $x$   /.8,
+    $f(x)$ /1}     {$-\infty$ , $0$ ,$2$, $4$, $+\infty$}
+\tkzTabVar{+/$+\infty$,-/$1$,+/$5$,-/$1$,+/ $+\infty$}
+\end{tikzpicture}\\
+\end{center} 
+       \end{minipage}}\\
+       
+\bigskip 
+
+$\mathscr{C}_f$ est symétrique par rapport à la droite $\Delta$ d'équation $x=2$. (Symétrie axiale). 
+
+\newpage
+
+\subsubsection{Exemples de représentations graphiques de fonctions rationnelles}
+
+%---  Exercice 1   ------------------------------------------------------------      
+
+\paragraph{Exercice \no 1}~\\
+
+\begin{tabular}{ll@{$\;$ }l}
+ $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+       & $ x \longmapsto f(x) = \dfrac{2x^2 -7x +5}{x^2 -5x +7}$ \\
+\end{tabular}\\
+
+\begin{tabular}{lr@{$\;=\;$}r}
+Il ne faut pas que & $x^2 -5x +7$  & $0$ \\
+         & $(x^2 -5x +\dfrac{25}{4}) +\dfrac{3}{4}$& $0$\\
+         & $(x -\dfrac{5}{2})^2 +\dfrac{3}{4}$& $0$ 
+\end{tabular}\\
+
+$\mathscr{D}_f = \mathbb{R} = ] -\infty, +\infty [ $ puisque l'équation $(x^2 -\dfrac{5}{2})^2 = -\dfrac{3}{4}$ n'a pas de solution.\\
+
+
+\bigskip 
+
+
+\centerline{\input {243_Fonction_rationnelle.tex} }
+
+
+\bigskip 
+
+
+
+\begin{tabular}{l@{}l}
+        $f$ est décroissante & sur $]-\infty, 2]$\\ 
+        $f$ est croissante   & sur $[2, 4]$\\
+        $f$ est décroissante   & sur $[4,+\infty[$\\    
+       \end{tabular}
+
+\smallskip 
+
+$M(4,3) \longrightarrow $ un maximum (des maxima) local (sinon absolu) \\
+$M(2,-1) \longrightarrow $ un minimum (des minima) local (sinon absolu)\\
+
+$\lim\limits_{\substack{x \to -\infty}} f(x) = 2 $ \\
+
+$\lim\limits_{\substack{x \to +\infty}} f(x) = 2 $ \\
+
+\begin{center}
+\begin{tikzpicture}
+\tkzTabInit[espcl=3]{
+    $x$   /.8,
+    $f(x)$ /1}     {$-\infty$ , $2$ ,$4$, $+\infty$}
+\tkzTabVar{+/$2$,-/$-1$,+/$3$,-/ $2$}
+\end{tikzpicture}\\
+\end{center}
+
+\newpage   
+
+%---  Exercice 2   ------------------------------------------------------------
+
+\vspace*{-2cm}  % Pour garder le tableau sur la même page
+\paragraph{Exercice \no 2}~\\
+
+\begin{tabular}{ll@{$\;$ }l}
+$f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+      & $ x \longmapsto f(x) = \dfrac{2x^2 +x -13}{x^2 -x -2}$ \\
+\end{tabular}\\
+
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{l|r@{$\;=\;$}r}
+Il ne faut pas que & $x^2 -x -2$  & $0$ \\
+         & $(x^2 -x +\dfrac{1}{4}) -\dfrac{9}{4}$& $0$\\
+         & $(x -\dfrac{1}{2})^2 - (\dfrac{3}{2})^2$& $0$ \\
+   & $(x -\dfrac{1}{2} + \dfrac{3}{2}) (x -\dfrac{1}{2} - \dfrac{3}{2})$& $0$\\
+         & $(x  + 1) (x -2)$                    & $0$   \\          
+          & \multicolumn{2}{c}{$x = -1$  ou $x=2$ }   \\        
+\end{tabular}
+}
+
+\renewcommand{\arraystretch }{1}
+\begin{tabular}{r@{$\;=\;$}l}
+$\mathscr{D}_f $ & $ \mathbb{R} \setminus \{-1,2\} $\\
+                 & $ ] -\infty, -1 [ \cup ] -1, 2[ \cup ] 2, +\infty[$ . 
+\end{tabular}\\
+
+
+\renewcommand{\arraystretch }{1}
+\begin{tabular}{r@{$\;\;$}r@{\hspace{2cm}}r@{$\;\;$}r}
+Asymptotes verticales & $ \begin{cases}
+                           x = -1  \\
+                            x = 2 
+                         \end{cases}$ &  Asymptote horizontale  & $ y = 2$\\
+\end{tabular}\\
+
+\centerline{\input {244_Fonct_asymptotes_vert.tex} }
+
+\smallskip 
+
+\begin{tabular}{lr}
+\begin{tabular}{l@{$\;\;$}l}
+        $f$ est décroissante & sur $]-\infty, -1[$\\ 
+        $f$ est décroissante   & sur $]-1, 1]$\\
+        $f$ est croissante   & sur $[1, 2[$\\
+        $f$ est croissante  & sur $]2, 4]$\\
+        $f$ est décroissante   & sur $[4,+\infty[$\\    
+       \end{tabular} & \parbox{7cm}
+                        {\lineskip=5mm
+                           $m(5,\dfrac{7}{3}) \longrightarrow $ un minimum  local\\
+                           $M(1,5) \longrightarrow $ un maximum  local
+                           
+                        } \\     
+\end{tabular}\\
+
+\medskip
+
+\begin{tabular}{l@{\hspace{.5cm}}r}
+\raisebox{4ex}{\parbox{2.5cm}
+{\lineskip=3mm
+       $\lim\limits_{\substack{x \to -\infty}} f(x) = 2 $ \\
+       $\lim\limits_{\substack{x \to +\infty}} f(x) = 2 $ 
+}}   
+ &   \begin{tikzpicture}
+      \tkzTabInit[lgt=1,espcl=1.7]{
+       $x$   /.8,
+      $f(x)$ /1}     {$-\infty$, $-1$,$1$, $2$, $5$, $+\infty$}
+     \tkzTabVar{+/$2$,-D+/$-\infty$/$+\infty$, -/$5$,+D-/$+\infty$/$-\infty$,+/$\frac{7}{3}$,-/$2$}
+     \end{tikzpicture}\\
+\end{tabular}
+
+\samepage
+
+\newpage
+
+%---  Exercice 3 ------------------------------------------------------------
+
+
+\paragraph{Exercice \no 3}~\\
+
+\begin{tabular}{l@{$\;$ }l}
+$f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+      & $ x \longmapsto f(x) = \sqrt{-x^2 + 2x +3}$ \\
+\end{tabular}\\
+
+
+\bigskip 
+
+\begin{tabular}{lr@{$\;$}cr@{$\,$}r}
+Il faut que & $-x^2 +2x +3$  & $\geqslant$ & $0$ \\
+         & $x^2 -2x -3$  & $\leqslant$ & $0$ \\
+         & \multicolumn{3}{l}{$\qquad$ \ldots} \\
+         & $(x  + 1) (x -3)$ & $\leqslant$ & $0$ \\             
+\end{tabular}
+\\
+
+\[
+\begin{tabvar}{|C|CCRCCCCC|} 
+ \hline
+x &-\infty& \hspace*{15mm}&  &-1 & \hspace*{15mm} &3 & \hspace*{15mm}&+\infty \\ 
+\hline
+ (x +1 ) & & -  &  &\barre{0} & + & \barre{} &+ & \\ 
+ \hline
+  (x -3 ) & & -  &  &\barre{} & -  & \barre{0} &+ & \\ 
+ \hline
+  (x +1)  (x -3 )  & & + &  &\barre{0} & - & \barre{0} &+ & \\ 
+  \hline
+\end{tabvar}
+\]
+
+
+
+
+\renewcommand{\arraystretch }{1}
+\begin{tabular}{r@{$\qquad\qquad$}l}
+$\mathscr{D}_f = [-1, 3] $ &  Qu'est-ce qu'il y a avant $-1$ ? \\
+                           & Rien, le néant, le vide total ! \\ 
+\end{tabular}\\
+
+
+
+
+\bigskip 
+
+
+\bigskip 
+
+\centerline{\input {245_Fonct_racine.tex} }
+
+
+\bigskip 
+
+
+
+\bigskip 
+
+\begin{tabular}{lr}
+\begin{tabular}{l@{$\;\;$}l}
+        $f$ est croissante & sur $]-1, 1[$\\ 
+        $f$ est décroissante   & sur $]1, 3[$\\
+   
+       \end{tabular} & \parbox{8cm}
+                        {\lineskip=5mm
+            $m_1(-1,0) $ et $ m_2(3,0) $  sont des minima absolus \\
+            $M(1,2)  $ est un maximum  absolu                        
+                        } \\     
+\end{tabular}\\
+
+\bigskip 
+
+
+\centerline{\begin{tikzpicture}
+      \tkzTabInit[lgt=1,espcl=1.7]{
+       $x$   /.8,
+      $f(x)$ /1}     {$-1$, $1$, $3$}
+     \tkzTabVar{-/$0$,+/$2$, -/$0$}
+     \end{tikzpicture}}
+
+
+\bigskip 
+
+La fonction $f$ est symétrique par rapport à la droite d'équation $x=1$. 
+
+
+\newpage
+
+Montrons que $\mathscr{C}_f $ est un demi-cercle de centre $\Omega(1 ; 0)$ et de rayon $R=2$ \\
+
+Dans un repère orthonormal : \\
+
+Soit $M(x, y) \in \mathscr{C}_f 
+       \Longleftrightarrow 
+           \begin{cases}
+               -1 \leqslant x \leqslant 3\\
+               y = \sqrt{-x^2 +2x +3} \\   
+           \end{cases} $ \\
+
+\centerline {$\Longleftrightarrow$\\}
+
+
+\begin{tabular}{l@{$\;$}l@{$\;$ }l}
+$ \Omega{M}^2$ & $=$ & $ (x-1)^2 + (\sqrt{-x^2 +2x +3})^2$ \\
+               & $=$ & $ x^2 -2x +1 -x^2 +2x +3 $ \\
+               & $=$ & $4$ \\
+\end{tabular} \\
+
+$\Omega{M} = 2$ \\
+
+D'autre part, pour tout $x\in [-1, 3] \quad f(x) \geqslant 0$. \\
+
+$\mathscr{C}_f $ est au dessus de l'axe des abscisses. 
+
+
+
+%---  Exercice 4 --------------------------------------------------
+
+\paragraph{Exercice \no 4}~\\
+
+\begin{tabular}{l@{$\;$ }l}
+$f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+      & $ x \longmapsto f(x) = \sqrt{x^2 - 2x -3}$ \\
+\end{tabular}\\
+
+
+\bigskip 
+
+\begin{tabular}{lr@{$\;$}c@{$\;$}l}
+Il faut que & $x^2 -2x -3$  & $\geqslant$ & $0$ \\
+            & $ (x^2 -2x +1) -4$  & $\geqslant$ & $0$ \\
+            & $ (x^2 -1)^2 -4 $ & $\geqslant$ & $0$ \\            
+         & $(x -1 +2 ) (x -1 -2 )$ & $\geqslant$ & $0$ \\   
+          & $(x + 1 ) (x -3 )$ & $\geqslant$ & $0$ \\                
+\end{tabular}\\
+
+
+\[
+\begin{tabvar}{C|CCRCCCCC} 
+\hline
+x &-\infty& \hspace*{15mm}&  &-1 & \hspace*{15mm} &3 & \hspace*{15mm}&+\infty \\ 
+\hline
+ (x +1 ) & & -  &  &\barre{0} & + & \barre{} &+ & \\ 
+ \hline
+  (x -3 ) & & -  &  &\barre{} & -  & \barre{0} &+ & \\ 
+ \hline
+  (x +1)  (x -3 )  & & + &  &\barre{0} & - & \barre{0} &+ & \\ 
+ \hline
+\end{tabvar}
+\]
+
+$\mathscr{D}_f = ]-\infty, -1] \cup [3, +\infty [ $\\
+
+Sur $]-\infty, -1]$ \\
+Soit ${\Delta}_1$ la demi-droite d'équation : $y=-x+1$ \\
+
+Sur $[3, +\infty [ $ \\
+Soit ${\Delta}_2$ la demi-droite d'équation : $y=x-1$ \\
+
+
+\centerline{\input {246_Asymptotes.tex} }
+
+\bigskip
+
+$f$ est décroissante sur $]-\infty, -1]$ \\
+$f$ est croissante sur $[3, +\infty[$ \\
+
+$\lim\limits_{\substack{x \to -\infty}} f(x) = +\infty $ \\
+
+$\lim\limits_{\substack{x \to +\infty}} f(x) = +\infty $ \\
+
+\bigskip 
+
+\centerline{
+\begin{tikzpicture}
+\tikzset{double style/.style = {double,thin, double distance=0pt}}
+      \tkzTabInit[lgt=1,espcl=1.7]{
+       $x$   /.8,
+      $f(x)$ /1}     {$-\infty$, $1$, $3$, $+\infty$}
+     \tkzTabVar{+/$+\infty$,-CH/$0$,  -C/$0$, +/$+\infty$/}
+\end{tikzpicture}}
+
+
+
+$\mathscr{C}_f $ est symétrique par rapport à la droite d'équation $x=1$. 
+
+${\Delta}_1$ sur $]-\infty, -1] \qquad y = -x +1$\\
+${\Delta}_2$ sur $[3, +\infty[ \qquad \quad y = x -1$\\
+
+$f(x) = \sqrt{x^2 - 2x -3}$
+
+\begin{tabular}{l@{\hspace{3cm}}|l}
+\multicolumn{1}{c}{$g(x)=-x+1$} & \multicolumn{1}{c}{$g(x)=x - 1$}\\
+                                &                                 \\
+$\begin{cases}
+f(-10) \approx 10,815\\
+g(-10) = 11
+\end{cases}$                  & $ \begin{array}{rl}
+                                f(+10) \approx 8,774 \\
+                                g(10) = 9  
+                                \end{array}$ \\
+$\begin{cases}
+f(-100) \approx 100,980\\
+g(-100) = 101
+\end{cases}$                  & $ \begin{array}{rl}
+                                f(+100) \approx 98,975 \\
+                                g(100) = 99  
+                                \end{array}$ \\
+$\begin{cases}
+f(-1000) \approx 1000,998\\
+g(-1000) = 1001
+\end{cases}$                  & $ \begin{array}{rl}
+                                f(+1000) \approx 998,997 \\
+                                g(1000) = 999  
+                                \end{array}$ \\                             
+\end{tabular}
+
+\newpage
+
+%---  Exercice 1 ( suite)  ------------------------------------------------------------
+
+\paragraph{Exercice \no 1 (suite)}~\\
+
+\begin{itemize}
+    \item Déterminer le nombre et le signe des solutions $f(x) =2$ \\
+    $\begin{cases}
+        y = x^3 -3x^2 +4\\
+        y = 2
+    \end{cases}$ \\
+    
+    3 points d'intersection de $\mathscr{C}_f$ et de $\Delta$ d'équation $y=2$ \\
+    
+    L'équation admet 3 solutions $\underbrace{x_1, x_2 \text{ et }x_3}_{\text{Les abscisses de 3 points d'intersection}}$ \\
+    
+    $x_1 < 0 \quad (\approx 0,7)$\\
+    $x_2 = 1 $\\
+    $x_3 > 0 \quad (\approx 2,7)$\\
+    
+    \item Soit $m \in \mathbb{R}$ \\
+    
+    Discuter graphiquement le nombre et le signe des solutions de l'équation $f(x) = m $\\
+    
+    $\begin{cases}
+        y = x^3 -3x^2 +4\\
+        y = m 
+    \end{cases}$ \\
+
+\bigskip
+
+\begin{tikzpicture}
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+\tkzTabInit[lgt=1.9,espcl=4]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$m$ / .8, $f(x)=m$ /2, $\,$ /1.5}
+                          {$-\infty$, $0$, $4$, $+\infty$}
+\tkzTabLine[]{, 
+% \genfrac voir  http://www-sop.inria.fr/marelle/tralics/doc-g.html
+         \genfrac{}{}{0pt}{0}
+                {\text{Une solution}}
+                {x_1 \text{ avec } x < 0 } , d,
+          \genfrac{}{}{0pt}{0}      
+              {\genfrac{}{}{0pt}{0}
+                {\text{3 solutions }} 
+                {x_1, x_2 \text{ et } x_3 \text{ avec}}
+              }  
+              {\genfrac{}{}{0pt}{0}
+                {x_1<0 \ x_2>0  \text{ et } x_3>0}
+                  {} 
+              }
+                              , d,
+          \genfrac{}{}{0pt}{0}
+                {\text{Une solution}}
+                {x_1 \text{ avec } x > 0 }
+             }
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M12) -- (M22) ; 
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M22) -- (M32) ; 
+            
+        \tkzTabLine[]{  , , 
+          \genfrac{}{}{0pt}{0}
+                {x_1=-1, x_2=2}
+                {\text{ double car minimum }}
+                 , ,\genfrac{}{}{0pt}{0}
+                {x_1=-1, x_2=2}
+                {\text{ double car minimum }}
+                 , , }   
+\end{tikzpicture}    
+\end{itemize}
+
+\newpage
+
+
+%---  Exercice 2 (suite)  ------------------------------------------------------------
+
+
+\paragraph{Exercice \no 2 (suite)}~\\
+
+
+\begin{itemize}
+    \item Déterminer le nombre et le signe des solutions $f(x) =4$ \\
+    $\begin{cases}
+        y = \dfrac{1}{4} x^4 -2x^3 +4x^2 +1\\
+        y = 3
+    \end{cases}$ \\
+    
+    4 points d'intersection de $\mathscr{C}_f$ et de $\Delta$ d'équation $y=3$ \\
+    
+    L'équation admet 4 solutions $\underbrace{x_1, x_2, x_3 \text{ et }x_4}_{\text{Les abscisses de 3 points d'intersection}}$ \\
+    
+    $x_1 < 0 $\\
+    $x_2 > 0 $\\
+    $x_3 > 0 $\\
+    $x_4 > 0 $\\
+    
+    \item Soit $m \in \mathbb{R}$ \\
+    
+    Discuter graphiquement le nombre et le signe des solutions de l'équation $f(x) = m $\\
+    
+    $\begin{cases}
+        y = \dfrac{1}{4} x^4 -2x^3 +4x^2 +1\\
+        y = m 
+    \end{cases}$ \\
+
+\bigskip
+
+\begin{tikzpicture}
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+\tkzTabInit[lgt=1.9,espcl=4.6]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$m$ / .8, $f(x)=m$ /2, $\,$ /1.5}
+                          {$-\infty$, $1$, $5$, $+\infty$}
+\tkzTabLine[]{, 
+% \genfrac voir  http://www-sop.inria.fr/marelle/tralics/doc-g.html
+         \genfrac{}{}{0pt}{0}
+                {\text{Aucune solution}}
+                {\text{pas de solution}} , d,
+          \genfrac{}{}{0pt}{0}      
+              {\genfrac{}{}{0pt}{0}
+                {\text{4 solutions }} 
+                {x_1, x_2, x_3 x_3 \text{ et } x_4 \text{ avec}}
+              }  
+              {\genfrac{}{}{0pt}{0}
+                {x_1<0 \ x_2>0, x_3 > 0   \text{ et } x_4>0}
+                  {} 
+              }
+                              , d,
+          \genfrac{}{}{0pt}{0}
+                {\text{2 solutions} x_1 et x_2}
+                {\text{ avec } x_1 < 0 \text{ et } x_2 > 0 }
+             }
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M12) -- (M22) ; 
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M22) -- (M32) ; 
+            
+        \tkzTabLine[]{  , , 
+          \genfrac{}{}{0pt}{0}
+                {x_1=0, x_2=4}
+                {\text{ double car minimum }}
+                 , ,\genfrac{}{}{0pt}{0}
+                {x_1<0 , x_2=2, \text{ et } x_3>0}
+                {x_2 \text{ est une solution double }}
+                 , , }   
+\end{tikzpicture}    
+\end{itemize}
+
+\newpage 
+
+
+%---  Exercice 3 (suite)  ------------------------------------------------------------
+
+\paragraph{Exercice \no 3 (suite)}~\\
+
+
+\begin{itemize}
+    \item Déterminer le nombre et le signe des solutions $f(x) =1$ \\
+    $\begin{cases}
+        y = \dfrac{2x^2 -7x +5}{x^2 -5x +7} \\
+        y = 1
+    \end{cases}$ \\
+    
+    2 points d'intersection de $\mathscr{C}_f$ et de $\Delta$ d'équation $y=1$ \\
+    
+    L'équation admet 2 solutions $x_1 \text{ et } x_2$ \\
+    
+    $x_1 < 0 $\\
+    $x_2 > 0 $\\
+  
+    
+    \item Soit $m \in \mathbb{R}$ \\
+    
+    Discuter graphiquement le nombre et le signe des solutions de l'équation $f(x) = m $\\
+    
+    $\begin{cases}
+        y = \dfrac{2x^2 -7x +5}{x^2 -5x +7} \\
+        y = m
+    \end{cases}$ \\
+
+\bigskip
+
+{ \footnotesize
+\begin{tikzpicture}
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+\tkzTabInit[lgt=1.9,espcl=2.3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$m$ / .8, $f(x)=m$ /2, $\,$ /1.5}
+                          {$-\infty$, $-1$, $\dfrac{5}{7}$,2,3, $+\infty$}
+\tkzTabLine[]{, 
+% \genfrac voir  http://www-sop.inria.fr/marelle/tralics/doc-g.html
+         \genfrac{}{}{0pt}{0}
+                {\text{pas de}}
+                {\text{solution}} , d,                     
+          \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1>0 , x_2 > 0}, d, 
+          \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1<0 , x_2 > 0} , d,
+                    \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1 > 0 , x_2 > 0}, d,      
+         \genfrac{}{}{0pt}{0}
+                {\text{pas de}}
+                {\text{solution}}
+             }
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M12) -- (M22) ; 
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M22) -- (M32) ; 
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M32) -- (M42) ; 
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M42) -- (M52) ;        
+\tkzTabLine[]
+{  , , 
+          \genfrac{}{}{0pt}{0}
+                {x=2}
+                {\text{double}}
+                 , ,
+           \genfrac{}{}{0pt}{0}
+                {x=0}
+                {x_2 >0 }
+                 , , 
+            \genfrac{}{}{0pt}{0}
+                {x=3}
+                {\text{Simple} }
+                 , ,
+             \genfrac{}{}{0pt}{0}
+                {x=0}
+                {\text{Double}}
+}   
+\end{tikzpicture}\\
+}    
+
+    \item  $f(x) = 2$ \\
+    
+       $ \dfrac{2x^2 -7x +5}{x^2 -5x +7} = 2 $ \\
+
+       $ 2x^2 -7x +5 = 2 (x^2 -5x +7) $ \\
+       
+        $ 2x^2 -7x +5 = 2x^2 -10x +14) $ \\
+        
+        $ 3x = 9  \longleftarrow $ 1$^{\text{er}}$ degré. \\
+       
+        $ x = 3 $ 
+\end{itemize}
+
+\newpage
+
+
+%---  Exercice 4 (suite)  ------------------------------------------------------------
+
+\paragraph{Exercice \no 4 (suite)}~\\
+
+\begin{itemize}
+    \item Déterminer le nombre et le signe des solutions $f(x) = -2$ \\
+    $\begin{cases}
+        y = \dfrac{2x^2 +x +3}{x^2 -x -2} \\
+        y = -2
+    \end{cases}$ \\
+    
+    2 points d'intersection de $\mathscr{C}_f$ et de $\Delta$ d'équation $y=1$ \\
+    
+    L'équation admet 2 solutions $x_1 \text{ et } x_2$ \\
+    
+    $x_1 < 0 $\\
+    $x_2 > 0 $\\
+  
+    
+    \item Soit $m \in \mathbb{R}$ \\
+    
+    Discuter graphiquement le nombre et le signe des solutions de l'équation $f(x) = m $\\
+    
+    $\begin{cases}
+        y = \dfrac{2x^2 +x +3}{x^2 -x -2} \\
+        y = -2
+    \end{cases}$ \\
+    
+
+\bigskip
+
+{ \footnotesize
+\begin{tikzpicture}
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+\tkzTabInit[lgt=1.9,espcl=2.3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$x$ / .8, $f(x)=m$ /2, $\,$ /1.5}
+                          {$-\infty$, $-1$, $\dfrac{7}{3}$,5, 
+                           $\dfrac{13}{2}$, $+\infty$
+                          }
+\tkzTabLine[]{, 
+% \genfrac voir  http://www-sop.inria.fr/marelle/tralics/doc-g.html
+          \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1<0 , x_2 > 0}, d,                      
+          \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1>0 , x_2 > 0}, d, 
+          \genfrac{}{}{0pt}{0}
+                {\text{Pas de solution}} 
+                {} , d,
+           \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1 > 0 , x_2 > 0}, d,      
+           \genfrac{}{}{0pt}{0}
+                {\text{2 solutions }} 
+                {x_1 < 0 , x_2 > 0}
+             }
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M12) -- (M22) ; 
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M22) -- (M32) ; 
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M32) -- (M42) ; 
+     \draw [decoration={brace,amplitude=12pt,raise=-12pt},
+            decorate, line width=1] (M42) -- (M52) ;        
+\tkzTabLine[]
+{  , , 
+          \genfrac{}{}{0pt}{0}
+                {x=3}
+                {\text{Simple}}
+                 , ,
+           \genfrac{}{}{0pt}{0}
+                {x=5}
+                {\text{Double}}
+                 , , 
+            \genfrac{}{}{0pt}{0}
+                {x=1}
+                {\text{Double} }
+                 , ,
+             \genfrac{}{}{0pt}{0}
+                {x=0}
+                {x_2>0}
+}   
+\end{tikzpicture}\\
+}   
+\end{itemize}
+
+\newpage
+\subsection{Fonctions affines}
+
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}\qquad \qquad a \neq 0 $  (sinon la fonction est constante)\\
+        & $ x \longmapsto f(x) = ax+b$  \\
+\end{tabular}\\
+
+$\mathscr{D}_f = \mathbb{R} = ] -\infty, +\infty [ $ \\
+
+Soit $ (O, \vec{i}, \vec{j}) $ un repère. $\mathscr{C}_f$ sa représentation graphique.\\
+
+ 
+\begin{tabular}{r@{$\;$}r@{$\;$}l}
+$M(x,y) \in \mathscr{C}_f  
+          \Longleftrightarrow $ &        $ y $ & $= f(x) $\\
+         $\Longleftrightarrow $ &        $ y $ & $= ax + b$ \\
+         $\Longleftrightarrow $ & $ ax -y +b $ & $= 0$ \\                     
+\end{tabular}
+
+\'{E}quation cartésienne de la droite 
+         
+           
+\begin{tabular}{|cc|c}
+\multicolumn{1}{c}{$\vec{u}$}    &\multicolumn{1}{c}{$\vec{j}$}     & \\
+\multicolumn{1}{c}{$\downarrow $}&\multicolumn{1}{c}{$\downarrow $} & \\
+$1$ & $0$ & $ 1 - 0 =  1 \neq 0 $ \\
+$a$ & $ 1$ &  
+\end{tabular}  \\
+
+$\vec{u}$ et $\vec{j}$ ne sont pas colinéaires.
+
+Donc la représentation graphique d'une fonction affine                                           est une droite non parallèle à l'axe des ordonnées. 
+
+\begin{tabular}{l@{$\qquad$}l@{$\quad$}l}
+$y=x-2$   & $A(0, \; -2)$ &  $B(2, \; 0)$ \\
+$y=4x-24$ & $A(6, \; 0)$  &  $B(7, \; 4)$ \\
+\end{tabular}\\
+
+\subsubsection*{Sens de variation d'une fonction}
+
+
+\begin{tabular}{l@{$\;$ }l}
+  Soit $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+        & $ x \longmapsto f(x) = ax+b$  \\
+\end{tabular}\\
+
+Soit $I$ un intervalle inclus dans $\mathscr{D}_f$ \\
+
+Soit $x_1 \in I$ et $x_2 \in I$ avec $x_1 < x_2$ \\
+
+\centerline{
+\begin{tabular}{r@{}c@{}l@{$\qquad \qquad$}r@{}c@{}l}
+\multicolumn{3}{c}{\input {247_Fonction_ascendante.tex}} &
+     \multicolumn{3}{c}{\input {248_Fonction_descendante.tex}} \\
+$x_1$ & $<$ & $ x_2 $ & $x_1$ & $<$ & $ x_2 $ \\
+$f(x_1)$ & $ < $ & $f(x_2) $ &  $f(x_1)$ & $ > $ & $f(x_2) $ \\
+$f(x_2) - f(x_1)$& $>$ & $0$ & $f(x_2) - f(x_1)$& $<$ & $0$  \\
+\multicolumn{3}{c}{$f$ est croissante sur $I$} &
+     \multicolumn{3}{c}{$f$ est décroissante sur $I$} \\
+\end{tabular}
+}
+
+\newpage
+
+Pour étudier le sens de variation d'une fonction $f$, on étudie le signe de $f(x_2)-f(x_1)$ \\
+
+Pour tout couple $x_1$, $x_2$ vérifiant  $x_1 \in I$ et $x_2 \in I$ et $x_1 < x_2$ \\
+
+\begin{itemize}
+\item[*] Si $f(x_2) -f(x_1) >0$ alors $f$ est strictement croissante sur $I$.
+\item[*] Si $f(x_2) -f(x_1) < 0$ alors $f$ est strictement décroissante sur $I$.
+\end{itemize}
+
+\bigskip
+
+\underline { Cas d'une fonction affine}
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}\qquad \qquad a \neq 0 $  \\
+        & $ x \longmapsto f(x) = ax+b$  \\
+\end{tabular}\\
+
+$\mathscr{D}_f = \mathbb{R} $ \\
+
+\begin{tabular}{rl}
+Soit & $x_1 \in \mathbb{R} $ \\
+     & $x_2 \in \mathbb{R} $ \\
+avec & $x_1 < x_2 $ 
+\end{tabular}   
+
+\begin{tabular}{rl}
+$f(x_2) -f(x_1) $ & $=(ax_2 +b) - (ax_1 +b) $ \\
+                  & $= ax_2 +b - ax_1 - b $ \\ 
+$f(x_2) -f(x_1) $ & $= a \;  \; \underbrace{(x_2 - x_1)} $ \\
+                  & $ \qquad $ strictement positif \\                  
+\end{tabular}  \\
+
+\begin{enumerate}
+\item Cas $a>0$ 
+
+\begin{tabular}{rl}
+$f(x_2) -f(x_1) = \underbrace{a}$ & $\underbrace{(x_2 - x_1)} $ \\
+              strictement positif & strictement positif  aussi \\
+\end{tabular}\\
+
+Donc $f$ est strictement croissante sur $ \mathbb{R}$.
+
+\item Cas $a<0$ 
+
+\begin{tabular}{rl}
+$f(x_2) -f(x_1) = \underbrace{a}$ & $\underbrace{(x_2 - x_1)} $ \\
+              strictement négatif & strictement positif \\
+\end{tabular}\\
+
+Donc $f$ est strictement décroissante sur $ \mathbb{R}$.             
+\end{enumerate}
+
+\bigskip
+\centerline{
+\begin{tabular}{r@{$\qquad$}l 
+                                   @{\hspace*{5cm}}
+                r@{$\qquad$}l }
+\underline {Ex \no 1} : &  $f : \mathbb{R} \longrightarrow \mathbb{R}$ & 
+\underline {Ex \no 2} : &  $f : \mathbb{R} \longrightarrow \mathbb{R}$ \\
+      & \multicolumn{1}{l}{$x \mapsto 2x -3 $}  &
+      &       \multicolumn{1}{l}{$x \mapsto -2x +3 $} \\
+\multicolumn{2}{l}{$\mathscr{D}_f = \mathbb{R} $} &
+    \multicolumn{2}{l}{$\mathscr{D}_f = \mathbb{R} $} \\                               
+\multicolumn{2}{l}{$A(0,-3) \qquad B(3, 3)$} &
+    \multicolumn{2}{l}{$A(0,3)\qquad B(3, -3)$} \\    
+\multicolumn{2}{l}{\input{249_Affine_ascendante.tex}} &
+    \multicolumn{2}{l}{\input{250_Affine_descendante.tex}} \\
+\end{tabular}
+}
+\newpage
+
+\underline{Problème inverse} \\
+
+
+\begin{center}
+                    \input{251_Probleme_inverse.tex} 
+\end{center}
+
+     Déterminer la fonction assocée à $\Delta$, \\
+     
+     $A(1,1)$\\
+     $B(2,4)$ \\
+     
+     $y = ax + b$ \\
+     
+     on a : $\begin{cases}
+               1 = a \times 1 + b \\
+               4 = a \times 2 + b \\ 
+             \end{cases}$ \\
+\bigskip  
+             
+\begin{tabular}{lcl}
+$\left\{ \begin{array}{ll|l} 
+      \;\;\; a + b  \!\!\!\!\!\!\!\! & = 1 & -1 \\
+     2a + b   \!\!\!\!\!\!\!\!& = 4 & 
+          \end{array} \right. $ & \hspace{1cm} 
+   & $\left\{ \begin{array}{ll|l} 
+                  \; \; a + b \!\!\!\!\!\!\!\!& = 1 & -2 \\
+                 2a + b  \!\!\!\!\!\!\!\!& = 4 & 
+              \end{array} \right. $ \\
+   & & \\
+$\left\{ \begin{array}{ll} 
+       \; \; -a - b \!\!\!\!\!\!\!\! & = -1  \\
+       2a + b \!\!\!\!\!\!\!\! & = 4
+          \end{array} \right. $ & \hspace{1cm} 
+   & $\left\{ \begin{array}{ll} 
+                 -2a - 2b  \!\!\!\!\!\!\!\! & = -2  \\
+                  \; \; 2a +  b  \!\!\!\!\!\!\!\! & = \;\; 4
+               \end{array} \right. $ \\
+\cline{1-1} \cline{3-3}\\
+$  \qquad \qquad   a  =  3 $ & & $ \qquad \qquad -b = \; \; 2 $\\
+               & & $ \qquad \qquad  \; \; \; b = -2 $ \\
+\end{tabular}   
+
+\bigskip          
+
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f(x) = 3x - 2$  \\
+\end{tabular}\\
+     
+\newpage
+
+\subsection{Fonctions polynômes du second degré}
+
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f(x) = ax^2 + bx + c \qquad \qquad a \neq 0$ \\
+\end{tabular}\\
+
+\subsubsection{Fonction de référence}
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f(x) = x^2$ \\
+\end{tabular}\\
+
+
+$\mathscr{D}_f = \mathbb{R} = ] -\infty, +\infty [ $ \\
+
+\centerline{\input{252_Parabole_reference.tex}}
+
+$\mathcal{C}_f$ est symétrique par rapport à l'axe des ordonnées (symétrie axiale).\\
+
+$\mathcal{C}_f$ est une parabole \\
+
+\begin{itemize}
+\item [*] Montrons que $f$ est décroissante sur $] -\infty, 0[ $.\\
+
+\begin{tabular}{ll}
+\parbox{3.5cm}{$\left.\begin{array}{c}
+                           x_1 \leqslant 0\\
+                           x_2 \leqslant 0 \\
+                               \end{array} \right\rbrace  x_1 + x_2 < 0 $} 
+   &                                
+        \begin{tabular}{rl@{$\qquad$}l}
+            Soit & $x_1 \in ]-\infty, 0[$ & avec  $x_1 < x_2 $ \\
+                 & $x_2 \in  ]-\infty, 0[ $ &  \\
+        \end{tabular}\\
+\end{tabular}\\        
+
+\begin{tabular}{r@{}l}
+$f(x_2) -f(x_1) $ & $=x_{2}^2 -  x_{1}^2$ \\
+$f(x_2) -f(x_1) $ 
+& $=\underbrace{(x_2 - x_1)}_\text{\makebox[1.5cm][l]{strictement positif}}
+    \overbrace{(x_2 + x_1)}^\text{négatif}
+  $ \\
+\end{tabular} 
+
+\newpage
+
+\item [*] Montrons que $f$ est croissante sur $] 0, +\infty[$ .\\
+
+\begin{tabular}{rl@{$\qquad$}l}
+ Soit & $x_1 \in ]0, +\infty[$ & avec  $x_1 < x_2 $ \\
+     & $x_2 \in  ]0, +\infty[ $ &  \\
+\end{tabular}
+
+
+\begin{tabular}{r@{}l}
+$f(x_2) -f(x_1) $ 
+& $=\underbrace{(x_2 - x_1)}_\text{\makebox[1.5cm][l]{strictement positif}}
+    \overbrace{(x_2 + x_1)}^\text{positif}
+  $ \\
+\end{tabular}  \\
+
+
+$\left.\begin{array}{c}
+        x_1 \geqslant 0\\
+        x_2 \geqslant 0 \\
+\end{array} \right\rbrace  x_1 + x_2 \geqslant 0 $
+
+Minimum $\overbrace{O}^{[\omega]}(0,0)$.
+
+pour tout $x \in \mathbb{R}, x^2 \geqslant 0 $ donc $f(x) \geqslant 0$
+
+\end{itemize}
+
+
+\subsubsection{Exemple fondamental}
+
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f(x) = x^2 -2x -3 $ \\
+\end{tabular}\\
+
+$\mathscr{D}_f = \mathbb{R} = ] -\infty, +\infty [ $ \\
+
+\centerline{\input{253_Parabole_exemple.tex}} 
+
+\newpage
+
+
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi})}
+\item \underline{Changement de repère}
+
+
+\underline{Nouveau repère} $(S, \vec{i}, \vec{j}) 
+               \qquad S(1, -4) \overrightarrow{OS}\left(\begin{array}{c}
+                                                          1\\
+                                                         -4\\
+                                                   \end{array}\right)$ \\
+                                    
+\begin{tabular}{r@{$\left.\begin{array}{c}  \\ \\ \\ \\ 
+                               \end{array} \right\lbrace $}l}
+\raisebox{-1ex}{\parbox[l]{1.9cm}
+{Dans la\\
+même base}} & \begin{tabular}{r@{$\Longleftrightarrow$}l}
+    $M(x,y)$ dans $(0, \vec{i}, \vec{j}) $ 
+          & $ \overrightarrow{OM} = x\vec{i} +y\vec{j} $ \\
+          & $ \overrightarrow{OM} =\left(\begin{array}{c}
+                                            x\\
+                                            y\\
+                                   \end{array}\right)$ \\
+   $M(X,Y)$ dans $(S, \vec{i}, \vec{j}) $ 
+          & $ \overrightarrow{SM} =\left(\begin{array}{c}
+                                            X\\
+                                            Y\\
+                                   \end{array}\right)$ \\                                   
+   \end{tabular}\\
+\end{tabular}                                                   
+
+
+\begin{tabular}{rl}
+On a 
+    & $\overrightarrow{OM} = \overrightarrow{OS} + \overrightarrow{SM}$\\
+    & $\begin{cases}
+           \; x = 1 + X\\
+           \; y = -4 +Y\\
+        \end{cases}$   
+\end{tabular}\\
+
+\begin{tabular}{r@{$\Longleftrightarrow$}r@{$\;$}l}
+$M(x,y)\in \mathcal{C}_f$  
+          & $ y $ & $ = f(x) $ \\
+          & $ y $ & $ = x^2 -2x -3 \leftarrow$ Équation de la parabole dans l'ancien repère\\
+          & $-4 + Y $ & $ = (1+X)^2 -2(1+X) -3 $ \\                                        
+          & $-4 + Y $ & $ = 1 + 2X + X^2 -2 -2 X -3 $ \\                                        
+          & $-4 + Y $ & $ = -4 + X^2 $ \\                                                  
+          &    $Y$  & $ = X^2 \leftarrow$  Équation de la parabole dans le nouveau repère\\                                                            
+\end{tabular}\\
+                                              
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ X \longmapsto F(X) = X^2 $ \\
+\end{tabular}\\
+
+$\mathscr{D}_F = \mathbb{R}$                                               
+
+\newpage
+               
+\item \underline{Sens de variation}
+
+\begin{itemize}
+\item [*] Montrons que $f$ est décroissante sur $] -\infty, 1] $.\\
+
+Soit $x_1 < x_2 \text{ et }  x_1, x_2 \in  ]-\infty, 1[  $   \\    
+
+\begin{tabular}{r@{}l}
+$f(x_2) -f(x_1) $ & $= (x^{2}_2 -2x_2 -3) - (x^{2}_1 -2x_1 -3)$ \\
+                  & $= x^{2}_2 -2x_2 -3 - x^{2}_1 + 2x_1 +3$ \\
+                  & $= (x_2 - x_1) (x_2 + x_1) -2 (x_2 - x_1) $ \\                  
+                  & $=\overbrace{(x_2 - x_1)}^\text{\makebox[1.5cm][l]{strictement positif}}
+    \underbrace{(x_2 + x_1 -2 )}_{\begin{array}{r@{\;\leqslant\;}l}
+                                       x_1 & 1 \\
+                                       x_2 & 1 \\
+                                  x_2 + x_1 & 2 \\
+                                x_2 +x_1 -2 & 0 \\
+                       \multicolumn{2}{c}{\uparrow\text{Négatif}}\\
+                                    \end{array}
+                                  }
+    $
+  \\
+\end{tabular}\\
+
+\item [*] Montrons que $f$ est croissante sur $[1, +\infty[ $.\\
+
+Soit $x_1 < x_2 \text{ et }  x_1, x_2 \in  [1,+\infty[  $   \\    
+
+\begin{tabular}{r@{}l}
+$f(x_2) -f(x_1) $ & $= (x^{2}_2 -2x_2 -3) - (x^{2}_1 -2x_1 -3)$ \\
+                  & $= x^{2}_2 -2x_2 -3 - x^{2}_1 + 2x_1 +3$ \\
+                  & $= (x_2 - x_1) (x_2 + x_1) -2 (x_2 - x_1) $ \\                  
+                  & $=\overbrace{(x_2 - x_1)}^\text{\makebox[1.5cm][l]{strictement positif}}
+    \underbrace{(x_2 + x_1 -2 )}_{\begin{array}{r@{\;\geqslant\;}l}
+                                       x_1 & 1 \\
+                                       x_2 & 1 \\
+                                  x_2 + x_1 & 2 \\
+                                x_2 +x_1 -2 & 0 \\
+                       \multicolumn{2}{c}{\uparrow\text{Positif}}\\
+                                    \end{array}
+                                  }
+    $
+  \\
+\end{tabular}      \\   
+\end{itemize}
+
+Extremum : $S(1, -4) \leftarrow $ Minimum absolu.      
+                                        
+\item Forme canonique
+
+$f(x) = ax^2 +bx +c \qquad a\neq 0$\\
+
+$f(x) = a (x - \alpha) ^2 + \beta $\\
+
+\begin{tabular}{l@{$\;$}ll}
+$f(x) $  & $= x^2 -2x -3$            & $a=1$ \\
+            & $= (x^2 -2x) -3$          &           \\
+            & $= [(x^2 -1)^2 -1] -3 $ &          \\            
+            & $=  (x^2 -1)^2 -4       $ &  $ \alpha = 1  \quad  \beta = -4 $ \\                 
+\end{tabular}\\
+
+$S(1,-4) $\\
+
+$\left\lbrace \begin{array}{r@{$\;$}l}
+\text{Pour tout  } x \in \Re (x-1)^2 &   \geqslant 0 \\
+                          (x-1)^2 -4  &  \geqslant -4 \\     
+ \multicolumn{2}{l}{ f(x) \geqslant -4 } \\                                              
+\end{array}   \right. $ \\
+
+Donc $f(x)$ a pour minimum absolu  $-4$ \\
+
+\newpage
+Encore des formes canoniques ? Oh oui ! 
+
+
+\begin{tabular}{l@{$\;$}ll}
+$f(x) $  & $= 3x^2 -12x +7$            & $a=3$ \\
+            & $= 3(x^2 -4x)  +7$          &           \\
+            & $= 3[(x -2)^2 -4] +7 $ &          \\            
+            & $=  3(x -2)^2 -12 +7 $ &  $ \alpha = 2  \quad  \beta = -5 $ \\      
+            & $=  3(x -2)^2 -5       $ &   \\               
+\end{tabular}\\
+
+$S(2,-5) $\\
+ 
+
+$\begin{array}{r@{$\;$}l}
+\text{Pour tout  } x \in \Re (x-2)^2 &   \geqslant 0 \\
+                                        3 (x-2)^2 &   \geqslant 0 \\
+                          3(x-2)^2 -5  &  \geqslant -5 \\     
+ \multicolumn{2}{l}{ f(x) \geqslant -5 } \\                                              
+\end{array}    $  \\ 
+
+Minimum absolu \\
+
+ {\renewcommand{\arraystretch }{2}
+\begin{tabular}{l@{$\;$}l}
+$f(x) $  & $= 3x^2 +5x -8$                                              \\
+            & $= 3(x^2 +\dfrac{5}{3} x)  -8$                          \\
+            & $= 3[(x +\dfrac{5}{6})^2  -\dfrac{25}{36} ] -8$  \\      
+            & $= 3(x +\dfrac{5}{6})^2  -\dfrac{75}{36}  -8$    \\                  
+            &$= 3(x +\dfrac{5}{6})^2  -\dfrac{121}{12}$         \\            
+\end{tabular}\\
+
+$S(-\dfrac{5}{6}, -\dfrac{121}{12}) $\\
+ 
+$\begin{array}{r@{$\;$}l}
+\text{Pour tout  } x \in \Re, (x+\dfrac{5}{6})^2 &   \geqslant 0 \\
+                                        3 (x+\dfrac{5}{6})^2 &   \geqslant 0 \\
+                          3(x+\dfrac{5}{6})^2 -\dfrac{121}{12}  &  \geqslant -\dfrac{121}{12}  \\     
+ \multicolumn{2}{l}{ f(x) \geqslant -\dfrac{121}{12}  } \\                                              
+\end{array}   $ \\
+
+\renewcommand{\arraystretch }{1}}
+
+\end{enumerate}
+
+
+\newpage
+
+\vspace*{-1cm}
+
+\subsubsection{Autre exemple fondamental}
+
+\begin{tabular}{l@{$\;$ }l}
+ $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+        & $ x \longmapsto f(x) = -x^2 +6x -4$ \\
+\multicolumn{2}{l}{$\mathscr{D}_f = ]-\infty, +\infty [ $ }       \\
+\end{tabular}\\
+
+
+\centerline{\input {246_Parabole_Cloche.tex}}
+
+\bigskip 
+
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi})}
+
+\item \underline{Nouveau repère} $(S, \vec{i}, \vec{J}) \quad
+                          S(3,5) \quad \overrightarrow{OS}\left(\begin{array}{c}
+                                                                                 3\\
+                                                                                 5\\
+                                                                            \end{array} \right)$ \\
+\begin{tabular}{l
+                             @{$\;$}
+                                             l}
+$M(x,y)$ dans $(O, \vec{i, \vec{j}}) $ & $ \Longleftrightarrow \overrightarrow{OM}\left(\begin{array}{c}
+                                                                                 x\\
+                                                                                 y\\
+                                                                            \end{array} \right)$ \\
+   & \\                                            
+$M(X, Y) \text { dans } (S, \vec{i}, \vec{J}) $ & $ \Longleftrightarrow \overrightarrow{SM}\left(\begin{array}{c}
+                                                                                 X\\
+                                                                                 Y\\
+                                                                            \end{array} \right)$ \\
+\end{tabular}\\
+
+$
+  \begin{array}{r@{\;}l@{\;}c@{}c@{}c}
+     \overrightarrow{OM}  & = & \overrightarrow{OS} & + & \overrightarrow{SM}\\
+    \ldelim\{{2}{4mm}  x   & = &              3                & +  & X \\
+                                  y   & = &              5                & +  & Y \\
+  \end{array}
+$\\
+
+\begin{tabular}{r@{$\;$}r@{$\;$}l}
+$M(x,y) \in \mathscr{C}_f  
+           \Longleftrightarrow $ & $ y $ & $= f(x) $\\
+         $\Longleftrightarrow $ & $ y $ & $= -x^2 +6x -4$ \\
+         $\Longleftrightarrow $ & $ 5 + Y  $ & $= -(3 + X)^2 + 6(3+X) -4$ \\        
+         $\Longleftrightarrow $ & $ 5 + Y  $ & $= -(9 + X^2 +6X) +18 +6X  -4$ \\                
+         $\Longleftrightarrow $ & $ 5 + Y  $ & $= -9 - X^2 - 6X +18 +6X  -4$ \\                
+         $\Longleftrightarrow $ & $ 5 + Y  $ & $= - X^2 + 5$ \\         
+         $\Longleftrightarrow $ & $  Y  $ & $= - X^2 $ \\    
+\end{tabular}
+
+\begin{tabular}{l@{$\;$ }l}
+ $F$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$\\
+        & $ X \longmapsto F(X) = -X^2$ \\
+\multicolumn{2}{l}{$\mathscr{D}_{F} = \R $ }       \\
+\end{tabular}
+ 
+\samepage
+ 
+ \newpage
+ \item \underline{Sens de variation}
+
+\begin{itemize}
+
+\item [*] Montrons que $f$ est croissante sur $]-\infty, 3]$ \\
+
+Soient $x_1 < x_2$   et  $x_2 \in ] -\infty, 3]$ \\
+
+\begin{tabular}{r@{$\;$}l}
+$f(x_2) -f(x_1) =$      &  $ (-x_{2}^{2} +6x_2 -4 ) - (-x_{1}^{2} +6x_1 -4 ) $\\
+         $=$ & $  -x_{2}^{2} +6x_2 +x_{1}^{2} -6x_1 $\\
+         $=$ & $(x_1 + x_2) (x_1 - x_2) -6 (x_1 -x_2) $ \\        
+         $=$ & $\overbrace{(x_2 - x_1)}^\text{\makebox[1.5cm][l]{strictement négatif}}
+    \underbrace{(x_2 + x_1 -6 )}_{\begin{array}{r@{\;\leqslant\;}l}
+                                       x_1 & 3 \\
+                                       x_2 & 3 \\
+                                  x_2 + x_1 & 6 \\
+                                x_2 +x_1 -6 & 0 \\
+                       \multicolumn{2}{c}{\uparrow\text{Négatif}}\\
+                                    \end{array}
+                                  }
+    $
+\end{tabular}\\
+
+\item [*] Montrons que $f$ est décroissante sur $[3,\; +\infty$ \\
+
+Soient $3 \leqslant x_1 < x_2$  \\
+
+\begin{tabular}{r@{$\;$}l}
+$f(x_2) -f(x_1) =$      & $(x_1 + x_2) (x_1 - x_2) -6 (x_1 -x_2) $ \\        
+         $=$ & $\overbrace{(x_2 - x_1)}^\text{\makebox[1.5cm][l]{strictement négatif}}
+    \underbrace{(x_2 + x_1 -6 )}_{\begin{array}{r@{\;\geqslant\;}l}
+                           \multicolumn{2}{c}{\uparrow\text{Positif car}}\\
+                                       x_1 & 3 \\
+                                       x_2 & 3 \\
+                                  x_2 + x_1 & 6 \\
+                                x_2 +x_1 -6 & 0 \\
+                                    \end{array}
+                                  }
+    $
+\end{tabular}\\ 
+
+$S(3,5)$ maximum absolu. \\
+\end{itemize}
+
+\item \underline{Écriture canonique}
+
+\begin{tabular}{r@{$=\;$}l}
+$f(x)$ & $ -x^2 + 6x        -4 $ \\
+       & $ -( x^2 -6x)      -4 $ \\
+       & $ -[ (x - 3)^2 -9] -4 $ \\
+       & $ -(x -3)^2    +9  -4 $ \\
+       & $ - (x - 3)^2 + 5 $ \\
+\end{tabular}\\
+
+\begin{tabular}{r@{$\!\!\!\!\!\!\!\!\!\!\!\!\!\!$}r@{$\;\;$}c@{}l}
+Pour tout $ x \in \mathbb{R}, $ 
+       & $   (x - 3)^2 $ & $ \geqslant $ & 0 \\
+       & $ - (x - 3)^2 $ & $ \leqslant $ & 0 \\
+       & $ - (x - 3)^2 + 5$ & $ \leqslant $ & 5 \\
+\end{tabular}\\
+
+$S(3, 5)$ \\
+
+$f(x) \leqslant 5$ \\
+
+
+ 
+\end{enumerate}
+
+
+\newpage
+
+Encore des formes canoniques ? Oh Oui ! \\
+
+\begin{tabular}{r@{$=\;$}l}
+$f(x)$ & $ -2x^2 + 4x        +1 $ \\
+       & $ -2( x^2 -2x)      +1 $ \\
+       & $ -2[ (x - 1)^2 -1] +1 $ \\
+       & $ -2(x -1)^2    +2  +1 $ \\
+       & $ -2(x - 1)^2 + 3 $ \\
+\end{tabular}\\
+
+$S(1,3)$ car $\alpha = 1$ et $\beta = 3$.\\
+
+\begin{tabular}{r@{$\!\!\!\!\!\!\!\!\!\!\!\!\!\!$}r@{$\;\;$}c@{}l}
+Pour tout $ x \in \mathbb{R}, $ 
+       & $   (x - 1)^2 $ & $ \geqslant $ & 0 \\
+       & $ -2(x - 1)^2 $ & $ \leqslant $ & 0 \\
+       & $ -2(x - 1)^2 + 3$ & $ \leqslant $ & 3 \\
+       & $ f(x) $           & $ \leqslant $ & 3 \\
+\end{tabular}\\
+
+
+\begin{tabular}{r@{$=\;$}l}
+$f(x)$ & $ -5x^2  -30x       +19 $ \\
+       & $ -5(x^2 + 6x)      +19 $ \\
+       & $ -5[ (x + 3)^2 -9] +19 $ \\
+       & $ -5(x + 3)^2  +45  +19 $ \\
+       & $ -2(x - 1)^2 + 64  $ \\
+\end{tabular}\\
+
+$S(-3, 64)$ car $\alpha = -3$ et $\beta = 64$.\\
+
+\marginpar [\flushleft \footnotesize 
+Problème avec ma calculatrice ; 
+il ne fallait pas prendre de bain avec !]{} 
+\begin{tabular}{r@{$\!\!\!\!\!\!\!\!\!\!\!\!\!\!$}r@{$\;\;$}c@{}l}
+Pour tout $ x \in \mathbb{R}, $ 
+       & $   (x + 3)^2 $      & $ \geqslant $ & 0 \\
+       & $ -5(x + 3)^2 $      & $ \leqslant $ & 0 \\
+       & $ -5(x + 3)^2 + 64 $ & $ \leqslant $ & 64 \\
+       & $ f(x) $           & $ \leqslant $ & 64 \\
+\end{tabular}\\
+
+Supplément gratuit : Algorithmique. \\
+
+
+\begin{tabular}{r@{$=\;$}l}
+$f(x)$ & $ ax^2  +bx                                    +c $ \\
+       & $ a(x^2 + \dfrac{b}{a}x)                       +c $ \\
+       & $ a[ (x + \dfrac{b}{2a})^2 -\dfrac{b^2}{4a^2}] +c $ \\
+       & $ a (x + \dfrac{b}{2a})^2 -\dfrac{b^2}{4a}     +c $ \\
+       & $ a (x + \dfrac{b}{2a})^2 -\dfrac{\fcolorbox{red}{white}{$b^2 - 4ac$}}{4a}  $ \\
+\end{tabular}\\
+
+$S(\alpha, \beta)$ ;  $\alpha = -\dfrac{-b}{2a}$ et $\beta = - \dfrac{\fcolorbox{red}{white}{$b^2 - 4ac$}}{4a}$.\\
+
+\newpage
+
+\subsection{Fonctions homographiques}
+
+
+\begin{tabular}{l@{$\;$ }l@{$\qquad \qquad$}r}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$ &  \\
+        & $ x \longmapsto f(x) = \dfrac{ax + b}{cx + d} $
+                &  avec $ \qquad \left| \begin{array}{c}
+                                           a b \\
+                                           c d \\
+                                          \end{array}
+                                 \right|          
+                                                         \neq 0$ \\  
+\end{tabular}
+
+\renewcommand{\arraystretch }{1}
+\subsubsection{Fonction de référence}
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f(x) = \dfrac{1}{x}$ \\
+\end{tabular}\\
+
+\begin{itemize}
+\item [*] Il ne faut pas que $x = 0 \qquad \qquad 
+                    \mathscr{D}_f = \mathbb{R}\setminus\!\!\{0\} = ] -\infty,0[\cup]0, +\infty [ $ \\
+                    
+Asymptote verticale : $x = 0$.\\
+
+\item[*] $\lim\limits_{x \to -\infty} f(x) = 0 $ 
+        et  $\lim\limits_{x \to +\infty} f(x) = 0 $ \\
+        
+  Asymptote horizontale : $y = 0$.   \\         
+                     
+\end{itemize}
+
+% \hspace*{10cm}{\parbox{5cm}{\flushleft \footnotesize
+% Ma calculatrice ne marche pas\\
+% faut aller voir un marabou !}
+
+\centerline{\input{255_Hyperbole.tex}}
+
+\medskip 
+
+$\mathcal{C}_f$ est symétrique par rapport au point $O$ (symétrie centrale). \\
+
+\newpage 
+
+\begin{itemize}
+
+\item [*] Montrons que $f$ est décroissante sur $]-\infty, 0[$ \\
+
+Soient $x_1 < x_2$   et  $x_1, x_2 \in ] -\infty, 0[$ \\
+
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{r@{$\;$}l}
+$f(x_2) -f(x_1) =$      &  $ \dfrac{1}{x_2} -\dfrac{1}{x_1} $\\
+      $=$ & {\renewcommand{\arraystretch }{1}
+            \begin{tabular}{c@{}l}
+           $x_1 - x_2$ 
+             & $\longleftarrow $ {\footnotesize Strictement négatif}  \\
+\cline{1-1}             
+           $x_1 x_2$ 
+             & $\longleftarrow $ {\footnotesize Strictement positif}  \\  
+\end{tabular}}\\   
+\end{tabular}}\\
+
+\renewcommand{\arraystretch }{1}
+
+Donc $f(x_2) - f(x_1) \leqslant 0 $ \\
+
+
+\item [*] Montrons que $f$ est décroissante sur $]0, +\infty[$ \\
+
+Soient $x_1 < x_2$   et  $x_1, x_2 \in ]0, \infty[$ \\
+
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{r@{$\;$}l}
+$f(x_2) -f(x_1) =$      &  $ \dfrac{1}{x_2} -\dfrac{1}{x_1} $\\
+      $=$ & {\renewcommand{\arraystretch }{1}
+            \begin{tabular}{c@{}l}
+           $x_1 - x_2$ 
+             & $\longleftarrow $ {\footnotesize Strictement négatif}  \\
+\cline{1-1}             
+           $x_1 x_2$ 
+             & $\longleftarrow $ {\footnotesize Strictement positif}  \\  
+\end{tabular}}\\   
+\end{tabular}}\\
+
+\renewcommand{\arraystretch }{1}
+
+Donc $f(x_2) - f(x_1) \leqslant 0 $ \\
+\end{itemize}
+% \newpage 
+\subsubsection{Exemple fondamental}
+
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f(x) = \dfrac{x - 1}{x + 1}$ \\
+\end{tabular}\\
+
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi})}
+\item \underline{Changement de repère}
+
+\begin{itemize}
+\item [*] Il ne faut pas que \raisebox{-1.5ex}{\begin{tabular}{r@{$\;=\;$}l}
+                                    $x + 1$ & $ 0 $\\
+                                    $x $ & $ -1 $ \\
+                              \end{tabular}} 
+            $ \qquad \qquad 
+                    \mathscr{D}_f = \mathbb{R}\setminus\!\!\{-1\} = ] -\infty,-1[\cup]-1, +\infty [ $ \\
+                    
+Asymptote verticale : $x = -1\longleftarrow $ barrière infranchissable.\\
+
+\item[*] $\lim\limits_{x \to -\infty} f(x) = 1 $ 
+        et  $\lim\limits_{x \to +\infty} f(x) = 1 $ \\
+        
+  Asymptote horizontale : $y = 1$.   \\   
+ 
+  
+\centerline{\input{255_Hyperbole_ex_01.tex} }    
+
+$I(-1,1)$ donc $\overrightarrow{OI} \left(\begin{array}{c}
+                                                           -1\\
+                                                           1\\
+                                                      \end{array} \right)$ 
+$M(x,y)$ dans $(O, \vec{i}, \vec{j}) 
+      \Longleftrightarrow \overrightarrow{OM} \left(\begin{array}{c}
+                                                           x\\
+                                                           y\\
+                                                      \end{array} \right)$\\
+                                                      
+$M(X,Y)$ dans $(I, \vec{i}, \vec{j}) 
+      \Longleftrightarrow \overrightarrow{IM} \left(\begin{array}{c}
+                                                           X\\
+                                                           Y\\
+                                                      \end{array} \right)$\\                               
+                                                      
+Grâce à la relation magique de Michel Chasles ; 
+
+$\overrightarrow{OM} = \overrightarrow{OI} + \overrightarrow{IM} $\\
+
+$\begin{cases}
+  x =           -1 + X \\
+  y = \phantom{-}1 + Y \\
+ \end{cases}$ \\
+
+{\renewcommand{\arraystretch }{1.75} 
+\begin{tabular}{r@{$\;=\;$}l}
+$ 1 + Y $ & $ \dfrac{-1 + \cancel{X} -1}{\cancel{-1} + \cancel{X} + \cancel{1} } $\\
+$ 1 + Y $ & $ \dfrac{-2 + X}{X} $ \\
+$     Y $ & $ \dfrac{-2 + X }{X} -1 $ \\
+$     Y $ & $ \dfrac{-2 + X - X}{X} $ \\
+$     Y $ & $ \dfrac{-2}{X} $\\
+\end{tabular}\\       
+} \renewcommand{\arraystretch }{1}
+               
+$M(x, y) \in \mathcal{C}_f \Longleftrightarrow \begin{array}{c}
+                                                  x \neq -1\\
+                                                  y = f(x)\\
+                                                \end{array} $ \\
+                                                
+$\rightarrow \begin{cases}
+                X \neq 0 \\
+                1 + Y = \dfrac{-1 +X -1}{-1 + X +1}\\
+             \end{cases}$ \\
+             
+La fonction de référence est multipliée par -2.\\
+
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ X \longmapsto F(X) = \dfrac{-2}{X}$ \\
+\end{tabular}\\
+
+$ \mathscr{D}_F = \mathbb{R}\setminus\!\!\{0\}$ \\
+                    
+
+\end{itemize}
+\newpage     
+ 
+\item Sens de variations
+
+
+\begin{itemize}
+
+\item [*] Montrons que $f$ est croissante sur $]-\infty, -1[$ \\
+
+Soient $x_1 < x_2$   et  $x_2 \in ] -\infty, -1[$ \\
+
+ 
+\begin{tabular}{l@{\hspace*{1cm}}l}
+{\renewcommand{\arraystretch }{1.75}
+  \begin{tabular}{r@{$\;=\;$}l}
+  $f(x_2) -f(x_1) $      &  $ \dfrac{x_2 - 1}{x_2 + 1} -  \dfrac{x_1 - 1}{x_1 + 1}$\\
+          & $\dfrac{(x_2 -1)(x_1 + 1) - (x_1 -1)(x_2 + 1)} {(x_2 + 1)(x_1 + 1)} $\\
+          &  $\dfrac{(x_2 x_1 + x_2 - x_1 -1) - (x_1x_2 +x_1 -x_2 - 1)} 
+                 {(x_2 + 1)(x_1 + 1)} $\\        
+          &  $\dfrac{\cancel{x_2x_1} + x_2 - x_1 \cancel{-1} 
+                     \cancel{-x_1x_2} - x_1 + x_2 \cancel{+1}} 
+                 {(x_2 + 1)(x_1 + 1)} $\\ 
+          & $ \dfrac{2x_2 - 2x_1}{(x_2 + 1)(x_1 + 1)}   $ \\    
+          & {\renewcommand{\arraystretch }{1}
+            \begin{tabular}{c@{}l}
+                 $2(x_2 - x_1)$ 
+                     & $\longleftarrow $ {\footnotesize Strictement positif}  \\
+              \cline{1-1}             
+                 $(x_2 + 1)(x_1 + 1)$ 
+                      & $\longleftarrow $ {\footnotesize Strictement positif }  \\ 
+            \end{tabular}}\\
+   \end{tabular}}          
+ & \raisebox{-1.8cm}{\begin{tabular}{r@{$\;$}c@{$\;$}l}
+                  $x_1$     & $ < $ & $ -1 $ \\     
+                  $x_1 + 1$ & $ < $ & $ 0 $  \\                    
+                  $x_2$     & $ < $ & $ -1 $ \\     
+                  $x_2 + 1$ & $ < $ & $ 0 $  \\    
+  $(x_1 + 1) (x_2 + 1)$     & $ > $ & $ 0 $  \\
+   \end{tabular}} \\
+\end{tabular}\\
+
+
+
+\item [*] Montrons que $f$ est croissante sur $]-1, +\infty[$ \\
+
+Soient $x_1 < x_2$   et  $x_2 \in ] -1, +\infty[$ \\
+
+Donc $x_2 -x_1 > 0 $\\
+ 
+\begin{tabular}{l@{\hspace*{1cm}}l}
+{\renewcommand{\arraystretch }{1.75}
+  \begin{tabular}{r@{$\;=\;$}l}
+$f(x_2) -f(x_1) $   & {\renewcommand{\arraystretch }{1}
+            \begin{tabular}{c@{}l}
+                 $2(x_2 - x_1)$ 
+                     & $\longleftarrow $ {\footnotesize Strictement positif}  \\
+              \cline{1-1}             
+                 $(x_2 + 1)(x_1 + 1)$ 
+                      & $\longleftarrow $ {\footnotesize Strictement positif}  \\ 
+            \end{tabular}}\\
+   \end{tabular}}          
+ &{\begin{tabular}{r@{$\;$}c@{$\;$}l}
+                  $x_1$     & $ > $ & $ -1 $ \\     
+                  $x_1 + 1$ & $ > $ & $ 0 $  \\                    
+                  $x_2$     & $ > $ & $ -1 $ \\     
+                  $x_2 + 1$ & $ > $ & $ 0 $  \\    
+  $(x_1 + 1) (x_2 + 1)$     & $ > $ & $ 0 $  \\
+   \end{tabular}} \\
+\end{tabular}\\
+
+Donc $f(x_2) -f(x_1) > 0$. \\
+
+\end{itemize}
+
+\item \underline{Écriture canonique}
+
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{r@{$\;=\;$}l@{\hspace*{2cm}}c}
+$f(x)$ & $\dfrac{x - 1}{x + 1}  $                   &    $ \alpha + \dfrac{\beta}{x + 1} $\\
+$f(x)$ & $ \alpha + \dfrac{\beta}{x + 1} $          & Pour tout $x \neq -1$ \\
+       & $ \dfrac{\alpha (x + 1) + \beta }{x + 1} $ &        \\
+$f(x)$ & $ \dfrac{\alpha x + \alpha + \beta }{ x + 1 } $ & $ = \dfrac{x - 1}{x + 1}  $ \\       
+\end{tabular}\\
+}\renewcommand{\arraystretch }{1}
+
+\begin{tabular}{rl}
+Il vient que & $\left\lbrace \begin{array}{r@{\;=\;}l}
+                              \alpha   &  1 \\
+                        \alpha + \beta & -1 \\
+                            \end{array} \right.$ \\
+             & $\left\lbrace \begin{array}{r@{\;=\;}l}
+                                \phantom{a +} \alpha &  1 \\
+                                 \beta & -2 \\
+                            \end{array} \right.$ \\               
+\end{tabular}\\
+
+$f(x) = 1 - \dfrac{2}{x + 1} $
+\end{enumerate}
+
+
+\newpage 
+
+\subsubsection{Un autre exemple}
+
+\begin{tabular}{l@{$\;$ }l}
+  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f(x) = \dfrac{2x - 8}{x - 3}$ \\
+\end{tabular}\\
+
+\begin{itemize}
+
+\item [*] Il ne faut pas que \raisebox{-1.5ex}{\begin{tabular}{r@{$\;=\;$}l}
+                                    $x - 3$ & $ 0 $\\
+                                    $x $ & $ 3 $ \\
+                              \end{tabular}} 
+            $ \qquad \qquad 
+                    \mathscr{D}_f =  ] -\infty,3[\cup]3, +\infty [ $ \\
+                                       
+                    
+Asymptote verticale : $x = 3\longleftarrow $.\\
+
+\centerline{\input{256_Hyperbole_ex_02.tex} }   
+
+\medskip 
+
+\item[*] $\lim\limits_{x \to -\infty} f(x) = 2 $ 
+        et  $\lim\limits_{x \to +\infty} f(x) = 2 $ \\
+        
+  Asymptote horizontale : $y = 2$.   \\   
+
+\end{itemize}
+
+\newpage
+
+\begin{enumerate}
+
+\renewcommand{\theenumi}{\alph{enumi})}
+\item \underline{Changement de repère}  
+
+\medskip 
+
+$I(3,2)$ donc $\overrightarrow{OI} \left(\begin{array}{c}
+                                                           3\\
+                                                           2\\
+                                                      \end{array} \right)$ \\
+                                                      
+$M(x,y)$ dans $(O, \vec{i}, \vec{j}) 
+      \Longleftrightarrow \overrightarrow{OM} \left(\begin{array}{c}
+                                                           x\\
+                                                           y\\
+                                                      \end{array} \right)$\\
+                                                      
+$M(X,Y)$ dans $(I, \vec{i}, \vec{j}) 
+      \Longleftrightarrow \overrightarrow{IM} \left(\begin{array}{c}
+                                                           X\\
+                                                           Y\\
+                                                      \end{array} \right)$\\                               
+
+$\overrightarrow{OM} = \overrightarrow{OI} + \overrightarrow{IM} $\\
+
+$\begin{cases}
+  x =  3 + X \\
+  y =  1 + Y \\
+ \end{cases}$ \\
+         
+\begin{tabular}{r@{$\Longleftrightarrow$}l}              
+$M(x, y) \in \mathcal{C}_f$ & $\begin{cases}
+                                  x \neq 3\\
+                                  y = f(x)\\
+                               \end{cases} $ \\
+            & $\begin{cases}
+                  X \neq 0\\
+                  2 + Y = \dfrac{2(3 + X) -8 }{(3 + X) -3}\\
+               \end{cases} $ \\
+            & $\begin{cases}
+                  X \neq 0\\
+                  2 + Y = \dfrac{6 + 2X -8}{X} - 2 \\
+               \end{cases} $ \\               
+            & $\begin{cases}
+                  X \neq 0\\
+                  2 + Y = \dfrac{-2 \cancel{+ 2X} \cancel{- 2X}}{X} \\
+               \end{cases} $ \\  
+            & $\begin{cases}
+                  X \neq 0\\
+                  2 + Y = \dfrac{-2}{X} \\
+               \end{cases} $ \\ 
+\end{tabular} 
+             
+\begin{tabular}{l@{$\;$ }l}
+  $F$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ X \longmapsto F(X) = \dfrac{-2}{X} 
+                  \qquad \qquad \text{ avec } X \neq 0$, donc \\
+\end{tabular}\\
+
+$ \mathscr{D}_F = \mathbb{R}\setminus\!\!\{0\}$ \\
+
+\newpage
+                      
+ 
+\item \underline{Sens de variations}
+
+\begin{itemize}
+
+\item [*] Montrons que $f$ est croissante sur $]-\infty, 3[$ 
+
+Soient $x_1 < x_2$   et  $x_1 \in ] -\infty, 3[$ et $x_2 \in ] -\infty, 3[$ 
+
+ 
+\begin{tabular}{l@{\hspace*{1cm}}l}
+{\renewcommand{\arraystretch }{1.75}
+  \begin{tabular}{r@{$\;=\;$}l}
+  $f(x_2) -f(x_1) $      &  $ \dfrac{2x_2 - 8}{x_2 - 3} -  \dfrac{2x_1 - 8}{x_1 - 3}$\\
+          & $\dfrac{(2x_2 -8)(x_1 - 3) - (2x_1 -8)(x_2 -3)} {(x_2 - 3)(x_1 - 3)} $\\
+          &  $\dfrac{(2x_2 x_1 -6x_2 -8x_1 +24) - (2x_1x_2 -6x_1 -8x_2 +24)} 
+                 {(x_2 - 3)(x_1 - 3)} $\\        
+          &  $\dfrac{\cancel{2x_2x_1} -6x_2 -8x_1 \cancel{+24} 
+                     \cancel{-2x_1x_2} +6x_1 +8x_2 \cancel{-24}} 
+                 {(x_2 - 3)(x_1 - 3)} $\\ 
+          & $ \dfrac{-6x_2 -8x_1 + 6x_1 + 8x_2}{(x_2 - 3)(x_1 - 3)}   $ \\   
+          & $ \dfrac{2x_2 -2x_1}{(x_2 - 3)(x_1 - 3)}   $ \\   
+          & {\renewcommand{\arraystretch }{1}
+            \begin{tabular}{c@{}l}
+                 $2(x_2 - x_1)$ 
+                     & $\longleftarrow $ {\footnotesize Strictement positif}  \\
+              \cline{1-1}             
+                 $(x_2 + 1)(x_1 + 1)$ 
+                      & $\longleftarrow $ {\footnotesize Strictement positif }  \\ 
+            \end{tabular}}\\
+   \end{tabular}}          
+ & \raisebox{-1.8cm}{\begin{tabular}{r@{$\;$}c@{$\;$}l}
+                  $x_1$     & $ < $ & $ 3 $ \\     
+                  $x_1 - 3$ & $ < $ & $ 0 $  \\                    
+                  $x_2$     & $ < $ & $ 3 $ \\     
+                  $x_2 - 3$ & $ < $ & $ 0 $  \\    
+  $(x_1 + 1) (x_2 + 1)$     & $ > $ & $ 0 $  \\
+   \end{tabular}} \\
+\end{tabular}\\
+
+  $f(x_2) -f(x_1)  > 0 $ \\
+
+\item [*] Montrons que $f$ est croissante sur $]3, +\infty[$
+
+Soient $x_1 < x_2$ et  $x_2 \in ] 3, +\infty[$ et  $x_2 \in ] 3, +\infty[$
+
+Donc $x_2 -x_1 > 0 $
+ 
+\begin{tabular}{l@{\hspace*{1cm}}l}
+{\renewcommand{\arraystretch }{1.75}
+  \begin{tabular}{r@{$\;=\;$}l}
+$f(x_2) -f(x_1) $   & {\renewcommand{\arraystretch }{1}
+            \begin{tabular}{c@{}l}
+                 $2(x_2 - x_1)$ 
+                     & $\longleftarrow $ {\footnotesize Strictement positif}  \\
+              \cline{1-1}             
+                 $(x_2 + 1)(x_1 + 1)$ 
+                      & $\longleftarrow $ {\footnotesize Strictement positif}  \\ 
+            \end{tabular}}\\
+   \end{tabular}}          
+ &{\begin{tabular}{r@{$\;$}c@{$\;$}l}
+                  $x_1$     & $ > $ & $ 3 $ \\     
+                  $x_1 -3$ & $ > $ & $ 0 $  \\                    
+                  $x_2$     & $ > $ & $ 3 $ \\     
+                  $x_2 -3$ & $ > $ & $ 0 $  \\    
+  $(x_1 + 1) (x_2 + 1)$     & $ > $ & $ 0 $  \\
+   \end{tabular}} \\
+\end{tabular}\\
+
+Donc $f(x_2) -f(x_1) > 0$. \\
+
+\end{itemize}
+
+\item \underline{Forme « canonique »}
+
+
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{r@{$\;=\;$}l@{\hspace*{2cm}}c}
+$f(x)$ & $\dfrac{2x - 8}{x - 3} $                   &    $ f(x) = \alpha + \dfrac{\beta}{x - 3} $\\
+$f(x)$ & $ \alpha + \dfrac{\beta}{x - 3} $          & Pour tout $x \neq 3$ \\
+       & $ \dfrac{\alpha (x - 3) + \beta }{x - 3} $ &        \\
+$f(x)$ & $ \dfrac{\alpha x - 3\alpha + \beta }{ x - 3 } $ & $\dfrac{2x - 8}{x - 3} $ \\       
+\end{tabular}\\
+}\renewcommand{\arraystretch }{1}
+
+\begin{tabular}{rl}
+Il vient que & $\left\lbrace \begin{array}{r@{\;=\;}l}
+                              \alpha   &  2 \\
+                        -3\alpha + \beta & -8 \\
+                            \end{array} \right.$ \\
+             & \\              
+             & $ \beta = -8 +3 \times 2$ \\               
+             & $ \beta = -8 + 6 $ \\      
+             & $ \beta = -2$ \\      
+\end{tabular}\\
+
+$f(x) = 2 - \dfrac{2}{x - 3} $\\
+
+Deux asymptotes : $\begin{array}{l}
+                    x = 3 \\
+                    y = 2 \\
+                   \end{array}$
+\end{enumerate}
+
+
+\samepage
+
+\newpage
+
+\subsection{Intersections de courbes}
+
+
+
+
+\subsubsection{Exercice \no 1}
+
+\begin{tabular}{r@{$\;$ }l@{\hspace*{1cm}}l}
+Soit  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\
+        & $ x \longmapsto f(x) = x^2 -2x -3$        & $\mathcal{C}_f$ \\
+$D_f=\mathbb{R} $ & & \\
+        & & \\
+\multicolumn{2}{c}{Soit $\Delta$ d'équation $y = 5$ } & \\
+        & & \\
+  $f_1$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\  
+          & $ x \longmapsto f_1(x) = -x -1 $        & $\mathcal{C}_{f_1} = \Delta_1$ \\          
+        & & \\
+  $f_2$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\  
+          & $ x \longmapsto f_2(x) = -x -5 $        & $\mathcal{C}_{f_2} = \Delta_2$ \\          
+        & & \\
+  $f_3$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\  
+          & $ x \longmapsto f_3(x) = 2x -7 $        & $\mathcal{C}_{f_3} = \Delta_3$ \\          
+\end{tabular}\\
+
+\centerline{\input{257_Intersections_Parabole_droites.tex} }   
+
+\newpage
+
+\begin{enumerate}
+\item Intersection de $\mathcal{C}_f$ et de $\Delta$.
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 2 points d'intersection : $A(-2, 5)$ et $B(4, 5)$.
+
+\item [*] Résoudre l'équation $f(x) = 5$\\
+
+$ x^2 -2x -3 = 5$\\
+$(x^2 -2x +1) -9 = 0 $\\
+$(x - 1)^2 -9 = 0 $ \\
+$(x -1 -3) (x -1 +3) = 0 $\\
+$(x - 4) (x + 2) = 0 $\\
+
+$x = 4$ ou $ x = -2$ \\
+
+$S=\{-2, 4\}$ Les solutions sont les abscisses 
+               des points d'intersection de $\mathcal{C}_f$ et de $\Delta$.\\
+               
+               
+               
+\item [*] Résoudre l'inéquation : \\
+
+$f(x) \leqslant 5$\\
+$ x^2 -2x -3 \leqslant 5$\\
+$(x^2 -2x +1) -9 \leqslant 0 $\\
+$(x - 1)^2 -9 \leqslant 0 $ \\
+$(x -1 -3) (x -1 +3) \leqslant 0 $\\
+$(x - 4) (x + 2) \leqslant 0 $\\           
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+%\tkzTabInit[lgt=2.5,espcl=3,help]%
+\tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$x$ / .8, $x - 4$ /.8, $x + 2$ /.8,$(x-4)(x+2)$/.8 }
+                          {$-\infty$, $-2$, $4$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, t,        
+              {\Huge -}, z,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge -}, z,        
+              {\Huge +}, t,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge +}, z,        
+              {\Huge -}, z,  
+              {\Huge +}
+             }             
+     \draw [decoration={brace, mirror, amplitude=12pt,raise=1pt},
+            decorate,line width=1] (N24) -- (N34) ;  
+\end{tikzpicture} \\
+
+$S = [-2, 4]$ \\
+
+Les solutions sont les abscisses des points de $\mathcal{C}_f$ situés au dessous de $\Delta$.\\
+
+\end{itemize}
+
+\item Intersection de $\mathcal{C}_f$ et de $\Delta_1$.
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 2 points d'intersection : $A(-1, 0)$ et $B(2, -3)$.
+
+\item [*] Résoudre l'équation $f(x) = f_1(x)$\\
+
+$ x^2 -2x -3 = -x - 1$\\
+$ x^2 -x  -2 = 0 $\\
+$(x + 1) (x - 2) = 0 $\\
+$x = -1$ ou $ x = 2$ \\
+
+$S=\{-1, 2\}$ Les solutions sont les abscisses 
+               des points d'intersection de $\mathcal{C}_f$ et de $\Delta_1$.\\
+               
+               \newpage
+               
+\item [*] Résoudre l'inéquation : \\
+
+$f(x) \leqslant f_1(x)$\\
+$ x^2 -2x -3 \leqslant -x - 1$\\
+$ x^2 -2x  -2 \leqslant 0 $\\
+$(x + 1) (x - 2) \leqslant 0 $\\
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+%\tkzTabInit[lgt=2.5,espcl=3,help]%
+\tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$x$ / .8, $x + 1$ /.8, $x - 2$ /.8,$(x+1)(x-2)$/.8 }
+                          {$-\infty$, $-1$, $2$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,        
+              {\Huge +}, t,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge -}, t,        
+              {\Huge -}, z,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge +}, z,        
+              {\Huge -}, z,  
+              {\Huge +}
+             }             
+     \draw [decoration={brace, mirror, amplitude=12pt,raise=1pt},
+            decorate,line width=1] (N24) -- (N34) ;  
+\end{tikzpicture} \\
+
+$S = [-2, 2]$ \\
+
+Les solutions sont les abscisses des points de $\mathcal{C}_f$ situés au dessous de $\Delta$.\\
+
+\end{itemize} 
+
+
+\item Intersection de $\mathcal{C}_f$ et de $\Delta_2$.
+
+\begin{itemize}
+\item [*] Graphiquement, on ne lit aucun point d'intersection.
+
+\item [*] Résoudre l'équation $f(x) = f_2(x)$\\
+
+$ x^2 -2x -3 = -x - 5$\\
+$ x^2 -x  +2 = 0 $\\
+
+$(x + \dfrac{1}{2})^2 +\dfrac{7}{4} = 0 $\\
+
+$(x + \dfrac{1}{2})^2 = -\dfrac{7}{4} \qquad $ Or, un carré est toujours positif.\\
+
+Donc $S= \emptyset $ Les solutions sont les abscisses 
+               des points d'intersection de $\mathcal{C}_f$ et de $\Delta_1$. Mais il n'y en a pas !\\
+               
+\item [*] Résoudre l'inéquation : \\
+
+$f(x) \leqslant f_2(x)$\\
+
+$(x + \dfrac{1}{2})^2 \leqslant -\dfrac{7}{4} \qquad $ Impossible !
+
+\end{itemize} 
+
+\newpage
+
+\item Intersection de $\mathcal{C}_f$ et de $\Delta_3$.
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection : $A_3(-2, -3)$.
+
+\item [*] Résoudre l'équation $f(x) = f_3(x)$\\
+
+$ x^2 -2x -3 = 2x - 7$\\
+$ x^2 -4x  + 4 = 0 $\\
+$(x - 2)^2 = 0  $\\
+$x = 2$ \\
+
+$S=\{2\}$ La solution est double.\\
+
+La droite $\Delta$ est tangente à $\mathcal{C}_f$ au point $A_3(2, -3)$.
+               
+\item [*] Résoudre l'inéquation : \\
+
+$f(x) \leqslant f_3(x)$\\
+$ x^2 -2x -3 \leqslant 2x - 7$\\
+$ x^2 -4x  + 4 \leqslant 0 $\\
+$(x + 1)^2 \leqslant 0  $\\
+$x = 2$ \\
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+%\tkzTabInit[lgt=2.5,espcl=3,help]%
+\tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{$x$ / .8, $x -2 $ /.8, $x - 2$ /.8,$(x-2)^2$/.8 }
+                          {$-\infty$, $2$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,        
+              {\Huge +}
+             }
+\tkzTabLine[]{,       
+              {\Huge -}, z,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,       
+              {\Huge +}, z,  
+              {\Huge +}
+             }             
+\end{tikzpicture} \\
+
+$S = \{2\}$ \\
+
+\end{itemize} 
+\end{enumerate}
+
+\newpage
+
+\subsubsection{Exercice \no 2}
+
+\begin{tabular}{r@{$\;$ }l@{\hspace*{1cm}}l}
+Soit  $f$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\
+        & $ x \longmapsto f(x) = \dfrac{x - 1}{x + 1}$        &  \\
+$D_f=\mathbb{R} $ & & \\
+        & & \\
+\multicolumn{2}{c}{Soit $\Delta$ d'équation $y = 3$ } & \\
+        & & \\
+  $f_1$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\  
+          & $ x \longmapsto f_1(x) = -x + 1 $        & $\mathcal{C}_{f_1} = \Delta_1$ \\          
+        & & \\
+  $f_2$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\  
+          & $ x \longmapsto f_2(x) = x + 1 $        & $\mathcal{C}_{f_2} = \Delta_2$ \\          
+        & & \\
+  $f_3$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\  
+          & $ x \longmapsto f_3(x) = 2x + 7 $        & $\mathcal{C}_{f_3} = \Delta_3$ \\          
+\end{tabular}\\
+
+\bigskip
+
+\centerline{\input{258_Intersections_Hyperbole_droites.tex} }   
+
+\newpage
+
+\begin{enumerate}
+\item Intersection de $\mathcal{C}_f$ et de $\Delta$.
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection : $A(-2, 3)$.
+
+\item [*] Résoudre l'équation $f(x) = 3$\\
+
+$ \dfrac{x - 1}{x + 1} = 3$\\
+
+$3 (x + 1)  = x - 1 $\\
+$3 x + 3 = x - 1$ \\
+$2x = -4 $\\
+
+
+$ x = -2 $ \\
+
+$S=\{-2\}$ La solution est l'abscisse 
+               du point d'intersection de $\mathcal{C}_f$ et de $\Delta$.\\
+               
+\item [*] Résoudre l'inéquation : \\
+
+$f(x) \leqslant 3$\\
+
+$ \dfrac{x - 1}{x + 1} \leqslant 3$\\
+
+$\dfrac{x - 1}{x + 1} - 3 \leqslant 0 $ \\
+
+$\dfrac{x - 1 -3(x + 1)}{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{x - 1 -3x -3 }{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{-2x -4 }{x + 1}  \leqslant 0 $ \\
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+\tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $  /.8,
+    $-2x - 4$  /.8, 
+    $x + 1$   /.8,
+ $(-2x-4)(x+1)$/.8,
+    $S=$     /1.6
+}
+                    {$-\infty$, $-2$, $-1$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge +}, z,        
+              {\Huge -}, t,  
+              {\Huge -}
+             }
+\tkzTabLine[]{,
+              {\Huge -}, t,        
+              {\Huge -}, z,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge -}, z,        
+              {\Huge +}, d,  
+              {\Huge -}
+             }             
+     \draw [decoration={brace, mirror, amplitude=12pt,raise=1pt},
+            decorate,line width=1] (T14) -- (N24) ;  
+     \draw [decoration={brace, mirror, amplitude=12pt,raise=1pt},
+            decorate,line width=1] (N34) -- (T24) ;    
+\tkzTabLine[]{,
+               {]-\infty, -2]  },,
+               \cup,,
+                ]-1, +\infty[
+              }                                        
+\end{tikzpicture} \\
+
+
+Les solutions sont les abscisses des points de $\mathcal{C}_f$ situés au dessous de $\Delta$.\\
+
+\end{itemize}
+
+\newpage
+
+\item Intersection de $\mathcal{C}_f$ et de $\Delta_1$.
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 2 points d'intersection : $A(-2, 3)$ et $B_1(1,0)$.
+
+\item [*] Résoudre l'équation $f(x) = f_1(x)$\\
+
+$ \dfrac{x - 1}{x + 1} = -x + 1$\\
+$ (-x + 1) (x + 1) = x - 1  $\\
+$ -x^2 + 1 = x - 1$ \\
+$ -x^2 -x +2 = 0 $\\
+$ x^2 +x -2 = 0 $ \\
+$ (x + 2) ( x - 1) = 0 $ \\
+$ x = -2 $  ou $ x = 1 $ \\
+
+$S=\{-2, 1\}$ Les solutions sont les abscisses 
+               des points d'intersection de $\mathcal{C}_f$ et de $\Delta_1$.\\
+
+             
+\item [*] Résoudre l'inéquation : \\
+
+$f(x) \leqslant f_1(x)$\\
+
+$ \dfrac{x - 1}{x + 1} \leqslant  -x + 1$\\
+
+$\dfrac{x - 1}{x + 1}  + x - 1 \leqslant 0 $ \\
+
+$\dfrac{x - 1 + (x -1)(x + 1)}{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{x - 1 +x^2 -1 }{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{(x^2 +x -2 )}{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{(x + 2) (x - 1)}{x + 1}  \leqslant 0 $ \\
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+\tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $  /.8,
+    $ x + 2 $  /.8, 
+    $x - 1$   /.8,
+    $x + 1$   /.8,
+ $\dfrac{(x+2)(x-1)}{x + 1}$/1.6,
+    $S=$     /1.6
+}
+                    {$-\infty$, $-2$, $-1$, $1$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,        
+              {\Huge +}, t,  
+              {\Huge +}, t,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge -}, t,        
+              {\Huge -}, t,  
+              {\Huge -}, z,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge -}, t,  
+              {\Huge -}, z,        
+              {\Huge +}, t,  
+              {\Huge +}
+             }              
+\tkzTabLine[]{,
+              {\Huge -}, z,        
+              {\Huge +}, d,  
+              {\Huge -}, z,
+              {\Huge +}
+             }             
+     \draw [decoration={brace, mirror, amplitude=12pt,raise=1pt},
+            decorate,line width=1] (T15) -- (N25) ;  
+     \draw [decoration={brace, mirror, amplitude=12pt,raise=1pt},
+            decorate,line width=1] (N35) -- (N45) ;    
+\tkzTabLine[]{,
+               {]-\infty, -2]  },,
+               \cup,,
+                ]-1,+1],,
+              }                                        
+\end{tikzpicture} \\
+
+
+Les solutions sont les abscisses des points de $\mathcal{C}_f$ situés au dessous de $\Delta_1$.\\
+
+\end{itemize}
+
+\newpage
+
+
+\item Intersection de $\mathcal{C}_f$ et de $\Delta_2$.
+
+\begin{itemize}
+\item [*] Graphiquement, on ne lit aucun point d'intersection.
+
+\item [*] Résoudre l'équation $f(x) = f_2(x)$\\
+
+$ \dfrac{x - 1}{x + 1} = x + 1$\\
+
+$ (x + 1)^2 = x - 1 $ \\
+$ x^2 +2x +1  =  x -1  $ \\
+$ x^2 +x +2  = 0  $ \\
+
+$ (x + \dfrac{1}{2})^2 + \dfrac{7}{4} = 0 $ \\
+
+$ (x + \dfrac{1}{2})^2 = -\dfrac{7}{4}  \qquad $ Impossible \\
+             
+\item [*] Résoudre l'inéquation : \\
+
+$f(x) \leqslant f_2(x)$\\
+
+$ \dfrac{x - 1}{x + 1} \leqslant  x + 1$\\
+
+$\dfrac{x - 1}{x + 1}  - ( x + 1)  \leqslant 0 $ \\
+
+$\dfrac{x - 1 - (x + 1)(x + 1)}{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{x - 1 - x^2 -2x -1 }{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{-x^2 -x -2 }{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{x^2 +x +2 }{x + 1}  \geqslant 0 $ \\
+
+$ \dfrac{\left(x +\dfrac{1}{2}\right)^2 + \dfrac{7}{4} }{x + 1} \geqslant 0 $ \\
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+\tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $  /.8,
+    $ \left(x +\dfrac{1}{2}\right)^2 + \dfrac{7}{4}  $  /1.6, 
+    $x + 1$   /.8,
+    $\dfrac{\left(x +\dfrac{1}{2}\right)^2 + \dfrac{7}{4} }{x + 1}$   /1.6
+}
+                    {$-\infty$,  $-1$, $+\infty$}
+\tkzTabLine[]{,        
+              {\Huge +}, t,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge -}, z,  
+              {\Huge +}
+             }           
+\tkzTabLine[]{,  
+              {\Huge -}, d,
+              {\Huge +}
+             }                                                  
+\end{tikzpicture} \\
+
+$S = ]-1, +\infty[ $ 
+
+Les solutions sont les abscisses des points de $\mathcal{C}_f$ situés au dessous de $\Delta_2$.\\
+
+\end{itemize}
+
+\newpage 
+
+\item Intersection de $\mathcal{C}_f$ et de $\Delta_3$.
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection : $A(-2, 3)$.
+
+\item [*] Résoudre l'équation $f(x) = f_3(x)$
+
+$ \dfrac{x - 1}{x + 1} = 2x + 7$\\
+
+$ (2x + 7) (x + 1) = x - 1  $\\
+$ 2x^2 + 2x +7x +7  = x - 1$ \\
+$ 2x^2 +8x +8 = 0 $\\
+$ 2(x^2 +4x +4)  = 0 $ \\
+$ 2(x + 2)^2  = 0 $ \\
+$ x = -2 $ \\
+
+$S=\{-2\}$ La solution est double. \\
+               
+$\Delta_1$ est tangente à   $\mathcal{C}_f$ au point $A_3(-2, 3)$.
+             
+\item [*] Résoudre l'inéquation :
+
+$f(x) \leqslant f_3(x)$\\
+
+$ \dfrac{x - 1}{x + 1} \leqslant  2x + 7$\\
+
+$\dfrac{x - 1}{x + 1} - (2x + 7)  \leqslant 0 $ \\
+
+$\dfrac{x - 1 + (2x + 7)(x + 1)}{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{x - 1 - (2x^2 + 9x + 7)}{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{-2x^2 -8x -8}{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{2x^2 +8x +8  }{x + 1}  \leqslant 0 $ \\
+
+$\dfrac{2(x + 2)^2}{x + 1}  \leqslant 0 $ \\
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+ \tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $  /.8,
+    $ x + 2 $  /.8, 
+    $x + 2 $   /.8,
+    $x + 1$   /.8,
+ $\dfrac{2(x+2)^2}{x + 1}$/1.2,
+    $S=$     /1.1
+}
+                    {$-\infty$, $-2$, $-1$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,        
+              {\Huge +}, t,  
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,        
+              {\Huge +}, t,  
+              {\Huge +}
+             }
+\tkzTabLine[]{,
+              {\Huge -}, t,        
+              {\Huge -}, z,  
+              {\Huge +}
+             }        
+\tkzTabLine[]{,
+              {\Huge -}, z,        
+              {\Huge -}, d,  
+              {\Huge +}
+             }             
+     \draw [decoration={brace, mirror, amplitude=8pt,raise=1pt},
+            decorate,line width=1] (N35) -- (T25) ;    
+\tkzTabLine[]{,,,,,
+               {\{-2\}}
+               \cup
+                ]-1,+\infty [
+              }                                        
+\end{tikzpicture} \\
+
+
+Les solutions sont les abscisses des points de $\mathcal{C}_f$ situés au dessous de $\Delta_3$.\\
+
+\end{itemize}
+
+\end{enumerate}
+
+\samepage
+
+\newpage
+
+\subsubsection{Exercices (Énoncés)}
+
+\paragraph{Excercice \no 3}~\\
+
+\begin{tabular}{r@{$\;$ }l}
+  $f_1$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f_1(x) = x^2 -2x + 1$       \\
+        &                                             \\ 
+  $f_2$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  \\
+        & $ x \longmapsto f_2(x) = -2x^2 +16x  -26$   \\
+\end{tabular}\\
+
+
+\begin{enumerate} 
+\renewcommand{\theenumi}{\alph{enumi})}
+
+\item Formes canoniques de $f_1(x)$ et de $f_2(x)$.
+
+\item Représentations graphiques de $f_1(x)$ et de $f_2(x)$.
+
+\item $\Delta : y = 4x - 8$
+
+\item Intersection de \raisebox{-3ex}{\begin{tabular}{rcl}
+a) $\mathcal{C}_{f_1}$ & et & $\Delta$\\ 
+b) $\mathcal{C}_{f_2}$ & et & $\Delta$\\ 
+c) $\mathcal{C}_{f_1}$ & et & $\mathcal{C}_{f_2}$\\ 
+\end{tabular}}\\
+
+\end{enumerate}
+
+
+\paragraph{Excercice \no 4}~\\
+
+\begin{tabular}{r@{$\;$ }l@{\hspace*{1cm}}l@{\hspace*{1cm}}c}
+  $f_1$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$       &   \\
+          & $ x \longmapsto f_1(x) = \dfrac{2x - 10}{x - 4}$ 
+                        & $ \mathscr{D}_{f_1} = \mathbb{R}\!\!\setminus\!\!\!\{4\}$ \\
+          &                 &                                   \\                   
+  $f_2$ : & $ \mathbb{R} \longrightarrow \mathbb{R}$  & \\
+          & $ x \longmapsto f_2(x) = \dfrac{2x +2}{x - 1}$        
+                        & $ \mathscr{D}_{f_1} = \mathbb{R}\!\!\setminus\!\!\!\{1\}$ \\ 
+\end{tabular}\\
+
+\begin{enumerate} 
+
+\item Formes canoniques de $f_1(x)$ et de $f_2(x)$.
+
+\item Représentations graphiques de $f_1(x)$ et de $f_2(x)$.
+
+\item Intersection de $\mathcal{C}_{f_1}$  et  $\mathcal{C}_{f_2}$\\ 
+
+\end{enumerate}
+
+\newpage
+
+
+% ------------ Coorections ----Ex 3 --------------
+\subsubsection{Exercices (Correction)}
+
+\paragraph{Excercice \no 3}
+
+\begin{enumerate} 
+
+\item \raisebox{-11ex}{
+\begin{tabular}{r@{$\;=\;$ }l@{$\qquad \qquad$ }l}
+  $f_1(x)$  & $  x^2 -2x + 1$              &                                 \\
+         & $ (x - 1)^2 $                &  $ \alpha = 1 \quad \beta = 0 $ \\ 
+\multicolumn{3}{c}{} \\
+  $f_2(x)$  & $ -2x^2 +16x  -26$           &                                 \\
+         & $ -2 (x^2 -8x) -26$          &                                 \\
+         & $ -2 [ (x - 4)^2 -16 ] -26 $ &                                 \\
+         & $ -2 (x - 4)^2   +32  -26 $ &                                 \\
+         & $ -2 (x - 4)^2   +32  -26 $ &                                 \\
+         & $ -2 (x - 4)^2    +6 $       &  $ \alpha = 4 \quad \beta = 6 $ \\
+\end{tabular}}\\
+
+\item et 3)\\
+\centerline{\input{259_Exercice_03.tex}}
+
+\setcounter{enumi}{4} 
+
+4) $\; \;$ Intersections 
+
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi})}
+
+\item Intersection de $\mathcal{C}_{f_1}$ et $\Delta$
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection  $A(3, 4)$  pour $\mathcal{C}_{f_1}$ et $\Delta$
+
+\item [*] Résoudre l'équation $f_1(x) = 4x - 8$\\
+
+$  x^2 -2x + 1 = 4x -8 $\\
+$  x^2 -6x +9 = 0 $\\
+$  (x - 3)^2 = 0 $ \\
+$ x = 3 $ \\
+
+$S=\{3\}$ La solution est double. 
+               
+$\Delta$ est tangente à   $\mathcal{C}_{f_1}$ au point $A_3(3,4)$.
+
+\item [*] Résoudre l'inéquation : $f_1(x) \leqslant 4x - 8$\\
+
+$  x^2 -2x + 1 \leqslant 4x -8 $\\
+$  x^2 -6x +9  \leqslant   0   $\\
+$  (x - 3)^2   \leqslant   0   $  \\
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+ \tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $      /.8,
+    $ x - 3 $     /.8, 
+    $ x - 3 $     /.8,
+    $ (x - 3)^2 $ /.8
+}
+                    {$-\infty$, $3$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge +}, z,         
+              {\Huge +}
+             }                                           
+\end{tikzpicture} \\
+
+$S = \{3\}$ 
+
+Une seule solution, puisque  $\Delta_1$ est tangente à $\mathcal{C}_{f_1}$.
+
+\end{itemize}
+
+\item Intersection de $\mathcal{C}_{f_2}$ et $\Delta$ \\
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection  $A(3, 4)$  pour $\mathcal{C}_{f_2}$ et $\Delta$\\ 
+
+\item [*] Résoudre l'équation $f_2(x) = 4x - 8$\\
+
+$  -2x^2 +16x -26 = 4x -8 $\\
+$  -2x^2 +12x -18 = 0 $\\
+$  -2(x^2 -6x +9) = 0 $\\
+$  (x - 3)^2 = 0 $ \\
+$ x = 3 $ \\
+
+$S=\{3\}$ La solution est double. \\
+               
+$\Delta$ est tangente à   $\mathcal{C}_{f_2}$ au point $A_2(3,4)$.
+             
+\item [*] Résoudre l'inéquation : $f_2(x) \leqslant 4x - 8$\\
+
+$  -2x^2 +16x -26 \leqslant 4x -8 $\\
+$  -2x^2 +12x -18 \leqslant 0 $\\
+$  -2(x^2 -6x +9) \leqslant 0 $\\
+$  (x - 3)^2 \geqslant 0 $ \\
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+ \tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $      /.8,
+    $ x - 3 $     /.8, 
+    $ x - 3 $     /.8,
+    $ -2(x - 3)^2 $ /.8
+}
+                    {$-\infty$, $3$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge -}
+             }                                           
+\end{tikzpicture} \\
+
+$S = ]-\infty, +\infty[ = \mathbb{R}$ 
+
+Une seule solution, puisque  $\Delta_1$ est tangente à $\mathcal{C}_{f_1}$ par le dessus.
+
+\end{itemize}
+
+\newpage
+
+\item Intersection de $\mathcal{C}_{f_1}$ et $\mathcal{C}_{f_2}$ \\
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection  $A(3, 4)$  pour $\mathcal{C}_{f_1}$ et $\mathcal{C}_{f_2}$.\\ 
+
+\item [*] Résoudre l'équation $f_1(x) = f_2(x)$\\
+
+$  x^2 -2x +1 = -2x^2 +16x -26 $\\
+$  3x^2 -18x +27 = 0 $\\
+$  3(x^2 -6x +9) = 0 $\\
+$  3(x - 3)^2 = 0 $ \\
+$ x = 3 $ \\
+
+$S=\{3\}$ La solution est double. \\
+               
+Les paraboles $\mathcal{C}_{f_1}$ et $\mathcal{C}_{f_2}$ sont tangentes.
+             
+\item [*] Résoudre l'inéquation : $f_1(x) \leqslant f_2(x)$\\
+
+$  x^2 -2x +1    \leqslant -2x^2 +16x -26 $\\
+$  3x^2 -18x +27 \leqslant 0 $\\
+$  3(x^2 -6x +9) \leqslant 0 $\\
+$  3(x - 3)^2    \leqslant 0 $ \\
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+ \tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $      /.8,
+    $ x - 3 $     /.8, 
+    $ x - 3 $     /.8,
+    $ 3(x - 3)^2 $ /.8
+}
+                    {$-\infty$, $3$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge +}, z,         
+              {\Huge +}
+             }                                           
+\end{tikzpicture} \\
+
+$S = \{3\}$ 
+
+Une seule solution, puisque  les paraboles $\mathcal{C}_{f_1}$ et $\mathcal{C}_{f_2}$ sont tangentes.
+
+\end{itemize}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\newpage 
+
+% ------------ Coorections ----Ex 4 --------------
+
+\paragraph{Excercice \no 4} ~\\
+
+
+\begin{enumerate}
+\renewcommand{\theenumi}{\arabic{enumi})}
+
+\item \raisebox{-5ex}{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{r@{$\;=\;$ }l@{$\qquad \qquad$ }l}
+$f_1(x)$ & $ \dfrac{2x - 10}{x - 4}$ 
+                        & $ f_1(x) = \alpha + \dfrac{\beta}{x - 4}$ \\
+         & $ \dfrac{\alpha (x - 4) +\beta}{x - 4}$  &               \\
+         & $ \dfrac{\alpha x - 4\alpha  +\beta}{x - 4}$  &               \\
+\end{tabular}}\\
+
+Il vient \raisebox{-2ex}
+          {$\left\lbrace
+             \begin{array}{rl}
+                    \alpha \!\!\!\!\!\!\!\!& = 2   \\
+          - 4\alpha +\beta \!\!\!\!\!\!\!\!& = -10 \\        
+            \end{array}
+            \right.$}\\ 
+
+Donc \raisebox{-2ex}
+          {$\begin{array}{rl}
+                    \alpha \!\!\!\!\!\!\!\!& =  2 \\
+                    \beta  \!\!\!\!\!\!\!\!& = -2 \\        
+             \end{array}$}\\             
+            
+Ainsi $ f_1(x) = 2 -\dfrac{2}{x - 4}$ \\
+
+\bigskip 
+            
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{r@{$\;=\;$ }l@{$\qquad \qquad$ }l}
+$f_2(x)$ & $ \dfrac{2x +2}{x - 1}$ 
+                        & $ f_2(x) = \alpha + \dfrac{\beta}{x - 1}$ \\
+         & $ \dfrac{\alpha x - \alpha  +\beta}{x - 1}$  &               \\
+\end{tabular}}\\
+
+Il vient \raisebox{-2ex}
+          {$\left\lbrace
+             \begin{array}{rl}
+                    \alpha \!\!\!\!\!\!\!\!& = 2   \\
+            -\alpha +\beta \!\!\!\!\!\!\!\!& = 2 \\        
+            \end{array}
+            \right.$}\\    
+            
+
+Donc \raisebox{-2ex}
+          {$\begin{array}{rl}
+                    \alpha \!\!\!\!\!\!\!\!& =  2 \\
+                    \beta  \!\!\!\!\!\!\!\!& =  4 \\        
+             \end{array}$}\\             
+            
+Ainsi $ f_2(x) = 2 + \dfrac{4}{x - 1}$ \\
+
+                              
+            
+\item ~\\
+\centerline{\input{260_Exercice_04.tex}}\\
+
+\newpage
+
+\item Intersection de $\mathcal{C}_{f_1}$ et $\Delta$ \\
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection  $A(3, 4)$  pour $\mathcal{C}_{f_1}$ et $\Delta$\\ 
+
+\item [*] Résoudre l'équation $f_1(x) = 4x - 8$\\
+
+$  x^2 -2x + 1 = 4x -8 $\\
+$  x^2 -6x +9 = 0 $\\
+$  (x - 3)^2 = 0 $ \\
+$ x = 3 $ \\
+
+$S=\{3\}$ La solution est double. \\
+               
+$\Delta$ est tangente à   $\mathcal{C}_{f_1}$ au point $A_3(3,4)$.
+             
+\item [*] Résoudre l'inéquation : $f_1(x) \leqslant 4x - 8$\\
+
+$  x^2 -2x + 1 \leqslant 4x -8 $\\
+$  x^2 -6x +9  \leqslant   0   $\\
+$  (x - 3)^2   \leqslant   0   $  \\
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+ \tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $      /.8,
+    $ x - 3 $     /.8, 
+    $ x - 3 $     /.8,
+    $ (x - 3)^2 $ /.8
+}
+                    {$-\infty$, $3$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge +}, z,         
+              {\Huge +}
+             }                                           
+\end{tikzpicture} \\
+
+$S = \{3\}$ 
+
+Une seule solution, puisque  $\Delta_1$ est tangente à $\mathcal{C}_{f_1}$.
+
+\end{itemize}
+
+\item Intersection de $\mathcal{C}_{f_2}$ et $\Delta$ \\
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection  $A(3, 4)$  pour $\mathcal{C}_{f_2}$ et $\Delta$\\ 
+
+\item [*] Résoudre l'équation $f_2(x) = 4x - 8$\\
+
+$  -2x^2 +16x -26 = 4x -8 $\\
+$  -2x^2 +12x -18 = 0 $\\
+$  -2(x^2 -6x +9) = 0 $\\
+$  (x - 3)^2 = 0 $ \\
+$ x = 3 $ \\
+
+$S=\{3\}$ La solution est double. \\
+               
+$\Delta$ est tangente à   $\mathcal{C}_{f_2}$ au point $A_2(3,4)$.
+
+\newpage
+             
+\item [*] Résoudre l'inéquation : $f_2(x) \leqslant 4x - 8$\\
+
+$  -2x^2 +16x -26 \leqslant 4x -8 $\\
+$  -2x^2 +12x -18 \leqslant 0 $\\
+$  -2(x^2 -6x +9) \leqslant 0 $\\
+$  (x - 3)^2 \leqslant 0 $ \\
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+ \tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $      /.8,
+    $ x - 3 $     /.8, 
+    $ x - 3 $     /.8,
+    $ -2(x - 3)^2 $ /.8
+}
+                    {$-\infty$, $3$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,         
+              {\Huge -}
+             }                                           
+\end{tikzpicture} \\
+
+$S = ]-\infty, +\infty[ = \mathbb{R}$ 
+
+Une seule solution, puisque  $\Delta_1$ est tangente à $\mathcal{C}_{f_1}$ par le dessus.
+
+\end{itemize}
+
+\newpage
+
+\item Intersection de $\mathcal{C}_{f_1}$ et $\mathcal{C}_{f_2}$ \\
+
+\begin{itemize}
+\item [*] Graphiquement, on lit 1 point d'intersection  $A(3, 4)$  pour $\mathcal{C}_{f_1}$ et $\mathcal{C}_{f_2}$.\\ 
+
+\item [*] Résoudre l'équation $f_1(x) = f_2(x)$\\
+
+$ \dfrac{2x - 10}{x - 4} = \dfrac{2x + 2}{x - 1} $ \\
+
+$ (2x - 10) ( x - 1) = (2x + 2) (x - 4) $ \\
+$ \cancel{2x^2} -2x -10x +10 = \cancel{2x^2} -8x +2x -8 $\\
+$ -12x +10 = -6x -8 $\\
+$ -6x = -18 $ \\
+$ x = 3 $ \\
+
+$S = \{3\}$ \\
+
+La solution est l'abscisse du point d'intersection de $\mathcal{C}_{f_1}$ et  $\mathcal{C}_{f_1}$\\
+
+\newpage
+             
+\item [*] Résoudre l'inéquation : $f_1(x) \leqslant f_2(x)$\\
+
+$ \dfrac{2x - 10}{x - 4} \leqslant \dfrac{2x + 2}{x - 1} $ \\
+
+$ \dfrac{2x - 10}{x - 4}  - \dfrac{2x + 2}{x - 1} \leqslant 0 $ \\
+
+$ \dfrac{(2x - 10) (x - 1) -  (2x + 2) ( x - 4) }{(x - 4)(x - 1)} \leqslant 0 $ \\
+
+$ \dfrac{2x^2 -2x -10x +10 - (2x^2 -8x +2x -8) }{(x - 4)(x - 1)} \leqslant 0 $ \\
+
+$ \dfrac{\cancel{2x^2} -12x +10 \; \cancel{-2x^2} +8x -2x +8 }
+                                                 {(x - 4)(x - 1)} \leqslant 0 $ \\
+                                                 
+$ \dfrac{-6x +18}{(x-4)(x-1)}  \leqslant 0 $ \\                                                
+
+
+
+\begin{tikzpicture} % [help lines] % Help lines grise le tableau 
+% lgt   = largeur colonne 1 (en cm)
+% espcl = espace entre 2 valeurs (la meme pout tous) 
+% \tkzTabInit[lgt=2.5,espcl=3,help]%
+\tkzTabInit[lgt=2.5,espcl=3]%
+% Les élements de la première colonne entre {}
+% sont séparés par des virgules
+% ce sont des couples "blabla" / hauteur en cm
+{      $ x $      /.8,
+    $ -6x +18 $     /.8, 
+    $ x - 4$     /.8,
+    $ x - 1$     /.8,
+$ \dfrac{-6x +18}{(x-4)(x-1)} $ /1.6
+}
+                    {$-\infty$, $1$, $3$, $4$, $+\infty$}
+\tkzTabLine[]{, 
+              {\Huge +}, t,  
+              {\Huge +}, z,         
+              {\Huge -}, t,
+              {\Huge -}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, t,  
+              {\Huge -}, t,         
+              {\Huge -}, z,
+              {\Huge +}
+             }
+\tkzTabLine[]{, 
+              {\Huge -}, z,  
+              {\Huge +}, t,         
+              {\Huge +}, t,
+              {\Huge +}
+             } 
+\tkzTabLine[]{, 
+              {\Huge +}, d,  
+              {\Huge -}, z,         
+              {\Huge +}, d,
+              {\Huge +}
+             }     
+\draw [decoration={brace, mirror, amplitude=8pt,raise=1pt},
+            decorate,line width=1] (N25) -- (N35) ;                                                     
+\draw [decoration={brace, mirror, amplitude=8pt,raise=1pt},
+            decorate,line width=1] (N45) -- (T25) ;                                                     
+\end{tikzpicture} \\
+
+$S = ]1, 3] \cup ]4, +\infty [ $ 
+
+Les solutions sont les abscisses des points d'intersections et des points de  $\mathcal{C}_{f_1}$ qui sont situés sous  $\mathcal{C}_{f_2}$.
+
+\end{itemize}
+
+\end{enumerate}
+
+\newpage
+
+\subsection{Exemples de problèmes}
+\subsubsection{Exercice \no 1} ~\\
+Dans le système métrique l'unité de température est le degré Celcius ($^{o}$C).\\
+Dans certains pays anglo-saxons, l'unité de température est le degré Farenheit ($^{o}$F). \\
+
+\begin{itemize}
+\item[*] La glace fond à 0$^{o}$C ou 32$^{o}$F.
+\item[*] l'eau bout à 100$^{o}$C ou 212$^{o}$F.
+\end{itemize}
+
+Le modèle mathématique de correspondance entre les deux échelles de température est une {\it fonction affine}. \\
+
+Soit $f$ la fonction qui, à la mesure$x$ en $^{o}$C d'une température, associe sa mesure $f(x)$ en $^{o}$F.\\
+
+Soit $g$ la fonction qui, à la mesure $x$ en $^{o}$F d'une température, associe sa mesure $g(x)$ en degré $^{o}$C.\\
+
+
+\begin{enumerate}
+\item Déterminer $f$ et $g$.
+\item Compléter le tableau suivant : 
+\begin{tabular}{c@{$\;\mid\quad$}c@{$\quad\mid\quad$}c@{$\quad$}}
+$^{o}$C&20& \\
+\hline
+$^{o}$F & & 86 \\
+\end{tabular}
+
+
+\item Existe-t-il une température qui a la même mesure $^{o}$C et en $^{o}$F ? \\
+Si oui laquelle ? 
+\end{enumerate}
+
+\begin{enumerate}
+\item $f(x) = ax +b $ \\
+
+\begin{tabular}{r@{$\;$}c@{$\;$}rcr@{$\;$}c@{$\;$}r}
+$f(0) $    & $=$ & $ 32$  & donc & $a \times 0 +b $ & $=$ & $32$ \\
+$f (100) $ & $=$ & $ 212$ & donc & $a \times 100 +b $ & $=$ & $212$ \\
+\end{tabular}\\
+
+$b=32$ \\
+
+\begin{tabular}{lr@{$\;$}c@{$\;$}l}
+Il vient que & $212$   & $=$ & $ 100a +32 $ \\
+             & $180$   & $=$ & $ 100a$ \\
+             & $a$     & $=$ & $\dfrac{9}{5} $ \\
+             &         &     &                   \\ 
+Ainsi        & $f(x) $ & $=$ & $\dfrac{9x}{5}  +32 $ \\    
+\end{tabular}\\
+
+\newpage 
+$g(x) = ax +b $ \\
+
+\begin{tabular}{r@{$\;$}c@{$\;$}rcr@{$\;$}c@{$\;$}r}
+$f(32) $    & $=$ & $ 0$  & donc & $a \times 32 +b $ & $=$ & $0$ \\
+$f (212) $ & $=$ & $ 100$ & donc & $a \times 212 +b $ & $=$ & $100$ \\
+\end{tabular}
+
+\renewcommand{\arraystretch }{1.7}
+\begin{tabular}{lcl}
+$\left\{ \begin{array}{ll|l} 
+      \;\;\;\;\;\; 0  \!\!\!\!\!\!\!\! & = 32a   + b  &  \\
+          100   \!\!\!\!\!\!\!\! & = 212 a + b  & -1
+          \end{array} \right. $ & \hspace{1cm} 
+   & $\left\{ \begin{array}{ll|l} 
+                  \;\;\;\; \; 0  \!\!\!\!\!\!\!\!& = 32 a + b  & -\dfrac{53}{8} \\
+                      100  \!\!\!\!\!\!\!\!& = 212 a + b & 
+              \end{array} \right. $ \\
+$\left\{ \begin{array}{ll} 
+       \;\;\;\;  \;\;\;\; \; 0  \!\!\!\!\!\!\!\! & = 32 a + b   \\
+           -100 \!\!\!\!\!\!\!\! & = -212 a -b 
+          \end{array} \right. $ & \hspace{1cm} 
+   & $\left\{ \begin{array}{ll} 
+                 \;\;\;\;\;\;0   \!\!\!\!\!\!\!\! & = -212a - \dfrac{53}{8} b  \\
+                 100  \!\!\!\!\!\!\!\! & = 212a + b \\
+               \end{array} \right. $ \\
+\cline{1-1} \cline{3-3}
+$  \quad  \;\;\;  -100 =  -180a  $ & & $ \quad \;\; 100 = -\dfrac{45}{8} b $\\
+$  \quad  \;\;\;\;\; \;  100 =  180a  $ & & \\
+$ \qquad \quad    a  =  \dfrac{100}{180} $ & & $ \qquad  \;  b  = -\dfrac{800}{45}$\\
+$ \qquad \quad   a  =  \dfrac{5}{9} $ & & $ \qquad \;  b  =  -\dfrac{160}{9}$\\
+\end{tabular}   \\
+\renewcommand{\arraystretch }{1}
+ 
+ 
+ 
+Ainsi         $g(x) = \dfrac{5x}{9} -\dfrac{160}{9} $ \\  
+ 
+\end{enumerate}
+
+%------------------   Exercice sur la petite feuille  Clermont -- Paris --------
+
+\newpage
+
+\subsubsection{Exercice \no 2} ~\\
+
+ Sylvain se rend de Clermont-Ferrand à Paris en utilisant l'autoroute A71. La distance de Clermont-Ferrand à Paris est 400 km. \\
+
+Le trajet de l'autoroute est représenté par le graphique ci-dessous : 
+
+\bigskip 
+
+\centerline{\input {262_Clermont-Paris.tex}}
+
+\newpage 
+
+\vspace*{-2cm}
+
+En {\it abscisse}, sont portées les durées calculées en minutes, à partir de 14h, heure de départ de Clermont-Ferrand de Sylvain. \\
+En {\it ordonnée}, sont portées les distances calculées en kilomètres, entre Sylvain et Clermont-Ferrand. 
+
+\begin{enumerate}
+   \item En lisant sur le graphique, répondre aux questions suivantes : 
+
+       \begin{enumerate}
+          \renewcommand{\theenumii}{\alph{enumii}}
+           \item Quelle est la durée totale du voyage de Clermont-Ferrand à Paris ? \\
+                 À quelle heure Sylvain arrive-t-il à Paris ? 
+           \item À quelle distance de Clermont-Ferrand Sylvain se trouve-t-il 
+                 une heure et demie après sont départ ? 
+           \item Combien d'arrêts a-t-il faits ? 
+           \item Quelle est la durée totale des arrêts ? 
+           \item Qu'a fait Sylvain entre 16h20min et 16h50min ?       
+       \end{enumerate}   
+   \item Un deuxième automobiliste (part de Paris à 15h pour se rendre à Clermont-Ferrand en 
+         empruntant lui aussi l'autoroute A71. Il roule à 100km/h. Au bout de 2 heures et demie,
+          il s'arrête pendant 30 minutes. Puis il repart à la même vitesse jusqu'à 
+          Clermont-Ferrand sans s'arrêter. 
+       \begin{enumerate}
+           \item Représenter le trajet Paris-Clermont-Ferrand de ce deuxième automobiliste 
+                 sur le graphique. \\
+                 En {\it abscisse}, sont toujours portées les durées calculées en minutes, 
+                 à partir de 14h. \\
+                 En {\it ordonnée}, sont portées les distances calculées en kilomètres, 
+                 entre ce deuxième automobiliste et Clermont-Ferrand. 
+           \item Trouver, à partir de ce graphique, une valeur approchée de l'heure de croisement
+                 des deux automobilistes, ainsi qu'une valeur approchée de la distance 
+                 du lieu de croisement à Clermont-Ferrand.  
+       \end{enumerate}   
+   \item Placer sur le graphique, les points A, B, C et D définis par : \\
+         $ A(130,150) ; \quad B(330,400) ; \quad C(60,400) ; \quad D(210, 150) ;  $\\
+         \begin{enumerate}
+            \item Déterminer une équation dela droite $(AB)$. 
+            \item On admet qu'une équation de la droite $(CD)$ est : \\
+                   \[ y=-\dfrac{5}{3} +500 \]
+                  calculer les coordonnées du point commun des droites $(AB)$ et $(CD)$. 
+            \item Que représente l'abscisse obtenue ? l'ordonnée obtenue ? 
+         \end{enumerate}                 
+\end{enumerate}
+
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item 
+     \begin{enumerate}
+       \item  1$^{\mathrm{er}}$ morceau $A_1(0,0)$ et $B_1(90,150)$ \\
+
+        $f(x) = ax + b$ \\
+
+        $\begin{cases}
+        \;\;\;\;\; 0 \!\!\!\!\!\!\!\!&= 0\times a +b\\
+         150 \!\!\!\!\!\!\!\!&= a \times 90 + b\\
+        \end{cases} $ \\
+
+
+        $\begin{cases}
+        \;\;\; 0a +b \!\!\!\!\!\!\!\!&= 0\\
+        90a + b \!\!\!\!\!\!\!\!&= 150 \\
+        \end{cases} $ \\
+
+
+        $\begin{cases}
+        a = \dfrac{5}{3}\\
+        b = 0 \\
+        \end{cases} $ \\
+
+        3$^{\mathrm{me}}$ morceau $A_3(110,150)$ et $B_3(140,200)$ \\
+        4$^{\mathrm{me}}$ morceau $A_3(140,200)$ et $B_3(170,150)$ \\
+        6$^{\mathrm{me}}$ morceau $A_3(180,150)$ et $B_3(330,400)$ \\
+\bigskip 
+
+\centerline{\input {263_Clermont-Paris_Reponse.tex}}
+
+\bigskip 
+
+        Fonction affine par morceaux. \\
+   \item Intersection de $(AB)$ et $(CD)$  \\
+   
+   $\begin{cases}
+       y = \dfrac{5}{3} x -150 \\
+       y = - \dfrac{5}{3} x +500 \\
+    \end{cases} $ \\    
+ 
+ \medskip 
+    
+   $  \dfrac{5}{3} x -150 = - \dfrac{5}{3} x +500 $ \\
+
+\smallskip 
+   
+   $ \dfrac{10}{3} x = 650 $ \\
+
+   $ x = 195 $ \\
+    
+   Les deux automobilistes se sont croisés à 17h15 à 175 km de Clermont-Ferrand.  
+\end{enumerate}
+
+\item La fonction affine devient le trajet du deuxième automobiliste. 
+
+$g : \mathbb{R} \longrightarrow  \mathbb{R}$ \\
+\begin{tabular}{l@{$\;$}c@{$\;$}l@{$\qquad$}l}
+$x\longmapsto g(x) $ & $=$ & $ - \dfrac{5}{3} x + 500$ & si $ x \in [ 60, 210 ] $ \\
+                     & $=$ & $ 150 $                   & si $ x \in [210, 240 ]  $ \\
+                     & $=$ & $ - \dfrac{5}{3} x + 550$ & si $ x \in [240,330 ]  $ \\
+                     &     &                           &   \\
+                     &     &                           &   $D_g = [60, 330] $ \\
+\end{tabular}
+
+\end{enumerate}
+
+\newpage 
+%------------------   Problème d'optimisation --------
+
+\subsubsection{Exercice \no 3 : Problème d'optimisation }\includegraphics[width=.5cm]{264_Pouce_leve.jpg}\\
+
+Un maître nageur dispose d'une corde de 160m de longueur pour délimiter un rectangle de baignade surveillée. \\
+
+À quelle distance du rivage doit-il placer les 2 bouées A et B pour que le rectangle de baignade surveillée ait une aire maximale ? 
+
+\bigskip 
+
+\centerline{\input {264_Aire_de_baignade.tex}}
+
+\bigskip 
+
+Soit $x$ la distance cherchée ; Unité : m. \\
+
+On a $2x +y = 160 $ \\
+
+\begin{tabular}{r@{$\;$}c@{$\;$}l}
+$\scrA $ & $=$ & $xy$ \\
+               & $=$ & $x (-2x+160)$ \\
+               & $=$ & $-2x^2 +160x$ \\
+\end{tabular}\\
+
+Soit $f : \mathbb{R} \longrightarrow  \mathbb{R}$ \\
+$x \longrightarrow f(x) = -2x^2 + 160x \qquad \mathrm{D}_f=[0,80]$ \\
+
+\begin{tabular}{rll}
+RG de $f$ : & en abscisses : & 1 cm pour  10 \\
+            & en ordonnées : & 1 cm pour 400 \\
+\end{tabular}\\
+
+\centerline{\input {265_Parabole_de_baignade.tex}}
+
+
+\begin{tabular}{l@{$\;$}c@{$\;$}l}
+$f(x)$ & $=$ & $-2x^2 +160x $\\
+       & $=$ & $ -2(x^2 -80x) $\\
+       & $=$ & $ -2[ (x-40)^2 - 1600]$ \\
+       & $=$ & $ 2(x-40)^2 +3200 \qquad \qquad   \alpha = 40 \quad \beta = 3200 $ \\
+\end{tabular} \\
+
+La solution de $f$ est donc le point $S(40, 3200)$. \\
+
+\begin{tabular}{r@{$\;$}r@{$\;$}c@{$\;$}l}
+Pour tout $x \in [0, 50] $ & $ \qquad \qquad \quad(x-40)^2 $  & $ \geqslant $ & $0$ \\
+                           & $-2(x-40)^2 $ & $ \leqslant $ & $0$ \\
+\multicolumn{2}{r}{$-2(x-40)^2 +3200 $ }   &  $ \leqslant $ & $3200$ \\
+             \multicolumn{2}{r}{$f(x)$ }   &  $ \leqslant $ & $3200$ \\                                  
+\end{tabular}\\
+
+Le maître nageur doit placer ses bouées à $40m$ du rivage,\\
+et l'aire du rectangle de baignade sera alors de $3200m^2$ \\
+
+\newpage 
+
+%------------------   2me problème d'optimisation --------
+
+\subsubsection{Exercice \no 4 : Problème d'optimisation }
+
+On considère une boîte sans couvercle.
+
+\bigskip 
+
+\bigskip 
+
+\centerline {\begin{tabular}{c@{$\qquad \qquad$}c}
+\begin{tikzpicture}  % ------ La boite sans couvercle ------------------
+      [x={(-0.572cm,-0.416cm)},y={(1cm,0cm)},z={(0cm,1cm)}]
+    \draw [dashed] (1,0,0)--(0,0,0) --(0,2,0) ;
+    \draw  (0,2,0) --  node [pos=.8, right ] {$x$} (1,2,0)-- node [midway, below ] {$x$}(1,0,0);
+    \draw (0,0,1)--(1,0,1)-- (1,2,1)-- (0,2,1)-- cycle;
+    \draw [dashed] (0,0,0)--(0,0,1) ;
+    \draw (1,0,0)--(1,0,1);
+    \draw (0,2,0)-- node [midway, right ] {$h$}(0,2,1);
+    \draw (1,2,0)-- (1,2,1);
+\end{tikzpicture} & \raisebox{3ex}{ \parbox{5cm}{ Volume : $\dfrac{1}{2}$ L \\
+                                  $x$ et $h$ en $cm$ \\ 
+                                }} \\
+\end{tabular}}
+
+Déterminer $x$ pour que l'aire extérieure de la boîte soit minimale (parce que on veut peindre la boîte à moindre frais). \\
+
+
+\begin{tabular}{l@{$\;$}l}
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{r@{$\;$}ll}
+On a $\qquad \qquad \mathcal{V}$ & $ = x^2h $ & \multirow{2}{3cm}{$\left.\begin{array}{c}
+                                                 \\
+                                                 \\
+                                                 \end{array}\right \rbrace x^2h =500$ }\\
+     $\mathcal{V}$ & $ = 500 cm^3  $ &\\
+                   &            &     \\
+     $\scrA$ & $ = x^2 + 4xh $ & \\  
+                   & $ = x^2 + 4x \dfrac{500}{x^2} $ \\
+                   & $ = x^2 + \dfrac{2000}{x}  $ \\           
+\end{tabular}} & \raisebox{-10ex}{\parbox{8cm}{
+                     \renewcommand{\arraystretch }{1.5}
+                     \begin{tabular}{r@{$\;$}l}
+                      Soit $f:$ & $ \mathbb{R}\rightarrow \mathbb{R} $ \\
+                                & $ x \rightarrow f(x) : x^2 + \dfrac{2000}{x}    
+                                      \qquad \qquad \mathrm{D}_f = ] 0,+\infty[ $ \\
+                     \end{tabular}   \\              
+                        Asymptote verticale $x=0$ \\
+                        \begin{tabular}{r@{$\;$}l}
+                            RG de $f$ en abscisse & : 1 cm pour 5 \\
+                                       en ordonnées & : 1 cm pour 100.\\
+                       \end{tabular}
+                       }} \\
+\end{tabular}\\
+\renewcommand{\arraystretch }{1}
+\centerline{\input {266_Courbe_boite.tex}}
+
+\newpage
+
+Montrons que $f$ est décroissante sur $]0,10]$\\
+Soit $x_1$ et $x_2 \in ]0,10] \qquad $ avec $\boxed {x_1 < x_2} $ \\
+
+%\bigskip 
+
+\begin{tikzpicture}  
+
+\tikzstyle{block} = [color=darkgreen] 
+%      \draw [help lines] (0,0) grid (8,5)  ; 
+   \matrix 
+    {
+    a & b \\ 
+\node {$f(x_2) - f(x_1) $} ;  & \node {$=$} ;  & \node [left=1.7cm] {$ \left({x_2}^2 + \dfrac{2000}{x_2}\right) 
+                               - \left({x_1}^2 
+                                 + \dfrac{2000}{x_1}\right) $ } ; \\
+                 & \node {$=$} ;  &  \node [left=2.2cm] {$ {x_2}^2 + \dfrac{2000}{x_2} - {x_1}^2 
+                                    - \dfrac{2000}{x_1}$ }  ; \\                              
+                  & \node {$=$} ; & \node [left=.8cm]{ $ \left({x_2} - {x_1}\right) 
+                            \left({x_2} + {x_1}\right) 
+                            + 2000 
+                               \left(\dfrac{1}{x_2} - \dfrac{1}{x_1}\right)$ }; \\    
+                  & \node {$=$}; & \node [left=.2cm]{ $ \dfrac{\left({x_2} - {x_1}\right) 
+                                                \left({x_2} + {x_1}\right) x_1 x_2 - 2000 
+                                                \left( x_2 - x_1 \right)}      {x_1 x_2}$ } ; \\                                                  
+                   &   & \node (a) {\textcolor{darkgreen}{Négatif}} ; \\                                                                                                                                          
+                  & \node (b) {$=$} ;  & \node (c) [left=1.3cm]{ $ \dfrac{\left(x_2 - x_1\right) \quad \big[
+                             \left({x_2} + {x_1}\right) x_1 x_2 - 2000\big]}{\quad x_1 x_2}$ } ;\\                                                                                                                                         
+                  &    & \node  (d) [left=4cm] {\textcolor{darkgreen}{\parbox{2cm}{Strictement\\positif}}} ; 
+                          \node (e) [left] {\textcolor{darkgreen}{\parbox{2cm}{Strictement\\positif}}} ;\\                                                                                                                        
+} ; 
+\draw [->, darkgreen] (a.west)  to [bend right]  (c.north); 
+\draw [->, darkgreen] (d)  to [bend left]  (c.west); 
+\draw [->, darkgreen] (e.north west)  to [bend left]  (c);   ; 
+\end{tikzpicture} \\
+
+\begin{itemize}
+\item[*] $\left. \begin{array}{c}
+                     x_1 > 0\\
+                     x_2 > 0 
+                 \end{array} \right\rbrace x_2 x_1 > 0 $ \\
+                 
+\item[*] \raisebox{-9ex}{$       \begin{array}{r@{\;}c@{\;}l}
+                     x_1 & \leqslant & 10\\
+                     x_2 & \leqslant & 10\\
+                         &           &    \\    
+              (x_2 + x_1)& \leqslant & 20\\   
+                 x_1 x_2 & \leqslant & 100 \\ 
+               (x_2 + x_1) x_1 x_2 & \leqslant & 2000 \\ 
+(x_2 + x_1) x_1 x_2  -2000 & \leqslant & 0  \\               
+                 \end{array} $  } \\
+
+\bigskip 
+                 
+  Conclusion : $f(x_2) - f(x_1) \leqslant 0 $
+
+\end{itemize}
+
+\bigskip    
+
+\newpage
+  
+Montrons que $f$ est croissante sur $]10, +\infty[$ \\
+                              
+Soit $x_1$ et $x_2 \in [10,+\infty \qquad $ avec $\boxed {x_1 < x_2} $ \\
+
+\begin{tikzpicture}  
+   \matrix 
+    {
+                   &   & \node (a) {\textcolor{darkgreen}{Positif}} ; \\                                                                                                                                          
+\node {$f(x_2) - f(x_1) $} ;  & \node {$=$} ;  & \node (c) [left=1.3cm]{ $ \dfrac{\left(x_2 - x_1\right) \quad \big[
+                             \left({x_2} + {x_1}\right) x_1 x_2 - 2000\big]}{\quad x_1 x_2}$ } ;\\                                                                                                                                         
+                  &    & \node  (d) [left=4cm] {\textcolor{darkgreen}{\parbox{2cm}{Strictement\\positif}}} ; 
+                          \node (e) [left] {\textcolor{darkgreen}{\parbox{2cm}{Strictement\\positif}}} ;\\                                                                                                                        
+} ; 
+\draw [->, darkgreen] (a.west)  to [bend right]  (c.north); 
+\draw [->, darkgreen] (d)  to [bend left]  (c.west); 
+\draw [->, darkgreen] (e.north west)  to [bend left]  (c);   ; 
+\end{tikzpicture} \\
+
+
+\begin{itemize}
+\item[*] $\left. \begin{array}{c}
+                     x_1 > 0\\
+                     x_2 > 0 
+                 \end{array} \right\rbrace x_2 x_1 > 0 $ \\
+                 
+\item[*] \raisebox{-9ex}{$       \begin{array}{r@{\;}c@{\;}l}
+                     x_1 & \geqslant& 10\\
+                     x_2 & \geqslant & 10\\
+                         &           &    \\    
+              (x_2 + x_1)& \geqslant & 20\\   
+                 x_1 x_2 & \geqslant & 100 \\ 
+               (x_2 + x_1) x_1 x_2 & \geqslant & 2000 \\ 
+(x_2 + x_1) x_1 x_2  -2000 & \geqslant & 0  \\               
+                 \end{array} $  } \\
+            
+\bigskip                  
+  Conclusion : $f(x_2) - f(x_1) \geqslant 0 $
+\end{itemize}
+
+\bigskip    
+
+Le minimum a donc pour coordonnées $(10, 300)$. 
+
+L'aire maximale est donc obtenue pour $x = 10 cm$. Elle est alors de $300 cm^2$. 

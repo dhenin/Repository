@@ -1,0 +1,1478 @@
+\section{Droites du plan}
+\subsection{Définitions}
+
+Une droite $(d)$ est définie :
+
+\begin{itemize}
+    \item Soit par la donnée d'un point $M_{0}$ et d'un vecteur non nul         
+          $\vec{u}$ \\ 
+
+           \vspace{.5cm}
+ \begin{center}
+       
+\begin{tikzpicture}[scale=0.8]
+      \coordinate (M) at (0, 0) ; 
+
+        % Le coef directeur est 1/3 et le vecteur directeur (3 ; 1)     
+
+         \draw[thick] (-4,-1.5)  -- (8,2.5) ;
+         \draw (0,0) node {$\times$} ; \draw (0,0) node [above] {$M_{0}$} ;
+         \draw[thick,darkgreen, ->] (0,-0.1)  -- (3,0.9) ;
+         \draw[thick,darkgreen, ->] (-1,2)  -- node[midway,above, darkgreen]
+              {$\overrightarrow{u}$} (2,3) ;
+         \tkzDefPoint(8,2.5){D}
+        \tkzLabelPoint[color=black,below](D){$(d)$}
+\end{tikzpicture}
+   
+ 
+\end{center} 
+
+\centerline{\textcolor{darkgreen}
+           {\bf $\mathbf{\overrightarrow{u}}$est le vecteur directeur de
+            la droite $\mathbf{(d)}$.}
+            } 
+
+\vspace{.5cm}
+
+\begin{center}
+     \fcolorbox{black}  {white}{
+      \hbox{
+        $M\in(d)\Longleftrightarrow\overrightarrow{M_{0}M}$ 
+            et     $\overrightarrow{u}$ sont colinéaires.}}
+\end{center}
+
+\vspace{.5cm}
+
+\item Soit par la donnée de 2 points distincts $A$ et $B$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+% Le coef directeur est 1/5 et le vecteur directeur (5 ; 1)     
+      \tkzDefPoint(5,1){A}
+      \tkzText(A){\textcolor{black}{$\times$}}
+      \tkzLabelPoint[color=black,below](A){$A$}
+      \tkzDefPoint(10,2){B}
+      \tkzText(B){\textcolor{black}{$\times$}}
+      \tkzLabelPoint[color=black,below](B){$B$}
+      \tkzDefPoint(15,3){D}
+      \tkzLabelPoint[color=black,below](D){$(d)$}
+      \draw [thick] (0,0) -- (15,3) ; 
+\end{tikzpicture}
+\end{center}
+
+\vspace{.5cm}
+
+\begin{center}
+    \fcolorbox{black}  {white}{
+     \hbox{
+       $M\in(d)\Longleftrightarrow\overrightarrow{AM}$ 
+           et $\overrightarrow{AB}$ sont colinéaires.}}
+\end{center}
+
+\end{itemize}
+
+\newpage 
+
+
+\subsection{Équation cartésienne d'une droite}
+\vspace{-.4cm}\hspace{3cm}$\llcorner$ {\footnotesize de René Descartes}
+
+\subsubsection{Exemple \no 1}
+Soit $(O, \vec{i}, \vec{j})$ un repère. \\
+Soient $M_{0}(-3,2) $ et $\vec{u}\left(\begin{array}{c}
+                                    1\\
+                                    -2
+                               \end{array}\right)$.
+                 
+Soit $(d)$ la droite définie par $M_{0}$ et $\vec{u}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+     \tkzInit[xmin=-4.5,xmax=2.5, ymin=-5.5, ymax=5.5]
+     \tkzRep[xlabel=$\vec{i}$, ylabel=$\vec{j}$]
+     \tkzDrawXY [noticks]%, label={}]
+     \tkzGrid [color=bistre,line width=0.01] 
+
+     \tkzLabelPoint[color=black,below](-3,0){$-3$} 
+     \tkzLabelPoint[color=black,left](0,2){$2$}
+     \draw [color=violet, thick, ->] (0,0)   -- +(1,-2) 
+               node[midway,below, violet]{$ \overrightarrow{u}$}; 
+     \draw [color=violet, thick, ->] (-3.05,2)   -- +(1,-2) 
+               node[midway,below, violet]{$ \overrightarrow{u}$};
+     \tkzDefPoint(-3,2){M0}
+     \tkzText(M0){\textcolor{violet}{$\times$}}
+     \tkzLabelPoint[color=violet,below](M0){$M_{0}$}
+     \draw [color=black, thick] (-5, 6 ) -- +(6, -12) ; 
+     \tkzLabelPoint[color=black,above](-5,6){$(d)$}
+     \tkzDefPoint(-1,-2){M1}
+     \tkzText(M1){\textcolor{black}{$\times$}}
+     \tkzLabelPoint[color=black,below](M1){$M_{1}$}
+\end{tikzpicture}
+\end{center}
+\vspace{.5cm}
+
+\begin{align*}
+    M(x,y)\in(d) 
+        &\Longleftrightarrow   \overrightarrow{M_{0}M} 
+             \text { et }      \vec{u} \text{ sont colinéaires} \\ 
+        &\Longleftrightarrow   \text{Det}(\overrightarrow{M_{0}M},
+                                          \vec{u})        = 0 \\
+        & \Longleftrightarrow \left| \begin{array}{cc}
+                                          x + 3 & 1\\
+                                          y - 2 & -2
+                                     \end{array} \right|  =  0 \\
+       & \Longleftrightarrow      -2(x+3)-(y-2)   =   0\\
+       & \Longleftrightarrow          -2x-6-y+2   =   0\\
+       & \Longleftrightarrow          -2x-y-4     =   0\\
+       & \Longleftrightarrow           2x+y+4     =   0\\
+\end{align*}
+
+Équation cartésienne de (d) : $2x+y+4=0$ 
+
+\vspace{.5cm}
+
+
+\begin{tabular}{lll}
+\textbf{Remarque :} 
+         & $2x+y+4 = 0$     &      \\
+         &   $ y = -2x -4 $ & Cette équation est l'équation réduite de la droite $(d)$ \\
+\end{tabular}
+
+\newpage
+
+\subsubsection{Exemple \no 2}
+
+Soient $A(-1, -3) $ et$  B(2, -1)$ \\
+Soit $(d)$ la droite définie par $A$ et $B$ \\
+
+
+
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+    \tkzInit[xmin=-4.5,xmax=6.5, ymin=-5.5, ymax=3.5]
+    \tkzRep[xlabel=$\vec{i}$, ylabel=$\vec{j}$]
+    \tkzDrawXY [noticks]%, label={}]
+    \tkzGrid [color=bistre,line width=0.01] 
+    \tkzLabelPoint[color=black,below](-1,0){$-1$}
+    \tkzLabelPoint[color=black,below](2,0){$2$}
+    \tkzLabelPoint[color=black,left](0,-1){$-1$}
+    \tkzLabelPoint[color=black,right](0,-3){$-3$}
+    \tkzDefPoint(-1,-3){A}
+    \tkzText(A){\textcolor{red}{$\times$}}
+    \tkzLabelPoint[color=red,below](A){$A$}
+    \tkzDefPoint(2,-1){B}
+    \tkzText(B){\textcolor{red}{$\times$}}
+    \tkzLabelPoint[color=red,below](B){$B$}
+    \draw [color=black, thick] (-4, -5 ) -- +(12, 8) ; 
+    \tkzDefPoint(5,1){M1}
+    \tkzText(M1){\textcolor{black}{$\times$}}
+    \tkzLabelPoint[color=black,above](M1){$M_{1}$}
+    \tkzDefPoint(1,1){M2}
+    \tkzText(M2){\textcolor{black}{$\times$}}
+    \tkzLabelPoint[color=black,above](M2){$M_{2}$}
+\end{tikzpicture}
+\end{center}
+
+\vspace{.5cm}
+
+\begin{align*}
+    M(x,y)\in(d) 
+        & \Longleftrightarrow \overrightarrow{M_{0}M} \text { et } \vec{u} \text{ sont colinéaires} \\ 
+        & \Longleftrightarrow \text{Det}(\overrightarrow{AM},\overrightarrow{AB}) = 0 \\
+        & \Longleftrightarrow \left|
+                   \begin{array}{cc}
+                     x+1 & 3\\
+                     y+3 & 2
+                   \end{array} \right|        =    0 \\
+        & \Longleftrightarrow 2(x+1)-3(y+3)   =    0 \\
+        & \Longleftrightarrow  2x+2-3y-9      =    0 \\
+        & \Longleftrightarrow  2x-3y-7        =    0 \\
+\end{align*}
+
+
+\vspace{.5cm}
+
+% A reprendre l'espacement des 2 lignes de l'équation réduite
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{rrl}
+	Équation cartésienne de (d) : & $  2x-3y-7 $ & $ = 0 $ \\
+	Équation réduite de (d) :     & $ -3y      $ & $ = -2x +7 $\\
+                                      & $   y      $ & $ = \dfrac{2}{3}x -\dfrac{7}{3}$ \\
+\end{tabular}}
+\renewcommand{\arraystretch }{1}
+
+
+
+\vspace{.5cm}
+
+Par exemple : \\
+
+Pour  $M_{1}(5,1)$ : $10 -3 -7 = 0 $ 
+donc, $M_{1} \in (d)$. \\
+
+Pour  $M_{2}(1,1)$ : $2-3-7\neq 0$
+donc, $M_{1} \notin (d)$
+
+\newpage
+
+\subsubsection{Conclusion}
+
+\textbf{En résumé} Soit $\mathbf{ (d) }$ une droite,\\
+
+les équations cartésiennes de (d) sont de la forme :\\
+            $ax+by+c=0$ \\
+           \textcolor{red}{avec $a$ et $b$ non simultanément nuls.
+	  } 
+
+\vspace{.5cm}
+
+{\bf Réciproquement} : \begin{quote}
+    Tout équation de la forme $ax+by+c=0$ avec $a$ et $b$ simultanément non nuls est l'équation cartésienne d'une droite.
+\end{quote} 
+
+\subsubsection{Exercice \no 1}
+
+Soit la droite $(d)$ d'équation cartésienne $ x-3y+4=0$ \\
+
+\begin{center}
+\begin{tikzpicture}[scale=.7]
+    \tkzInit[xmin=-6.5,xmax=7.5, ymin=-2.5, ymax=4.5]
+    \tkzRep[xlabel=$\vec{i}$, ylabel=$\vec{j}$]
+    \tkzDrawXY [noticks]%, label={}]
+    \tkzGrid [color=bistre,line width=0.01] 
+    \tkzDefPoint(-4,-0){A}
+    \tkzText(A){\textcolor{red}{$\times$}}
+    \tkzLabelPoint[color=red,above](A){$A$}
+    \tkzDefPoint(-1,1){B}
+    \tkzText(B){\textcolor{red}{$\times$}}
+    \tkzLabelPoint[color=red,above](B){$B$}
+    \tkzDefPoint(2,2){C}
+    \tkzText(C){\textcolor{red}{$\times$}}
+    \tkzLabelPoint[color=red,above](C){$C$}
+    \tkzDefPoint(5,3){D}
+    \tkzText(D){\textcolor{red}{$\times$}}
+    \tkzLabelPoint[color=red,above](D){$B$}
+    \draw [color=red, thick] (-7, -1 ) -- +(15, 5) ; 
+\end{tikzpicture}
+\end{center}
+
+On cherche graphiquement des points de $(d)$.
+
+    $A(-4,0)$\\
+    $B(-1,1)$\\
+    $C(2,2)$\\
+    $D(5,3)$\\
+
+On remarque que :
+%Dans la liste des vecteurs, il faut aligner le vecteur AB avec AC et AD.
+
+$\overrightarrow{AB}
+		          \left(\begin{array}{c}
+                                3\\
+                                1
+                           \end{array}\right) 
+			        \overrightarrow{AB} = \overrightarrow{BC} = \overrightarrow{CD}$ \\
+
+$\overrightarrow{AC}
+	                 \left(\begin{array}{c}
+                               6\\
+                               2
+                         \end{array}\right) \overrightarrow{AC} = 2\overrightarrow{AB}$ \\
+
+$\overrightarrow{AD}
+	                \left(\begin{array}{c}
+                              9\\
+                              3
+                        \end{array}\right) \overrightarrow{AD} = 3\overrightarrow{AB}$ \\
+                        
+Ainsi, l'incrément de $x$ est : $+ 3$ \\ 
+et l'incrément de $y$ est : $ + 1$. \\
+
+$\overrightarrow{AB}$ est donc un vecteur directeur de $(d)$. \\
+
+De manière générale, $(d) : ax+by+c = 0$  est caractérisée par le vecteur directeur $\vec{u} 
+                        \left(\begin{array}{c}
+                              -b\\
+                              a
+                        \end{array}\right)$
+
+
+\newpage
+
+\subsubsection{Exercice \no 2}
+
+Soit $D : 10x-7y+8 = 0$ \\
+
+L'équation réduite de $(D)$ est : 
+
+\begin{tabular}{r@{$\;$}c@{$\;$}l}
+$-7y$ & = & $-10x-8 $\\
+$y$ &  = & $ \dfrac{10}{7} x + \dfrac{8}{7} $ \\
+\end{tabular}        \\
+
+On cherche 2 points appartenant à $(D)$ :
+        
+$A(-5, -6)$ et
+$B(2,4) $
+
+\subsubsection{Exercice \no 3}
+
+Soit $(D): 13x +12y+57 = 0$. \\
+
+L'équation réduite de $(D)$ est : 
+
+\begin{tabular}{r@{$\;$}c@{$\;$}l}
+$12y$ &= & $-13x-57 $\\
+$y$ & =& $ -\dfrac{13}{12}x-\dfrac{57}{12} $ \\
+\end{tabular}        \\
+
+On cherche 2 points appartenant à $(D)$ : 
+
+$A(-9, 5)$ et
+$B(3,-8) $
+
+\newpage
+
+\subsubsection{Exercice \no 4}
+
+Soit $D_{1} : 10x -7y -2 = 0$.
+
+L'équation réduite de $(D_{1})$ est :
+
+\begin{tabular}{r@{$\;$}c@{$\;$}l}
+$-7y$ & = & $ -10x +2 $ \\
+$y$ & =& $ \dfrac{10}{7}x-\dfrac{2}{7} $ \\
+\end{tabular} \\
+
+On trouve les points $A_{1}(-4, -6) $ et $  B_{1}(3,4) $ qui appartiennent à $(D_{1})$.
+
+\vspace{.5cm}
+
+Soit $D_{2} : 5x +9y -76 = 0$ 
+
+L'équation réduite de $(D_{2})$ est :
+
+\begin{tabular}{r@{$\;$}c@{$\;$}l}
+$9y$ & =& $ -5x +76 $ \\
+$y$ & =& $ -\dfrac{5}{9}x+\dfrac{76}{9}$\\
+\end{tabular} \\
+
+On trouve les points  $A_{2}(-1, 9) $ et $ B_{2}(8,4) $ qui appartiennent à $(D_{2})$.
+
+
+\vspace{.5cm}
+
+\begin{center}
+\begin{tikzpicture}[scale=.6]
+\tkzInit[xmin=-4.5,xmax=10.5, ymin=-6.5, ymax=10.5]
+\tkzRep[xlabel=$\vec{i}$, ylabel=$\vec{j}$]
+\tkzDrawXY [noticks]%, label={}]
+\tkzGrid [color=bistre,line width=0.01] 
+\clip (-5,11) rectangle (11,-7);
+
+\tkzDefPoint(-4,-6){A1}
+\tkzText(A1){\textcolor{black}{$\times$}}
+\tkzLabelPoint[color=black,below](A1){$A_{1}$}
+\tkzDefPoint(3,4){B1}
+\tkzText(B1){\textcolor{black}{$\times$}}
+\tkzLabelPoint[color=black,below](B1){$B_{1}$}
+
+\tkzDefPoint(-1,9){A2}
+\tkzText(A2){\textcolor{black}{$\times$}}
+\tkzLabelPoint[color=black,above](A2){$A_{2}$}
+\tkzDefPoint(8,4){B2}
+\tkzText(B2){\textcolor{black}{$\times$}}
+\tkzLabelPoint[color=black,above](B2){$B_{2}$}
+
+\tkzDefPoint(22/5, 6){I}
+\tkzText(I){\textcolor{black}{$\times$}}
+\tkzLabelPoint[color=black,below](I){$I$}
+
+\draw [thick] (-5, -52/7 ) -- +(14, 20) ; 
+\draw [thick] (-5, 101/9 ) -- +(18, -10) ; 
+\draw [thick, dashed] (0,6 ) -- +(4.4,0) ; 
+\draw [thick, dashed] (4.4,0 ) -- +(0,6) ; 
+
+\tkzLabelPoint[color=black,below](4.4,6){$I$}
+
+\tkzText(-4,0){\textcolor{black}{$\mid$}}
+\tkzLabelPoint[color=black,below](-4,0){$-4$}
+\tkzText(-1,0){\textcolor{black}{$\mid$}}
+\tkzLabelPoint[color=black,below](-1,0){$-1$}
+\tkzText(3,0){\textcolor{black}{$\mid$}}
+\tkzLabelPoint[color=black,below](3,0){$3$}
+\tkzText(4.4,0){\textcolor{black}{$\mid$}}
+\tkzLabelPoint[color=black,below](4.4,0){$4.4$}
+\tkzText(8,0){\textcolor{black}{$\mid$}}
+\tkzLabelPoint[color=black,below](8,0){$8$}
+\tkzText(0,9){\textcolor{black}{\_}}
+\tkzLabelPoint[color=black,right](0,9){$9$}
+\tkzText(0,8){\textcolor{black}{\_}}
+\tkzLabelPoint[color=black,left](0,8){$8$}
+\tkzText(0,6){\textcolor{black}{\_}}
+\tkzLabelPoint[color=black,left](0,6){$6$}
+\tkzText(0,4){\textcolor{black}{\_}}
+\tkzLabelPoint[color=black,left](0,4){$4$}
+\tkzText(0,-6){\textcolor{black}{\_}}
+\tkzLabelPoint[color=black,left](0,-6){$-6$}
+
+% \tkzLabelPoint[color=black,above](-7,-1){$(d)$}
+\end{tikzpicture}
+\end{center}
+
+
+\vspace{.5cm}
+
+Soit $I$ le point d'intersection de $D_{1}$ et $D_{2}$. \\
+ On cherche le point qui associe à $x$ la même ordonnée $y$ :
+
+\begin{tabular}{l|l|l|l}
+\multicolumn{1}{c|}{$x$} & \multicolumn{1}{c|}{$y_{1}$}  & \multicolumn{1}{c|}{$y_{2}$} & \\
+\hline
+$4$ & $5,4286$ & $6,2222$ & \\
+$4,2$ & $5,7143$ & $6,1111$ & \\
+$4,4$ & $6$ & $6$ & $\longleftarrow$ OUI \\
+\end{tabular}
+
+Ainsi, le point d'intersection des deux droites $(D_{1})$ et $ (D_{2}) $ est le point $ I\left(\dfrac{22}{5}, 6\right) $
+
+\newpage
+\subsection{Droites parallèles et droites sécantes}
+\subsubsection{Conditions de parallélisme de deux droites}
+
+Soit $(O,\vec{i},\vec{j})$ un repère.
+
+Soit $D$ : $ax +by + c = 0 \qquad $ avec comme vecteur directeur $ \vec{u}
+\left(\begin{array}{c}
+-b\\
+a
+\end{array}\right)$
+
+
+Soit $D'$ : $a'x +b'y + c' = 0 \quad $ avec comme vecteur directeur $ \overrightarrow{u'}
+\left(\begin{array}{c}
+-b'\\
+a'
+\end{array}\right)$
+
+% \sslash necessite \usepackage{stmaryrd}
+
+
+\begin{align*}
+     D \sslash D' &\Longleftrightarrow   \overrightarrow{u} \text { et }\overrightarrow{u'}               \text{ sont colinéaires} \\ 
+     &\Longleftrightarrow \text{det}(\overrightarrow{u},\overrightarrow{u'})=0 \\
+     & \Longleftrightarrow \left| \begin{array}{cc}
+                                    -b & -b'\\
+                                     a & a'
+                                  \end{array} \right|=0 \\
+    & \Longleftrightarrow -ba'-a \times (-b')=0\\
+    & \Longleftrightarrow  -a'b+ab'=0\\
+    & \Longleftrightarrow ab' - a'b=0\\
+    & \Longleftrightarrow \left| \begin{array}{cc}
+                                    a & b\\
+                                   a' & b'
+                                 \end{array} \right|=0 \\
+\end{align*}
+
+\fcolorbox{black}  {white}{\hbox
+{\begin{tabular}{rrl}
+$D$ :& $ax +by + c =$&$0$\\
+      $D'$ : & $a'x +b'y + c' =$ &$0$\\ 
+\multicolumn{3}{c}{$D \sslash D' \Longleftrightarrow \left| \begin{array}{cc}
+-b & -b'\\
+a & a'
+\end{array} \right|=0 $}           
+\end{tabular}       
+}}
+
+\vspace{.5cm}
+
+\subsubsection{Exemple}
+
+%\begin{tabular}{llll|l}
+%            &     &  &    & NB :   \\
+%{\bf Ex : } & $D$ & :   & $x -3y +4 =0$ & $D$ : $x -3y +4 = 0 $ \\
+ %           & $D'$ & :  & $3x -9y -14 = 0 $ & $D'$ : $3x -9y +12 = 0 $ \\
+%            
+\begin{tabular}{lll}
+$D$ & :   & $x -3y +4 =0$ \\
+$D'$ & :  & $3x -9y -14 = 0 $ \\
+\end{tabular} \\
+
+\begin{tabular}{ll}
+$ \left| \begin{array}{cc}
+1 & -3 \\
+3 & -9  \end{array} \right| = -9 +9 = 0$
+\end{tabular}
+
+Ainsi $ D \sslash D'  $. \\
+
+\textbf{Remarque}
+
+Si les droites sont parallèles, alors, dans le déterminant, les coefficients $a$ ,$a'$ et $b$, $b'$ sont proportionnels deux à deux. \\
+
+Si même $c$ et $c'$ sont dans la même proportion, alors les droites sont confondues :
+
+\begin{tabular}{lll}
+$D$ & :   & $x -3y +4 =0$ \\
+$D'$ & :  & $3x -9y + 12 = 0 $ \\
+\end{tabular} \\
+
+\begin{tabular}{ll}
+$ \left| \begin{array}{cc}
+1 & -3 \\
+3 & -9  \end{array} \right| = -9 +9 = 0$ \\
+\end{tabular} \\
+
+Mais on peut aussi simplifier $D'$ :  $3x -9y + 12 = 0 $ en $D'$ :   $x -3y +4 =0$ \\
+
+Ainsi $D = D'$.
+
+\newpage 
+
+\subsection{Intersection de 2 droites non parallèles}
+
+Soit $(O,\vec{i},\vec{j})$ un repère.
+
+\vspace{.5cm}
+
+
+Soit $D_{1}$ : $10x -7y -2 = 0 $
+
+Soit $D_{2}$ : $5x +9y -76 = 0 $
+
+\vspace{.5cm}
+
+
+$\left| \begin{array}{cc}
+10 & -7\\
+5 & 9    \end{array} \right|= 90 +35 = 125 \neq 0 $
+
+\vspace{.5cm}
+
+Donc $D_{1}$ et $D_{2}$ sont sécantes en un point $I$.
+
+\vspace{.5cm}
+
+\begin{tabular}{lcl}
+$\left\{ \begin{array}{ll|l} 
+10x -7y &=2 &9 \\
+  5x +9y &=76 & 7
+\end{array} \right. $ & \hspace{1cm} & $\left\{ \begin{array}{ll|l} 
+10x -7y &=2 & \\
+  5x +9y &=76 & -2
+\end{array} \right. $ \\
+   & & \\
+$\left\{ \begin{array}{ll} 
+90x -63y &=18  \\
+  35x +63y &=532 
+\end{array} \right. $ & \hspace{1cm} & $\left\{ \begin{array}{ll} 
+10x -7y &=2  \\
+  -10x -18y &=-152
+\end{array} \right. $ \\
+\cline{1-1} \cline{3-3}\\
+$125x = 550$ & & $-25y=-150 $\\
+$ x = 4,4$   & & $25y=150$ \\
+$x = \frac{22}{5}$ & & $y=6$ \\
+\end{tabular}
+
+\vspace{.5cm}
+
+$I\left(\dfrac{22}{5}; 6\right)$ 
+
+\vspace{.5cm}
+
+\textbf{Remarque :}
+
+Après avoir procédé à la méthode de combinaison linéaire, on trouve une équation à une inconnue. Le coefficient de l'inconnue est alors toujours un diviseur du déterminant.
+
+\newpage
+
+\subsection*{Un superbe exercice : $\star \star \star$ } 
+
+Soit $(O,\vec{i},\vec{j})$ un repère.
+
+\vspace{.1cm}
+
+\begin{enumerate}
+\item Soient $A(-2,1)$ et $B(1, -7) $\\
+Déterminer l'équation cartésienne de la droite $(AB)$
+
+\item Construire avec précision : 
+
+\begin{tabular}{lccl}
+$D_{1}$ & : & $2x -15y +61$ & $= 0 $ \\
+$D_{2}$ & : & $14x -9y -21$ & $ = 0 $ \\
+\end{tabular}
+
+\item Déterminer une équation cartésienne de la droite $\Delta$ qui passe par $C(-6, -1)$ et qui est parallèle à   $D_{2}$ 
+
+\item Montrer que $(AB)$, $D_{1}$ et $\Delta$ sont concourantes en un point $I$ dont on déterminera les coordonnées.
+\end{enumerate}
+
+% -------------------- Vérification faite, c'est bien -13 ---------- 
+% --- D'ailleurs, à la question 4 on a 8x +3y = -13
+% ------  J'ai bien des difficultés à distinguer 3 et 9 dans tes écrits.
+% -- C'est important de réctifier dès maintenant 
+
+
+1. \raisebox{-13.75ex}{\parbox{8cm}{
+\begin{align*}
+M(x,y)\in(d) &\Longleftrightarrow   \overrightarrow{AM} \text { et } \overrightarrow{AB}\text{ sont colinéaires} \\ 
+            &\Longleftrightarrow \text{Det}(\overrightarrow{AM},\overrightarrow{AB})=0 \\
+            & \Longleftrightarrow \left| \begin{array}{cc}
+                                             x+2 & 3\\
+                                             y-1 & -8
+                                         \end{array} \right|=0 \\
+            & \Longleftrightarrow -8(x+2)-3(y-1)=0\\
+            & \Longleftrightarrow  -8x -16 -3y -3 = 0 \\
+            & \Longleftrightarrow  -8x -3y -13 = 0 \\
+            & \Longleftrightarrow  8x +3y +13 = 0 \\
+\end{align*}}
+}
+
+2. \definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.6]
+\clip(-9,-9) rectangle (8,8);
+\draw[->,color=black] (-10,0) -- (9,0);
+\foreach \x in {-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0,-12.84) -- (0,11.41);
+\foreach \y in {-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+
+\draw [domain=-10:9] plot(\x,{(-13-8*\x)/3});
+\draw [domain=-10:9] plot(\x,{(--69--3*\x)/15});
+\draw [domain=-10:9] plot(\x,{(-26.98-4.98*\x)/-2.88});
+\draw [domain=-10:9] plot(\x,{(--26.98--4.98*\x)/2.88});
+\draw (-6.5,4.5) node[anchor=north west] {$ (D_1) $};
+\draw (-8,-2.5) node[right] {$(\Delta)$};
+\draw [domain=-10:9] plot(\x,{(-7--14*\x)/9});
+\draw (7,0) node[below] {$ 7 $};
+\draw [->] (0,0) -- (1,0);
+\draw [->] (0,0) -- (0,1);
+\draw (0,-7) node[left] {$ -7 $};
+\draw (-8,0) node[below] {$ -8 $};
+\draw (0,7) node[left ] {$ 5 $};
+\draw (1.5,-7.24) node[anchor=north west] {$(AB)$};
+\draw (0,0) node[anchor=north east] {$ O $};
+\begin{scriptsize}
+\fill [color=qqqqff] (-8,3) circle (1.5pt);
+\draw[color=qqqqff] (-8,3) node[below] {$A1$};
+\fill [color=qqqqff] (7,6) circle (1.5pt);
+\draw[color=qqqqff] (7,6) node [below]{$B1$};
+\fill [color=qqqqff] (-2,1) circle (1.5pt);
+\draw[color=qqqqff] (-2,1) node[right] {$A$};
+\fill [color=qqqqff] (1,-7) circle (1.5pt);
+\draw[color=qqqqff] (1,-7) node [right]{$B$};
+\fill [color=uuuuuu] (-3.12,3.98) circle (1.5pt);
+\draw[color=uuuuuu] (-3,3.7) node [right]{$I$};
+\fill [color=qqqqff] (-6,-1) circle (1.5pt);
+\draw[color=qqqqff] (-6,-1) node [right]{$C$};
+\fill [color=qqqqff] (-4,-7) circle (1.5pt);
+\draw[color=qqqqff] (-4,-7) node[right] {$A2$};
+\fill [color=qqqqff] (5,7) circle (1.5pt);
+\draw[color=qqqqff] (5,7) node [right] {$B2$};
+\fill [color=xdxdff] (1,0) circle (1.5pt);
+\draw[color=black] (0.5,0) node [below] {$i$};
+\fill [color=xdxdff] (0,1) circle (1.5pt);
+\draw[color=black] (0,0.5) node [left] {$j$};
+\end{scriptsize}
+\end{tikzpicture}\\
+\end{center}
+
+\newpage
+
+\begin{tabular}{llll}
+      &   \begin{minipage}{3cm}
+            \begin{equation*} \begin{aligned}
+ D_1 :     -15y    &= -2x -61\\
+                   y    &=\dfrac{2}{15}x +\dfrac{61}{15}\\
+             \end{aligned} \end{equation*}
+              \end{minipage} 
+                       & \hspace*{2cm} 
+                          & $A_1(-8,3) \qquad B_1(7,5) $\\
+  &   & &  \\       
+& \begin{minipage}{3cm} 
+          \begin{equation*} \begin{aligned}
+D_2 :     -9y   &= -14x +211\\
+                y   &=\dfrac{14}{9}x +\dfrac{7}{9}\\
+          \end{aligned} \end{equation*}
+          \end{minipage} 
+                   & \hspace*{2cm} 
+                      & $A_2(-4,-7) \qquad B_2(5,7) $ \\
+\end{tabular}\\
+
+3. Si les deux droites sont parallèles, alors les vecteurs directeurs sont colinéaires.\\
+
+$D_2$ a pour vecteur directeur $\vec{u} \left( \begin{array}{c}
+            9\\
+            14
+        \end{array} \right) $\\
+
+Donc $\Delta$ est définie par $C(-6,-1)$ et         
+$ \vec{u} \left( \begin{array}{c}
+            9\\
+            14
+        \end{array} \right)$
+     
+\raisebox{4.7ex}{\begin{minipage}[t]{5cm}
+\begin{equation*}  \begin{aligned}
+M(x,y) \in \Delta  &\Longleftrightarrow \overrightarrow{CM} \textrm{ et } \vec{u} \textrm{ sont colinéaires} \\
+   & \Longleftrightarrow \textrm{Det }  (\overrightarrow{CM},\vec{u}) = 0 \\
+   & \Longleftrightarrow \left|\begin{array}{ll}
+x+6 & 9\\
+y+1 & 14
+\end{array}\right| = 0 \\
+    & \Longleftrightarrow 14(x+6) -9 (y+1) = 0 \\
+    & \Longleftrightarrow 14x +84 -9y -9 = 0 \\
+    & \Longleftrightarrow 14x -9y +75 = 0 \\
+ \end{aligned}  \end{equation*}
+\end{minipage}}  \\
+
+Donc $\Delta : 14x -9y +75 = 0$ \\
+
+  4.  \raisebox{-16 ex}{\parbox{7.5cm}{
+        \begin{tabular}{ll}
+\begin{minipage}[t]{4cm}
+   \begin{equation*} \left\lbrace \begin{aligned}
+              8x +3y   &= -13  \quad\mid 1 \\
+              2x -15y   &= -61  \quad\mid -4 \\
+    \end{aligned} \right.  \end{equation*}
+\end{minipage} & \begin{minipage}[t]{3cm} 
+             \begin{equation*} \left\lbrace\begin{aligned}
+              8x +3y  &= -13 \quad\mid 5\\
+              2x -15y &= -61  \quad\mid 1\\
+                  \end{aligned}\right.  \end{equation*}               
+\end{minipage}\\
+\begin{minipage}[t]{4cm}
+   \begin{equation*} \left\lbrace \begin{aligned}
+              8x +3y   &= -13 \\
+              -8x +60y &= 244 \\
+    \end{aligned} \right.  \end{equation*}
+\end{minipage} & \begin{minipage}[t]{3cm} 
+             \begin{equation*} \left\lbrace\begin{aligned}
+              40x +15y  &= -65 \\
+              2x -15y &= -61\\
+                  \end{aligned}\right.  \end{equation*}               
+\end{minipage}\\
+      &      \\
+\begin{minipage}[b]{4cm}
+   \begin{equation*}  \begin{aligned}
+              63y   &= 231 \\
+                    &       \\
+              y  &= \dfrac{231}{63} \\ 
+                    &     \\
+              y  &= \dfrac{11}{3} \\      
+   \end{aligned} \end{equation*}
+\end{minipage} & \begin{minipage}[b]{3cm} 
+             \begin{equation*} \begin{aligned}
+              42x &= -126\\
+                  &      \\
+              x  &= \dfrac{-126}{42} \\ 
+                 &      \\
+              x  &= -3 \\   
+                  \end{aligned} \end{equation*}               
+\end{minipage}\\
+\end{tabular} \\  
+}}\\
+
+Vérifions que $I \in \Delta$\\
+
+$14 \times (-3) -9 \times \dfrac{11}{3} +75 = 42 -33 +75=0$\\
+Donc $I(-3, \dfrac{11}{3}) $
+
+\newpage
+
+         
+\subsection{Droites remarquables}         
+
+Soit $(O, \vec{i}, \vec{j})$ un repère.
+
+\subsubsection{Droites parallèles à l'axe des abscisses}
+
+Soit $D$ une droite parallèle à l'axe des abscisses et $M_0(x_0,y_0)$\\
+Un vecteur directeur de $D$ est 
+$\vec{i} \left( \begin{array}{c}
+                      1\\
+                      0
+               \end{array} 
+         \right)$
+         
+\begin{minipage}[t]{6cm}
+\begin{equation*}  \begin{aligned}
+M(x,y) \in \Delta  &\Longleftrightarrow \overrightarrow{M_0M} \textrm{ et } \vec{i} \textrm{ sont colinéaires} \\
+   & \Longleftrightarrow \textrm{Det }  (\overrightarrow{M_0M},\vec{i}) = 0 \\
+   & \Longleftrightarrow \left|\begin{array}{ll}
+x-x_0 & 1\\
+y-y_0 & 0
+\end{array}\right| = 0 \\
+    & \Longleftrightarrow 0(x-x_0) - 1(y-y_0) = 0 \\
+    & \Longleftrightarrow -y+y_0 = 0 \\
+    & \Longleftrightarrow y=y_0 \\
+ \end{aligned}  \end{equation*}
+ 
+\begin{center}
+\fcolorbox{black}  {white}{
+\vbox{
+        $y=y_0$  et $y-y_0=0$\\
+\vspace*{.01cm}        
+       Forme : $ax+by+c=0$     
+\begin{flushleft} avec \end{flushleft} \vspace*{-.75cm}         
+             \begin{equation*} \begin{aligned}
+              a  &= 0\\
+              b  &= 1 \\ 
+              c  &= -y_0 \\   
+             \end{aligned} \end{equation*}           
+   }
+}
+\end{center}
+\end{minipage}
+
+\subsubsection{Droites parallèles à l'axe des ordonnées}
+
+Soit $D$ une droite parallèle à l'axe des ordonnées
+et  $M_0(x_0,y_0)$. \\
+Un vecteur directeur de $D$ est 
+$\vec{j} \left( \begin{array}{c}
+                      0\\
+                      1
+               \end{array} 
+         \right)$
+              
+\begin{minipage}[t]{6cm}
+\begin{equation*}  \begin{aligned}
+M(x,y) \in \Delta  &\Longleftrightarrow \overrightarrow{M_0M} \textrm{ et } \vec{j} \textrm{ sont colinéaires} \\
+   & \Longleftrightarrow \textrm{Det }  (\overrightarrow{M_0M},\vec{j}) = 0 \\
+   & \Longleftrightarrow \left|\begin{array}{ll}
+x-x_0 & 0\\
+y-y_0 & 1
+\end{array}\right| = 0 \\
+    & \Longleftrightarrow 1(x-x_0) - 0(y-y_0) = 0 \\
+    & \Longleftrightarrow x-x_0 = 0 \\
+    & \Longleftrightarrow x=x_0 \\
+ \end{aligned}  \end{equation*}
+ 
+\begin{center}
+\fcolorbox{black}  {white}{
+\vbox{
+        $x=x_0$  et $x-x_0=0$\\
+\vspace*{.01cm}        
+       Forme : $ax+by+c=0$\\     
+\begin{flushleft} avec \end{flushleft} \vspace*{-.75cm}         
+             \begin{equation*} \begin{aligned}
+              a  &= 1\\
+              b  &= 0 \\ 
+              c  &= -x_0 \\   
+             \end{aligned} \end{equation*}           
+   }
+}
+\end{center}
+\end{minipage}
+\newpage 
+
+\vspace*{-1.5cm}
+
+\subsubsection{Droites \underline{ non } parallèles à l'un des axes}
+Soit $D$ une droite \underline{ non }   parallèles à l'un des axes.
+
+\smallskip
+$D$  : \raisebox{4.5ex}{\begin{minipage}[t]{4cm}
+                           \begin{equation*} 
+                                 \begin{aligned}
+                                ax +by +c &= 0 \\
+                                 by       &= -ax -c \\ 
+                             y        &=  -\dfrac{a}{b}x -\frac{c}{b} \\   
+                                 \end{aligned} 
+                           \end{equation*}
+                      \end{minipage}}\\
+             
+\fcolorbox{black}  {white}{
+\vbox{\hsize=8.5cm \begin{center}
+\smallskip        
+       $y=mx+p$ est l'équation réduite de la droite $D$\\     
+             \begin{equation*} \begin{aligned}
+            \mathrm{avec\;\; } &  m  &= -\dfrac{a}{b}\\
+            \mathrm{et\;\;}   &  p  &= -\dfrac{c}{b}\\  
+             \end{aligned} \end{equation*}  
+             
+             $m =$ le coefficient directeur de $D$\\
+             $p =$ l'ordonnée à l'origine de $D$         
+   \end{center}}}   
+   
+\smallskip 
+%\medskip 
+%\bigskip
+
+\underline{Réciproquement :}
+\smallskip 
+
+Toute équation de la forme $y=mx+p$, avec $a \neq 0 $ et $b \neq 0$ 
+est celle d'une droite $D$  non parallèle à l'un des axes.
+\begin{minipage}[t]{4.5cm}
+   \begin{equation*} \begin{aligned}
+            y        &= mx+p\\
+            mx -y +p &= 0 \\  
+             \end{aligned} \end{equation*} 
+
+\fcolorbox{black}  {white}{
+\vbox{\hsize=5cm \begin{center}
+\vspace*{.01cm}        
+       Forme : $ax+by+c=0$      
+\begin{flushleft} avec \end{flushleft} \vspace*{-.75cm}         
+             \begin{equation*} \begin{aligned}
+              a  &= m\\
+              b  &= -1 \\ 
+              c  &= p \\   
+             \end{aligned} \end{equation*}                 
+   \end{center}}}
+\end{minipage}
+         
+\smallskip 
+%\medskip 
+%\bigskip 
+Un vecteur directeur de $D$ est $\vec{u} \left( \begin{array}{c}
+                      1\\
+                      m
+               \end{array} 
+         \right)$\\
+
+     
+\begin{tabular}{r@{$\;$}cl}    
+Det  & $(\vec{u},\vec{j}) \left|\begin{array}{ll}
+1 & 0\\
+m & 1
+\end{array}\right| = 1 \neq 0$   & \begin{minipage}[t]{10cm}
+$\vec{u}$ et $\vec{j}$ ne sont pas colinéaires,\\
+                       donc $D$ n'est pas parallèle
+                       à l'axe des ordonnées.
+\end{minipage}
+\end{tabular}  \\
+
+%\smallskip 
+%\medskip 
+%\bigskip 
+              
+\begin{minipage}[t]{6cm}
+\begin{tabular}{rl}
+\underline{Remarque} \hspace{1cm}
+  Soit & \parbox[t]{6cm}
+{
+           $D \mathrm{ : } y=mx+p \qquad
+               \vec{u}\left(           
+                      \begin{array}{c}1\\m
+                      \end{array}\right)$\\ 
+                                          
+           $D'\mathrm{ : } y=m'x+p' \quad 
+   \overrightarrow{u'}\left(
+                      \begin{array}{c} 1\\m'
+                      \end{array} \right)$
+}\\                                  
+\end{tabular}
+\end{minipage}
+
+\begin{tabular}{lcc}
+\parbox{5cm}{
+\begin{equation*}  \begin{aligned}
+D\; /\!\!/ \;D' &\Longleftrightarrow \vec{u} \textrm{ et } \vec{u'} \textrm{ sont colinéaires} \\
+   & \Longleftrightarrow \textrm{Det }  (\vec{u}, \vec{u'}) = 0 \\
+   & \Longleftrightarrow \left|\begin{array}{ll}
+1 & 1\\
+m & m'
+\end{array}\right| = 0 \\
+    & \Longleftrightarrow m' - m = 0 \\
+    & \Longleftrightarrow m = m' \\
+ \end{aligned}  \end{equation*} 
+ } & 
+        \hspace*{2cm}
+                          &\parbox{5cm}{
+\fcolorbox{black}  {white}{
+\vbox{
+       $D\; /\!\!/ \;D'$ 
+                  
+\begin{flushleft} Donc \end{flushleft} \vspace*{-.75cm}         
+             \begin{equation*} \begin{aligned}
+             D   &: mx+p\\
+             D'  &=m'x +p' \\ 
+D\; /\!\!/ \;D' &\Longleftrightarrow m=m' 
+             \end{aligned} \end{equation*}           
+   }
+}}\\
+\end{tabular}
+
+\samepage
+
+\newpage
+\vspace{-1cm}
+\subsection{Un soupçon d'algorithmique}
+\subsubsection{Équation cartésienne d'une droite (AB)}
+
+Soit $(O, \vec{i}, \vec{j})$ un repère.
+\smallskip
+Soient $A(x_A, y_A)$  et$  B(x_B, y_B)$ avec $ A \neq B $.     
+
+\vspace*{-.2cm}
+
+\begin{minipage}[t]{6cm}
+\begin{equation*}  \begin{aligned}
+M(x,y) \in (AB)  &\Longleftrightarrow \overrightarrow{AM} \textrm{ et } \overrightarrow{AB} \textrm{ sont colinéaires} \\
+   & \Longleftrightarrow\textrm{Det } (\overrightarrow{AB},\overrightarrow{AM}) = 0 \\
+   & \Longleftrightarrow \left|\begin{array}{ll}
+x-x_A & x_B-x_A\\
+y-y_A & y_B-y_A
+\end{array}\right| = 0 \\
+    & \Longleftrightarrow (x-x_A) (y_B-y_A)- (y-y_A)(x_B-x_A) = 0 \\
+    & \Longleftrightarrow xy_B-xy_A -x_Ay_B+x_Ay_A - (yx_B-yx_A-x_By_A+x_Ay_A)= 0 \\
+    & \Longleftrightarrow xy_B-xy_A-x_Ay_B+x_Ay_A-yx_B+yx_A+x_By_A-x_Ay_A= 0 \\
+    & \Longleftrightarrow xy_B-xy_A-yx_B+yx_A-x_Ay_B+x_By_A 
+                         +\cancel{x_AyA}-\cancel{x_Ay_A}= 0 \\
+   & \Longleftrightarrow xy_B-xy_A-yx_B+yx_A-x_Ay_B+x_By_A \\  
+   & \Longleftrightarrow x\underset{a}{\underbrace{(y_B-y_A)}} +y \underset{b}{\underbrace{(x_A -x_B)}}    -\underset{c}{\underbrace{x_Ay_B+x_By_A}} \\
+ \end{aligned}  \end{equation*}
+ 
+\begin{tabular}{rl}
+ Forme carthésienne & $ax+by+c=0$ \\
+  avec & \parbox[t]{3cm}{ $a=y_B - y_A$\\
+                       $b=x_A - x_B $ \\
+                       $c=x_By_A - x_Ay_B$\\                        
+          } \\
+\end{tabular}
+ 
+\begin{tabular}{l|l}
+Algorithme                        &  Programme calculatrice \\
+\parbox{6cm}{\vspace*{-.75cm}
+\ding{43} \underline{entrées}\\ %
+    \begin{minipage}{0.5\columnwidth}%          
+              \begin{minipage}[t]{\columnwidth}%
+                  \hspace{1.5cm}$x_{A},y_{A},x_{B},y_{B}$
+             \end{minipage}%
+     \end{minipage} \\
+             }   & 
+\begin{minipage}{0.8\columnwidth}
+%    \vspace*{-1cm}      
+\fcolorbox{ecranTI}{ecranTI}{\parbox{3cm}
+{ \small
+\texttt{PROGRAM:EQLINE}\\
+\texttt{:Input "XA : ",X}\\
+\texttt{:Input "YA : ",Y}\\
+\texttt{:Input "XB : ",Z}\\
+\texttt{:Input "YB : ",T}
+}}
+\smallskip
+  \end{minipage} \\
+\hline
+\parbox{6cm}{\medskip
+\ding{43} \underline{Traitement}\\ %
+    \begin{minipage}{\columnwidth}%    
+              %\vspace*{-1cm}       
+              \begin{minipage}[t]{\columnwidth}%
+              \begin{tabular}{rl}
+                 $y_{B}-y_{A}$ & donne la valeur $a$\\%
+                 $x_{A}-x_{B}$ & donne la valeur $b$\\%
+                 $x_{B}y_{A}-x_Ay_B$ & donne la valeur $c$\\%
+              \end{tabular}  
+     \end{minipage}
+          \end{minipage} \\
+            }    & 
+\begin{minipage}{0.8\columnwidth}
+    %\vspace*{-2cm}      
+\fcolorbox{ecranTI}{ecranTI}{\parbox{3cm}
+{ \small
+\texttt{PROGRAM:EQLINE}\\
+\texttt{:T-Y$\rightarrow$A}\\
+\texttt{:X-Z$\rightarrow$B}\\
+\texttt{:Z*Y-X*T$\rightarrow$C}
+}}
+\smallskip
+  \end{minipage} \\
+\hline
+\parbox{6cm}{\medskip
+\ding{43} \underline{Sorties}\\ %
+    \begin{minipage}{\columnwidth}%    
+              %\vspace*{-1cm}       
+              \begin{minipage}[t]{\columnwidth}%
+              \begin{tabular}{ll}
+                 Afficher "\texttt{ax + by + c = 0}"\\
+                 Afficher "\texttt{a, b, c}"\\
+              \end{tabular}  
+     \end{minipage}
+          \end{minipage} \\
+            }    & 
+\begin{minipage}{0.8\columnwidth}    
+\fcolorbox{ecranTI}{ecranTI}{\parbox{3cm}
+{ \small
+\texttt{:Disp "AX+BY+C=0"}\\
+\texttt{:Disp A,B,C}
+}}
+  \end{minipage} \\
+\end{tabular} \\
+
+\medskip
+
+\begin{tabular}{lr}
+\textbf{Exemple n°1} :& $A(-1, -3)$ et $B(2,-1)$\\
+Éq. cart. & $2x-3y-7=0$\\
+\end{tabular}
+\medskip
+
+\begin{tabular}{lrl}
+\textbf{Exemple n°2} :& $A(-3, 5)$ et $B(3,-8)$&\\
+Équ. cart. &$-13x-12y-57=0$&\\
+&$13x+12y+57=0$&\reflectbox{\ding{43}}\\
+\end{tabular}
+\medskip
+
+\begin{tabular}{lrl}
+\textbf{Exemple n°3} :& $A(-3, -10)$ et $B(5,-4)$&\\
+Équ. cart. &$6x-8y-62=0$&\\
+&$3x-4y-31=0$&\reflectbox{\ding{43}}\\
+\end{tabular}
+\end{minipage}
+
+\newpage
+
+\subsubsection{Équation réduite d'une droite (AB)}
+
+\begin{tabular}{lc}
+$A(x_A, y_A)$ & $A\neq B$ \\
+$B(x_B, y_B)$ & et $x_A \neq x_B$\\
+\end{tabular}\\
+
+\textbf{Remarque :}
+
+Si $x_A = x_B $, alors la droite $(AB)$ est parallèle à l'axe des ordonnées.
+
+Soit la droite $D$ définie par l'équation réduite $y=mx+p$\\
+
+on a : $\begin{cases}
+y_A\!\!\!\!\!\!\!\!&= mx_A + p\\
+y_B\!\!\!\!\!\!\!\!&= mx_B +p\\
+      \end{cases}$\\
+      
+\begin{minipage}{6cm}      
+  \begin{equation*} 
+    \begin{aligned}
+      y_B-y_A &= mx_B-mxA\\
+      y_B-y_A &= m(x_B-xA)\\
+            m &= \begin{tabular}{rl}
+                    $y_B-y_A$ & $\longrightarrow$ différences des ordonnées \\
+                    \cline{1-1}
+                    $x_B-x_A$ & $\longrightarrow$ différences des abscisses \\
+                 \end{tabular} \\                     
+    \end{aligned} 
+ \end{equation*}
+\end{minipage}\\
+
+$p=y_A - mx_A$\\
+
+$p=y_A - \dfrac{y_B-y_A}{x_B-x_A} x_A$\\
+
+\begin{tabular}{l|l}
+Algorithme                        &  Programme calculatrice \\
+\parbox{6cm}{\vspace*{-.75cm}
+\ding{43} \underline{entrées}\\ %
+    \begin{minipage}{0.5\columnwidth}%          
+              \begin{minipage}[t]{\columnwidth}%
+                  \hspace{1.5cm}$x_{A},y_{A},x_{B},y_{B}$
+             \end{minipage}%
+     \end{minipage} \\
+             }   & 
+\begin{minipage}{0.8\columnwidth}
+%    \vspace*{-1cm}      
+\fcolorbox{ecranTI}{ecranTI}{\parbox{3cm}
+{ \small
+\texttt{PROGRAM:EQLINE}\\
+\texttt{:Input "XA : ",X}\\
+\texttt{:Input "YA : ",Y}\\
+\texttt{:Input "XB : ",Z}\\
+\texttt{:Input "YB : ",T}
+}}
+\smallskip
+  \end{minipage} \\
+\hline
+\parbox{6cm}{\medskip
+\ding{43} \underline{Traitement}\\ %
+    \begin{minipage}{\columnwidth}%       
+        \begin{minipage}[t]{\columnwidth}%
+        $\dfrac{y_B-y_A}{x_B-x_A}$ donne la valeur de $m$ \\
+        
+        $yA - \dfrac{y_B-y_A}{x_B-x_A} x_A$ donne la valeur de $p$
+        \end{minipage}
+     \end{minipage} \\
+            }    & 
+\begin{minipage}{0.8\columnwidth}
+    %\vspace*{-2cm}      
+\fcolorbox{ecranTI}{ecranTI}{\parbox{3cm}
+{ \small
+\texttt{PROGRAM:EQLINE}\\
+\texttt{:(T-Y)/(Z-X)$\rightarrow$M}\\
+\texttt{:Y-(M)*X$\rightarrow$P}\\
+}}
+\smallskip
+  \end{minipage} \\
+\hline
+\parbox{6cm}{\medskip
+\ding{43} \underline{Sorties}\\ %
+    \begin{minipage}{\columnwidth}%    
+              %\vspace*{-1cm}       
+              \begin{minipage}[t]{\columnwidth}%
+                 Afficher "\texttt{y = mx + p}"\\
+                 Afficher "\texttt{m} et \texttt{p} "
+     \end{minipage}
+          \end{minipage} \\
+            }    & 
+\begin{minipage}{0.8\columnwidth}    
+\fcolorbox{ecranTI}{ecranTI}{\parbox{3cm}
+{ \small
+\texttt{:Disp "Y=MX+P"}\\
+\texttt{:Disp M,P}
+}}
+  \end{minipage} \\
+\end{tabular} \\
+
+\newpage
+
+
+
+\textbf{Exemple n°1} : $A(-1,2)$ et $B(3,2)$\\
+
+$(AB)$ est parallèle à l'axe des abscisses. Donc :\\
+
+$a=0$ 
+$b=-4$
+$c=8$ 
+
+Ainsi : 
+
+$0x-4y+8 =  0 $ \\
+$-4y+8   =  0 $ \\
+$-4y     = -8 $ \\
+$y       =  2 $ \\
+
+
+\begin{tabular}{lr}
+Equation réduite : & $m=0$\\
+           & $p=2$\\
+\end{tabular} \\           
+
+$y=0x+2$\\
+$y=2$\\
+
+
+\textbf{Exemple n°2} : $A(3,1)$ et $B(3,4)$\\
+
+$(AB)$ est parallèle à l'axe des ordonnées. Donc : \\
+
+$a=3$
+$b=0$
+$c=-9$
+
+Ainsi :
+
+$3x+0y-9 =0$ \\
+$-x-9=0$ \\
+$3x=9$ \\
+$x=3$ \\
+
+Pas d'équation réduite sous la forme habituelle. 
+
+$y=mx+p\qquad \longleftarrow$ ne convient pas. On écrit : $x=3$ \\
+
+
+\textbf{Équation réduite donnée}
+
+\textbf{Exercice n°1} \\
+
+$y=2x+3$ \\
+
+$A(1,5)$\\
+$B(2,7)$\\
+$m=2$\\
+$p=3$\\
+
+\textbf{Exercice n°2} : $y=\dfrac{2}{3}x-\frac{7}{3}$\\
+
+$A(-1, -3)$ et $B(2,1)$\\
+
+$m=0,66666667 \qquad m=\dfrac{2}{3}$\\
+$p=-2,3333334 \qquad p=-\dfrac{7}{3}$\\
+
+\textbf{Exercice \no 2 Un superbe exercice : Étude d'une famille de droites} \\
+
+Soit $(O, \vec{i}, \vec{j})$\\
+
+Soit $n \in \Re$\\  
+
+Soit $D_n $ la droite d'équation cartésienne : $(m - 5)x + (m - 3)y + m + 1 = 0 $ \\
+
+$m$ est un paramètre et de  forme  $ax + by +c = 0$\\
+
+$ \begin{array}{r@{$\;$}l}
+a &= m-5\\
+b &= m-3\\
+c &= m+1\\
+\end{array}$
+
+\begin{enumerate}
+\item Déterminer les équations de $D_2$ et de $D_4$ ; 
+\item Déterminer l'équation réduite de $D_m$ qui est parallèle à l'axe des abscisses ;
+\item Déterminer l'équation réduite de $D_m$ qui est parallèle à l'axe des ordonnées ;  
+\item Montrer que toutes les droites $D_M$ passent par un point fixe $I$ dont in déterminera les coordonnées.
+\end{enumerate}
+
+\begin{enumerate}
+\item $D_2 :$\raisebox{-3ex}{$ \begin{array}{r@{$\;$}r@{$\;$}r@{$\;$}l}
+             (2-5)x &+ (2-3) y & +2 +1 &= 0 \\
+               -3x  &     -y   &    +3 &= 0 \\
+                3x  &      +y  &    +3 &= 0 \\
+             \end{array}$}\\
+$D_4 :$\raisebox{-3ex}{$ \begin{array}{r@{$\;$}r@{$\;$}r@{$\;$}l}
+             (4-5)x &+ (4-3) y & +4 +1 &= 0 \\
+                -x  &     +y   &    +5 &= 0 \\
+                 x  &      -y  &    -5 &= 0 \\
+             \end{array}$}\\
+             
+\item Si $D_m$ est paralèle à l'axe des abscisses, alors on a $ax+by +c =0$ avec $a=0$\\
+
+pour que $a = 0$ on a $m = 5$ \\
+
+\begin{minipage}{9.5cm}
+$D_5 :$\raisebox{-1.5ex}{$ \begin{array}{r@{$\;$}r@{$\;$}r@{$\;$}l}
+             (5-5)x &+ (5-3) y & +5 +1 &= 0 \\
+                    &    +2y   &    +6 &= 0 \\
+             \end{array}$}
+\begin{center}
+\fcolorbox{black}  {white}{$y=3$}
+\end{center}
+\end{minipage}\\
+
+         
+Si $D_m$ est paralèle à l'axe des ordonnées, alors on a $ax+by +c =0$ avec $b=0$\\
+
+pour que $b = 0$ on a $m = 3$ \\
+
+\begin{minipage}{9.5cm}
+$D_3 :$\raisebox{-3ex}{$ \begin{array}{r@{$\;$}r@{$\;$}r@{$\;$}l}
+             (3-5)x &+ (3-3) y & +3 +1 &= 0 \\
+              -2x   &          &    +4 &= 0 \\
+              -2x   &         &        &= -4 \\
+             \end{array}$}           
+\begin{center}
+\fcolorbox{black}  {white}{$x=2$}
+\end{center}
+\end{minipage}\\
+
+\newpage
+
+\begin{tabular}{l}
+{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,scale=1.02]
+\draw[->,color=black] (-6,0) -- (10,0);
+\foreach \x in {-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0,-7.33) -- (0,7.33);
+\foreach \y in {-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-6,-7.33) rectangle (10,7.33);
+\draw (2,-7.33) -- (2,7.33);
+\draw [domain=-6:10] plot(\x,{(-3-0*\x)/1});
+\draw [domain=-6:10] plot(\x,{(--3-3*\x)/1});
+\draw [domain=-6:10] plot(\x,{(--5-1*\x)/-1});
+\draw [->] (0,0) -- (1,0);
+\draw [->] (0,0) -- (0,1);
+\draw (3.5,-5.3) node {$(D_2)$};
+\draw (1.5,4) node{$(D_3)$};
+\draw (7,-2.5) node {$(D_5)$};
+\draw (8,4) node{$(D_4)$};
+\draw (-0.2,-0.3) node {$O$};
+
+\draw[color=black] (0.5,-0.3) node {$\vec{i}$};
+\draw[color=black] (-0.3,0.5) node {$\vec{j}$};
+\fill [color=black] (3,-6) circle (1.5pt);
+\draw[color=black] (3,-6) node [left]{$B_2$};
+\fill [color=black] (3,-2) circle (1.5pt);
+\draw[color=black] (3,-2) node [right] {$B_4$};
+\fill [color=black] (0,3) circle (1.5pt);
+\draw[color=black] (0,3) node [left]{$A_2$};
+\fill [color=black] (0,-5) circle (1.5pt);
+\draw[color=black] (0,-5) node [left]{$A_4$};
+
+\end{tikzpicture}} \\
+\end{tabular}
+
+\newpage
+
+\item \raisebox{-2.5ex}{\begin{minipage}{7cm}
+\begin{align*}
+I(x,y) \in D_n  &\Longleftrightarrow  ax+by+c=0 \\ 
+&\Longleftrightarrow (m-5)x+(m-3)y+m+1=0\\
+\end{align*}
+\end{minipage}}\\
+
+        \begin{enumerate}
+          \item [1{)}] \raisebox{-3ex} { \begin{minipage}{11.2cm}
+$D_2 :$\raisebox{-3ex}{$ \begin{array}{r@{$\;$}r@{$\;$}r@{$\;$}l}
+             (2-5)x &+ (2-3) y & +2 +1 &= 0 \\
+              -3x   &    -y   &    +3 &= 0 \\
+               3x   &    +y   &    -3  &= 0 \\
+             \end{array}$}           
+        \end{minipage}}
+        
+        \begin{minipage}{11.2cm}   
+$D_4 :$\raisebox{-3ex}{$ \begin{array}{r@{$\;$}r@{$\;$}r@{$\;$}l}
+             (4-5)x &+ (4-3) y & +4 +1 &= 0 \\
+              -x    &    +y   &    +5 &= 0 \\
+               x   &    -y   &    -5  &= 0 \\
+             \end{array}$}           
+\end{minipage}\\
+        
+\underline{Eq red : } \raisebox{-3ex}{
+\parbox{10cm}{
+$y  = -3x + 3  \textrm { pour } D_2 \quad A_2(0,3) \textrm { et } B_2(2,-6)$\\
+
+$ y = x -  3  \textrm { pour } D_4 \quad A_4(0,-5) \textrm { et } B_2(3,-2)$            
+           } }\\          
+
+\item [2{)}]  Si $D_m$ est parallèle à l'axe des abscisses, alors on a $ax+by+c=0$ avec $a=0$ 
+
+Pour que $a=0$ il faut $m=5$\\
+
+\begin{minipage}{9.8cm}
+$D_5 :$\raisebox{-4.5ex}{$ \begin{array}{r@{$\;$}r@{$\;$}r@{$\;$}l}
+             (5-5)x &+ (5-3) y & +5 +1 &= 0 \\
+                &    2y   &    +6 &= 0 \\
+                &    2y   &     &= -6 \\               
+             \end{array}$}    
+\begin{center}
+\fcolorbox{black}  {white}{$y=-3$}
+\end{center}       
+        \end{minipage}\\
+        
+Si $D_m$ est parallèle à l'axe des ordonnées, alors on a $ax+by+c=0$ avec $b=0$ 
+
+Pour que $b=0$ il faut $m=3$ \\
+
+\begin{minipage}{9.6cm}
+$D_3 :$\raisebox{-4.5ex}{$ \begin{array}{r@{$\;$}r@{$\;$}r@{$\;$}l}
+             (3-5)x &+ (3-3) y & +3 +1 &= 0 \\
+              -2x  &      &    +4 &= 0 \\
+                -2x &     &     &= -4 \\               
+                  x &       &     &= 2 \\
+             \end{array}$}  
+\begin{center}             
+\fcolorbox{black}  {white}{$x=2$}
+\end{center}                          
+        \end{minipage}        
+\end{enumerate} 
+
+\item $D_3$ et $D_5$ sont sécantes au point $I(2,-3)$
+
+Montrons que $I\in$ à toutes les droites $D_m$ \\
+
+$(m-5)\times 2 + (m-3) \times -3 + m +1 $\\
+$= 2m -10 -3m +9 +m +1 $\\
+$= 0$ \\ 
+     
+\end{enumerate}

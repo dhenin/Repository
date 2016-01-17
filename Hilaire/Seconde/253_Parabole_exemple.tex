@@ -1,0 +1,39 @@
+% \input{preambule-sacha-utf8.ltx}
+% \begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,scale=.8]
+\draw[->] (-2.87,0) -- (6.06,0);
+\foreach \x in {-2,-1,1,2,3,4,5}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-5.44) -- (0,9.43);
+\foreach \y in {-1,1,2,3,4,5,6,7,8,9}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,0pt) node[below left] { $0$};
+\draw (0,-4) node[below left] {-4};
+
+\clip(-2.87,-5.44) rectangle (6.06,9.43);
+
+\draw[smooth,samples=100,domain=-2.8:4.8] plot(\x,{(\x)^2-2*(\x)-3});
+\draw [line width=0.4pt,domain=-2.87:6.06,color=blue] plot(\x,{(-4-0*\x)/1});
+\draw [line width=0.4pt,color=blue] (1,-5.44) -- (1,9.43);
+\draw [->] (0,0) -- (0,1);
+\draw [->] (0,0) -- (1,0);
+\draw [->] (0,-4) -- (0,-3);
+\draw [->] (0,-4) -- (1,-4);
+
+\draw (0,0.3)     node [left]  {$\vec{j}$};
+\draw (0.5,0)     node [below] {$\vec{i}$};
+\draw (0,-3.8)    node [left]  {$\vec{j}$};
+\draw (0.5,-4) node [below] {$\vec{i}$};
+\draw (-2,5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (4,5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2.87,-5.44) grid (6.06,9.43);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2.87,-5.44) grid (6.06,9.43);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2.87,-5.44) grid (6.06,9.43);
+\draw[step=5cm,thin,AntiqueWhite]          (-2.87,-5.44) grid (6.06,9.43);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+% \end{document}

@@ -1,0 +1,37 @@
+
+% \definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+% \definecolor{qqffqq}{rgb}{0,1,0}
+% \definecolor{ffqqqq}{rgb}{1,0,0}
+% \definecolor{qqqqff}{rgb}{0,0,1}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1]
+\clip(-2.25,-2.38) rectangle (2.37,2.39);
+\draw[line width=0.4pt] (0,1.64) -- (0.1,1.64) -- (0.1,1.73) -- (0,1.73) -- cycle; 
+\draw[line width=0.4pt] (1,0.1) -- (0.9,0.1) -- (0.9,0) -- (1,0) -- cycle; 
+\draw(0,0) circle (2cm);
+\draw (-2,0)-- (2,0);
+\draw (0,2)-- (0,-2);
+\draw [dash pattern=on 2pt off 2pt] (1,1.73)-- (0,1.73);
+\draw [dash pattern=on 2pt off 2pt] (1,1.73)-- (1,0);
+\draw [line width=1.6pt] (0,1.73)-- (0,0);
+\draw [line width=1.6pt] (0,0)-- (1,0);
+\draw  (0,0)-- (2,0);
+\draw  (2,0)-- (1,1.73);
+\draw  (1,1.73)-- (0,0);
+
+\fill  (0,0) circle (1.5pt);
+\draw(0,0) node [below left] {$O$};
+\fill (-2,0) circle (1.5pt);
+\draw(-2,0) node [left] {$I'$};
+\fill (2,0) circle (1.5pt);
+\draw(2,0) node [right] {$I$};
+\fill (0,2) circle (1.5pt);
+\draw(0,2) node [above] {$J$};
+\fill (0,-2) circle (1.5pt);
+\draw(0,-2) node [below] {$J'$};
+\fill  (1,1.73) circle (1.5pt);
+\draw (1.1,1.73) node [right]{$M$};
+\fill  (0,1.73) circle (1.5pt);
+\draw (0,1.73) node [left] {$K$};
+\fill  (1,0) circle (1.5pt);
+\draw (1,0) node [below] {$H$};
+\end{tikzpicture}

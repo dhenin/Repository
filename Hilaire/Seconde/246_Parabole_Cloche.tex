@@ -1,0 +1,29 @@
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.9]
+\draw[->] (-2.5,0) -- (7.16,0);
+\foreach \x in {-2,-1,1,2,3,4,5,6,7}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-6.58) -- (0,5.72);
+\foreach \y in {-6,-5,-4,-3,-2,-1,1,2,3,4,5}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw(0,0) node[below left] {\footnotesize $0$};
+\clip(-2.5,-6.58) rectangle (7.16,5.72);
+\draw [samples=50,rotate around={-180:(3,5)},xshift=3cm,yshift=5cm,domain=-5.0:5.0)] plot (\x,{(\x)^2/2/0.5});
+\draw [dash pattern=on 2pt off 2pt,domain=-2.5:7.16] plot(\x,{(--5-0*\x)/1});
+\draw [dash pattern=on 2pt off 2pt] (3,-6.58) -- (3,5.72);
+
+\draw  (1,1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (2,4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (4,4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (5,1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (0,-4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (6,-4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw   (3,5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2.5,-6.58) grid (7.16,5.72);
+\draw[step=5mm,very thin,AntiqueWhite!30] (-2.5,-6.58) grid (7.16,5.72);
+\draw[step=1cm,very thin,AntiqueWhite!50] (-2.5,-6.58) grid (7.16,5.72);
+\draw[step=5cm,thin,AntiqueWhite]             (-2.5,-6.58) grid (7.16,5.72);
+
+\end{pgfonlayer} 
+\end{tikzpicture}

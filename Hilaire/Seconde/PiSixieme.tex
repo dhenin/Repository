@@ -1,0 +1,31 @@
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.4,-2.38) rectangle (2.8,2.39);
+\draw(0,0) circle (2cm);
+\draw (-2,0)-- (2,0);
+\draw (0,2)-- (0,-2);
+\draw [dash pattern=on 2pt off 2pt] (1.73,1)-- (0,1);
+\draw [dash pattern=on 2pt off 2pt] (1.73,1)-- (1.73,0);
+\draw [line width=1.6pt] (0,1)-- (0,0);
+\draw [line width=1.6pt] (0,0)-- (1.73,0);
+\draw [line width=2pt](0,0)-- (1.73,1);
+\draw [line width=2pt](1.73,1)-- (0,2);
+\draw [line width=2pt](0,0)-- (0,2);
+\draw (0,2)-- (0,0);
+\fill  (0,0) circle (1.5pt);
+\draw(0,0) node [below left] {$O$};
+\fill (-2,0) circle (1.5pt);
+\draw(-2,0) node [left] {$I'$};
+\fill (2,0) circle (1.5pt);
+\draw(2,0) node [right] {$I$};
+\fill (0,2) circle (1.5pt);
+\draw(0,2) node [above] {$J$};
+\fill (0,-2) circle (1.5pt);
+\draw(0,-2) node [below] {$J'$};
+\fill  (1.73,1) circle (1.5pt);
+\draw (1.73,1) node [right] {$M(\dfrac{\pi}{6})$};
+\fill  (0,1) circle (1.5pt);
+\draw (0,1) node [left]{$K$};
+\fill  (1.73,0) circle (1.5pt);
+\draw (1.73,0) node [below] {$H$};
+\end{tikzpicture}

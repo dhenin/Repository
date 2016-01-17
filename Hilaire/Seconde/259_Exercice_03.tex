@@ -1,0 +1,40 @@
+% \input{preambule-sacha-utf8.ltx}
+%\begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.8]
+\draw[->] (-2.67,0) -- (6.84,0);
+\foreach \x in {-2,-1,1,2,3,4,5,6}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-2.79) -- (0,10.03);
+\foreach \y in {-2,-1,1,2,3,4,5,6,7,8,9,10}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\clip(-2.67,-2.79) rectangle (6.84,10.03);
+\draw[smooth,samples=100,domain=-2.7:6.9,color=blue] plot(\x,{(\x)^2-2*(\x)+1});
+\draw [samples=50,rotate around={-180:(4,6)},xshift=4cm,yshift=6cm,domain=-3.0:3.0)] plot (\x,{(\x)^2/2/0.25});
+\draw [domain=-2.67:6.84,color=brown] plot(\x,{(-8--4*\x)/1});
+
+\draw (1.5,-2) node [left]{$\Delta$};
+\draw (6,-2) node [left] {$f_2$};
+\draw (4,9) node [left] {$f_1$};
+\draw (-2,9)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (-1,4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (0,1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (1,0)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (2,1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (3,4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (3,4) node [left] {$A_1$};
+\draw (3,4) node [right] {$A_2,A_3$};
+\draw (4,9)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (2,-2)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (4,6)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (5,4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (6,-2)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2.67,-2.79) grid (6.84,10.03);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2.67,-2.79) grid (6.84,10.03);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2.67,-2.79) grid (6.84,10.03);
+\draw[step=5cm,thin,AntiqueWhite]          (-2.67,-2.79) grid (6.84,10.03);
+\end{pgfonlayer} 
+\end{tikzpicture}
+% \end{document}

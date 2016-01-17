@@ -1,0 +1,21 @@
+\input{preambule-sacha-utf8.ltx}
+
+\begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.7]
+\draw[->] (-1,0) -- (4.61,0);
+\foreach \x in {-1,1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-5.26) -- (0,4.41);
+\foreach \y in {-5,-4,-3,-2,-1,1,2,3,4}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\clip(-1,-5.26) rectangle (4.61,4.41);
+\draw[smooth,samples=100,domain=-1.0:4.0] plot(\x,{0-2*(\x)+3});
+
+\draw  (0,3)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (0.3,3.03) node {$A$};
+\draw  (3,-3)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (2.6,-2.93) node {$B$};
+
+\end{tikzpicture}
+\end{document}

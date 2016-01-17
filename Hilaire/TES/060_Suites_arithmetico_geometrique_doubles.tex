@@ -1,0 +1,214 @@
+\section{Suites arithmético-géométriques doubles}
+
+\subsection{Exemple \no 1}
+
+Soit $\left(u_n\right)_{n\; \in \; \N}$ la suite définie par : $\left\{
+  \begin{array}{lll}
+    u_0 = 1 \\
+    u_1 = 2 \\
+    \forall n \in \N, u_{n+2} = 4u_{n+1} - 3u_n
+  \end{array}
+\right.$
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Déterminer $u_2$, $u_3$, $u_4$ et $u_5$. \\
+\end{itemize}
+
+\begin{itemize}
+\item[*] $u_2 = 4u_1 - 3u_0 = 4 \times 2 - 3 \times 1 = 8 - 3 = 5$ \\
+\item[*] $u_3 = 4u_2 - 3u_1 = 4 \times 5 - 3 \times 2 = 20 - 6 = 14$ \\
+\item[*] $u_4 = 4u_3 - 3u_2 = 4 \times 14 - 3 \times 5 = 56 - 15 = 41$ \\
+\item[*] $u_5 = 4u_4 - 3u_3 = 4 \times 41 - 3 \times 14 = 164 - 42 = 122$ \\
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Soit $\left(v_n\right)_{n\; \in \; \N}$ la suite définie par $v_n = u_{n+1} - u_n$. \\ Montrer que $\left(v_n\right)_{n\; \in \; \N}$ est une suite géométrique dont on précisera le premier terme et la raison.
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+$v_{n+1}$ & $=$ & $u_{n+2} - u_{n+1}$ \\
+& $=$ & $\left(4u_{n+1} - 3u_n\right) - u_{n+1}$ \\
+& $=$ & $3u_{n+1} - 3u_n$ \\
+& $=$ & $3\left(u_{n+1} - u_n\right)$ \\
+& $=$ & $3v_n$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Pour tout $n \in \N$, on a $v_{n+1} = 3v_n$, donc $\left(v_n\right)_{n \in \N}$ est une suite géométrique de raison $q = 3$ et de premier terme $v_0 = u_1 - u_0 = 2 - 1 = 1$. \\
+
+\begin{itemize}
+\item[•] Exprimer $v_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_0 = 1$ et de raison $q = 3$. \\
+
+Ainsi, l'expression de son terme général est $v_n = v_0 \times q^n = 1 \times 3^n = 3^n$. \\
+
+\begin{itemize}
+\item[•] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_0 = 1$ et de raison $q = 3$. \\
+
+$v_0 > 0$ et $q > 1$, donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n = +\infty$. 
+
+\newpage
+
+\begin{itemize}
+\item[•] Soit $S_n = v_0 + v_1 + v_2 + ... + v_n$. \\ Exprimer $S_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_0 = 1$ et de raison $q = 3$. \\
+
+Donc $S_n = v_0 \times \dfrac{1 - q^{n+1}}{1 - q} = 1 \times \dfrac{1-3^{n+1}}{1 - 3}$. \\
+
+D'où $S_n = -\dfrac{1}{2}\left(1-3^{n+1}\right)$. 
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Exprimer $S_n$ en fonction de $u_0$ et de $u_{n+1}$. \\
+\end{itemize}
+
+\begin{tabular}{lll}
+$S_n$ & $ = $ & $ v_0 + v_1 + v_2 + ... + v_n$ \\
+& $=$ & $\left(u_1 - u_0\right) + \left(u_2-u_1\right) + \left(u_3 - u_2\right) + ... + \left(u_{n+1} - u_n\right)$ \\
+& $=$ & $-u_0 + u_{n+1}$ \\
+& $=$ & $-1 + u_{n+1}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Déterminer $u_n$. \\
+\end{itemize}
+
+On a $-1 + u_{n+1} = -\dfrac{1}{2}\left(1 - 3^{n+1}\right)$. \\
+
+D'où $u_{n+1} = -\dfrac{1}{2}\left(1-3^{n+1}\right) + 1$ \\
+
+Il vient que $u_n = -\dfrac{1}{2}\left(1 - 3^n\right) + 1$. \\
+
+Ainsi $u_n = -\dfrac{1}{2}\left(1 - 3^n\right) + 1$. \\
+
+\newpage
+
+\subsection{Exemple \no 2}
+
+Soit $\left(u_n\right)_{n\; \in \; \N}$ la suite définie par : $\left\{
+  \begin{array}{lll}
+    u_1 = 2 \\
+    u_2 = 1 \\
+    \forall n \in \N, u_{n+2} = \dfrac{2u_{n+1} + u_n}{3}
+  \end{array}
+\right.$
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Déterminer $u_3$, $u_4$. \\
+\end{itemize}
+
+\begin{itemize}
+\item[*] $u_3 = \dfrac{2u_2 + u_1}{3} = \dfrac{2 \times 1 + 2}{3} = \dfrac{4}{3}$ \vspace*{.3cm} \\
+\item[*] $u_4 = \dfrac{2u_3 + u_2}{3} = \dfrac{2 \times \dfrac{4}{3} + 1}{3} = \dfrac{\dfrac{8}{3} + 1}{3} = \dfrac{\dfrac{11}{3}}{3} = \dfrac{11}{3} \times \dfrac{1}{3} = \dfrac{11}{9}$ \vspace*{.3cm} \\
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Soit $\left(v_n\right)_{n \geqslant 2}$ la suite définie par $v_n = u_{n+1} - u_n$. \\ Montrer que $\left(v_n\right)_{n \geqslant 2}$ est une suite géométrique dont on précisera le premier terme et la raison.
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+$v_{n+1}$ & $=$ & $u_{n+1} - u_{n}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{2u_n + u_{n-1}}{3} - u_n$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{2u_n + u_{n-1} - 3u_n}{3}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{-u_n + u_{n-1}}{3}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{-\left(u_n - u_{n-1}\right)}{3}$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{-v_n}{3}$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Ainsi pour tout $n \geqslant 2$, on a $v_{n+1} = v_n \times \left(-\dfrac{1}{3}\right)$, donc $\left(v_n\right)_{n \geqslant 2}$ est une suite géométrique de raison $q = -\dfrac{1}{3}$ et de premier terme $v_2 = u_2 - u_1 = 1 - 2 = -1$. \\
+
+\begin{itemize}
+\item[•] Exprimer $v_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \geqslant 2}$ est une suite géométrique de premier terme $v_2 = -1$ et de raison $q = -\dfrac{1}{3}$. \\
+
+Notons que, dans $\N$, $v_n = v_0 \times q^n$ et dans $\N*$, $v_n = v_1 \times q^{n-1}$. \\
+
+Ainsi, l'expression du terme général de $\left(v_n\right)_{n \geqslant 2}$ est $v_n = v_2 \times q^{n-2} = -1 \times \left(-\dfrac{1}{3}\right)^{n-2} = -\left(-\dfrac{1}{3}\right)^{n-2}$. \\
+
+\begin{itemize}
+\item[•] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \geqslant 2}$ est une suite géométrique de raison $q = -\dfrac{1}{3}$. \\
+
+$-1 < q < 0$, donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; v_n = 0$. \\
+
+\begin{itemize}
+\item[•] Soit $S_n = v_2 + v_3 + v_4 + ... + v_n$. \\ Exprimer $S_n$ en fonction de $n$. \\
+\end{itemize}
+
+$\left(v_n\right)_{n \; \in \; \N}$ est une suite géométrique de premier terme $v_2 = -1$ et de raison $q = -\dfrac{1}{3}$. \\
+
+Notons que, dans $\N$, $S_n = v_0 \times \dfrac{1 - q^{n+1}}{1 - q}$ et dans $\N*$, $S_n = v_1 \times \dfrac{1-q^n}{1-q}$. \\
+
+Ainsi, $S_n = v_2 \times \dfrac{1 - q^{n-1}}{1 - q} = -1\times \dfrac{1-\left(-\dfrac{1}{3}\right)^{n-1}}{1 + \dfrac{1}{3}} = -\dfrac{3}{4}\left[1 - \left(-\dfrac{1}{3}\right)^{n-1}\right]$. \\
+
+D'où $S_n = -\dfrac{3}{4}\left[1 - \left(-\dfrac{1}{3}\right)^{n-1}\right]$. 
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Exprimer $S_n$ en fonction de $u_1$ et de $u_{n}$. \\
+\end{itemize}
+
+\begin{tabular}{lll}
+$S_n$ & $ = $ & $ v_2 + v_3 + v_4 + ... + v_n$ \\
+& $=$ & $\left(u_2 - u_1\right) + \left(u_3-u_2\right) + \left(u_4 - u_3\right) + ... + \left(u_{n} - u_{n-1}\right)$ \\
+& $=$ & $-u_1 + u_{n}$ \\
+& $=$ & $-2 + u_{n}$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Déterminer $u_n$. \\
+\end{itemize}
+
+On a $-2 + u_{n} = -\dfrac{3}{4}\left[1 - \left(-\dfrac{1}{3}\right)^{n-1}\right]$. \\
+
+D'où $u_{n} = -\dfrac{3}{4}\left[1 - \left(-\dfrac{1}{3}\right)^{n-1}\right] + 2$ \\
+
+\vspace*{.3cm}
+
+\begin{itemize}
+\item[•] Déterminer $ \displaystyle {\lim_{n \rightarrow +\infty}} \; u_n$. \\
+\end{itemize}
+
+\vspace*{.3cm}
+
+\begin{tabular}{lll}
+$u_n$ & $=$ & $-\dfrac{3}{4}\left[1-\left(-\dfrac{1}{3}\right)^{n-1}\right] + 2$ \vspace*{.3cm} \\
+& $=$ & $-\dfrac{3}{4} + \dfrac{3}{4} \times \left(-\dfrac{1}{3}\right)^{n-1} + 2$ \vspace*{.3cm} \\
+& $=$ & $\dfrac{5}{4} + \dfrac{3}{4} \times \left(-\dfrac{1}{3}\right)^{n-1}$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On sait que $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \left(-\dfrac{1}{3}\right)^{n-1} = 0$, donc $ \displaystyle {\lim_{n \rightarrow +\infty}} \; u_n = \dfrac{5}{4}$. \\

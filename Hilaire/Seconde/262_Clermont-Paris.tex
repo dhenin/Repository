@@ -1,0 +1,46 @@
+%  \input{preambule-sacha-utf8.ltx}
+% \usepackage{pgf,tikz}
+% \usetikzlibrary{arrows}
+% \begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.2mm,y=.2mm]
+\draw[->,color=black] (-15.99,0) -- (365.78,0);
+\foreach \x in  {10,20,30,40,50,60,70,80,90,100,110,130,140,150,160,170,
+                 190,200,210,220,230,250,260,270,280,290,310,320,330,340,350}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) ;
+\foreach \x in  {60,120,180,240,300,360}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-10.46) -- (0,417.84);
+\foreach \y in  {25,50,75,125,150,175,200,225,250,275,300,325,350,375}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\foreach \y in  {100,400}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-80,-55) rectangle (370,420);
+\draw  (0,0)-- (90,150);
+\draw  (90,150)-- (110,150);
+\draw  (110,150)-- (140,200);
+\draw  (140,200)-- (170,150);
+\draw  (170,150)-- (180,150);
+\draw  (180,150)-- (330,400);
+\draw [dashed] (90,150)-- (90,0);
+\draw [dashed] (180,150)-- (0,150);
+\draw [dashed] (140,200)-- (140,0);
+\draw [dashed] (140,200)-- (0,200);
+\draw [dashed] (170,150)-- (170,0);
+\draw [dashed] (180,150)-- (180,0);
+\draw [dashed] (330,400)-- (330,0);
+\draw [dashed] (330,400)-- (0,400);
+
+\begin{scriptsize}
+\draw (-35,400) node [left] {\sc paris}  ; 
+\draw (0,-40) node [below] {\sc clermont-fd}  ; 
+\draw (0,-20) node [below] {(14h)} ;  
+\draw (60,-20) node [below] {(15h)} ; 
+\draw (120,-20) node [below] {(16h)} ; 
+\draw (0,200) node [left]   {\boxed {\parbox{1.1cm}{ Distances\\
+\centerline{(en km)}}}} ; 
+\draw (200,-20) node [below]{\boxed { \parbox{2.3cm}{Durée (en minutes)}}} ; 
+\end{scriptsize}
+\end{tikzpicture}
+% \end{document}

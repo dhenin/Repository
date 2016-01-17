@@ -1,0 +1,663 @@
+
+\section{Trigonométrie}
+\subsection{Cercle trigonométrique}
+On appelle cercle trigonométrique tout cercle de rayon $R=1$ sur lequel on a choisi une origine $I$ et un sens de parcours appelé « sens trigonométrique ». 
+
+%------------- Cerlcle trigonométrique ------------------
+
+\hspace*{2cm}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.8]
+\clip(-3,-3) rectangle (3,3);
+\draw [color=gray] (0,0) circle (2cm);
+\draw (0,0)-- (2,0);
+\draw [shift={(0,0)}] plot[domain=0.17:1.12,variable=\t]({1*2.35*cos(\t r)+0*2.35*sin(\t r)},{0*2.35*cos(\t r)+1*2.35*sin(\t r)});
+\draw [->] (1.05,2.1) -- (1.03,2.11);
+\fill (0,0) circle (1.5pt);
+\draw (0,0) node [below]{$O$};
+\fill (2,0) circle (1.5pt);
+\draw(2,0) node [right] {$I$};
+% \draw (-1/2, sqrt(3)/2) node [left] {$I'$};
+\end{tikzpicture}\raisebox{10ex}{$R=OI=1$}
+ 
+\subsection{Image d'un nombre réel sur le cercle trigonométrique}
+
+Soit $\mathcal{C}$ un cercle trigonométrique.
+
+$\mathcal{P} = 2{\pi}R = 2\pi \text{ puisque } R=1$ \\ 
+
+\begin{itemize}
+\item [\ding{87}] À tout nombre réel $x$ correspond un point et un seul de $\mathcal{C}$ appelé « image de $x$ sur $\mathcal{C}$ 
+noté $M(x)$.\\
+
+$M(\pi) = I'$ 
+\item [\ding{87}] Tout point $M$ de  $\mathcal{C}$ est l'image d'une infinité de nombres réels.
+
+\begin{minipage}{9cm}
+\begin{tabbing}
+Si \= $M$ est $\qquad\quad$ \= l'image de $x$ sur  $\mathcal{C}$\\
+   \>  $M$ est aussi \> l'image de $x+2\pi$ \\
+   \>  $M$ est aussi \> l'image de $x+4\pi$ \\  
+   \>  $M$ est aussi \> l'image de $x+6\pi$\ldots  \\   
+   \>  $M$ est aussi \> l'image de $x+2k\pi \quad k\in \mathbb{Z}$ \\    
+\end{tabbing}
+\hspace*{5cm}
+\end{minipage}
+%
+%------- Enroulement des réels sur le cercle trigo --------
+% Pour tracer les courbes de Bésier : 
+% ajouter, 
+% 1 - dans les préférences de TexMaker, 
+%     dans  la ligne  pdflatex 
+%     "--shell-escape  -enable-write18 " avant "%.tex"
+% 2 - un lien vers gnuplot dans le répertoire  texbin 
+%     cd /usr/texbin/
+%     sudo ln -s /opt/local/bin/gnuplot ./gnuplot
+%
+\raisebox{-30ex}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.55]
+\draw[->,color=black] (0,-7.1) -- (0,11.85);
+\foreach \y in {-6,-4,-2,2,4,6,8,10}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-4.19,-7.1) rectangle (3.6,11.85);
+\draw(-1,0) circle (1cm);
+\draw (-2,0)-- (0,0);
+\draw [shift={(1.63,-0.1)}] plot[domain=2.04:3.11,variable=\t]({1*3.63*cos(\t r)+0*3.63*sin(\t r)},{0*3.63*cos(\t r)+1*3.63*sin(\t r)});
+\draw[smooth,samples=100,domain=0.0:1.0] plot[parametric] function{(1-t)**3*0.01+3*(1-t)**2*t*(-2.81)+3*(1-t)*t**2*(-2.81)+t**3*(-1),(1-t)**3*4.72+3*(1-t)**2*t*2.77+3*(1-t)*t**2*(-1.53)+t**3*(-1)};
+\draw[smooth,samples=100,domain=0.0:1.0] plot[parametric] function{(1-t)**3*0+3*(1-t)**2*t*(-7)+3*(1-t)*t**2*2.23+t**3*0,(1-t)**3*6.28+3*(1-t)**2*t*(-2)+3*(1-t)*t**2*(-4.14)+t**3*0};
+\draw [shift={(-0.13,-0.64)}] plot[domain=3.54:4.85,variable=\t]({1*0.94*cos(\t r)+0*0.94*sin(\t r)},{0*0.94*cos(\t r)+1*0.94*sin(\t r)});
+\draw [shift={(1.64,5.56)}] plot[domain=1.97:2.71,variable=\t]({1*4.2*cos(\t r)+0*4.2*sin(\t r)},{0*4.2*cos(\t r)+1*4.2*sin(\t r)});
+\draw [shift={(0.64,7.45)}] plot[domain=1.75:2.8,variable=\t]({1*3.6*cos(\t r)+0*3.6*sin(\t r)},{0*3.6*cos(\t r)+1*3.6*sin(\t r)});
+\draw[smooth,samples=100,domain=0.0:1.0] plot[parametric] function{(1-t)**3*0+3*(1-t)**2*t*(-9.62)+3*(1-t)*t**2*7.32+t**3*(-1),(1-t)**3*7.85+3*(1-t)**2*t*(-8.49)+3*(1-t)*t**2*(-1.24)+t**3*1};
+\draw [shift={(0.02,0.37)}] plot[domain=1.59:2.59,variable=\t]({1*1.2*cos(\t r)+0*1.2*sin(\t r)},{0*1.2*cos(\t r)+1*1.2*sin(\t r)});
+\draw [shift={(-1.27,-0.26)}] plot[domain=4.29:5.13,variable=\t]({1*3.15*cos(\t r)+0*3.15*sin(\t r)},{0*3.15*cos(\t r)+1*3.15*sin(\t r)});
+\draw [shift={(-0.52,-0.36)}] plot[domain=4.13:4.83,variable=\t]({1*4.39*cos(\t r)+0*4.39*sin(\t r)},{0*4.39*cos(\t r)+1*4.39*sin(\t r)});
+\draw [shift={(0.18,-1.34)}] plot[domain=3.85:4.68,variable=\t]({1*4.95*cos(\t r)+0*4.95*sin(\t r)},{0*4.95*cos(\t r)+1*4.95*sin(\t r)});
+\draw (-1,-1) -- (-1,1) ; 
+\draw [->] (-2.73,8.71) -- (-2.75,8.66);
+\draw [->] (-2.12,7.42) -- (-2.17,7.31);
+\draw [->] (-2.4,-3.2) -- (-2.56,-3.14);
+\draw [->] (-2.85,-4.07) -- (-2.92,-4.02);
+\draw [->] (-3.51,-4.64) -- (-3.57,-4.57);
+\draw [->] (.01,-.02) -- (0,0);
+\draw [->] (-0.99,1.01) -- (-1,1);
+\draw [->] (-0.98,.995) -- (-1,1);
+\draw [->] (-0.99,-1.02) -- (-1,-1);
+\draw [->] (-1.01,-1) -- (-1,-1);
+\draw [->] (-2,.01) -- (-2,0);
+\fill  (0,1.57) circle (1.5pt);
+\draw (0,1.57) node [right] {${\pi}/2$};
+\fill  (0,3.14) circle (1.5pt);
+\draw (0,3.14) node [right]{$\pi$};
+\fill  (0,9.42) circle (1.5pt);
+\draw (0,9.42) node [right]{$3\pi$};
+\fill  (0,11) circle (1.5pt);
+\draw (0,11) node [right]{$\dfrac{7\pi}{2}$};
+\fill  (0,-3.14) circle (1.5pt);
+\draw (0,-3.14) node [right]{$-\pi$};
+\fill  (0,-4.71) circle (1.5pt);
+\draw (0,-4.71) node [right]{$-\dfrac{3\pi}{2}$};
+\fill  (0,-1.57) circle (1.5pt);
+\draw (0,-1.57) node [right]{$-\dfrac{\pi}{2}$};
+\fill  (0,-6.28) circle (1.5pt);
+\draw (0,-6.28) node [right]{$-2\pi$};
+\fill  (-1,0) circle (1.5pt);
+\draw (-1.28,-0.16) node {$O$};
+\fill  (0,4.72) circle (1.5pt);
+\draw (0,4.72) node [right]{$\dfrac{3\pi}{2}$};
+\fill  (-1,-1) circle (1.5pt);
+\draw (-1.1,-1) node [below] {$J'$};
+\fill  (0,6.28) circle (1.5pt);
+\draw (0,6.28) node [right]{$2\pi$};
+\fill  (0,0) circle (1.5pt);
+\draw (0,0) node [right]{$I$};
+\fill  (-2,0) circle (1.5pt);
+\draw (-1.7,0.27) node {$I'$};
+\fill  (0,7.85) circle (1.5pt);
+\draw (0,7.85) node [right]{$\dfrac{5\pi}{2}$};
+\fill  (-1,1) circle (1.5pt);
+\draw (-0.87,1.28) node {$J$};
+\end{tikzpicture}}
+
+\end{itemize}
+\newpage
+
+% ---------- Points remarquable du cercle trigo -----------
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=4]
+\clip(-1.4,-1.4) rectangle (1.5,1.2);
+\draw(0,0) circle (1cm);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (-1,1)-- (-1,-1);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (-1,-1)-- (1,-1);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (1,-1)-- (1,1);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (1,1)-- (-1,1);
+\draw (-1,1)-- (1,-1);
+\draw (1,1)-- (-1,-1);
+\draw (0,1) node[above left] {$J$};
+\draw [line width=1.2pt] (0,1)-- (0,-1);
+\draw [color=violet](1,0) node[above right] {$M(0)$};
+\draw [color=violet](1,0) node[below right] {$M(2\pi)\ldots$};
+\draw [color=violet](-1,0) node[below left] {$ M(\pi) $};
+\draw [dash pattern=on 1pt off 1pt,color=gray] (-0.5,0.87)-- (0.5,0.87);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (0.5,0.87)-- (0.5,-0.87);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (0.5,-0.87)-- (-0.5,-0.87);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (-0.5,-0.87)-- (-0.5,0.87);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (-0.87,0.5)-- (0.87,0.5);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (0.87,0.5)-- (0.87,-0.5);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (0.87,-0.5)-- (-0.87,-0.5);
+\draw [dash pattern=on 1pt off 1pt,color=gray] (-0.87,-0.5)-- (-0.87,0.5);
+\draw [line width=1.2pt] (-1,0)-- (1,0);
+\begin{scriptsize}
+\fill  (0,0) circle (.5pt);
+\draw (0,0) node [below left]{$O$};
+\fill [color=blue] (0.71,0.71) circle (.5pt);
+\draw[color=blue] (0.71,0.71) node[right] {$M(\dfrac{\pi}{4})$};
+\fill [color=blue] (-0.71,0.71) circle (.5pt);
+\draw[color=blue] (-0.71,0.71) node [left]{$M(\dfrac{3\pi}{4})$};
+\fill [color=VertClair] (0.87,0.5) circle (.5pt);
+\draw[color=VertClair] (0.87,0.5) node [right] {$M(\dfrac{\pi}{6})$};
+\fill [color=darkgreen] (0.5,0.87) circle (.5pt);
+\draw[color=darkgreen] (0.5,0.87) node [right]{$M(\dfrac{\pi}{3})$};
+\fill [color=violet] (0,1) circle (.5pt);
+\draw[color=violet] (0,1) node [above right]{$M(\dfrac{\pi}{2})$};
+\fill [color=darkgreen] (-0.5,0.87) circle (.5pt);
+\draw[color=darkgreen] (-0.5,0.87) node [left]{$M(\dfrac{2\pi}{3)})$};
+\fill [color=VertClair] (-0.87,0.5) circle (.5pt);
+\draw[color=VertClair] (-0.87,0.5) node [left]{$M(\dfrac{5\pi}{6})$};
+\fill [color=blue] (-1,0) circle (.5pt);
+\draw[color=blue] (-1,0) node [above left]{$I'$};
+\fill [color=blue] (1,0) circle (.5pt);
+\draw[color=blue] (1,0) node [above left]{$I$};
+\fill [color=blue] (0,-1) circle (.5pt);
+\draw[color=blue] (0,-1) node[below left] {$J'$};
+\fill [color=VertClair] (-0.87,-0.5) circle (.5pt);
+\draw[color=VertClair] (-.87,-0.5) node[left]{$M(\dfrac{7\pi}{6})$};
+\fill [color=blue] (-0.71,-0.71) circle (.5pt);
+\draw[color=blue] (-0.71,-0.71) node [left]{$M(\dfrac{5\pi}{4})$};
+\fill [color=darkgreen] (-0.5,-0.87) circle (.5pt);
+\draw[color=darkgreen] (-0.5,-0.87) node [left]{$M(\dfrac{4\pi}{3})$};
+\fill [color=violet] (0,-1) circle (.5pt);
+\draw[color=violet] (0,-1) node [below right]{$M(\dfrac{3\pi}{2})$};
+\fill [color=darkgreen] (0.5,-0.87) circle (.5pt);
+\draw[color=darkgreen] (0.5,-0.87) node [right] {$(\dfrac{5\pi}{3})$};
+\fill [color=blue] (0.71,-0.71) circle (.5pt);
+\draw[color=blue] (0.71,-0.71) node [right] {$M(\dfrac{7\pi}{4})$};
+\fill [color=VertClair] (0.87,-0.5) circle (.5pt);
+\draw[color=VertClair](0.87,-0.5)node[right]{$M(\dfrac{11\pi}{6})$};
+\end{scriptsize}
+\end{tikzpicture}\\
+
+Notion de congruence 
+
+$\dfrac{5\pi}{2} \equiv \dfrac{\pi}{2} \left[2\pi\right] \text{ car } \dfrac{5\pi}{2}-\dfrac{\pi}{2} = 2\pi \longleftarrow \text{ Un tour de cercle.}$\\
+
+$\dfrac{9\pi}{2} \equiv \dfrac{\pi}{2} \left[2\pi\right] \text{ car } \dfrac{9\pi}{2}-\dfrac{\pi}{2} = 4\pi \longleftarrow \text{ Deux tours de cercle.}$\\
+
+$\dfrac{15\pi}{2} \cancel{\equiv} \dfrac{\pi}{2} \left[2\pi\right] \text{ car } \dfrac{15\pi}{2}-\dfrac{\pi}{2} = 7\pi \longleftarrow \dfrac{7}{2}\text{ tours de cercle.}$\\
+
+Exercice : Placer sur un cercle trigonométrique les images de : \\
+$\dfrac{223\pi}{6},\quad  \dfrac{252\pi}{4}, \quad \dfrac{431\pi}{3},\quad  \dfrac{1035\pi}{4}, \quad \dfrac{1702\pi}{3}, \quad \dfrac{2015\pi}{6}$ \\
+
+\bigskip 
+
+\begin{tabular}{c@{}c@{}c@{}c@{}c@{}l}
+\ding{43} 
+   $\qquad\dfrac{223\pi}{6}  $ & 
+        $ \equiv \dfrac{7\pi}{6}   $ &
+           $ \left[2\pi\right] $ & 
+               $\text{ car } \dfrac{223\pi}{6}-\dfrac{7\pi}{6}  $ & 
+                  $ = 36\pi   $ &
+                    $ \longleftarrow \text{ 18 tours de cercle.}$\\
+&&&\\
+\ding{43}$\qquad\dfrac{291\pi}{4}   $ & $ \equiv \dfrac{3\pi}{4}   $ & $ \left[2\pi\right] $ & $\text{ car } \dfrac{291\pi}{4}-\dfrac{3\pi}{4}  $ & $ = 72\pi   $ & $ \longleftarrow \text{ 36 tours de cercle.}$\\
+&&&\\
+\ding{43}$\qquad\dfrac{431\pi}{3}   $ & $ \equiv \dfrac{5\pi}{3}   $ & $ \left[2\pi\right] $ & $\text{ car } \dfrac{231\pi}{3}-\dfrac{5\pi}{3}  $ & $ = 142\pi   $ & $ \longleftarrow \text{ 71 tours de cercle.}$\\
+&&&\\
+\ding{43}$\qquad\dfrac{1035\pi}{4}   $ & $ \equiv \dfrac{3\pi}{4}   $ & $ \left[2\pi\right] $ & $\text{ car } \dfrac{1035\pi}{4}-\dfrac{3\pi}{4}  $ & $ = 258\pi   $ & $ \longleftarrow \text{ 129 tours de cercle.}$\\
+&&&\\
+\ding{43}$\qquad\dfrac{1702\pi}{3}   $ & $ \equiv \dfrac{4\pi}{3}   $ & $ \left[2\pi\right] $ & $\text{ car } \dfrac{1702\pi}{3}-\dfrac{4\pi}{3}  $ & $ = 566\pi   $ & $ \longleftarrow \text{ 283 tours de cercle.}$\\
+&&&\\
+\ding{43}$\qquad\dfrac{2015\pi}{6}   $ & $ \equiv \dfrac{11\pi}{6}   $ & $ \left[2\pi\right] $ & $\text{ car } \dfrac{2015\pi}{6}-\dfrac{11\pi}{6}  $ & $ = 334\pi   $ & $ \longleftarrow \text{ 167 tours de cercle.}$\\
+\end{tabular}
+
+\newpage
+
+\subsection{Cosinus et sinus d'un nombre réel}
+
+Soit $\mathcal{C}$ un cercle trigonométrique.\\
+Soit $M(x)$ l'image de $x$ sur $\mathcal{C}$.\\
+Soit $H$ le projeté orthogonal de $M$ sur $(OI)$.\\
+Soit $K$ le projeté orthogonal de $M$ sur $(OJ)$.\\
+
+% ------•---- Projetés des points du cercle trigo -----------
+
+\input{Projetes_trigo.tex}
+
+
+% ------•---- Les quatres cadrans --------------------------
+
+Quatre quadrants.
+
+\parbox{5cm}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.8]
+\clip (0.38,7.29) rectangle (6.04,12.92);
+\draw (3,10) circle (2cm);
+\draw (1,10)-- (5,10);
+\draw (3,12)-- (3,8);
+\draw (3.75,10.75)    node {\Huge \ding{172}};
+\draw (2.25,10.75)       node {\Huge  \ding{173}};
+\draw (2.25,9)     node {\Huge  \ding{174}};
+\draw (3.75,9)  node {\Huge  \ding{175}};
+\fill (3,10) circle (1.5pt);
+\draw (3,10) node [below left]{$O$};
+\fill (1,10) circle (1.5pt);
+\draw (1,10) node [left] {$I'$};
+\fill (5,10) circle (1.5pt);
+\draw (5,10) node [right] {$I$};
+\fill (3,12) circle (1.5pt);
+\draw (3,12) node [above]{$J$};
+\fill (3,8) circle (1.5pt);
+\draw (3,8) node [below]{$J'$};
+\end{tikzpicture}}
+\parbox{10cm}{
+   \ding{172} $\longrightarrow$\raisebox{-1ex}{$ \begin{array}{c}  
+\cos (x) > 0 \\ 
+\sin (x) >0 \\ 
+   \end{array} 
+        \qquad$}  
+ \ding{173}
+        $\longrightarrow$\raisebox{-1ex}{$\begin{array}{c}  
+                 \cos (x) < 0 \\ 
+                 \sin (x) > 0 \\ 
+               \end{array}$}\\
+               
+               
+\ding{174} 
+    $\longrightarrow$\raisebox{-1ex}{$ \begin{array}{c}  
+\cos (x) < 0 \\ 
+\sin (x) < 0 \\ 
+   \end{array} 
+        \qquad$}  \ding{175}$\longrightarrow$\raisebox{-1ex}{ $\begin{array}{c}  
+                 \cos (x) > 0 \\ 
+                 \sin (x) < 0 \\ 
+               \end{array}$}\\               
+} \\
+\renewcommand{\arraystretch }{1.75}
+En particulier : 
+\begin{quote}
+{
+\begin{tabular}{l@{$\;$}c@{$\qquad$}l@{$\;$}c}
+$\bullet$  & $\cos 0 = 1 $ 
+         & $\bullet$ & $\cos \dfrac{\pi}{2} = 0 $ \\  
+          & $\sin 0 = 0 $ 
+         &  & $\sin \dfrac{\pi}{2} = 1 $ \\  
+& & & \\
+$\bullet$  & $\cos \pi = -1 $ 
+         & $\bullet$ & $\cos \dfrac{3\pi}{2} = 0 $ \\  
+  & $\sin \pi = 0 $ 
+         & & $\sin \dfrac{3\pi}{2} = -1 $ \\                             
+\end{tabular}              
+}
+\end{quote}
+\renewcommand{\arraystretch }{1}
+\newpage 
+
+Propriétés fondamentales pour $k \in \mathbb{Z}$  
+
+\begin{quote}
+\begin{tabular}{l@{$\,$}cc@{$\,$}l}
+\ding{81} & Pour tout $x\in \Re$ & $\bullet$ & $-1
+                       \leqslant \cos x  \leqslant 1 $ \\
+          &          & $\bullet$ & $-1
+                       \leqslant \sin x  \leqslant 1 $ \\
+ & & & \\ 
+ \ding{81} & Pour tout $x\in \Re$ & $\bullet$ 
+                     & $ \cos (x+2k\pi) = \cos x $ \\
+       &   & $\bullet$ & $ \sin x  (x+2k\pi) = \sin x $ \\
+                        & & & \\ 
+ \ding{81} & Pour tout $x\in \Re$ & $\bullet$ 
+         & $ \cos^2 (x+2k\pi) + \sin^2 (x+2k\pi) = 1 $ \\
+
+\end{tabular}\\
+
+\bigskip
+
+$(O, \overrightarrow{OI},  \overrightarrow{OJ})$ un repère orthonormal.\\
+
+$M(\cos x, \sin x)$ dans $(O, \overrightarrow{OI},  \overrightarrow{OJ})$. \\
+
+\begin{tabular}{r@{\,}l}
+$ \cos^2 (x+2k\pi) + \sin^2 x $ &$= OH^2 + OK^2$\\
+ &$= OH^2 + HM^2 $\\
+ &$= OM^2$\\
+ &$= 1 \qquad \qquad \text{ car }\; OM = 1 $\\ 
+\end{tabular}\\
+
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{ll}
+ \input{Sin+Cos_PiQuart.tex}
+         &  \raisebox{27ex}{ \ding{81}}
+            \raisebox{16.5ex}{              
+         \parbox{.5\textwidth}{ 
+        Cosinus et sinus de $\dfrac{\pi}{4}$ \\
+        
+        $ \begin{array}{r@{\;}l}
+                 \cos^2 x + \sin^2 x              &= 1 \\
+\cos^2 (\dfrac{\pi}{4}) + \sin^2 (\dfrac{\pi}{4}) &= 1 \\
+                             2 sin^2 \dfrac{\pi}{4}      &= 1 \\ 
+                         cos^2    \dfrac{\pi}{4} =     sin^2  \dfrac{\pi}{4} &= 
+   \dfrac{1}{2} \quad \text { donc }= \dfrac{\sqrt{2}}{2} \text { ou } \cancel {-\dfrac{\sqrt{2}}{2}}\\  
+        \end{array}$
+         }}\\
+\end{tabular}\\
+\vspace*{-1cm}
+\begin{center}
+\fcolorbox{black}  {white}{
+\hbox{
+$\cos \dfrac{\pi}{4} = \dfrac{\sqrt{2}}{2} \quad \text{ et } \quad \sin \dfrac{\pi}{4} =  \dfrac{\sqrt{2}}{2} $ 
+}}
+\end{center}
+
+\bigskip 
+
+\begin{tabular}{ll}
+ \input{PiTiers.tex}
+         &  \raisebox{31ex}{ \ding{81}}
+            \raisebox{10ex}{              
+         \parbox{.5\textwidth}{ 
+        Cosinus et sinus de $\dfrac{\pi}{3}$ \\
+        
+        $ \begin{array}{r@{\;}l}
+                 \cos^2 x + \sin^2 x              &= 1 \\
+\cos^2 (\dfrac{\pi}{3}) + \sin^2 (\dfrac{\pi}{3}) &= 1 \\
+                                       & \qquad \qquad 0H=\dfrac{1}{2} \\
+                     \dfrac{1}{4} + \sin^2 (\dfrac{\pi}{3})    &= 1 \\
+                       \sin^2 (\dfrac{\pi}{3}) &= 1 - \dfrac{1}{4} \\
+                          \sin^2 (\dfrac{\pi}{3}) -\dfrac{3}{4}  &= 0 \\ 
+ \left( \sin (\dfrac{\pi}{3} - \sqrt{\dfrac{3}{4}}\right)  \left( \sin (\dfrac{\pi}{3}) +\sqrt{\dfrac{3}{4}}\right) &= 0 \\       
+                                   \sin (\dfrac{\pi}{3}) &= 
+\dfrac{\sqrt{3}}{2} \text { ou } \cancel {-\dfrac{\sqrt{3}}{2}}\\  
+        \end{array}$
+         }}\\         
+\end{tabular}\\
+}
+\renewcommand{\arraystretch }{1}
+\begin{center}
+\fcolorbox{black}  {white}{
+\hbox{
+$\cos \dfrac{\pi}{3} = \dfrac{1}{2} \quad \text{ et } \quad \sin \dfrac{\pi}{3} =  \dfrac{\sqrt{3}}{2} $ 
+}}
+\end{center}
+
+\newpage
+
+{\renewcommand{\arraystretch }{1.75}
+\begin{tabular}{ll}
+\input{PiSixieme.tex}
+         &  \raisebox{31ex}{ \ding{81}}
+            \raisebox{10ex}{              
+         \parbox{.5\textwidth}{ 
+        Cosinus et sinus de $\dfrac{\pi}{6}$ \\
+        
+        $ \begin{array}{r@{\;}l}
+                 \cos^2 x + \sin^2 x              &= 1 \\
+\cos^2 (\dfrac{\pi}{6}) + \sin^2 (\dfrac{\pi}{6}) &= 1 \\
+                                       & \qquad \qquad OK=\dfrac{1}{2} \\
+                      \cos^2 (\dfrac{\pi}{6})  +\dfrac{1}{4}   &= 1 \\
+                       \cos^2 (\dfrac{\pi}{6}) &= 1 - \dfrac{1}{4} \\
+                          \cos^2 (\dfrac{\pi}{6}) -\dfrac{3}{4}  &= 0 \\ 
+ \left( \cos^2 (\dfrac{\pi}{6}) - \sqrt{\dfrac{3}{4}}\right)  \left( \cos^2 (\dfrac{\pi}{6})) +\sqrt{\dfrac{3}{4}}\right) &= 0 \\       
+                                   \cos (\dfrac{\pi}{6}) &= 
+\dfrac{\sqrt{3}}{2} \text { ou } \cancel {-\dfrac{\sqrt{3}}{2}}\\  
+        \end{array}$
+         }}\\         
+\end{tabular}\\
+}
+\renewcommand{\arraystretch }{1}
+\begin{center}
+\fcolorbox{black}  {white}{
+\hbox{
+$\cos \dfrac{\pi}{6} = \dfrac{\sqrt{3}}{2} \quad \text{ et } \quad \sin \dfrac{\pi}{6} =  \dfrac{1}{2} $ 
+}}
+\end{center}
+\end{quote}
+
+\vspace{2cm}
+
+\underline{Récapitulation} : \\
+
+\bigskip 
+
+\hspace*{2cm}
+{\renewcommand{\arraystretch }{2.3}
+\begin{tabular}{|c||c|c|c|c|c|}
+\hline
+$x$ & $0$ & $\dfrac{\pi}{6}$ & $\dfrac{\pi}{4}$ & $\dfrac{\pi}{3}$ & $\dfrac{\pi}{2}$ \\
+\hline
+\hline
+$\cos x$ & $1$ & $\dfrac{\sqrt{3}}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{1}{2}$ & $0$ \\
+\hline
+$\sin x$ & $0$ & $\dfrac{1}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{\sqrt{3}}{2}$ & $1$ \\
+\hline
+\end{tabular}
+}
+
+\vspace{2cm}
+
+
+\centerline{
+ \renewcommand{\arraystretch }{2.3}
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x$ & $0$ & $\dfrac{\pi}{6}$ & $\dfrac{\pi}{4}$ & $\dfrac{\pi}{3}$ & $\dfrac{\pi}{2}$ & $\dfrac{2\pi}{3}$ & $\dfrac{3\pi}{4}$ & $\dfrac{5\pi}{6}$ & $\pi$ & $\dfrac{7\pi}{6}$ & $\dfrac{5\pi}{4}$ & $\dfrac{4\pi}{3}$ & $\dfrac{3\pi}{2}$ & $\dfrac{5\pi}{3}$ & $\dfrac{7\pi}{4}$ & $\dfrac{11\pi}{6}$ \\
+\hline
+\hline
+$\cos x$ & $1$ & $\dfrac{\sqrt{3}}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{1}{2}$ & $0$
+         & $-\dfrac{1}{2}$ & $-\dfrac{\sqrt{2}}{2}$ & $- \dfrac{\sqrt{3}}{2}$ & $-1$ 
+         & $-\dfrac{\sqrt{3}}{2}$ & $-\dfrac{\sqrt{2}}{2}$ & $-\dfrac{1}{2}$ & $0$ 
+         & $\dfrac{1}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{\sqrt{3}}{2}$\\
+\hline
+$\sin x$ & $0$ &  $\dfrac{1}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{\sqrt{3}}{2}$ & $1$
+         & $\dfrac{\sqrt{3}}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{1}{2}$ & $0$
+         & $-\dfrac{1}{2}$ & $-\dfrac{\sqrt{2}}{2}$ & $- \dfrac{\sqrt{3}}{2}$ & $-1$ 
+         & $-\dfrac{\sqrt{3}}{2}$ & $-\dfrac{\sqrt{2}}{2}$ & $-\dfrac{1}{2}$\\
+\hline
+\end{tabular}
+}
+
+
+
+\newpage
+
+\subsection*{Formules de transposition}
+
+\input{Transpositions_01.tex}
+
+\bigskip 
+
+\centerline{
+\begin{tabular}{c@{$\,$}l@{\hspace{3cm}}c@{$\,$}l@{\hspace{3cm}}c@{$\,$}l}
+% $\bullet$ & $M'(x) \text{ image de } x $ & 
+%      $\bullet$ & $M'(\pi - x) \text{ image de } \pi - x $& 
+%           $\bullet$ & $M'(\pi + x) \text{ image de } \pi + x $ \\
+&$\cos (-x) = \cos (x) $& &$\cos (\pi -x) = -\cos (x)$&&$\cos (\pi+x) = -\cos (x)$\\
+&$\sin(-x) = -\sin (x) $& &$\sin (\pi -x) = \sin (x)$&&$\sin (\pi+x) = \sin (x)$\\
+\end{tabular}
+}
+
+\centerline{\input{Transpositions_02.tex}}
+
+\centerline{\renewcommand{\arraystretch }{2}
+\begin{tabular}{c@{$\,$}l@{\hspace{2.5cm}}%
+                           c@{$\,$}l}
+% $\bullet$ & $M'\left( x+\dfrac{\pi}{2} \right) \text{ est l'image ddu réel  } x $ & 
+%      $\bullet$ & $M'\left(\dfrac{\pi}{2} - x\right) \text{ image de } x $ \\
+           &$\cos \left(x+\dfrac{\pi}{2}\right) = -\sin (x) $& 
+               &$\cos \left(\dfrac{\pi}{2} -x\right) = \sin (x)$\\
+          &$\sin \left(x+\dfrac{\pi}{2}\right) = \cos (x) $& 
+            &$\sin \left(\dfrac{\pi}{2} -x\right) = \cos (x)$\\
+\end{tabular}}
+
+\vspace*{.3cm}
+
+Un superbe exercice : 
+
+Soit $x\in \mathbb{R}$, simplifier : 
+
+\begin{enumerate}
+
+\item \raisebox{-2.8ex}{\renewcommand{\arraystretch }{1}
+\begin{tabular}{r@{}l}
+$A$&$=\cos x +\cos \left(\dfrac{\pi}{2}-x\right) +\cos \left(x +\dfrac{\pi}{2}\right)+\cos (\pi -x) $\\ 
+   &$=\cos x + \sin x - \sin x - \cos x $ \\
+   & $= 0$ \\
+\end{tabular}}
+
+\item \raisebox{-7ex}{\renewcommand{\arraystretch }{1.6}
+\begin{tabular}{r@{$\,$}l}
+$A'$&$=\cos \left(\dfrac{\pi}{8}\right) +\cos \left(\dfrac{3\pi}{8}\right)+ \cos \left(\dfrac{5\pi}{8}\right) +\cos \left(\dfrac{7\pi}{8}\right)$\\ 
+    &$=\cos \left(\dfrac{\pi}{8}\right) +\cos \left(\dfrac{\pi}{2}-\dfrac{\pi}{8}\right)+ \cos \left(\dfrac{\pi}{2}+\dfrac{\pi}{8}\right) +\cos \left(\pi - \dfrac{\pi}{8}\right)$\\ 
+   &$=\cos \dfrac{\pi}{8}+ \sin \dfrac{\pi}{8} -  \sin \dfrac{\pi}{8} - \cos \dfrac{\pi}{8}$  \\
+   & $=0$ \\
+\end{tabular}}
+
+\item \raisebox{-3ex}{\renewcommand{\arraystretch }{1}
+\begin{tabular}{r@{$\,$}l}
+ $B$ & $=\sin^2 x 
+         + \sin^2\left(\dfrac{\pi}{2} - x\right) 
+         + \sin^2\left(x +\dfrac{\pi}{2}\right)
+         +\sin^2 (\pi - x) $\\ 
+   & $=\sin^2 x + \cos^2 x + \cos^2 x + \sin^2 x $  \\
+   & $= 1 + 1 = 2 $ \\
+\end{tabular}}
+
+\item \raisebox{-4.5ex}{\renewcommand{\arraystretch }{1.6}
+\begin{tabular}{r@{$\,$}l}
+$B'$&$= \sin^2 \left(\dfrac{\pi}{8}\right) 
+      + \sin^2 \left(\dfrac{\pi}{2} - \dfrac{\pi}{8}\right)) 
+      + \sin^2 \left(\dfrac{\pi}{2}+\dfrac{\pi}{8}\right)) +  \sin^2 (\pi - \dfrac{\pi}{8}) $\\ 
+    &$=\sin^2 \left(\dfrac{\pi}{8}\right) 
+       + \cos^2 \left(\dfrac{\pi}{8}\right) 
+       + \cos^2 \left(\dfrac{\pi}{8}\right) 
+       + \sin^2 \left(\dfrac{\pi}{8}\right) $  \\
+   & $= 1 + 1 = 2 $ \\
+\end{tabular}}
+
+\end{enumerate}
+
+\samepage
+
+\newpage 
+
+\renewcommand{\arraystretch }{1}
+
+\subsection{Représentations graphiques}
+
+\subsubsection{Représentation graphique de la fonction sinus}
+
+\begin{tabular}{rl}
+$\sin\quad : $ & $\mathbb{R} \longrightarrow \mathbb{R} $ \\
+               &  $x \longmapsto \sin x $ \\
+               & \\
+               & $ {\Large \mathcal{D}_{\sin}} = \mathbb{R} $ \\
+\end{tabular}\\
+
+\input{Sinusoide.tex}
+
+\bigskip 
+
+La fonction sinus est périodique de période $2\pi$. \\
+
+La fonction est dite \underline{sinusoïde}. 
+
+
+\bigskip 
+
+\subsubsection{Représentation graphique de la fonction cosinus}
+
+\begin{tabular}{rl}
+$\cos\quad : $ & $\mathbb{R} \longrightarrow \mathbb{R} $ \\
+               &  $x \longmapsto \cos x $ \\
+               & \\
+               & $ {\Large \mathcal{D}_{\cos}} = \mathbb{R} $ \\
+\end{tabular}\\
+
+\input {Cosinus.tex}
+
+\bigskip 
+
+La fonction cosinus est périodique de période $2\pi$. \\
+
+La fonction est dite \underline{sinusoïde}. 
+
+\newpage 
+
+\subsubsection{Comparaison des représentations graphiques des fonctions sinus et cosinus}
+
+\centerline{\begin{tabular}{r@{\hspace*{3cm}}l}
+    \begin{tabular}{rl}
+    \multicolumn{2}{c}{\textcolor{Green} {Cosinus tracé en vert}} \\
+    $\cos\quad : $ & $\mathbb{R} \longrightarrow \mathbb{R} $ \\
+                   &  $x \longmapsto \cos x $ \\
+                   & \\
+                   & $ {\Large \mathcal{D}_{\cos}} = \mathbb{R} $ \\
+    \end{tabular} & 
+                   \begin{tabular}{rl}
+                       \multicolumn{2}{c}{\textcolor{Red} {Sinus tracé en rouge}} \\
+                    $\sin\quad : $ & $\mathbb{R} \longrightarrow \mathbb{R} $ \\
+                                &  $x \longmapsto \sin x $ \\
+                                & \\
+                                & $ {\Large \mathcal{D}_{\cos}} = \mathbb{R} $ \\
+                     \end{tabular}\\
+\end{tabular}}
+
+\bigskip 
+
+
+\input{SuperpositionSin+Cos.tex}
+
+\bigskip 
+
+La représentation graphique de la fonction cosinus est obtenue par translation de la fonction sinus avec un décalage de $\dfrac{\pi}{2}$. \\
+
+En effet, pour tout $x \in \mathbb{R}$ \\
+\begin{quote}
+$\cos \left(\dfrac{\pi}{2}-x\right) = \sin x$ \\
+
+\smallskip 
+$\sin \left(\dfrac{\pi}{2}-x\right) = \cos x$ \\
+\end{quote}
+
+\newpage
+
+\subsubsection{Exercice}
+
+\begin{tabular}{r@{\hspace*{3cm}}l}
+    \begin{tabular}{rl}
+    \multicolumn{2}{c}{\textcolor{Green} {$f$ tracé en vert}} \\
+    $f \quad : $ & $\mathbb{R} \longrightarrow \mathbb{R} $ \\
+                   &  $x \longmapsto f(x) = \cos x $ \\
+                   & $f$ est périodique de période $2\pi$ \\ 
+                   & \\
+                   & $ {\Large \mathcal{D}_{f}} = \mathbb{R} $ \\
+    \end{tabular} & 
+                   \begin{tabular}{rl}
+                     \multicolumn{2}{c}{\textcolor{Red} {$g$ tracé en rouge}} \\
+                    $g \quad : $ & $\mathbb{R} \longrightarrow \mathbb{R} $ \\
+                        &  $x \longmapsto \sin \left(\dfrac{1}{2} x\right) $ \\
+                                & $g$ est périodique de période $\pi$ \\ 
+                                & \\
+                                & $ {\Large \mathcal{D}_{g}} = \mathbb{R} $ \\
+                     \end{tabular}\\
+\end{tabular}
+
+\input{Last_one.tex}
+
+{\renewcommand{\arraystretch }{2}
+\begin{tabular}{c@{$\, \longrightarrow\,$}c@{$\, \longrightarrow \,$}c
+@{\hspace*{3cm}}lc@{$ \; = \; $}c}
+$2\pi$ & $\pi $  & $0$ &$x=0$ & $\sin 0 $ & $0$ \\
+$\pi$ & $ \dfrac{ \pi}{2} $  & $1$ &$x=\dfrac{\pi}{3}$ & $\sin \dfrac{\pi}{6} $ & $\dfrac{1}{2}$ \\
+$\dfrac{\pi}{2}$ & $\dfrac{\pi}{4}$  & $\dfrac{\sqrt{2}}{2}$ &$x=\pi$ & $\sin \dfrac{\pi}{2} $ & $1$ \\
+$\dfrac{\pi}{3}$ & $\dfrac{\pi}{6}$  & $\dfrac{1}{2}$ &$x=\dfrac{5\pi}{3}$ & $\sin \dfrac{5\pi}{6} $ & $\dfrac{1}{2}$ \\
+\multicolumn{3}{c}{}&$x=2\pi$ & $\sin \pi $ & $0$ \\
+\end{tabular}
+}\renewcommand{\arraystretch }{1}
+

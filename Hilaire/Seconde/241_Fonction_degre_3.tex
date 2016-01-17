@@ -1,0 +1,51 @@
+% \definecolor{bistre}{rgb}{1,0.94,0.84}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1]
+% \draw [color=bistre,dotted, xstep=0.1cm,ystep=0.1cm] (-1.97,-2.77) grid (3.65,5.23);
+
+
+\draw[->,color=black] (-2,0) -- (6,0);
+\foreach \x in {-1.5,-1,-0.5,0.5,1,1.5,2,2.5,3,3.5}
+% \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-3) -- (0,6);
+% \foreach \y in {-2.5,-2,-1.5,-1,-0.5,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5}
+% \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] % {\footnotesize $\y$};
+\draw (0,0) node[below left] {\footnotesize $0$};
+
+\clip(-1.97,-2.77) rectangle (6,6);
+\draw[smooth,samples=100,domain=-1.9669243523648017:3.6547612536527065] plot(\x,{(\x)^3-3*(\x)^2+4});
+
+\draw (-1.52,-2.05) node {$f$};
+\draw  (-1,0)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (-0.5,3.13)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (-0.25,3.8)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (0,4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (0,4) node [above left] {$M$};
+\draw  (0.5,3.38)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (1,2)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (1,2) node [right] {$I$};
+\draw  (1.5,0.63)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (1.6,0.42)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (1.7,0.24)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (2,0)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (2,0) node [below] {$m$};
+\draw  (2.1,0.03)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (2.2,0.13)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (2.3,0.3)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (2.4,0.54)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (2.5,0.88)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (3,4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+
+
+
+\begin{pgfonlayer}{background}  
+% Attention l'ordre de ces lignes est important 
+% Ne pas le modifier   
+\draw[step=1mm,ultra thin,AntiqueWhite!10](-2,-3)  grid (6,6);
+\draw[step=5mm,very thin,AntiqueWhite!30](-2,-3)  grid (6,6);
+\draw[step=1cm,very thin,AntiqueWhite!50]        (-2,-3)  grid (6,6);
+\draw[step=5cm,thin,AntiqueWhite]     (-2,-3)  grid (6,6);
+
+\end{pgfonlayer} 
+
+\end{tikzpicture}
+% xstep=0.1cm,ystep=0.1cm

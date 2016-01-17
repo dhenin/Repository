@@ -1,0 +1,666 @@
+\section{Nombre dérivé en un point}
+
+\subsection{Introduction expérimentale}
+
+\subsubsection{Exemple \no 1}
+
+\begin{tabular}{llllllll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ & & & & \\
+& $x$ & $\longmapsto$ & $f\left(x\right)$ & $ = $ & $ x^2 - 2x - 3$ & si & $x \in \left]-\infty \; ; \; 2\right[$ \\
+& & & & $=$ & $2x + 7$ &  si & $x \in \left]2 \; ; \; +\infty\right[$ \\
+& & et & $f(2)$ & $=$ & $-3$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On a $D_f = \R$. \\
+
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-3.53,0) -- (7.57,0);
+\foreach \x in {-3,-2,-1,1,2,3,4,5,6,7}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-4.79) -- (0,9.11);
+\foreach \y in {-4,-3,-2,-1,1,2,3,4,5,6,7,8,9}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-3.53,-4.79) rectangle (7.57,9.11);
+\draw[color=ffqqqq] plot[raw gnuplot, id=func0] function{set samples 100; set xrange [-3.4256217102442514:1.9]; plot x**(2)-2*x-3};
+\draw[color=ffqqqq] [samples=100, domain=-3.5:2] plot (\x,{(\x)*(\x)-2*(\x)-3}) ;
+\draw [samples=100, domain=2:7.47] plot (\x,{(\x)*(\x)-2*(\x)-3}) ;
+\draw[color=ffqqqq,smooth,samples=100,domain=2.0:7.574878038752719] plot(\x,{2*(\x)-7});
+\begin{scriptsize}
+\draw[color=ffqqqq] (-2.38,8.97) node {};
+\draw[color=black] (2.08,-2.13) node {};
+\draw[color=ffqqqq] (2.38,-2.52) node {};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-3.53,-4.79) grid (7.57,9.11);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-3.53,-4.79) grid (7.57,9.11);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-3.53,-4.79) grid (7.57,9.11);
+\draw[step=5cm,thin,AntiqueWhite]          (-3.53,-4.79) grid (7.57,9.11);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+$f$ est définie en $x_0 = 2$ et $f$ est continue en $x_0 = 2$. \\ Dans cet exemple, on dit que $f$ est \textbf{dérivable} en $x_0 = 2$. \\
+
+\newpage
+
+\subsubsection{Exemple \no 2}
+
+\begin{tabular}{llllllll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ & & & & \\
+& $x$ & $\longmapsto$ & $f\left(x\right)$ & $ = $ & $ x^2 - 2x - 3$ & si & $x \in \left]-\infty \; ; \; 2\right[$ \\
+& & & & $=$ & $-2x + 1$ &  si & $x \in \left]2 \; ; \; +\infty\right[$ \\
+& & et & $f(2)$ & $=$ & $-3$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+On a $D_f = \R$. 
+
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-4.92,0) -- (9.78,0);
+\foreach \x in {-4,-2,2,4,6,8}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-9.55) -- (0,8.86);
+\foreach \y in {-8,-6,-4,-2,2,4,6,8}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-4.92,-9.55) rectangle (9.78,8.86);
+\draw [color=ffqqqq][samples=100, domain=-3.9:2] plot (\x,{(\x)*(\x)-2*(\x)-3}) ;
+\draw [samples=100, domain=2:8.9] plot (\x,{(\x)*(\x)-2*(\x)-3}) ;
+\draw[color=ffqqqq,smooth,samples=100,domain=2.0:9.0] plot(\x,{0-2*(\x)+1});
+\begin{scriptsize}
+\draw[color=ffqqqq] (-2.25,8.67) node {};
+\draw[color=black] (2.12,-1.86) node {};
+\draw[color=ffqqqq] (2.38,-3.28) node {};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-4.92,-9.55) grid (9.78,8.86);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-4.92,-9.55) grid (9.78,8.86);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-4.92,-9.55) grid (9.78,8.86);
+\draw[step=5cm,thin,AntiqueWhite]          (-4.92,-9.55) grid (9.78,8.86);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+$f$ est définie en $x_0 = 2$ et $f$ est continue en $x_0 = 2$. \\ Cependant, $f$ n'est pas dérivable en $x_0 = 2$. 
+
+\newpage
+
+\subsection{Définition fondamentale}
+
+\subsubsection{Rappel : Taux d'accroissement (ou taux de variation)}
+
+\begin{tabular}{llll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f\left(x\right)$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Soient $x_0 \in D_f $ et $x_1 \in D_f$ avec $x_0 < x_1$.  \\
+
+Le taux d'accroissement $T$ entre $x_0$ et $x_1$ est défini par : $T = \dfrac{f(x_1) - f(x_0)}{x_1 - x_0}$. \\
+
+On a aussi, en posant $x_1 = x_0 + h$, \\
+
+$T = \dfrac{f(x_0 + h) - f(x_0)}{x_0 + h - x_0} =\dfrac{f(x_0 + h) - f(x_0)}{h}$ \\
+
+Pour un $x_0 \in D_f$ fixé, on écrit : \\
+
+$T(h) = \dfrac{f(x_0 + h) - f(x_0)}{h}$ 
+
+\subsubsection{Limite du taux d'accroissement}
+
+\begin{tabular}{llll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f\left(x\right)$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Soit $x_0 \in D_f$. \\
+
+Soit $T(h) = \dfrac{f(x_0 + h) - f(x_0)}{h}$. \\
+
+\textbf{Premier cas}
+
+$\lim\limits_{h \to 0} T(h)$ existe et est égale à un et un seul nombre fini. $f$ est alors dérivable en $x_0$ et $\lim\limits_{h \to 0} T(h) = f'(x_0)$. \\
+
+$f'(x_0)$ est appelé le nombre dérivé de $f$ en $x_0$. \\
+
+\textbf{Second cas}
+
+$\lim\limits_{h \to 0} T(h)$ n'existe pas ou est infinie. Alors $f$ n'est pas dérivable en $x_0$. \\
+
+\newpage
+
+\vspace*{-1.8cm}
+
+\subsubsection{Exemples}
+
+\textbf{Exemple n°1} \\
+
+\begin{tabular}{llll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f\left(x\right) = x^2$ \\
+\end{tabular}
+
+On a $D_f = \R$. \\
+
+Montrons que $f$ est dérivable en $x_0 = 5$. On a alors $f(5) = 25$. \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{f(5 + h) - f(5)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{(5+h)^2 - 25}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h^2 + 10h + 25 - 25}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h^2 + 10h}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h\left(h+ 10\right)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $ h + 10$ & si $h \neq 0$ \vspace*{.3cm} \\
+\end{tabular}
+
+$\lim\limits_{h \to 0} T(h) = \lim\limits_{h \to 0} (h + 10) = 10$. Donc $f$ est dérivable en $x_0 = 5$ et $f'(5) = 10$. \\
+
+\textbf{Exemple n°2} \\
+
+\begin{tabular}{llll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f\left(x\right) = x^2 - 2x - 3$ \\
+\end{tabular}
+
+On a $D_f = \R$. \\
+
+Montrons que $f$ est dérivable en $x_0 = 5$. On a alors $f(5) = 5^2 - 10 - 3 = 12$. \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{f(5 + h) - f(5)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{(5+h)^2 - 2\left(5+h\right) - 3 - 12}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h^2 + 10h + 25 -10 -2h - 15}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h^2 + 8h}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h\left(h+ 8\right)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $ h + 8$ & si $h \neq 0$ \vspace*{.3cm} \\
+\end{tabular}
+
+$\lim\limits_{h \to 0} T(h) = \lim\limits_{h \to 0} (h + 8) = 8$. Donc $f$ est dérivable en $x_0 = 5$ et $f'(5) = 8$. 
+
+\newpage
+
+\textbf{Exemple n°3} \\
+
+\begin{tabular}{llll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f\left(x\right) = \dfrac{1}{x}$ \\
+\end{tabular}
+
+On a $D_f = \R \setminus \lb 0 \rb$. \\
+
+Montrons que $f$ est dérivable en $x_0 = 5$. On a alors $f(5) = \dfrac{1}{5}$. \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{f(5 + h) - f(5)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{ \dfrac{1}{5+h} - \dfrac{1}{5}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{5-(5+h)}{5(5+h)}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{5-5-h}{5(5+h)}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{-h}{5(5+h)}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{-h}{5(5+h)} \times \dfrac{1}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{-1}{5\left(5+h\right)}$ & si $h \neq 0$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+$\lim\limits_{h \to 0} T(h) = \lim\limits_{h \to 0} \dfrac{-1}{5\left(5+h\right)} = \dfrac{-1}{25}$. Donc $f$ est dérivable en $x_0 = 5$ et $f'(5) = -\dfrac{1}{25}$. \\
+
+\newpage
+
+\textbf{Exemple n°4} \\
+
+\begin{tabular}{llll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f\left(x\right) = \dfrac{x-1}{x+1}$ \\
+\end{tabular}
+
+On a $D_f = \R \setminus \lb -1 \rb$. \\
+
+Montrons que $f$ est dérivable en $x_0 = 5$. On a alors $f(5) = \dfrac{5-1}{5+1} = \dfrac{4}{6} = \dfrac{2}{3}$. \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{f(5 + h) - f(5)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{ \dfrac{\left(5+h\right)-1}{5 + h + 1} - \dfrac{2}{3}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{4+h}{6+h} - \dfrac{2}{3}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{12 + 3h - 12 - 2h}{3(h+6)}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{h}{3(h+6)}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h}{3(h+6)} \times \dfrac{1}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{3\left(h+6\right)}$ & si $h \neq 0$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+$\lim\limits_{h \to 0} T(h) = \lim\limits_{h \to 0} \dfrac{1}{3\left(h+6\right)} = \dfrac{1}{18}$. Donc $f$ est dérivable en $x_0 = 5$ et $f'(5) = \dfrac{1}{18}$. \\
+
+\newpage
+
+\textbf{Exemple n°5} \\
+
+\begin{tabular}{llll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f\left(x\right) = \sqrt{x}$ \\
+\end{tabular}
+
+On a $D_f = \R^+ = \left[0 \; ; \; +\infty\right[$. \\
+
+Montrons que $f$ est dérivable en $x_0 = 5$. On a alors $f(5) = \sqrt{5}$. \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{f(5 + h) - f(5)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\sqrt{5 + h} - \sqrt{5}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\left(\sqrt{5 + h} - \sqrt{5}\right)\left(\sqrt{5 + h} + \sqrt{5}\right)}{h\left(\sqrt{5 + h} + \sqrt{5}\right)}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{5 + h - 5}{h\left(\sqrt{5 + h} + \sqrt{5}\right)}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h}{h\left(\sqrt{5 + h} + \sqrt{5}\right)}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{\sqrt{5 + h} + \sqrt{5}}$ & si $h\neq 0$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+$\lim\limits_{h \to 0} T(h) = \lim\limits_{h \to 0} \dfrac{1}{\sqrt{5 + h} + \sqrt{5}} = \dfrac{1}{2\sqrt{5}}$. Donc $f$ est dérivable en $x_0 = 5$ et $f'(5) = \dfrac{1}{2\sqrt{5}}$. \\
+
+\newpage
+
+\textbf{Exemple n°6} \\
+
+\begin{tabular}{llll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f\left(x\right) = \sqrt{x + 11} - 1$ \\
+\end{tabular}
+
+Il faut que $x + 11 \geqslant 0 \Longleftrightarrow x \geqslant - 11$. \\
+
+On a donc $D_f = \left[-11 \; ; \; +\infty \right[$. \\
+
+Montrons que $f$ est dérivable en $x_0 = 5$. On a alors $f(5) = \sqrt{16} - 1 = 3$. \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{f(5 + h) - f(5)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\sqrt{(5+h) + 11} - 1 - 3}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\left(\sqrt{h + 16} - 4\right)\left(\sqrt{h + 16} + 4\right)}{h\left(\sqrt{h + 16} + 4\right)}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h + 16 - 16}{h\left(\sqrt{h + 16} + 4\right)}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h}{h\left(\sqrt{h + 16} + 4\right)}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{\sqrt{h + 16} + 4}$ & si $h\neq 0$ \vspace*{.3cm} \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+$\lim\limits_{h \to 0} T(h) = \lim\limits_{h \to 0} \dfrac{1}{\sqrt{h + 16} + 4} = \dfrac{1}{8}$. Donc $f$ est dérivable en $x_0 = 5$ et $f'(5) = \dfrac{1}{8}$. \\
+
+\newpage
+
+\subsubsection{Un superbe exercice}
+
+\begin{tabular}{llllllll}
+Soit la fonction $f$ : & $\R$ & $\longrightarrow$ & $\R$ & & & & \\
+& $x$ & $\longmapsto$ & $f\left(x\right)$ & $ = $ & $ \dfrac{2x - 8}{x-3}$ & si & $x \in \left]-\infty \; ; \; 2\right[$ \vspace*{.3cm} \\
+& & & & $=$ & $-x^2 + 6x - 4$ &  si & $x \in \left]2 \; ; \; 5\right[$ \vspace*{.3cm} \\
+& & & & $=$ & $\dfrac{2x - 8}{x-3}$ &  si & $x \in \left]5 \; ; \; +\infty\right[$ \vspace*{.3cm} \\
+& & et & $f(2)$ & $ = $ & $4$ & & \\
+& & et & $f(5)$ & $ = $ & $1$ & & \\
+\end{tabular}
+
+On a $D_f = \R$. \\
+
+\definecolor{wwqqzz}{rgb}{0.4,0,0.6}
+\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+\definecolor{qqccqq}{rgb}{0,0.8,0}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.92]
+\draw[->,color=black] (-5.33,0) -- (11.35,0);
+\foreach \x in {-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-6.2) -- (0,12.91);
+\foreach \y in {-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11,12}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-5.33,-6.2) rectangle (11.35,12.91);
+\draw[color=ffqqqq,smooth,samples=100,domain=3.1:11] plot(\x,{(2*(\x)-8)/((\x)-3)});
+\draw[color=ffqqqq] plot[raw gnuplot, id=func0] function{set samples 100; set xrange [2.1:4.9]; plot -x**(2)+6*x-4};
+\draw[color=ffqqqq,smooth,samples=100,domain=-5.3:2.9] plot(\x,{(2*(\x)-8)/((\x)-3)});
+\draw[smooth,samples=100,domain=2.0:2.9] plot(\x,{(2*(\x)-8)/((\x)-3)});
+\draw[smooth,samples=100,domain=3.01:5.0] plot(\x,{(2*(\x)-8)/((\x)-3)});
+\draw [smooth,samples=100,domain=-1:2] plot(\x,{(-1)*(\x)*(\x)  +6*(\x)-4});
+\draw [color=red,smooth,samples=100,domain=2:5] plot(\x,{(-1)*(\x)*(\x)  +6*(\x)-4});
+\draw [smooth,samples=100,domain=5:8] plot(\x,{(-1)*(\x)*(\x)  +6*(\x)-4});
+\draw [color=qqccqq] (3,-6.2) -- (3,12.91);
+\draw [color=wwqqzz,domain=-5.33:11.35] plot(\x,{(-0--2*\x)/1});
+\draw [color=wwqqzz,domain=-5.33:11.35] plot(\x,{(--21-4*\x)/1});
+\begin{scriptsize}
+\draw[color=ffqqqq] (-5.12,2.08) node {};
+\draw[color=ffqqqq] (2.35,3.89) node {};
+\draw[color=ffqqqq] (5.39,0.86) node {};
+\draw[color=black] (2.33,3.84) node {};
+\draw[color=black] (3.58,-5.86) node {};
+\draw[color=black] (-0.03,-5.86) node {};
+\draw[color=black] (5.36,0.72) node {};
+\draw[color=qqccqq] (3.27,12.73) node {};
+\draw [fill=uuuuuu] (2,4) circle (1.5pt);
+\draw[color=uuuuuu] (1.67,4.28) node {$A$};
+\draw [fill=uuuuuu] (5,1) circle (1.5pt);
+\draw[color=uuuuuu] (5.15,1.4) node {$B$};
+\draw[color=wwqqzz] (5.96,12.73) node {};
+\draw[color=wwqqzz] (2.38,12.73) node {};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-5.33,-6.2) grid (11.35,12.91);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-5.33,-6.2) grid (11.35,12.91);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-5.33,-6.2) grid (11.35,12.91);
+\draw[step=5cm,thin,AntiqueWhite]          (-5.33,-6.2) grid (11.35,12.91);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+\newpage
+
+\vspace*{-1.9cm}
+
+\textbf{Montrons que $\mathbf{f}$ est dérivable en $\mathbf{x_0 = 2}$.} \\
+
+\begin{itemize}
+\item[•] À gauche de $x_0 = 2$ : $f(x) = \dfrac{2x-8}{x-3}$ \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{2\left(2+h\right)-8}{2 + h - 3} - \dfrac{2 \times 2 - 8}{2 - 3}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{4 + 2h - 8}{h-1} - \dfrac{4-8}{-1}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{2h - 4}{h-1} - 4}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{2h - 4 -4\left(h-1\right)}{h-1}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{2h - 4 - 4h + 4}{h-1}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{-2h}{h-1} \times \dfrac{1}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{-2}{h-1}$ & si $h \neq 0$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Donc $\lim\limits_{h \to 0^-} T(h) = \lim\limits_{h \to 0^-} \dfrac{-2}{h-1} = 2$. \\
+
+Donc $f$ est dérivable à gauche en $x_0 = 2$ et $f'_{gauche}\left(2\right) = 2$. \\
+
+\item[•]  À droite de $x_0 = 2$ : $f(x) = -x^2 + 6x - 4$ \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \\
+& $=$ & $\dfrac{f(2 + h) - f(2)}{h}$ & \\
+& $=$ & $\dfrac{-(2+h)^2 + 6(2+h) -4 -\left(-2^2 + 6 \times 2 - 4 \right)}{h}$ & \\
+& $=$ & $\dfrac{-\left(4 + 4h + h^2\right) + 12 + 6h -4 - \left(-4 + 12 - 4\right)}{h}$ & \\
+& $=$ & $\dfrac{-4 -4h - h^2 + 12 + 6h -4 + 4 - 12 + 4}{h}$ & \\
+& $=$ & $\dfrac{-h^2 - 2h}{h}$ & \vspace*{.3cm}\\
+& $=$ & $\dfrac{h\left(-h+2\right)}{h}$ & \\
+& $=$ & $-h + 2$ & si $h\neq 0$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Donc $\lim\limits_{h \to 0^+} T(h) = \lim\limits_{h \to 0^+} -h + 2 = 2$. \\
+
+Donc $f$ est dérivable à droite en $x_0 = 2$ et $f'_{droite}\left(2\right) = 2$. \\
+
+D'où $f$ est dérivable en $x_0 = 2$ et $f'(2) = 2$.
+\end{itemize}
+
+\newpage
+
+\vspace*{-1.1cm}
+
+\textbf{Montrons que $\mathbf{f}$ n'est pas dérivable en $\mathbf{x_0 = 5}$.} \\
+
+\begin{itemize}
+\item[•] À gauche de $x_0 = 5$ : $f(x) = -x^2 + 6x - 4$ \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \\
+& $=$ & $\dfrac{f(5 + h) - f(5)}{h}$ & \\
+& $=$ & $\dfrac{\left[-\left(5+h\right)^2 + 6\left(5 + h\right)-4\right]-\left(-5^2 + 6 \times 5 - 4\right)}{h}$ & \\
+& $=$ & $\dfrac{-\left(25 + 10h + h^2 \right) + 30 + 6h - 4 -\left(-25 + 30 -4\right)}{h}$ & \\
+& $=$ & $\dfrac{-25 - 10h - h^2 + 30 + 6h -4 -1}{h}$ & \\
+& $=$ & $\dfrac{-h^2 -4h}{h}$ & \\
+& $=$ & $\dfrac{h\left(-h-4\right)}{h}$ & \\
+& $=$ & $-h -4$ & si $h \neq 0$ \\
+\end{tabular}
+
+Donc $\lim\limits_{h \to 0^-} T(h) = \lim\limits_{h \to 0^-} -h-4 = -4$. \\
+
+Donc $f$ est dérivable à gauche en $x_0 = 5$ et $f'_{g}\left(5\right) = -4$. \\
+
+\item[•]  À droite de $x_0 = 5$ : $f(x) = \dfrac{2x-8}{x-3}$ \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(x_0 + h) - f(x_0)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{f(5 + h) - f(5)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{2\left(5+h\right)-8}{5+ h - 3} - \dfrac{2 \times 5 -8}{5 -3}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{10 + 2h -8}{h + 2} - 1}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{10 + 2h - 8 -\left(h + 2\right)}{h+2}}{h}$ &  \vspace*{.3cm} \\
+& $=$ & $\dfrac{\dfrac{10 + 2h - 8 - h -2}{h+2}}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h}{h +2} \times \dfrac{1}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{1}{h+2}$ & si $h \neq 0$ \vspace*{.3cm}\\
+\end{tabular}
+
+\vspace*{.3cm}
+
+Donc $\lim\limits_{h \to 0^+} T(h) = \lim\limits_{h \to 0^+} \dfrac{1}{h + 2} = \dfrac{1}{2}$. \\
+
+Donc $f$ est dérivable à droite en $x_0 = 5$ et $f'_{d}\left(5\right) = \dfrac{1}{2}$. \\
+
+D'où $f$ n'est pas dérivable en $x_0 = 5$ et $f'(5)$ est indéterminé.
+\end{itemize}
+
+\newpage
+
+On a : \\
+
+\begin{itemize}
+\item[•] $f$ est dérivable en $x_0 = 2$ et $f'(2) = 2$ \\
+
+Cherchons l'équation de la tangente au point $A(2 \; ; \; 4)$. \\
+
+\begin{tabular}{lll}
+$y$ & $=$ & $f'(2) (x-2) + f(2)$ \\
+$y$ & $=$ & $2\left(x-2\right) + 4$ \\
+$y$ & $=$ & $2x - 4 + 4$ \\
+$y$ & $=$ & $2x$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\item[•] $f$ n'est pas dérivable en $x_0 = 5$. Donc $C_f$ n'admet pas de tangente au point $B(5 \; ; \; 1)$\\
+
+\textbf{Cependant :} \\
+
+\begin{itemize}
+\item[*] $f$ est dérivable à gauche en $x_0 = 5$ et $f'_g(5) = -4$ \\ Donc $f$ admet une demi-tangente à gauche au point $B(5 \; ; \; 1)$. \\
+
+\begin{tabular}{lll}
+$y$ & $=$ & $f'_g(5)(x-5)+f(5)$ \vspace*{.3cm} \\
+$y$ & $=$ & $-4(x-5) + 1$ \vspace*{.3cm} \\
+$y$ & $=$ & $-4x + 20 + 1$ \vspace*{.3cm} \\
+$y$ & $=$ & $-4x + 21$ \vspace*{.3cm} \\
+\end{tabular}
+
+\item[*] $f$ est dérivable à droite en $x_0 = 5$ et $f'_d(5) = \dfrac{1}{2}$ \\ 
+
+Donc $f$ admet une demi-tangente à droite au point $B(5 \; ; \; 1)$. \\
+
+\begin{tabular}{lll}
+$y$ & $=$ & $f'_d(5)(x-5)+f(5)$ \vspace*{.3cm} \\
+$y$ & $=$ & $\dfrac{1}{2}(x-5) + 1$ \vspace*{.3cm} \\
+$y$ & $=$ & $\dfrac{x}{2} - \dfrac{5}{2} + 1$ \vspace*{.3cm} \\
+$y$ & $=$ & $\dfrac{1}{2}x - \dfrac{3}{2}$ \vspace*{.3cm} \\
+\end{tabular}
+\end{itemize}
+\end{itemize}
+
+\newpage
+
+\vspace*{-1cm}
+
+\subsection{Interprétation graphique du nombre dérivé : notion de tangente}
+
+\begin{tabular}{llll}
+Soit la fonction $f : $ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x)$ \\
+\end{tabular}
+
+On suppose que $f$ est dérivable en $x_0$. \\
+
+Soit $\left(O\; ; \; \overrightarrow{i} \; ; \; \overrightarrow{j}\right)$ un repère. \\
+
+Soit $C_f$ la représentation graphique de $f$ dans $\left(O\; ; \; \overrightarrow{i} \; ; \; \overrightarrow{j}\right)$. \\
+
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-2.16,0) -- (8.66,0);
+\foreach \x in {,,,,}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-1.34) -- (0,8.44);
+\foreach \y in {,,,,}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-2.16,-1.34) rectangle (8.66,8.44);
+\draw [smooth,samples=100,domain=0:8.56] plot(\x,{(\x)*(\x)  -6*(\x)+10});
+\draw (4.48,0) node[anchor=north west] {$x_0 + h$};
+\draw [domain=-2.16:8.66] plot(\x,{(--1.12--2.24*\x)/2.8});
+\draw[color=ffqqqq,smooth,samples=100,domain=-2.0:6.0] plot(\x,{0-2*(\x)+6});
+\draw (1.72,0) node[anchor=north west] {$x_0$};
+\draw (-1,2.4) node[anchor=north west] {$f(x_0)$};
+\draw (-1.6,4.5) node[anchor=north west] {$f(x_0 + h)$};
+\begin{scriptsize}
+\draw[color=black] (0.56,8.3) node {$f$};
+\draw [fill=black] (2,2) circle (1.5pt);
+\draw[color=black] (2.3,1.9) node {$M_0$};
+\draw [fill=black] (4.8,4.24) circle (1.5pt);
+\draw[color=black] (4.98,4.14) node {$M$};
+\draw[color=black] (6,5) node {$\Delta$};
+\draw[color=ffqqqq] (3,.5) node {$\Delta_0$};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-2.16,-1.34) grid (8.66,8.44);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-2.16,-1.34) grid (8.66,8.44);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-2.16,-1.34) grid (8.66,8.44);
+\draw[step=5cm,thin,AntiqueWhite]          (-2.16,-1.34) grid (8.66,8.44);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+\vspace*{.3cm}
+
+On a $M_0\left(x_0\; ; \; f(x_0)\right) \in C_f$ \\
+
+De même, on a $M\left(x_0 + h\; ; \; f(x_0 + h)\right) \in C_f$ \\
+
+$\Delta$ est la droite $\left(M_0M\right)$. $\Delta$ a pour équation : $y = ax + b$. \\
+
+Soit $a$ le coefficient directeur de $\Delta$ ; on a $ a = \dfrac{y_B - y_A}{x_B - x_A}$ \\
+
+$a = \dfrac{f(x_0 + h) - f(x_0)}{\left(x_0 + h\right)-x_0}$ \vspace*{.3cm} \\
+
+$a = \dfrac{f(x_0 + h) - f(x_0)}{h}$ \vspace*{.3cm} \\
+
+$a = T(h)$, le taux de variation. \\
+
+Donc $\Delta$ a pour équation $y = T(h)x + b$ \\
+
+On a alors $f(x_0) = T(h)x_0 + b \Longleftrightarrow b = f(x_0) - T(h)x_0$. \\
+
+En remplaçant $b$ par sa valeur dans l'équation de $\Delta$, on a : \\$y = T(h)x_0 + b \Longleftrightarrow y = T(h)x + f(x_0) - T(h)x_0$. 
+
+\vspace*{.3cm}
+
+D'où $y = T(h)(x-x_0) + f(x_0)$. \\
+
+Quand $h$ tend vers 0, le point $M$ de $C_f$ se rapproche de $M_0$, et la sécante $\Delta$ à $C_f$ devient la tangente $\Delta_0$ à $C_f$ au point $M_0$. \\
+
+\begin{tabular}{lll}
+Donc $D_0$ admet comme équation : & $y =$ & $\lim\limits_{h \to 0} T(h) (x-x_0) + f(x_0)$ \vspace*{.3cm} \\
+& $y =$ & $f'(x_0)(x-x_0) + f(x_0)$ \\
+\end{tabular}
+
+\vspace*{.3cm}
+
+\textbf{Conclusion}
+
+L'équation de la tangente à la courbe $C_f$ au point d'abscisse $M_0\left(x_0 \; ; \; f(x_0) \right)$ est : \\ $y = f'(x_0)(x-x_0 + f(x_0)$. 
+
+\newpage
+
+\subsubsection*{Exercice}
+
+\begin{tabular}{llll}
+Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
+& $x$ & $\longmapsto$ & $f(x) = x^3 - 3x^2 + 4$ \\
+\end{tabular}
+
+On a $D_f = \R$. \\
+
+\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+\definecolor{qqccqq}{rgb}{0,0.8,0}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.8]
+\draw[->,color=black] (-3.45,0) -- (4.96,0);
+\foreach \x in {-3,-2,-1,1,2,3,4}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-1.69) -- (0,5.87);
+\foreach \y in {-1,1,2,3,4,5}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-3.45,-1.69) rectangle (4.96,5.87);
+\draw [samples=100, domain=-4:6] plot (\x,{(\x)*(\x)*(\x)-3*(\x)*(\x)+4}) ;
+\draw[color=qqccqq,smooth,samples=100,domain=-3.4475326123116314:4.961462100428216] plot(\x,{0-3*(\x)+5});
+\begin{scriptsize}
+\draw[color=black] (-1.02,-1.54) node {};
+\draw[color=qqccqq] (-0.12,5.79) node {};
+\draw [fill=uuuuuu] (1,2) circle (1.5pt);
+\draw[color=uuuuuu] (1.09,2.19) node {$I$};
+\end{scriptsize}
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-3.45,-1.69) grid (4.96,5.87);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-3.45,-1.69) grid (4.96,5.87);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-3.45,-1.69) grid (4.96,5.87);
+\draw[step=5cm,thin,AntiqueWhite]          (-3.45,-1.69) grid (4.96,5.87);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+On cherche l'équation de la tangente au point $I(1 \; ; \; 2)$. \\
+
+$y = f'(1)(x-1) + f(1)$. \\
+
+On cherche $f'(1)$. \\
+
+\begin{tabular}{llll}
+$T(h)$ & $=$ & $\dfrac{f(1+h) - f(1)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{\left[\left(1 + h\right)^3 - 3\left(1 + h\right)^2 + 4\right] - 2}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{1 + 3h + 3h^2 + h^3 -3\left(1+ 2h + h^2\right) + 4 - 2}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{1+ 3h + 3h^2 + h^3 -3 -6h - 3h^2 + 4 - 2}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h^3 -3h}{h}$ & \vspace*{.3cm} \\
+& $=$ & $\dfrac{h\left(h^2 -3\right)}{h}$ & \vspace*{.3cm} \\
+& $=$ & $h^2 - 3$ & si $h \neq 0$ \vspace*{.3cm} \\
+\end{tabular}
+
+$\lim\limits_{h \to 0}T(h) = \lim\limits_{h \to 0} (h^2 - 3) = -3$. D'où $f'(1) = -3$ \\
+
+Dans l'équation de la tangente au point $I(1 \; ; \; 2)$ :  \\
+
+\begin{tabular}{ll}
+$y = $ & $f'(1)(x-1) + f(1)$ \\
+$y = $ & $-3\left(x-1\right) + 2$ \\
+$y = $ & $-3x + 3 + 2$ \\
+$y = $ & $-3x + 5$ \\
+\end{tabular}
+
+\vspace*{.3cm} 
+
+Donc la droite tangente à la courbe au poit $I(1 \; ; \; 2)$ a pour équation $y = -3x + 5$. 

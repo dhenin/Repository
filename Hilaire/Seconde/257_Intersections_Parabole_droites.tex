@@ -1,0 +1,41 @@
+% \input{preambule-sacha-utf8.ltx}
+%\begin{document}
+
+\definecolor{ttqqqq}{rgb}{0.2,0,0}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0}
+\definecolor{qqwuqq}{rgb}{0,0.39,0}
+\definecolor{qqccqq}{rgb}{0,0.8,0}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.8]
+\draw[->] (-6.63,0) -- (7.26,0);
+\foreach \x in {-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-7.71) -- (0,6.23);
+\foreach \y in {-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\clip(-6.63,-7.71) rectangle (7.26,6.23);
+\draw [samples=50,rotate around={0:(1,-4)},xshift=1cm,yshift=-4cm,domain=-5.0:5.0)] plot (\x,{(\x)^2/2/0.5});
+\draw [color=qqccqq,domain=-6.63:7.26] plot(\x,{(-1-1*\x)/1});
+\draw [color=qqwuqq,domain=-6.63:7.26] plot(\x,{(-5-1*\x)/1});
+\draw [color=zzttqq,domain=-6.63:7.26] plot(\x,{(-7--2*\x)/1});
+\draw [color=blue,domain=-6.63:7.26] plot(\x,{(--5-0*\x)/1});
+\draw (0,0) node[above right] {O};
+
+\draw (-2.5,5.7) node {$\mathcal{C}_f$};
+\draw (2,-7) node [right]{$\Delta_2$};
+\draw (5,-6) node [right]{$\Delta_1$};
+\draw (0,-7) node [left] {$\Delta_3$};
+\draw (6.8,5) node [below] {$\Delta$};
+\draw [color=ttqqqq] (-1,0)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw[color=ttqqqq] (-1,0) node [above right] {$A_1$};
+\draw [color=ttqqqq] (2,-3)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw[color=ttqqqq] (2,-3) node [right]{$B_1=A_3$};
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-6.63,-7.71) grid (7.26,6.23);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-6.63,-7.71) grid (7.26,6.23);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-6.63,-7.71) grid (7.26,6.23);
+\draw[step=5cm,thin,AntiqueWhite]          (-6.63,-7.71) grid (7.26,6.23);
+\end{pgfonlayer}
+\end{tikzpicture}
+% \end{document}

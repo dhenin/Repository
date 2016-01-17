@@ -1,0 +1,85 @@
+% \definecolor{ttzzqq}{rgb}{0.2,0.6,0} % Vert agreable
+% \definecolor{qqzzqq}{rgb}{0,0.6,0}   % Vert agreable
+% \definecolor{ffefdv}{rgb}{1,0.94,0.84} % AntiqueWhite pour grid
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.8]
+
+% \draw [color=AntiqueWhite,, xstep=0.1cm,ystep=0.1cm] (-7.1,-1.54) grid (13.29,2.53);
+
+
+\draw[->,color=black] (-7.1,0) -- (13.29,0);
+\foreach \x in {-6,-4,-2,2,4,6,8,10,12}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-1.54) -- (0,2.53);
+\foreach \y in {-1,1,2}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-7.1,-1.54) rectangle (13.29,2.53);
+\draw[color=Green, smooth,samples=100,domain=-7.097377544417069:13.285348399587015] plot(\x,{sin(((\x))*180/pi)});
+
+% Délimite les périodes 
+\draw (-6.28,2)-- (-6.28,-2);
+% \draw (0,2.39)-- (0,-2.27);
+\draw (12.57,2)-- (12.57,-2);
+\draw (6.28,2)-- (6.28,-2);
+
+\draw (0,2) -- node[below, midway] {Période $2\pi$}  (6.28,2);
+
+\begin{tiny}
+\draw  (1.05,0)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (pi/3,0) node [below]{$\dfrac{\pi}{3}$};
+\draw  (1.57,0)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (pi/2,0 ) node [below] {$\dfrac{\pi}{2}$};
+\draw  (3.67,0)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (2*pi/3,0) node [below]{$\dfrac{2\pi}{3}$};
+\draw  (4.71,0)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (3*pi/2,0) node [below] {$\dfrac{3\pi}{2}$};
+\draw  (5.76,0)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (5*pi/6,0) node [below] {$\dfrac{5\pi}{6}$};
+\draw [color=Green] (6.28,0)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (2.62,0)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (11*pi/6,0) node [above]{$\dfrac{11\pi}{6}$};
+\draw (7*pi/6,0) node [above]{$\dfrac{7\pi}{6}$};
+\draw  (0.57,0)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (pi/6,0) node [below] {$\dfrac{\pi}{6}$};
+\draw (0,0.5) node [left] {$\dfrac{1}{2}$};
+\draw  (0,-0.5)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (0,-0.5) node [left]{$-\dfrac{1}{2}$};
+\end{tiny}
+\begin{scriptsize}
+\draw (pi,0) node [above]{$\pi$};
+\draw (2*pi,0) node [below right]{$2\pi$};
+\draw (0,1) node[right] {$1$};
+\draw  (0,-1)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+\draw (0,-1) node [left]{$-1$};
+\end{scriptsize}
+\fill [color=black,shift={(0.1,2)},rotate=90] (0,0) ++(0 pt,2.25pt) -- ++(1.95pt,-3.375pt)--++(-3.9pt,0 pt) -- ++(1.95pt,3.375pt);
+\fill [color=black,shift={(6.18,2)},rotate=270] (0,0) ++(0 pt,2.25pt) -- ++(1.95pt,-3.375pt)--++(-3.9pt,0 pt) -- ++(1.95pt,3.375pt);
+\draw [color=Green] (0.52,0.5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (-6.28,0)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (-5.76,0.5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (-4.71,1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (-3.67,0.5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (-2.62,-0.5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (-3.14,0)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (-1.57,-1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (-0.52,-0.5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (1.05,0.87)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (1.57,1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (2.09,0.87)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (2.62,0.5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (3.14,0)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (3.67,-0.5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (4.71,-1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=Green] (5.76,-0.5)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (0,0.5)-- ++(-1.0pt,0 pt) -- ++(2.0pt,0 pt) ++(-1.0pt,-1.0pt) -- ++(0 pt,2.0pt);
+
+\begin{pgfonlayer}{background}  
+% Attention l'ordre de ces lignes est important 
+% Ne pas le modifier   
+\draw[step=1mm,ultra thin,AntiqueWhite!10](-7,-2)  grid (14,2.6);
+\draw[step=5mm,very thin,AntiqueWhite!30] (-7,-2)  grid (14,2.6);
+\draw[step=1cm,very thin,AntiqueWhite!50] (-7,-2)  grid (14,2.6);
+\draw[step=5cm,thin,AntiqueWhite]         (-7,-2)  grid (14,2.6);
+
+\end{pgfonlayer} 
+
+\end{tikzpicture}

@@ -1,0 +1,35 @@
+% \input{preambule-sacha-utf8.ltx}
+ 
+
+% \begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=0.25cm]
+% \draw [dotted, xstep=1.0cm,ystep=1.0cm] (-0.41,-2.44) grid (8.68,34.53);
+\draw[->] (-0.41,0) -- (8.68,0);
+\foreach \x in {1,2,3,4,5,6,7,8}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize ${\x}0$};
+\draw[->] (0,-2.44) -- (0,34.53);
+\foreach \y in {4,8,12,16,20,24,28,32}
+\draw[shift={(0,\y)}] (-2pt,0pt) node[left] {\footnotesize ${\y}00$};
+\draw[] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-0.41,-2.44) rectangle (8.68,34.53);
+\draw[smooth,samples=100,domain=0.0:8.0] plot(\x,{16*(\x)-2*(\x)^2});
+
+\draw  (1,14)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (2,24)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (3,30)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (4,32)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (4.11,32.7) node {$S$};
+\draw  (5,30)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (6,24)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw  (7,14)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0.5,-2.5) grid (9.5,33);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0.5,-2.5) grid (9.5,33);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-0.5,-2.5) grid (9.5,33);
+\draw[step=5cm,thin,AntiqueWhite]          (-0.5,-2.5) grid (9.5,33);
+\end{pgfonlayer} 
+\end{tikzpicture}
+
+% \end{document}

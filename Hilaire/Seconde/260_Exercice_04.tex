@@ -1,0 +1,41 @@
+% \input{preambule-sacha-utf8.ltx}
+
+% \begin{document}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-3.46,0) -- (9.2,0);
+\foreach \x in {-3,-2,-1,1,2,3,4,5,6,7,8,9}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-3.46) -- (0,4.64);
+\foreach \y in {-3,-2,-1,1,2,3,4}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\draw (-1,0) node[below] {$-1$};
+\draw (1,0) node[below] {$1$};
+\draw (3,0) node[below] {$3$};
+\draw (4,0) node[below] {$4$};
+\draw (5,0) node[below] {$5$};
+\draw (0,-2) node[left] {$-2$};
+\draw (0,2) node[left] {$2$};
+\draw (0,4) node[left] {$4$};
+\clip(-3.46,-3.46) rectangle (9.2,4.64);
+\draw[smooth,samples=100,domain=-3.5:3.9] plot(\x,{(2*(\x)-10)/((\x)-4)});
+\draw[smooth,samples=100,domain=4.1:9.2] plot(\x,{(2*(\x)-10)/((\x)-4)});
+\draw[smooth,samples=100,domain=-3.5:.9] plot(\x,{(2*(\x)+2)/((\x)-1)});
+\draw[smooth,samples=100,domain=1.1:9.2] plot(\x,{(2*(\x)+2)/((\x)-1)});
+\draw [color=red] (1,-3.46) -- (1,4.64);
+\draw [color=red] (4,-3.46) -- (4,4.64);
+\draw [color=red,domain=-3.46:9.2] plot(\x,{(--2-0*\x)/1});
+\draw (3.2,4.3) node[right] {$C_{f_1}$};
+\draw (7,1) node[right] {$C_{f_1}$};
+\draw (2.8,4.3) node[left] {$C_{f_2}$};
+\draw (-2,.5) node[left] {$C_{f_2}$};
+\draw (0,0) node[below left] {$O$};
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-3.46,-3.46) grid (9.2,4.64);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-3.46,-3.46) grid (9.2,4.64);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-3.46,-3.46) grid (9.2,4.64);
+\draw[step=5cm,thin,AntiqueWhite]          (-3.46,-3.46) grid (9.2,4.64);
+\end{pgfonlayer} 
+
+\end{tikzpicture}
+% \end{document}

@@ -1,0 +1,28 @@
+TeXgraph#
+Include "papiers.mac";
+Graph image = [
+Fenetre(-3+12*i, 12-.9*i, 1+i),Marges(0,0,0,0),
+papier(milli,-3-i,12+12*i,
+          [subsubgridcolor :=beige,
+              subgridcolor :=antiquewhite,
+                 gridcolor :=bisque]
+      ),
+  Arrows:=1,
+  Axes(0,1 +i),
+  Arrows:=0,
+  u0:=-2,nb:=15, Width:=6,
+Color:=darkseagreen, Droite(1,-1,0),
+ Label (2+i, "$y=x$"),
+Color:=red,  tMin:=-3, tMax:=11, Width:=8,
+              Cartesienne(-1*(3/4)*x+7),
+ Label (-2+9.6*i, "$y=\frac{-3x}{4}+7$"),
+ Width:=6, Color:=gray,
+             suite(-1*(3/4)*x+7, u0,nb),
+Color:=black,LabelAngle:=0,
+Label(-5/2+8.5*i, "$u_1$",
+        9+.7*i,   "$u_2$",
+        .8+6.8*i, "$u_3$",
+         7+2.2*i, "$u_4$",
+       2.5+5.66*i,"$u_5$"
+)
+];

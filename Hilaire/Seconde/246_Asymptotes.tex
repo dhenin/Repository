@@ -1,0 +1,25 @@
+
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-7.04,0) -- (9.28,0);
+\foreach \x in {-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-0.62) -- (0,8.94);
+\foreach \y in {,1,2,3,4,5,6,7,8}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-7.04,-0.62) rectangle (9.28,8.94);
+\draw[smooth,samples=100,domain=-7.040000000000002:-1.000000150399996] plot(\x,{sqrt((\x)^2-2*(\x)-3)});
+\draw[smooth,samples=100,domain=3.0000000714765283:9.280000000000005] plot(\x,{sqrt((\x)^2-2*(\x)-3)});
+\draw [dash pattern=on 5pt off 5pt] (1,-0.62) -- (1,8.94);
+\draw [color=red,domain=-7.040000000000002:-1.0] plot(\x,{(-4--4*\x)/-4});
+\draw [color=red,domain=3.0:9.280000000000005] plot(\x,{(-4--4*\x)/4});
+
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-7.04,-0.62)  grid (9.28,8.94);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-7.04,-0.62)  grid (9.28,8.94);
+\draw[step=1cm,very thin,AntiqueWhite!50]  (-7.04,-0.62)  grid (9.28,8.94);
+\draw[step=5cm,thin,AntiqueWhite]          (-7.04,-0.62)  grid (9.28,8.94);
+
+\end{pgfonlayer} 
+\end{tikzpicture}

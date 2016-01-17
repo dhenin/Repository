@@ -1,0 +1,42 @@
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.5]
+
+\draw[->] (-7.24,0) -- (11.87,0);
+\foreach \x in {-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+
+\draw[->] (0,-10.09) -- (0,9.11);
+\foreach \y in {-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+
+\clip(-7.24,-10.09) rectangle (11.87,9.11);
+
+
+\begin{pgfonlayer}{background}  
+% Attention l'ordre de ces lignes est important 
+% Ne pas le modifier   
+\draw[step=2mm,ultra thin,AntiqueWhite!10](-7.24,-10.09)  grid (11.87,9.11);
+% \draw[step=5mm,very thin,AntiqueWhite!30] (-7.24,-10.09)  grid (11.87,9.11);
+\draw[step=2cm,very thin,AntiqueWhite!50] (-7.24,-10.09)  grid (11.87,9.11);
+\draw[step=10cm,thin,AntiqueWhite]         (-7.24,-10.09)  grid (11.87,9.11);
+
+\end{pgfonlayer} 
+
+\draw (-0.47,0.04) node[anchor=north west] {O};
+
+% \draw[smooth,samples=100,
+% domain=-7.23833096815825:11.874174843003859] 
+% plot(\x,{(2*(\x)^2+(\x)-13)/((\x)^2-(\x)-2)});
+\draw[smooth,samples=200, domain=-7:12] 
+ plot(\x,  {(2*(\x)^2+(\x)-13)/((\x)^2-(\x)-2)});
+% \draw[smooth,samples=10,domain=-.999:1.999] plot(\x, {(2*(\x)^2+(\x)-13)/((\x)^2-(\x)-2)});
+% \draw[smooth,samples=10,domain=-2.001:11.874174843003859] plot(\x,{(2*(\x)^2+(\x)-13)/((\x)^2-(\x)-2)});
+
+
+\draw [color=red] (-1,-10.09) -- (-1,9.11);
+\draw [color=red] (2,-10.09) -- (2,9.11);
+\draw [color=red,domain=-7.24:11.87] plot(\x,{(--2-0*\x)/1});
+
+\draw (-3.33,0.72) node {$f$};
+
+\end{tikzpicture}
