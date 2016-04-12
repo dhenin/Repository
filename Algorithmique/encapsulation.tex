@@ -1,0 +1,134 @@
+\stepcounter{section}
+\addcontentsline{toc}{section}{Encapsulation}
+\markboth{Encapsulation}{Encapsulation}
+\centerline{\Large\bf L'encapsulation}
+ \index{Encapsulation}
+ \label{Encapsulation}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+
+La modification imperceptible des variables globales est une des principales
+difficult\'es rencontr\'ees dans la maintenance des programmes. C'est pourquoi
+la premi\`ere recommandation est de {\bf ne pas utiliser de variable globale}.
+
+Dans la construction des types de donn\'ees abstraits, 
+la syst\'ematisation de cette id\'ee conduit \`a n'admettre l'acc\`es aux donn\'ees
+qu'au moyen de fonctions associ\'ees au types de donn\'ees.
+
+
+
+
+
+% \section{Domaine de visibilit\'e des variables et fonctions}
+
+R\`egles des espaces de visibilit\'e~: 
+\begin{itemize}
+
+\item Un programme C est compos\'e de nombreux \'el\'ements qui sont des variables
+ou des fonctions.  Afin d'\'eviter les conflits de noms, le langage permet
+de restreindre la visibilit\'e de certains objets qui n'ont aucune raison
+d'\^etre globaux (comme les indices de boucles).
+
+\item L'espace de visibilit\'e d'une variable ou d'une fonction correspond \`a la
+partie de source pour laquelle elle est d\'efinie (connue).
+
+\item De mani\`ere g\'en\'erale une variable est d\'efinie depuis sa d\'eclaration
+jusqu'\`a l'accolade fermente qui la suit ou jusqu'\`a la fin du module si
+elle n'est pas \`a l'int\'erieur d'une paire d'accolades.
+
+\item Une variable d\'efinie dans une fonction n'est donc visible que dans cette
+fonction.  Une variable d\'eclar\'ee hors de toute fonction est visible
+jusqu'\`a la fin de son module.  Elle peut, dans ce cas, \^etre rendue
+visible depuis les autres modules de l'application (c'est \`a dire
+export\'ee) ou rester priv\'ee au module qui la d\'eclare.
+
+\item Une fonction est visible dans l'ensemble du fichier qui la contient.
+
+\item Elle peut \^etre rendue visible des autres modules ou conserv\'ee priv\'ee.
+Exemple~: 
+
+\begin{small}
+\begin{verbatim}
+/* Hors du module,
+ * importee
+ */
+extern int V1 ; 
+
+/* Globale au module,
+ * exportee vers les autres
+ */
+int V2 ;
+
+/* Globale au module,
+ * non visible depuis les autres
+ */
+static int V3 ;
+
+/* V1, V2, V3, F1 et F2
+ * sont visibles
+ */
+
+/* Fonction non exportee */
+static int F1 ()
+{
+    int V4 ; /* Locale a F1 */
+    int V2 ;
+    /* La variable V2 globale
+     * est cachee par celle-ci 
+     * V1, V2, V3, V4, F1 et F2
+     * sont visibles 
+     * La version globale de V2
+     * est inaccessible
+     */
+}
+
+/* V1, V2, V3, F1 et F2
+ * sont visibles
+ */
+int V5 ;
+
+/* V1, V2, V3, V5, F1 et F2
+ * sont visibles
+ */
+
+int F2 () /* Fonction exportee */
+{
+    /* Variable locale permanente */
+     static V6 ;
+    /* V1, V2, V3, V5, V6, F1 et F2
+     * sont visibles
+     */
+}
+
+/* V1, V2, V3, V5, F1 et F2
+ * sont visibles
+ */
+
+/* V2, V5 et F2
+ * sont visibles depuis
+ * d'autres modules
+ */
+
+\end{verbatim}
+\end{small}
+
+\addcontentsline{lof}{section}{Visibilité des variables}
+
+\item Si l'on veut qu'une variable d\'eclar\'ee dans un autre fichier soit visible
+dans le module courant, elle doit \^etre d\'eclar\'ee externe dans celui-ci.
+{\it A contrario}, une fonction appel\'ee dans un module est suppos\'ee externe.
+
+Si le compilateur la rencontre dans ce m\^eme module, il supprime son
+importation.  En d'autres termes, on peut appeler toutes les fonctions
+de tous les modules sans avoir \`a annoncer explicitement qu'elles sont
+externes.
+\end{itemize}
+
+La derni\`ere \'etape de construction de l'application consiste \`a collecter
+l'ensemble de ses constituants pour cr\'eer l'ex\'ecutable.  C'est l'\'edition
+des liens.  L'application ne peut \^etre correctement construite que si
+chacun des objets import\'es par chacun des modules est publi\'e par
+exactement un autre module.  C'est \`a dire que tous les objets que les
+modules importent, d'autres les exportent.
+\end{multicols}

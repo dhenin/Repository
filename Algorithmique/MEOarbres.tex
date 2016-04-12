@@ -1,0 +1,112 @@
+\addcontentsline{toc}{section}{Mise en \oe uvre des arbres}
+\markboth{Arbres (mise en \oe uvre)}{Arbres (mise en \oe uvre)}
+\label{TDAarbres}
+\centerline{\Large\bf Mise en \oe uvre des arbres}
+
+ \noindent\hrulefill  
+
+%\begin{multicols}{2}
+\section*{Le TDA arbre}
+
+Les primitives les plus utiles relatives aux arbres\footnote{Cf. \pageref{Parcours}}~:
+
+\begin{enumerate}
+
+\item {\bf PERE}($n, A$). Cette fonction retourne le p\`ere du n\oe ud $n$ dans
+l'arbre $A$. Si $n$ est la racine, le p\`ere n'existe pas et $\Lambda$
+est retourn\'e (dans ce contexte, $\Lambda$ est un ``n\oe ud vide'').
+
+\item {\bf PREMIER\_FILS}($n, A$). Retourne le fils le plus \`a gauche du n\oe ud
+	$n$ dans l'arbre $A$, ou $\Lambda$ si $n$ est une feuille
+	(donc sans enfants).
+
+\item {\bf FRERE\_DROIT}($n, A$). Retourne le fr\`ere droit du n\oe ud $n$ dans
+l'arbre $A$, c'est-\`a-dire le n\oe ud de m\^eme p\`ere $p$ que $n$ et situ\'e
+imm\'ediatement \`a sa droite dans l'ordre naturel des fils de $p$. Sur
+l'arbre de la figure, %\footnote{p.\pageref{arbetiq}} \ref{arbreA},
+par exemple, PREMIER FILS($n_{2}$)
+= $n_{4}$, FRERE DROIT($n_{4}$) = $n_{5}$ et FRERE DROIT($n_{5}$) =
+$\Lambda$.
+
+\item {\bf ETIQUETTE}($n, A$). Retourne l'\'etiquette du n\oe ud $n$ dans l'arbre $A$.
+Ceci n'implique pas, malgr\'e tout, que tout arbre soit \'etiquet\'e.
+
+% Modifier cette procedure
+
+\item {\bf CREER}($e, A$). Construit un nouveau n\oe ud  d'\'etiquette $e$.
+
+\item {\bf RACINE}($A$). Retourne la racine de l'arbre $A$, ou bien $\Lambda$ si $A$ est l'arbre
+vide.
+
+\item {\bf RAZ}($A$). Transforme l'arbre $A$ en arbre vide.
+\end{enumerate}
+
+\section*{Repr\'esentation des arbres par premier fils et fr\`ere droit}
+\addcontentsline{lof}{section}{Mise en \oe uvre d'un arbre}
+
+
+\vspace*{-.8cm}
+\begin{figurette}
+\begin{psmatrix}
+  \[
+      \def\arraystretch{3}
+      \arraycolsep 5mm
+      \begin{array}{ccc}
+    &  \rnode{a}{A} &  \\
+\rnode{b}{B} &  & \rnode{c}{C}  \\
+    &           & \rnode{d}{D} \\ 
+      \end{array}
+    \psset{arrows=-,nodesep=3pt}
+    \pslabelsep 3pt
+    \everypsbox{\scriptstyle}
+    \ncLine{a}{b}
+    \ncLine{a}{c}
+    \ncLine{c}{d}
+  \] 
+\end{psmatrix}
+\label{Un_arbre}
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it Un arbre}}
+\addcontentsline{lof}{section}{Un arbre}
+\end{figurette}
+
+
+\vspace*{-.8cm}
+\begin{figurette}
+\begin{psmatrix}
+  \[
+      %\def\arraystretch{3}
+      \arraycolsep 5mm
+\begin{tabular}{c|c|c|c|}
+\multicolumn{1}{c}{} &\multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} \\
+\cline{2-4}
+2 & $\bullet$ & D & $\bullet$ \\
+\cline{2-4}
+\multicolumn{1}{c}{}& \multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} \\
+\cline{2-4}
+5 & $\bullet$ & B & \rnode{a}{11} \\
+\cline{2-4}
+\multicolumn{1}{c}{}& \multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} \\
+\cline{2-4}
+10 & 5 & A & $\bullet$ \\
+\cline{2-4}
+11 & 2 & C & \rnode{b}{$\bullet$} \\
+\cline{2-4}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} \\
+\end{tabular} 
+\]
+\psset{arrows=->}
+\ncarc[arcangle=15]{a}{b}
+\end{psmatrix}
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it Mise en \oe uvre d'un arbre}}
+\addcontentsline{lof}{section}{Mise en \oe uvre d'un arbre}
+\label{arbre}
+\end{figurette}
+
+\section*{Programmation du TDA arbre g\'en\'erique}
+
+La totalit\'e du TDA arbre est donn\'ee en annexe.
+
+\newpage
+~

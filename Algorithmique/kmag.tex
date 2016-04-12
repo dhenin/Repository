@@ -1,0 +1,123 @@
+\setcounter{section}{6}
+%\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Exemple : Carr\'es magiques}
+%\markboth{Algorithme}{Algorithme}
+\centerline{\Large \bf Carr\'es magiques\footnote{{\it in PPC }
+Dh\'enin Jean-Jacques}}
+\label{Kmag}
+\index{carr\'es}
+\index{carr\'es magique}
+\index{magique (carr\'es)}
+\index{espace (occup\'e)}
+\index{c\^ot\'e (du carr\'e)}
+\index{Dh\'enin@Dh\'enin, Jean-Jacques}
+
+\noindent\hrulefill
+
+\vspace{.5cm}
+
+%\renewcommand{\theenumi}{\Roman{enumi}}
+%\renewcommand{\theenumi}{\arabic{enumi}}
+
+%\lettrine
+{Remplir} un carr\'e magique : c'est 
+%toujours cette expression que l'on retrouve dans l'\'enonc\'e du probl\`eme ;
+%il s'agit de 
+disposer les nombres 0 \`a $p$
+dans un carr\'e de $n \times n$ cases, de telle sorte que la somme des nombres
+dans chaque ligne, chaque colonne et sur les deux diagonales soit la m\^eme. D\`es
+que le carr\'e est sup\'erieur \`a $5 \times 5$ cases, il devient n\'ecessaire de
+disposer d'une m\'ethode. Nous allons consid\'erer un exemple.
+
+\addcontentsline{lof}{section}{Remplir un carr\'e magique}
+
+Remplissons une grille de $7 \times 7$.
+
+\begin{floatingfigure}[l]{45mm}
+\input{Figures/kmag1}
+\end{floatingfigure}
+
+Nous pla\c cons tout d'abord 0 dans la case du milieu du bord gauche. En suivant
+la petite fl\`eche nous sortirions du carr\'e. Il faut donc placer 1 dans la case
+correspondante sur le bord oppos\'e, et ainsi de suite jusqu'\`a 6. Il n'est plus
+possible de continuer puisque la case suivante est occup\'ee. Il suffit de
+placer 7 \`a droite de 6 puis de reprendre la progression.
+
+Essayez de terminer seul ; vous pourrez v\'erifier que vous avez r\'ealis\'e
+un {\it carr\'e magique} puisque la somme des nombres plac\'es dans chaque ligne,
+chaque colonne et chaque diagonale est constante (168).
+
+
+L'inconv\'enient majeur de cette solution c'est l'espace m\'emoire occup\'e
+puisqu'il faut se doter d'un tableau de $n \times n$ cases.
+
+Un autre
+algorithme consiste \`a produire la valeur de chaque case dans l'ordre de
+lecture, de gauche \`a droite et de bas en haut.
+
+Supposons, pour simplifier, un {\it carr\'e magique} de $5 \times 5$ d\'ej\`a
+r\'ealis\'e et \'etudions sa composition : 
+
+\begin{quote}  
+\centerline{\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{1-5} \cline{7-11}
+14 & 15 & 21 &  2 &  8 & & $2n+4$ & $3n+0$ & $4n+1$ & $0n+2$ & $n+3$ \\
+\cline{1-5} \cline{7-11}
+ 7 & 13 & 19 & 20 &  1 & & $n+2$ & $2n+3$ & $3n+4$ & $4n+0$ & $0n+1$ \\
+\cline{1-5} \cline{7-11}
+ 0 & 6 & 12 & 18 & 24 & & $0n+0$ & $n+1$ & $2n + 2 $ & $ 3n+3$ & $4n+4$ \\
+\cline{1-5} \cline{7-11}
+23 & 4 & 5 & 11 & 17 & & $4n + 3 $ & $ 0n + 4 $ & $n + 0 $ & $2n+1$ & $3n+2$ \\
+\cline{1-5} \cline{7-11}
+16 & 22 & 3 & 9 & 10 & & $3n+1 $ & $ 4n + 2$ & $ 0n + 3 $ & $n +4 $ & $2n+0$ \\
+\cline{1-5} \cline{7-11}
+\end{tabular}}
+\end{quote}  
+\addcontentsline{lof}{section}{Un carr\'e magique de $5 \times 5$}
+
+En exprimant le contenu de chaque case par rapport au c\^ot\'e du carr\'e $n$ la
+progression d'une case \`a la suivante est simple : les coefficients progressent
+r\'eguli\`erement de 0 \`a $n-1$. 
+
+$ X_{(ij)+1} = ( a_{ij}+1 \times n ) + b_{ij} +1 $ ou $a$ et $b \in \{0, 1, 2\ldots n-1\} $
+
+Lorsqu'une ligne est remplie, on passe \`a la premi\`ere case de la ligne suivante
+en retranchant 1 au contenu de la derni\`ere case de la ligne qui vient de
+s'achever. Enfin le premier terme du {\it carr\'e magique} est obtenu par :
+$ x_{0} = \frac{n-1}{2} \times n + n -1$ 
+
+D'o\`u l'algorithme : 
+
+\begin{center}\begin{tabular}{|l|l|}
+\hline
+\begin{minipage}[t]{7.5cm}{\begin{verbatim}  
+
+cote = SAISIR () ;
+b = cote - 1 ;
+a = (cote - 1) / 2 ;
+
+for (ligne = 0 ; ligne < cote ; ligne++)
+  {
+  for (col = 0 ; col < cote ; col++)
+    {
+    IMPRIMER (a * cote) + b ;
+\end{verbatim}
+\hfill $_{...}/^{...}$
+
+~}\end{minipage} & \begin{minipage}[t]{6cm}{\begin{verbatim}  
+
+    if (col != (cote - 1))
+      {
+      a++ ; a = a modulo cote ;
+      b++ ; b = b modulo cote ;
+      }
+    }
+    b-- ;
+  }
+\end{verbatim} }\end{minipage}\\
+\hline
+\end{tabular}
+\end{center} 
+\addcontentsline{lof}{section}{Algorithme du carr\'e magique}
+\newpage
+~

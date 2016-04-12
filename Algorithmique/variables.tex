@@ -1,0 +1,267 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Les variables}
+\setcounter{section}{0}
+\markboth{Variables}{Variables}
+\centerline{\Large\bf Les variables}
+\label{Variable}
+\index{variable}
+\index{scalaire}
+\index{identificateur}
+\index{valeur}
+\index{value, (left, right)}
+\index{m\'emoire (zone)}
+\index{left (value)}
+\index{right (value)}
+\index{type (de variable)}
+\index{entier}
+\index{r\'eel}
+\index{caract\`ere}
+\index{tableau}
+\index{agr\'egat}
+\index{enregistrement}
+\index{structure}
+\index{pointeur}
+\label{pointeur}
+\index{Mammeri}
+ 
+ \noindent\hrulefill  
+
+\begin{multicols}{2}
+\section*{Les scalaires}
+
+Il ne faut pas confondre l'{\em identificateur} d'une variable et la
+{\em valeur} de la variable. La valeur d'une variable est conserv\'ee dans une
+zone m\'emoire. 
+
+
+Si {\small \tt SOMME} vaut {\tt 10}, la notation algorithmique
+{\tt
+\begin{quote}
+SOMME = SOMME + 5
+\end{quote}
+}
+
+affecte\footnote{Page~\pageref{Affectation} la propri\'et\'e de l'affectation}
+\`a la zone  {\small \tt SOMME}
+la {\em valeur pr\'ec\'edente} de {\small \tt SOMME} + 5
+(soit {\tt 15}) .
+
+Autre exemple~:
+{\tt
+\begin{quote}
+      SOMME = SOMME + SOMME
+\end{quote}
+}
+fait passer la zone valeur {\small \tt SOMME} de {\tt 10} \`a {\tt 20}.
+
+Les termes de {\it left value} et {\it right value} d\'esignent respectivement
+la zone m\'emoire et la valeur qu'elle rec\`ele.
+
+On consid\`ere des objets informatiques et non plus math\'ematiques.
+Un objet informatique est caract\'eris\'e par le fait qu'il a non seulement une
+valeur mais une identit\'e (ou une place dans la m\'emoire si l'on pr\'ef\`ere).
+Ainsi, en math\'ematique il n'existe qu'un objet 392 alors que dans un syst\`eme
+informatique on pourra avoir deux objets diff\'erents qui ont cette valeur (deux
+places dans la m\'emoire qui contiennent cette valeur). Il s'agira donc de bien
+faire la distinction entre identit\'e (le m\^eme objet) et \'egalit\'e (la m\^eme
+valeur).
+
+Un ordinateur manipule des {\it repr\'esentations} de valeurs, qui sont des
+configurations de bits, d'octets ou de mots de la m\'emoire. Comme les
+repr\'esentations physiques varient selon les objets, on est conduit \`a sp\'ecifier
+leurs types. 
+
+
+\subsection* {Les entiers} sont en nombre fini dans l'ordinateur,
+      donc certaines op\'erations peuvent cr\'eer un d\'ebordement, {\em i.e.} fournir 
+      un r\'esultat hors des limites de l'intervalle. Le langage C ne teste 
+      jamais le r\'esultat.
+
+\subsection*{Les r\'eels} L'ensemble est discontinu,
+      la norme {\sc ieee 754} d\'ecrit les nombres \`a virgule flottante.
+
+\setbox0=\vbox{\hsize=70mm \begin{minipage}[t]{7cm}
+\listing{Prog/max_int.c}
+\end{minipage} }
+
+
+La longueur effective (en {\em octets}), et donc les bornes extr\^emes, d\'ependent
+\'evidemment de la machine. L'information est souvent disponible.
+
+\begin{figurette}
+
+\centerline{\begin{tabular}{|l|}
+\hline
+~\\
+\box0\\
+~\\
+\hline
+\end{tabular} }
+\end{figurette}
+\addcontentsline{lof}{section}{Programme pour afficher les nombres limites}
+
+\subsection*{Les caract\`eres} ne sont pas les m\^emes selon le pays, 
+      l'ensemble des caract\`eres est un sous-ensemble des entiers\footnote{
+Page \pageref{TableAscii} une table de caract\`eres}. Pour \unix\ un ensemble
+de variables définit la langue dans laquelle s'affichent les messages et l'ordre
+du tri alphabétique.
+
+
+\section*{Tableaux}
+
+Il est fr\'equent de manipuler des donn\'ees de m\^eme type formant une collection
+que l'on nomme {\em tableau}. Chaque valeur est d\'esign\'ee par le {\em nom} du
+tableau et d'un ou plusieurs {\em indice(s)} ; ce nom peut \^etre manipul\'e comme
+celui d'une variable. Un tableau \`a une seule dimension est souvent appel\'e {\em
+vecteur}. On peut utiliser des tableaux \`a $n$ dimensions.
+
+
+\section*{Les variables composites}
+
+Il est parfois n\'ecessaire de manipuler des ensembles de donn\'ees formant un
+tout ; ces ensembles sont nomm\'es agr\'egats, enregistrements ou
+structures\footnote{B. Mammeri, {\em Programmation}, p. 112.}.
+
+\section*{Les pointeurs}
+
+Un pointeur est une variable dont la valeur donne l'acc\`es \`a une {\em autre}
+variable (elle contient en quelque sorte l'adresse de celle-ci)\footnote{B.
+Mammeri {\em Programmation}, p. 104.}.
+\end{multicols}
+
+\newpage
+
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{La norme IEEE 754}
+\markboth{La norme IEEE754}{La norme IEEE754}
+\centerline{\Large\bf La norme IEEE 754}
+\label{IEEE754}
+ \noindent\hrulefill  
+
+\begin{multicols}{2} 
+La norme IEEE\footnote{%
+The {\em Institut of  electrical and Electronics Engineers}.%
+}{\it Standard for binary Floating-Point Arithmetic}
+(ANSI/IEEE Standard 754 - 1985) a \'et\'e d\'efinie dans le but d'am\'eliorer
+la qualit\'e du calcul flottant et la portabilit\'e des applications.
+Ce standard est maintenant utilis\'e et respect\'e par tous les acteurs
+principaux du calcul scientifique.
+ Deux formats principaux 32 et 64 bits (voir
+figure ) et quatre modes d'arrondis (vers $\infty$, vers $-\infty$,
+vers 0, au plus pr\`es)
+sont d\'efinis, ainsi que des formats dits {\it \'etendus}.
+
+\centerline{ \begin{tabular}{|c|c|c|}
+\multicolumn{1}{l}{31} &
+\multicolumn{1}{c}{30 \hfill 23} &
+\multicolumn{1}{c}{22 \hfill 0} \\
+\hline
+S & E & M \\
+signe & exposant & mantisse \\
+\hline 
+\multicolumn{1}{c}{1} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{23} \\
+\multicolumn{3}{c}{} \\
+\multicolumn{3}{c}{Format flottant simple pr\'ecision} \\
+\multicolumn{3}{c}{} \\
+\multicolumn{1}{l}{63} &
+\multicolumn{1}{c}{62 \hfill 52} &
+\multicolumn{1}{c}{51 \hfill 0} \\
+\hline
+S & E & M \\
+signe & exposant & mantisse \\
+\hline 
+\multicolumn{1}{c}{1} & \multicolumn{1}{c}{11} & \multicolumn{1}{c}{52} \\
+\multicolumn{3}{c}{} \\
+\multicolumn{3}{c}{Format flottant double pr\'ecision} \\
+\multicolumn{3}{c}{} \\
+\end{tabular} }
+
+Le nombre repr\'esent\'e par le flottant (S,E,M) est \( (-1)^{s} \times
+(1 + M) \times 2^{(\mbox{ exposant - biais})} \) 
+ o\`u : {\it biais = 127} pour les flottants simple pr\'ecision et
+{\it biais = 1023} pour les flottants double pr\'ecision\footnote{
+Pour \^etre complet, la repr\'esentation machine des nombres flottants est
+l\'eg\`erement diff\'erente en {\sc ieee}. En effet, on s'arrange pour que le nombre
+0 puisse \^etre repr\'esent\'e par le mot machine dont tous les bits sont \`a 0, et on
+additionne la partie exposant du mot machine flottant de $e_{min}$,
+c'est-\`a-dire de 127 en simple pr\'ecision, ou de 1023 en double pr\'ecision.}
+; la mantisse (M)
+est cod\'ee sur 23 bits pour les flottants simple pr\'ecision et sur 52 bits
+pour les flottants double pr\'ecision.
+\par 
+Les microprocesseurs MIPS R10000 et UltraSPARC supportent les formats
+flottants IEEE 32 et 64 bits. De plus, le jeu d'instructions SPARC
+V9 int\`egre les flottants 128 bits ; cependant ces op\'erations ne sont
+pas support\'ees par mat\'eriel sur l'UltraSPARC, mais \'emul\'ees. L'unit\'e
+flottante du PentiumPro comme les autres microprocesseurs xxx86 manipule
+seulement des flottants 80 bits dans un format dit $<$$<$\'etendu$>$$>$ :
+64 bits de mantisse, 15 bits d'exposant et 1 bit de signe.
+\par Source : {\it flloansi@IRISA.irisa.fr Tue Jun  4 09:57 MET DST 1996}
+
+% Pour rendre portables des programmes utilisant les nombres r\'eels
+% ({\em ie flottants}), une norme {\sc ieee 754} ({\em
+% the Institut of  electrical and Electronics Engineers
+% }) a \'et\'e d\'efinie. Non seulement elle
+% d\'ecrit les bornes des nombres flottants, mais
+La Norme donne une convention pour
+ repr\'esenter des valeurs sp\'eciales : $\pm\infty$, {\sc n}a{\sc n} ({\em not a
+ number}) qui permettent de donner des valeurs \`a des divisions par z\'ero, ou \`a
+ des racines carr\'ees de nombres n\'egatifs par exemple. Les valeurs sp\'eciales
+ permettent d'\'ecrire des programmes de calculs de racines de fonctions
+ \'eventuellement discontinues.
+
+ La norme {\sc ieee 754} est la suivante :
+
+ \begin{center} \begin{tabular}{lcl}
+ & & \\
+ \hline
+ \multicolumn{1}{c}{\hbox to 2cm {\small\hfil Exposant\hfil}}&
+ \multicolumn{1}{c}{\hbox to 2 cm{\small\hfil Mantisse\hfil}} &
+ \multicolumn{1}{c}{\hbox to 2 cm{\small\hfil Valeur\hfil}}\\
+ \hline
+ $e = e_{min} - 1$ & $f = 0$ & $\pm0$ \\
+ $e = e_{min} - 1$ & $f \neq 0 $ & $0,f \times 2^{e_{min}}$\\
+ $e_{min}\leq e \leq e_{max}$  & & $1,f \times 2^{e}$ \\
+ $e = e_{max} + 1$ & $f = 0 $ & $ \pm\infty$ \\
+ $e = e_{max} + 1$ & $f \neq 0$ & {\sc n}a{\sc n} \\
+ \hline
+ & & \\
+ \end{tabular} \end{center} 
+%
+% et les formats en bits (simple et double) pr\'ecision sont
+%
+% \begin{center} \begin{tabular}{lrr}
+% & & \\
+% \hline
+% \multicolumn{1}{c}{\hbox to 2cm {\small\hfil Param\`etre\hfil}}&
+% \multicolumn{1}{c}{\hbox to 2 cm{\small\hfil Simple\hfil}} &
+% \multicolumn{1}{c}{\hbox to 2 cm{\small\hfil Double\hfil}}\\
+% \hline
+% $p$   & 23 & 52 \\
+% $q$   & 8  & 11 \\
+% $e_{max}$ & +127 & +1023 \\
+% $e_{min}$ & -126 & -1022 \\
+% {\small Taille totale du mot} & 32 & 64 \\
+% \hline
+% & & \\
+% \end{tabular} \end{center} 
+%
+%On en d\'eduit donc que la valeur absolue de tout nombre flottant $x$ v\'erifie en
+%simple pr\'ecision 
+%
+%\[ 10^{-45}\simeq 2^{-150}\leq\mid x \mid< 2^{128}\simeq 3\times 10^{28} \]
+%
+
+La pr\'ecision d'un nombre flottant est $2^{-23} \simeq 10^{-7}$ 
+en simple pr\'ecision et $2^{-52} \simeq 2 \times 10^{-16}$ en double pr\'ecision.
+On perd donc 2 \`a 4 chiffres de pr\'ecision par rapport aux op\'erations enti\`eres.
+Il faut comprendre aussi que les nombres flottants sont align\'es avant toute
+addition ou soustraction, ce qui entra\^\i ne des pertes de pr\'ecision. Par exemple,
+l'addition d'un tr\`es petit nombre \`a un grand nombre\footnote{Page
+\pageref{Permutation}} va laisser ce dernier inchang\'e. Il y a alors
+d\'epassement de capacit\'e vers le bas ({\em underflow}). Un bon exercice est de
+montrer que la s\'erie harmonique converge en informatique flottante, ou que
+l'addition flottante n'est pas associative ! Il y a aussi des d\'ebordements de
+capacit\'e vers le haut ({\em overflow}). Ces derniers sont en g\'en\'eral plus
+souvent test\'es que les d\'epassements vers le bas.
+
+\end{multicols}

@@ -1,0 +1,89 @@
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Un exemple (d\'e)trompeur}
+\addcontentsline{lof}{section}{Un exemple (d\'e)trompeur}
+\centerline{\Large \bf L'affectation - Un exemple (d\'e)trompeur. }
+\label{Permutation}
+
+\noindent\hrulefill
+
+Consid\'erons l'algorithme suivant~:
+
+{\tt
+\begin{tabular}{rll}
+      & Saisir$(x)  \; ;$     &  Saisir$(y) \; ; $   \\
+                   & $x = x + y \; ; $ &                   \\
+                   & $y = x - y \; ; $ &                   \\
+                   & $x = x - y \; ; $ &                   \\
+                   & Afficher$(x) \; ;$   &  Afficher$(y) \; ; $  \\
+       	          &   &
+\end{tabular}
+}
+
+Par nature, une instruction d'{\bf affectation} r\'ealise une transformation~:~ elle
+change l'{\bf \'etat} d'une variable. Pour expliquer l'effet de la s\'equence
+\begin{quote}  
+\begin{tabular}{lll}
+$ x = x+y \mbox{ ;~~~} $ & $ y= x-y \mbox{ ;~~~} $ & $ x = x - y  \mbox{ ;~~~}$
+\end{tabular}
+\end{quote}
+il faut d\'ecrire la suite engendr\'ee par les 3 instructions. Nous noterons
+$\not{ }\ast \; \ldots \; \ast\!\!/$ une description d'\'etat, {c-\`a-d} une
+relation entre les variables du programme et des constantes. Soient donc
+$a$~et~$b$ les valeurs initiales des variables $x$ et $y$
+\begin{quote}
+$\not{ }\ast x == a \mbox{ et } y == b \ast\!\!/\mbox{~~~~} x = x + y  \mbox{ ; } $
+\end{quote}
+
+Si l'on ex\'ecute l'instruction $x = x + y $  seul $x$ est modifi\'e
+\begin{quote}
+$\not{ }\ast x == a \mbox{ et } y == b \ast\!\!/\mbox{~~~~} x = x + y \mbox{ ;~~~~} \not{ }\ast x == a + b \mbox{ et } y == b \ast\!\!/ $
+\end{quote}
+L'instruction suivante  modifie  $y$
+\begin{quote}
+$\not{ }\ast x == a + b\mbox{ et } y == b \ast\!\!/\mbox{~~~~} y = x - y  \mbox{ ;~~~~} 
+                    \not{ }\ast x == a + b  \mbox{ et } y == (a + b) - b == a \ast\!\!/$
+\end{quote}
+La derni\`ere instruction modifie $x$
+\begin{quote}
+$\not{ }\ast x == a + b \mbox{ et }  y == a \ast\!\!/ \mbox{~~~~}x = x - y  \mbox{ ;~~~~} 
+                     \not{ }\ast x == (a + b) - a == b \mbox{ et } y == a \ast\!\!/$ 
+\end{quote}
+Ainsi donc les valeurs finales de $x$ et $y$ sont la permutation
+des valeurs initiales.
+
+On appelle ``assertion'' l'affirmation d'une relation vraie entre les
+variables du programme en un point donn\'e. Dire comment une instruction modifie
+l'assertion qui la pr\'ec\`ede (pr\'e-assertion) pour donner celle qui la suit
+(post-assertion), c'est d\'efinir la {\em s\'emantique} de cette instruction.
+
+%R\'e\'ecrivons les 3 instructions avec leurs assertions
+%\begin{quote}
+%\begin{tabular}[4]{llll}
+%$ \not{ }\ast x==a     $ & $ \mbox{ et } $ & $ y==b \ast\!\!/  $ & $  x= x+y \mbox{ ; } $\\
+%$ \not{ }\ast x==a+b   $ & $ \mbox{ et } $ & $ y==b \ast\!\!/  $ & $  y= x-y \mbox{ ; } $\\
+%$ \not{ }\ast x==a+b   $ & $ \mbox{ et } $ & $ y==a \ast\!\!/  $ & $  x= x-y \mbox{ ; }$ \\
+%$ \not{ }\ast x == b   $ & $ \mbox{ et } $ & $ y == a \ast\!\!/  $ & 
+%\end{tabular} 
+%\end{quote}
+Supposons que les nombres $a$ et $b$ soient des
+r\'eels\footnote{Page \pageref{Variable},
+l'ensemble des r\'eels est discontinu}
+et que $b$ soit tr\`es petit devant $a$. les calculs \'etant faits avec un
+nombre constant de chiffres significatifs, \`a la pr\'ecision des calculs
+$b$ est n\'egligeable devant $a$ et l'addition de $b$ \`a $a$ ne modifie pas $a$
+\begin{quote}
+$\not{ }\ast x == a \mbox{ et } y == b \ast\!\!/ $ \mbox{~~~~} $  x = x + y  \mbox{ ; } $ \\
+$\not{ }\ast x == a \mbox{ et } y == b \ast\!\!/ $ \mbox{~~~~} $  y = x - y  \mbox{ ; } $
+\end{quote}
+De m\^eme, retrancher $b$ de $a$ ne change pas $a$
+\begin{quote}
+$ \not{ }\ast x == a \mbox{ et } y == a \ast\!\!/ $ \mbox{~~~~} $ x = x - y \mbox{ ; } $ \\
+$ \not{ }\ast x == 0 \mbox{ et } y == a \ast\!\!/ $ 
+\end {quote} 
+
+L'\'echange des valeurs ne s'est pas fait. Il y a $0$ en $x$ et
+$a$ en y. Ainsi le m\'ecanisme des assertions peut \^etre un m\'ecanisme
+tr\`es fin d\'ecrivant m\^eme la fa\c con dont les calculs sont ex\'ecut\'es dans
+l'ordinateur. Il permet une interpr\'etation tr\`es pr\'ecise de l'effet d'une
+s\'equence d'instructions. C'est lui qui nous permettra de donner un sens
+\`a un programme.

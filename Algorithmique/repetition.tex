@@ -1,0 +1,240 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ R\'ep\'etition}
+\label{Repetition}
+\addcontentsline{lof}{section}{Propri\'et\'e de la r\'ep\'etition}
+\addcontentsline{lof}{section}{Fonction de
+                               localisation d'un \'el\'ement dans une liste}
+\markboth{Sch\'ema de la  r\'ep\'etition}{Sch\'ema de la  r\'ep\'etition}
+\centerline{\Large\bf R\'ep\'etition}
+\index{r\'ep\'etition}
+\index{propri\'et\'e (de la r\'ep\'etition)}
+\index{tant que (while)}
+\index{while (tant que)}
+\index{invariant (de boucle)}
+\index{condition (d'arr\^et)}
+\index{localiser (dans une liste)}
+
+ 
+ \noindent\hrulefill  
+
+\section*{Propri\'et\'es de la r\'ep\'etition}
+
+
+
+\`A la ``sortie'' d'une boucle {\tt tant que}, la condition ($C$) de
+boucle est toujours {\em fausse} ($\overline{C}$).
+Ceci correspond \`a l'utilisation naturelle
+de la boucle {\bf while } :
+on veut obtenir, en un certain point du
+programme, la validit\'e d'une affirmation $\overline{C}$.
+On conna\^\i t une action {\tt $A$} (qui
+peut \'evidemment avoir une certaine complexit\'e)
+dont on esp\`ere qu'elle {\em rapproche}
+l'\'etat initial
+d'un \'etat o\`u $\overline{C}$ est vraie.
+ On {\tt r\'ep\'ete $A$ tant que $C$ est vraie}.
+
+\begin{floatingtable}{ 
+\begin{tabular}{|l|}
+\hline
+\\
+\begin{minipage}[t]{3cm}
+{\tt
+$/* P$ et $C */$\\
+while (C)\\
+\hbox to .5cm{}\{\\
+\hbox to .5cm{} A ;\\
+\hbox to .5cm{}\}\\
+}
+$/* P$ et $\overline{C} */$
+\end{minipage} \\
+\hline
+\end{tabular}}\end{floatingtable}
+Si l'action $A$ ne modifie pas la relation $P$, $P$ est 
+{\bf invariant} pour la  boucle {\tt while (C) \{ A ; \}}.
+
+Cette propri\'et\'e est extr\^emement importante.
+La notion d'invariant de boucle joue un r\^ole d\'ecisif dans la construction de
+programmes par des m\'ethodes syst\'ematiques.
+En fait, on peut consid\'erer qu'une
+boucle {\tt tant que} est enti\`e\-re\-ment d\'efinie par sa condition d'arr\^et
+{\bf et} un invariant.
+Aussi souvent que possible, nous indiquerons en m\^eme temps qu'une
+boucle un invariant significatif associ\'e.
+
+Un invariant est souvent de la forme : ``telle variable  a telle  valeur''.
+\`A titre d'exemple, soit le programme ci-dessous, qui localise
+dans une liste l'\'el\'ement $x$ :
+
+   {\tt /*} la variable ``{\tt trouve}'' vaut {\tt vrai} si et seulement si $L[p]=x$\\
+   et pour tout $i$ compris entre {\tt Premier(L)} et {\tt Acceder(p-1, L)
+   $L[p]\neq x$} {\tt */ }
+
+\begin{center}{\tt
+\begin{tabular}{|ll|}
+\hline
+& \\
+\multicolumn{2}{|l|}{Localiser$(x, L)$}\\
+{\bf \{}  & \\
+    & vrai = 1 ; NonTrouve = -1 ; trouve = faux ; \\
+    & p = Premier(L) ;     \\
+    & /* TANT QUE p n'a pas parcouru toute la liste */   \\
+    & {\bf while (}p !=  Fin(L){\bf)} \\
+	& {\bf ~~\{} \\
+    & \hspace{3mm}{\bf if (}Identique ((Acceder(p, L), x)){\bf)} \\
+    & \hspace{6mm}trouve = vrai ; {\bf break} ;  \\
+    & \hspace{3mm}{\bf else} p =  Suivant(p, L) ;  \\
+	& {\bf ~~\}} \\
+	& /* Si trouve == vrai alors renvoie p sinon renvoie NonTrouve */\\
+    & {\bf return } (trouve == vrai) {\bf ?} p {\bf : } NonTrouve ; \\
+{\bf \}}  & \\
+& \\
+\hline
+\multicolumn{2}{c}{}\\
+\end{tabular}} \end{center}
+
+
+Cet invariant \'etant vrai initialement (puisque {\tt trou\-ve = faux}), il
+reste vrai au sortir de la boucle. Joint \`a la n\'egation de la condition de
+bouclage, c'est-\`a-dire {\tt /* p = Fin(L) ou trouve */}, il donne com\-me
+assertion finale : 
+
+   {\tt /* trouve == faux et aucun \'el\'ement de L ne vaut x, \\
+   ou bien trouve == vrai et x = L(p) */}
+
+ce qui est bien le but recherch\'e.
+
+\newpage
+%----------------------------------------------------------------------
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Corriger un programme faux}
+\addcontentsline{lof}{section}{Un programme faux}
+\addcontentsline{lof}{section}{Correction du programme faux}
+\centerline{\Large\bf  Corriger un programme faux}
+ \index{faux (programme)}
+ \index{individuel (l'ordinateur)}
+ \index{puissance (calcul de la)}
+ \index{corriger (un programme)}
+ \index{test d'arr\^et}
+ \index{arr\^et (test d')}
+ \index{situation ($\neq$ action)}
+ \index{boucler}
+ \index{d\'emarrage (d'une boucle)}
+
+ 
+ \noindent\hrulefill  
+
+Dans le num\'ero de janvier-f\'evrier 1979 de l'{\em ordinateur individuel},
+est paru ce programme de calcul de {\tt x} puissance {\tt n}, que nous \'etudierons r\'e\'ecrit en langage C~:
+{\setlength {\parindent} {0 cm}
+\begin{multicols}{2}%{7cm}
+
+{\small%
+\begin{verbatim}01 void main()
+02    {
+03     int x, n, a, i = 0, t ;
+04     scanf("%d", &x) ; scanf ("%d, &n) ;
+05     a = x ;
+06     
+07      do{
+08        a = a * x ;
+09        i = i + 1 ;
+10        t = n - 1 ;
+11        } while (i < t) ;
+12    printf("%d\n", a) ;
+13    }
+\end{verbatim} }
+La ligne (8) op\`ere par
+multiplications r\'ep\'et\'ees par $x$. Il est facile de voir
+qu'il est faux pour des valeurs simples~:
+
+$ x = 2 $   et  $ n = 1 $
+
+(5) $a$ prend la valeur de $x$, donc $ a = 2$. \\
+(3)  $ i = 0$, 
+(8)  $a$ est multipli\'e par $x$, $ a = 2 \times 2 = 4 $\\
+(9)  $ i$ est augment\'e de 1  $ i = 1 $ \\
+(11)  $ i = 1 $ n'est pas inf\'erieur \`a $t$ $(t = 0) $, on
+passe donc en (12) et on affiche le r\'esultat {\bf 4},
+\'evidemment faux.
+\end{multicols}
+
+
+Examinons la boucle (6-11) :  on arrive la 1$^{\grave ere}$ fois en (6)
+en venant de  (5) avec
+/* $a = x   \mbox { et } i = 0$ */
+
+Essayons l'assertion $a = x^{i+1}$ 
+$\Biggl\{$\begin{tabular}{rrlr}
+(9)  &/* $a=x^{x+1}$ */& $a=a\times x$&/* $a=x^{x+2}$ */\\
+(10) &/* $a=x^{x+2}$ */& $i=i+1$      &/* $a=x^{x+1}$ */\\
+\end{tabular}  
+
+Remarquons que l'assertion $ a = x^{x+1} $ est r\'etablie, avec une
+valeur de $i$ plus grande.
+Mais la donn\'ee introduite est $i$ .  Il faut donc situer $i$ par
+rapport \`a $ n$. 
+
+{\tt
+(11) /* $a = x^{i+1}$ */ {\bf si} $i < t$ {\bf alors} $a = x^{i+1}
+\mbox { et } i < n - 1$ {\bf boucler} \\
+(12) /* $a = x^{i+1} \mbox { et } i>=n - 1 $ */ 
+}
+
+Si, en (11), $ i$ devient \'egal \`a $ n - 1 $ alors $ a = x^{n} $
+et le programme est correct.
+Or par l'initialisation $ a = x  $ et $ i = 0 $ 
+
+Il faut donc avoir $ 0 < n - 1 $  ou $ n > 1 $. Nous constatons que le programme
+calcule $ a = x^{n} $ {\bf si}  \mbox { et} {\bf si seulement} $ n > 1 $.
+
+Il n'est pas tr\`es facile de corriger le programme. Il para\^\i t probable que
+l'auteur a mal choisi son test d'arr\^et, et qu'il a cherch\'e \`a le corriger en
+introduisant la variable $t$ calcul\'ee ligne (10) dont la valeur est constante.
+Son calcul dans la boucle n'est pas normal.
+
+{\bf Il est plus important de consid\'erer les situations que les actions.} Pour
+{\bf r\'ediger} le programme,
+il faut d'abord proposer une situation g\'en\'erale.
+
+\setbox0=\hbox{\begin{minipage}{7cm}
+{\small
+\begin{verbatim}01 void main()
+02     {
+03     int x, n, a, i = 0, t ;
+04     scanf("%d", &x) ; scanf ("%d, &n) ;
+05     a = 1 ;
+06     while (i < n)
+07     {
+07bis     /* a == x^i et i < n */
+08        a = a * x ;
+09        i = i + 1 ;
+10
+11      } 
+11bis   /* a == x^i et i == n */
+12      printf("%d\n", a) ;
+13      }
+\end{verbatim} }
+\end{minipage} }
+
+\begin{multicols}{2}
+Supposons que l'on ait fait une partie du travail, 
+et calcul\'e $ a = x^{i} $ pour $ i \leq n$. 
+
+{\tt
+(7bis)   /* on a calcul\'e $a = x^{i}$  et $i \leq n$ */
+}
+
+Si $ i = n $, c'est fini ; 
+si non, il faut se rapprocher de la solution en faisant cro\^\i tre $ i$ 
+{\tt
+(8-9)  $a =  a \times x$ ; $i = i + 1$ ; {\bf boucler en}(6)
+}
+
+Il reste \`a voir le d\'emarrage, c'est \`a dire trouver des valeurs de $ a$ et $ i$
+telles que l'assertion soit v\'erifi\'ee pour tout $ n$ positif ou nul. Il faut
+prendre $ i = 0 $ et donc $ a = x^{0} = 1 $. D'o\`u le nouveau programme correct, cette fois.
+
+\vspace{2mm}
+
+\begin{flushright} \fbox{\box0} \end{flushright}
+\end{multicols}}

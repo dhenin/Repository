@@ -1,0 +1,120 @@
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Le pgcd d'Euclide}
+\addcontentsline{lof}{section}{Fonction r\'ecursive du pgcd}
+\addcontentsline{lof}{section}{Boucle de calcul du pgcd}
+\markboth{Pgcd d'Euclide}{Pgcd d'Euclide}
+\centerline{\Large\bf Le pgcd d'Euclide}
+\index{pgcd}
+\index{Euclide}
+\index{plus grand diviseur}
+\index{grand diviseur (plus)}
+\index{diviseur (plus grand)}
+\index{preuve (de l'algorithme)}
+\index{modulo}
+\label{Pgcd}
+
+ 
+ \noindent\hrulefill  
+\def\mod{mod }
+\def\pgcd{{\sc{pgcd}}}
+
+Euclide (300 av. {\sc j.-c.}) a donn\'e un algorithme pour trouver
+le \pgcd\footnote{Que nous avons utilis\'e page \pageref{Composition}.} de 2
+{\bf nombres entiers positifs} :
+
+\setbox0=\hbox{\begin{minipage}[t]{8.5cm}{\begin{verbatim}  
+PGCD (a, b)
+    if (b == 0) return (a) ;
+    else        return (PGCD(b, a % b)) ;
+\end{verbatim}}\end{minipage}}
+
+\setbox0=\vtop{\entoure{\box0}}
+
+\setbox1=\hbox{ \begin{minipage}[t]{1.8cm}
+{ \begin{center} ou son\\
+\'equivalent\\
+sous forme\\
+d'une\\boucle
+\end{center} } \end{minipage}}
+
+\setbox1=\vtop{\box1}
+
+\setbox2=\hbox{\begin{minipage}[t]{4.5cm}{\begin{verbatim}  
+
+1 PGCD (a, b)
+2     while (b != 0)
+      {
+3         t = a ;
+4         a = b ;
+5         b = t % b ;
+      }
+6 return a ;
+\end{verbatim}}\end{minipage}}
+
+\setbox2=\vtop{\entoure{\box2}}
+
+\vspace{.3 cm}
+\centerline{$\vcenter{\box0}$\hfil$\vcenter{\box1}$\hfil$\vcenter{\box2}$}
+
+\subsection*{Preuve math\'ematique}
+
+\begin{enumerate} 
+\roman{enumi}
+\item Si $d=$ \pgcd$(a, b)$ alors $d$ divise $a$ et $b$
+\item $(a$ \% $b)=a-q.b$ ($q =$ reste de la division de $a$ par $b$)\\
+  $\longrightarrow (a$ \% $b)$ est une combinaison lin\'eaire de $a$ et $b$\\
+  comme $d$ divise $b$ et $a$, et que $(a$ \% $b)$ est une combinaison
+  lin\'eaire de $a$ et $b$\\
+  alors $d$ divise $(a$ \% $b)$\\
+  cela permet de dire que $d$ divise \pgcd$(b, a$ \% $b)$
+
+  Cela implique que :
+  \begin{quote}  
+     $d$ qui est \pgcd$(a, b)$ divise \pgcd$(b, a$ \% $b)$\\
+	 donc, \pgcd$(a, b)$ divise \pgcd$(b, a$ \% $b)$
+  \end{quote}  
+  idem pour \pgcd$(b, a$ \% $b)$ divise \pgcd$(a, b)$
+
+  donc : \pgcd$(a, b) = $\pgcd$(b, a$ \% $b)$
+\end{enumerate} 
+\subsection*{Preuve de l'algorithme}
+
+\paragraph{Trace de l'algorithme pour 30 et 21}
+
+\begin{quote}  
+\begin{tabular}{rrrrrrrrl}
+Lignes &  1 &  3 & 4-5 &  3 & 4-5 & 3 & 4-5 & \\
+     a & 30 & 30 & 21  & 21 &  9  & 9 & {\bf 3} & $\longleftarrow$ \pgcd  \\
+     b & 21 & 21 &  9  &  9 &  3  & 3 & 0  & $\longleftarrow$ condition d'arr\^et\\
+     t & -- & 30 & 30  & 21 & 21  & 9 & 9  &  \\
+\end{tabular} 
+\end{quote}  
+
+$b$ ne peut jamais devenir n\'egatif et il est toujours diminu\'e de la valeur
+$(a$ \% $b)$ qui est $< b$.
+
+{ \setlength {\parindent} {0 cm}
+Modulo est une fonction qui 
+
+%\vspace*{-.6 cm}
+
+\begin{itemize} 
+\setlength {\itemsep}{0 cm}
+\item ram\`ene toujours une valeur inf\'erieure d'au moins 1
+      par rapport \`a l'op\'erande droit.\\Ex : $3$ \% $2 = 1$, $1 < 2$,
+
+\item poss\`ede aussi comme caract\'eristique de donner $0$ si $b$ vaut $1$,
+      car $\forall x, x/1 = x$, donc $(x$ \% $1) = 0$,
+
+\item renvoie $a$, si $a < b$.
+
+\end{itemize} 
+}
+
+Donc, $b$ diminue de un moins 1 \`a chaque appel, et \`a la fin il doit valoir 0,
+donc la condition de sortie de la fonction arrivera {\bf toujours}, quelles
+que soient les valeurs $a$ et $b$ donn\'ees en entr\'ees enti\`eres positives. Cette
+premi\`ere validation est extr\^emement importante, il est fondamental qu'un
+programme r\'ecursif, une boucle, ait une condition d'arr\^et.
+
+

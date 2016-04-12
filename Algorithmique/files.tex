@@ -1,0 +1,159 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Les files}
+\markboth{Files}{Files}
+\centerline{\Large\bf Les files}
+\index{file}
+ 
+\noindent\hrulefill  
+\begin{multicols}{2}
+\addcontentsline{lof}{section}{Implantation d'une file dans un tableau.}
+\addcontentsline{lof}{section}{Fonctionnement d'une file circulaire dans un tableau.}
+\label{File}
+  
+  Peut-\^etre plus encore que les piles, les files d'attente (ou simplement
+  files) font partie de notre vie courante~; du moins en sommes-nous plus
+  conscients, puisqu'il nous arrive quotidiennement de faire la queue
+  devant un guichet.
+  
+  Une file est un TDA form\'e d'un nombre variable, \'eventuellement nul, de
+  donn\'ees, sur lequel on peut effectuer les op\'erations suivantes~:
+  \begin{itemize}
+      
+      \item ajout d'une nouvelle donn\'ee ; 
+      
+      \item test d\'eterminant si la file est vide ou non ; 
+      
+      \item consultation de la premi\`ere donn\'ee ajout\'ee et non supprim\'ee
+            depuis (donc la plus ancienne) s'il y en a une ; 
+      
+      \item suppression de la donn\'ee la plus ancienne.
+      
+  \end{itemize}
+  
+  Cette conception s'accorde bien avec la conception intuitive que l'on a
+  d'une file d'attente.
+  
+  Les files d'attente ont une grande importance en informatique~; elles
+  s'appliquent \`a deux types de probl\`emes~:
+  
+  \begin{itemize}
+      
+      \item la simulation de files r\'eelles ; les techniques modernes de
+            communication (terminaux reli\'es \`a un ou plusieurs centres de
+            communication).  Il est devenu courant d'\'ecrire des programmes qui
+            \'etudient les comportements de r\'eseaux.
+      
+      \item la r\'esolution de probl\`emes purement informatiques, en
+	    particulier dans le domaine des syst\`emes d'exploitation.
+
+  \end{itemize}
+
+\setcounter{section}{0}
+\stepcounter{section}
+\section*{Analyse fonctionnelle~:}
+
+  La file est constitu\'ee
+  \begin{itemize}
+      \item d'une suite d'\'el\'ements ordonn\'es $a_{1}, a_{2}, \ldots,
+             a_{n}$, d\'esign\'ee ici par $F$, \'eventuellement vide.
+
+      \item des primitives suivantes~:
+      \begin{description}
+
+	  \item{\tt \bf creer(F)} Cette fonction cr\'ee une file de nom F
+	     et retourne la valeur {\tt vrai} si l'op\'eration a pu
+	     s'effectuer sans probl\`eme, sinon elle retourne {\tt faux}.
+
+	  \item{\tt \bf filevide(F)} Cette fonction teste la vacuit\'e de
+	     la file F et retourne {\tt vrai} si la file est vide {\tt
+	     faux} sinon.
+
+	  \item{\tt \bf enfiler(x, F)} Cette fonction ajoute un \'el\'ement
+	     en queue de file, renvoie {\tt faux} s'il l'\'el\'ement n'a pas
+	     pu \^etre introduit, {\tt vrai} sinon.
+
+	  \item{\tt \bf defiler(F)} Cette primitive retire l'\'el\'ement de
+	     t\^ete de la file.
+
+	  \item{\tt \bf premier(F)} Cette fonction renvoie la valeur de
+	     l'\'el\'ement en t\^ete de file, si la pile n'est pas vide, sinon
+	     retourne un code d'erreur.
+	\end{description}
+    \end{itemize}
+
+  \subsection{Description logique et fonctionnement}
+
+  Implémentée dans un tableau, la file ne peut avoir qu'une taille
+  maximale \'egale \`a la dimension du
+  tableau, et peut \^etre sch\'ematis\'ee selon la figure \ref{file_tab}
+
+
+  Notez que le fait de choisir les indices {\tt TETE} et {\tt QUEUE}
+  comme nous l'avons fait, avec {\tt TETE} d\'esignant la position pass\'ee
+  de la t\^ete de la file, n'influe pas sur le probl\`eme.  Cette convention
+  facilite uniquement l'\'ecriture des fonctions {\tt vide} et {\tt
+  enfiler}.
+
+      \begin{figurette}
+      \input{Figures/file_tab}
+\medskip
+\centerline{{\sc Fig.} {\thesection}.1 -- {\it Une file dans un tableau}}
+\addcontentsline{lof}{section}{Concrètisation d'une file dans un tableau}
+      \label{file_tab}
+      \end{figurette}
+
+  Un probl\`eme se pose~:  m\^eme si la taille de la file reste constamment
+  en dessous du maximum permis $n$, la file ``monte'' inexorablement,
+  puisque les d\'efilages s'effectuent par le bas et les enfilages par le
+  haut.  Si l'on n'y prend garde, la file d\'ebordera du tableau au bout
+  de $n$ op\'erations {\tt enfiler}.
+
+      \begin{figurette}
+      \input{Figures/file_tab2} 
+\medskip
+\centerline{{\sc Fig.} {\thesection}.2 -- {\it Une file circulaire dans un tableau}}
+\addcontentsline{lof}{section}{Fonctionnement d'une file circulaire dans un tableau}
+      \label{file_tab2}
+      \end{figurette}
+
+  Plusieurs solutions sont possibles~: 
+  \begin{enumerate}
+    
+    \item \`a chaque d\'efilage, r\'ecup\'erer l'espace lib\'er\'e en bas du tableau
+      en ``redescendant'' toute la file d'un cran.  C'est la solution simple
+      \`a mettre en oeuvre, mais co\^uteuse sur les grandes files.
+    
+    \item laisser la file monter tant qu'il reste de la place pour
+      effectuer les enfilages~; quand il n'y a plus de place et que l'on
+      veut op\'erer un enfilage, on r\'ecup\`ere d'un seul coup la place lib\'er\'ee
+      par les d\'efilages en ``redescendant'' la file de toute la hauteur
+      possible.  Cette solution est plus \'economique que la pr\'ec\'edente, mais
+      exige encore des transferts d'informations inutiles.
+    
+    \item quand la queue atteint le haut du tableau, effectuer les
+      enfilages suivants \`a partir du bas du tableau, qui prend l'aspect de
+      la figure \ref{file_tab2}
+    \end{enumerate}
+
+  L'int\'er\^et de cette m\'ethode est qu'elle ne n\'ecessite aucun d\'ecalage.
+  On parle d'une repr\'esentation par file circulaire, on peut repr\'esenter
+  chacune des deux figures pr\'ec\'edentes par un anneau.
+
+  La programmation de cette solution pr\'esente un pi\`ege~:  le test
+  d\'eterminant si la file est vide s'\'ecrit maintenant {\tt TETE = QUEUE}
+  si la file \`a $n$ \'el\'ements.  Pour pouvoir distinguer entre ces deux cas
+  (file vide et file pleine), on imposera \`a la file la capacit\'e maximale
+  $n-1$ (et non $n$).  Dans ces conditions {\tt |TETE-QUEUE|$\geq$1} si
+  la file n'est pas vide. 
+
+\vspace{.5cm}
+
+\stepcounter{section}
+\section*{Une file g\'en\'erique}
+
+Il est ais\'e de former le type de donn\'ees abstrait d'une file au moyen du code
+du type de la liste. Seul le fichier {\tt File.tda} doit \^etre \'ecrit sur le
+mod\`ele de {\tt Liste.tda} ou {\tt Pile.tda}.
+
+\vspace{3cm}
+{\footnotesize \listing{Prog/Objet/File.tda}}
+\end{multicols}

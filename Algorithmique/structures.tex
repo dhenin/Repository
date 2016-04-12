@@ -1,0 +1,145 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Les structures}
+\markboth{Les structures}{Les structures}
+\centerline{\Large\bf Les structures}
+\index{Les structures}
+\label{Structures}
+\label{structures}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+
+\setcounter{section}{0}
+\stepcounter{section}
+\section*{Rappels}
+
+\begin{itemize} 
+\item Un tableau est un agr\'egat d'\'el\'ements de m\^eme type ; une {\tt struct} est un
+agr\'egat\footnote{Mammeri M. {\it programmation} {\sc ecole centrale de paris}
+{\tiny 1997-1998} p. 112}
+d'\'el\'ements de type (presque) arbitraire. Par exemple :
+
+{\small
+\begin{verbatim}  
+struct client
+{
+    char * nom       ;
+    int    telephone ;
+    float  solde     ;
+} ;
+\end{verbatim} }
+
+\item Les types de donn\'ees abstraits font un grand usage de structures et notamment
+de la structure {\sc maillon}\footnote{{\it ibid}. p. 88}.
+
+\item Diff\'erentes m\'ethodes sont utilis\'ees pour renseigner les \'el\'ements
+d'une structure  :
+
+{\small
+\begin{verbatim}  
+/* Designee par un nom */
+struct client   lambda  ;
+/* Designee par une adresse */
+struct client * plambda ;
+ 
+/* Un nom, donc un point */
+lambda.nom   = "Tournesol" ;
+/* Une adresse, donc une fleche */
+plambda->nom = "Hadock"    ;
+\end{verbatim} }
+
+Ou comme pour les tableaux, au moment de l'instanciation :
+
+{\small
+\begin{verbatim}  
+struct client lambda =
+    {"Milou", 1244, 5.0} ;
+\end{verbatim} }
+
+\item Les objets de type structure peuvent \^etre affect\'es, pass\'es en argument
+et renvoy\'es comme r\'esultat d'une fonction. Par exemple :
+
+{\small
+\begin{verbatim}  
+typedef struct client Client ;
+Client lambda ;
+
+Client Precedent (Client suivant)
+{
+    Client anterieur = lambda  ;
+		   lambda    = suivant ;
+		   return anterieur ;
+} 
+\end{verbatim} }
+
+\item La comparaison des structures n'est pas possible en langage C.
+
+\item La taille d'un objet de type structure n'est pas n\'ecessairement la somme
+de la taille de chacun de ses membres. En effet, de nombreuses machines
+exigent que les objets de certains types soient allou\'es sur des fronti\`eres
+d\'ependantes de l'architecture. Cette contrainte implique l'obligation
+d'utiliser {\tt sizeof} et de ne pas coder la taille de la structure {\it en
+dur}.
+
+\item Le nom d'un type devient utilisable imm\'ediatement apr\`es avoir \'et\'e
+rencontr\'e et non pas juste apr\`es la fin de la d\'eclaration. Par exemple :
+
+{\small
+\begin{verbatim}  
+struct MAILLON
+{
+    TypDon           donn ;
+    struct MAILLON * suiv ;
+} ;
+\end{verbatim} }
+
+Pour permettre \`a deux structures de se r\'ef\'erencer mutuellement, il est
+possible de leur donner pr\'ealablement un nom. Par exemple :
+
+{\small
+\begin{verbatim}  
+struct un ; /* Definie ulterieurement */
+
+struct deux
+{
+    struct un   * p ;
+    struct deux * q ;
+} ;
+
+struct un 
+{
+    struct deux * r ;
+} ;
+\end{verbatim} }
+
+Sans la premi\`ere d\'eclaration de {\tt struct un}, la d\'eclaration de {\tt deux}
+aurait provoqu\'e une erreur de syntaxe.
+
+\item Deux types de structures sont diff\'erentes m\^eme si elles
+ont les m\^emes membres. Par exemple :
+
+{\small
+\begin{verbatim}  
+struct s1 { int a ; } ;
+struct s2 { int a ; } ;
+
+struct s1 x ;
+struct s2 y = x ; /* erreur */
+\end{verbatim} }
+
+%Il existe cependant un m\'ecanisme pour d\'eclarer un nouveau nom sans introduire
+%de nouveau type. Une d\'eclaration pr\'efix\'e du mot-cl\'e {\tt typedef} ne d\'eclare
+%pas une nouvelle variable du type indiqu\'e, mais un nouveau nom pour le type.
+%Par exemple :
+%
+%{\small \begin{verbatim}  
+%typedef char * Pchar ;
+%
+%Pchar p1, p2 ;
+%cahr * p3 = p1 ;
+%\end{verbatim} }
+\end{itemize}
+
+
+\newpage
+~
+\end{multicols}

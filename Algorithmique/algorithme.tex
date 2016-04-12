@@ -1,0 +1,239 @@
+\centerline{\Large\bf Algorithme} 
+\addcontentsline{toc}{chapter}{\thechapter ~ Algorithme}
+\addtocounter{section}{1}
+%\addcontentsline{toc}{section}{\thesection ~~ D\'efinitions}
+\addcontentsline{toc}{section}{D\'efinitions}
+\markboth {Algorithme} {Algorithme}
+\label{Algo}
+\index{algorithme}
+\index{Baruk@Baruk, Stella}
+
+\noindent\hrulefill
+
+%\vspace{.5cm}
+
+{\Large \bf Algorithme\footnote{{\it Dictionnaire de math\'ematiques
+\'el\'ementaires} Stella Baruk, {\sc Seuil}, p. 77}} \label{Algorithme}
+
+{\bf n. m., XIII$^{e}$s., voir $\S$ III.}
+
+
+\renewcommand{\theenumi}{\Roman{enumi}}
+\begin{enumerate} 
+\item \begin{enumerate} \item {\bf Un algorithme est une succession de 
+       man{\oe}uvres \`a accomplir toujours dans le m\^eme ordre et de la m\^eme 
+	   fa\c con, man{\oe}uvres qui sont en nombre fini et s'appliquent \`a un
+	   nombre fini de donn\'ees.}
+
+	   Par exemple, on conna\^\i t depuis l'enfance des algorithmes de calcul, 
+	   ceux qui permettent de trouver ce que vaut la somme, le produit, la
+	   diff\'erence ou le quotient de deux nombres quand ils s'\'ecrivent avec
+	   plus d'un chiffre. Il ne s'agit pas d'autre chose quand on entend dire
+	   << je ne sais plus faire une division >>, par exemple celle de 793 par
+	   32 ; en fait, c'est l'algorithme de calcul du quotient qu'on n'a plus en
+	   m\'emoire, c'est-\`a-dire le << j'ai deux chiffres au diviseur, j'en prends
+	   deux au dividende, je dis en 79 combien de fois 32 ou en 7 combien de
+	   fois 3, il y va deux fois, etc >>
+
+	   \item Les livres donnent volontiers comme exemples d'algorithmes ceux
+	   qui consistent \`a trouver le nouveau  prix d'un objet s'il y a au moment
+	   de l'achat une baisse ou une hausse de, mettons, 10~\% ; si le prix
+	   initial est $x$, la hausse ou la baisse est les $10/100$ de $x$, soit
+	   $0,1x$ ; le nouveau prix est donc :
+
+	   \begin{itemize} 
+  
+	   \item en cas de baisse : $x - 0,1x = 0,9x$,
+
+	   \item en cas de hausse : $x + 0,1x = 1,1x$.
+
+	   \end{itemize} 
+
+	   \item Un algorithme est g\'en\'eralement r\'ep\'etitif ; c'est le cas si on
+	   place une somme d'argent \`a la banque \`a un taux de 4~\% ; au bout d'une
+	   ann\'ee, elle devient les 104/100 de ce qu'elle \'etait, au bout de deux
+	   ann\'ees les 104/100 des 104/100 de ce qu'elle \'etait, etc.
+
+	   En d\'esignant cette somme par S, on a donc, au bout de $n$ ann\'ees, une
+	   somme :
+
+	   %\centerline{$S_{n} = \underbrace{(104/100)(104/100) \ldots
+	   %(104/100)}_{{\it n} {\rm fois}}S = 1,04^{n}S$}
+	   \[S_{n} = \underbrace{(104/100)(104/100) \ldots
+	   (104/100)}_{{\it n} {\rm fois}}S = 1,04^{n}S\]
+
+      \end{enumerate} 
+
+\item On d\'esigne par algorithme un proc\'ed\'e automatique que l'on peut confier \`a
+      un ordinateur et qu'il r\'ep\'etera autant de fois qu'il le faudra pour
+	  arriver au r\'esultat. Imaginons qu'on l'ait programm\'e pour la suite
+	  d'op\'erations suivantes : \`a partir d'un entier naturel $n$ quelconque, si
+	  $n$ est pair le diviser par 2 ; s'il est impair, prendre son triple et
+	  ajouter 1, c'est-\`a-dire fabriquer $3n+1$ ; dans chaque cas, recommencer
+	  avec le nouveau nombre obtenu. Essayons avec quelques nombres :
+
+	  \begin{tabular}{rrrrrrrrrrrrr}
+	  \multicolumn{13}{l}{\footnotesize \bf Nombre}\\
+	  \multicolumn{13}{l}{\footnotesize \bf de d\'epart}\\
+	  16 & 8 & 4 & 2 & 1 \\
+	  17 & 52 & 26 & 13 & 40 & 20 & 10 & 5 & 16 & 8 & 4 & 2 & 1 \\
+	  18 & 9 & 28 & 14 & 7 & 22 & 11 & 34 & 17 & \multicolumn{4}{l}{\ldots} \\
+	  19 & 58 & 29 & 88 & 44 & 22 & 11 & 34 & 17 & \multicolumn{4}{l}{\ldots} \\
+	  \end{tabular} 
+
+	  Il est clair qu'en arrivant \`a 1, le processus va 'se boucler' sur
+	  lui-m\^eme, puisqu'on aura la suite 1, 4, 2, 1, 4, 2, 1, etc. On voit que
+	  c'est ce qui se produit pour 16 et 17 ; or, pour 18 et 19, on retombe
+	  sur 17, donc on arrivera aussi \`a 1.
+
+	  La {\bf conjecture} qui s'\'etablit \`a partir de plusieurs tentatives
+	  qui, toutes, am\`enent \`a 1 est que, quel que soit le nombre de d\'epart et
+	  le nombre d'\'etapes, cet algorithme produira toujours 1 ; mais elle
+	  n'est, malgr\'e son apparente simplicit\'e, toujours pas d\'emontr\'ee
+	  aujourd'hui. Ce 'beau' probl\`eme s'appelle "le probl\`eme de Collatz", du
+	  nom du professeur de Hambourg qui l'a lanc\'e [G$_{17}$].
+\index{Collatz}
+
+\item {\it Algorithme} s'est d'abord dit {\it algorisme}, du bas latin {\it
+	algorismus}, d\'eformation d'apr\`es le mot grec {\it arithmos}, "nombre", du
+	nom propre Al-Khwarizmi.
+
+\end{enumerate} 
+\renewcommand{\theenumi}{\arabic{enumi}}
+\newpage
+
+%----------------------------------------------------------------------
+\setcounter{footnote}{0}
+\addtocounter{section}{1}
+%\addcontentsline{toc}{section}{\thesection ~~ Sept \'epatant}
+\addcontentsline{toc}{section}{Sept \'epatant}
+
+{
+{\Large \bf Sept \'epatant}\footnote{A. Thuizat, in {\sc Le petit Archim\`ede} N$^{o}$ 3, Association
+pour le d\'eveloppement de la culture scientifique.}
+
+\noindent\hrulefill
+
+Le v\'eritable probl\`eme fut pos\'e quand le p\`ere Mathieu revint de la foire,
+poussant devant lui les vingt-huit moutons acquis le matin m\^eme. Jusqu'alors,
+les op\'erations s'\'etaient d\'eroul\'ees sans aucune difficult\'e.  Mais il fallait
+maintenant r\'epartir ces vingt-huit b\^etes dans les sept bergeries que
+comportait la ferme, et \c ca, croyez-en le p\`ere Mathieu, ce n'\'etait pas une
+mince affaire.
+
+-- Toine, dit-il \`a son fils a\^\i n\'e,
+tu vas me prendre ces vingt-huit b\^etes et me les
+installer dans nos sept bergeries. T'en mettras le m\^eme nombre dans chacune.
+
+-- Et \c ca en fait combien donc dans chaque ? Questionna le Toine.
+
+-- D\'ecid\'ement, Toine, t'es pas bien fut\'e. Apprends que, pour faire un partage,
+on pose une division. Tiens prends une feuille de papier, je vas te montrer.
+
+Et le p\`ere Mathieu expliqua au Toine les subtilit\'es de l'op\'eration :
+
+\begin{floatingtable}[r]{{\begin{tabular}{r|l}
+{\large  28} & {\large 7} \\
+\cline{2-2}
+{\large 21} & {\large 13} \\
+{\large 0}  & \\
+\end{tabular}}}\end{floatingtable}
+
+      -- Vingt-huit divis\'e par sept : en 8 combien de fois 7 ? Il
+	  y va une fois. Une fois sept fait 7 ; \^ot\'e de 8 il reste 1.
+	  J'abaisse le 2. En 21 combien de fois 7 ? Il y va 3 fois. 3
+	  fois 7 font 21 ; \^ot\'e de 21, il reste 0. Tu mettras donc 13
+	  moutons dans chaque bergerie.
+
+-- Bien, p\`ere, fit le Toine, convaincu par la science.
+
+Il partit incontinent, pour proc\'eder \`a la r\'epartition.
+Une heure plus tard,
+Mathieu le vit revenir tout piteux :
+
+-- J'y arrive pas, p\`ere. Il doit y avoir une erreur.
+
+-- \'Ecoute-moi bien, lui dit son p\`ere. Y a pas d'erreur possible. D'ailleurs
+pour te le prouver, on va proc\'eder autrement. Je t'ai dit 13 moutons dans
+chaque bergerie. Si on multiplie 13 par 7, on doit retrouver les 28 t\^etes.
+Allons-y :
+
+\begin{floatingtable}[r]{
+\begin{tabular}{rr}
+&{\large 13} \\
+$\times$& {\large  7}\\
+\hline
+ & {\large 21}\\
+ & {\large 7}\\
+\hline
+ & {\large 28}\\
+ & \\
+\multicolumn{2}{c}{\input{Figures/preuve.tex}} \\
+\end{tabular} }\end{floatingtable}
+     Treize multipli\'e par sept : 7 fois 3 font 21 ; et 7 fois 1
+     fait 7. Tu vois que 21 et 7, \c ca fait bien 28.
+
+ D'ailleurs, pour \^etre plus s\^ur, on va faire la preuve par neuf :
+
+ 3 et 1 font 4. Je pose 4 en haut et j'\'ecris 7 en dessous.
+ 7 fois 4 font 28. 8 et 2 font 10. J'\'ecris 1 \`a gauche.
+ Maintenant le r\'esultat : 8 et 2 font 10. J'\'ecris 1 \`a droite.
+ Tu vois bien que c'est juste. Allez, va-t-en me mettre treize
+ b\^etes dans chaque bergerie.
+
+ (Ici, normalement, Mathieu aurait d\^u s'inqui\'eter, puisque 7
+ fois 13, comme 7 fois 4 font \'egalement 28. Mais s'il fallait
+ encore s'attacher \`a tant de menus d\'etails, on n'avancerait
+ jamais. On continua donc).
+
+C'est un Toine effondr\'e qui revint une heure plus tard. 
+
+-- J'y arrive toujours pas. Y a s\^urement quelque chose qui ne va pas dans les
+comptes.
+
+-- Y a surtout qu't'es pas bien malin, fils, dit le p\`ere Mathieu. La division,
+la multiplication, c'est trop fort pour toi. L'addition, \c ca doit aller mieux.
+
+\begin{floatingtable}[r]{
+\begin{tabular}{c}
+13\\
+13\\
+13\\
+13\\
+13\\
+13\\
+13\\
+\cline{1-1}
+28\\
+\end{tabular} }\end{floatingtable}
+                J'\'ecris 13, sept fois de suite, et j'additionne : 3 et 3, 6 ;
+et 3, 9 ; et 3, 12 ; et 3, 15 ; et 3, 18 ; et 3, 21 ; et 1, 22 ;
+et 1,  23 ; 24 ; 25 ; 26 ; 27 ; 28.\\
+			    Es-tu convaincu, cette fois ? Allez, va.\\
+	    Et le Toine repartit encore une fois, loger les maudites b\^etes.\\
+		    Et en fin de soir\'ee, il revint triomphant.\\
+		--  \c Ca y est, p\`ere, tous les moutons sont rentr\'es !\\
+			    -- Comment que t'as fait ?
+
+-- Je les ai fait rentrer un par un en faisant le tour des bergeries.
+Et pour \^etre tout \`a fait s\^ur, quand ils ont \'et\'e plac\'es, moi aussi,
+j'ai fait mes comptes : j'ai compt\'e les pattes ; j'ai trouv\'e 16 pattes dans
+chaque bergerie.
+
+\begin{floatingtable}[r]{
+\begin{tabular}{r|l}
+{\large 16} & {\large 4} \\
+\cline {2-2}
+{\large 12} & {\large 13}\\
+{\large 0}  & \\
+\end{tabular} }\end{floatingtable}
+
+-- Attends voir, dit le P\`ere Mathieu. Faut pas s'emballer. \'Etant donn\'e qu'un
+mouton a 4 pattes, si je divise 16 par 4, je saurai combien tu as mis de b\^etes
+dans chacune.
+
+	Et la nouvelle division fut pos\'ee : seize divis\'e par quatre :
+	en 6 combien de fois 4 ? Il y va une fois. Une fois 4 fait 4 ;
+	\^ot\'e de 6, il reste 2. J'abaisse mon 1. En 12 combien de fois 4 ?
+	Il y va 3 fois. 3 fois 4 font 12 ; \^ot\'e de 12, il reste 0.
+} 

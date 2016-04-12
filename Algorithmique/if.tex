@@ -1,0 +1,128 @@
+\markboth{Sch\'ema alternatif}{Sch\'ema alternatif}
+\label{If}
+\index{if}
+\index{then}
+\index{else}
+\index{sauter (un segment)}
+\index{segment (de programme)}
+\index{expression}
+\index{alternatif (sch\'ema)}
+\index{vraie (expression)}
+\index{fausse (expression)}
+\index{pr\'edicat}
+\index{fonction propositionnelle}
+\index{bool\'een}
+\index{valeur (bool\'eenne)}
+\index{propri\'et\'e (de l'alternative)}
+
+
+ 
+%\noindent\hrulefill  
+
+\section*{L'alternative}
+
+%\section{If\ldots then\ldots else}
+Gr\^ace \`a l'instruction  {\bf if } \ldots  {\bf else}, vous pouvez ex\'ecuter ou
+sauter un segment de programme. Cette instruction contient une
+expression  qui peut \^etre vraie ou fausse. Si elle est vraie
+(diff\'erente de z\'ero), le segment conditionnel est ex\'ecut\'e. Si elle est
+fausse (\'egale \`a z\'ero), le segment conditionnel est ignor\'e.
+
+Le segment conditionnel peut \^etre soit une seule instruction, soit
+une partie de programme comprenant un nombre quelconque d'instructions.
+
+
+\vspace{3mm}
+
+\begin{tabular}{ll}
+\begin{tabular}{ll}
+                          {\bf if}& {\bf (}condition{\bf )}  \\
+                           & {\bf \{} action(s) 1 {\bf \}}\\
+                             {\bf else} & \\
+                           & {\bf \{} action(s) 2 {\bf \}} \\
+\end{tabular} & \begin{minipage}{10 cm}
+La condition ou {\em pr\'edicat} est {\em une fonction
+   propositionnelle} dont le r\'esultat est bool\'een c'est-\`a-dire a 2
+   valeurs : vrai, faux.
+
+Il existe un sch\'ema conditionnel simplifi\'e qui omet le deuxi\`eme terme de
+l'alternative\footnote{il existe en langage C une abr\'eviation pour ce sch\'ema ; 
+par exemple le calcul du maximum de 2 nombres peut s'\'ecrire : max  = a $>$ b {\bf ?} a {\bf :}  b ;}.
+\end{minipage} \\
+\end{tabular} 
+
+Les actions internes 1 et 2 du sch\'ema conditionnel peuvent \^etre elles-m\^emes
+conditionnelles. On obtient alors des structures conditionnelles
+embo\^\i t\'ees\footnote{Page \pageref{Emboite}}. 
+
+
+\section*{Propri\'et\'e de l'alternative}
+
+
+La succession d'instructions poursuit un objectif : se rapprocher
+d'un r\'esultat pr\'evu. Avec la structure de contr\^ole {\bf if } \ldots  {\bf
+else}, il y a 2 chemins possibles pour se rapprocher du m\^eme objectif, 
+il y a 2 possibilit\'es de modifier les relations entre les variables.
+
+Supposons 
+
+\begin{itemize} 
+\item les relations $P$ et $C$ entre les variables, et qu'une action $A$ 
+conduise \`a une nouvelle relation $Q$,
+\item les relations $P$ et $\overline{C}$ entre les variables,
+et qu'une action $B$ conduise \`a la m\^eme relation $Q$.
+\end{itemize} 
+
+La propri\'et\'e de la structure de contr\^ole {\bf if } \ldots  {\bf else}, s'\'ecrit~:
+\begin{verbatim}  
+/* P */ if (C) A ; else B ; /* Q */
+\end{verbatim} 
+
+Exemple :
+
+\begin{tabular}{ll}
+{\tt \begin{tabular}{ll|}
+\multicolumn{2}{c}{\rm pour montrer que}\\
+\multicolumn{2}{c}{/* $x < y$ */}    \\
+\multicolumn{2}{l}{    if  ($x<-2$)}   \\
+              \{ &     $y = x^{2}$ ; \\
+	             &      $x = -x $ ;   \\
+             \} & \\
+	           else &   $y = x+ y + 3 $ ; \\
+\multicolumn{2}{c}{/* $y > x + 1 $ */} \\
+\end{tabular} } & \begin{minipage}{11 cm}
+il suffit, d'apr\`es les propri\'et\'es de l'alternative, de montrer s\'epar\'ement deux
+choses :
+{\tt
+\begin{enumerate}
+\item /* $x<y$ et $x<-2$ */ \hfil $y= x^{2}$ ; $ x= -x$ ; \hfil /* $y>x+1$ */
+\item /* $x<y$ et $x\geq -2$ */ \hfil $y = x+y+3$ ; \hfil /* $y>x+1$ */
+\end{enumerate}
+}
+\end{minipage} \\
+& \\
+\end{tabular} 
+
+Pour montrer la premi\`ere partie, il faut appliquer les r\`egles de l'affectation
+et de l'encha\^\i nement. Raisonnant de {\em droite \`a gauche}, nous sommes ramen\'es
+\`a montrer (application des r\`egles de l'affectation \`a $x = -x$ et $P =$
+{\tt  /* $y > x+1$ */)} que :
+ 
+ {\tt /* $x<y$ et $x<-2$ */~~~~$y = x^{2}$ ; ~~~~/* $y>-x+1$ */ }
+
+ ce qui est vrai\footnote{ Pour \'eviter le calcul du discriminant
+ voici une d\'emonstration simple :
+$  x < -2  \mbox{    }\rightarrow \mbox{    }  0 > x + 2  $\\ 
+ $  x^{2} > -2x $ 
+ par addition :
+ $  x^{2}  > -2x +x +2 $ 
+ et donc $ x^{2} > -x + 2 > -x + 1 $} puisque $x < -2 \Rightarrow x^{2}>-x+1$
+
+ Pour montrer la deuxi\`eme partie, il suffit de montrer que (substitution de
+ $x+y+3$ pour $y$ dans {\tt /*~$y>x+1$~*/)}~:
+ 
+ {\tt /* $x<y$ et $x \geq -2$ */  $\Rightarrow $ /* $ x+y+3 > x+1$ */ }
+ 
+ ce qui est vrai puisque :
+ 
+ {\tt /* $x<y$ et $ x \geq -2$ */ $\Rightarrow $ /* $y>-2$ */ }

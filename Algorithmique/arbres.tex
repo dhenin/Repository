@@ -1,0 +1,357 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Les arbres}
+\addcontentsline{toc}{section}{Le parcours des arbres}
+\markboth{Arbres}{Arbres}
+\label{Parcours}
+\label{Arbre}
+\centerline{\Large\bf Le type de donn\'ees arbres : parcours pr\'efix\'e, postfix\'e
+et infix\'e }
+\index{arbre}
+\index{n\oe ud}
+\index{racine (d'un arbre)}
+\index{sous-arbre}
+\index{parcours (d'arbre)}
+\index{pr\'efix\'e (parcours)}
+\index{postfix\'e (parcours)}
+\index{infix\'e (parcours)}
+\index{p\`ere (n\oe ud)}
+\index{fils (n\oe ud}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+
+
+
+\stepcounter{section}
+\section*{D\'efinition}
+
+
+Un {\em arbre} est une structure qui est~:
+
+\begin{itemize} 
+       \item soit vide\footnote{que nous noterons $\Lambda$.
+              Concr\`etement, $\Lambda$ pourra \^etre 0, -1 ou tout
+               autre valeur significative dans un contexte particulier.},
+
+       \item soit compos\'ee d'un {\em n\oe ud}
+              cha\^\i n\'e \`a z\'ero un ou plusieurs sous-arbres
+             ordonn\'es de gauche \`a droite.
+\end{itemize} 
+
+Un sous-arbre est donc un n\oe ud,\\
+la {\em racine} est le n\oe ud qui {\bf n'est pas} un sous-arbre,\\
+une {\em feuille} est un n\oe ud qui {\bf n'a pas} de sous-arbre.
+
+%\bigskip 
+
+\begin{figurette}
+\begin{center}
+\begin{bundle}{Livre}
+\setlength{\GapDepth}{1cm}
+\setlength{\GapWidth}{3mm}
+\drawwith{\dottedline{3}}
+\drawwith{\drawwith{\drawline}\dottedline{3}}
+\chunk{\begin{bundle}{Chapitre 1}
+               \chunk{$\S$ 1.1}
+               \chunk{$\S$ 1.2}
+               \end{bundle}}
+\chunk{\begin{bundle}{Chapitre 2}
+               \chunk{\begin{bundle}{$\S$ 2.1}
+					  \chunk{$\S$ 2.1.1}
+					  \chunk{$\S$ 2.1.2}
+					  \end{bundle}}
+               \chunk{$\S$ ...}
+%               \chunk{$\S$ 2.3}
+               \end{bundle}}
+\chunk[]{Chapitre 3}
+\end{bundle}
+
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it Une table des mati\`eres est un arbre}}
+\addcontentsline{lof}{section}{Une table des mati\`eres est un arbre}
+\label{livre}
+\end{center}
+\end{figurette}
+
+\bigskip 
+
+
+\label{Expression}
+
+\markboth{Arbres}{Arbres}
+
+\stepcounter{section}
+\section*{\'Etiquettes et expressions}
+
+
+L'arbre {\em \'etiquet\'e} de la figure \ref{arbreA}
+repr\'esente l'expression arithm\'etique $(a+b)*(a+c)$. Les noms attribu\'es
+aux n\oe uds sont $n_{1}, n_{2}, \ldots, n_{7}$ et les \'etiquettes
+apparaissent, comme c'est l'usage, \`a c\^ot\'e des n\oe uds. Les r\`egles
+impos\'ees \`a un arbre pour qu'il repr\'esente une expression sont les
+suivantes~:
+
+\begin{enumerate}
+\item Chaque feuille est \'etiquet\'ee par un op\'erande et est constitu\'ee de cet
+  op\'erande uniquement. Ainsi la feuille $n_{4}$ repr\'esente l'expression $a$.
+
+\item Chaque n\oe ud interne $n$ est \'etiquet\'e par un op\'erateur. Si $n$
+  est \'etiquet\'e par un op\'erateur binaire $\theta$, comme $+$ ou $*$, si son
+  fils gauche repr\'esente l'expression $E_{1}$ et son fils droit
+  l'expression $E_{2}$, alors $n$ repr\'esente l'expression ($E_{1}$)$
+  \theta$($E_{2}$). Les parenth\`eses peuvent \^etre retir\'ees si aucune
+  ambigu\"\i t\'e n'est \`a craindre.
+\end{enumerate}
+
+Par exemple, l'op\'erateur + est associ\'e au n\oe ud $n_{2}$ et ses fils
+gauche et droit repr\'esentent $a$ et $b$ respectivement. Ainsi $n_{2}$
+repr\'esente ($a$) + ($b$), ou simplement $a + b$. Le n\oe ud $n_{1}$
+repr\'esente $(a + b)*(a + c)$, puisque $*$ est l'\'etiquette associ\'ee \`a
+$n_{1}$ et puisque $a + b$ et $a + c$ sont les expressions
+repr\'esent\'ees par $n_{2}$ et $n_{3}$ respectivement.
+
+
+\stepcounter{section}
+\section*{Parcours d'arbres}
+
+
+Il existe plusieurs moyens de parcourir les n\oe uds d'un arbre. Les
+trois parcours les plus importants sont les parcours {\em pr\'efix\'e}, 
+{\em postfix\'e} et {\em infix\'e}~; ces parcours peuvent \^etre d\'efinis
+r\'ecursivement.
+
+
+Il existe un moyen pratique pour simuler les trois parcours
+d'arbre~: imaginons que l'on parcourt l'arbre depuis sa racine, dans
+le sens contraire \`a celui des aiguilles d'une montre, en en restant
+toujours le plus pr\`es possible.
+
+%\vspace*{-.5cm}
+%\begin{figurette} \begin{center}
+%%\setlength{\GapDepth}{.3cm}
+%\setlength{\GapWidth}{8mm}
+%%\drawwith{\dottedline{3}}
+%%\drawwith{\drawwith{\drawline}\dottedline{3}}
+%\begin{bundle}{* ~ $(n_{1})$}
+%\chunk{\begin{bundle}{+ ~ $(n_{2})$}
+%					  \chunk{a ~ $(n_4)$}
+%					  \chunk{b ~ $(n_5)$}
+%					  \end{bundle}}
+%\chunk{\begin{bundle}{+ ~ $(n_{3})$}
+%					  \chunk{a ~ $(n_6)$}
+%					  \chunk{c ~ $(n_7)$}
+%					  \end{bundle}}
+%\end{bundle}
+%\label{arbreA}
+%\end{center}
+%\end{figurette}
+%\vspace*{-.5cm}
+%
+
+\bigskip 
+
+\begin{figurette}
+\begin{psmatrix}
+  \[
+      \def\arraystretch{2}
+      \arraycolsep 0mm
+      \begin{array}{rrrclll}
+& & & \rnode{m}{* \; (n_{1})} & & &  \\
+ &  \rnode{p}{+ ~ (n_{2})} & & & & \rnode{q}{+ ~ (n_{3})} & \\
+ \rnode{a}{a ~ (n_{4})} & & \rnode{b}{b ~ (n_{5})} & & 
+ \rnode{A}{a ~ (n_{6})} & & \rnode{c}{c ~ (n_{7})} \\
+      \end{array}
+    \psset{arrows=->,nodesep=3pt}
+    \pslabelsep 3pt
+    \everypsbox{\scriptstyle}
+    \ncLine{m}{p}
+    \ncLine{m}{q}
+    \ncLine{p}{a}
+    \ncLine{p}{b}
+    \ncLine{q}{A}
+    \ncLine{q}{c}
+    \psset{linestyle=dotted,nodesep=3pt}
+    \psset{arrows=>-}
+    \ncarc[arcangle= -90]{m}{p}
+    \psset{arrows=-}
+    \ncarc[arcangle= -90]{p}{a}
+    \ncarc[arcangle=  15]{a}{b}
+    \ncarc[arcangle=  90]{b}{A}
+    \ncarc[arcangle=  15]{A}{c}
+    \ncarc[arcangle= -90]{c}{q}
+    \psset{arrows=->}
+    \ncarc[arcangle= -90]{q}{m}
+  \] 
+\end{psmatrix}
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it L'arbre d'une expression}}
+\addcontentsline{lof}{section}{L'arbre d'une expression}
+\label{arbreA}
+\end{figurette}
+
+\bigskip
+
+   Dans un parcours pr\'efix\'e, on ne consid\`ere que le premier passage
+par un n\oe ud donn\'e ($*+ab+ac$)~; dans un parcours postfix\'e,
+on ne prend en compte
+que le dernier passage par un n\oe ud, lors de la remont\'ee vers son
+p\`ere ($ab+ac+*$).
+Pour un parcours infix\'e, on liste une feuille la premi\`ere fois
+qu'on la rencontre, mais on ne liste un n\oe ud non terminal qu'\`a la
+deuxi\`eme rencontre ~: $(a+b) * (a+c)$.
+
+
+\end{multicols}
+
+\newpage
+\markboth{Arbres}{Arbres}
+\label{Répertoire (Parcours)}
+\centerline{\Large\bf Parcours d'une arborescence de répertoires}
+ 
+ \noindent\hrulefill  
+
+\begin{multicols}{2}
+\section*{Lister un répertoire}
+
+{\it \'Ecrire un programme {\tt shell} pour afficher les types (fichier 
+      ou r\'epertoire) de tous les fichiers du r\'epertoire courant.}
+
+Pour éclairer cette question rappelons-nous qu'un répertoire dans le
+système \unix\ n'est qu'un fichier contenant sur 2 colonnes une liste de
+nom de fichiers\footnote{Il n'y s donc pas inclusion des fichiers
+dans les répertoires comme on en a l'illusion. Les répertoires sont
+comparables à une table des matières ; les chapitres n'y sont pas inclus.}
+et le numéro de n\oe ud associé :
+
+\smallskip
+
+\begin{figurette}
+\centerline{\small \tt \begin{tabular}{r|lcr|lcr|l}
+\multicolumn{2}{c}{homedir} & & \multicolumn{2}{c}{dir1} & &
+\multicolumn{2}{c}{rep2} \\
+\cline{1-2} \cline{4-5} \cline{7-8}
+132 & .        & \hbox to .3cm {} & 172 & .  & \hbox to .3cm {} & 210 & .\\
+27  & ..       &                 & 132 & .. &                 & 172 & .. \\
+154 & file1    &                 & 201 & fichier1 &           & 240 & data \\
+159 & file2    &                 & 205 & fichier2 &           &     &  \\
+172 & dir1     &                 & 210 & rep2     &           &     &   \\
+198 & dir2     &                 &     &          &           &     &    \\
+\end{tabular} }
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it Exemple d'arborescence}}
+\addcontentsline{lof}{section}{Exemple d'arborescence}
+\label{Repertoires}
+\end{figurette}
+
+Dans l'exemple ci-dessus (fig. \ref{Repertoires}), remarquons que le répertoire
+{\tt dir1}  contient un nom de fichier désigné par {\tt .} (point)
+dont le numéro
+d'identification ({\tt 172}) est le même que le fichier {\tt dir1}
+du répertoire {\tt homedir}. Il en va de même pour le réperoire {\tt rep2}
+({\tt 210})\footnote{Vous pouvez obtenir des résultats semblables
+en utilisant la commande {\tt ls -i}.}.
+
+Remarquons aussi que le répertoire {\tt dir1} contient un nom de fichier 
+désigné par {\tt
+..} (point, point) dont le numéro ({\tt 132}) est identique à celui
+du répertoire parent {\tt homedir}. Respectivement, le nom de fichier {\tt ..}
+de {\tt rep2} ({\tt 172}) correspond au répertoire parent {\tt dir1}. 
+
+
+Ce travail nécessite 
+
+\begin{itemize} 
+
+\item une {\it boucle} pour effectuer la tâche de
+reconnaissance {\it pour chaque} fichier. 
+
+\item  une variable de boucle.
+
+\end{itemize} 
+
+\begin{tabular}{l}
+{\tt for FICHIER in *} \\
+{\tt do}  \\
+\hspace{.5cm}{\tt echo \$FICHIER}  \\
+{\tt done} \\
+\end{tabular} 
+
+On a réécrit {\tt ls} sans option.
+
+Pour déterminer le type de fichier, on utilise la commande {\tt test} ou son
+abrégée : les crochets.
+
+\begin{tabular}{lcl}
+{\tt if [ -d \$FICHIER ]} & \hbox to 1 cm {} & \\
+\hspace{.5cm}{\tt then echo "\$FICHIER repertoire"} & & \\
+\hspace{.5cm}{\tt else echo "\$FICHIER ordinaire"} & & \\
+{\tt fi} & & \\
+\end{tabular} 
+
+Remarques :
+
+\begin{itemize} 
+    \item $\ast$ est expansée par le shell\footnote{C'est à dire que le shell
+	remplace $\ast$ par la liste des fichiers du répertoire avant de lancer
+	l'exécution du programme.}.
+	Si le répertoire ne contient pas de fichier, $\ast$ n'est pas
+	expansée,
+	\item Les fichiers qui commencent par un point ne sont pas pris en compte 
+		  afin d'éviter leur destruction par un {\tt rm *}.
+\end{itemize} 
+
+D'où la version définitive :
+
+\begin{figurette}
+{\tt
+\$ cat prog \\
+\begin{tabular}{l}
+for FICHIER in `ls` \\
+do  \\
+\hspace{.5cm}if [ -d \$FICHIER ]  \\
+\hspace{1cm}then echo "\$FICHIER repertoire"  \\
+\hspace{1cm}else echo "\$FICHIER ordinaire"  \\
+\hspace{.5cm} fi  \\
+done  \\
+\end{tabular} }
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it Script-shell Types de fichiers}}
+\addcontentsline{lof}{section}{Script-shell Types de fichiers}
+\end{figurette}
+
+\section*{La récursivité : parcours d'une arborescence}
+
+{\it Adaptez le programme pr\'ec\'edent pour explorer toute une arborescence
+\`a partir d'un r\'epertoire pass\'e en param\`etre.}
+
+Le programme que l'on va construire maintenant, sera utilisé ainsi :
+
+\begin{tabular}{lcll}
+\$ $\underbrace{\text{\tt prog2}}$ & \hbox to .5cm {} &
+   $\underbrace{\text{\tt repertoire}}$ & \\
+commande & & argument & \\
+\multicolumn{1}{c}{\tt \$0} & & \multicolumn{1}{c}{\tt \$1} & \\
+\end{tabular}
+
+{\it Pour chaque}  répertoire  rencontré, on rapelle le programme
+et on poursuit l'exploration par récursivité ; il s'agit
+d'un parcours {\it préfixé}. 
+
+\begin{figurette}
+{\tt \begin{tabular}{ll}
+\$ cat prog2 & \\
+\# recuperation de l'argument & \\
+REP=\$1 & \\ 
+for FICHIER in \$REP/* & \\
+do & \\
+\hspace*{.5cm}if [ -d \$FICHIER ] & \\
+\hspace*{1cm}then echo "Repertoire : \$FICHIER" & \\
+\# fonctionne meme apres un mv & \\
+\hspace*{2cm}\$0 \$FICHIER & \\
+\hspace*{1cm}else echo "Fichier    : \$FICHIER" & \\
+\hspace*{.5cm}fi  & \\
+done & \\ \end{tabular} }
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it Script-shell Types de fichiers dans une arborescence}}
+\addcontentsline{lof}{section}{Script-shell Types de fichiers dans une arborescence}
+\end{figurette}
+\end{multicols}

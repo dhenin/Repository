@@ -1,0 +1,52 @@
+\markboth{Types de donn\'ees abstraits}{Types de donn\'ees abstraits}
+\centerline{\large\bf Les types de donn\'ees abstraits}
+ 
+\noindent\hrulefill  
+\begin{multicols}{2}
+
+\hspace*{3cm}
+
+
+Dans cette deuxi\`eme partie, nous allons \'etudier quelques structures de donn\'ees
+utilis\'ees de fa\c con intensive en informatique. Il s'agit de g\'erer des
+ensembles de donn\'ees dont le nombre n'est pas fix\'e {\em a priori}. On ne
+s'int\'eresse pas aux \'el\'ements de l'ensemble consid\'er\'e  mais plut\^ot aux
+{\em m\'ethodes} de gestion de ces \'el\'ements. 
+
+L'{\em analyse du domaine} sert \`a d\'ecomposer les objets r\'eels complexes et leurs
+interrelations en objets et relations plus simples. Par exemple
+l'objet << plan d'une maison >> se d\'ecompose en plans des diff\'erents
+\'etages et des
+fa\c cades, qui eux-m\^emes se d\'ecomposent en murs, portes, fen\^etres, etc.
+
+L'{\em abstraction des donn\'ees} va dans l'autre sens. \`A partir des objets
+informatiques de base (types pr\'ed\'efinis, tableaux, enregistrements,
+pointeurs) on construit des objets plus abstraits (listes, ensembles, ...) qui
+servent eux-m\^emes \`a construire des objets encore plus abstraits (graphes,
+dessins, ...). Jusqu'\`a ce qu'on arrive au niveau o\`u il devient simple de
+repr\'esenter les objets du r\'eel que l'on consid\`ere. 
+
+\paragraph{D\'efinition de types de donn\'ees}
+~\\
+La d\'efinition d'un nouveau type de donn\'ee, c.-\`a-d. d'une nouvelle abstraction,
+consiste \`a d\'efinir l'ensemble des valeurs possibles pour les objets de
+ce type et l'ensemble des op\'erations de traitement de ces valeurs.
+
+La gestion des ensembles doit, pour \^etre efficace, respecter au mieux 
+deux crit\`eres parfois contradictoires : un minimum de place m\'emoire
+utilis\'ee\footnote{Cf. page \pageref{Complexite}}
+ et un minimum d'instructions pour r\'ealiser une
+op\'eration. Pour bien faire, la place m\'emoire utilis\'ee devrait \^etre voisine du
+nombre d'\'el\'ements de l'ensemble multipli\'e par la taille d'un \'el\'ement.
+
+Pour accueillir les valeurs du type il est n\'ecessaire de d\'efinir une structure
+interne de donn\'ees construite \`a partir des types de base du langage et/ou
+des types d\'ej\`a d\'efinis. Les op\'erations seront d\'efinies par des proc\'edures ou
+fonctions du langage de programmation.
+
+\newpage
+
+ ~ 
+
+
+\end{multicols}

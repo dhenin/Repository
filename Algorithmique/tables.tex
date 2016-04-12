@@ -1,0 +1,245 @@
+%%\def\creator#1{\rquote{{\bf Creator:}\hskip 1em#1}}
+%%\def\title#1{\rquote{{\bf Description:}\hskip 1em#1}}
+%
+%%\def\N#1{{\tt\string#1}}
+%\def\ttbf{%
+%\ttfamily\bfseries\upshape\fontsize{11}{12}\selectfont}
+%%%%%%%%%%%%%%%%%% Macros %%%%%%%%%%%%%%%%
+%%%
+%\chardef\other=12
+%%%
+%%% |lit| is used to represent literal things.
+%%% Representation is a fixed font.
+%{\catcode`\|=\active
+%\gdef|{\leavevmode%
+%\begingroup\catcode`\\=\other\catcode`\{=\other%
+%\catcode`\}=\other\catcode`\$=\other\catcode`\&=\other%
+%\catcode`\#=\other\catcode`\~=\other%
+%\catcode`\_=\other\catcode`\^=\other\catcode`\<=\other%
+%\catcode`\[=\other%
+%\obeyspaces\obeylines%
+%\let|=\endgroup\escapechar`\|\catcode`\%=\other\ttbf}}
+%\catcode`\|=\active
+%
+%% <var> is used for variable things. 
+%% Representation is 10pt sans-serif uppercased.
+%\catcode`\<=\active
+%\def<{\leavevmode\italicizerest}
+%\def\italicizerest#1>{{\smallsf\uppercase{#1}}}
+%
+%% LaTeX active and 'hot' characters
+%\def\|{\leavevmode\hbox{\ttbf\char`\|}}
+%\def\<{\leavevmode\hbox{\ttbf\char`\<}}
+%\def\>{\leavevmode\hbox{\ttbf\char`\>}}
+%\def\^{\leavevmode\hbox{\ttbf\char`\^}}
+%\def\${\leavevmode\hbox{\ttbf\char`\$}}
+%\def\%{\leavevmode\hbox{\ttbf\char`\%}}
+%\def\&{\leavevmode\hbox{\ttbf\char`\&}}
+%\def\{{\leavevmode\hbox{\ttbf\char`\{}}
+%\def\}{\leavevmode\hbox{\ttbf\char`\}}}
+%\def\_{\leavevmode\hbox{\ttbf\char`\_}}
+%
+%% Keywords
+%% Representation is 10pt sans-serif bold.
+%\def\kwd#1{{\smallbf #1}}
+%
+%% Definitions
+%\def\oEXPR{<expr>\dag}
+%\def\true{{\bf true}}
+%\def\false{{\bf false}}
+%
+\addcontentsline{toc}{chapter}{\thechapter ~ Les tables de correspondance}
+\markboth{Correspondance}{Correspondance}
+\label{Correspondance}
+\centerline{\Large\bf Correspondance par tables}
+\index{tables (de correspondance)}
+\index{correspondance}
+ \noindent\hrulefill  
+ 
+\begin{multicols}{2}
+
+\section*{D\'efinition}
+  Une table de correspondance ou plus simplement correspondance, est une
+  fonction d'un ensemble d'\'el\'ements de type TypeEl\'ement vers un autre
+  ensemble d'\'el\'ements de type diff\'erent ou \'eventuellement de m\^eme type.
+  Nous exprimerons le fait qu'une correspondance $C$ associe \`a l'\'el\'ement
+  $s$ de type TypeSource l'\'el\'ement $b$ de type TypeBut par la relation
+  $C(s) = b$.
+  
+     Certaines correspondances, comme carr\'e($i$)$ = i^{2}$, s'expriment de
+  mani\`ere triviale \`a l'aide de fonctions de programmation standard en
+  donnant l'expression arithm\'etique correspondante ou la m\'ethode de calcul
+  de $C(s)$ en fonction de $s$.  Malgr\'e tout, dans de nombreux cas, il
+  n'existe pas d'autre moyen de caract\'eriser $C$ qu'en stockant la valeur
+  de $C(s)$ pour chaque $s$ de l'ensemble source.
+  
+     Examinons quelles op\'erations risquent d'\^etre effectu\'ees sur une
+  correspondance $C$.  \'Etant donn\'e un \'el\'ement $s$ d'un domaine
+  particulier, on souhaitera vraisemblablement conna\^\i tre la valeur de
+  $C(s)$ ou savoir si $C(s)$ est d\'efini (c'est-\`a-dire savoir si $s$
+  appartient bien au domaine de d\'efinition de $C$).  On peut aussi d\'esirer
+  introduire de nouveaux \'el\'ements dans le domaine de d\'efinition de $C$ et
+  conna\^\i tre les valeurs du domaine d'arriv\'ee qui leur sont associ\'ees.
+  
+  Inversement, il sera peut-\^etre aussi demand\'e de pouvoir changer la
+  valeur des $C(s)$.  Enfin, il devra \^etre possible de remettre la
+  correspondance {\em \`a z\'ero}, c'est-\`a-dire transformer son domaine de
+  d\'epart en ensemble vide.  Ces op\'erations sont repr\'esent\'ees par les trois
+  commandes suivantes~:
+  
+  \begin{description}
+      \item{\tt \bf raz(C)} Remise \`a z\'ero de la correspondance $C$.
+      
+      \item{\tt \bf assigner(C, s, b)} Donner la valeur $b$ \`a $C(s)$, que
+         $C(s)$ ait \'et\'e d\'efini ou non auparavant.
+      
+      \item{\tt \bf calculer(C, s, b)} Retourner {\tt vrai} et placer la valeur
+         de $C(s)$ dans la variable $b$ si $C(s)$ est d\'efini~; retourner {\tt
+         faux} sinon.
+      
+  \end{description}
+  
+  
+  \section*{Mise en \oe uvre des correspondances par tableau}
+
+      Assez souvent, le type des \'el\'ements du domaine de d\'epart d'une
+      correspondance est un type \'el\'ementaire que l'on peut utiliser
+      comme domaine indiciel d'un tableau.  En Pascal, les types
+      indiciels comprennent tous les intervalles finis d'entiers, comme
+      1..100 ou 17..23, le type caract\`ere (char) et les intervalles de
+      caract\`eres comme 'A'..'Z' et enfin les types \'enum\'er\'es comme nord,
+      est, sud, ouest.  Par exemple, un programme de d\'ecryptage
+      contiendra peut-\^etre une table de correspondance codage avec
+      'A'..'Z' comme domaine source et domaine but, telle que
+      codage(LettreNormale) soit le code dont le programme a reconnu
+      qu'il \'equivalait au caract\`ere LettreNormale.
+
+	 De telles correspondances permettent facilement une mise en
+      \oe uvre par tableau, d\`es lors que le TypeBut contient une valeur
+      particuli\`ere pouvant signifier << non d\'efini >>.  On parle alors
+      naturellement de << table de correspondance >> ou << d'adressage >>.
+
+\subsection*{Les tableaux associatifs de Perl} \label{tab-ass}
+
+
+Dans le language Perl un tableau associatif est une liste constituée
+de paires {\it clé, valeur}.
+
+Un tableau associatif est
+déclaré par le symbole << {\tt \%} >>.  Exemple :
+
+\begin{quote}  
+{\tt 
+\begin{tabular}{ll}
+\multicolumn{2}{l}{\%caracteristiques = (} \\
+                        'xenon',    & 'philosophe',\\
+                        'claude',  & 'solide',\\
+                        'serge',   & 'moine', \\
+					    'gus',    & 'clown',\\
+					    'pascal', & 'penseur', \\
+					    'henri',  & 'mesure', \\
+					    'simon',  & 'tranche' ) ; \\
+\end{tabular}
+}
+\end{quote}  
+
+
+On utilise donc la même notation que pour les tableaux
+simples. 
+
+Pour accéder à un
+élément d'un tableau associatif, on utilise les accolades et la
+clé :
+
+\begin{quote}  
+{\tt 
+\$caract = \$caracteristiques\{'xenon'\} ;  \# \$caract = philosophe\\
+\$home = \$ENV\{'HOME'\}  ;\\
+\$SIG{'UP'} = 'IGNORE' ;
+}
+\end{quote}  
+
+
+En
+général, on ne fait pas référence à un tableau associatif
+dans son entier, mais à ses éléments.  Chaque élément est
+accédé par sa clé ; ainsi, les éléments du tableau
+associatif {\tt \%tab} sont accédés par {\tt \$tab\{\$cle\}},
+où {\tt \$cle} est une expression scalaire.
+
+\begin{quote}  
+{\tt 
+\$tab\{"coucou"\} = "ca va ?" ;\\
+\# création de la clé "coucou", à laquelle est associée "ca va ?"\\
+\$tab\{123.5\} = 4568 ;\\
+\# création de la clé 123.5, à laquelle est associée la valeur 4568\\
+print "\$tab\{'coucou'\}" ;\\
+\# affichage de "ca va ?"\\
+\$tab\{123.5\} += 3 ;\\
+\# la valeur associée à la clé 123.5 est maintenant 4571}
+\end{quote}  
+
+\subsection*{Les opérateurs sur les tableaux associatifs de Perl}
+
+\begin{itemize} 
+
+\item   L'opérateur {\tt keys()}
+
+Cet opérateur renvoie la liste des clés du tableau
+associatif qu'on lui passe en paramètre.
+Les parenthèses sont optionnelles. Exemples : 
+
+
+\begin{quote}  
+{\tt 
+foreach \$key (keys \%tab)\\
+\{ print "la valeur associée à la clé \$key est \$tab\{\$key\}." ; \}}
+\end{quote}  
+
+
+\item   L'opérateur {\tt values()}
+
+Cet opérateur
+renvoie la liste des valeurs du tableau associatif qu'on lui passe
+en paramètre.
+
+\begin{quote}  
+{\tt print values(\%tab) ;\\
+\# affiche "ca va ?", 4568 ou 4568, "ca va ?"}
+\end{quote}  
+
+\item   L'opérateur {\tt each()}
+
+Pour examiner tous les éléments
+d'un tableau associatif, on peut donc faire appel à {\tt keys()} puis
+récupérer les valeurs correspondant aux clés.  En utilisant
+{\tt each()}, on obtient directement une paire (clé-valeur) du tableau
+passé en paramètre.
+
+\`A chaque
+évaluation de cet opérateur pour un même tableau, la paire
+suivante est renvoyée, jusqu'à ce qu'il n'y ait plus de
+paire à accéder ; {\tt each()} retourne alors la chaîne
+vide. L'exemple précédent peut alors s'écrire : 
+
+\begin{quote}  
+{\tt 
+while ((\$cle, \$valeur) = each(\%tab))\\
+\{ print "la valeur associée à la clé \$cle est \$valeur." ; \} 
+}
+\end{quote}  
+
+\item   L'opérateur {\tt delete}
+
+Élimine la paire (clé-valeur) du tableau associatif dont on
+a passé la clé en paramètre ; exemple :
+
+\begin{quote}  
+{\tt 
+\%tab = ("coucou ", "ca va ?", 123.5, 4571) ;\\
+ delete \$tab\{"coucou"\} ;\\
+\#\%tab contient maintenant (123.5, 4571) }
+\end{quote}  
+
+\end{itemize} 
+\end{multicols}

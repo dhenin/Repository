@@ -1,0 +1,131 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Les listes}
+\markboth{Listes}{Listes}
+\centerline{\Large\bf Les listes}
+ \index{liste}
+ \index{objet (informatique)}
+ \index{donn\'ee}
+ \index{m\'ethode (pour un objet)}
+ \index{vide (liste)}
+ \index{longueur (d'une liste)}
+ \index{lifo ({\em last in first out})}
+ \index{fifo ({\em first in first out})}
+ \index{tableau (mise en \oe uvre d'une liste dans un)}
+ \index{cha\^\i n\'ee (liste)}
+ \index{ins\'erer (un \'el\'ement dans une liste)}
+ \index{pointeur (faux)}
+ \index{faux (pointeur)}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+\stepcounter{section}
+\section*{G\'en\'eralit\'es}
+  
+  Par extension du sens habituel donn\'e au mot, 
+  une liste\footnote{Les listes peuvent \^etre vues comme des formes
+  simples d'arbres (cf. page \pageref{Arbre}) ; on peut en effet consid\'erer
+  qu'une liste est un arbre binaire dans lequel tout fils gauche est une
+  feuille.} lin\'eaire\footnote{Knuth distingue les << listes lin\'eaires >>
+  des << listes >> au sens large qui d\'esignent 
+  les arborescentes. Cependant l'usage ne maintient pas cette distinction.}
+  est un {\em type de donn\'ees abstrait} comprenant une suite
+  d'informations (donn\'ees) ainsi que les op\'erations (m\'ethodes)
+  n\'ecessaires au maniement de ces donn\'ees.  
+  La liste lin\'eaire est per\c cue comme une suite d'\'el\'ements ({\it maillons})
+  ordonn\'ee, caract\'eris\'ee par le cha\^\i nage\footnote{Au moyen d'un pointeur
+  par exemple. (cf. page \pageref{pointeur})} de chaque maillon \`a son suivant.
+
+  La liste est une structure de base de la programmation\footnote{Le langage
+{sc lisp}, con\c cu par John MacCarthy en 1960, utilise principalement cette
+structure qui se r\'ev\`ele utile pour le calcul symbolique.}. Chaque \'el\'ement
+permet l'acc\`es \`a deux valeurs : l'objet associ\'e \`a cet \'el\'ement et l'\'el\'ement
+suivant\footnote{Le num\'ero de ligne, lorsqu'il s'agit
+d'un tableau, comme dans la figure \ref{lfauxp}, l'adresse en
+m\'emoire, lorsqu'il s'agit de {\em pointeurs}.}. La recherche d'un \'el\'ement dans
+la liste s'apparente \`a un $<<$ jeu de piste $>>$ dont le but est de retrouver un
+objet cach\'e : on commence par avoir des informations sur un lieu o\`u pourrait
+se trouver l'objet, en ce lieu on d\'ecouvre des informations sur un autre lieu
+o\`u il a une chance de se trouver et ainsi de suite.
+  
+  Une liste doit pouvoir \^etre modifi\'ee :  on doit \^etre capable de supprimer ou
+  d'ajouter des donn\'ees.
+  
+  
+  Pour acc\'eder \`a une donn\'ee appartenant \`a une liste, il convient de
+  disposer de la liste mais aussi de la place (position) de cette donn\'ee dans la
+  liste.
+  
+  Une liste peut \^etre vide~;  on peut 
+  vider une liste~; on peut acc\'eder au $i$\`eme \'el\'ement, en conna\^\i tre
+  le contenu~; on
+  peut conna\^\i tre la longueur de la liste (le nombre d'\'el\'ements qu'elle
+  contient)~; on peut supprimer un \'el\'ement de la liste, y ins\'erer un
+  nouvel \'el\'ement et enfin acc\'eder au successeur d'un \'el\'ement dont on
+  conna\^\i t la place.
+  
+  Enfin, on peut vouloir fabriquer une liste \`a partir de deux
+  autres.
+  
+      
+{\bf La pile  (LIFO)} est une liste dans laquelle on ins\`ere et on supprime
+seulement \`a une extr\'emit\'e ; 
+
+{\bf  La file  (FIFO)} est une liste dans laquelle on ins\`ere \`a une extr\'emit\'e
+et o\`u on supprime \`a l'autre.
+
+Il existe de nombreuses fa\c cons de mettre en \oe uvre les listes. La mise en
+\oe uvre dans un tableau facilite la compr\'ehension, mais pr\'esente
+l'inconv\'enient de ne contenir qu'un nombre maximum pr\'ed\'efini de cellules.
+      
+\section*{Mise en \oe uvre des listes  dans un tableau}
+
+      La figure \ref{lfauxp} montre un tableau {\tt ESPACE}
+    contenant deux listes ${\cal L} = a, b, c$ et ${\cal M} = D, E$.
+    Pour cha\^\i ner les \'el\'ements des listes on utilise un vecteur ``suivant'' 
+    de faux-pointeurs, c'est-\`a-dire le num\'ero de ligne du successeur.
+
+	Remarquez que toutes les cellules du tableau n'appartenant \`a
+    aucune des deux listes sont cha\^\i n\'ees en une pile\footnote{Cf. page
+	\pageref{Pile}.} appel\'ee {\bf disponible}.
+	Cette liste suppl\'ementaire sert \`a trouver un espace libre pour ins\'erer
+    un nouvel \'e\-l\'e\-ment,
+	ou \`a r\'ecup\'erer les espaces lib\'er\'es par la
+    suppression d'\'el\'ements pr\'ec\'e\-dem\-ment dans une liste en vue d'une
+    utilisation ult\'erieure.
+
+\begin{figurette}
+	\input{Figures/lfauxp}
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it Une liste cha\^\i n\'ee\\ dans un tablea}}
+\addcontentsline{lof}{section}{Implantation d'une liste cha\^\i n\'ee dans un tableau}
+	\label{lfauxp}
+\end{figurette}
+
+	La variable $L$ contient l'indice de ligne o\`u commence la liste ${\cal L}$
+	et la variable $M$ celui de la liste ${\cal M}$ ; la case
+	ESPACE[L][element] contient le premier \'el\'ement ($a$) et ESPACE[L][suivant]
+	l'indice du successeur (8) c-\`a-d $b$. De la m\^eme fa\c con, ESPACE[8][suivant]
+	contient 3.
+
+	$c$ n'ayant pas de successeur, il est le dernier \'el\'ement,
+	ESPACE[3][su\-i\-vant] est $-1$.
+\end{multicols}
+\newpage
+\section*{Programmation d'une liste g\'en\'erique}
+
+La totalit\'e des sources du TDA liste est donn\'ee en annexe.
+
+Le fichier d'{\it ent\^ete} du TDA liste ({\tt Liste.h}),
+contient la d\'efinition de 3 structures : 
+
+\begin{itemize} 
+\item La structure  {\it cellule}, qui contient un pointeur sur la donn\'ee
+associ\'ee et un pointeur sur la  cellule suivante,
+
+\item la structure de t\^ete qui donne acc\`es \`a la premi\`ere cellule de la liste,
+\`a la derni\`ere et \`a la cellule courante ({\it vue}),
+
+\item la structure donnant acc\`es aux m\'ethodes (fonctions\footnote{Voir les
+pointeurs de fonction p. \ref{Fonction}}).
+\end{itemize} 
+{\small
+\listing{Prog/Objet/Liste.h}}

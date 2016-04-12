@@ -1,0 +1,171 @@
+\setcounter{footnote}{0}
+%\addtocounter{section}{1}
+\addcontentsline{toc}{chapter}{\thechapter ~ Dépendances et présuppositions}
+% \addcontentsline{toc}{section}{Dépendances et présuppositions}
+\addcontentsline{lof}{section}{Présuppositions}
+\addcontentsline{lof}{section}{Exemple de pensée par les présupposés}
+\markboth{Dépendances et présuppositions}{Dépendances et présuppositions}
+\label{makefile}
+%\label{pr\'esupposition}
+\index{makefile}
+\index{pr\'esupposition}
+\index{d\'ependance}
+ 
+{\centering {\Large\bf Dépendances et présuppositions}\par}
+
+
+\noindent\hrulefill
+
+\begin{multicols}{2}
+\section*{Makefile}
+\noindent La réalisation d'un projet présuppose la réalisation d'étapes préalables.
+Par exemple la confection d'un journal nécessite la rédaction des acticles qui
+le constituent. Il est possible de représenter cette dépendance par un graphe
+:
+
+\vspace{0.3cm}
+{\centering \includegraphics{Figures/journal.eps} \par}
+\vspace{0.3cm}
+
+\noindent Chaque nouveau \textit{numéro} suivra la m\^eme organisation. 
+
+On peut écrire un fichier de description (Makefile) de la confection du
+journal~:
+
+\setbox0=\hbox{\footnotesize\begin{minipage}[t]{7.5cm}{\begin{verbatim}
+$ARTICLES = article1 article2 article3
+
+maquette : mise_en_page editorial
+    assembler pages editorial
+
+editorial : 
+    rediger editorial
+
+mise_en_page : sommaire illustrations $ARTICLES
+    ajuster espaces sommaire illustrations $ARTICLES
+
+sommaire : $ARTICLES
+    lister titres ($ARTICLES)
+\end{verbatim}}
+\end{minipage}}
+%\setbox0=\vtop{\entoure{\box0}}
+\box0
+\vspace{0.3cm}
+\centerline{\box0}
+\vspace{0.3cm}
+
+Au cours de la réalisation d'une maquette, il peut arriver qu'un article soit
+réécrit. Il n'est pas pour autant nécessaire de refaire les autres articles ;
+par contre il est probable que le sommaire sera revu (si le titre de l'article
+est modifié par exemple) ainsi que la mise page ; par conséquent il faudra
+refaire la maquette.
+
+
+\section*{Exemple de pensée par les présupposés}
+
+Au moyen de deux r\'ecipients dont les capacit\'es respectives sont neuf litres et
+quatre litres, nous souhaitons disposer d'une quantit\'e d'eau de six litres.
+
+Repr\'esentons-nous clairement nos instruments de travail,
+c'est-\`a-dire, les deux r\'ecipients\footnote{Proverbe num\'ero 1 {\em un petit
+dessin vaut mieux qu'un grand discours}.}.  Imaginons qu'ils soient
+cylindriques, de bases \'egales et de hauteurs neuf et quatre (cf.  fig.~1).
+
+S'il y avait, sur la surface lat\'erale de chacun d'eux, une graduation
+aux lignes horizontales \'egalement espac\'ees, ce qui donnerait \`a tout
+moment la hauteur du niveau de l'eau, notre probl\`eme serait facile.
+Mais cette graduation n'existant pas, nous sommes encore loin de la
+solution.
+
+\begin{figurette}
+    \begin{center}
+    \input{Figures/recip1}
+    \end{center}
+\end{figurette}
+
+Nous ne savons pas encore comment mesurer exactement ; mais
+pourrions-nous mesurer une autre quantit\'e ? Faisons des essais, t\^atonnons un
+peu. Nous pouvons remplir compl\`etement le plus grand~; si, avec son contenu,
+nous remplissons alors le petit, il nous reste  cinq litres dans le grand.
+Pouvons-nous \'egalement en obtenir six ? Vidons \`a nouveau les deux r\'ecipients.
+Nous pourrions aussi\ldots
+
+Nous agissons ainsi comme la plupart des gens \`a qui l'on pose ce probl\`eme.
+Partant de deux r\'ecipients vides, nous faisons un essai, puis un autre, les
+vidant et les remplissant \`a tour de r\^ole, et, apr\`es chaque \'echec, nous
+recommen\c cons et cherchons autre chose. En somme, nous progressons, en partant
+de la situation donn\'ee au d\'ebut, vers la situation finale d\'esir\'ee, c'est \`a
+dire en allant du connu vers l'inconnu. Il se peut qu'apr\`es maintes
+tentatives nous finissions par r\'eussir mais ce sera par hasard.
+
+Que nous demande-t-on ? Repr\'esentons-nous le plus distinctement possible la
+situation finale que nous cherchons \`a atteindre. Imaginons que nous avons l\`a,
+devant nous, le grand r\'ecipient contenant exactement six litres et le petit
+vide, comme \`a la figure 2. {\em (Partons de ce qui est demand\'e et admettons que
+ce que l'on cherche est d\'ej\`a trouv\'e)}.
+\begin{figurette}
+    \begin{center}
+    \input{Figures/recip2}
+    \end{center}
+\end{figurette}
+A partir de quelle situation pr\'ec\'edant imm\'ediatement celle-ci pourrions-nous
+obtenir la situation finale d\'esir\'ee, comme \`a la figure 2~? {\em (Cherchons \`a
+partir de quel ant\'ec\'edent le r\'esultat final pourrait \^etre obtenu)}. Nous
+pourrions remplir compl\`etement le grand r\'ecipient, donc, y verser neuf litres~; mais il faudra en retirer trois litres exactement. Pour cela \ldots, il
+faudrait avoir d\'ej\`a un litre dans le petit. Voil\`a l'id\'ee~! (Cf. fig. 3);
+\begin{figurette}
+    \begin{center}
+    \input{Figures/recip3}
+    \end{center}
+\end{figurette}
+Mais comment atteindre la situation ainsi trouv\'ee qu'illustre la figure~3~?
+{\em (Cherchons \`a nouveau quel pourrait \^etre l'ant\'ec\'edent de cet ant\'ec\'edent)}.
+Etant donn\'e qu'il est toujours possible de re-transvaser un r\'ecipient dans le
+r\'ecipient d'origine, la situation de la figure 2 est \'equivalente aux
+situations des figures 3 et 4.
+\begin{figurette}
+    \begin{center}
+    \input{Figures/recip4}
+    \end{center}
+\end{figurette}
+Il est facile de reconna\^\i tre que, si l'on obtient l'une quelconque des
+situations des figures 2, 3 et 4, on obtiendra aussi bien les deux autres ;
+mais il n'est pas si facile de tomber juste sur la situation de la figure 4, \`a
+moins de l'{\em avoir d\'ej\`a rencontr\'ee}, de l'avoir vue accidentellement, au
+cours d'une de nos pr\'ec\'edentes tentatives. En multipliant les exp\'eriences avec
+les deux r\'ecipients, nous pouvons avoir r\'ealis\'e quelque chose d'analogue et
+nous rappeler, au bon moment, que la situation de la figure 4 peut se
+pr\'esenter comme elle est sugg\'er\'ee \`a la figure suivante : en remplissant le grand
+\begin{figurette}
+    \begin{center}
+    \input{Figures/recip5}
+    \end{center}
+\end{figurette}
+r\'ecipient, puis en vidant deux fois de suite quatre litres dans le petit et de
+l\`a dans le r\'ecipient d'origine, nous rencontrons finalement quelque chose de
+d\'ej\`a connu ; ainsi, par la m\'ethode de l'analyse, par {\em raisonnement
+r\'egressif} nous avons d\'ecouvert la succession d'op\'erations appropri\'ee.
+\begin{figurette}
+    \begin{center}
+    \input{Figures/recip6}
+    \end{center}
+\end{figurette}
+Il est vrai que cela s'est fait \`a rebours, mais nous n'avons plus qu'\`a {\em
+renverser le processus} en {\em partant du dernier point atteint dans notre
+analyse}. Nous faisons les op\'erations sugg\'er\'ee par la figure 5 et obtenons la
+figure 4, puis nous passons \`a la figure 3, de l\`a \`a la figure 2 et finalement \`a
+la figure 1. {\em En revenant sur nos pas, nous arrivons finalement \`a trouver
+ce qui nous \'etait demand\'e}.\footnote{C'est à Platon que la tradition grecque
+attribuait la d\'ecouverte de la m\'ethode d'analyse.}
+
+3. Il y a certainement dans cette m\'ethode quelque chose d'assez profond.
+L'obligation de sinuer, de s'\'eloigner du but, en revenant en arri\`ere, de ne
+pas prendre la route qui m\`ene directement au r\'esultat d\'esir\'e entra\^\i ne
+certaines difficult\'es, dans le domaine de l'esprit. Pour d\'ecouvrir la
+succession d'op\'erations appropri\'ees, notre intellect doit suivre un ordre
+exactement \`a l'inverse de l'ordre r\'eel. Il n'est nul besoin de g\'enie pour
+r\'esoudre un probl\`eme en revenant en arri\`ere. Il suffit de se concentrer sur le
+but d\'esir\'e, de se repr\'esenter la situation finale que l'on veut obtenir. A
+partir de quelle situation pr\'ec\'edente pourrions-nous y parvenir ? Il est
+essentiel de se poser cette question et, ce faisant, l'on revient en arri\`ere.
+\end{multicols}

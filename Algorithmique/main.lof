@@ -1,0 +1,52 @@
+\select@language {french}
+\contentsline {section}{Programme pour afficher les nombres limites}{9}
+\contentsline {section}{Propri\'et\'e de l'affectation}{11}
+\contentsline {section}{Propri\'et\'e de l'encha\^\i nement}{11}
+\contentsline {section}{Un exemple (d\'e)trompeur}{12}
+\contentsline {section}{Fonction de calcul du nombre de jours \'ecoul\'es depuis le premier janvier}{15}
+\contentsline {section}{Texte de R. Queneau, {\em Un conte \`a votre fa\c con}}{16}
+\contentsline {section}{Pr\'esuppositions}{17}
+\contentsline {section}{Exemple de pens\'ee par les pr\'esuppos\'es}{17}
+\contentsline {section}{La grille d'analyse}{20}
+\contentsline {section}{Grille d'analyse du calcul du poids id\'eal}{20}
+\contentsline {section}{Calcul d'une facture de pi\`eces identiques}{21}
+\contentsline {section}{Contr\^ole de l'algorithme \`a l'aide du lexique}{21}
+\contentsline {section}{Propri\'et\'e de la r\'ep\'etition}{22}
+\contentsline {section}{Fonction de localisation d'un \'el\'ement dans une liste}{22}
+\contentsline {section}{Un programme faux}{23}
+\contentsline {section}{Correction du programme faux}{23}
+\contentsline {section}{Calcul de la fr\'equence d'un quartz et de 2 diviseurs}{24}
+\contentsline {section}{Calendrier perp\'etuel}{25}
+\contentsline {section}{Graphe de d\'ependance des variables}{25}
+\contentsline {section}{Calcul de $x^{n}$ $1^{\mathaccent "7012\relax ere}$ m\'ethode}{26}
+\contentsline {section}{Calcul de $x^{n}$ $2^{\mathaccent "7012\relax eme}$ m\'ethode}{26}
+\contentsline {section}{Calcul de $x^{n}$ $3^{\mathaccent "7012\relax eme}$ m\'ethode}{26}
+\contentsline {section}{Fonction r\'ecursive du pgcd}{27}
+\contentsline {section}{Boucle de calcul du pgcd}{27}
+\contentsline {section}{Deux m\'ethodes de calcul du pgcd}{28}
+\contentsline {section}{Fonction de recherche d'un \'el\'ement dans un tableau}{29}
+\contentsline {section}{Remplir un carr\'e magique}{30}
+\contentsline {section}{Un carr\'e magique de $5 \times 5$}{30}
+\contentsline {section}{Algorithme du carr\'e magique}{30}
+\contentsline {section}{Utilisation de {\tt assert}}{37}
+\contentsline {section}{Visibilit\'e des variables}{39}
+\contentsline {section}{Instanciation d'une liste d'entiers}{41}
+\contentsline {section}{Pointeur sur une fonction}{43}
+\contentsline {section}{Implantation d'une liste cha\^\i n\'ee dans un tableau}{53}
+\contentsline {section}{Suppression d'un \'el\'ement d'une liste}{55}
+\contentsline {section}{Suppression d'un \'el\'ement}{56}
+\contentsline {section}{Insertion d'un \'el\'ement en t\^ete d'une liste}{57}
+\contentsline {section}{Insertion en t\^ete}{57}
+\contentsline {section}{Implantation d'une file dans un tableau.}{61}
+\contentsline {section}{Fonctionnement d'une file circulaire dans un tableau.}{61}
+\contentsline {section}{Concr\`etisation d'une file dans un tableau}{61}
+\contentsline {section}{Fonctionnement d'une file circulaire dans un tableau}{61}
+\contentsline {section}{Une table des mati\`eres est un arbre}{63}
+\contentsline {section}{L'arbre d'une expression}{63}
+\contentsline {section}{Exemple d'arborescence}{64}
+\contentsline {section}{Script-shell Types de fichiers}{64}
+\contentsline {section}{Script-shell Types de fichiers dans une arborescence}{64}
+\contentsline {section}{Mise en \oe uvre d'un arbre}{65}
+\contentsline {section}{Un arbre}{65}
+\contentsline {section}{Mise en \oe uvre d'un arbre}{65}
+\contentsline {section}{Table {\sc \bf ASCII}}{102}

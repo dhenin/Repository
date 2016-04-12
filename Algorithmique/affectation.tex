@@ -1,0 +1,59 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Affectation}
+\setcounter{section}{0}
+\markboth{Affectation}{Affectation}
+\centerline{\Large \bf L'affectation}
+\label{Affectation}
+\index{affectation}
+\index{\'etat (du programme)}
+\index{relation (entre les variables)}
+\index{assertion}
+\index{s\'emantique}
+\index{incr\'ementation}
+
+\noindent\hrulefill
+
+
+\section*{Propri\'et\'e de l'affectation}
+
+Lorsque l'on fait une affectation\footnote{Exemple pr\'esent\'e page
+\pageref{Variable} : {\sc somme = somme + 5}.
+}, on poursuit un objectif : se rapprocher
+d'un r\'esultat escompt\'e.
+la nouvelle valeur de la variable modifie 
+l'\'etat du programme, c'est \`a dire les relations entre les variables.
+
+\begin{floatingtable}[l]{
+\begin{tabular}{rl}
+(P) & /* $x > n$ */ \\
+    & $x = x + 1$ ; \\
+(Q) & /* $x > n + 1$ */\\
+\end{tabular}}\end{floatingtable}
+
+
+Dans l'exemple ci-contre, 
+partant de la situation (P) $x>n$, 
+on ex\'ecute l'instruction $x = x + 1 ;$ pour \'etablir la relation (Q) $x>n+1$,  
+Ce type d'affectation est si fr\'equemment utilis\'e qu'il porte un nom : {\bf incr\'ementation}, et une \'ecriture abr\'eg\'ee en langage C : {\tt x++}. 
+
+Autre exemple :
+
+\begin{floatingtable}[l]{
+\begin{tabular}{rl}
+\multicolumn{2}{c}{\hbox to 3cm {}}\\
+(P) & /* $0 < x < 1$ */\\
+    & $x = \frac{1}{x} +y ; $\\
+(Q) & /* $ x > y + 1 $*/  \\
+\end{tabular}
+}\end{floatingtable}
+
+Pour avoir la relation (Q) $ x > y + 1$, lorsque l'on a la relation (P) 
+$0 < x < 1 $, il faut ex\'ecuter : $x = \frac{1}{x} +y $.
+
+En supposant que, dans la relation (P), $x$ vaut $x_{0}$, \\
+dans la relation (Q), $x$ vaut $\frac{1}{x_{0}}+y$
+$\Rightarrow \frac{1}{x_{0}}+y > y+1$\\
+{\tt $0 < x_{0} < 1 $ $\Rightarrow$ $\frac{1}{x_{0}} > 1$
+$\Rightarrow$ $\frac{1}{x_{0}}+y>y+1$}
+
+\addcontentsline{lof}{section}{Propriété de l'affectation}
+

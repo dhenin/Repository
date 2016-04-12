@@ -1,0 +1,133 @@
+\stepcounter{section}
+\addcontentsline{toc}{section}{D\'efinitions de types}
+\markboth{D\'efinitions de types}{D\'efinitions de types}
+\centerline{\Large\bf Les d\'efinitions de types}
+ \index{D\'efinitions de types}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+
+Des d\'eclarations contenant le {\it sp\'ecificateur-d\'eclaration} {\tt typedef} 
+nomment des identificateurs pouvant \^etre utilis\'es ensuite pour
+la désignation de
+types fondamentaux ou d\'eriv\'es.
+Le sp\'ecificateur {\tt typedef} ne peut pas \^etre
+utilis\'e dans une {\it d\'efinition-fonction}.
+
+La d\'efinition des prototypes, dans le manuel, conjointement avec les
+fichiers d'ent\^ete utilise abondamment le {\tt typedef}. Par exemple
+
+{\small
+\begin{verbatim}  
+$ man malloc 
+...
+SYNOPSIS
+     #include <stdlib.h>
+
+     void *
+     malloc(size_t size)
+...
+
+$ more /usr/include/stdlib.h 
+...
+#include <machine/ansi.h>
+...
+typedef _BSD_SIZE_T_    size_t;
+...
+
+$ more /usr/include/machine/ansi.h
+...
+#define _BSD_SIZE_T_  unsigned int
+...
+\end{verbatim} }
+
+ce qui permet de traduire : 
+
+{\small
+\tt size\_t} est l'\'equivalent de {\small
+\tt unsigned int }.
+
+\stepcounter{subsection}
+\subsection*{Utilisation pour les types de donn\'ees abstraits}
+
+L'usage \'el\'ementaire consiste \`a d\'efinir un type {\tt Boolean}\footnote {Mammeri
+M. {\it programmation} {\sc ecole centrale de paris} {\tiny 1997-1998} p. 19
+et 36}.
+
+{\small
+\begin{verbatim}typedef enum { FALSE, TRUE } Boolean ; \end{verbatim} }
+
+L'usage plus \'el\'egant consiste \`a renommer les structures\footnote{{\it ibid.}
+p.65} :
+
+{\small
+\begin{verbatim}  
+struct MAILLON
+{
+    TypDon           elem ;
+    struct MAILLON * suiv ;
+} ;
+
+typedef struct MAILLON * File ;
+\end{verbatim} }
+
+On pr\'ef\'erera l'\'ecriture en deux \'etapes \`a celle plus propice \`a cr\'eer la
+confusion :
+
+{\small
+\begin{verbatim}  
+typedef struct MAILLON  /* A EVITER */
+{
+    TypDon           elem ;
+    struct MAILLON * suiv ;
+} * File ;
+
+\end{verbatim} }
+
+Le fichier {\tt Liste.tda} est un gigantesque {\tt typedef} qui utilise les
+possibilit\'es des macros afin de cr\'eer des listes d'objets dont le type est
+d\'efini au moment de l'utilisation.
+
+{\footnotesize \begin{verbatim}  
+
+#define nom(a,b) a##b
+
+#define liste(type_objet)                             \
+typedef struct nom(type_objet, liste)                 \
+{                                                     \
+    void *     rep ;                                  \
+    type_objet (*copier_objet)   (type_objet) ;       \
+    void       (*detruire_objet) (type_objet) ;       \
+    void       (*afficher_objet) (type_objet) ;       \
+} * nom(type_objet, liste) ;                          \
+nom(type_objet, liste) nom(type_objet, liste_creer)   \
+    (type_objet (*copier)   (type_objet),             \
+     void       (*detruire) (type_objet),             \
+     void       (*editer)   (type_objet))             \
+{                                                     \
+    nom(type_objet, liste) l ;                        \
+    lier_liste () ;                                   \
+    l = (nom(type_objet, liste)) malloc               \
+     (sizeof (struct nom (type_objet, liste))) ;      \
+    l->rep = (*Liste.creer) () ;                      \
+    l->copier_objet = copier ;                        \
+    l->detruire_objet = detruire ;                    \
+    l->afficher_objet = editer ;                      \
+    return l ;                                        \
+}                                                     \
+...
+void nom(type_objet, liste_afficher)                  \
+    (nom(type_objet, liste) l)                        \
+{                                                     \
+    if (l->afficher_objet)                            \
+    (*Liste.afficher) (l->rep, l->afficher_objet) ;   \
+    else                                              \
+    printf ("ERR : fonction d'affichage  nulle\n") ;  \
+}
+\end{verbatim} }
+
+Remarquez qu'il s'agit d'une seule longue ligne logique,
+les $\backslash$ r\'ealisant la concat\'enation des lignes physiques.
+\end{multicols}
+\newpage
+~

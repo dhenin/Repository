@@ -1,0 +1,89 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Qualit\'e du logiciel}
+\markboth{Qualit\'e du logiciel}{Qualit\'e du logiciel}
+\centerline{\Large\bf La qualit\'e du logiciel}
+ \index{Qualit\'e du logiciel}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+
+La qualit\'e du logiciel est l'objectif du g\'enie logiciel. Ce n'est pas une id\'ee
+simple mais un ensemble de {\it facteurs}. Les recherches de ces derni\`eres 
+ann\'ees concernent la rapidit\'e, la fiabilit\'e, la lisibilit\'e et la maintenabilité. Nous avons, dans
+la premi\`ere partie, abord\'ee la notion de programmation structur\'ee. Au cours
+des travaux pratiques, nous avons utilis\'e la programmation modulaire.
+
+Du point de vue {\it externe} de l'utilisateur, la qualit\'e d'un logiciel
+se manifeste par son ergonomie, son efficacit\'e, sa facilit\'e d'emploi.
+
+Du point de vue {\it interne} du concepteur, la qualit\'e se fonde sur la
+facilit\'e de mise au point, la lisibilit\'e du source et la r\'eutilisabilit\'e.
+
+La maintenance du logiciel est chose co\^uteuse\ldots en efforts. (cf. Le bug de
+l'an 2000). Il convient donc de s'orienter vers une simplification et une
+clarification du travail par :
+
+\begin{description} 
+    \item {\bf La modularit\'e.} On d\'ecompose le programme en autant de fichiers
+    que n\'ecessaire afin de r\'eduire les difficult\'es. Cette d\'ecomposition 
+    logique et sens\'ee vise \`a favoriser la r\'eutilisabilit\'e 
+    des modules. En particulier, il est adroit de d\'ecomposer le probl\`eme afin
+    qu'un changement de sp\'ecification n'induise la r\'e\'ecriture que d'un seul
+    module.
+
+    D'autre part, les donn\'ees d'un module lui sont
+    propres\footnote{C'est l'encapsulation. page suivante} et
+    prot\'eg\'ees. L'acc\`es aux donn\'ees se fait par {\it interfaces} c'est \`a dire
+    des m\'ethodes ({\it i.e.} des fonctions) appartenant aux modules, accessibles
+    depuis d'autres modules.
+
+    \item {\bf La r\'eutilisabilit\'e.} Il est agr\'eable de pouvoir utiliser le
+    m\^eme module quelque soit le type de donn\'ees trait\'ees. Pourquoi r\'e\'ecrire un
+    calcul de moyenne sur des entiers si l'on dispose d\'ej\`a du m\^eme calcul sur
+    des r\'eels ? 
+
+    De m\^eme, les travaux r\'ecents sur les interfaces homme/machine
+    ({\sc ihm)}, r\'ev\`ele l'importance de disposer de modules
+    ind\'ependants de la pr\'esentation et pouvant \^etre utilis\'es
+    avec diff\'erentes pr\'esentations ({\sc html, fvwm}
+    ou {\sc tk}).
+
+    \item {\bf La certification.} Il n'existe pas (encore) de solution pour
+    une r\'ealisation parfaite des logiciels. Il est cependant possible
+    d'inclure des \'el\'ements de sp\'ecification parmi les lignes de code. C'est
+    notamment le cas en langage C avec la macro {\tt assert}. Nous l'avons
+    abondamment utilis\'e dans la premi\`ere partie. En voici un autre exemple : 
+
+\begin{verbatim}  
+#include <assert.h>
+main()
+{
+     int a, b, u, x , y ;
+
+     scanf ("%d%d", &x, &y) ;
+
+     a = x ; b = y ;
+
+     u = x + y ;
+     u = u + u ;
+     x = x + y ; 
+     u = u - x ;
+
+     assert ( u == (a + b)) ;
+     assert ( x == (a + b)) ;
+
+     printf ("u :%d, x = %d\n", u, x) ;
+}
+\end{verbatim} 
+
+\end{description} 
+\addcontentsline{lof}{section}{Utilisation de {\tt assert}}
+
+On utilisera cette technique afin de garantir que les conditions
+d'utilisation des modules sont respect\'ees. Par exemple, la m\'ethode de retrait
+d'un \'el\'ement d'une pile s'assurera que la pile n'est pas vide.
+
+Les assertions contribuent \`a r\'ealiser du logiciel correct, aident \`a la
+documentation, facilitent le d\'eboguage et la tol\'erance de pannes.
+\newpage
+~
+\end{multicols}

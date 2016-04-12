@@ -1,0 +1,176 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Grille d'analyse}
+\setcounter{section}{0}
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{D\'ependance des variables}
+\markboth{Grille d'analyse}{Grille d'analyse}
+\centerline{\Large\bf Grille d'analyse}
+\index{grille}
+\index{analyse (grille d')}
+\index{lexique (des variables)}
+\index{s\'equence (ordre des)}
+\index{conception}
+\index{expliciter (une variable)}
+\index{pr\'esupposer}
+\index{poids-id\'eal (calcul)}
+ 
+ \noindent\hrulefill  
+%\def\Rond#1{$\bigcirc\!\!\!\!{\scriptscriptstyle #1}$}
+\def\Rond#1{$(#1)$}
+\label{Methode}
+
+
+
+La grille d'analyse intervient lors de l'\'etape de l'\'ecriture de
+l'algorithme.
+Cette grille permet d'organiser l'expression de l'algorithme.
+
+\begin{figure}[h]
+\centering
+\begin{tabular}{lcrl}
+\cline{1-3}
+\multicolumn{3}{|l|}{}& \\
+\multicolumn{3}{|l|}{\large \bf Titre \hfill}& 
+						  \begin{minipage}[t]{4cm}
+						  Pr\'ecise le r\'e\-sul\-tat attendu de la suite de
+						  d\'efinitions \end{minipage}  \\
+\cline{1-3}
+\multicolumn{3}{|c|}{\large \bf Lexique $|$ \hfill Actions \hfill $|$ S\'equences} & \\
+\cline{1-3}
+\multicolumn{2}{|c}{\hfil\Rond{2}\hfill\Rond{1}\hfil}&\multicolumn{1}{c|}{} &  \\
+\multicolumn{3}{|c|}{\hfil\rightarrowfill\Rond{3}\hfil}&   \\
+\cline{1-3}
+\multicolumn{3}{c}{\hfil\Big\uparrow \hfill \begin{minipage}[t]{6 cm}
+                          D\'ecrit 
+					  les actions \`a ex\'ecuter \end{minipage} \hfill \Big\uparrow \hfill} & \\
+\begin{minipage}[t]{5cm} Explicite tous les noms symboliques
+identificateurs introduits dans les d\'efinitions, 
+et pr\'ecise les types manipul\'es. \end{minipage} & & 
+						\begin{minipage}[t]{5 cm}
+									   Ordonnance les actions pour un
+									   traitement au moyen d'un ordinateur
+									   \end{minipage} & \\
+& & \\
+\end{tabular} 
+\addcontentsline{lof}{section}{La grille d'analyse}
+	
+    \label{grille}
+\end{figure}
+
+La grille d'analyse est un tableau de 3 colonnes (fig.~\ref{grille})
+r\'ealisant le sch\'ema dans lequel la conception de l'algorithme
+s'organise et se d\'eveloppe.
+
+Dans la colonne centrale, {\bf on commence par la derni\`ere action}, ce qui
+fait appara\^\i tre une variable au moins, que l'on cherche \`a {\bf expliciter}.
+Cette variable en
+{\bf pr\'esuppose} d'autres que l'on explicite, et ainsi de suite jusqu'\`a ce que
+toutes les variables soient explicit\'ees. Dans la colonne {\it Lexique}, on
+pr\'ecise pour chaque variable son domaine de d\'efinition. On termine en fixant
+dans la colonne de droite l'ordre d'ex\'ecution pour le programme.
+
+Ordre \Rond{1} $\longleftrightarrow$ \Rond{2} puis \`a la fin \Rond{3}
+
+Exemple~: Calcul du poids id\'eal d'une personne.
+
+\centerline{\begin{tabular}{l|r}
+	\begin{minipage}[t]{7cm}
+    Le {\tt POIDS} en $Kg$ d\'epend de la {\tt TAILLE} en $cm$\\
+     et d'un coefficient~:\\
+{\tt POIDS = ECART  $\times$ COEF  \\
+	  {\rm o\`u} ECART {\rm repr\'esente} TAILLE - 100, }
+\end{minipage} & \begin{minipage}[t]{7cm}
+                 \raggedleft
+     {\tt coef} est fonction du sexe\\
+{\tt \begin{tabular}{r|r|l}
+      COEF = & 1.1   & SI SEXE = "masculin"  \\
+                & 1 & SI SEXE = "f\'eminin"
+      \end{tabular} } \end{minipage} \\
+\end{tabular}}
+\vspace{.5cm}
+\centerline{%\tt %\footnotesize
+\begin{tabular}{|l|l|c|} 
+\hline
+\multicolumn{3}{|l|}
+{\small
+\bf Poids-id\'eal} \\
+\hline
+{\small
+\bf  Lexique } &{\small
+\bf D\'efinitions }&{\small
+\bf  S\'equence } \\
+\hline
+    & \Rond{1} \underline{R\'esultat} = \underline{\'ecrire}  POIDS  &   6   \\
+                                &                                     &       \\
+\Rond{2}  POIDS (\underline{r\'eel})~: poids en Kg   & \Rond{3} POIDS~$=$ ECART $\times$ COEF       &   5   \\
+                                &                                     &       \\
+\Rond{4} ECART  (\underline{entier})     & \Rond{5} ECART = TAILLE - 100                &   4   \\
+\Rond{6}  TAILLE (\underline{entier})~: taille     & \Rond{7} TAILLE~$=$  \underline{donn\'ee}                    &       \\
+  en cm (4)                     &       ('taille en cm $>$ 150')  &   2   \\
+                                &                                     &       \\
+\Rond{8} COEF  (\underline{r\'eel})~: coefficient & \Rond{9}   {\bf if} (SEXE~ == "masculin")         &   3   \\
+de pond\'eration fonction du&                             &       \\
+sexe de la personne (10) &   ~~~~~  COEF~$=$ 1.1           &       \\
+                                &           {\bf else}                      &       \\
+                                &  ~~~~~      COEF~$=$ 1          &       \\
+                                &                                     &       \\
+\Rond{10}  SEXE (\underline{cha\^\i ne})~: sexe de     & \Rond{11} SEXE~$=$  \underline{donn\'ee}                 &   1   \\
+   la personne             &  ("sexe ? r\'epondre par masculin ou   &       \\
+                                &   f\'eminin")                         &       \\
+\hline
+\multicolumn{3}{c}{} \\
+\end{tabular}
+}
+\addcontentsline{lof}{section}{Grille d'analyse du calcul du poids id\'eal}
+
+ Les num\'eros entre parenth\`eses sont indiqu\'es optionnellement pour montrer
+   l'ordre de remplissage.
+\newpage
+
+%----------------------------------------------------------------------
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Probl\`eme~: Facture de pi\`eces
+identiques}
+\addcontentsline{lof}{section}{Calcul d'une facture de pi\`eces identiques}
+\addcontentsline{lof}{section}{Contr\^ole de l'algorithme \`a l'aide du lexique}
+%\markboth{Algorithme}{Algorithme}
+\centerline{\Large\bf Probl\`eme~: Facture de pi\`eces identiques}
+ 
+\index{facture (calcul d'une)}
+\index{contr\^ole (de l'algorithme)}
+
+%\paragraph{Grille d'analyse}
+
+\centerline{\tt
+\begin{tabular}{|l|l|l|} 
+\hline
+\multicolumn{3}{|l|}{pi\`eces\_id} \\
+\hline
+       Lexique                  &          D\'efinitions             & S\'equence \\
+\hline
+PHT (\underline{r\'eel}) prix hors taxe  &  \underline{r\'esultat} =               &     7    \\
+   des pi\`eces   & ~~~~ \underline{\'ecrire} "prix hors taxe=" PHT  \underline{\`a la ligne} &   \\
+                              &~~~~"prix toute taxe =" PTT       &    \\
+                              &                                    &          \\
+ PTT (\underline{r\'eel}) prix toute taxe &    PHT~$=$ PU $\times$ N       &     4    \\
+   des pi\`eces                 &                                    &          \\
+                              &    PTT~$=$ PHT + TAXE               &     6    \\
+ PU (\underline{r\'eel}) prix unitaire ht &                               &          \\
+                       &    PU~$=$  \underline{donn\'ee} ("prix unitaire")  &     3    \\
+ N (\underline{entier}) nombre de pi\`eces&                               &          \\
+                              & N~$=$ \underline{donn\'ee} ("nombre de pi\`eces") &     2    \\
+TAXE (\underline{r\'eel}) TVA       &                                    &          \\
+                              &    TAXE~$=$  TAUX $\times$ PHT         &     5    \\
+ TAUX (\underline{r\'eel}) taux de TVA  &                                    &          \\
+                              &    TAUX~$=$ 0.186                      &     1    \\
+\hline
+\end{tabular}
+}
+ \paragraph{Contr\^ole de l'algorithme \`a l'aide du lexique}~\\
+  \`A chaque d\'efinition algorithmique de l'identificateur d'une donn\'ee ou
+  d'un r\'esultat interm\'ediaire, on {\em coche} celui-ci dans le
+  lexique (fig. ci-dessous).  Ce lexique montre donc \`a {\em chaque
+  instant} ce qui reste \`a d\'efinir.
+
+    \begin{figurette}
+    \input{Figures/controle}
+    \end{figurette}

@@ -1,0 +1,70 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Choix conditionnel}
+\setcounter{section}{0}
+\markboth{Choix conditionnel}{Choix conditionnel}
+\centerline{\Large\bf Choix conditionnel}
+\label{Conditionnel}
+\index{condition}
+\index{d\'eterminisme}
+\index{raisonner}
+\index{compteur programme}
+\index{s\'election}
+ 
+ \noindent\hrulefill  
+\section*{Les s\'elections : choisir c'est exclure}
+L'algorithme lin\'eaire\footnote{Page \pageref{Lineaire}}
+correspond \`a un sch\'ema tr\`es simple : les actions
+s'encha\^\i nent dans un ordre fig\'e. La r\'ealit\'e est plus souvent construite
+suivant un sch\'ema conditionnel. La mise en \oe uvre d'algorithmes
+conditionnels permet de supprimer le d\'eterminisme li\'e aux algorithmes
+lin\'eaires. En programmant la prise de d\'ecision nous donnerons \`a
+l'ordinateur la capacit\'e de {\em raisonner}, c'est-\`a-dire de suivre une
+d\'emarche logique (exemple : jouer aux \'echecs) donnant au profane
+l'impression que l'ordinateur est capable de {\em penser}.
+
+
+La puissance de calcul de votre ordinateur est mise en \oe uvre lorsqu'il
+\'evalue les expressions contenues dans les lignes de programmes.
+Le pouvoir de d\'ecision est utilis\'e pour d\'eterminer l'ordre
+d'ex\'ecution des lignes. 
+
+Pour bien saisir le concept de prise de d\'ecision d'un ordinateur, il
+faut savoir ce qu'est le compteur programme. Le compteur programme est
+la partie du syst\`eme interne de l'ordinateur capable d'indiquer \`a
+l'ordinateur la prochaine ligne \`a ex\'ecuter. \`A moins d'une indication
+contraire, le compteur programme s'incr\'emente \`a la fin de chaque ligne
+afin d'indiquer la prochaine ligne du programme.
+
+
+%\paragraph{S\'election}~\\
+La s\'election ou ex\'ecution conditionnelle constitue le c\oe ur du pouvoir
+de d\'ecision d'un ordinateur. Comme ce nom l'indique, en fonction des
+r\'esultats d'un test ou d'une condition, une partie de programme est
+ex\'ecut\'ee ou non. Ceci est la fonction fondamentale qui nous fait
+croire que la machine est capable de raisonner. En effet, dans le cas de
+l'ex\'ecution conditionnelle, le programme prend en compte et refl\`ete
+totalement le raisonnement du programmeur.
+
+Prenons comme exemple un laboratoire de chimie. Un ordinateur n'y sera
+pas d'une grande utilit\'e si sa fonction se limite \`a ouvrir une valve
+lorsqu'un technicien appuie sur le bouton \fbox{\sc start} . Dans ce cas, le
+technicien fera aussi bien de l'ouvrir lui-m\^eme. Toutefois, l'ordinateur
+ex\'ecutera une t\^ache beaucoup plus utile s'il ouvre la valve lorsqu'on
+appuie sur \fbox{\sc start} et la ferme lorsqu'on atteint la valeur donn\'ee du
+pH. Il peut surpasser le technicien par exemple dans l'utilisation de
+valves t\'el\'ecommand\'ees et des dispositifs de mesure \'electroniques du pH.
+Dans cet exemple, le c\^ot\'e utile de l'ordinateur demeure sa capacit\'e de
+d\'ecider de la fermeture de la valve. En fait, c'est le programmeur qui
+sp\'ecifie les crit\`eres de d\'ecision. Ces crit\`eres sont ensuite communiqu\'es
+\`a l'ordinateur gr\^ace aux structures d'ex\'ecution conditionnelle du
+programme. En cons\'equence, L'ordinateur est capable d'interpr\'eter la
+d\'ecision du programmeur \`a une vitesse et \`a une pr\'ecision plus grandes
+que celles d'un \^etre humain.
+
+
+Il existe diverses applications d'instructions d'ex\'ecution conditionnelle 
+\begin{enumerate}
+ \item Choix conditionnel d'un segment parmi deux\footnote{Page \pageref{If}},
+ \item Ex\'ecution conditionnelle d'un segment (Sch\'ema conditionnel simplifi\'e).
+ \item Choix conditionnel d'un segment parmi plusieurs\footnote{Page
+ \pageref{Ventilation}}.
+\end{enumerate}

@@ -1,0 +1,86 @@
+\setcounter{footnote}{0}
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Sch\'emas conditionnels embo\^\i t\'es}
+% \addcontentsline{lof}{section}{Ventilation}
+\addcontentsline{lof}{section}{Fonction de calcul du nombre de jours \'ecoul\'es depuis le premier janvier}
+\markboth{Sch\'emas conditionnels embo\^\i t\'es et ventilation}{Sch\'emas conditionnels embo\^\i t\'es et ventilation}
+\centerline{\Large\bf Sch\'emas conditionnels embo\^\i t\'es et ventilation }
+\label{Emboite}
+\label{Ventilation}
+\index{ventilation}
+\index{choix}
+\index{\'ecoul\'es (nb de jours)}
+\index{calendrier}
+\index{perp\'etuel (calendrier)}
+ 
+ \noindent\hrulefill  
+
+
+
+    Le sch\'ema conditionnel\footnote{Page \pageref{If}.}
+permet de r\'egler l'alternative ou choix d'un
+    ensemble d'actions {\em parmi} 2 ensembles possibles.
+
+    Lorsque l'on doit r\'ealiser le choix d'un ensemble d'actions {\em parmi}
+	$n$ ($n > 2 $) on peut :
+
+\begin{tabular}{lr}
+\\
+\begin{minipage}[t]{6cm}
+{\small 
+\listing{Prog/2ifsA.c} }
+\end{minipage}  & \begin{minipage}[t]{9cm}
+\vspace*{2cm}
+-- soit utiliser les structures conditionnelles imbriqu\'ees mais la
+     lisibilit\'e de la d\'efinition algorithmique devient rapidement
+     malais\'ee d\`es que $n$ devient important.
+                  \end{minipage} \\
+\\
+\\
+\begin{minipage}[t]{6cm}
+{\small
+\listing{Prog/2ifsB.c}}
+\end{minipage}  & \begin{minipage}[t]{9cm}
+\vspace*{1cm}
+-- soit utiliser la ventilation qui g\'en\'eralise de mani\`ere beaucoup
+     plus satisfaisante le choix de~: 1 {\em parmi} n.
+                  \end{minipage} \\
+\end{tabular} 
+
+\paragraph{Exemple}
+
+
+     Soit \`a \'ecrire un programme qui fournit le nombre de jours
+	 \'ecoul\'es depuis le
+	 premier janvier jusqu'au d\'ebut du mois.
+	 Cet algorithme sera utilis\'e dans
+	 le calendrier perp\'etuel page \pageref{Perpetuel}. 
+
+
+
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+\multicolumn{1}{|c|}{}\\
+\begin{minipage}[t]{7cm}
+\begin{verbatim}  
+switch (mois)
+    {
+    case  1 : ecoules =   0 ; break ;
+    case  2 : ecoules =  31 ; break ;
+    case  3 : ecoules =  59 ; break ;
+    case  4 : ecoules =  90 ; break ;
+    case  5 : ecoules = 120 ; break ;
+    case  6 : ecoules = 151 ; break ;
+    case  7 : ecoules = 181 ; break ;
+    case  8 : ecoules = 212 ; break ;
+    case  9 : ecoules = 243 ; break ;
+    case 10 : ecoules = 273 ; break ;
+    case 11 : ecoules = 304 ; break ;
+    case 12 : ecoules = 334 ; break ;
+    }
+\end{verbatim} 
+\end{minipage} \\
+\multicolumn{1}{|c|}{}\\
+\hline
+\end{tabular} \end{center}

@@ -1,0 +1,134 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Les piles}
+\markboth{Traitement des expressions}{Traitement des expressions}
+\centerline{\Large\bf Utilisation d'une pile pour le traitement des expressions}
+\index{pile}
+\label{Pile}
+\index{infix\'e}
+\index{postfix\'e}
+\index{traitement des expressions}
+ 
+\noindent\hrulefill  
+\begin{multicols}{2}
+\section*{G\'en\'eralit\'es}
+
+    Intuitivement, une pile correspond \`a une pile de livres sur une table.
+    La premi\`ere op\'eration consiste \`a poser un livre sur la table vide.
+    L'op\'eration suivante place un second livre sur le livre d\'ej\`a pos\'e sur la
+    table. Chaque op\'eration de rangement augmente la taille de la pile.
+    Prendre un livre sans provoquer l'effondrement de la pile n'est possible
+    qu'au sommet de la pile.
+
+\section*{Traitement}
+
+En mode infix\'e, \'ecrire une expression consiste \`a :
+
+\begin{itemize} 
+\item \'ecrire un op\'erateur entre 2 op\'erandes,
+\item \'ecrire un op\'erateur unaire suivit de son op\'erande,
+\item modifier l'ordre des priorit\'es \`a l'aide de parenth\`eses.
+\end{itemize} 
+
+Le traitement informatique d'une expression infix\'ee est malais\'e. Il est
+pr\'ef\'erable d'effectuer le traitement de l'expression \'equivalente en mode
+postfix\'e ou infix\'e.  Par exemple, l'expression $(3 + 4)\times 2$ devient $3 \; 4 + 2
+\times$ en notation postfix\'ee.
+
+\medskip 
+
+\begin{tabular}{c|l|l}
+\hline
+\hline
+Symboles & Pile  & Actions \\
+\hline
+3      &   3   & {\it push} 3 \\
+4      &   3, 4   & {\it push} 4 \\
++      &          & {\it pop} 4 ;  {\it pop} 3 \\
+       &          & calculer $7 = 3 + 4 $ \\
+       &   7      & {\it push} 7 \\
+2      &   7, 2   & {\it push} 2 \\
+$\times$  &          & {\it pop} 2 ;  {\it pop} 7 \\
+       &          & calculer $14 = 7 \times 2 $ \\
+       &   14      & {\it push} 14 \\
+\hline
+\end{tabular} 
+
+\subsubsection*{R\`egles de transformation}
+%La totalit\'e des fichiers sources du TDA Pile
+%et du traducteur est donn\'ee en annexe.
+
+\begin{enumerate} 
+\item Les variables successivement rencontr\'ees dans l'expression infix\'ee sont
+rang\'ees directement dans l'expression pr\'efix\'ee.
+
+\item Les op\'erateurs sont empil\'es en tenant compte de leur priorit\'e :
+    
+    \begin{itemize} 
+    \item priorit\'e de l'op\'erateur ds l'expression $>$ priorit\'e de l'op\'erateur
+    au sommet de la pile $\Longrightarrow$ empiler l'op\'erateur,
+    \item priorit\'e de l'op\'erateur ds l'expression $<=$ priorit\'e de l'op\'erateur
+    au sommet de la pile $\Longrightarrow$ d\'epiler et ranger l'op\'erateur
+    d\'epil\'e dans l'expression postfix\'ee.
+    \end{itemize} 
+\item Empiler syst\'ematiquement une parenth\`ese ouvrante car elle d\'elimite une
+sous-expression,
+\item la parenth\`ese fermante fait sortir tous les \'el\'ements de la pile jusqu'\`a
+la rencontre d'une parenth\`ese ouvrante.
+\end{enumerate} 
+
+\section*{Écriture}
+
+
+Supposons que nous disposions d'un type de donn\'ees abstrait de
+{\it pile},
+on peut empiler les termes, les facteurs et les op\'erateurs afin d'obtenir la
+traduction de l'expression infix\'ee en expression pr\'efix\'ee :
+{\small
+\begin{verbatim}struct item
+{           
+   int type ;
+   union   {    
+       char op  ; int  val ;
+   } contenu ;
+    
+} ;         
+typedef struct item   ITEM ;
+typedef struct item * Item ;
+...
+pile (Item) ; Itempile p ; 
+
+int ValLex ; int Symbole ;
+...
+Emettre (int Lex, int Val)
+{
+     ITEM x ; Item y ;
+
+     switch (Lex)
+     {
+     case '+' : case '-' : case '*' : case '/' :
+            x.type = OP  ;
+         x.contenu = Lex ;
+         y = Item_copier(&x) ;
+         Itempile_empiler  (p, y) ;
+         break ;
+
+     case NB :  /* C'est un nombre */
+             x.type = NB ;
+         x.contenu = Val ;
+         y = Item_copier(&x) ;
+         Itempile_empiler  (p, y) ;
+         break ;
+
+     default :
+     }
+}
+
+main ()
+{
+
+    p = Itempile_creer(Item_copier,
+            Item_detruire, Item_editer) ;
+
+    Analyse() ;
+} \end{verbatim} }
+\end{multicols}
+\newpage ~

@@ -1,0 +1,98 @@
+\stepcounter{section}
+\addcontentsline{toc}{section}{Pointeurs de fonctions}
+\markboth{Pointeurs de fonctions}{Pointeurs de fonctions}
+\centerline{\Large\bf Les pointeurs de fonctions}
+\index{Pointeurs de fonctions}
+\label{Fonction}
+ 
+\noindent\hrulefill  
+
+% \addtocounter{\thesection}
+% \setcounter{section}{0}
+% \stepcounter{section}
+%\section*{\thesection \hbox to .45cm {}  Quelle importance ?}
+\subsection*{Quelle importance ?}
+
+L'\'ecriture de type de donn\'ees abstrait pr\'esuppose une bonne connaissance des 
+pointeurs tant pour le maniement des structures\footnote{Voir p.
+\ref{structures}.} que pour la mise en place des m\'ethodes.
+
+%\stepcounter{section}
+%\section*{\thesection \hbox to .45cm {}  Rappel}
+\subsection*{Rappel}
+    
+	\begin{itemize} 
+
+    \item  En C, une fonction elle-m\^eme n'est pas une variable mais il est
+      possible de d\'efinir des pointeurs de fonctions que l'on peut 
+      affecter, placer dans des tableaux (de pointeurs de fonctions), 
+      passer en argument \`a des fonctions ou faire
+	  retourner par des fonctions\ldots
+
+	  \end{itemize} 
+
+\subsection*{D\'eclaration}
+
+	\begin{itemize} 
+
+    \item  La d\'eclaration d'un pointeur de fonction se fait de la fa\c con suivante :
+
+      {\tt int    (*ptf) (int,char *) ;}
+
+      D\'eclaration d'un pointeur de fonction pour une fonction qui retourne
+      un entier et a deux arguments, un entier et un pointeur de type char.
+
+    \item Si on \'ecrit :  {\tt int *ptf (int,char *);} on \'ecrit un
+	      prototype...  Les parenth\`eses autour de l'identificateur
+	      sont l\`a pour pr\'eciser qu'il s'agit d'un pointeur et non
+	      d'une fonction bien pr\'ecise.
+
+	 \end{itemize} 
+
+\subsection*{Initialisation et utilisation}
+
+    \begin{itemize} 
+    
+	\item Un pointeur d\'eclar\'e peut \^etre initialis\'e comme toute variable, mais
+      ici avec un nom de fonction.
+
+      Exemple :
+\smallskip 
+      {\tt int    LireLigne (char *) ;}
+{\small
+\begin{verbatim}
+main ()
+{
+  char    tab[256]         ;
+  int     n                ;
+  int     (* ptf) (char *) ;
+
+  ptf = LireLigne ;            /* Initialisation.    */
+
+  n = (*ptf) (tab) ;           /* Appel de LireLigne.    */
+}\end{verbatim}
+}
+
+\item Dans le module {\tt Liste.c}\footnote{c.f. Annexe},
+on initialise les pointeurs de fonction
+de la structure {\tt fonctions} d\'efinie dans le fichier {\tt Liste.h} :
+
+{\small
+\begin{verbatim}void * lier_liste () 
+{
+    Liste.creer        = &creer        ;
+    Liste.copier       = 0             ;
+    Liste.detruire     = &detruire     ;
+    ...
+    Liste.retablir     = &retablir     ;
+    Liste.afficher     = &afficher     ; 
+} \end{verbatim}
+
+}
+\end{itemize} 
+
+\addcontentsline{lof}{section}{Pointeur sur une fonction}
+\newpage
+~
+
+%\end{multicols}

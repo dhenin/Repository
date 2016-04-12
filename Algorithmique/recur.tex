@@ -1,0 +1,157 @@
+\addcontentsline{toc}{section}{La récurcivité}
+\addcontentsline{lof}{section}{Calcul de $x^{n}$ $1^{\grave ere}$ m\'ethode}
+\addcontentsline{lof}{section}{Calcul de $x^{n}$ $2^{\grave eme}$ m\'ethode}
+\addcontentsline{lof}{section}{Calcul de $x^{n}$ $3^{\grave eme}$ m\'ethode}
+\markboth{R\'ecursivit\'e}{R\'ecursivit\'e}
+% \centerline{\Large\bf Sch\'ema fonctionnel (\I\I)}
+\index{r\'ecursivit\'e}
+\index{puissance (de $x$)}
+\index{r\'ecurrence}
+
+ 
+\noindent\hrulefill  
+
+\begin{multicols}{2} 
+%\paragraph{\bf 1. La r\'ecursivit\'e}
+\section*{La r\'ecursivit\'e}
+
+Reprenons le calcul de $x^{n}$. On suppose que l'on a fait une partie du
+travail, disons on a calcul\'e $x^{i}$. C'est fini si $i= n$. Sinon, en
+multipliant le r\'esultat d\'ej\`a calcul\'e par $x$, on obtient $x^{i+1}$ Par
+changement de $i$ en $i + 1$, on se ram\`ene \`a l'hypoth\`ese de d\'epart. Pour
+d\'emarrer, on peut prendre $i = 1$ et $x^{i} = x$.
+
+  La r\'ecurrence joue donc de la fa\c con suivante:
+\begin{itemize}
+\item si j'ai pu calculer $ x^{i}$, je peux calculer $x^{i+1}$
+\item or je peux calculer $x^{1}$.
+\end{itemize}
+  Sans rien changer \`a cette forme de raisonnement, nous pouvons construire un
+algorithme ``r\'ecursif''.
+
+\begin{verbatim}  expr(x, n) 
+    {
+    if (n == 1) return x ;
+    else return x * expr(x, n-1) ;
+    } \end{verbatim} 
+
+  Pour \'ecrire la d\'efinition r\'ecursive de {\tt exp$(x, n)$}, nous avons
+utilis\'e la propri\'et\'e bien connue
+{\tt \begin{quote} 
+     $x^{n} =x\times x^{n-1}$
+\end{quote} }
+
+
+\section*{Construction}
+
+ Reprenons le calcul de $x^{n}$
+\begin{quote} \begin{tabular}{l}
+{\tt exp$(x, n) = \underbrace{x \times  x \times  x \times  ... \times  x}_{(n x {\rm\ dans\;cette\;formule})}$}\\ 
+Encadrons les $n - 1$ $x$ de droite \\
+  {\tt exp$(x, n)=x \times$ \fbox{$x\times x\times ... \times x$}} \\
+  \multicolumn{1}{r}{($n-1$ $x$ dans la bo\^\i te)} \\
+\end{tabular} \end{quote} 
+On retrouve la relation connue
+{\tt \begin{quote} 
+     exp$(x,n) =x \times$ exp$(x,n -1)$
+\end{quote} }
+Comme cas singulier, on peut prendre {\tt exp$(x, 1) = x$} ou {\tt
+exp$(x, 0) = 1 $} (qui a l'avantage d'\'etendre la d\'efinition au cas $n = 0$)
+%{\tt \begin{quote} 
+% \fbox{exp1$(x, n)\equiv$ SI $n=0$ ALORS $1$ SINON $x \times$ exp1$(x, n-1)$ IS}
+%\end{quote} }
+\begin{quote} \begin{tabular}{|l|}
+\hline
+\begin{minipage}[t]{5.5cm}
+\begin{verbatim}  
+exp(x, n)
+    {
+    if (n == 0)
+        return 1 ;
+
+    return x * exp(x, n-1) ;
+    }
+
+\end{verbatim}
+\end{minipage} \\
+\hline
+\end{tabular} \end{quote}  
+
+
+%Nous en discuterons plus tard la complexit\'e.
+On peut grouper autrement
+les $x$ dans {\tt exp$(x,n)$}. Supposons $n$ pair. On peut partager les
+$x$ en deux paquets \'egaux~:
+
+{\tt
+ exp$(x,n)=$ \fbox{$x\times x\times\ldots\times x$} $\times$ \fbox{$x\times x\times\ldots\times x$}
+ }
+avec $\frac{n}{2}$ $x$ dans chaque paquet.\\
+Dans ce cas
+{\tt \begin{quote} 
+     exp$(x, n) =$ exp$(x,\frac{n}{2})^{2}$
+\end{quote} }
+
+%\begin{tabbing}
+%ou encore, en posant \= {\tt $y = $exp$(x, \frac{n}{2})$ \\
+%                    \> exp$(x, n) = y \times y $} \\
+%\end{tabbing}
+
+Si maintenant $n$ est impair, nous pouvons faire de m\^eme, en mettant \`a part le
+premier $x$
+
+{\tt 
+     exp$(x,n)=x\times$ \fbox{$x\times x\times\ldots\times x$} $\times$ \fbox{$x\times \ldots\times x$}
+ }
+
+On obtient ainsi une deuxi\`eme d\'efinition~: 
+
+\begin{quote} \begin{tabular}{|l|}
+\hline
+\begin{minipage}[t]{5cm}
+\begin{verbatim}  
+exp2(x, n)
+    {
+    if (n == 0)
+        return 1 ;
+
+    y = expr2(x, n/2) ;
+    if (pair(n))
+        return y * y ;
+    return y * y * x ;
+    }
+
+\end{verbatim}
+\end{minipage} \\
+\hline
+\end{tabular} \end{quote}  
+
+%Dans cette d\'efinition, la clause {\tt AVEC $(y =$ exp2$(x, n \div 2))$}
+%donne la signification d'une variable interm\'ediaire qui a \'et\'e introduite
+%pour la commodit\'e des calculs.
+
+   Nous pouvons faire, quand $n$ est pair, les groupements d'une autre fa\c con, en
+enfermant les paires de $x$ dans des bo\^\i tes.
+{\tt \begin{quote} 
+exp$(x, n) =$ \fbox{$x\times x$} $\times$ $\ldots\times$ \fbox{$x\times x$}
+
+\end{quote} }
+Il y a $\frac{n}{2}$ bo\^\i tes ayant chacune deux $x$
+
+\begin{tabular}{|l|}
+\hline
+\begin{minipage}[t]{6cm}
+\begin{verbatim}  
+exp3(x, n)
+    {
+    if (!n) return 0 ;
+    if (pair(n))
+        return exp3(x*x, n/2) ;
+    return x * exp3(x*x, n/2) ;
+    }
+
+\end{verbatim}
+\end{minipage} \\
+\hline
+\end{tabular}
+\end{multicols}

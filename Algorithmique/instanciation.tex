@@ -1,0 +1,52 @@
+\stepcounter{section}
+\addcontentsline{toc}{section}{Instanciation}
+\markboth{Instanciation}{Instanciation}
+\centerline{\Large\bf L'instanciation}
+ \index{instanciation}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+
+La programmation simpliste d'un type de donn\'ees abstrait, consiste \`a 
+r\'e\'ecrire chaque fois que n\'ecessaire l'ensemble des fonctions applicables
+aux donn\'ees manipul\'ees.  Ainsi on \'ecrit une pile
+de nombres pour une calculatrice et une pile de blocs libres pour la gestion
+d'un disque et une pile pour la saisie des caract\`eres. De m\^eme on \'ecrit un
+programme de gestion d'un arbre pour les r\'epertoires et un autre pour l'analyse
+syntaxique d'une expression. 
+
+
+Une autre approche r\'ealise une fois pour toutes un module qui ne repr\'esente
+aucun objet concret, mais seulement un {\it mod\`ele} de la structure de
+donn\'ees, c'est \`a dire son fonctionnement. L'ensemble des fonctions est pr\'evu
+pour s'appliquer aussi bien \`a des entiers, \`a des flottants, des tableaux,
+des structures ou autre.
+
+
+Le programmeur-utilisateur de ce module doit alors explicitement cr\'eer un {\it
+objet} \`a l'aide d'une op\'eration appel\'ee {\it constructeur} d\'efinie dans le
+module. On dit que l'on cr\'ee une {\it instance} du type abstrait. 
+La fonction {\it constructeur} associe les donn\'ees du programme effectivement
+trait\'ees aux fonctions pr\'ealablement d\'efinies. 
+
+Dans l'exemple ci-dessous\footnote{Le programme complet est en annexe},
+on commence par indiquer que
+la liste s'applique \`a des entiers ({\tt liste(entier)}), puis dans le {\tt
+main}, on cr\'e\'e une variable {\tt l} du type liste d'entier ({\tt entierliste l})
+et enfin on instancie cette liste d'entiers au moyen du constructeur ({\tt l =
+entierliste\_creer (entier\_copier, 0, entier\_editer) ;}).
+
+Apr\`es cette phase d'initialisation, on peut utiliser toutes les fonctions 
+du type de donn\'ees choisi en r\'epondant \`a la question {\it que faire ?}
+et non plus {\it comment faire ? }.
+
+\vspace{1cm}
+
+{\small
+\listing {Prog/Objet/usager1.c}}
+
+\addcontentsline{lof}{section}{Instanciation d'une liste d'entiers}
+\newpage
+~
+
+\end{multicols}

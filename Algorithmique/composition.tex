@@ -1,0 +1,240 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Sch\'ema fonctionnel}
+%\addcontentsline{toc}{chapter}{\thechapter ~ Sch\'ema fonctionnel  (\I)}
+\label{Composition}
+\setcounter{section}{0}
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Relation de pr\'ec\'edente}
+\addcontentsline{lof}{section}{Calcul de la fr\'equence d'un quartz et de 2 diviseurs}
+\markboth{Sch\'ema fonctionnel}{Sch\'ema fonctionnel}
+%\centerline{\Large\bf Sch\'emas fonctionnel  (\I)}
+\centerline{\Large\bf Sch\'ema fonctionnel (I)}
+\index{fonction}
+\index{pgcd}
+\index{ppcm}
+\index{plus grand diviseur}
+\index{grand diviseur (plus)}
+\index{diviseur (plus grand)}
+\index{plus petit multiple}
+\index{multiple (plus petit)}
+\index{pr\'esupposer}
+\index{pr\'ec\'edente (relation de)}
+\index{relation (de pr\'ec\'edente)}
+\index{ordre (relation d')}
+\index{partiel (relation d'ordre)}
+\index{variable (relation d'ordre sur les)}
+
+ 
+ \noindent\hrulefill  
+
+
+Dans la m\'ethode de construction des algorithmes\footnote{
+Page \pageref{Methode}}, nous
+partons de l'objectif final, le plus souvent une valeur \`a calculer ; ainsi,
+nous faisons appara\^\i tre une variable pour laquelle il faut expliciter
+le mode de calcul. Ce calcul {\bf pr\'esuppose} lui-m\^eme le calcul d'autres
+variables. On comprend intuitivement que la valeur finale est calcul\'ee 
+en {\em fonction} des variables dont elle d\'epend. 
+Chaque calcul peut faire l'objet d'un algorithme et 
+   on peut utiliser, dans une d\'efinition d'un algorithme, une valeur
+r\'esultant de l'ex\'ecution d'un autre algorithme. 
+
+Soit par exemple 
+\`a fabriquer une s\'erie d'appareils dont chaque exemplaire sera \'equip\'e
+d'un quartz et de deux diviseurs de fr\'equence correspondant \`a la demande de
+chaque client. \`A la commande, le client pr\'ecisera les 2 fr\'equences dont il a
+besoin. Nous allons \'ecrire le programme qui d\'etermine la valeur du quartz et
+les valeurs des deux diviseurs de fr\'equence, sachant que toutes ces
+valeurs  sont
+ des nombres entiers.
+
+\begin{center}
+{\tt
+\begin{tabular}{|l|l|c|}   \hline
+\multicolumn{3}{|l|}{FREQ : /* Calcul d'une fr\'equence et de deux diviseurs */}\\
+\hline
+     Lexique             & Actions                               & ordre \\
+\hline
+$Fq$ : Fr\'equence du quartz& AFFICHER$(Fq$, $div1$, $div2)$ ;     &   5   \\
+$F_{1}$ et $F_{2}$ : Fr\'equences client & $Fq =$ PPCM$(F_{1},F_{2})$ ;   &   2   \\
+$div1$ : diviseur pour $F_{1}$ & $div1 = \frac{Fq}{F_{1}}$ ;     &   3   \\
+                          & $div2 = \frac{Fq}{F_{2}}$ ;      &   4   \\
+$div2$ : diviseur pour $F_{2}$ & SAISIR$(F_{1},F_{2})$ ;              &   1   \\
+\hline
+\multicolumn{3}{c}{} \\
+\multicolumn{3}{l}{La valeur $Fq$ sera renvoy\'ee par le calcul du {\sc ppcm} de
+$F_{1} \mbox{et} F_{2}$.}\\
+\multicolumn{3}{c}{} \\
+\hline
+\multicolumn{3}{|l|}{PPCM$(a, b)$
+                              /* Calcul du Plus Petit Commun Multiple */ }  \\
+\hline
+		  &                                  &                \\
+                  & PPCM $ = \frac{a\times b}{\mbox{PGCD}(a, b)}$ ; &  \\
+		  &                                  &                \\
+\hline
+\multicolumn{3}{c}{} \\
+\multicolumn{3}{l}{La valeur du {\sc ppcm} sera renvoy\'ee par le calcul du
+{\sc pgcd}\footnote{Le calcul du {\sc pgcd} peut \^etre fait de fa\c con r\'ecursive.
+Cf. page \pageref{Pgcd}} de $F_{1} \mbox{et} F_{2}$.}\\
+\multicolumn{3}{c}{} \\
+\hline
+\multicolumn{3}{|l|}{PGCD$(x, y)$
+                              /* Calcul du Plus Grand Commun Diviseur */ }  \\
+\hline
+
+$m$ : variable temporaire & {\bf while (}$x !=  0${\bf )}  &       \\
+                  & \hspace{0mm}{\bf \{}                   &           \\
+                  & \hspace{5mm}$m = x$ ;                   &           \\
+                  & \hspace{5mm}$x = y$ ;                  &           \\
+                  & \hspace{5mm}$y = m$ modulo $y$ ;           &    \\
+                  & \hspace{0mm}{\bf \}}                   &           \\
+                  & {\bf return } $y$ ;                     &           \\
+\hline
+\end{tabular} }
+\end{center}
+On voit donc que l'on est conduit \`a \'ecrire 2 nouvelles fonctions (qui ne
+sont pas natives) le {\tt PPCM} et le {\tt PGCD} pour r\'ealiser ce
+programme.
+
+\paragraph{Relation de pr\'ec\'edente}
+
+
+On d\'efinit une relation de pr\'ec\'edente sur les variables d'un algorithme.
+Nous dirons que la variable $x$ {\bf pr\'ec\`ede} la variable $y$ {\bf si} $x$ a au
+moins {\bf une occurrence dans la d\'efinition}  de $y$.
+\`A cause de cela, la valeur
+de $y$ d\'epend de la valeur de $x$, et le calcul de $y$ n'est possible
+que si $x$ a d\'ej\`a \'et\'e calcul\'e.  La relation ``$x$ pr\'ec\`ede $y$'' peut
+donc \^etre lue comme ``le calcul de $x$ doit pr\'ec\'eder le calcul de $y$''.
+
+Cette relation est un ordre partiel sur les variables de l'algorithme.
+
+\newpage 
+%----------------------------------------------------------------------
+\setcounter{footnote}{0}
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Un calendrier perp\'etuel}
+\addcontentsline{lof}{section}{Calendrier perp\'etuel}
+\label{Perpetuel}
+% \addcontentsline{lof}{section}{Graphe de d\'ependance des variables}
+%\markboth{Algorithme}{Algorithme}
+\centerline{\Large\bf Un calendrier perp\'etuel\footnote{Mammeri,
+{\em Exercices d'algorithmie}, {\sc ecp}.1a 1977-1998}}
+\index{quanti\`eme}
+\index{jour}
+\index{mois}
+\index{semaine}
+\index{graphe (de d\'ependance)}
+\index{d\'ependance (graphe de)}
+\index{variable (d\'ependance des)}
+ 
+ \noindent\hrulefill  
+
+\paragraph{D\'efinition du probl\`eme : }
+On se propose de d\'eterminer le jour de la semaine d'une date donn\'ee. Sachant
+que le $1^{er}$ janvier 1900 \'etait un lundi ; on appellera {\tt d\'ecalage} la
+position d'un jour dans la semaine $\mid$ {\tt d\'ecalage} $\in$ [0-6], \mbox{0
+$\equiv$ dimanche}.  
+
+%Une date \'etant
+%donn\'ee par son quanti\`eme ({\tt jour}), son mois ({\tt mois}), son
+%mill\'esime ({\tt an}) (sur 2 chiffres dans l'intervalle [1901--2099]),
+%dire quel jour
+%de la semaine ({\tt num}  $\in$ [0-6], \mbox{0 $\equiv$ dimanche}) 
+% lui correspond.
+%
+   Pour cela, on va chercher le d\'ecalage entre le 1$^{er}$
+   janvier de l'ann\'ee 1900
+ et la date consid\'er\'ee.  On se donne une table du nombre
+de jours \'ecoul\'es depuis le d\'ebut de l'ann\'ee jusqu'au d\'ebut du mois
+{\tt mois}.
+
+\centerline{\tt
+\begin{tabular}{|l|ll|c|}
+\multicolumn{4}{c}{}\\
+\hline
+\multicolumn{4}{|l|}{\tt Calper(quanti\`eme, mois, an)}\\
+\hline
+& \multicolumn{2}{|l|}{{\tt printf ("\%d$\backslash$n",} {\tt Jour}{\bf ) ;}}
+& 5 \\
+{\tt Jour $\in$ [0-6] }&{\tt Jour }& {\tt = d\'ecalage {\bf modulo} 7 ;} & 4 \\
+{\tt d\'ecalage $\in \mathbb{N}$}&{\tt d\'ecalage }& {\tt =  quanti\`eme + DecalAA +
+DecalMM ;} & 3 \\
+{\tt DecalAA $\in \mathbb{N}$} &{\tt DecalAA }& {\tt = EcoulesAn (ann\'ee) ;} & 1
+\\
+{\tt DecalMM $\in \mathbb{N}$}&{\tt DecalMM }&
+                   {\tt = EcoulesMM (ann\'ee, mois) ;}& 2  \\
+\hline
+\multicolumn{4}{|l|}{\tt EcoulesAn(a)}\\
+\hline
+    &\multicolumn{2}{l|}{\tt /* 1 jour de d\'ecalage par an   + 1 par ann\'ee bissextile */}     &  \\
+	               & {\bf return} & DecAn ; & 4 \\
+{\tt DecAn $\in \mathbb{N}$}
+                   &	DecAn    &=  AnsApres1900 + AnsBissextiles ; & 3 \\
+{\tt  AnsApres1900 $\in \mathbb{N}$}
+                &	AnsApres1900   &= a {\bf modulo} 100 ; & 1 \\
+&\multicolumn{2}{l|}{\tt /* On ne compte pas l'ann\'ee courante
+                               parmi bissextiles */ } & \\
+{\tt  AnsBissextiles $\in \mathbb{N}$}&	AnsBissextiles   &= (a - 1) / 4   ; & 2 \\
+\hline
+\multicolumn{4}{|l|}{\tt EcoulesMM(a, m)}\\
+\hline
+&\multicolumn{2}{l|}{\tt /* D\'ecalage de jours entre 1.1.a et 1.m.a */}  &  \\
+	               & {\bf return} & DecMois ; & 5 \\
+{\tt  DecMois $\in \mathbb{N}$}&  DecMois &= SommeMois[m] + Biss ; & 4 \\
+Biss $\in [0,1]$ & Biss &= 0 ; & 2 \\
+                 & \multicolumn{2}{l|}{\tt if (a\%4)} &  3 \\
+                 & \multicolumn{2}{l|}{\tt ~~~~if (m>2)} &    \\
+                 & ~~~~~~~~Biss & = 1 ;  &    \\
+{\tt  SommeMois $\in \mathbb{N}$}&  SommeMois[] &= \{0, 0, 31, 59, 90, 120, 151, & \\
+ & &~~~~181, 212, 243, 273, 304, 334\} ; & 1 \\
+\hline
+\end{tabular}}
+
+\begin{center} 
+{%\footnotesize \begin{figurette}
+\begin{psmatrix}
+  \[ \def\arraystretch{3.5}
+      \arraycolsep .8cm
+      \begin{array}{ccccc}
+       & & \rnode{a}{}  & & \rnode{b}{\tt quantieme} \\
+       &             &  & \rnode{c}{\tt AnsApres1900} & \\
+\rnode{d}{\tt Jour} & \rnode{e}{\tt decalage} & \rnode{f}{\tt DecalAA} & \rnode{h}{\tt
+AnsBissextiles} & \rnode{g}{\tt annee} \\
+ &  & \rnode{i}{\tt DecalMM} & \rnode{j}{\tt Biss} &  \\
+ &  &  & \rnode{k}{\tt SommeMois} & \rnode{l}{\tt mois} \\
+      \end{array}
+    \pslabelsep 3pt
+    \everypsbox{\scriptstyle}
+    \psset{arrows=-,nodesep=3pt}
+\iffalse
+    \ncLine{b}{a}
+    \psset{arrows=->,nodesep=3pt}
+    \ncLine{a}{e}
+    \ncLine{c}{f}
+    \ncLine{e}{d}
+    \ncLine{f}{e}
+    \ncLine{g}{c}
+    \ncLine{g}{h}
+    \ncLine{g}{j}
+    \ncLine{h}{f}
+    \ncLine{i}{e}
+    \ncLine{j}{i}
+    \ncLine{k}{i}
+    \ncLine{l}{k}
+\fi    
+  \] \end{psmatrix}
+	\label{Dependances}
+\medskip
+\centerline{{\sc Fig.} \thesection -- {\it Graphe de d\'ependance des variables}}
+\addcontentsline{lof}{section}{Graphe de d\'ependance des variables}
+%\end{figurette}
+} \end{center} 
+
+
+On v\'erifie sur le graphe de {\em d\'ependance des variables} de la figure 
+ ci-dessus
+ que l'objectif ({\tt Jour}) pr\'esuppose le calcul
+des variables dont il d\'epend, et que chacune d'elles est explicit\'ee, soit par
+un calcul simple, soit par l'{\bf appel d'une fonction}, jusqu'\`a
+remonter aux valeurs fournies \`a l'algorithme.

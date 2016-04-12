@@ -1,0 +1,130 @@
+\addcontentsline{toc}{section}{Suppression/Insertion d'un maillon}
+\markboth{Suppression/Insertion d'un maillon}{Suppression/Insertion d'un maillon}
+\centerline{\Large\bf Suppression/Insertion d'un maillon de liste}
+ \index{liste}
+ \index{ins\'erer (un \'el\'ement dans une liste)}
+ \index{supprimer (un \'el\'ement dans une liste)}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+
+
+%\begin{figurette}
+%	\input{Figures/espace}
+%	\CAPTION{Listes cha\^\i n\'ees correspondant \`a la fig. \ref{lfauxp}}
+%	\label{Espace}
+%\end{figurette}
+%
+%\index{maillon} \index{cha\^\i n\'ee (liste)} \index{cha\^\i ne (de maillons)}
+%    On peut repr\'esenter les listes du tableau par des cha\^\i nes de maillons
+%    li\'es entre eux comme sur la figure \ref{Espace}. 
+%
+\stepcounter{section}
+\stepcounter{subsection}
+\subsection*{Suppression d'un \'el\'ement}
+\addcontentsline{lof}{section}{Suppression d'un \'el\'ement d'une liste}
+
+
+
+On a l'habitude de repr\'esenter une liste cha\^\i n\'ee par une suite de bo\^\i tes
+(maillons) \`a 2 compartiments comme dans la figure \ref{suppression}.
+Le compartiment de gauche contient
+une donn\'ee (ou l'adresse d'une donn\'ee) tandis que le compartiment de droite
+contient l'adresse du maillon {\it suivant}. 
+
+Une structure comprenant 3 adresses autorise l'acc\`es imm\'ediat au maillon de
+t\^ete, au maillon courant et au dernier maillon. 
+
+\begin{figurette}
+        \includegraphics{Figures/suppression.ps}
+	\label{suppression}
+\medskip
+\centerline{{\sc Fig.} \thesubsection -- {\it Suppression de l'\'el\'ement {\tt x}}}
+\addcontentsline{lof}{section}{Suppression d'un \'el\'ement}
+\end{figurette}
+
+
+La suppression du maillon qui contient $x$ s'effectue en modifiant la
+valeur de $suivant$ contenue dans le pr\'ed\'ecesseur de $x$ : la fonction
+$dispose$ restitue \`a la liste $disponible$ la place lib\'er\'ee, celle-ci pourra
+\^etre r\'eutilis\'ee lors de la cr\'eation d'un $nouveau$ maillon.
+
+\begin{verbatim}  
+static BOOL
+LibereObject (List * l, void * ancien)
+{   
+  Maillon * me = l->premier ;
+  if (-1 != me)
+  {
+    Maillon * precedent ;
+    while (-1 != me->suivant)
+    {
+      precedent = me   ;
+      me = me->suivant ;
+      /* La comparaison qui suit
+       * doit etre adaptee */
+      if (me->objet == ancien)
+      {
+        precedent->suivant = me->suivant ;
+        dispose(me) ;
+        return VRAI ; /* Succes */
+      }
+    }
+  } /* objet non trouve ou liste vide */
+  return FAUX ;
+}   \end{verbatim} 
+
+
+\stepcounter{subsection}
+\subsection*{Insertion d'un \'el\'ement}
+
+\addcontentsline{lof}{section} {Insertion d'un \'el\'ement en t\^ete d'une
+liste}
+
+      Pour ins\'erer un \'el\'ement $x$ dans une liste $L$, on utilise la
+    premi\`ere cellule libre dans la liste disponible et on la place \`a la
+    bonne position dans la liste $L$.  L'\'el\'ement $x$ est ensuite plac\'e
+    dans le champ \'el\'ement de cette cellule. Figure \ref{Lfauxp2}.
+
+	  Ins\'erer un nouvel \'el\'ement en t\^ete de la liste ${\cal M}$ peut
+          s'\'ecrire de fa\c con simplifi\'ee :
+
+\begin{verbatim}  
+inserer (M, e)
+{
+        temp = M ;
+           M = premier_disponible() ;
+  disponible = suivant(M) ;
+  suivant(M) = temp ;
+  element(M) = e ;
+}
+\end{verbatim}
+
+\begin{figurette}
+    \input{Figures/lfauxp2}
+\medskip
+\centerline{{\sc Fig.} \thesubsection -- {\it Insertion en t\^ete de ${\cal M}$}}
+\addcontentsline{lof}{section}{Insertion en t\^ete}
+	\label{Lfauxp2}
+\end{figurette} 
+
+\subsection*{Affichage}
+
+Parcourir la liste pour en faire l'affichage peut se r\'ealiser au moyen de la
+fonction {\tt prochain(e)} :
+
+Si l'on inverse les lignes comment\'ees {\tt (1)} et {\tt (2)}, la liste est
+affich\'ee en sens inverse.
+
+\begin{verbatim}  
+lire(e)
+{
+    if (-1 == e) return ;
+    afficher (e) ;       /* (1) */
+    lire (suivant(e)) ;  /* (2) */
+}
+\end{verbatim}
+
+\newpage
+~
+\end{multicols}

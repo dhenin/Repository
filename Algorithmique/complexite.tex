@@ -1,0 +1,127 @@
+\addcontentsline{toc}{chapter}{\thechapter ~ Temps et espace d'ex\'ecution}
+\markboth{Complexit\'e}{Complexit\'e}
+\setcounter{section}{0}
+%\addtocounter{section}{1}
+%\addcontentsline{toc}{section}{D\'efinitions}
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Complexit\'e en temps}
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Complexit\'e dans le pire des cas}
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Complexit\'e en moyenne}
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{Espace m\'emoire occup\'e}
+\centerline{\Large \bf Temps et espace d'ex\'ecution}
+\label{Complexite}
+\index{complexit\'e}
+\index{temps (d'ex\'ecution)}
+\index{place m\'emoire}
+\index{time}
+\index{plus grand diviseur}
+\index{grand diviseur (plus)}
+\index{diviseur (plus grand)}
+\index{op\'erations (\'el\'ementaires)}
+\index{comparaison (nombre de)}
+\index{affectation (nombre d')}
+\index{op\'eration (nombre d')}
+\index{co\^ut d'un algorithme}
+\index{cas (meilleur ou pire)}
+\index{pire (des cas)}
+\index{meilleur (des cas)}
+
+\noindent\hrulefill
+
+%{\large \bf Introduction}
+
+Le temps d'ex\'ecution et la place m\'emoire requise caract\'erisent
+la complexit\'e\footnote{La {\it simplicit\'e} d'un algorithme n'est donc pas le
+contraire de la complexit\'e.}
+d'un programme.
+Sous {\sc unix}, on mesure le temps d'ex\'ecution d'un programme au moyen de la
+commande {\tt time}.
+Il tombe sous le sens qu'un programme mettra d'autant
+plus de temps \`a s'achever qu'il aura de donn\'ees \`a traiter.
+Pour un m\^eme
+r\'esultat, deux algorithmes \'equivalents ne verront sans doute pas leur temps
+d'ex\'ecution cro\^\i tre dans les m\^emes proportions en fonction des
+donn\'ees \`a traiter. Exemple : Calculs du plus grand diviseur de $n$.
+
+\vspace{3mm}
+
+\centerline{\tt \begin{tabular}{|l|l|}
+\hline
+\parbox[t]{6cm}
+{\centerline{\bf 1$^{\bf \grave ere}$ m\'ethode}
+i = n - 1 ;\\
+{\bf while} (0 $!=$ (n \% i)) \\
+\hspace*{3mm}/* pgd $\leq$ i const. de boucle */\\
+\hspace*{3mm}i = i - 1 ;\\
+pgd = i ;}
+               & \parbox[t]{9.5cm}{
+\centerline{\bf 2$^{\bf \grave eme}$ m\'ethode}
+                  i =  2 ;\\
+                  {\bf while} (i $< \sqrt{n}$ et 0 $!=$ (n \% i)) \\
+				  \hspace*{3mm} /*  ppd $>$ i constante de boucle */\\
+				  \hspace*{3mm} i = i + 1 ;\\
+/* pgd =  {\sc si} ($0 == n$ modulo $i$) {\sc alors} $\frac{n}{i}$ {\sc
+sinon} 1 */\\
+pgd =  (0 ==  (n \% i)) {\bf ?}   n/i {\bf : } 1 ;
+} \\
+\hline
+\end{tabular}}
+
+\addcontentsline{lof}{section}{Deux m\'ethodes de calcul du pgcd}
+
+%\section{Complexit\'es d'un algorithme}
+
+\begin{itemize} 
+   \item  {\bf Complexit\'e en temps}
+
+     La complexit\'e d'un algorithme se mesure essentiellement en
+     calculant le nombre d'op\'erations \'el\'ementaires pour traiter une
+     donn\'ee de taille $n$. Les op\'erations \'el\'ementaires consid\'er\'ees sont
+
+     \begin{itemize} 
+        \item  le nombre de comparaisons (algorithmes de recherches)
+        \item  le nombre d'affectations (algorithmes de tris)
+        \item  Le nombre d'op\'erations ($+$, $*$) r\'ealis\'ees par l'algorithme
+		(calculs sur les matrices ou les polyn\^omes).
+     \end{itemize} 
+     Le co\^ut d'un algorithme $A$ pour une donn\'ee $D$ est le nombre
+     d'op\'erations \'el\'ementaires n\'ecessaires au traitement de la donn\'ee $D$
+     et est not\'e $0(D)$
+
+   \item  {\bf Complexit\'e dans le pire des cas},\\exemple :
+          recherche d'un nombre dans un tableau, alors qu'il n'y est pas : 
+
+			  \[ \mbox{Max}_{(n)} = \mbox{max}\{O(d_{1}), d_{i}\in D_{i} \}\]
+
+   \item  {\bf Complexit\'e dans le meilleur des cas},\\ex :
+           rechercher d'un nombre
+		  dans un tableau, alors qu'il est en premi\`ere position :
+
+		  \[ \mbox{Min}_{(n)} = \mbox{min}\{O(d_{1}), d_{i}\in D_{i}\} \]
+
+   \item  {\bf Complexit\'e en moyenne}
+
+          \[ \mbox{Moy}(n) = \sum_{d \subset D_{n}} p(d) O(d) \]
+
+     o\`u $p(d)$ est la probabilit\'e d'avoir en entr\'ee la donn\'ee $d$ parmi toutes
+     les donn\'ees de taille $n$. 
+
+     Si toutes les donn\'ees sont \'equiprobables, alors on a,
+
+	 \[ \mbox{Moy} = \frac{1}{|D_{i}|}\sum_{d\in D_{n}}O(d) \]
+
+    
+   \item  {\bf Espace m\'emoire}
+
+     Il est quelquefois n\'ecessaire d'\'etudier la complexit\'e en m\'emoire
+     lorsque l'algorithme requiert de la m\'emoire suppl\'ementaire\footnote{
+     Page \pageref{Kmag}, un exemple de choix d'algorithme selon la place.}
+     (tableau auxiliaire de m\^eme taille que le tableau donn\'e en entr\'ee
+     par exemple). 
+
+\end{itemize} 
+\newpage
+

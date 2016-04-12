@@ -1,0 +1,163 @@
+% \addcontentsline{toc}{section}{Exemple de calcul de complexit\'e d'un algorithme}
+%\markboth{Algorithme}{Algorithme}
+
+\centerline{\Large \bf Calcul de complexit\'e d'un algorithme :}
+\centerline{\large \bf apparition d'un nombre dans un tableau.}
+
+\noindent\hrulefill
+\index{tableau}
+\index{cas (meilleur ou pire)}
+\index{pire (des cas)}
+\index{meilleur (des cas)}
+\index{asymptotique}
+\index{temps (d'ex\'ecution)}
+\index{Strirling}
+\index{Fibonacci}
+
+\begin{multicols}{2}
+{\small
+Soit $T$ un tableau de taille $N$ contenant des nombres entiers de $1$ \`a $k$.
+Soit $a$ un entier entre $1$ et $k$.
+
+La fonction suivante renvoie $1$ lorsque l'un des \'el\'ements du tableau est
+\'egal \`a $a$, et $0$ sinon.
+
+\vspace{3mm}
+
+{\tt
+\centerline{\tt \begin{tabular}{|l|}
+\hline
+{\sf int} Trouve ({\sf int} T[], {\sf int} n, {\sf int} a)\\
+{\sf \{}\\
+\hspace*{3mm}{\sf int}  i = 0  ;\\
+\hspace*{3mm}{\sf while} (i {\sf $<$} n)\\
+\hspace*{6mm}{\sf if} (T[i] {\sf ==} a )\\
+\hspace*{9mm}{\sf return} i ; \\
+\hspace*{3mm}{\sf /*}  i == n ; le tableau est parcouru {\sf */}\\
+\hspace*{3mm}{\sf return} 0 ;\\
+{\sf \}}\\
+\hline\end{tabular} } }
+{ \setlength {\parindent} {0 cm}
+{\bf Cas le pire} : $N$ (le tableau ne contient pas $a$)\\
+{\bf Cas le meilleur} : $1$ (le premier \'el\'em. du tableau est $a$)\\
+{\bf Complexit\'e moyenne} : Si les nombres entiers
+de $1$ \`a $k$ apparaissent de mani\`ere
+\'equiprobable, on peut montrer que le co\^ut moyen de l'algorithme est
+$N =   k (1 - (1 - 1/k) )$.
+}
+
+\addcontentsline{lof}{section}{Fonction de
+                               recherche d'un \'el\'ement dans un tableau}
+
+De fait les cas o\`u l'on peut explicitement calculer la complexit\'e en moyenne
+sont rares. 
+Cette \'etude est un domaine \`a part enti\`ere de l'algorithmique
+% que nous aborderons assez peu ici.
+%Toutefois, il est indispensable, apr\`es avoir
+%\'ecrit un algorithme, de calculer sa complexit\'e dans le pire des cas et dans
+%le meilleur des cas.
+
+{\bf Analyse asymptotique}
+
+\begin{itemize} 
+   \item  Analyse du temps d'un calcul d'un programme
+
+		\begin{itemize} 
+
+        \item  Valeur approch\'ee Le temps de calcul d'un programme d\'epend trop de
+          la vitesse de l'ordinateur et du compilateur utilis\'es. On peut donc
+          calculer les performances d'un algorithme \`a facteur multiplicatif
+          constant. Des programmes de complexit\'es $n$, $2n$ ou $3n$
+		  sont quasiment \'equivalents.
+
+        \item  R\`egle des 90/10 : 90\% du temps de calcul d'un programme est
+          r\'ealis\'e dans 10\% du code. Inutile donc d'essayer de perdre trop de
+          temps \`a optimiser les 90\% qui ne prennent que 10\% du temps. Autant
+          se consacrer \`a ce qui est le plus p\'enalisant.
+
+        \item  Exemple : comparaisons d'un algorithme $A$ de complexit\'e $100 n$ 
+			   et d'un algorithme $B$ de complexit\'e $2n^{2}$ (cf Aho-Ullman)
+
+		\end{itemize} 
+
+   \item  Notations $\theta$ et $O$ :
+
+		\begin{itemize} 
+        \item  D\'efinitions.
+          On dit que $f=\theta(g)$ lorsqu'il existe deux constantes $c_{1}$
+		  et $c_{2}$
+          positives ($f$ et $g$ sont \'egalement suppos\'ees \`a valeurs positives)
+          telle que, pour $n$ assez grand
+
+          \[ c_{1}.g(n) < f(n) < c_{2}.g(n) \]
+
+          Remarquons que cette relation est r\'eflexive.
+
+        \item  On dit que $f=O(g)$ lorsqu'il existe une constante $c$ positive
+			   telles que, pour n assez grand
+
+            \[ f(n) < c.g(n)  \]
+
+          c'est dire que $f$ est born\'ee par $g$ \`a un facteur
+          multiplicatif pr\`es.
+
+          Cette relation n'est pas r\'eflexive.
+
+        \item  Propri\'et\'es.
+
+          Un polyn\^ome est de l'ordre de son degr\'e. On distingue les
+          fonctions lin\'eaires (en $O(n)$), les fonctions quadratiques (en
+          $O(n^{2})$) et les fonctions cubiques (en $O(n^{3})$).
+
+          Les fonctions d'ordre exponentiel sont les fonctions en $O(a^{n})$
+		  ou $a >1$.
+
+          Les fonctions d'ordre logarithmique sont les fonctions en
+          $O(\log(n)$) (Remarquons que peu importe la base du logarithme).
+
+        \item  Une classe int\'eressante d'algorithme est en $n \log(n)$.
+		Comparaison de $n\log(n)$ et de $n^{2}$.
+
+                                        [Image]
+        \item  Comparaison des asymptotiques classiques.
+
+             \begin{itemize} 
+             \item  Rappelons que $log(n)^{i} << n^{k} << a^{n} (f<<g \; 
+			 \mbox{lorsque limite}(g/f) = 0)$.
+             \item  Fractions rationnelles
+             \item  Factorielle : formule de Stirling
+
+                                          [Image]
+
+             \item  Nombres de Fibonacci
+			 \end{itemize} 
+
+   \item  Calcul de complexit\'e dans les structures de contr\^ole.
+
+		\begin{itemize} 
+        \item  Les instructions \'el\'ementaires (affectations,
+	comparaisons) sont en temps constant, soit en O(1).
+        \item  Tests :
+          O(if A then B else C fi) = O(A)+max(O(B),O(C))
+        \item  Boucles
+          O(for i from 1 to n do Ai od) = somme(O(Ai))
+          Lorsque O(Ai) est constant \`a O(A), on a
+          O(for i from 1 to n do A od) = nO(A)
+        \item  Cas particuliers : boucles imbriqu\'ees
+			 \begin{itemize} 
+             \item  O(for i from 1 to n do
+               for j from 1 to n do A od
+
+               %od ) = n^2. O(A)
+             \item  Le fait que la borne sup de la boucle int\'erieure soit i
+               plut\^ot que n ne change rien :
+               O(for i from 1 to n
+               do
+          for j from 1 to i do A od
+          od ) = (1+2+...+n). O(A).
+          %Or 1+2+...+n=O(n^2) et on n'a presque rien gagn\'e.
+		  \end{itemize} 
+       \end{itemize} 
+\end{itemize} 
+\end{itemize} 
+}\end{multicols}

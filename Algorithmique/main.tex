@@ -1,0 +1,271 @@
+\documentclass[a4paper,twoside,openright]{book}
+\def\figurette{}
+%\@noBDfr%
+%               \ifx\@fgeORI\undefined\figure\fi%
+%               \ifFLA\bgroup%
+%                \def\@xfloat####1[h]{%
+%                \expandafter\let\csname end####1\endcsname\endfigurette%
+%                \vskip\intextsep\def\@captype{####1}\parindent\z@}%
+%                \@fgeORI[h]\else\figure[h]\fi}%
+\def\endfigurette{}
+%\@noBDfr%
+                  %
+%                      \ifFLA\vskip\intextsep\egroup\else\@efgeORI\fi%
+%                      \ifx\@lim\empty\else\marginpar{\@lim@}\xdef\@lim{}\fi%
+%                  \let\ifMOVING\iffalse}%
+\usepackage[french]{babel}                  
+\addto\extrasfrench{%
+\providecommand{\og}{\leavevmode\flqq~}%
+\providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}%
+}
+%\usepackage{verbatim}  % Pb potentiel avec \verbatim
+%\usepackage{moreverb}  % Pb potentiel avec \verbatim
+\usepackage{longtable}
+%\usepackage{alltt}
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+\usepackage{eepic/epic}
+\usepackage{eepic/eepic}
+\usepackage{ecltree}
+\usepackage{longtable}
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{algo}
+\usepackage{floatflt}
+\usepackage{pstricks}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-node}
+%\usepackage[dvips]{graphicx}
+\usepackage{amsfonts}
+\usepackage{amstext} % !! Ne pas utiliser amsmath qui provoque 
+                     % la disparition du listing dans variables.tex
+                     % et la perte du logo en page de titre
+%\usepackage{pst-coi}
+%\usepackage{syntax}
+
+\catcode`\Å=\active	\defÅ{\'e}
+\catcode`\É=\active	\defÉ{\`e}
+\catcode`\Á=\active	\defÁ{\^e}
+\catcode`\Í=\active	\defÍ{\"e}
+\catcode`\È=\active	\defÈ{\`a}
+\catcode`\À=\active	\defÀ{\^a}
+\catcode`\Ë=\active	\defË{\`u}
+\catcode`\Ã=\active	\defÃ{\^u}
+\catcode`\Ï=\active	\defÏ{\"u}
+\catcode`\Â=\active	\defÂ{\^o}
+\catcode`\Ñ=\active	\defÑ{\^\i}
+\catcode`\Ý=\active	\defÝ{\"\i}
+\catcode`\µ=\active	\defµ{\c c}
+
+\catcode`\Ü=\active	\defÜ{\'E}
+\catcode`\£=\active	\def£{\`E}
+\catcode`\¤=\active	\def¤{\^E}
+\catcode`\¥=\active	\def¥{\"E}
+\catcode`\¡=\active	\def¡{\`A}
+\catcode`\¢=\active	\def¢{\^A}
+\catcode`\­=\active	\def­{\`U}
+\catcode`\®=\active	\def®{\^U}
+\catcode`\Û=\active	\defÛ{\"U}
+\catcode`\ß=\active	\defß{\^O}
+\catcode`\¦=\active	\def¦{\^I}
+\catcode`\§=\active	\def§{\"I}
+\catcode`\´=\active	\def´{\c C}
+
+\catcode`\é=\active	\defé{\'e}
+\catcode`\è=\active	\defè{\`e}
+\catcode`\ê=\active	\defê{\^e}
+\catcode`\ë=\active	\defë{\"e}
+\catcode`\à=\active	\defà{\`a}
+\catcode`\â=\active	\defâ{\^a}
+\catcode`\ù=\active	\defù{\`u}
+\catcode`\û=\active	\defû{\^u}
+\catcode`\ü=\active	\defü{\"u}
+\catcode`\ô=\active	\defô{\^o}
+\catcode`\î=\active	\defî{\^\i}
+\catcode`\ï=\active	\defï{\"\i}
+\catcode`\ç=\active	\defç{\c c}
+\catcode`\É=\active	\defÉ{\'E}
+\catcode`\È=\active	\defÈ{\`E}
+\catcode`\Ê=\active	\defÊ{\^E}
+\catcode`\Ë=\active	\defË{\"E}
+\catcode`\À=\active	\defÀ{\`A}
+\catcode`\Â=\active	\defÂ{\^A}
+\catcode`\Ù=\active	\defÙ{\`U}
+\catcode`\Û=\active	\defÛ{\^U}
+\catcode`\Ü=\active	\defÜ{\"U}
+\catcode`\Ô=\active	\defÔ{\^O}
+\catcode`\Î=\active	\defÎ{\^I}
+\catcode`\Ï=\active	\defÏ{\"I}
+\catcode`\Ç=\active	\defÇ{\c C}
+
+%   Macro entoure
+%   pour entourer une vbox par un cadre
+%
+%   \entoure#1
+%
+%   \entourehor    et \entourever
+%   sont deux variables de type dimen
+%   permettant de dÅfinir l'espacement horizontal
+%   et vertical entre la vbox et les traits.
+   
+\ifx\mbrentoure\relax\endinput
+    \else\let\mbrentoure=\relax\fi
+%
+\newdimen\entourehor \entourehor=6pt
+\newdimen\entourever \entourever=6pt
+\newdimen\entouregra \entouregra=0.4pt
+\long\def\entoure#1{\vbox{\hrule
+    height\entouregra
+	\hbox{\vrule width\entouregra
+	    \kern\entourehor
+	    \vbox{\kern\entourever%
+		\hbox{#1}\kern\entourever}
+	    \kern\entourehor\vrule
+		width\entouregra}
+	\hrule height\entouregra}}
+%
+\long\def\entoureformule#1{\vcenter{\hrule
+    \height\entouregra
+	\hbox{\vrule width\entouregra
+	    \kern\entourhor
+	    \vbox{\kern\entourever%
+		\hbox{$\displaystyle #1$}
+		\kern\entourever}
+	    \kern\entourehor\vrule
+		\width\entouregra}
+	\hrule height\entouregra}}
+
+%
+% Macro "listing" (extrait de Gutemberg)
+% Syntaxe : \listing {<fichier>}
+% But : inclut le fichier en verbatim
+%
+
+\def\uncatcodespecials
+{\def\do##1{\catcode`##1=12 }\dospecials}
+\def\listing#1{\par\begingroup
+\setupverbatim\input #1 \endgroup}
+\def\setupverbatim{\tt %\lineno=0
+  \def\par{\leavevmode\endgraf}
+  \catcode`\`=\active
+  \obeylines \uncatcodespecials \obeyspaces
+  \parskip=0pt plus 1pt
+}
+{\obeyspaces\global\let =\ }
+	% let activespace = control space
+{\catcode`\`=\active \gdef`{\relax\lq}}
+
+\newbox\sample
+\def\psmatrix{\setbox\sample\vbox\bgroup}
+\def\endpsmatrix{%
+  \egroup
+      {\box\sample}}
+  %\vbox{\vskip 1cm
+    %\hbox{\psframebox[boxsep=false,linewidth=2pt,linearc=.5cm,framesep=.5cm,
+      %cornersize=absolute]{\box\sample}}
+    %\vskip 1cm}}
+\def\rquote#1{{\begin{quote}\vskip-\topsep
+  \raggedright\hskip -2em#1\end{quote}}}
+%---ici---
+
+\textwidth=15cm
+\textheight=25cm
+
+\evensidemargin = 0 cm
+\oddsidemargin  = 0 cm
+%\topskip=0cm
+
+%\columnwidth=\textwidth
+
+
+%\hoffset = -1in                % 1 Repere horizontal (dist depuis bord gauche)
+% \voffset = -1in                % 2 Repere vertical   (dist depuis le haut    )
+%\evensidemargin = 0 cm        % 3 de 1 jusqu'au bord du corps 
+%\topmargin      = 0 cm        % 4 de 2 jusqu'a l'entet
+%\headheight     = 3 cm        % 5 largeur de l'entet
+
+%\headsep        = .5 cm        % 6 distance entre entete et haut du corps
+%\textheight     = 23 cm        % 7 hauteur du corps
+
+%\marginparsep   = 1 cm        % 9 distance entre marge et corps
+%\marginparwidth = 5 cm        % 10 largeur de la marg
+%\footskip       = 3 cm        % 11 distance entre la ligne de note et corps
+\parindent      = 0 cm        % Retrait en début de paragraph
+%\oddsidemargin
+%\topskip
+%
+%\showthe\voffset
+%\showthe\hoffset
+%\showthe\topmargin
+%\showthe\headheight
+%\showthe\headsep
+%\showthe\textwidth
+%\showthe\textheight
+%\showthe\evensidemargin
+%\showthe\oddsidemargin
+%\showthe\topskip
+
+\setlength {\parskip} {1 mm}
+
+%\showthe\parskip
+%\showthe\parsep
+
+\newcommand{\tenrm}{\rm}
+\newcommand{\tenit}{\it}
+
+\newcommand {\unix} {Unix}
+%\newcommand {\Att}  {{\sc at\&t}}
+
+\makeindex
+
+
+\pagestyle{myheadings}
+%\markboth{\tiny ECP, 9899, Algo}{\tiny ECP, 9899, Algo}
+
+%-----------------------------------------------------------------------------
+% Bon, ca commence
+%-----------------------------------------------------------------------------
+
+%\graphicspath{{Figures}{Figures/Prog}{Figures/Prog/Objet}}
+\begin{document}
+% \DeclareGraphicsExtensions[.]{ps}{eps} % Saloperies avant le logo Titlepage
+\input{TitlePage.tex}
+\newpage
+\input{Impression.tex}
+\raggedbottom
+\setcounter{page}{0}
+\tableofcontents
+%\input{notation.tex} \newpage
+\part{La programmation structurée}
+
+\setcounter{chapter}{1}
+\input{main.part1.tex} 
+%----------------------------------------------------------------------
+\part{Les types de données abstraits}
+\setcounter{chapter}{20}
+
+%----------------------------------------------------------------------
+\input{main.part2.tex}   
+\newpage
+\part{Annexes}
+%\annexes
+ \appendix
+                       \newpage \addtocounter{chapter}{1} \setcounter{section}{0}
+\input{Sources.tex}
+                       \newpage \addtocounter{chapter}{1} \setcounter{section}{0}
+\input{proverbes.tex}
+                       \newpage \addtocounter{chapter}{1} \setcounter{section}{0}
+
+\input{table_ascii.128.tex}
+                       \newpage \addtocounter{chapter}{1}
+\markboth{Listes des figures}{Listes des figures}
+\listoffigures
+\addcontentsline{toc}{chapter}{Table des figures et des programmes}
+                       \newpage \addtocounter{chapter}{1}
+
+\markboth{Index}{Index}
+% \printindex        %\input{main.ind}
+
+
+\newpage ~ \newpage
+\end{document}

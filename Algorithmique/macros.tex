@@ -1,0 +1,142 @@
+\addcontentsline{toc}{section}{Les macros}
+\markboth{Les macros}{Les macros}
+\centerline{\Large\bf Les macros (cha\^\i nes de remplacement)}
+ \index{Cha\^\i ne de remplacement}
+ \index{macro}
+ 
+ \noindent\hrulefill  
+\begin{multicols}{2}
+
+La premi\`ere r\`egle est : {\it ne les utilisez pas} si vous n'avez pas \`a le
+faire\footnote{On lira avec int\'er\^et le fichier {\tt /usr/include/ctype.h}}.
+Il a pu \^etre observ\'e qu'\`a peu pr\`es chaque macro d\'emontre un d\'efaut
+dans la programmation. Puisqu'elles r\'eorganisent le texte d'un programme avant
+que le compilateur ne les voie, les macros sont un probl\`eme majeur pour la
+plupart des outils de d\'eveloppement (d\'ebogueurs, profileurs\ldots).
+
+%\stepcounter{subsection}
+% \subsection*{\thesubsection \hbox to .45cm {}  Rappel}
+\subsection*{Rappel}
+
+Une directive (macro-instruction\footnote{Mammeri M.
+{\it programmation} {\sc \'ecole centrale de paris} {\tiny 1997-1998} p. 112})
+de pr\'etraitement de la forme :
+
+{\small
+\tt \#define } {\it identificateur chaine-symbole}
+
+provoque le remplacement par le précompilateur de toutes les instances
+suivantes de l'identificateur avec la s\'equence de symboles donn\'ee. Les espaces
+entourant la s\'equence de symboles de remplacement sont annul\'es. Par exemple :
+
+{\small
+\tt \#define  COTE 8
+
+char jeu[COTE][COTE] ;}
+
+devient apr\`es le passage du pr\'ecompilateur :
+
+{\small
+\tt char jeu [8] [8] ;}
+
+%\stepcounter{subsection}
+%\subsection*{\thesubsection \hbox to .45cm {}  Op\'erateur \#}
+\subsection*{Op\'erateur \#}
+
+Si une occurrence d'un param\`etre dans une s\'equence de symboles de remplacement
+est imm\'ediatement pr\'ec\'ed\'ee par un symbole {\tt \#}, le param\`etre et
+l'op\'erateur {\tt \#} seront remplac\'es dans le d\'eveloppement par un litt\'eral
+cha\^\i ne contenant l'orthographe de l'argument correspondant. Un caract\`ere
+$\backslash$ est ins\'er\'e dans un litt\'eral cha\^\i ne avant chaque occurrence d'un 
+$\backslash$ ou d'un {\tt "} \`a l'int\'erieur d'une (ou d\'elimitant) une
+constante caract\`ere ou un litt\'eral cha\^\i ne dans l'argument.
+
+{\small
+\tt \#define path(logid,cmd) "/users/" \#logid "/bin/" \#cmd
+\#define jjd dhenin}
+
+\`a l'appel 
+
+{\small
+\tt char * outil = path(jjd, listlp) ;}
+
+sera interpr\'et\'e :
+
+{\small
+\tt char * outil = "/users/" "jjd" "/bin/" "listlp" ;}
+
+qui sera ensuite concat\'en\'e pour devenir :
+
+{\small
+\tt char * outil = "/users/jjd/bin/listlp" ;}
+
+%\stepcounter{subsection}
+%\subsection*{\thesubsection \hbox to .45cm {}  Op\'erateur \#\#}
+\subsection*{Op\'erateur \#\#}
+
+Si un op\'erateur {\tt \#\#} appara\^\i t entre deux symboles dans une s\'equence de
+symboles de remplacement, et si l'un ou l'autre des symboles est un param\`etre,
+il est tout d'abord remplac\'e, puis l'op\'erateur {\tt \#\#} et tous les espaces
+l'entourant sont ensuite supprim\'es. L'effet de l'op\'erateur {\tt \#\#} est donc
+une concat\'enation.
+
+Par exemple dans la cr\'eation du TDA liste ({\tt Liste.h} et {\tt Liste.tda})
+
+{\small
+\begin{verbatim}#define nom(a,b) a##b
+#define liste(type_objet)            \
+void nom (type_objet, liste_premier) \
+    (nom(type_objet, liste) l)       \
+{                                    \
+    (*Liste.premier) (l->rep) ;      \
+}
+
+liste(Entier) ; \end{verbatim} }
+
+produira :
+
+{\small
+\begin{verbatim}   void Entierliste_premier(Entierliste l)
+{
+    (*Liste.premier) (l->rep) ; 
+}\end{verbatim} }
+
+Mais toute macro utilis\'ee comme un des symboles adjacents  \`a {\tt \#\#} n'est
+pas expans\'ee, \`a l'inverse du r\'esultat de la concat\'enation.
+
+{\small
+\begin{verbatim}  
+#define concat(a)       a##valise
+#define mot             B
+#define motvalise       rafiscotche
+
+contate(mot) \end{verbatim} }
+
+donne 
+
+{\small
+\tt rafiscotche}
+
+et non pas
+
+{\small
+\tt Bvalise}
+
+{\small
+\begin{verbatim}  
+main ()
+{
+     int a = 1 ;
+     int B = 2 ;
+     int Bvalise = 3 ;
+     int rafiscotche = 4 ;
+
+
+     printf ("%d\n", concat(mot)) ;
+}
+\end{verbatim} }
+
+\newpage
+~
+
+\end{multicols}

@@ -1,0 +1,67 @@
+\label{Lineaire}
+\section*{D\'eroulement lin\'eaire}
+   La forme la plus simple de l'algorithme\footnote{Page
+   \pageref{Algorithme} la d\'efinition.}
+   est le d\'eroulement lin\'eaire (encha\^\i nement).
+%   Ce n'est pas tr\`es compliqu\'e \`a comprendre mais c'est tr\`es important.
+%   Gr\^ace au d\'eroulement lin\'eaire, il est possible de regrouper
+%   diff\'erentes lignes de programme afin qu'une t\^ache sp\'ecifique puisse
+%   \^etre ex\'ecut\'ee.
+\begin{itemize}
+\item      Le d\'eroulement lin\'eaire ne comporte aucune prise de d\'ecision.
+       Les lignes de programme qui s'y trouvent seront toujours ex\'ecut\'ees
+       dans le m\^eme ordre.
+
+\item      Le d\'eroulement lin\'eaire est le mode implicite d'ex\'ecution d'un
+       programme. 
+	   %Si vous n'introduisez pas une 
+	   Sans instruction qui
+       suspend ou modifie le d\'eroulement lin\'eaire, l'ordinateur {\em passe}
+       toujours \`a l'instruction  suivante apr\`es l'ex\'ecution
+       de l'instruction courante.
+
+\item La caract\'eristique
+       d'un algorithme lin\'eaire est de n'utiliser que l'encha\^\i nement
+       s\'equentiel d'actions dont la plus simple est l'affectation\footnote{
+	   Page \pageref{Affectation}}.
+
+\end{itemize}
+\section*{Propri\'et\'e de l'encha\^\i nement}
+
+Une succession d'instructions poursuit un objectif : se rapprocher
+d'un r\'esultat pr\'evu ;  
+les relations entre les variables sont modifi\'ees. Bien entendu, l'\'etat final
+est le r\'esultat de la succession des \'etats interm\'ediaires.
+
+Exemple :
+
+\begin{tabular}{ll}
+\parbox[t]{7cm}{
+	Supposons les r\'eels $x$ et $y$,  avec\\
+	(P) /* $0<x<1$ */\\
+	Pour obtenir \\
+	(Q) /* $x > y + 2$  */	
+
+	\vspace*{5mm}
+
+	on ex\'ecute\\
+	$	x = \frac{1}{x} +y $ ;\\
+	$	x = x + 1           $ ;
+
+	\vspace*{5mm}
+
+             } & \parbox[t]{7cm}{
+	En effet, nous avons vu ci-dessus que :\\
+		/* $0<x<1$ */\\
+		$x = \frac{1}{x}+y$ ; \\
+		/* $x>y+1$ */
+
+	\vspace*{5mm}
+
+		et que \\
+		/* $x>n$ */\\
+		$x = x+1$ ; \\
+		/* $x> n+1$ */}
+\end{tabular} 
+\addcontentsline{lof}{section}{Propri\'et\'e de l'encha\^\i nement}
+
