@@ -1,0 +1,30 @@
+#ifndef ARBREBIN_H
+#include "Arbrebin.h"
+#endif
+
+#define arbrebin(type_objet)                                        \
+typedef struct nom (type_objet, arbrebin)                           \
+{                                                                   \
+    arbrebin   rep                            ;                     \
+    struct nom (type_objet, arbrebin) *adr    ;                     \
+    type_objet (*copier_objet) (type_objet)   ;                     \
+    void       (*detruire_objet) (type_objet) ;                     \
+    void       (*afficher_objet) (type_objet) ;                     \
+} * nom (type_objet, arbrebin) ;                                    \
+nom (type_objet, arbrebin) nom (type_objet, arbrebin_creer)         \
+    (type_objet (*cop) (type_objet),                                \
+     void       (*det) (type_objet),                                \
+     void       (*aff) (type_objet))                                \
+{                                                                   \
+    nom (type_objet, arbrebin)  s ;                                 \
+    s = nom(type_objet, arbrebin) malloc (sizeof (                  \
+                 struct (nom(type_objet, arbrebin))) ;              \
+    s->adr            = s   ;                                       \
+    s->copier_objet   = cop ;                                       \
+    s->detruire_objet = det ;                                       \
+    s->afficher_objet = aff ;                                       \
+                                                                    \
+    lier_arbre () ;                                                 \
+    s->rep = (*Arbrebin.creer) () ;                                 \
+    return s ;                                                      \
+}

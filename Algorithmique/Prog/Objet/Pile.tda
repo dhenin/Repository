@@ -1,0 +1,70 @@
+#ifndef LISTE_H
+#include "Liste.h"
+#endif
+
+
+#define pile(type_objet)                                               \
+typedef struct nom(type_objet, pile)                                   \
+{                                                                      \
+    void     * rep ;                                                   \
+    type_objet (*copier_objet)   (type_objet) ;                        \
+    void       (*detruire_objet) ()           ;                        \
+    void       (*afficher_objet) (type_objet) ;                        \
+} * nom(type_objet, pile) ;                                            \
+nom(type_objet, pile) nom(type_objet, pile_creer)                      \
+    (type_objet (*cop) (type_objet),                                   \
+     void       (*det) (),                                             \
+     void       (*aff) (type_objet))                                   \
+{                                                                      \
+    nom(type_objet, pile) p ;                                          \
+    lier_liste () ;                                                    \
+    p = (nom(type_objet, pile)) malloc                                 \
+     (sizeof (struct nom (type_objet, pile))) ;                        \
+    p->rep = (*Liste.creer) () ;                                       \
+    p->afficher_objet = aff ;                                          \
+    p->detruire_objet = det ;                                          \
+    p->copier_objet = cop ;                                            \
+    return p ;                                                         \
+}                                                                      \
+void nom(type_objet, pile_empiler)                                     \
+    (nom(type_objet, pile) p, type_objet obj)                          \
+{                                                                      \
+    (*Liste.insereravant) (p->rep, (p->copier_objet) (obj)) ;          \
+}                                                                      \
+void nom(type_objet, pile_desempiler)                                  \
+  (nom(type_objet, pile) p)                                            \
+{                                                                      \
+    (*Liste.oter) (p->rep, p->detruire_objet) ;                        \
+}                                                                      \
+void nom(type_objet, pile_afficher)                                    \
+                  (nom(type_objet, pile) p)                            \
+{                                                                      \
+    if (p->afficher_objet)                                             \
+    (*Liste.afficher) (p->rep, p->afficher_objet) ;                    \
+    else                                                               \
+    printf ("ERR : fonction d'affichage d'obj nulle\n") ;              \
+}                                                                      
+/*                                                                     \
+void nom(type_objet, pile_detruire) (nom(type_objet, pile) p)          \
+{                                                                      \
+    (*Liste.detruire) (p->rep, p->detruire_objet) ;                    \
+}                                                                      \
+int nom(type_objet, pile_nulle) (nom(type_objet, pile) p)              \
+{                                                                      \
+    return ((*Liste.nulle) (p->rep)) ;                                 \
+}                                                                      \
+nom (type_objet, pile) nom(type_objet, pile_copier)                    \
+                               (nom(type_objet, pile) t)               \
+{                                                                      \
+    nom(type_objet, pile)  p ;                                         \
+    p = nom(type_objet, pile_creer)                                    \
+          (t->copier_objet, t->detruire_objet, t->afficher_objet) ;    \
+    p->rep = (*Liste.copier) (t->rep, t->copier_objet) ;               \
+    return p ;                                                         \
+}                                                                      \
+type_objet nom(type_objet, pile_lire)) (nom(type_objet, pile) p)       \
+{                                                                      \
+    return (p->copier_objet)                                           \
+    ((type_objet) (*Liste.lire) (p->rep)) ;                            \
+}
+*/

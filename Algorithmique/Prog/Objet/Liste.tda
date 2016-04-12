@@ -1,0 +1,71 @@
+#ifndef LISTE_H
+#include "Liste.h"
+#endif
+
+
+#define liste(type_objet)                                       \
+typedef struct nom(type_objet, liste)                           \
+{                                                               \
+    void *     rep ;                                            \
+    type_objet (*copier_objet)   (type_objet) ;                 \
+    void       (*detruire_objet) (type_objet) ;                 \
+    void       (*afficher_objet) (type_objet) ;                 \
+} * nom(type_objet, liste) ;                                    \
+nom(type_objet, liste) nom(type_objet, liste_creer)             \
+    (type_objet (*copier)   (type_objet),                       \
+     void       (*detruire) (type_objet),                       \
+     void       (*editer)   (type_objet))                       \
+{                                                               \
+    nom(type_objet, liste) l ;                                  \
+    lier_liste () ;                                             \
+    l = (nom(type_objet, liste)) malloc                         \
+     (sizeof (struct nom (type_objet, liste))) ;                \
+    l->rep = (*Liste.creer) () ;                                \
+    l->copier_objet = copier ;                                  \
+    l->detruire_objet = detruire ;                              \
+    l->afficher_objet = editer ;                                \
+    return l ;                                                  \
+}                                                               \
+void nom (type_objet, liste_insererapres)                       \
+    (nom (type_objet, liste) l, type_objet e)                   \
+{                                                               \
+    (*Liste.insererapres) (l->rep, (l->copier_objet) (e)) ;     \
+}                                                               \
+void nom (type_objet, liste_insereravant)                       \
+    (nom(type_objet, liste) l, type_objet e)                    \
+{                                                               \
+    (*Liste.insereravant) (l->rep, (l->copier_objet) (e)) ;     \
+}                                                               \
+void nom (type_objet, liste_premier) (nom(type_objet, liste) l) \
+{                                                               \
+    (*Liste.premier) (l->rep) ;                                 \
+}                                                               \
+void nom (type_objet, liste_dernier) (nom(type_objet, liste) l) \
+{                                                               \
+    (*Liste.dernier) (l->rep) ;                                 \
+}                                                               \
+void nom (type_objet, liste_suivant) (nom(type_objet, liste) l) \
+{                                                               \
+    (*Liste.suivant) (l->rep) ;                                 \
+}                                                               \
+int nom(type_objet, liste_nulle) (nom(type_objet, liste) l)     \
+{                                                               \
+    return (*Liste.nulle) (l->rep) ;                            \
+}                                                               \
+int nom(type_objet, liste_fin) (nom(type_objet, liste) l)       \
+{                                                               \
+    return (*Liste.fin) (l->rep) ;                              \
+}                                                               \
+type_objet nom(type_objet, liste_lire)                          \
+               (nom(type_objet, liste) l)                       \
+{                                                               \
+    return                                                      \
+     (l->copier_objet) ((type_objet) (*Liste.lire) (l->rep)) ;  \
+}                                                               \
+void nom(type_objet, liste_afficher) (nom(type_objet, liste) l) \
+{                                                               \
+    if (l->afficher_objet)                                      \
+    (*Liste.afficher) (l->rep, l->afficher_objet) ;             \
+    else                                                        \
+    printf ("ERR : fonction d'affichage  nulle\n") ;            \
+}

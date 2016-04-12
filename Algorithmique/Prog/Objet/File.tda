@@ -1,0 +1,53 @@
+#ifndef LISTE_H
+#include "Liste.h"
+#endif
+#define file(type_objet)                        \
+typedef struct nom(type_objet, file)            \
+{                                               \
+     void     * rep ;                           \
+     type_objet (*copier_objet)   (type_objet) ;\
+     void       (*detruire_objet) ()           ;\
+     void       (*afficher_objet) (type_objet) ;\
+} * nom(type_objet, file) ;                     \
+nom(type_objet, file) nom(type_objet,file_creer)\
+    (type_objet (*cop) (type_objet),            \
+     void       (*det) (),                      \
+     void       (*aff) (type_objet))            \
+{                                               \
+    nom(type_objet, file) f ;                   \
+    lier_liste () ;                             \
+    f = (nom(type_objet, file)) malloc          \
+      (sizeof (struct nom (type_objet, file))) ;\
+    f->rep = (*Liste.creer) () ;                \
+    f->afficher_objet = aff ;                   \
+    f->detruire_objet = det ;                   \
+    f->copier_objet = cop ;                     \
+    return f ;                                  \
+}                                               \
+void nom(type_objet, file_afficher)             \
+                  (nom(type_objet, file) p)     \
+{                                               \
+    if (p->afficher_objet) (*Liste.afficher)    \
+     (p->rep, p->afficher_objet) ;              \
+    else                                        \
+     printf                                     \
+ ("ERR : fonction d'affichage d'obj nulle\n") ; \
+}                                               \
+void nom(type_objet, file_enfiler)              \
+    (nom(type_objet, file) p, type_objet obj)   \
+{                                               \
+    (*Liste.dernier) (p->rep) ;                 \
+    (*Liste.insererapres)                       \
+            (p->rep, (p->copier_objet) (obj)) ; \
+}                                               \
+void nom(type_objet, file_desenfiler)           \
+  (nom(type_objet, file) p)                     \
+{                                               \
+    (*Liste.premier) (p->rep) ;                 \
+    (*Liste.oter) (p->rep, p->detruire_objet) ; \
+}                                               \
+int nom(type_objet, file_nulle)                 \
+                  (nom(type_objet, file) p)     \
+{                                               \
+    return ((*Liste.nulle) (p->rep)) ;          \
+}
