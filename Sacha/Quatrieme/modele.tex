@@ -1542,7 +1542,43 @@ B     &=&  4^{-3} \\
 \end{tikzpicture}}  
 
 
-\centerline{ \box1 \quad\vrule\quad \box2 \hfill}                   
+\centerline{ \box1 \quad\vrule\quad \box2 \hfill}    
+
+\medskip 
+\hrulefill
+\medskip 
+\setbox1=\vtop{ \hsize=5cm \null % null assure l'alignement par le haut 
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west} 
+]{
+C      &=&  2^2 (2+3^3) -5^0 \\
+       &=&  4(2+27) -1 \\
+       &=&  4 \times 29 -1 \\
+       &=&  116  -1 \\ 
+       &=&  115 \\               
+};  
+\end{tikzpicture}}
+
+\setbox2=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm,
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west}  
+]{
+D     &=& \genfrac{}{}{2pt}{}{\dfrac{1}{5}}{\dfrac{1}{4}} \\
+       &=&  \dfrac{1}{4^3} \\
+       &=& \dfrac{1}{5} \times 1^4\\
+              &=& \dfrac{1}{5} \\
+};  
+\end{tikzpicture}}  
+
+
+\centerline{ \box1 \quad\vrule\quad \box2 \hfill}    
+               
 
 \end{document}
 
