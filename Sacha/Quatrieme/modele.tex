@@ -12,7 +12,7 @@
 
 \newcommand{\intitule}[1]{{\huge \centerline {\textcolor{red}{#1\\ \bigskip}}}}
 \newcommand{\vocabulaire}[1]{\textcolor{darkgreen}{#1}}
-\newcommand{\Asavoir}[1]{\textcolor{red}{#1}}
+\newcommand{\Asavoir}[1]{\textcolor{red}{\underline{#1}}}
 \newcommand{\methode}[1]{\textcolor{blue}{#1}}
 
 \newcommand{\TextSoulign}[2]{\textcolor{#1}{\underline{\textcolor{black}{#2}}}}
@@ -25,7 +25,6 @@
 
 \begin{document}
 
-% \iffalse 
 \intitule{Statistique : cours}
 
 \begin{itemize}
@@ -1154,7 +1153,7 @@ En développant les calculs, et en simplifiant, on pourra toujours, en quatrièm
 
 \newpage
 
-% \fi
+
 
 %------------------------10 Équations  du 1er degré--------------
                  
@@ -1534,11 +1533,21 @@ row sep=0cm,column sep=0cm,
 column 1/.style={anchor=base east},
 column 3/.style={anchor=base west}  
 ]{
-B     &=&  4^{-3} \\
-       &=&  \dfrac{1}{4^3} \\
-       &=& \dfrac{1}{4\times 4\times 4} \\
-              &=& \dfrac{1}{64} \\
+B      &=& |(a)|       4^{-3} \\
+       &=& |(b)| \dfrac{1}{4^3} \\
+       &=& |(c)|\dfrac{1}{4\times 4\times 4} \\
+       &=& \dfrac{1}{64} \\
 };  
+\node [right = 1cm of a.west] (d) {} ; 
+\node [right = .5cm of b.west] (e) {} ; 
+\node [right = 1cm of b.west] (g) {} ; 
+\node [right = 1.5cm of c.west] (f) {} ; 
+\draw[color=blue,->,>=latex] (d) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+$n$ est négatif donc \\ on passe à l'inverse.
+}}  (e) ; 
+\draw[color=blue,->,>=latex] (g) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On revient à la définition.
+}}  (f) ; 
 \end{tikzpicture}}  
 
 
@@ -1547,17 +1556,23 @@ B     &=&  4^{-3} \\
 \medskip 
 \hrulefill
 \medskip 
-\setbox1=\vtop{ \hsize=5cm \null % null assure l'alignement par le haut 
+\setbox1=\vtop{ \hsize=7cm \null % null assure l'alignement par le haut 
 \begin{tikzpicture}% [every node/.style={anchor=west}]
   \matrix (m) [matrix of math nodes,
 row sep=0cm,column sep=0cm, 
 column 1/.style={anchor=base east},
-column 3/.style={anchor=base west} 
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
 ]{
-C      &=&  2^2 (2+3^3) -5^0 \\
-       &=&  4(2+27) -1 \\
-       &=&  4 \times 29 -1 \\
-       &=&  116  -1 \\ 
+C      &=&  |(a)| \textcolor{blue}{\underbrace{\textcolor{black}{2^2}}}  
+               (2 \textcolor{blue}{\underbrace{\textcolor{black}{+3^3}}}          
+               )- \textcolor{blue}{\underbrace{\textcolor{black}{5^0}}}  
+                                                          &  \text{\methode{Puissance d'abord}} \\
+       &=& |(b)| \;\; 4 \quad ( \textcolor{blue}{\underbrace{\textcolor{black}{2+27}}} ) \;\; -1 
+                                                          &  \text{\methode{Puis parenthèses}} \\
+       &=& |(c)| \textcolor{blue}{\underbrace{\textcolor{black}{ 4 \quad \times \; \; 29}}} \quad  -1 
+                                                          &  \text{\methode{Puis produit}} \\
+       &=& \quad  116 \quad  -1 \\ 
        &=&  115 \\               
 };  
 \end{tikzpicture}}
@@ -1569,16 +1584,756 @@ row sep=0cm,column sep=0cm,
 column 1/.style={anchor=base east},
 column 3/.style={anchor=base west}  
 ]{
-D     &=& \genfrac{}{}{2pt}{}{\dfrac{1}{5}}{\dfrac{1}{4}} \\
-       &=&  \dfrac{1}{4^3} \\
-       &=& \dfrac{1}{5} \times 1^4\\
-              &=& \dfrac{1}{5} \\
+D  &=& |(a)|   \dfrac{5^{-1}}{1^{-4}}  \\
+   &=& |(b)|  \genfrac{}{}{2pt}{}{\dfrac{1}{5}}{\dfrac{1}{1^{4}}} \\
+   &=& |(c)|  \dfrac{1}{5} \times 1^4\\
+   &=& \dfrac{1}{5} \\
 };  
-\end{tikzpicture}}  
+\node [right = 1cm of a.west] (d) {} ; 
+\node [right = .5cm of b.west] (e) {} ; 
+\node [right = 1cm of b.west] (g) {} ; 
+\node [right = 1cm of c.west] (f) {} ; 
+\draw[color=blue,->,>=latex] (d) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{On passe à l'inverse deux fois }}  (e) ; 
+\draw[color=blue,->,>=latex] (g) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{Diviser revient à multiplier par l'inverse}}  (f) ; 
+\end{tikzpicture}
+
+\methode{Quelque soit $n$, $1^n = 1$}}  
 
 
 \centerline{ \box1 \quad\vrule\quad \box2 \hfill}    
-               
+  
+\newpage 
+
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+E      &=& |(a)|  2^2 \times 3^3 \times 2^3 \times 3^{-3}\\
+       &=& |(b)| \textcolor{blue}{\underbrace{\textcolor{black}{ 2^2 \times 2^3}}}
+         \times  \textcolor{blue}{\underbrace{\textcolor{black}{ 3^3 \times 3^{-3}}}} \\\\
+       &=& |(c)| \quad 2^5 \quad \times \quad  \; 3^0 \\
+       &=& |(d)| 2^5 \times 1\\ 
+       &=&   32 \\               
+};  
+\node [right = 2.75cm of a.west] (e) {} ; 
+\node [right = 2.6cm of b.west] (f) {} ; 
+\node [right = 2.4cm of b.west] (g) {} ; 
+\node [right = 2.5cm of c.west] (h) {} ; 
+\node [right = 2.3cm of c.west] (i) {} ; 
+\node [right = 2cm of d.west] (j) {} ; 
+\draw[color=blue,->,>=latex] (e) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On regroupe
+}}  (f) ; 
+\draw[color=blue,->,>=latex] (g) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On simplifie ($\times$ devient $+$)
+}}  (h) ; 
+\draw[color=blue,->,>=latex] (i) to[out=0,in=0] node[midway,right] {\hspace*{.25cm} \parbox{5cm}{
+On simplifie ($\times$ devient $+$)
+}}  (j) ; 
+\end{tikzpicture}
+
+\bigskip 
+
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+F      &=& |(a)| \dfrac{3^{-6} \times 3^2 \times 3^{-4}}{3^{-8} \times 3^{-2}}\\
+       &=& |(b)| \dfrac{3^{-6+2-4}}{3^{-8-2}}\\
+       &=& |(c)| \dfrac{3^{-8}}{3^{-10}}\\
+       &=& |(d)| 3^{-8-(-10)} \\ 
+       &=&       3^2   \\   
+       &=& 9      \\      
+};  
+\node [right = 2.75cm of a.west] (e) {} ; 
+\node [right = 2.6cm of b.west] (f) {} ; 
+\node [right = 2.4cm of b.west] (g) {} ; 
+\node [right = 2.5cm of c.west] (h) {} ; 
+\node [right = 2.3cm of c.west] (i) {} ; 
+\node [right = 2cm of d.west] (j) {} ; 
+\draw[=bluecolor,->,>=latex] (e) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+$\times$ devient $+$ au numérateur et au dénominateur
+}}  (f) ; 
+\draw[color=blue,->,>=latex] (g) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On calcule l'exposant
+}}  (h) ; 
+\draw[color=blue,->,>=latex] (i) to[out=0,in=0] node[midway,right] {\hspace*{.25cm} \parbox{5cm}{
+$\div$ devient $-$}}   (j) ;  
+\end{tikzpicture}     
+
+\newpage
+
+
+
+%------------------------13  Thalès--------------
+                 
+                 \intitule{Théorème de Thalès : cours} 
+                 
+\medskip   
+
+\Asavoir{Énoncé et configuration }
+
+\medskip
+
+Si $[AM)$ et $[AN)$ sont deux demi-droites de même origine et si $(MN)$ et $(BC)$ sont deux droites parallèles, alors : 
+
+\medskip 
+
+$\qquad\dfrac{AM}{AB} = \dfrac{AN}{AC} = \dfrac{MN}{BC}\qquad $ ou $\qquad\dfrac{AB}{AM} = \dfrac{AB}{AM} = \dfrac{AC}{AN} = \dfrac{BC}{MN}$
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.4]
+\clip(-0.4,-3.425) rectangle (7.5,4.2);
+\draw [domain=0.0:7.5] plot(\x,{(-0.--2.5*\x)/5.});
+\draw [domain=0.0:7.5] plot(\x,{(-0.-2.5*\x)/5.});
+\draw (3.,-3.5) -- (3.,4.2);
+\draw (5.,-3.5) -- (5.,4.2);
+\begin{scriptsize}
+\draw [fill] (0.,0.) circle (1.5pt);
+\draw[] (-0.24,-0.3) node {$A$};
+\draw [fill] (3.,1.5) circle (1.5pt);
+\draw[] (2.55,1.83) node {$N$};
+\draw [fill] (5.,2.5) circle (1.5pt);
+\draw[] (4.64,2.84) node {$C$};
+\draw [fill] (3.,-1.5) circle (1.5pt);
+\draw[] (2.5,-1.6) node {$M$};
+\draw [fill] (5.,-2.5) circle (1.5pt);
+\draw[] (4.65,-2.55) node {$B$};
+\end{scriptsize}
+\end{tikzpicture} }
+
+\setbox2=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+|(a)| \parbox{6cm}{
+                     \methode {
+                     on a besoin de :
+                     \begin{itemize}
+                     \item [$*$] deux demi-droites de même origine ; 
+                     \item [$*$] deux droites parallèles. 
+                     \item []
+                     \item [$*$] un triangle ;  
+                     \item [$*$] une droite parallèle à un côté.
+                     \end{itemize}
+                     }
+                     } \\
+};  
+\node [below right = .6cm and .6cm of a.west] (b) {} ; 
+\draw[color=blue] (b) node [left] {\framebox {ou}};
+
+\end{tikzpicture}}    
+
+\begin{tabular}{cc}
+\copy1 & \box2 \\          % On garde le dessin dans la boite 1 pour la suite
+\end{tabular}
+
+\medskip 
+
+\Asavoir{Étapes de la rédaction}
+
+\medskip 
+
+    \renewcommand{\labelitemi}{\textbullet}
+    
+\begin{itemize}
+\item On montre que l'on est dans une configuration de Thalès
+\item On dit que l'on utilise le théorèmes de Thalès
+\item On donne les 3 quotients de Thalès
+\item On remplace par les valeurs connues dans deux quotients
+\item On calcule l'inconnue (cf ficher « Proportionnalité ») 
+\item On donne le résultat sous forme d'une fraction irréductible ou d'un nombre décimal.
+\end{itemize}
+
+\medskip   
+
+\Asavoir{Réciproque du théorème}
+
+
+\begin{tabular}{M{8cm}M{8cm}}
+Si $\qquad\dfrac{AM}{AB} = \dfrac{AN}{AC} = \dfrac{MN}{BC}\qquad $ \\
+
+\medskip
+
+ou $\qquad\dfrac{AB}{AM} = \dfrac{AB}{AM} = \dfrac{AC}{AN} = \dfrac{BC}{MN}$\\
+
+\medskip
+
+alors $(MN)$ et $(BC)$ sont parallèles.
+          & \box1 
+          
+          \bigskip 
+          
+          \parbox{6cm}{
+                     \methode {
+                     on a besoin de :
+                     \begin{itemize}
+                     \item [$*$] de la configuration ci-dessus ; 
+                     \item [$*$] de l'égalité des rapports.
+                     \end{itemize}
+                     }
+                     } \\
+\end{tabular} 
+
+
+
+
+\Asavoir{Agrandissement et réduction}
+
+\medskip
+
+\begin{itemize}
+\item Effectuer un agrandissement, c'est multiplier par un nombre > 1 ; 
+\item Effectuer une réduction, c'est multiplier par un nombre entre $0$ et $1$ ; 
+\item Ce nombre est le \vocabulaire {coefficient d'agrandissement/de réduction}, et on a :          
+      $\tfrac{\mathrm{nouvelle\; longueur}}{\mathrm{ancienne\; longueur}}$ ; 
+\item Lors d'une réduction/d'un agrandissement, les angles sont conservés.
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.3]
+\clip(-0.5,-4.65) rectangle (23.6,5);
+% \fill (0.,0.) -- (9.1,4.14) -- (11.5,-3.5) -- cycle;
+% \fill (15.,0.) -- (19.7,1.66) -- (20.56,-2.25) -- cycle;
+\draw  (0.,0.)-- node [midway, above] {10}(9.1,4.15);
+\draw  (9.1,4.15)--  node [midway, right] {8} (11.5,-3.5);
+\draw  (11.5,-3.5)--  node [midway, below] {12} (0.,0.);
+\draw  (15.,0.)-- node [midway, above] {5}(19.7,1.66);
+\draw  (19.7,1.66)-- node [midway, right] {4} (20.6,-2.25);
+\draw  (20.6,-2.25)-- node [midway, below] {6} (15.,0.);
+\draw (11.4,2.8) node[anchor=north west] {${\huge \Longrightarrow }$};
+\end{tikzpicture} 
+Coefficient de réduction $ = \dfrac{5}{10} = \dfrac{4}{8} = \dfrac{6}{12} = \dfrac{1}{2}$  
+\end{itemize}
+
+\newpage        
+                 \intitule{Théorème de Thalès} 
+                 
+                 \centerline{\Asavoir{\large Exemples rédigés de deux types}} 
+  
+
+
+\Asavoir{Application directe}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.8]
+\begin{scriptsize}
+\draw  (0.,0.) node [left] {$S$} -- (2.18,1.) node [above] {$J$} -- (6.55,3.) node [above] {$K$};
+\draw [<->,>=latex] (-0,0.48) -- node [midway, above, rotate=25] {$3,6$ cm} (6.3,3.5);
+\draw (0.,0.)-- (4.7,-1) node [below] {$N$};
+\draw (2.18,1) -- (1.56,-0.33)  node [below] {$M$} ;
+\draw (6.54,3.)-- (4.7,-1.);
+\draw [<->,>=latex] (-0.12,-0.44)-- node [midway, below, rotate=-16] {$2,4$ cm} (4.5,-1.65);
+\draw  (0.,0.) -- node [midway, below]  {?} (1.56,-0.33) ; 
+\end{scriptsize}
+\end{tikzpicture}}
+
+\begin{tabular}{M{8cm}M{8cm}}
+\parbox{6cm}{
+    On cherche à calculer un longueur.\\
+    On considère la figure ci-contre :\\
+   \\                 
+    Calculer $SM$.
+}
+ & \box1
+\end{tabular} 
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $[SK)$ et $[SN)$ sont deux demi-droites de même origine $S$, et que $(MJ)$ et $(NK)$ sont parallèles, 
+\item [Or,] d'après le théorème de Thalès, on a : $\dfrac{SJ}{SK} =\dfrac{SM}{SN}=\dfrac{JM}{KN}$\\
+\end{labeling}
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+\text{\sffamily alors,}  \qquad \qquad \dfrac{1,2}{3,6} 
+           &=& |(a)| \dfrac{SM}{2,4}\\
+ \hbox to 0.1cm {} & & & \\            
+\text{\sffamily Donc,}  \qquad 1,2 \times 2,4           
+           &=& |(b)| 3,6 \times SM \\
+ \hbox to 0.1cm {} & & & \\ 
+\text{\sffamily et ainsi} \qquad \quad SM              
+           &=& |(c)| \dfrac{1,2 \times 2,4}{3,6} &  = 0,8 \text{cm}\\
+\hbox to 0.1cm {} & & & \\ 
+\text{\sffamily On en conclut que}                     
+            && SM = 0,8 \text{cm} \\   
+};  
+\node [right = 2.75cm of a.west] (e) {} ; 
+\node [right = 2.6cm of b.west] (f) {} ; 
+\node [right = 3cm of b.west] (g) {} ; 
+\node [right = 0.5 cm of c.center] (h) {} ; 
+\draw[=bluecolor,->,>=latex] (a.east) to[out=0,in=60] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+\methode{Produit en cxroix} 
+}}  (b.north east) ; 
+\draw[color=blue,->,>=latex] (b.east) to[out=0,in=30] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On divise par 3,6 aux deux membres de l'égalité
+}}  (h) ;  
+\end{tikzpicture}   
+
+\Asavoir{Application directe}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[rotate=-130, line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.4]
+\begin{scriptsize}
+\draw  (0.,0.) node [above ] {$A$} -- (2.18,1.) node [right] {$M$} -- (6.55,3.) node [right] {$B$};
+\draw (0.,0.)-- (4.7,-1) node [left] {$C$};
+\draw (2.18,1) -- (1.56,-0.33)  node [above] {$N$} ;
+\draw (6.54,3.)-- (4.7,-1.);
+\end{scriptsize}
+\end{tikzpicture}}
+
+\begin{tabular}{M{10cm}M{10cm}}
+\parbox{10cm}{
+    On cherche à montrer que deux droites sont parallèles.\\
+    Sur la figure ci-contre, on a  :\\
+    \\
+    $AM= 7$cm , $AB=8$cm, \\
+    $AN= 8,4$cm et  $AC=9,6$cm. \\
+}
+ & \box1
+\end{tabular} 
+
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base west},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+\text{\sffamily On a d'une part, }  &  \dfrac{AN}{AC} = \dfrac{8,4}{9,6} = &|(a)| 0,875 \\
+ \hbox to 0.1cm {} & & & \\            
+\text{\sffamily D'autre part, }  &  \dfrac{AM}{AB} = \dfrac{7}{8} = &|(b)| 0,875\\
+ \hbox to 0.1cm {} & & & \\ 
+\text{\sffamily On constate que } & \dfrac{AN}{AC} = \dfrac{AM}{AB}\\
+\hbox to 0.1cm {} & & & \\ 
+\text{\sffamily On en conclut que}                     
+            && SM = 0,8 \text{cm} \\   
+};  
+\node [right = 2.75cm of a.west] (e) {} ; 
+\node [right = 2.6cm of b.west] (f) {} ; 
+\node [right = 3cm of b.west] (g) {} ; 
+\node [right = 0.5 cm of c.center] (h) {} ; 
+\draw[=bluecolor,->,>=latex] (a.east) to[out=0,in=60] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+\methode{On vérifie l'égalité en deux parties} 
+}}  (b.north east) ;  
+\end{tikzpicture}   
+
+\text{\sffamily De plus, }les points $A, N, C$ et $A, M, B$ sont alignes dans le même ordre,\\
+\text{\sffamily Donc, } d'après la réciproque du théorème de Thalès, les droites $(MN)$ et $(BC)$ sont parallèles.
+
+\newpage        
+
+%------------------------14  Droite des milieux --------------
+             
+                 \intitule{Droite des milieux : cours } 
+
+\Asavoir{{\large I)} Théorème de parallélisme}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.6, rotate=0]
+\begin{scriptsize}
+% \draw (0.,0.) node [above ] {$A$} -- (2.18,1.) node [right] {$M$} ; 
+\draw   (0,0) node [below] {$B$} -- node[midway,rotate=50] {$\vert\vert$}
+        (3,2) node [left]  {$M$} -- node[midway,rotate=50] {$\vert\vert$} 
+        (6,4) node [above] {$A$} -- node[midway,rotate=-20] {\textcolor{red}{ $-$}}
+        (5,2) node [right] {$N$} -- node[midway,rotate=-20] {\textcolor{red}{ $-$}}
+        (4,0) node [below] {$C$} -- cycle ; 
+\draw (3,2) -- (5,2) ;         
+\end{scriptsize}        
+\end{tikzpicture} }
+
+
+\begin{tabular}{M{10cm}M{10cm}}
+\parbox{10cm}{
+   Dans un triangle, si \TextSoulign {blue} {une droite passe par les milieux de deux côtés}, alors elle est parallèle au troisième.
+}
+ & \box1 
+\end{tabular} 
+
+\methode{On utilise ce théorème pour montrer que \underline{deux droites sont parallèles}}
+
+\bigskip 
+
+\Asavoir{{\large II)} Théorème du milieu}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.6, rotate=0]
+\begin{scriptsize}
+% \draw (0.,0.) node [above ] {$A$} -- (2.18,1.) node [right] {$M$} ; 
+\draw   (0,0) node [below] {$B$} -- node[midway,rotate=50] {\textcolor{red}{$\vert\vert$}}
+        (3,2) node [left]  {$M$} -- node[midway,rotate=50] {\textcolor{red}{$\vert\vert$}}
+        (6,4) node [above] {$A$} -- 
+        (5,2) node [right] {$N$} -- 
+        (4,0) node [below] {$C$} -- cycle ; 
+\draw (3,2) -- (5,2) ;         
+\end{scriptsize}        
+\end{tikzpicture} }
+
+
+\begin{tabular}{M{10cm}M{10cm}}
+\parbox{10cm}{
+   Dans un triangle, si \TextSoulign {blue} {une droite passe par le milieu d'un côté}, 
+   et est \TextSoulign {blue} {parallèle à un second côté} 
+   alors, elle coupe le troisième côté en son milieu.
+}
+ & \box1 
+\end{tabular} 
+
+\methode{On utilise ce théorème pour montrer qu'un point est \underline{le milieu d'un segment}}.
+
+
+\bigskip 
+
+\Asavoir{{\large II)} Théorème des longueurs}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.6, rotate=0]
+\begin{scriptsize}
+% \draw (0.,0.) node [above ] {$A$} -- (2.18,1.) node [right] {$M$} ; 
+\draw   (0,0) node [below] {$B$} -- node[midway,rotate=50] {$\vert\vert$}
+        (3,2) node [left]  {$M$} -- node[midway,rotate=50]  {$\vert\vert$}
+        (6,4) node [above] {$A$} -- node[midway,rotate=-20]  {$-$}
+        (5,2) node [right] {$N$} -- node[midway,rotate=-20]  {$-$}
+        (4,0) node [below] {$C$} -- node[midway,below]  {$4$cm} cycle ; 
+\draw (3,2) -- (5,2) node[midway,below]  {$2$cm} ;         
+\end{scriptsize}        
+\end{tikzpicture} }
+
+
+\begin{tabular}{M{10cm}M{10cm}}
+\parbox{10cm}{
+   Dans un triangle, la \TextSoulign {blue} {longueur du segment joignant les milieux} de deux côtés est  
+   \TextSoulign {blue} {égale à la moitié de celle du troisième côté}. 
+ 
+}
+ & \box1 
+\end{tabular} 
+
+\methode{On utilise ce théorème pour \underline{calculer une longueur}}.
+
+
+\newpage        
+                 \intitule{Droite des milieux} 
+                 
+                 \centerline{\Asavoir{\large Deux exemples rédigés}} 
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.7, rotate=150]
+\begin{scriptsize}
+\draw   (0,0) node [below] {$C$} -- node[midway,rotate=50] {$\vert\vert$}
+        (1.5,2) node [below ] {$F$} -- node[midway,rotate=50]  {$\vert\vert$}
+        (3,4) node [below] {$B$} -- node[midway,rotate=-0]  {$-$}
+        (4,2) node [below left] {$E$} -- node[midway,rotate=-0]  {$-$}
+        (5,0) node [above] {$A$} --  cycle ; 
+\draw (.5,2) -- (5,2)  ;  
+\draw   (2,0) node [above right] {$D$} --  (3,4)   ;    
+\draw (2.5, 2) node   [above] {$G$}  ;      
+\end{scriptsize}        
+\end{tikzpicture} }                 
+                 
+
+\begin{tabular}{M{9cm}M{9cm}}
+\parbox{10cm}{
+\underline{Exemple 1 : Parallèle et milieu}\\
+\\
+Soit $ABC$ un triangle et $D$ un point du segment $[AC]$. \\
+Soient $E$ et $F$ les \TextSoulign{blue}{milieux} respectifs de $[AB]$ et $[BC]$. \\
+Soit $G$ le point d'intersection de $(EF)$ et $(BD)$.  
+}
+ & \box1 
+\end{tabular} 
+
+\underline{a) Démontrer que $(EF)$ et $(AC)$ sont parallèles}
+
+\medskip 
+
+On se place dans le triangle $ABC$.
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $[AB)$ et $[BC)$ sont \TextSoulign{blue}{deux demi-droites} d'origine $B$,\\
+           les points $B, E$ et $A$ et $B, F$ et $C$ sont  \TextSoulign{blue}{alignés dans cet ordre}, \\
+            et que $E$ et $F$ sont les \TextSoulign{blue}{milieux} de $[AB]$ et $[BC]$. 
+\item [Or, ] si dans un triangle, une droite passe par les milieux  de deux côtés, alors elle est parallèle au troisième. 
+\item [Donc] $(EF)$ et $(AC$) sont parallèles.             
+\end{labeling}
+
+\bigskip 
+
+\underline{b) Démontrer que $G$ est le milieu de $[BD]$}
+
+\begin{labeling}{On sait que } 
+\item [On sait que ]  $(EF)$ est \TextSoulign{blue}{parallèle} à $(AC)$, \\
+                      $G$ est un point de $[EF]$ et $D$ appartient à $[AC]$.\\
+\item [Ainsi] $(FG)$ est parallèle à $(CD)$.            
+\end{labeling}
+
+On se place dans le triangle $BCD$.
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $[BC)$ et $[BD)$ sont \TextSoulign{blue}{deux demi-droites} d'origine $B$,\\ 
+           les points $B, G, D$ et $B, F, C$ sont  \TextSoulign{blue}{alignés dans cet ordre},\\
+$(FG)$ est \TextSoulign{blue}{parallèle} $(CD)$ et que $F$ est le \TextSoulign{blue}{milieu} de $[BC]$, 
+\item [Or, ] si, dans un triangle, une droite passe par le milieu d'un côté, 
+   et est parallèle à un second côté, elle coupe le troisième côté en son milieu.
+\item [Donc] $G$ est le milieu de $[BD]$. 
+\end{labeling}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1, rotate=0]
+\begin{scriptsize}
+\draw   (0,0) node [below] {$B$} -- node[midway,rotate=50] {$\vert$}
+        (1.5,2) node [left] {$E$} -- node[midway,rotate=50]  {$\vert$}
+        (3,4) node [above] {$C$} -- node[midway,rotate=-0] (M) {$\circleddash$}
+        (4,2) node [right] {$D$} -- node[midway,rotate=-0]  {$\circleddash$}
+        (5,0) node [below] {$A$} --  node[midway,below ] {$5,4$cm} cycle ; 
+\draw (0,0) --  (4,2)  ;  
+\draw (1.5,2)  --  (4,2)   ;    
+\draw (1.5,2)--  node[midway,above,rotate=30] {$1,9$cm} (M.center) ;
+\draw  (3,4) --   node[midway,rotate=-90] {$\vert\vert$}   (M.center) ;
+\draw  (M.center) --   node[midway,rotate=-90] {$\vert\vert$} (4,2)  ;
+\end{scriptsize}        
+\end{tikzpicture} }                 
+                 
+\newpage 
+
+\begin{tabular}{M{9cm}M{9cm}}
+\parbox{10cm}{
+\underline{Exemple 2 : Parallèle et milieu}\\
+\\
+Soit $ABC$ un triangle et $D$ un point du segment $[AC]$. \\
+Soient $E$ et $F$ les \TextSoulign{blue}{milieux} respectifs de $[AB]$ et $[BC]$. \\
+Soit $G$ le point d'intersection de $(EF)$ et $(BD)$.  
+}
+ & \box1 
+\end{tabular} 
+
+\underline{a) Calculer la longueur $BD$}
+
+\bigskip 
+
+On se place dans le triangle $ABD$.\\
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $E$ est le  \TextSoulign{blue}{milieu} de $[AB]$ \\
+                  et $F$ est le  \TextSoulign{blue}{milieu} de $[AD]$
+\item [Or, ] Dans un triangle, la longueur du segment joignant les milieux  de deux côtés est  
+    égale à la moitié de celle du troisième côté. 
+\item [Donc] $EF=\dfrac{1}{2}\times BD$, donc $BD= 2 \times EF$.
+\item [Ainsi] $BD= 2 \times 1,9$.
+\end{labeling}
+
+On en conclut que $BD = 3,8$ cm.
+
+\bigskip 
+
+\underline{b) Calculer la longueur $ED$}
+
+\bigskip 
+On se place dans le triangle $ABC$.\\
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $E$ est le  \TextSoulign{blue}{milieu} de $[AB]$ \\
+                  et $D$ est le  \TextSoulign{blue}{milieu} de $[AC]$
+\item [Or, ] Dans un triangle, la longueur du segment joignant les milieux  de deux côtés est  
+    égale à la moitié de celle du troisième côté. 
+\item [Donc] $ED=\dfrac{1}{2}\times BC$, donc $ED= 2 \times 5,4$.
+\end{labeling}
+
+On en conclut que $ED = 2,7$ cm.
+
+\newpage        
+
+
+%------------------------14 Proportionnalité  --------------
+             
+                 \intitule{Proportionnalité : cours } 
+
+\Asavoir{{\large 1)} Proportionnalité  dans un tableau}
+
+
+\bigskip 
+
+Deux suites de nombres $x$ et $y$ sont dites  \TextSoulign{blue}{proportionnelles} si on obtient tous les nombres de la suite $x$ par un même nombre $k$ pour obtenir la suite $y$.
+
+\bigskip 
+
+\begin{tikzpicture}{
+% \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1, rotate=0]
+\node  (Tbl) {% 
+\begin{tabular}{|r|r|r|r|r|r|r|r|}
+\hline 
+x & 1 & 2 & 3 & 5 & 10 & 50 & 100 \\
+\hline
+y & 2 & 4 & 6 & 10 & 20 & 100 & 200 \\
+\hline
+\end{tabular}} ; 
+\node [below right = .3cm and -.2cm of Tbl.north west ] (a) {} ; 
+\node [above right = .2cm and -.2cm of Tbl.south west ] (b) {} ; 
+\draw[->,>=latex] (a) to[out=200,in=170] node[midway,left] {\hspace*{.5cm} \parbox{1.1cm}{
+\methode{$\quad \times 2 \\ (k=2)$} 
+}}  (b) ; 
+};
+\end{tikzpicture}
+
+\bigskip 
+
+\Asavoir{{\large 2)} Représentation graphique}
+
+\medskip 
+
+\begin{labeling}{À retenir } 
+\item [\Asavoir{À retenir} ] \textbullet $\;$ Le graphique d'une situation de proportionnalité est constitué de points alignés avec l'origine.
+\item                        \textbullet  $\;$  Si les points d'une représentation graphique sont alignés avec l'origine, le graphique représente une situation d eproportionnalité
+\end{labeling}
+
+\bigskip 
+
+\vocabulaire{\underline{Rapel de vocabulaire} }
+
+{\textcolor{DarkGreen}{$\underbrace{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-0.65,0) -- (6.30,0);
+\foreach \x in {,1.,2.,3.,4.,5.,6.}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node (x) {} ;
+\draw[->] (0,-0.1) -- (0.,5.48) node (y) {};
+\foreach \y in {,1.,2.,3.,4.,5.}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\draw[] (0.4,0) -- (0.4,0.4) -- (0,0.4) -- (0,0) node (O) {} -- cycle; 
+\draw[color=blue,line width=1.2pt,,smooth,samples=100,domain=.25:6.3] plot(\x,{2.0+0.4*(\x)+1.2*sin((2.0*(\x))*180/pi)});
+\draw [dash pattern=on 2pt off 2pt,] (4,4.8)-- (4,0) node (Xa) {}  ;
+\draw [dash pattern=on 2pt off 2pt,] (4.8,4.8)-- (0.,4.8) node (Ya) {} ;
+\begin{scriptsize}
+\draw  (4,4.8)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (4,5.2) node {$A$};
+\draw  (4,0.) circle (0.5pt);
+\draw (0,0) [below left] node {$0$} ; 
+\draw  (0.,4.8) circle (0.5pt);
+\draw  (y) node [above left] (b)  {\parbox{1.5cm}{
+          \vocabulaire{$\;\;$ axe des\\
+           ordonnées}
+}} ;
+\draw[color=DarkGreen,->,>=latex] (b.south) to[out=-90,in=180] node {}  (y) ;  
+%
+\draw  (x) node [below right] (c)  {\parbox{1.5cm}{
+          \vocabulaire{$\;\;$ axe des\\
+           abscisses}
+}} ;
+\draw[color=DarkGreen,->,>=latex] (c.south west) to[out=-120,in=-120] node {}  (x) ;  
+%
+\node [left = 0cm and 0cm of Ya ] (e) {\parbox{1.5cm}{
+         \vocabulaire{ Ordonnée\\
+           $\quad $ de $A$}
+}}  ; 
+%
+\draw[color=DarkGreen,->,>=latex] (e.south) to[out=-90,in=180] node {}  (Ya) ;  
+%
+\node [below left = 0cm and 0cm of Xa ] (f) {\parbox{1.5cm}{
+         \vocabulaire{ Abscisse\\
+           $\quad $ de $A$}
+}}  ; 
+%
+\draw[color=DarkGreen,->,>=latex] (f.south) to[out=-90,in=-90] node {}  (Xa) ;  
+%
+\node [below left = 0cm and 0cm of O] (g) {\parbox{3cm}{
+         \vocabulaire{ Origine : Point \\
+          de coordonnées $(0,0)$}
+}}  ; 
+%
+\draw[color=DarkGreen,->,>=latex] (g.north) to[out=90,in=120] node {}  (O) ;  
+\end{scriptsize}
+\end{tikzpicture}}_{\textcolor{DarkGreen}{\mathrm{Repère\; :\; axes \;+\; origine}}}$}}
+
+\bigskip
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.9]
+\draw[->] (-1.15,0.) -- (3.8,0.);
+\foreach \x in {-1,1,2,3}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0.,-0.1) -- (0.,4);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)},] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\draw [samples=50,rotate around={0.:(0.,0.)},xshift=0.cm,yshift=0.cm,domain=0:2.8)] plot (\x,{(\x)^2/2/1.0});
+\draw (.5,.125)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1,.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1.5,1.125)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (2,2)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (2.5,3.125)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\begin{scriptsize}
+\draw[] (-1.5,2.17) node {$c$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Les points ne sont pas alignes\\
+$\Longrightarrow \quad$ Ce n'est pas une\\
+situation de proportionnalité }
+
+\setbox2=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.9]
+\draw[->] (-1.15,0.) -- (3.8,0.);
+\foreach \x in {-1,1,2,3}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0.,-0.1) -- (0.,4);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)},] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\draw [samples=50,rotate around={0.:(0.,0.)},xshift=0.cm,yshift=0.cm,domain=0:2.5)] plot (\x,{(\x)+2 /1.0});
+\draw (.5,2.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1,3)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1.5,3.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\begin{scriptsize}
+\draw[] (-1.5,2.17) node {$c$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Les points  sont alignes\\
+mais pas avec l'origine \\
+$\Longrightarrow \quad$ Ce n'est pas une\\
+situation de proportionnalité }
+
+\setbox3=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.9]
+\draw[->] (-1.15,0.) -- (3.8,0.);
+\foreach \x in {-1,1,2,3}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0.,-0.1) -- (0.,4);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)},] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\draw [samples=50,rotate around={0.:(0.,0.)},xshift=0.cm,yshift=0.cm,domain=0:3.5)] plot (\x,{(\x)/2/1.0});
+\draw (.5,.25)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1,.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1.5,.75)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (2,1)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (2.5,1.25)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (3,1.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (3.5,1.75)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\begin{scriptsize}
+\draw[] (-1.5,2.17) node {$c$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Les points  sont alignés\\
+avec l'origine \\
+$\Longrightarrow \quad$ C'est  une\\
+situation de proportionnalité }
+
+\begin{tabular}{c|c|c}
+\box1 & \box2 \box3 \\
+\end{tabular}
+
 
 \end{document}
+
+
 
