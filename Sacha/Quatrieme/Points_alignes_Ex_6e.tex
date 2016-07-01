@@ -1,0 +1,95 @@
+
+\ifdefined\ALIGNER
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
+\textbf{Énoncé} \\
+
+Soit un carré ABCD de côté a. \\ Soient un triangle équilatéral BCE, et un triangle CDI tel que :
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-0.49,-0.53) rectangle (8.24,4.45);
+
+%\draw [shift={(2,3.46)},color=green,fill=green,fill opacity=0.1] (0,0) -- (165:0.63) arc (165:240:0.63) -- cycle;
+%\draw [color=green] (1.1,3.2) node  {$75^o$};
+%\draw [shift={(0,0)},color=orange,fill=orange,fill opacity=0.1] (0,0) -- (60:0.63) arc (60:90:0.63) -- cycle;
+%\draw [color=orange] (.3,.8) node  {$30^o$};
+\draw  (0,0) -- (0,4) -- (4,4)-- (4,0) -- cycle ;
+\draw  (4,0)-- (2,3.46);
+\draw  (2,3.46)-- (0,0);
+\draw  (3.95,-0.05)-- (7.48,1.93);
+\draw  (7.48,1.93)-- (4,4);
+
+\draw [color=orange] (0,4)  --  (2,3.46);
+\draw [color=red] (2,3.46)-- (7.48,1.93);
+
+\fill  (4,0) circle (1.5pt);
+\draw (4.22,-0.28) node {$C$};
+\draw  (4,4)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw (4.16,4.22) node {$D$};
+\fill  (0,4) circle (1.5pt);
+\draw (0.18,4.26) node {$A$};
+\fill  (0,0) circle (1.5pt);
+\draw (-0.26,-0.18) node {$B$};
+\fill  (2,3.46) circle (1.5pt);
+\draw (2.15,3.74) node {$E$};
+\fill  (7.48,1.93) circle (1.0pt);
+\draw (7.63,2.16) node {$I$};
+\draw  (-1.18,-5.45)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+
+\end{tikzpicture}
+
+Démontrer que les points A, I et E sont alignés.  \\
+
+\textbf{Correction} \\
+
+Démontrer que les points A, I et E sont alignés revient à démontrer que l'angle $\widehat{AIE} = 180$\degre . \\
+
+De plus, on sait que $\widehat{AIE} = \widehat{AID} + \widehat{DIC} + \widehat{CIE}$. \\
+
+\underline{Calculons l'angle $\widehat{AID}$} \\
+
+On sait que ABCD est un carré, et que DIC et BEC sont des triangles équilatéraux. Ainsi, on a $AB = BC = CD = AD = DI = IC = BE = BC$. \\
+
+On sait que ABCD est un carré. \\ Or, dans un carré, la mesure de chaque angle est égale à $90$\degre. \\ Donc $\widehat{ADC} = 90$\degre. \\
+
+On sait que DIC est un triangle équilatéral. \\ Or, dans un triangle équilatéral, la mesure de chaque angle est égale à $60$\degre. \\ Donc $\widehat{DIC} = \widehat{IDC} = \widehat{DCI}= 60$\degre.
+
+On sait que $\widehat{ADC} = \widehat{ADI} + \widehat{DIC}$. 
+Ainsi, $90 = \widehat{ADI} + 60$, et $\widehat{ADI} = 30$\degre. \\
+
+On sait que ADI est un triangle isocèle de sommet principal D, car $AD = D$I. \\ Or, dans un triangle isocèle, les angles à la base sont de même mesure. \\ Donc, $\widehat{DAI} = \widehat{AID}$. \\
+
+On sait que dans un triangle, la somme des angles est égale à $180$\degre. \\ Ainsi, on a : $180 = 30 + 2\widehat{DIA}$, et $2\widehat{DIA} = 150$\degre. \\ Donc, $\widehat{AID} = \widehat{DAI} = 75$\degre. \\
+
+\underline{Calculons la mesure de l'angle $\widehat{DIC}$}
+
+On sait que DIC est un triangle équilatéral. \\ Or, dans un triangle équilatéral, la mesure de chaque angle est égale à $60$\degre. \\ Donc $\widehat{DIC} = 60$\degre. \\
+
+\underline{Calculons la mesure de l'angle $\widehat{CIE}$ }
+
+On sait que BCE est un triangle équilatéral. \\ Or, dans un triangle équilatéral, la mesure de chaque angle est égale à $60$\degre. \\ Donc $\widehat{BCE} = \widehat{BEC} = \widehat{CBE} = 60$\degre. \\
+
+On sait que ABCD est un carré. \\ Or, dans un carré, la mesure de chaque angle est égale à $90$\degre. \\ Donc $\widehat{BCD} = 90$\degre. \\
+
+On a donc $\widehat{ICE} = \widehat{ICB} + \widehat{BCE} = \left(90 - 60\right) + 60 = 90$\degre.
+
+On sait que ICE est un triangle isocèle de sommet principal C, car $IC = CE$. \\ Or, dans un triangle isocèle, les angles à la base sont de même mesure. \\ Donc $\widehat{CIE} = \widehat{CEI}$. \\
+
+On sait que dans un triangle, la somme des angles est égale à $180$\degre. \\ Ainsi, on a : $180 = 90 + 2\widehat{CIE}$, et $2\widehat{CIE} = 90$\degre. \\ Donc, $\widehat{CIE} = \widehat{CEI} = 45$\degre. \\
+
+\underline{Pour conclure}
+
+$\widehat{AIE} = \widehat{AID} + \widehat{DIC} + \widehat{CIE} $
+
+$\widehat{AIE} = 75 + 60 + 45 = 180$\degre.
+
+Donc $\widehat{AIE}$ est un angle plat, et les points A, I et E sont alignés.
+
+\ifdefined\ALIGNER
+\else
+    \end{document}
+\fi
