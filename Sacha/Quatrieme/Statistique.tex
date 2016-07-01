@@ -1,0 +1,88 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+\intitule{Statistique : cours}
+
+\begin{itemize}
+\item Le symbole $\somme$ signifie que l'on doit sommer.
+\item On appelle $x_i$ les valeurs que peut prendre la chose que l'on étudie \vocabulaire{(le caractère)}.
+\item On appelle $n_i$ le nombre de fois où apparaît une valeur \vocabulaire{(les effectifs)}.
+\end{itemize}
+
+On appelle \Asavoir{moyenne} le nombre \Asavoir{$\overline{x}=\dfrac{\somme n_i x_i}{\somme n_i}$}
+
+\bigskip 
+
+\bigskip 
+
+\intitule{Statistique : exemple rédigé}
+
+\begin{labeling}{Question}
+\item [\underline{Énoncé :}] 
+Les résultats au dernier contrôle de mathématiques de la classe de $4^{e}C$ sont : 
+
+\centerline{\begin{tabular}{rrrrrrrrrr}
+6 & 2 & 10 & 10 & 18 & 10 & 14 & 10 & 6 & 14 \\
+14 & 14 & 2 & 6 & 14 & 10 & 6 & 14 & 14 & 6 \\
+14 & 6 & 10 &  10 & 6 & 10 & 14 & 10 &  \\
+\end{tabular}}
+
+\item [\underline{Question :}] Déterminer la moyenne des notes au dernier contrôle de mathématiques. 
+\end{labeling}
+
+\begin{labeling}{Etape 1}
+\item [\methode{\underline{Étape 1 :}}] \methode{On met les données dans un tableau}
+
+\medskip
+\centerline{\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Note obtenue & 2 & 6 & 10 & 14 & 18 \\
+\hline
+\multirow{3}{3cm}{Nombre d'élèves ayant obtenue cette note} &   &  &   &   &   \\
+ & 2 & 7 & 9 & 9 & 1 \\
+  &   &  &   &   &   \\
+\hline
+\end{tabular}}
+
+\item [\methode{\underline{Étape 2 :}}] \methode{On identifie « qui sont » les $x_i$ et les $n_i$ ? }\\
+On étudie des notes, les $x_i$ sont donc les notes obtenues et les $n_i$ les nombres d'élèves.
+
+\item [\methode{\underline{Étape 3 :}}] \methode{On fait évoluer le tableau en le complétant de la manière suivante}\\(la partie supplémentaire est sur fond  \textcolor{blue}{\framebox{blue}}% \textcolor{blue}{bleu)}
+
+\medskip
+
+\centerline{\setlength\doublerulesep{1pt}
+ \doublerulesepcolor{blue}
+ \begin{tabular}{|c|c|c|c|c|c||>{\columncolor{blue!20}\color{black}\bfseries}c||}
+\hline
+$x_i$ & 2 & 6 & 10 & 14 & 18 & $\somme$ \\
+\hline
+$n_i$ & 2 & 7 & 9 & 9 & 1 & 28\\
+ \arrayrulecolor{blue}
+\hline
+\arrayrulecolor{blue} 
+ \rowcolor{blue!20}$x_i n_i$ & 4 & 42 & 90 & 126 & 18 & 280 \\
+\hline
+ \arrayrulecolor{blue}
+\end{tabular}}
+
+
+\item [\methode{\underline{Étape 4 :}}] \methode{On calcule $\overline{x}$ (la moyenne)}
+
+D'après le cours : $\overline{x} = \dfrac{\somme n_i x_i}{\somme n_i}$.
+
+On lit $\somme n_i x_i$ et $\somme n_i$ dans le tableau.
+
+On obtient  $\overline{x} = \dfrac{\somme n_i x_i}{\somme n_i} = \dfrac {280}{28} = 10$.
+Donc la moyenne des notes des élèves est de $10/20$.
+
+\end{labeling}
+
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
