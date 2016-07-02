@@ -155,14 +155,21 @@ row sep=0cm,column sep=0cm,
 % nodes={rectangle, draw},  
 %    nodes in empty cells,
 column 1/.style={anchor=base east},
-column 3/.style={anchor=base west}]{
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west}
+]{
 \displaystyle { % eloigne les deux fractions
-                           \; \dfrac{1}{8} \; 
+                           \;\; \dfrac{1}{8} \;\; 
                              \over 
-                           \; \dfrac{4}{6} \;
+                           \; \;\dfrac{4}{6} \;\;
                            }
      &=& 
-         |(a)|  \dfrac{1}{8} \div \dfrac{6}{4} = \dfrac{1}{8} \times \dfrac{4}{6} \\
+         |(a)|  \dfrac{1}{8} \div \dfrac{6}{4} = \dfrac{1}{8} \times \dfrac{4}{6} 
+                      & \text{\hspace*{1cm}\methode{\begin{minipage}[c]{.46\linewidth}
+                                                      \methode{On transforme en multiplication\\
+                                                       par l'inverse}
+                                                     \end{minipage}
+                                                     }}\\
      &=&  
          |(b)| \dfrac{1}{8} \times \dfrac{2}{3}  
                  & |(l)|\text{\hspace*{1cm}\methode{On simplifie}} \\ 
@@ -173,13 +180,7 @@ column 3/.style={anchor=base west}]{
 };   
  
 \node [right = 1 cm of b.east] (c) {} ; 
-\draw[color=blue,->,>=latex] (a) to[out=0,in=0]
-   node[midway,right]{\hspace*{.5cm}{
-   \methode{ \begin{minipage}[c]{.46\linewidth}
-      On transforme en multiplication\\ 
-      par l'inverse
-   \end{minipage}}}
-} (c);    
+\draw[color=blue,->,>=latex] (a) to[out=0,in=0]  (c);    
 \node [right = .5 cm of b.east] (i) {} ; 
 \node [right = .2 cm of d.east] (j) {} ; 
 \draw[color=blue,->,>=latex] (i) to[out=0,in=0] (j);             
