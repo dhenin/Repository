@@ -1,0 +1,96 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+                 
+                 \intitule{Inéquations du premier degré : cours} 
+                 
+\bigskip     
+
+De manière générale :
+
+\begin{itemize}
+\item Une inéquation se résout comme une équation : 
+     \begin{itemize}
+     \item [$\hookrightarrow$] le but est toujours d'isoler $x$ ; 
+     \item [$\hookrightarrow$] les formes sont les mêmes.
+     \end{itemize}
+\item Le $=$ devient $<$, $>$, $\leqslant$, $\geqslant$.     
+\end{itemize}    
+
+\bigskip 
+
+\Asavoir{Une règle supplémentaire}     
+
+
+\medskip 
+
+Si on \Asavoir{multiplie} par un nombre \TextSoulign{red}{négatif}, on change le signe de l'inéquation (\vocabulaire{le sens}).
+   
+
+\medskip 
+
+\begin{description}
+\item $<$ devient $>$
+\item $>$ devient $<$
+\item $\leqslant$ devient $\geqslant$
+\item $\geqslant$ devient $\leqslant$
+\end{description}             
+
+\bigskip         
+%                 \intitule{Inéquations du premier degré} 
+                 
+                 \centerline{\intitule{Exemples rédigés...}}   
+                 
+\bigskip   
+
+On rédigera ici 2 exemples, pour montrer le changement de sens lorsque l'on multiplie par un nombre négatif.
+
+Pour la technique de résolution, consulter les exemples rédigés de la fiche sur les équations.
+
+\setbox1=\vtop{ \hsize=5cm \null % null assure l'alignement par le haut 
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm,  
+]{
+2x -5            &\leqslant& |(a)| 0  \\%  
+2x               &\leqslant& |(b)|5 \\
+x                &\leqslant& |(c)| \dfrac{5}{2} \\
+};  
+% \node [right = 1cm of a.west] (k) {} ; 
+% \node [right = 1cm of i.west] (j) {} ; 
+\draw[color=blue,->,>=latex] (a) to[out=0,in=0] node[midway,right]{ On ajoute 5} (b); 
+\draw[color=blue,->,>=latex] (b) to[out=0,in=0] node[midway,right]{ On divise par 2} (c);
+\end{tikzpicture}
+
+\vocabulaire{$2>0$, donc pas de changement de sens}}
+
+\setbox2=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm,  
+]{
+-3x +7           &\leqslant& |(a)| 0  \\%  
+-3x               &\leqslant& |(b)| -7\\
+x                &\textcolor{red}{\geqslant}& |(c)| \dfrac{-7}{-3} \\
+x                &\geqslant& |(d)| \dfrac{7}{3} \\
+};  
+% \node [right = 1cm of a.west] (k) {} ; 
+% \node [right = 1cm of i.west] (j) {} ; 
+\draw[color=blue,->,>=latex] (a) to[out=0,in=0] node[midway,right]{ On ajoute -7} (b); 
+\draw[color=blue,->,>=latex] (b) to[out=0,in=0] node[midway,right]{ On divise par -3} (c);
+\draw[color=blue,->,>=latex] (c) to[out=0,in=0] node[midway,right]{ On simplifie} (d);
+\end{tikzpicture}
+\vocabulaire{$-3<0$, donc changement de sens}}  
+
+
+\centerline{ \box1 \quad\vrule\quad \box2 \hfill}
+
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
