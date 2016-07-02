@@ -1,0 +1,183 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+                 
+                 \intitule{Trigonométrie : cours} 
+                 
+
+
+\bigskip   
+
+
+\setbox1=\hbox { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.75]
+\begin{scriptsize}
+\draw [color=blue, domain=-1.:5.5] plot(\x,{(-0.--3.*\x)/4.});
+\draw [color=blue, domain=-1.8:5.5] plot(\x,{(-0.-0.*\x)/4.});
+\draw (0,0) node [below] {$O$} -- (4,0) node[below]{$B$} -- (4,3) node[above left]{$A$} -- (0,0) ;
+\draw[color=darkgreen,fill={darkgreen!75},fill opacity=0.1] (4.,0.5) -- (3.5,0.5) -- (3.5,0.) -- (4.,0.) -- cycle; 
+\draw (0.7,0.3) node[right] {$\alpha$};
+\draw [shift={(0.,0.)},color=darkgreen,fill={darkgreen!75},fill opacity=0.1] 
+      (0,0) -- (0.:0.6) arc (0.:36.85:0.6) -- cycle;
+\end{scriptsize}
+\end{tikzpicture} }
+
+\newcolumntype{M}[1]{>{\raggedright}m{#1}}
+
+\begin{tabular}{M{7cm}M{6cm}}
+\Asavoir{\Large $ \bullet \quad  0 \leqslant \cos (x)  \leqslant 1$}    \medskip 
+\Asavoir{\Large $\bullet \quad  \cos(x) = \tfrac{\text{adjacent}}{\text{hypothénuse}} = \dfrac{OB}{OA}$ }   
+
+ & \box1                    
+
+\end{tabular} 
+                    
+$\hookrightarrow$ Par définition, \Asavoir{toujours} dans un triangle rectangle.                                    
+
+\bigskip
+
+\bigskip
+                   
+% \intitule{Trigonométrie} 
+
+                 \centerline{\intitule{Exemples rédigés de quatre types}}   
+
+\bigskip                          
+                 
+\Asavoir{\Large \underline{Exemple 1 : } On cherche le cosinus}, ici de $\widehat{AOB}$.    
+
+\setbox1=\hbox { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.75]
+\begin{scriptsize}
+\draw [color=blue, domain=-1.:5.5] plot(\x,{(-0.--3.*\x)/4.});
+\draw [color=blue, domain=-1.8:5.5] plot(\x,{(-0.-0.*\x)/4.});
+\draw (0,0) node [below] {$O$} -- node[midway,below]{4} (4,0) node[below]{$B$} -- 
+      (4,3) node[above left]{$A$} -- node[midway,above]{5}(0,0) ;
+\draw[color=darkgreen,fill={darkgreen!75},fill opacity=0.1] (4.,0.5) -- (3.5,0.5) -- (3.5,0.) -- (4.,0.) -- cycle; 
+\draw (0.7,0.3) node[right] {$\alpha$};
+\draw [shift={(0.,0.)},color=darkgreen,fill={darkgreen!75},fill opacity=0.1] 
+      (0,0) -- (0.:0.6) arc (0.:36.85:0.6) -- cycle;
+\end{scriptsize}
+\end{tikzpicture} }
+
+\begin{tabular}{M{1.9cm}M{6cm}r}
+\methode{On a besoin de 2 côtés} & 
+\copy1 & \vocabulaire{On applique le cours} \\
+\end{tabular}
+
+\begin{labeling}{On sait que}
+\item [On sait que] le triangle $AOB$ est rectangle en $B$,
+\item [or] $ \cos(\alpha) = \tfrac{\text{adjacent}}{\text{hypothénuse}}$, 
+\item [donc] $\cos(\widehat{AOB}) = \dfrac{OB}{OA} = \dfrac{4}{5}$.
+\end{labeling}
+
+\bigskip                     
+                 
+\Asavoir{\Large \underline{Exemple 2 : } On cherche un angle}, ici l'angle $\widehat{AOB}$    
+
+\begin{tabular}{M{2.5cm}M{6cm}M{6cm}}
+\methode{On a besoin \\du cosinus \\de l'angle $\widehat{AOB}$ } & 
+
+\box1
+                  & \vocabulaire{$\bullet$ On fait comme l'exemple 1\\
+                                 $\bullet$ On utilise la calculatrice} \\
+\end{tabular}
+
+\begin{labeling}{On sait que}
+\item [On sait que] le triangle $AOB$ est rectangle en $B$,
+\item [or] $ \cos(\alpha) = \tfrac{\text{adjacent}}{\text{hypothénuse}}$, 
+\item [donc] $\cos(\widehat{AOB}) = \dfrac{OB}{OA} = \dfrac{4}{5}$,
+\item []     $\widehat{AOB} = \arccos \left(\dfrac{4}{5}\right)$,
+\item[] D'après la calculatrice $\widehat{AOB} \approx 36,9$\degre.
+\end{labeling}
+
+\newpage
+
+\Asavoir{\Large \underline{Exemple 3 : } On cherche l'hypoténuse}, ici la mesure du segment $[OA]$  
+
+
+\setbox1=\hbox { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.75]
+\begin{scriptsize}
+\draw [color=blue, domain=-1.:5.5] plot(\x,{(-0.--3.*\x)/4.});
+\draw [color=blue, domain=-1.8:5.5] plot(\x,{(-0.-0.*\x)/4.});
+\draw (0,0) node [below] {$O$} -- node[midway,below]{4} (4,0) node[below]{$B$} -- 
+      (4,3) node[above left]{$A$} -- node[midway,above]{\normalsize x}(0,0) ;
+\draw[color=darkgreen,fill={darkgreen!75},fill opacity=0.1] (4.,0.5) -- (3.5,0.5) -- (3.5,0.) -- (4.,0.) -- cycle; 
+\draw (0.7,0.3) node[right] {$30$ \degre};
+\draw [shift={(0.,0.)},color=darkgreen,fill={darkgreen!75},fill opacity=0.1] 
+      (0,0) -- (0.:0.6) arc (0.:36.85:0.6) -- cycle;
+\end{scriptsize}
+\end{tikzpicture} }  
+
+% \newcolumntype{M}[1]{>{\raggedright}m{#1}}
+
+\begin{tabular}{M{4cm}M{6cm}M{6cm}}
+\methode{On a besoin du côté \\adjacent et\\ du cosinus de l'angle } & 
+\box1
+                  & \vocabulaire{$\bullet$ On applique le cours\\
+                                 $\bullet$ On résout l'équation\\
+                                 $\bullet$ On utilise la calculatrice} \\
+\end{tabular}
+
+\begin{labeling}{D'après la calculatrice : }
+\item [On sait que] le triangle $AOB$ est rectangle en $B$,
+\item [or] $ \cos(\alpha) = \tfrac{\text{adjacent}}{\text{hypothénuse}}$, 
+\item [donc] $\cos(\widehat{AOB}) = \dfrac{OB}{OA}$,
+\item [] $\cos(30) = \dfrac{4}{x}$.
+\item [On résout l'équation : ] $\cos(30) = \dfrac{4}{x}$    
+\item [] $  x \times \cos (30) = 4 $ \hspace*{1cm}\methode {On a multiplié chaque membre par $x$}
+\item [] $x = \dfrac{4}{\cos(30)}$    \hspace*{1.5cm}\methode {On a divisé chaque membre par $\cos(30)$}
+\item [D'après la calculatrice : ]  $\cos(30)\approx 0,87$
+\item [] $x = \dfrac{4}{0,87}\approx4,6$
+\end{labeling}
+
+Donc $OA \approx 4,6$ cm    
+
+\bigskip  
+
+\Asavoir{\Large \underline{Exemple 4 : }} On cherche le côté adjacent, ici la mesure du segment $[OB]$    
+
+\setbox1=\hbox { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.75]
+\begin{scriptsize}
+\draw [color=blue, domain=-1.:5.5] plot(\x,{(-0.--3.*\x)/4.});
+\draw [color=blue, domain=-1.8:5.5] plot(\x,{(-0.-0.*\x)/4.});
+\draw (0,0) node [below] {$O$} -- node[midway,below]{\normalsize x} (4,0) node[below]{$B$} -- 
+      (4,3) node[above left]{$A$} -- node[midway,above]{5}(0,0) ;
+\draw[color=darkgreen,fill={darkgreen!75},fill opacity=0.1] (4.,0.5) -- (3.5,0.5) -- (3.5,0.) -- (4.,0.) -- cycle; 
+\draw (0.7,0.3) node[right] {$20$ \degre};
+\draw [shift={(0.,0.)},color=darkgreen,fill={darkgreen!75},fill opacity=0.1] 
+      (0,0) -- (0.:0.6) arc (0.:36.85:0.6) -- cycle;
+\end{scriptsize}
+\end{tikzpicture} } 
+
+\begin{tabular}{M{4cm}M{6cm}M{6cm}}
+\methode{On a besoin du l'hypoténuse \\ et du cosinus de l'angle } & 
+\box1
+                  & \vocabulaire{$\bullet$ On applique le cours\\
+                                 $\bullet$ On résout l'équation}\\
+                                 
+\end{tabular}
+
+\begin{labeling}{D'après la calculatrice : }
+\item [On sait que] le triangle $AOB$ est rectangle en $B$,
+\item [or] $ \cos(\alpha) = \tfrac{\text{adjacent}}{\text{hypothénuse}} $ 
+\item [donc] $\cos(\widehat{AOB}) = \dfrac{OB}{OA}$,
+\item [] $\cos(20) = \dfrac{x}{5}$,
+\item [On résout l'équation : ] $\cos(20) = \dfrac{x}{5}$    
+\item [] $  5 \times \cos (20) = x $ \hspace*{1cm}\methode {On a multiplié chaque membre par $5$}
+\item [D'après la calculatrice : ]  $\cos(20)\approx 0,94$
+\item [] $x = 5 \times 0,94 \approx 4,7$
+\end{labeling}
+
+Donc $OB \approx 4,7$ cm                                                                                  
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
