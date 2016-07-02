@@ -1,0 +1,220 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+                 \intitule{Puissance : cours} 
+                 
+\bigskip   
+
+\Asavoir{Définition } : Élever un nombre à la puissance $n$, c'est multiplier ce nombre $n$ fois par lui-même.
+
+\medskip 
+
+\underline{Exemple :} $10^3 = 10 \times 10 \times 10 = 1 000$
+
+\medskip 
+
+\vocabulaire {Remarque : } Si $n$ est négatif, on passe à l'inverse.
+
+\medskip 
+
+\underline{Exemple :} $10^{-4} = \dfrac{1}{10^4} = \dfrac{1}{10 \times 10 \times 10 \times 10} = \dfrac{1}{10 000}$ 
+
+\medskip 
+
+\vocabulaire {Remarque : } Tout nombre élevé à la puissance $0$ vaut $1$.
+
+\bigskip   
+
+\Asavoir{Règle de calcul}
+
+\medskip 
+
+\begin{tabular}{rr@{$\;\;$}c@{$\;\;$}ll}
+$\bullet$ & $a^m \times a^n $   & $=$ & $ a^{m+n}$ &  {\vocabulaire {($\times$ devient $+$)}}  \\  
+$\bullet$ & $\dfrac{a^m}{a^n}$  & $=$ & $a^{m-n}$  &  {\vocabulaire {($\div$ devient $-$)}} \\   
+$\bullet$ & $\big( a^m\big)^n$  & $=$ & 
+                       $a^{m\times n}$ & {\vocabulaire {(puissance devient $\times$)}} \\ 
+$\bullet$ & $a^m \times b^m$    & $=$ & $\big(a\times b\big)^m$ & \multirow{2}{*}{\textcolor{darkgreen}{
+                      $ \left\rbrace 
+                         \begin{array}{l}
+                          \\ \text {(Réunion de même puissace)} \\ \\
+                          \end{array}  
+                          \right. $ 
+} }    \\
+$\bullet$ & $ \dfrac{a^m}{b^m}$ & $=$ & $\left(\dfrac{a}{b}\right)^m$ &                                        
+\end{tabular}
+
+
+%---------
+\bigskip         
+%                 \intitule{Puissance} 
+                 
+                 \centerline{\intitule{\ Quelques exemples rédigés}} 
+
+\bigskip                   
+
+\setbox1=\vtop{ \hsize=5cm \null % null assure l'alignement par le haut 
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west} 
+]{
+A      &=&  (-2)^4 \\
+       &=&  (-2)\times (-2)\times (-2)\times (-2) \\
+       &=&  16  \\
+};  
+\end{tikzpicture}}
+
+\setbox2=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm,
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west}  
+]{
+B      &=& |(a)|       4^{-3} \\
+       &=& |(b)| \dfrac{1}{4^3} \\
+       &=& |(c)|\dfrac{1}{4\times 4\times 4} \\
+       &=& \dfrac{1}{64} \\
+};  
+\node [right = 1cm of a.west] (d) {} ; 
+\node [right = .5cm of b.west] (e) {} ; 
+\node [right = 1cm of b.west] (g) {} ; 
+\node [right = 1.5cm of c.west] (f) {} ; 
+\draw[color=blue,->,>=latex] (d) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+$n$ est négatif donc \\ on passe à l'inverse.
+}}  (e) ; 
+\draw[color=blue,->,>=latex] (g) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On revient à la définition.
+}}  (f) ; 
+\end{tikzpicture}}  
+
+
+\centerline{ \box1 \quad\vrule\quad \box2 \hfill}    
+
+\medskip 
+\hrulefill
+\medskip 
+\setbox1=\vtop{ \hsize=7.5cm \null % null assure l'alignement par le haut 
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+C      &=&  |(a)| \textcolor{blue}{\underbrace{\textcolor{black}{2^2}}}  
+               \times (2 \textcolor{blue}{\underbrace{\textcolor{black}{+3^3}}}          
+               )- \textcolor{blue}{\underbrace{\textcolor{black}{5^0}}}  
+                                                          &  \text{\methode{Puissance d'abord}} \\
+       &=& |(b)| \;\; 4  \;\;\times \;\; ( \textcolor{blue}{\underbrace{\textcolor{black}{2+27}}} ) \;\; -1 
+                                                          &  \text{\methode{Puis parenthèses}} \\
+       &=& |(c)| \textcolor{blue}{\underbrace{\textcolor{black}{ 4 \quad \; \times \quad 29}}} \quad  -1 
+                                                          &  \text{\methode{Puis produit}} \\
+       &=& \quad  116 \quad  -1 \\ 
+       &=&  115 \\               
+};  
+\end{tikzpicture}}
+
+\setbox2=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm,
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west}  
+]{
+D  &=& |(a)|   \dfrac{5^{-1}}{1^{-4}}  \\
+   &=& |(b)|  \displaystyle{\;\;\dfrac{1}{5^1}\;\; \over \;\;\dfrac{1}{1^{4}}\;\;} \\
+   &=& |(c)|  \dfrac{1}{5} \times 1^4\\
+   &=& \dfrac{1}{5} \\
+};  
+\node [right = 1cm of a.west] (d) {} ; 
+\node [right = .5cm of b.west] (e) {} ; 
+\node [right = 1cm of b.west] (g) {} ; 
+\node [right = 1cm of c.west] (f) {} ; 
+\draw[color=blue,->,>=latex] (d) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{On passe à l'inverse deux fois }}  (e) ; 
+\draw[color=blue,->,>=latex] (g) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{Diviser revient à multiplier par l'inverse}}  (f) ; 
+\end{tikzpicture}
+
+\methode{Quelque soit $n$, $1^n = 1$}}  
+
+
+\centerline{ \box1 \quad\vrule\quad \box2 \hfill}    
+  
+\newpage 
+
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+E      &=& |(a)|  2^2 \times 3^3 \times 2^3 \times 3^{-3}\\
+       &=& |(b)| \textcolor{blue}{\underbrace{\textcolor{black}{ 2^2 \times 2^3}}}
+         \times  \textcolor{blue}{\underbrace{\textcolor{black}{ 3^3 \times 3^{-3}}}} \\\\
+       &=& |(c)| \quad 2^5 \quad \times \quad  \; 3^0 \\
+       &=& |(d)| 2^5 \times 1\\ 
+       &=&   32 \\               
+};  
+\node [right = 2.75cm of a.west] (e) {} ; 
+\node [right = 2.6cm of b.west] (f) {} ; 
+\node [right = 2.4cm of b.west] (g) {} ; 
+\node [right = 2.5cm of c.west] (h) {} ; 
+\node [right = 2.3cm of c.west] (i) {} ; 
+\node [right = 2cm of d.west] (j) {} ; 
+\draw[color=blue,->,>=latex] (e) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On regroupe
+}}  (f) ; 
+\draw[color=blue,->,>=latex] (g) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On simplifie ($\times$ devient $+$)
+}}  (h) ; 
+\draw[color=blue,->,>=latex] (i) to[out=0,in=0] node[midway,right] {\hspace*{.25cm} \parbox{5cm}{
+On simplifie ($\times$ devient $+$)
+}}  (j) ; 
+\end{tikzpicture}
+
+\bigskip 
+
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+F      &=& |(a)| \dfrac{3^{-6} \times 3^2 \times 3^{-4}}{3^{-8} \times 3^{-2}}\\
+       &=& |(b)| \dfrac{3^{-6+2-4}}{3^{-8-2}}\\
+       &=& |(c)| \dfrac{3^{-8}}{3^{-10}}\\
+       &=& |(d)| 3^{-8-(-10)} \\ 
+       &=&       3^2   \\   
+       &=& 9      \\      
+};  
+\node [right = 2.75cm of a.west] (e) {} ; 
+\node [right = 2.6cm of b.west] (f) {} ; 
+\node [right = 2.4cm of b.west] (g) {} ; 
+\node [right = 2.5cm of c.west] (h) {} ; 
+\node [right = 2.3cm of c.west] (i) {} ; 
+\node [right = 2cm of d.west] (j) {} ; 
+\draw[=bluecolor,->,>=latex] (e) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+$\times$ devient $+$ au numérateur et au dénominateur
+}}  (f) ; 
+\draw[color=blue,->,>=latex] (g) to[out=0,in=0] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+On calcule l'exposant
+}}  (h) ; 
+\draw[color=blue,->,>=latex] (i) to[out=0,in=0] node[midway,right] {\hspace*{.25cm} \parbox{5cm}{
+$\div$ devient $-$}}   (j) ;  
+\end{tikzpicture}     
+
+\newpage
+
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
