@@ -1,0 +1,292 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+                
+                 \intitule{Théorème de Pythagore: cours} 
+                 
+\Asavoir{\Large 1) \underline {Énoncé du théorème}}    
+
+\bigskip
+
+\setbox2=\hbox { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1, rotate=0]
+\begin{scriptsize}  
+\draw  (0,0) node [below] {$A$} -- node[midway,below] {4}(4,0) 
+             node [below] {$B$} --%  node[midway,above] {5} 
+       (0,3) node [left] {$C$} -- node[midway,left] {3}(0,0); 
+\draw (0.475,0) -- (0.475,0.475) -- (0,0.475) -- (0,0) -- cycle;                  
+\end{scriptsize}        
+\end{tikzpicture} }
+
+\centerline {\begin{tabular}{ll} 
+\multirow{3}{7cm}{\copy2}   & \\      % C'est le même dessin que le premier exemple ci-dessous
+                    & \\      
+                   & \methode{On a besoin}\\
+                   & \methode{d'un triangle rectangle}\\
+                   & \methode{et de 2 côtés connus}\\
+                   & \\
+                   & \\
+                   & \\                     
+\end{tabular}}
+      
+\bigskip       
+                   
+                   Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés, ici $BC^2 = AB^2 + AC^2$.
+                   
+ \bigskip 
+ 
+ On a donc : 
+ 
+ Triangle rectangle $\Longrightarrow BC^2 = AB^2 + AC^2$     
+ 
+ 
+\bigskip 
+ 
+\bigskip 
+ 
+ \Asavoir{\Large 2) \underline {Réciproque du théorème}}    
+
+\bigskip
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1, rotate=0]
+\begin{scriptsize}
+\draw  (0,0) node [below] {$A$} -- node[midway,below] {4}(4,0) 
+             node [below] {$B$} --%  node[midway,above] {5} 
+       (0,3) node [left] {$C$} -- node[midway,left] {3}(0,0);                     
+\end{scriptsize}        
+\end{tikzpicture} }
+
+\centerline {\begin{tabular}{l l} 
+\multirow{3}{7cm}{\box1}
+      & \\
+      & \\
+      & \methode{On a besoin}\\
+      & \methode{de trois côtés connus}\\
+      & \methode{vérifiant l'égalité du théorème}\\
+      & \\
+      & \\
+      & \\
+\end{tabular}}  
+
+
+\bigskip
+        
+                   
+Si $ABC$ est un triangle tel que  $BC^2 = AB^2 + AC^2$, alors $ABC$ est un triangle rectangle en $A$.
+                   
+ \bigskip 
+ 
+ On a donc : 
+ 
+ $BC^2 = AB^2 + AC^2 \Longrightarrow $   triangle rectangle          
+ 
+ 
+\bigskip
+ 
+\bigskip 
+
+ 
+ \Asavoir{\Large 3) \underline {Contraposée du théorème}}    
+
+\bigskip
+
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1, rotate=0]
+\begin{scriptsize}
+\draw  (0,0) node [below] {$A$} -- node[midway,below] {4}(4,0) 
+             node [below] {$B$} --  node[midway,above] {7} 
+       (0,3) node [left] {$C$} -- node[midway,left] {3}(0,0);                     
+\end{scriptsize}        
+\end{tikzpicture} }
+
+\centerline {\begin{tabular}{l l} 
+\multirow{3}{6cm}{\box1} & \\
+                   & \\
+                   & \methode{On a besoin}\\
+                   & \methode{de trois côtés connus}\\
+                   & \methode{ne vérifiant pas l'égalité du théorème}\\
+                   & \\
+                   & \\
+                   & \\
+\end{tabular}}  
+                   
+\bigskip          
+                   
+Si $ABC$ est un triangle tel que  $BC^2 \neq AB^2 + AC^2$, alors $ABC$ n'est pas un triangle rectangle en $A$
+                   
+ \bigskip 
+ 
+ On a donc : 
+ 
+ $BC^2 \neq AB^2 + AC^2 \Longrightarrow $   triangle pas rectangle       
+ 
+\newpage     
+ 
+ %------------------------04 Exos Pythagore --------------
+                 
+                 \intitule{Théorème de Pythagore : Exemples rédigés} 
+                 
+\Asavoir{\Large 1) \underline {Théorème}}    
+
+\bigskip   
+
+
+\bigskip 
+
+\underline{Exemple 1 :} On cherche l'hypoténuse.
+
+\bigskip 
+
+\centerline {\begin{tabular}{l l} 
+\multirow{5}{6cm}{\box2} %    C'est la m^me image que dans le cours §1
+                   & \\
+                   &  Soit $ABC$ un triangle rectangle en $A$ tel que  \\
+                   & $\qquad \left\{\begin{matrix}
+                              AB=4\text{ cm}\\
+                               AC=3\text{ cm}
+                      \end{matrix}\right.$ \\
+ & Déterminer la longueur du segment $[BC]$, \\
+ & arrondie au millimètre s'il y a lieu.\\
+  & \\  & \\ % & \\
+\end{tabular}}
+
+\begin{labeling}{On sait que} 
+\item  [{\bf On sait que}]   $ABC$ est un triangle rectangle 
+\item  [{\bf or}]    d'après le théorème de Pythagore, on a :
+
+\centerline{\begin{tabular}{l>{$=\quad$}lcl}
+            $BC^2$ & $AB^2 + AC^2$& \multirow{2}{.2cm}{${\textcolor{blue}{\left\downarrow\begin{matrix} \\ \end{matrix}\right.}}$}&\methode {On remplace par} \\
+            $BC^2$ & $4^2 + 3^2$  & &\methode {ce que l'on connaît} \\
+            $BC^2$ & $16 + 9$     & \multirow{3}{.2cm}{${\textcolor{blue}{\left\downarrow\begin{matrix} \\ \\ \end{matrix}\right.}}$}&\\
+            $BC^2$ & $25$         & & \methode {On calcule}  \\
+            $BC$ & $\sqrt{25}$    & &\\
+            $BC$ & $5$            &  &\methode{On arrondit}\\
+\end{tabular}}           
+\item  [{\bf donc}]  $BC=5$ cm 
+\end{labeling}
+
+\bigskip 
+
+\bigskip 
+
+\underline{Exemple 2 :} On cherche la mesure d'un côté de l'angle droit
+
+
+\setbox1=\hbox { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1, rotate=0]
+\begin{scriptsize}  
+\draw  (0,0) node [below] {$A$} -- node[midway,below] {4}(4,0) 
+             node [below] {$B$} -- node[midway,above] {7} 
+       (0,3) node [left]  {$C$} -- % node[midway,left] {3}
+       (0,0); 
+\draw (0.475,0) -- (0.475,0.475) -- (0,0.475) -- (0,0) -- cycle;                  
+\end{scriptsize}        
+\end{tikzpicture} }
+
+\bigskip 
+
+\centerline {\begin{tabular}{l l} 
+\multirow{5}{6cm}{\box1} %  &  \\% \\ & \\  & \\
+                   &  Soit $ABC$ un triangle rectangle en $A$ tel que  \\
+                   & $\qquad \left\{\begin{matrix}
+                              AC=4\text{ cm}\\
+                               AB=7\text{ cm} 
+                      \end{matrix}\right.$ \\
+ & Déterminer la longueur du segment $[BC]$, \\
+ & arrondie au millimètre s'il il y a lieu.\\
+ & \\ & \\ & \\
+\end{tabular}}
+
+
+\begin{labeling}{On sait que} 
+\item  [{\bf On sait que}]   $ABC$ est un triangle rectangle en $C$ et que $AB = 4$ cm et $AB=7$ cm 
+\item  [{\bf or}]    d'après le théorème de Pythagore, on a :
+
+\centerline{\begin{tabular}{llcl}
+            $AB^2 = AC^2 + BC^2$& \multirow{2}{.2cm}{${\textcolor{blue}{\left\downarrow\begin{matrix} \\ \end{matrix}\right.}}$}&\methode {On remplace par} \\
+            $\;\;\;\; 7^2 = 4^2 + BC^2$  & &\methode {ce que l'on connaît} \\
+           $BC^2 = 7^2 -4^2$     & \methode{$\downarrow$} & \methode {On isole l'inconnue}  \\ 
+$BC^2 = 49 - 16 $  & \multirow{3}{.2cm}{${\textcolor{blue} {\left\downarrow\begin{matrix} \\ \\   \end{matrix}\right.}}$} &  \\
+           $BC^2 = 33 $         & & \methode {On calcule}  \\
+            $BC = \sqrt{33}$    & & \\
+           $BC  \approx 5,7$            & \methode{$\downarrow$} &\methode{On arrondit}\\
+\end{tabular}}          
+\item  [{\bf donc}]  $BC=5,7$ cm 
+\end{labeling}
+
+\newpage
+                 
+\Asavoir{\Large 2) \underline {Réciproque du théorème}}    
+
+\bigskip   
+
+\underline{Exemple:} On cherche à montrer que le triangle est rectangle. \\
+
+Soit $ABC$ un triangle tel que $ \left\{\begin{matrix}
+                              AB=5\text{ cm}\\
+                               AC=13\text{ cm}\\
+                               BC=12\text{ cm}
+                      \end{matrix}\right.$ 
+
+\bigskip                       
+                      
+\begin{tabular}{lr@{}ll}
+ On a &     $AB^2 + BC^2\;$ & $=  5^2 + 12^2$ &  \\
+      &              & $= 25 + 144 $ & \multirow{2}{2cm}{\methode{On vérifie en \underline{2 parties} }}\\
+      &              & $=  169 $ & \\  
+      &              &           &  \\
+De plus & $AC^2$ & $= 13^2$  &  \multirow{2}{2cm}{\methode{ que l'égalité est vérifiée}}\\
+        &        & $= 169$   & \\    
+      &              &           & \\
+Ainsi & $AC^2$ & $= AB^2 + BC^2 $ & \\                     
+     \end{tabular}                    
+
+\bigskip 
+
+Donc, d'après la réciproque du théorème de Pythagore, le triangle $ABC$ est rectangle en $B$.                                
+  
+ 
+\bigskip 
+ 
+\bigskip 
+ 
+\bigskip 
+                  
+\Asavoir{\Large 3) \underline {Contraposée du théorème}}    
+
+\bigskip   
+
+\underline{Exemple:} On cherche à montrer que le triangle n'est pas rectangle. \\
+
+Soit $ABC$ un triangle tel que $ \left\{\begin{matrix}
+                              AB=3,5\text{ cm}\\
+                               AC=3,5\text{ cm}\\
+                               BC=5\text{ cm} 
+                      \end{matrix}\right.$ 
+
+\bigskip                       
+                      
+\begin{tabular}{lr@{}ll}
+ On a &     $AB^2 + AC^2\;$ & $=  3,5^2 + 3,5^2$ &  \\
+      &              & $= 12,25 + 112,25 $ & \multirow{2}{2cm}{\methode{On vérifie en \underline{2 parties} }}\\
+      &              & $=  24,5 $ & \\  
+      &              &           &  \\
+De plus & $BC^2$ & $= 5^2$  &  \multirow{2}{2cm}{\methode{ que l'égalité n'est pas vérifiée}}\\
+        &        & $= 25$   & \\    
+      &              &           & \\
+Ainsi & $AC^2$ & $\neq AB^2 + BC^2 $ & \\                     
+     \end{tabular}                    
+
+\bigskip 
+
+Donc, d'après la réciproque du théorème de Pythagore, le triangle $ABC$ n'est pas rectangle en $A$.                                
+  
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
