@@ -1,0 +1,191 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+             
+                 \intitule{Proportionnalité : cours } 
+
+\Asavoir{{\large 1)} Proportionnalité  dans un tableau}
+
+
+\bigskip 
+
+Deux suites de nombres $x$ et $y$ sont dites  \TextSoulign{blue}{proportionnelles} si on obtient tous les nombres de la suite $x$ par un même nombre $k$ pour obtenir la suite $y$.
+
+\bigskip 
+
+\begin{tikzpicture}{
+% \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1, rotate=0]
+\node  (Tbl) {% 
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+x & 1 & 2 & 3 & 5 & 10 & 50 & 100 \\
+\hline
+y & 2 & 4 & 6 & 10 & 20 & 100 & 200 \\
+\hline
+\end{tabular}} ; 
+\node [below right = .3cm and -.2cm of Tbl.north west ] (a) {} ; 
+\node [above right = .2cm and -.2cm of Tbl.south west ] (b) {} ; 
+\draw[->,>=latex] (a) to[out=200,in=170] node[midway,left] {\hspace*{.5cm} \parbox{1.1cm}{
+\methode{$\quad \times 2 \\ (k=2)$} 
+}}  (b) ; 
+};
+\end{tikzpicture}
+
+\bigskip 
+
+\Asavoir{{\large 2)} Représentation graphique}
+
+\medskip 
+
+\begin{labeling}{À retenir } 
+\item [\Asavoir{À retenir} ] \textbullet $\;$ Le graphique d'une situation de proportionnalité est constitué de points alignés avec l'origine.
+\item                        \textbullet  $\;$  Si les points d'une représentation graphique sont alignés avec l'origine, le graphique représente une situation d eproportionnalité
+\end{labeling}
+
+\bigskip 
+
+\vocabulaire{\underline{Rapel de vocabulaire} }
+
+{\textcolor{DarkGreen}{$\underbrace{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-0.65,0) -- (6.30,0);
+\foreach \x in {,1.,2.,3.,4.,5.,6.}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node (x) {} ;
+\draw[->] (0,-0.1) -- (0.,5.48) node (y) {};
+\foreach \y in {,1.,2.,3.,4.,5.}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\draw[] (0.4,0) -- (0.4,0.4) -- (0,0.4) -- (0,0) node (O) {} -- cycle; 
+\draw[color=blue,line width=1.2pt,,smooth,samples=100,domain=.25:6.3] plot(\x,{2.0+0.4*(\x)+1.2*sin((2.0*(\x))*180/pi)});
+\draw [dash pattern=on 2pt off 2pt,] (4,4.8)-- (4,0) node (Xa) {}  ;
+\draw [dash pattern=on 2pt off 2pt,] (4.8,4.8)-- (0.,4.8) node (Ya) {} ;
+\begin{scriptsize}
+\draw  (4,4.8)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (4,5.2) node {$A$};
+\draw  (4,0.) circle (0.5pt);
+\draw (0,0) [below left] node {$0$} ; 
+\draw  (0.,4.8) circle (0.5pt);
+\draw  (y) node [above left] (b)  {\parbox{1.5cm}{
+          \vocabulaire{$\;\;$ axe des\\
+           ordonnées}
+}} ;
+\draw[color=DarkGreen,->,>=latex] (b.south) to[out=-90,in=180] node {}  (y) ;  
+%
+\draw  (x) node [below right] (c)  {\parbox{1.5cm}{
+          \vocabulaire{$\;\;$ axe des\\
+           abscisses}
+}} ;
+\draw[color=DarkGreen,->,>=latex] (c.south west) to[out=-120,in=-120] node {}  (x) ;  
+%
+\node [left = 0cm and 0cm of Ya ] (e) {\parbox{1.5cm}{
+         \vocabulaire{ Ordonnée\\
+           $\quad $ de $A$}
+}}  ; 
+%
+\draw[color=DarkGreen,->,>=latex] (e.south) to[out=-90,in=180] node {}  (Ya) ;  
+%
+\node [below left = 0cm and 0cm of Xa ] (f) {\parbox{1.5cm}{
+         \vocabulaire{ Abscisse\\
+           $\quad $ de $A$}
+}}  ; 
+%
+\draw[color=DarkGreen,->,>=latex] (f.south) to[out=-90,in=-90] node {}  (Xa) ;  
+%
+\node [below left = 0cm and 0cm of O] (g) {\parbox{3cm}{
+         \vocabulaire{ Origine : Point \\
+          de coordonnées $(0,0)$}
+}}  ; 
+%
+\draw[color=DarkGreen,->,>=latex] (g.north) to[out=90,in=120] node {}  (O) ;  
+\end{scriptsize}
+\end{tikzpicture}}_{\textcolor{DarkGreen}{\mathrm{Repère\; :\; axes \;+\; origine}}}$}}
+
+\bigskip
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.9]
+\draw[->] (-1.15,0.) -- (3.8,0.);
+\foreach \x in {-1,1,2,3}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0.,-0.1) -- (0.,4);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)},] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\draw [samples=50,rotate around={0.:(0.,0.)},xshift=0.cm,yshift=0.cm,domain=0:2.8)] plot (\x,{(\x)^2/2/1.0});
+\draw (.5,.125)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1,.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1.5,1.125)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (2,2)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (2.5,3.125)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\begin{scriptsize}
+% \draw[] (-1.5,2.17) node {$c$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Les points ne sont pas alignés\\
+$\Longrightarrow \quad$ Ce n'est pas une\\
+situation de proportionnalité }
+
+\setbox2=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.9]
+\draw[->] (-1.15,0.) -- (3.8,0.);
+\foreach \x in {-1,1,2,3}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0.,-0.1) -- (0.,4);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)},] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\draw [samples=50,rotate around={0.:(0.,0.)},xshift=0.cm,yshift=0.cm,domain=0:2.5)] plot (\x,{(\x)+2 /1.0});
+\draw (.5,2.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1,3)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1.5,3.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\begin{scriptsize}
+% \draw[] (-1.5,2.17) node {$c$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Les points  sont alignés\\
+mais pas avec l'origine \\
+$\Longrightarrow \quad$ Ce n'est pas une\\
+situation de proportionnalité }
+
+\setbox3=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.9]
+\draw[->] (-1.15,0.) -- (3.8,0.);
+\foreach \x in {-1,1,2,3}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0.,-0.1) -- (0.,4);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)},] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw (0pt,-10pt) node[right] {\footnotesize $0$};
+\draw [samples=50,rotate around={0.:(0.,0.)},xshift=0.cm,yshift=0.cm,domain=0:3.5)] plot (\x,{(\x)/2/1.0});
+\draw (.5,.25)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1,.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (1.5,.75)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (2,1)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (2.5,1.25)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (3,1.5)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\draw (3.5,1.75)-- ++(-1.5pt,-1.5pt) -- ++(3.0pt,3.0pt) ++(-3.0pt,0) -- ++(3.0pt,-3.0pt);
+\begin{scriptsize}
+% \draw[] (-1.5,2.17) node {$c$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Les points  sont alignés\\
+avec l'origine \\
+$\Longrightarrow \quad$ C'est  une\\
+situation de proportionnalité }
+
+\begin{tabular}{c|c|c}
+\box1 & \box2 & \box3 \\
+\end{tabular}
+
+
+
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

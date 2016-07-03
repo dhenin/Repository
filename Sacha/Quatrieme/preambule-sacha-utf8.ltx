@@ -103,3 +103,74 @@
 
 \usepackage{pstricks}
 % \usepackage{variations}
+
+% Nécessaires pour les fiches quatrième
+
+\usepackage{scrextend}
+\usepackage[normalem]{ulem}  % Por barrer du texte 
+\usetikzlibrary{matrix}
+
+\addtokomafont{labelinglabel}{\sffamily}
+
+\usepackage{colortbl} % xcolor est chargé automatiquement
+
+\renewcommand{\CancelColor}{\red}
+
+\newcommand{\intitule}[1]{{\huge \centerline {\textcolor{red}{#1\\ \bigskip}}}}
+\newcommand{\vocabulaire}[1]{\textcolor{darkgreen}{#1}}
+\newcommand{\Asavoir}[1]{\textcolor{red}{#1}}
+\newcommand{\methode}[1]{\textcolor{blue}{#1}}
+
+\newcommand{\TextSoulign}[2]{\textcolor{#1}{\underline{\textcolor{black}{#2}}}}
+
+\newcolumntype{M}[1]{>{\raggedright}m{#1}}
+
+\usepackage{xargs}
+\ifdefined\somme\else
+\newcommandx{\somme}[3][1=,2=,3=]{\displaystyle{\sum_{#1}^{#2}} \; #3}
+\fi
+
+% Ci-dessous multicol 
+\makeatletter
+\newdimen\multi@col@width
+\newdimen\multi@col@margin
+\newcount\multi@col@count
+\multi@col@width=0pt
+\tikzset{
+  multicol/.code={%
+    \global\multi@col@count=#1\relax
+    \global\let\orig@pgfmatrixendcode=\pgfmatrixendcode
+    \global\let\orig@pgfmatrixemptycode=\pgfmatrixemptycode
+    \def\pgfmatrixendcode##1{\orig@pgfmatrixendcode%
+      ##1%
+      \pgfutil@tempdima=\pgf@picmaxx
+      \global\multi@col@margin=\pgf@picminx
+      \advance\pgfutil@tempdima by -\pgf@picminx
+      \divide\pgfutil@tempdima by #1\relax
+      \global\multi@col@width=\pgfutil@tempdima
+      \pgf@picmaxx=.5\multi@col@width
+      \pgf@picminx=-.5\multi@col@width
+      \global\pgf@picmaxx=\pgf@picmaxx
+      \global\pgf@picminx=\pgf@picminx
+      \gdef\multi@adjust@position{%
+        \setbox\pgf@matrix@cell=\hbox\bgroup
+        \hfil\hskip-\multi@col@margin
+        \hfil\hskip-.5\multi@col@width
+        \box\pgf@matrix@cell
+        \egroup
+      }%
+      \gdef\multi@temp{\aftergroup\multi@adjust@position}%
+      \aftergroup\multi@temp
+    }
+    \gdef\pgfmatrixemptycode{%
+      \orig@pgfmatrixemptycode
+      \global\advance\multi@col@count by -1\relax
+      \global\pgf@picmaxx=.5\multi@col@width
+      \global\pgf@picminx=-.5\multi@col@width
+      \ifnum\multi@col@count=1\relax
+       \global\let\pgfmatrixemptycode=\orig@pgfmatrixemptycode
+      \fi
+    }
+  }
+}
+\makeatother
