@@ -1,0 +1,274 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+                 
+                 \intitule{Théorème de Thalès : cours} 
+                 
+\medskip   
+
+\Asavoir{Énoncé et configuration }
+
+\medskip
+
+Si $[AM)$ et $[AN)$ sont deux demi-droites de même origine et si $(MN)$ et $(BC)$ sont deux droites parallèles, alors : 
+
+\medskip 
+
+$\qquad\dfrac{AM}{AB} = \dfrac{AN}{AC} = \dfrac{MN}{BC}\qquad $ ou $\qquad\dfrac{AB}{AM} = \dfrac{AB}{AM} = \dfrac{AC}{AN} = \dfrac{BC}{MN}$
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.4]
+\clip(-0.4,-3.425) rectangle (7.5,4.2);
+\draw [domain=0.0:7.5] plot(\x,{(-0.--2.5*\x)/5.});
+\draw [domain=0.0:7.5] plot(\x,{(-0.-2.5*\x)/5.});
+\draw (3.,-3.5) -- (3.,4.2);
+\draw (5.,-3.5) -- (5.,4.2);
+\begin{scriptsize}
+\draw [fill] (0.,0.) circle (1.5pt);
+\draw[] (-0.24,-0.3) node {$A$};
+\draw [fill] (3.,1.5) circle (1.5pt);
+\draw[] (2.55,1.83) node {$N$};
+\draw [fill] (5.,2.5) circle (1.5pt);
+\draw[] (4.64,2.84) node {$C$};
+\draw [fill] (3.,-1.5) circle (1.5pt);
+\draw[] (2.5,-1.6) node {$M$};
+\draw [fill] (5.,-2.5) circle (1.5pt);
+\draw[] (4.65,-2.55) node {$B$};
+\end{scriptsize}
+\end{tikzpicture} }
+
+\setbox2=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base east},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+|(a)| \parbox{6cm}{
+                     \methode {
+                     on a besoin de :
+                     \begin{itemize}
+                     \item [$*$] deux demi-droites de même origine ; 
+                     \item [$*$] deux droites parallèles. 
+                     \item []
+                     \item [$*$] un triangle ;  
+                     \item [$*$] une droite parallèle à un côté.
+                     \end{itemize}
+                     }
+                     } \\
+};  
+\node [below right = .6cm and .6cm of a.west] (b) {} ; 
+\draw[color=blue] (b) node [left] {\framebox {ou}};
+
+\end{tikzpicture}}    
+
+\begin{tabular}{cc}
+\copy1 & \box2 \\          % On garde le dessin dans la boite 1 pour la suite
+\end{tabular}
+
+\medskip 
+
+\Asavoir{Étapes de la rédaction}
+
+\medskip 
+
+    \renewcommand{\labelitemi}{\textbullet}
+    
+\begin{itemize}
+\item On montre que l'on est dans une configuration de Thalès ;
+\item On dit que l'on utilise le théorèmes de Thalès ;
+\item On donne les 3 quotients de Thalès ;
+\item On remplace par les valeurs connues dans deux quotients 
+\item On calcule l'inconnue (cf fiche « Proportionnalité ») :
+\item On donne le résultat sous forme d'une fraction irréductible ou d'un nombre décimal.
+\end{itemize}
+
+\medskip   
+
+\Asavoir{Réciproque du théorème}
+
+
+\begin{tabular}{M{8cm}M{8cm}}
+Si $\qquad\dfrac{AM}{AB} = \dfrac{AN}{AC} = \dfrac{MN}{BC}\qquad $ \\
+
+\medskip
+
+ou $\qquad\dfrac{AB}{AM} = \dfrac{AB}{AM} = \dfrac{AC}{AN} = \dfrac{BC}{MN}$\\
+
+\medskip
+
+alors $(MN)$ et $(BC)$ sont parallèles.
+          & \box1 
+          
+          \bigskip 
+          
+          \parbox{6cm}{
+                     \methode {
+                     on a besoin de :
+                     \begin{itemize}
+                     \item [$*$] de la configuration ci-dessus ; 
+                     \item [$*$] de l'égalité des rapports.
+                     \end{itemize}
+                     }
+                     } \\
+\end{tabular} 
+
+
+
+
+\Asavoir{Agrandissement et réduction}
+
+\medskip
+
+\begin{itemize}
+\item Effectuer un agrandissement, c'est multiplier par un nombre > 1 ; 
+\item Effectuer une réduction, c'est multiplier par un nombre entre $0$ et $1$ ; 
+\item Ce nombre est le \vocabulaire {coefficient d'agrandissement/de réduction}, et on a :          
+     coef  $ = \tfrac{\mathrm{nouvelle\; longueur}}{\mathrm{ancienne\; longueur}}$ ; 
+\item Lors d'une réduction/d'un agrandissement, les angles sont conservés.
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.3]
+\clip(-0.5,-4.65) rectangle (23.6,5);
+% \fill (0.,0.) -- (9.1,4.14) -- (11.5,-3.5) -- cycle;
+% \fill (15.,0.) -- (19.7,1.66) -- (20.56,-2.25) -- cycle;
+\draw  (0.,0.)-- node [midway, above] {10}(9.1,4.15);
+\draw  (9.1,4.15)--  node [midway, right] {8} (11.5,-3.5);
+\draw  (11.5,-3.5)--  node [midway, below] {12} (0.,0.);
+\draw  (15.,0.)-- node [midway, above] {5}(19.7,1.66);
+\draw  (19.7,1.66)-- node [midway, right] {4} (20.6,-2.25);
+\draw  (20.6,-2.25)-- node [midway, below] {6} (15.,0.);
+\draw (11.4,2.8) node[anchor=north west] {${\huge \Longrightarrow }$};
+\end{tikzpicture} 
+Coefficient de réduction $ = \dfrac{5}{10} = \dfrac{4}{8} = \dfrac{6}{12} = \dfrac{1}{2}$  
+\end{itemize}
+
+\newpage        
+%                 \intitule{Théorème de Thalès} 
+                 
+                 \centerline{\intitule{ Exemples rédigés de deux types}} 
+  
+\bigskip 
+
+
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.8]
+\begin{scriptsize}
+\draw  (0.,0.) node [left] {$S$} -- (2.18,1.) node [above] {$J$} -- (6.55,3.) node [above] {$K$};
+\draw [<->,>=latex] (-0,0.48) -- node [midway, above, rotate=25] {$3,6$ cm} (6.3,3.5);
+\draw (0.,0.)-- (4.7,-1) node [below] {$N$};
+\draw (2.18,1) -- (1.56,-0.33)  node [below] {$M$} ;
+\draw (6.54,3.)-- (4.7,-1.);
+\draw [<->,>=latex] (-0.12,-0.44)-- node [midway, below, rotate=-16] {$2,4$ cm} (4.5,-1.65);
+\draw  (0.,0.) -- node [midway, below]  {?} (1.56,-0.33) ; 
+\end{scriptsize}
+\end{tikzpicture}}
+
+\begin{tabular}{M{8cm}M{8cm}}
+
+\addtokomafont{labelinglabel}{\textnormal}
+\begin{labeling}{Appli} 
+\item [\Asavoir{Application directe}] \parbox{6cm}{\medskip
+    On cherche à calculer un longueur.\\
+    On considère la figure ci-contre :\\
+   \\                 
+    Calculer $SM$.
+}
+\end{labeling}
+ & \box1
+\end{tabular} 
+
+
+\begin{tikzpicture} [align=left] % [every node/.style={anchor=west}]
+  \matrix (m) [% matrix of math nodes,
+  matrix of nodes, %  nodes={rectangle, draw}, 
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base west},
+column 2/.style={anchor=base west}
+]{
+On sait que    & $[SK)$ et $[SN)$ sont deux demi-droites de même origine $S$, \\
+               & et que $(MJ)$ et $(NK)$ sont parallèles, \\
+Or,            &    d'après le théorème de Thalès, on a : $\dfrac{SJ}{SK} =\dfrac{SM}{SN}=\dfrac{JM}{KN}$, \\
+alors,         & |(a)| $ \dfrac{1,2}{3,6}   =  \dfrac{SM}{2,4}$.  \\
+Donc,          & |(b)| $  1,2 \times 2,4  = 3,6 \times SM $  \\
+et ainsi       & |(c)| $ SM  =  \dfrac{1,2 \times 2,4}{3,6}   = 0,8 $ cm \\
+};  
+\node [right = 1 cm of a.east] (d) {} ; 
+\draw[color=blue] (a.east) --  (d.east) ;  
+\draw[color=blue,->,>=latex] (d) to[out=0,in=60] node[midway,right] {
+\hspace*{.5cm} \parbox{5cm}{\methode{Produit en cxroix} }
+}  (b.north east) ;  
+\draw[color=blue,->,>=latex] (b) to[out=0,in=60] node[midway,right] {
+\hspace*{.5cm} \parbox{5cm}{\methode{\bigskip\\On divise par 3,6 les deux\\
+                                     membres de l'égalité}  }
+}  (c.east) ; 
+\end{tikzpicture}  
+
+On en conclut  que $ SM = 0,8$  cm. 
+
+\bigskip
+
+
+%--------------
+
+\Asavoir{Réciproque}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[rotate=-130, line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=.4]
+\begin{scriptsize}
+\draw  (0.,0.) node [above ] {$A$} -- (2.18,1.) node [right] {$M$} -- (6.55,3.) node [right] {$B$};
+\draw (0.,0.)-- (4.7,-1) node [left] {$C$};
+\draw (2.18,1) -- (1.56,-0.33)  node [above] {$N$} ;
+\draw (6.54,3.)-- (4.7,-1.);
+\end{scriptsize}
+\end{tikzpicture}}
+
+\begin{tabular}{M{10cm}M{10cm}}
+\parbox{10cm}{
+    On cherche à montrer que deux droites sont parallèles.\\
+    Sur la figure ci-contre, on a  :\\
+    \\
+    $AM= 7$ cm , $AB=8$ cm, \\
+    $AN= 8,4$ cm et  $AC=9,6$ cm. \\
+}
+ & \box1
+\end{tabular} 
+
+\begin{tikzpicture}% [every node/.style={anchor=west}]
+  \matrix (m) [matrix of math nodes,
+row sep=0cm,column sep=0cm, 
+column 1/.style={anchor=base west},
+column 3/.style={anchor=base west},
+column 4/.style={anchor=base west} 
+]{
+\text{ On a d'une part, }  &  \dfrac{AN}{AC} = \dfrac{8,4}{9,6} = &|(a)| 0,875 \\
+ \hbox to 0.1cm {} & & & \\            
+\text{ D'autre part, }  &  \dfrac{AM}{AB} = \dfrac{7}{8} = &|(b)| 0,875\\
+ \hbox to 0.1cm {} & & & \\ 
+\text{ On constate que } & \dfrac{AN}{AC} = \dfrac{AM}{AB}\\
+\hbox to 0.1cm {} & & & \\ 
+\text{ On en conclut que}                     
+            && SM = 0,8 \text{ cm} \\   
+};  
+\node [right = 2.75cm of a.west] (e) {} ; 
+\node [right = 2.6cm of b.west] (f) {} ; 
+\node [right = 3cm of b.west] (g) {} ; 
+%\node [right = 0.5 cm of c.center] (h) {} ; 
+\draw[=bluecolor,->,>=latex] (a.east) to[out=0,in=60] node[midway,right] {\hspace*{.5cm} \parbox{5cm}{
+\methode{On vérifie l'égalité en deux parties} 
+}}  (b.north east) ;  
+\end{tikzpicture}   
+
+ De plus, les points $A, N, C$ et $A, M, B$ sont alignes dans le même ordre,\\
+Donc,  d'après la réciproque du théorème de Thalès, les droites $(MN)$ et $(BC)$ sont parallèles.
+   
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
