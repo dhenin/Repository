@@ -1,0 +1,232 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+             
+                 \intitule{Droite des milieux : cours } 
+
+\Asavoir{{\large I)} Théorème de parallélisme}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.6, rotate=0]
+\begin{scriptsize}
+% \draw (0.,0.) node [above ] {$A$} -- (2.18,1.) node [right] {$M$} ; 
+\draw   (0,0) node [below] {$B$} -- node[midway,rotate=50] {$\vert\vert$}
+        (3,2) node [left]  {$M$} -- node[midway,rotate=50] {$\vert\vert$} 
+        (6,4) node [above] {$A$} -- node[midway,rotate=-20] {\textcolor{red}{ $-$}}
+        (5,2) node [right] {$N$} -- node[midway,rotate=-20] {\textcolor{red}{ $-$}}
+        (4,0) node [below] {$C$} -- cycle ; 
+\draw (3,2) -- (5,2) ;         
+\end{scriptsize}        
+\end{tikzpicture} }
+
+
+\begin{tabular}{M{10cm}M{10cm}}
+\parbox{10cm}{
+   Dans un triangle, si \TextSoulign {blue} {une droite passe par les milieux de deux côtés}, alors elle est parallèle au troisième.
+}
+ & \box1 
+\end{tabular} 
+
+\methode{On utilise ce théorème pour montrer que \underline{deux droites sont parallèles}}
+
+\bigskip 
+
+\Asavoir{{\large II)} Théorème du milieu}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.6, rotate=0]
+\begin{scriptsize}
+% \draw (0.,0.) node [above ] {$A$} -- (2.18,1.) node [right] {$M$} ; 
+\draw   (0,0) node [below] {$B$} -- node[midway,rotate=50] {\textcolor{red}{$\vert\vert$}}
+        (3,2) node [left]  {$M$} -- node[midway,rotate=50] {\textcolor{red}{$\vert\vert$}}
+        (6,4) node [above] {$A$} -- 
+        (5,2) node [right] {$N$} -- 
+        (4,0) node [below] {$C$} -- cycle ; 
+\draw (3,2) -- (5,2) ;         
+\end{scriptsize}        
+\end{tikzpicture} }
+
+
+\begin{tabular}{M{10cm}M{10cm}}
+\parbox{10cm}{
+   Dans un triangle, si \TextSoulign {blue} {une droite passe par le milieu d'un côté}, 
+   et est \TextSoulign {blue} {parallèle à un second côté}, 
+   alors elle coupe le troisième côté en son milieu.
+}
+ & \box1 
+\end{tabular} 
+
+\methode{On utilise ce théorème pour montrer qu'un point est \underline{le milieu d'un segment}}.
+
+
+\bigskip 
+
+\Asavoir{{\large II)} Théorème des longueurs}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.6, rotate=0]
+\begin{scriptsize}
+% \draw (0.,0.) node [above ] {$A$} -- (2.18,1.) node [right] {$M$} ; 
+\draw   (0,0) node [below] {$B$} -- node[midway,rotate=50] {$\vert\vert$}
+        (3,2) node [left]  {$M$} -- node[midway,rotate=50]  {$\vert\vert$}
+        (6,4) node [above] {$A$} -- node[midway,rotate=-20]  {$-$}
+        (5,2) node [right] {$N$} -- node[midway,rotate=-20]  {$-$}
+        (4,0) node [below] {$C$} -- node[midway,below]  {$4$ cm} cycle ; 
+\draw (3,2) -- (5,2) node[midway,below]  {$2$ cm} ;         
+\end{scriptsize}        
+\end{tikzpicture} }
+
+
+\begin{tabular}{M{10cm}M{10cm}}
+\parbox{10cm}{
+   Dans un triangle, la \TextSoulign {blue} {longueur du segment joignant les milieux} de deux côtés est  
+   \TextSoulign {blue} {égale à la moitié de celle du troisième côté}. 
+ 
+}
+ & \box1 
+\end{tabular} 
+
+\methode{On utilise ce théorème pour \underline{calculer une longueur}}.
+
+
+\newpage        
+ %                 \intitule{Droite des milieux} 
+                 
+                 \centerline{\intitule{Deux exemples rédigés}} 
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.7, rotate=150]
+\begin{scriptsize}
+\draw   (0,0) node [below] {$C$} -- node[midway,rotate=50] {$\vert\vert$}
+        (1.5,2) node [below ] {$F$} -- node[midway,rotate=50]  {$\vert\vert$}
+        (3,4) node [below] {$B$} -- node[midway,rotate=-0]  {$-$}
+        (4,2) node [below left] {$E$} -- node[midway,rotate=-0]  {$-$}
+        (5,0) node [above] {$A$} --  cycle ; 
+\draw (.5,2) -- (5,2)  ;  
+\draw   (2,0) node [above right] {$D$} --  (3,4)   ;    
+\draw (2.5, 2) node   [above] {$G$}  ;      
+\end{scriptsize}        
+\end{tikzpicture} }                 
+                 
+
+\begin{tabular}{M{9cm}M{9cm}}
+\parbox{10cm}{
+\underline{Exemple 1 : Parallèle et milieu}\\
+\\
+Soit $ABC$ un triangle et $D$ un point du segment $[AC]$. \\
+Soient $E$ et $F$ les \TextSoulign{blue}{milieux} respectifs de $[AB]$ et $[BC]$. \\
+Soit $G$ le point d'intersection de $(EF)$ et $(BD)$.  
+}
+ & \box1 
+\end{tabular} 
+
+\underline{a) Démontrer que $(EF)$ et $(AC)$ sont parallèles}
+
+\medskip 
+
+On se place dans le triangle $ABC$.
+
+\addtokomafont{labelinglabel}{\textnormal}
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $[AB)$ et $[BC)$ sont \TextSoulign{blue}{deux demi-droites} d'origine $B$,\\
+           les points $B, E$ et $A$ et $B, F$ et $C$ sont  \TextSoulign{blue}{alignés dans cet ordre}, \\
+            et que $E$ et $F$ sont les \TextSoulign{blue}{milieux} de $[AB]$ et $[BC]$. 
+\item [Or, ] si, dans un triangle, une droite passe par les milieux  de deux côtés, alors elle est parallèle au troisième. 
+\item [Donc] $(EF)$ et $(AC$) sont parallèles.             
+\end{labeling}
+
+\bigskip 
+
+\underline{b) Démontrer que $G$ est le milieu de $[BD]$}
+
+\begin{labeling}{On sait que } 
+\item [On sait que ]  $(EF)$ est \TextSoulign{blue}{parallèle} à $(AC)$, \\
+                      $G$ est un point de $[EF]$ et $D$ appartient à $[AC]$.\\
+\item [Ainsi] $(FG)$ est parallèle à $(CD)$.            
+\end{labeling}
+
+On se place dans le triangle $BCD$.
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $[BC)$ et $[BD)$ sont \TextSoulign{blue}{deux demi-droites} d'origine $B$,\\ 
+           les points $B, G, D$ et $B, F, C$ sont  \TextSoulign{blue}{alignés dans cet ordre},\\
+$(FG)$ est \TextSoulign{blue}{parallèle} $(CD)$ et que $F$ est le \TextSoulign{blue}{milieu} de $[BC]$, 
+\item [Or, ] si, dans un triangle, une droite passe par le milieu d'un côté, 
+   et est parallèle à un second côté, alors elle coupe le troisième côté en son milieu.
+\item [Donc] $G$ est le milieu de $[BD]$. 
+\end{labeling}
+
+\setbox1=\vtop { \hsize=5cm  \null
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1, rotate=0]
+\begin{scriptsize}
+\draw   (0,0)   node [below] {$B$} -- node[midway,rotate=50] {$\vert$}
+        (1.5,2) node [left] {$E$} -- node[midway,rotate=50]  {$\vert$}
+        (3,4)   node [above] {$C$} -- node[midway,rotate=-0] (M) {$\circ$}
+        (4,2)   node [right] {$D$} -- node[midway,rotate=-0]  {$\circ$}
+        (5,0)   node [below] {$A$} --  node[midway,below ] {$5,4$cm} cycle ; 
+\draw (0,0) --  (4,2)  ;  
+\draw (1.5,2)  --  (4,2)   ;    
+\draw (1.5,2)--  node[midway,above,rotate=30] {$1,9$cm} (M.center) ;
+\draw  (3,4) --   node[midway,rotate=-90] {$\vert\vert$}   (M.center) ;
+\draw  (M.center) --   node[midway,rotate=-90] {$\vert\vert$} (4,2)  ;
+\end{scriptsize}        
+\end{tikzpicture} }                 
+                 
+\newpage 
+
+\begin{tabular}{M{9cm}M{9cm}}
+\parbox{10cm}{
+\underline{Exemple 2 : Parallèle et milieu}\\
+\\
+Soit $ABC$ un triangle et $D$ un point du segment $[AC]$. \\
+Soient $E$ et $F$ les \TextSoulign{blue}{milieux} respectifs de $[AB]$ et $[BC]$. \\
+Soit $G$ le point d'intersection de $(EF)$ et $(BD)$.  
+}
+ & \box1 
+\end{tabular} 
+
+\underline{a) Calculer la longueur $BD$}
+
+\bigskip 
+
+On se place dans le triangle $ABD$.\\
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $E$ est le  \TextSoulign{blue}{milieu} de $[AB]$ \\
+                  et $F$ est le  \TextSoulign{blue}{milieu} de $[AD]$
+\item [Or, ] Dans un triangle, la longueur du segment joignant les milieux  de deux côtés est  
+    égale à la moitié de celle du troisième côté. 
+\item [Donc] $EF=\dfrac{1}{2}\times BD$, donc $BD= 2 \times EF$.
+\item [Ainsi] $BD= 2 \times 1,9$.
+\end{labeling}
+
+On en conclut que $BD = 3,8$ cm.
+
+\bigskip 
+
+\underline{b) Calculer la longueur $ED$}
+
+\bigskip 
+On se place dans le triangle $ABC$.\\
+
+\begin{labeling}{On sait que } 
+\item [On sait que ] $E$ est le  \TextSoulign{blue}{milieu} de $[AB]$ \\
+                  et $D$ est le  \TextSoulign{blue}{milieu} de $[AC]$
+\item [Or, ] Dans un triangle, la longueur du segment joignant les milieux  de deux côtés est  
+    égale à la moitié de celle du troisième côté. 
+\item [Donc] $ED=\dfrac{1}{2}\times BC$, donc $ED= \dfrac{1}{2} \times 5,4$.
+\end{labeling}
+
+On en conclut que $ED = 2,7$ cm.
+
+\newpage        
+
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
