@@ -1,4 +1,12 @@
-\newpage
+% \newpage
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 
 \section{Suites arithmétiques}
 
@@ -356,4 +364,8 @@ $u_0$ & \hspace*{-.3cm} $+$ \hspace*{-.3cm} & \hspace*{-.3cm} $u_1$ \hspace*{-.3
 $100$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $90$  & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $80$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $70$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $60$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $50$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $40$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $30$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $20$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $10$ & \hspace*{-.3cm} $+$ & \hspace*{-.3cm} $0$ & \hspace*{-.3cm} $-$ & \hspace*{-.3cm} $10$ & \hspace*{-.3cm} $-$ & \hspace*{-.3cm} $20$ & \hspace*{-.3cm} $-$ & \hspace*{-.3cm} $30$ & \hspace*{-.3cm} $-$ & \hspace*{-.3cm} $40$ \\
 \end{tabular}}
 
-\newpage
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

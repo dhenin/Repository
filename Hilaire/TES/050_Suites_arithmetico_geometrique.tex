@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \vspace*{-1.5cm}
 
 \section{Suites arithmético-géométriques}
@@ -381,4 +388,8 @@ D'où $ \displaystyle {\lim_{n \rightarrow +\infty}} \; \Sigma_n = +\infty$.
 
 \vspace*{-5cm}
 
-\newpage
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

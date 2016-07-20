@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \vspace*{-2cm}
 
 \setcounter{section}{0} 
@@ -1440,3 +1447,9 @@ D'où $\sigma\left(X\right) = \sqrt{1 - \left(-\dfrac{1}{37}\right)^2} \approx 0
 \vspace*{.3cm}
 
 Ainsi, si le joueur est enthousiaste, il choisira de jouer au jeu de la chance pleine. Cependant, si le joueur est prudent, il choisira de jouer au jeu des chances simples. 
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

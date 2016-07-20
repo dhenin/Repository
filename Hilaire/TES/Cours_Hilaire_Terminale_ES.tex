@@ -3,10 +3,9 @@
 \usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} 
 \usepackage{lmodern} 
 \usepackage{graphicx} 
-%\usepackage[french]{babel} 
 \usepackage{fancyhdr}
 
-% \usepackage[french]{babel}
+\usepackage[french]{babel}
 
 \usepackage{textcomp}
 \usepackage{texgraph}
@@ -18,8 +17,11 @@
   \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((\x-#1)^2)/(2*#2^2))}%
 }
 
-\newcommand*{\OUVRAGE}{}% Autorise la compilation de illustrations
-                        % soit isolées, soit inluses 
+\ifdefined\COMPLETE
+\else
+    \newcommand{\COMPLETE}
+\fi                        % Autorise la compilation de illustrations
+                          % soit isolées, soit inluses 
 
 %\iffalse
 
@@ -96,13 +98,14 @@ Dans la mesure où l'auteur n'a pas renoncé à ses droits, les modifications de
 \input{030_Suites_arithmetiques.tex} \newpage
 \input{040_Suites_geometriques.tex} \newpage
 \input{050_Suites_arithmetico_geometrique.tex} \newpage
-\input{060_Suites_arithmetico_geometrique_doubles.tex}                         \newpage
-\input{070_Applications_des_suites.tex}                         \newpage
+\input{060_Suites_arithmetico_geometrique_doubles.tex} \newpage
+\input{070_Applications_des_suites.tex} \newpage
 
 % DEUXIÈME PARTIE : LES FONCTIONS NUMÉRIQUES À UNE VARIABLE
 
 
 \input{110_Fonctions_generalites.tex}\newpage
+
 \input{120_Fonctions_exponentielles.tex} \newpage
 \input{130_Fonctions_log_neperien.tex} \newpage
 \input{140_Integration.tex} \newpage

@@ -1,3 +1,15 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \usepackage{variations}
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((\x-#1)^2)/(2*#2^2))}%
+}
+    \begin{document}
+\fi
+
+
+
 \vspace*{-2cm}
 
 \part{Statistique}
@@ -381,3 +393,9 @@ On a : $\overline{x} - \sigma_x = 2847$ et $\overline{x} + \sigma_x = 3877$ \\
 On a ainsi : $ 0 + \dfrac{64 \times 353}{600} + 84 + \dfrac{38 \times 77}{600} + 0 = 126,53$ bébés, soit 63,27\%. \\
 
 La répartition est donc normale.
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

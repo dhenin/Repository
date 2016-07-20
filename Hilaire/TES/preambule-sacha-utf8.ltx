@@ -1,7 +1,8 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{lmodern} %  fourier
-
+\usepackage{fancybox}
 \usepackage[svgnames]{xcolor}   % before tikz or tkz
+
 
 \colorlet{darkgreen}{green!40!black} 
 \definecolor{VertClair}{rgb}{0.4,0.8,0} 
@@ -11,52 +12,53 @@
 \definecolor{ecranTI}{RGB}{198,218,164} 
 \colorlet{darkgreen}{green!40!black}  
 
-\usepackage{tikz}
-\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-base}
-\usepackage{pgfplots}
 % \usepackage{wasysym} % Conflit avec amsmath
-\usetikzlibrary{decorations.pathreplacing}
+
 \usepackage{multirow,bigdelim, bigstrut}
 \usepackage{fullpage}
-\usepackage[T1]{fontenc}
-%\usepackage[utf8ttf]{inputenc}
-% \usepackage{ttfucs}
-% \DeclareTruetypeFont{shortfontname}{TI-83}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-base}
+\usepackage[export=tkz]{texgraph}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{calc}
+\usetikzlibrary[patterns] % ConTEXt when using TikZ
+\usetkzobj{circles}
+\usepackage{tkz-tab}
+\usetikzlibrary{decorations.pathreplacing} 
+\usetikzlibrary{backgrounds} % Pour papier millimétré
+\usetikzlibrary{patterns}
+\usetkzobj{all}
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows,calc,matrix,fit,shapes}
+\usetikzlibrary{backgrounds}
+\usepackage{tkz-tukey} % appelle tkz-base qui lui appelle tkz-arith
+\usetikzlibrary{patterns,shapes,plotmarks,arrows} % librairies qui peuvent être utiles
+\usepackage{pgfplots}
+
+
 
 \usepackage{pifont}
-\usepackage[frenchb]{babel}
+\usepackage[french]{babel}
 \usepackage{here}
 \usepackage{eurosym}
 \usepackage{textcomp}
 \usepackage{amsmath,amssymb,amsfonts}  % amsmath only with fourier
 \usepackage{graphicx}
-\usepackage{mathrsfs}
+%\usepackage{mathrsfs}
 \usepackage[xcas]{tablor}
-\usetkzobj{circles}
+
 \usepackage{transparent}
 \usepackage{mathrsfs}
 \usepackage{frcursive}
 \usepackage{fp}                      % Dimension des pictures plus large
 
-\usetikzlibrary{calc}
-
-\usetikzlibrary[patterns] % ConTEXt when using TikZ
-
-
 \usepackage[utf8]{inputenc}
 \usepackage[upright]{fourier}
 
-\usepackage{tkz-tab}
-\usetikzlibrary{decorations.pathreplacing} 
-\usetikzlibrary{backgrounds} % Pour papier millimétré
-
-\usetikzlibrary{patterns}
-\usetkzobj{all}
-
 % \usepackage{marginnote}
-
 \usepackage{enumerate}
-%\usepackage{enumitem}
 
 \usepackage{multind}
 % \makeindex{général}
@@ -67,39 +69,96 @@
 \usepackage{multicol}
 \usepackage{mathtools}
 \usepackage{array}  % Améliore considérablement les tableaux
-\usepackage{tkz-graph}
-\usetikzlibrary{arrows,calc,matrix,fit,shapes}
-\usetikzlibrary{backgrounds}
+
 \usepackage{pgfbaselayers}
 % \usetikzlibrary{fit,shapes}
 \usepackage{pgfplots}
-% \usepackage{variations} % Tableaux de variation (60, 230) 
+\usepackage{variations} % Tableaux de variation (60, 230) 
 \usepackage{tabvar}     % Tableaux de variation (240) 
 \usepackage{stmaryrd}
 \usepackage{cancel}
-\usepackage{fancybox}
+
 \usepackage{manfnt}
- \usepackage{tkz-tukey} % appelle tkz-base qui lui appelle tkz-arith
- \usetikzlibrary{patterns,shapes,plotmarks,arrows} % librairies qui peuvent être utiles
+
 
 \setlength{\parindent}{0cm}
 
 \newtheorem{theorem}{Théorème}[section]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% NOTATIONS
+
+\newcommand{\Vect}{\mathrm{Vect}}
+
+% LETTRES GOTHIQUES
+
 \newcommand{\scrA}{\mathscr{A}}
 \newcommand{\scrL}{\mathscr{L}}
 \newcommand{\scrC}{\mathscr{C}}
 \newcommand{\scrP}{\mathscr{P}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\D}{\mathbb{D}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-%\newcommand{\lb}{\left\lbrace}
-%\newcommand{\rb}{\right\rbrace}
-\newcommand{\lb}{\bigg\lbrace}
-\newcommand{\rb}{\bigg\rbrace}
 
-\usepackage{pstricks}
-% \usepackage{variations}
+% ENSEMBLES
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\renewcommand{\H}{\mathbb{H}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\K}{\mathbb{K}}
+\renewcommand{\L}{\mathbb{L}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\O}{\mathbb{O}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\Y}{\mathbb{Y}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\enstq}[2]{\left\{#1\mathrel{} \middle|\mathrel{}#2\right\}}
+
+% ACCOLADES, PARENTHÈSES, PARTIE ENTIERE...
+
+\newcommand{\lb}{\left\{ } 
+\newcommand{\rb}{\right\} }
+\newcommand{\lbb}{\bigg\lbrace}
+\newcommand{\rbb}{\bigg\rbrace}
+%\renewcommand{\lfloor}{\left\lfloor}
+%\renewcommand{\rfloor}{\right\rfloor}
+\newcommand{\partent}[1]{\left\lfloor #1 \right\rfloor}
+
+% SYMBOLES A BORNES (SIGMA / PI / UNION / INT...)
+
+\newcommand{\integrale}[4]{\displaystyle \int_{#1}^{#2} #3 \; \diff #4}
+\newcommand{\produit}[3]{\displaystyle{\prod_{#1}^{#2}} \; \; #3}
+\newcommand{\somme}[3]{\displaystyle{\sum_{#1}^{#2}} \; #3}
+\newcommand{\inter}[3]{\displaystyle\bigcap_{#1}^{#2} \; #3}
+\newcommand{\union}[3]{\displaystyle\bigcup_{#1}^{#2} \; #3}
+
+% QUELQUES AUTRES
+
+\newcommand{\prodscal}[2]{\overrightarrow{#1} \cdot \overrightarrow{#2}}
+\newcommand{\diff}{\mathop{}\mathopen{}\mathrm{d}}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\norme}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\petito}[1]{o\mathopen{}\left(#1\right)}
+\newcommand{\grandO}[1]{O\mathopen{}\left(#1\right)}
+
+% ABREVIATIONS :
+
+\newcommand{\er}{$^{\mathrm{er}}$}
+\newcommand{\eme}{$^{\mathrm{ème}}$}
+
+

@@ -1,3 +1,11 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
+
 \section{Lois à densité sur un intervalle}
 
 \subsection{Variable aléatoire discrète, variable aléatoire continue}
@@ -510,4 +518,8 @@ $\; \; $ La durée moyenne est donc de 1h30.
 
 \vspace*{-5cm}
 
-\newpage
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

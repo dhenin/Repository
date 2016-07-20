@@ -1,3 +1,16 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    
+    \usepackage{variations}
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((\x-#1)^2)/(2*#2^2))}%
+}
+
+    \begin{document}
+\fi
+
+
 \vspace*{-2cm}
 
 \section{Fonctions exponentielles}
@@ -2043,3 +2056,9 @@ f(x) & \hv & \l & \b{\frac{57}{5}} & \cl & \h{57} \\
 \end{tikzpicture}
 
 \newpage
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
