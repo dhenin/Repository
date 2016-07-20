@@ -1,3 +1,13 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    
+    \usepackage{texgraph}
+    
+    \begin{document}
+\fi
+
+
 \setcounter{section}{0}
 
 \part{Suites}
@@ -1212,3 +1222,9 @@ $\left(\dfrac{1}{10}\right)^{n+1} = 0,000001$ \vspace*{.3cm} \\
 $ n + 1 = 6$ \\
 
 $ n = 5$. 
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

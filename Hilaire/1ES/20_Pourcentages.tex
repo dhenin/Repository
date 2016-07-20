@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \setcounter{section}{0} 
 
 \part{Pourcentages}
@@ -379,3 +386,9 @@ $ t = 5 $ ou $t = -\dfrac{815}{3}$ \\
 Or, $t$ est un pourcentage de placement, donc un pourcentage d'augmentation. \\ Donc $t = -\dfrac{815}{3}$ ne convient pas, car $t \in \left[0 \; ; \; 100 \right]$. \\
 
 Ainsi, le taux de placement sur le compte de Sylvain est de 5 \%. 
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

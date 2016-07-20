@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \subsection{Notion de limite en un point}
 
 \subsubsection{Exemples}
@@ -245,3 +252,9 @@ Cependant, $f(x)$ & $=$ & $\dfrac{\sqrt{x + 19} - 5}{x -6} $ & \vspace*{.3cm} \\
 \end{tabular}
 
 D'où $\lim\limits_{x \to 6} f(x) = \lim\limits_{x \to 6} \dfrac{1}{\sqrt{x+19} + 5} = \dfrac{1}{10}$
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

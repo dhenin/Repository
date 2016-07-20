@@ -1,3 +1,9 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
 \section{Fonctions dérivées}
 
 \subsection{Exemples}
@@ -1603,3 +1609,8 @@ Donc $\Delta_2 : y = -2x + 10$. \\
 \draw[step=5cm,thin,AntiqueWhite]          (-3.9,-2.22) grid (12.32,12.68);
 \end{pgfonlayer} 
 \end{tikzpicture}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

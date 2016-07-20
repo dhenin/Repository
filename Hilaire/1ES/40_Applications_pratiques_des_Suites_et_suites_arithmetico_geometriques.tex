@@ -1,3 +1,13 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    
+    \usepackage{texgraph}
+    
+    \begin{document}
+\fi
+
+
 \section{Applications pratiques des suites}
 
 \subsection{Les placements}
@@ -487,3 +497,9 @@ $\lim\limits_{n \to +\infty} u_n = 2$, car $u_n = v_n + 2$
 \end{itemize}
 
 \vspace*{-5cm}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

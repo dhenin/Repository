@@ -1,3 +1,11 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \usepackage{variations}
+    \begin{document}
+\fi
+
+
 \setcounter{section}{0} 
 
 \part{Mathématiques appliquées à l'économie}
@@ -539,3 +547,8 @@ B(x) & \hv & \hv & \hv & \hv & \hv & \bg & \b{0} & \cl & \h{4\; 505 \; 625} & \d
 \begin{itemize}
 \item[10.] Le bénéfice est donc maximum pour la fabrication et la vente de 750 objets. Ce bénéfice est alors  de $4 \; 505 \; 625$ euros. \\ Le bénéfice est maximum lorsque la recette marginale est égale au coût marginal. Ici, $x = 7,5$.
 \end{itemize}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

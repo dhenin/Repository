@@ -1,3 +1,11 @@
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \subsection{Composition de fonctions}
 
 \begin{tabular}{lllll}
@@ -168,3 +176,9 @@ Il vient que $f \circ g$ : & $\R$ & $\longrightarrow$ & $\R$ & \\
 & & & & $= \dfrac{\sqrt{x+3} +1}{\left(\sqrt{x+3} - 1\right)\left(\sqrt{x+3}+1\right)}$ \vspace*{.3cm} \\ 
 & & & & $= \dfrac{\sqrt{x+3} +1}{x+2}$ \vspace*{.3cm} \\ 
 \end{tabular}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

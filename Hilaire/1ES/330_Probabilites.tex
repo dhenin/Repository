@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \setcounter{section}{0} 
 
 \part{Probabilités}
@@ -1414,3 +1421,8 @@ $ p\left(X=0\right) = \dfrac{1}{16} $ \\
 
 $ p\left(B\right) = 1 - \dfrac{1}{16} = \dfrac{15}{16} $ \\
  
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

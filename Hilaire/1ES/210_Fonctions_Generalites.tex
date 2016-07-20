@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \vspace*{-.5cm}
 
 \setcounter{section}{0} 
@@ -265,3 +272,9 @@ On a donc $D_f = \left]-7 \; ; \; -2 \right]\cup \left]3 \; ; \; 5 \right]$ & On
 Les fonctions $f$ et $g$ ne sont pas égales, car $D_f \neq D_g$. \\
 
 Ici, on peut noter que $D_g \subset D_f$. 
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

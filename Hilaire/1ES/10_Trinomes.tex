@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \vspace*{-1.5cm}
 
 \part{Les trinômes du second degré}
@@ -1424,3 +1431,9 @@ Afficher $f$ et $g$ (sous forme fractionnaire) & \\ %
   \end{minipage} \\
 \end{tabular} \\
 \newpage
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

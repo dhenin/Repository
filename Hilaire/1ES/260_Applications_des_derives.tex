@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}   
+    \usepackage{variations}
+    \begin{document}
+\fi
+
 \section{Application des dérivées : Étude de fonctions}
 
 \subsection{Caractéristiques du fonction}
@@ -47,20 +54,20 @@ $M_0$ est un extremum $\Longleftrightarrow$ $\left\{
 \vspace*{.3cm}
 
 \variations
-x & -\infty & & x_0 & & +\infty \\
+x & \mI  & & x_0 & & \pI  \\
 f'(x) & & - & \z & + & \\
-f(x) & & \dl & \b{f(x_0)} & \cl & \\
-\fin 
+{f(x)} & & \dl & \b {f(x_0)} & \cl & \\
+\fin
 
 
 \vspace*{-2.7cm}
 
 \hspace*{9cm}
 \variations
-x & -\infty & & x_0 & & +\infty \\
+x & \mI  & & x_0 & & \pI  \\
 f'(x) & & - & \z & + & \\
 f(x) & & \cl & \h{f(x_0)} & \dl & \\
-\fin 
+\fin
 
 \vspace*{.3cm}
 
@@ -82,10 +89,10 @@ $f'(x) = 0 \Longleftrightarrow x = 0$. \\
 
 \hspace*{9cm}
 \variations
-x & -\infty & & x_0 & & +\infty \\
+x & \mI  & & x_0 & & \pI  \\
 f'(x) & & + & \z & + & \\
-f(x) & \b{-\infty} & \tcb & 0 & \ch & \h{+\infty} \\
-\fin 
+f(x) &  \mI & \cb  & {0} & \ch &  \pI \\
+\fin
 
 \vspace*{.1cm}
 
@@ -215,14 +222,14 @@ $f'(x) = 0$ & $\Longleftrightarrow$ & $2x - 2 = 0$ \\
 On peut en déduire le signe de $f'(x)$ et les variations de $f$ : \\
 
 \variations
-x & -\infty & & 1 & & +\infty \\
+x & \mI  & & 1 & & \pI  \\
 f'(x) & & - & \z & + & \\
-f(x) & \h{+\infty} & \dl & \b{f(1) = 4} & \cl & \h{+\infty} \\
-\fin 
+f(x) & \h{\pI } & \d& \b{f(1) = -4} & \c & \h{\pI } \\
+\fin
 
 \vspace*{.3cm}
 
-Le sommet de la parabole est le point $S(1 \; ; \; 4)$. \\ C'est un minimum absolu. \\
+Le sommet de la parabole est le point $S(1 \; ; \; -4)$. \\ C'est un minimum absolu. \\
 
 La courbe admet une tangente horizontale au point $S$ d'équation $y = 4$. \\
 
@@ -281,10 +288,10 @@ $f'(x) = 0$ & $\Longleftrightarrow$ & $3x^2 - 12 + 9 = 0$ \\
 On peut en déduire le signe de $f'(x)$ et les variations de $f$ : \\
 
 \variations
-x & -\infty & & 1 & & 3 & & +\infty \\
+x & \mI  & & 1 & & 3 & & \pI  \\
 f'(x) & & + & \z & - & \z & + & \\
-f(x) & \b{-\infty} & \cl & \h{5} & \dl & \b{1} & \cl & \h{+\infty} \\
-\fin 
+f(x) & \b{\mI}  & \c & \h{5} & \d & \b {1} & \c & \h \pI \\
+\fin
 
 \vspace*{.3cm}
 
@@ -390,12 +397,12 @@ $f'(x) = 0$ & $\Longleftrightarrow$ & $x = 0$ ou $x^2 - 6x + 8 = 0$ \\
 On en déduit le signe de $f'(x)$ et les variations de $f$ : \\
 
 \variations
-x & -\infty & & 0 & & 2 & & 4 & +\infty \\
+x & \mI  & & 0 & & 2 & & 4 & \pI  \\
 x & & - & \z & + & \l & + & \l & + & \\
 x^2 -6x + 8 & & + & \l & + & \z & - & \z & + & \\
 f'(x) & & - & \z & + & \z & - & \z & + & \\
-f(x) & \h{+\infty} & \dl & \b{1} & \cl & \h{5} & \dl & \b{1} & \cl & \h{+\infty} \\
-\fin 
+f(x) & \h{\pI } & \d& \b{1} & \c & \h{5} & \d& \b{1} & \c & \h{\pI } \\
+\fin
 
 \vspace*{.3cm}
 
@@ -516,7 +523,7 @@ Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
 
 Il ne faut pas que $x + 1 = 0 \Longleftrightarrow x = -1$. \\
 
-Donc $D_f = \R \setminus \lb -1 \rb = \left]-\infty \; ; \; -1\right[\cup \left]-1 \; ; \; +\infty\right[$ \\
+Donc $D_f = \R \setminus \lb -1 \rb = \left]-\infty\; ; \; -1\right[\cup \left]-1 \; ; \; +\infty\right[$ \\
 
 \begin{tabular}{ll}
 On note & $u(x) = x - 1$ et $v(x) = x + 1$. \\
@@ -538,10 +545,10 @@ On a : $\forall x \neq -1, f'(x) > 0$. \\
 On peut en déduire les variations de $f$ : \\
 
 \variations
-x & -\infty & & & -1 & & & +\infty \\
+x & \mI  & & & -1 & & & \pI  \\
 f'(x) & & + & & \bb & & + & \\
-f(x) & \b{1} & \cl & \h{+\infty} & \bb & \b{-\infty} & \cl & \h{1} \\
-\fin 
+f(x) & \b{1} & \cl & \h \pI  & \bb & \b{\mI}  & \cl & \h{1} \\
+\fin
 
 \vspace*{.3cm} 
 
@@ -626,9 +633,9 @@ On peut ainsi en déduire le signe de $f'$ et les variations de $f$ :
 \vspace*{.2cm}
 
 \variations
-x & -\infty & & 2 & & \;4 & & +\infty \\
+x & \mI  & & 2 & & \;4 & & \pI  \\
 f'(x) & & - & \z & + & \z & - & \\
-f(x) & \h{2} & \dl & \b{-1} & \cl & \h{3} & \dl & \b2 \\
+f(x) & \h{2} & \dl & \b{-1} & \cl & \h{3} & \dl& \b{2} \\
 \fin
 
 \vspace*{.3cm}
@@ -708,7 +715,7 @@ Soit la fonction $f :$ & $\R$ & $\longrightarrow$ & $\R$ \\
 
 Il ne faut pas que $x^2 + x - 12 = 0 \Longleftrightarrow x = -4$ ou $x = 3$. \\
 
-D'où $D_f = \R \setminus \lb -4 \; ; \; 3 \rb = \left]-\infty \; ; \; -4\right[\cup\left]-4 \; ; \; 3\right[\cup\left]3 \; ; \; +\infty\right[$ \\
+D'où $D_f = \R \setminus \lb -4 \; ; \; 3 \rb = \left]-\infty  \; ; \; -4\right[\cup\left]-4 \; ; \; 3\right[\cup\left]3 \; ; \; +\infty\right[$ \\
 
 N.B. : \hbox{On peut d'ores et déjà dire que l'on a 2 asymptotes verticales, les droites d'équations $x = -4$ et $x = 3$.} \\ 
 
@@ -742,9 +749,9 @@ On peut ainsi en déduire les variations de $f$ :
 \vspace*{.2cm}
 
 \variations
-x & -\infty & & & -4 & & & & \;3 & & & +\infty \\
+x & \mI  & & & -4 & & & & \;3 & & & \pI  \\
 f'(x) & & + & & \bb & & + & & \bb & & + & \\
-f(x) & \b{2} & \cl & \h{+\infty} & \bb & \b{-\infty} & \cl &  \h{+\infty} & \bb & \b{-\infty} & \cl & \h{2} \\
+f(x) & \b{2} & \cl & \h\pI  & \bb & \b{\mI}  & \cl & \h  \pI  & \bb & \b{\mI}  & \cl & \h{2} \\
 \fin
 
 \vspace*{.3cm}
@@ -859,9 +866,10 @@ On peut ainsi en déduire le signe de $f'(x)$ les variations de $f$ : \\
 
 \centerline{
 \variations
-x & -\infty & & & -1 & & & 1 & & & 2 & & & 5 & & +\infty \\
+x & \mI  & & & -1 & & & 1 & & & 2 & & & 5 & & \pI  \\
 f'(x) & & - & & \bb & & - & \z & + & & \bb & & + & \z & - & \\
-f(x) & \h{2} & \dl & \b{-\infty} & \bb & \h{+\infty} & \dl &  \b{5} & \cl & \h{+\infty} & \bb & \b{-\infty} & \cl & \h{\dfrac{7}{3}} & \dl & \b{2} \\
+f(x) & \h 2 & \dl & \b{\mI}  & \bb & \h \pI  & \dl &  \b{5} & \cl & \h \pI  & \bb & \b{\mI}  & \cl & 
+ \h {\stackrel{} {\dfrac{7}{3}}} & \dl &  \b{2} \\
 \fin}
 
 \vspace*{.3cm}
@@ -981,8 +989,7 @@ On cherche donc le nombre de point d'intersection entre $C_f$ et les droites d'�
 
 
 \variations
-   m      &  -\infty  &   & 2  &  &   \frac{7}{3} & & 5 & & +\infty \\
-%   \filet
+   m      &  \mI   &   & 2  &  &   \frac{7}{3} & & 5 & & \pI  \\
 \genfrac{}{}{0pt}{0} {\text{Équation}} {f(x)=m} 
  & &  \genfrac{}{}{0pt}{0} 
                   {} % Une ligne blache pour aérer
@@ -1002,7 +1009,7 @@ On cherche donc le nombre de point d'intersection entre $C_f$ et les droites d'�
                   {} {\text{Pas de  solutions}} \quad & \l & 
            \quad  \genfrac{}{}{0pt}{0} 
                   {}{\text{Deux solutions}} &\\
-\fin  
+\fin
 
 \vspace*{.3cm}
 
@@ -1102,9 +1109,9 @@ On peut ainsi en déduire le signe de $f'$ et les variations de $f$ :
 \vspace*{.2cm}
 
 \variations
-x & -\infty & & -1 & & & \;1 & & & 3 & & +\infty \\
+x & \mI  & & -1 & & & \;1 & & & 3 & & \pI  \\
 f'(x) & & + & \z & - & & \bb & & - & \z & + & \\
-f(x) & \b{-\infty} & \cl & \h{-2} & \dl & \b{-\infty} & \bb & \h{+\infty} & \dl & \b{6} & \cl & \h{+\infty} \\
+f(x) & \b{\mI}  & \cl & \h{-2} & \dl & \b{\mI}  & \bb & \h \pI  & \dl & \b{6} & \cl & \h \pI  \\
 \fin
 
 \vspace*{.3cm}
@@ -1207,9 +1214,9 @@ On peut ainsi en déduire le signe de $f'$ et les variations de $f$ :
 \vspace*{.2cm}
 
 \variations
-x & -\infty & & & -1 & & & +\infty \\
+x & \mI  & & & -1 & & & \pI  \\
 f'(x) & & - & & \bb & & - & \\
-f(x) & \h{+\infty} & \dl & \b{-\infty} & \bb & \h{+\infty} & \dl & \b{-\infty} \\
+f(x) & \h \pI  & \dl & \b{\mI}  & \bb & \h \pI  & \dl & \b{\mI}  \\
 \fin
 
 \vspace*{.3cm}
@@ -1253,3 +1260,9 @@ On n'a aucun extremum. Cependant, on a : \\
 \end{tikzpicture}
 
 \newpage
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
