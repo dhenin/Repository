@@ -1,3 +1,9 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
 \section{Statistique}
 
 \subsection{Vocabulaire}
@@ -1265,3 +1271,8 @@ Puis, on calcule $\overline{x_F}$, la moyenne générale des filles : \\
 $ \dfrac{12 \times 104 + 8 \times 32 }{104 + 32} = 11,06 $. \\
 
 Finalement, les filles sont meilleures que les garçons.
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

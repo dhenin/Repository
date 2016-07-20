@@ -1,6 +1,8 @@
-% \input{preambule-sacha-utf8.ltx}
-
-% \begin{document}
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
 
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \draw[->] (-3.46,0) -- (9.2,0);
@@ -38,4 +40,8 @@
 \end{pgfonlayer} 
 
 \end{tikzpicture}
-% \end{document}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

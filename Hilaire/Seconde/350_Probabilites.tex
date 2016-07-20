@@ -1,3 +1,9 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
 \section{Probabilités}
 
 \subsection{Ensembles finis}
@@ -1241,4 +1247,9 @@ $p\left(X=0\right) = 1 \times \left(\dfrac{1}{2}\right)^4 $ \\
 $ p\left(X=0\right) = \dfrac{1}{16} $ \\
 
 $ p\left(B\right) = 1 - \dfrac{1}{16} = \dfrac{15}{16} $ \\
- 
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

@@ -1,6 +1,8 @@
-\input{preambule-sacha-utf8.ltx}
-
-\begin{document}
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
 
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.7]
 \draw[->] (-1,0) -- (4.61,0);
@@ -18,4 +20,9 @@
 \draw (2.6,-2.93) node {$B$};
 
 \end{tikzpicture}
-\end{document}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

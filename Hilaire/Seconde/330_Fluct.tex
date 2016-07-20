@@ -1,3 +1,9 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
 \section{Fluctuation d'échantillonnage}
 
 \subsection{Dans les statistiques}
@@ -332,3 +338,8 @@ $ 0,51 + \dfrac{1}{\sqrt{900}} \approx 0,5433 $ \\
 $ 0,0,4767 \leq p \leq 0,5433 $ \\
 
 A va obtenir entre 47  \% et 54  \% des voies. On ne peut pas savoir si A sera élu.
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

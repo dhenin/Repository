@@ -1,3 +1,5 @@
+\ifdefined\COMPLETE
+\else
 \documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{pgf,tikz}
@@ -6,6 +8,10 @@
 % \renewcommand\@makefnbreak{\hspace{2em}}
 \begin{document}
 %\shorthandoff{:}
+\fi
+
+
+
 
 %\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \begin{tikzpicture}
@@ -49,4 +55,9 @@
 \end{tikzpicture}
 
 %\shorthandon{:}
-\end{document}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \vspace*{-2cm}
 
 % ------------ Pour elargir la double barre dans les tableaux de signes --------
@@ -3554,3 +3561,9 @@ Soit $x_1$ et $x_2 \in [10,+\infty \qquad $ avec $\boxed {x_1 < x_2} $ \\
 Le minimum a donc pour coordonnées $(10, 300)$. 
 
 L'aire maximale est donc obtenue pour $x = 10 cm$. Elle est alors de $300 cm^2$. 
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

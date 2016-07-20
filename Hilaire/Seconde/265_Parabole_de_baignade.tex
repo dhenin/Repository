@@ -1,7 +1,9 @@
-% \input{preambule-sacha-utf8.ltx}
- 
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
 
-% \begin{document}
 
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=0.25cm]
 % \draw [dotted, xstep=1.0cm,ystep=1.0cm] (-0.41,-2.44) grid (8.68,34.53);
@@ -32,4 +34,7 @@
 \end{pgfonlayer} 
 \end{tikzpicture}
 
-% \end{document}
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

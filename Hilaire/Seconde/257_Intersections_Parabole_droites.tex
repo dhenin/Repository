@@ -1,5 +1,8 @@
-% \input{preambule-sacha-utf8.ltx}
-%\begin{document}
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
 
 \definecolor{ttqqqq}{rgb}{0.2,0,0}
 \definecolor{qqqqff}{rgb}{0,0,1}
@@ -38,4 +41,8 @@
 \draw[step=5cm,thin,AntiqueWhite]          (-6.63,-7.71) grid (7.26,6.23);
 \end{pgfonlayer}
 \end{tikzpicture}
-% \end{document}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

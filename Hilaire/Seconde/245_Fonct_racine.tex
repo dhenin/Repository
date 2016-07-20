@@ -1,6 +1,9 @@
-% \input{preambule-sacha-utf8.ltx}
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
 
-% \begin{document}
 
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \draw[->] (-1.54,0) -- (3.94,0);
@@ -51,4 +54,10 @@
 
 
 \end{tikzpicture}
-% \end{document}
+
+%    \usepackage{variations}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

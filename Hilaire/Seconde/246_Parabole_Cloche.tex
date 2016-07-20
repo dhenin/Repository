@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.9]
 \draw[->] (-2.5,0) -- (7.16,0);
 \foreach \x in {-2,-1,1,2,3,4,5,6,7}
@@ -27,3 +34,8 @@
 
 \end{pgfonlayer} 
 \end{tikzpicture}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

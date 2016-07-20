@@ -1,3 +1,10 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
 \section{Repères du plan}
 
 \subsection{Définition}
@@ -436,3 +443,9 @@ Donc $M\left(1,7\right)$\\
 
 \newpage
 
+%    \usepackage{variations}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

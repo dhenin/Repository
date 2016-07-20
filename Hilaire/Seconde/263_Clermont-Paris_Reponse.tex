@@ -1,7 +1,11 @@
-% \input{preambule-sacha-utf8.ltx}
-% \usepackage{pgf,tikz}
-% \usetikzlibrary{arrows}
-%  \begin{document}
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+    \begin{document}
+\fi
+
 
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.2mm,y=.2mm]
 \draw[->,color=black] (-15.99,0) -- (365.78,0);
@@ -56,4 +60,9 @@
 \draw[step=5cm,thin,AntiqueWhite]          (-80,-55) grid (370,420);
 \end{pgfonlayer} 
 \end{tikzpicture}
-% \end{document}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

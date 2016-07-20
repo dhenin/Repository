@@ -1,7 +1,13 @@
-%  \input{preambule-sacha-utf8.ltx}
-% \usepackage{pgf,tikz}
-% \usetikzlibrary{arrows}
-% \begin{document}
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+     \usepackage{pgf,tikz}
+     \usetikzlibrary{arrows}
+    \begin{document}
+\fi
+
+
+
 
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.2mm,y=.2mm]
 \draw[->,color=black] (-15.99,0) -- (365.78,0);
@@ -43,4 +49,8 @@
 \draw (200,-20) node [below]{\boxed { \parbox{2.3cm}{Durée (en minutes)}}} ; 
 \end{scriptsize}
 \end{tikzpicture}
-% \end{document}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

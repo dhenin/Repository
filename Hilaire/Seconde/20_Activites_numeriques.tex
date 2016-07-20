@@ -1,4 +1,8 @@
-
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
 
 \section{Activités Numériques}
 
@@ -394,3 +398,10 @@ $ C = \sqrt{1+\sqrt{1+\sqrt{1+\dfrac{1 + \sqrt{5}}{2}}}} $ \\
 $ C = \dfrac{1 + \sqrt{5}}{2} $ \\
 
 
+
+%    \usepackage{variations}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

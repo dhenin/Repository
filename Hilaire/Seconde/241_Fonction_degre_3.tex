@@ -1,3 +1,9 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
 % \definecolor{bistre}{rgb}{1,0.94,0.84}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1]
 % \draw [color=bistre,dotted, xstep=0.1cm,ystep=0.1cm] (-1.97,-2.77) grid (3.65,5.23);
@@ -49,3 +55,8 @@
 
 \end{tikzpicture}
 % xstep=0.1cm,ystep=0.1cm
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

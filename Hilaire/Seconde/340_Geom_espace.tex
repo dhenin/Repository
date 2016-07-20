@@ -1,3 +1,9 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
 \section{Géométrie spatiale}
 
 \subsection{Règles de la perspective cavalière}
@@ -980,3 +986,8 @@ $P_1$ et $P_2$ sont sécants suivants $D$, donc $D$ est parralèle à $D_1$ et $
 \end{center}
 
 Si deux plans $P_1$ et $P_2$ sont parallèles, alors tout plan $P$ sécant à $P_1$ est sécant à $P_2$ et les droites d'intersection $D_1$ et $D_2$ sont parallèles.
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

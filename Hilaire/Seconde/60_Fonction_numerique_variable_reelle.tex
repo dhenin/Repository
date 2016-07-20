@@ -1,3 +1,8 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
 
 \section{Fonctions numérique de la variable réelle : Généralités et définitions}
 
@@ -351,16 +356,18 @@ On considère la fonction $f$ définie sur l'intervalle $[-7 ; 4]$ par sa repré
            \end{enumerate} 
      \item $S = \left[ -7, -5\right[ \cup \left] -2,4 \right] $\\
      \vspace{1cm}
-   \centerline{\begin{variations}
+   \centerline{\variations
             x   & -7  &    &   -3  &     &  2  &    &  4   \\ 
-            \filet
-    \m {f(x)}  & \h{4} & \d &  \b {-4} &  \c & \h{5} & \d & \b{3} \\
-   \end{variations}}                                        
+    f(x)  & \h{4} & \dl &  \b {-4} &  \cl & \h{5} & \dl & \b{3} \\
+               \fin }                                      
      \end{enumerate}   
 }
 
 
 
-
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
 
 

@@ -1,5 +1,8 @@
-%\input{preambule-sacha-utf8.ltx}
-%\begin{document}
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
 
 \definecolor{ffqqqq}{rgb}{1,0,0}
 \definecolor{yqqqqq}{rgb}{0.5,0,0}
@@ -44,4 +47,7 @@
 \end{pgfonlayer} 
 \end{tikzpicture}
 
-%\end{document}
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
