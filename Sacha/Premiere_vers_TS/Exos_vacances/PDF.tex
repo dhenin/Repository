@@ -1,0 +1,48 @@
+\input{./preambule-sacha-utf8_new.ltx}
+
+\usepackage{parcolumns}
+
+        \title {Exercices pour se préparer à la terminale S}
+
+        \author{Sacha Dhénin}
+        \date{Vacances d'été 2016}
+        
+\usepackage{amsthm}
+
+\begin{document}
+
+%\iffalse
+
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((\x-#1)^2)/(2*#2^2))}%
+}
+
+\maketitle
+\newpage
+\thispagestyle{empty}
+
+%\fi
+
+% POUR LES FIGURES : 
+\def\myscale{.75} % par défaut 
+\newcommand{\myfigure}[2]{  % entrée : echelle, fichier figure
+\def\myscale{#1}\begin{center}\footnotesize{#2}\end{center}}
+\newcommand{\E}{(-4,-1) rectangle (4,4)}
+\newcommand{\A}{(0,0) ++(135:2) circle (1.9)}
+\newcommand{\B}{(0,0) ++(45:2) circle (1.9)}
+\definecolor{myred}{rgb}{0,0,0}
+\definecolor{myorange}{rgb}{0,0,0}
+
+\setcounter{tocdepth}{4}
+\tableofcontents
+
+\newpage
+
+\input{01_Recurrence.tex} \newpage
+\input{02_Expo.tex} 
+\input{03_Continuite.tex} 
+\input{04_Limites.tex} 
+
+%\input{Tout.tex}
+
+\end{document}

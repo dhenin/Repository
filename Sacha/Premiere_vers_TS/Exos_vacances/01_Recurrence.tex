@@ -1,0 +1,103 @@
+\chapter{Raisonnement par récurrence}
+
+\vspace*{-1cm}
+
+\section{Mot clef}
+
+Dans un énoncé de bac, il est fréquent que l'on note « démontrer par récurrence » lorsque l'on attend une démonstration par récurrence. Disons que, très souvent, lorsque l'on dit « démontrer que, \underline{pour tout entier naturel} », on devra utiliser un raisonnement par récurrence.
+
+\vspace*{-.3cm}
+
+\section{Exercices pour débuter}
+
+Montrer par récurrence sur $n$ les assertions suivantes : \\
+
+\begin{itemize}
+\item[•] Pour tout $n \geqslant 1$, $3^n \geqslant 1 + 2n$. \\
+
+\item[•] $4^n + 6n - 1$ est divisible par $9$. \\
+
+\item[•] Soit la suite $\left(u_n\right)$ définie par $\left\{
+  \begin{array}{l}
+    u_0 = 1,5 \\
+    \forall n \in \N, \dfrac{6}{4 - u_n} - 1 \\
+  \end{array}
+\right.$. \\
+
+Montrer que, pour tout $n \in \N$, $1 \leqslant u_n \leqslant 2$. \\
+
+\item[•] Soit la suite $\left(u_n\right)$ définie par $\left\{
+  \begin{array}{l}
+    u_0 = 1,5 \\
+    \forall n \in \N, \dfrac{4u_n - 2}{u_n + 1 }\\
+  \end{array}
+\right.$. \\
+
+Montrer que, pour tout $n \in \N$, $1 \leqslant u_n \leqslant 2$. 
+\end{itemize}
+
+\section{Hérédité vraie d'une propriété fausse}
+
+On veut calculer plus simplement la somme des entiers naturels de $1$ à $n$. On conjecture la propriété suivante : \\
+
+$1 + 2 + 3 + \ldots + n = \dfrac{1}{2}\left(n + \dfrac{1}{2}\right)^2$. \\
+
+Cette conjecture est fausse. Montrer que l'implication $\left(P_n\right) \Longrightarrow \left(P_{n+1}\right)$ est cependant vérifiée. 
+
+\vspace*{-50cm}
+
+\newpage
+
+\section{Quelques résultats fondamentaux}
+
+Montrer les égalités suivantes par récurrence sur $n$ : \\
+
+\begin{itemize}
+\item[•] Pour tout $n \geqslant 1$, $n! \geqslant 2^{n-1}$ (cf remarque). \\
+
+\item[•] Pour tout $n \geqslant 1$, $\somme{k=1}{n}{k} := 1 + 2 + 3 + \ldots + n = \dfrac{n\left(n+1\right)}{2}$. \\
+
+\item[•] Pour tout $n \geqslant 1$, $\somme{k=1}{n}{k^2} = \dfrac{n\left(n+1\right)\left(2n+1\right)}{6}$. \\
+
+\item[•] Pour tout $n \geqslant 1$, $\somme{k=1}{n}{k^3} = \left(\dfrac{n\left(n+1\right)}{2}\right)^2$. \\
+
+\item[•] (Inégalité de Bernoulli) Soit $\alpha \in \R_+^*$. Démontrer que $\left(1+\alpha\right)^n \geqslant 1 + n\alpha$.
+\end{itemize}
+
+
+
+
+
+
+
+\textbf{Remarque :} On rappelle que $n! = \produit{k=1}{n}{k} = 1 \times 2 \times \ldots \times n$, et que, par convention, $0! = 1$. 
+
+\section{Récurrence plus difficiles}
+
+\subsection{Exercice \no 1}
+
+On pose $A_n = \somme{k=1}{2n}{\dfrac{\left(-1\right)^{k+1}}{k}} = 1 - \dfrac{1}{2} + \dfrac{1}{3} - \dfrac{1}{4} + \ldots + \dfrac{\left(-1\right)^{2n+1}}{2n}$. \\
+On pose également $B_n = \somme{k=n+1}{2n}{\dfrac{1}{k}} = \dfrac{1}{n+1} + \dfrac{1}{n+2} + \ldots + \dfrac{1}{2n}$. \\
+
+Montrer, par récurrence sur $n$, que pour tout $n \geqslant 1$, $A_n = B_n$.
+
+\subsection{Exercice \no 2}
+
+Soit $\left(u_n\right)_{n \in \N}$ la suite factorielle, définie par : $\left\{
+  \begin{array}{l}
+    u_0 = 1 \\
+    \forall n \in \N, u_{n+1} = \left(n+1\right)u_n
+  \end{array}
+\right.$. \\
+
+\textbf{Remarque :} Il suffit alors de noter $u_n = n!$ pour retrouver la définition de la factorielle, énoncée précédemment. \\
+
+\begin{itemize}
+\item[1.] Calculer les premiers termes de la suite $\left(u_n\right)$ pour conjecturer que $u_n = \somme{k=1}{n}{\dfrac{k}{\left(k+1\right)!}}$. \\
+
+Démontrer, par récurrence sur $n$, cette conjecture. \\
+
+\item[2.] On pose, pour tout entier naturel $n$, $S_n = \somme{k=1}{n}{k \times \left(k!\right)}$. \\
+
+Montrer que, pour tout entier naturel $n$, $S_n = \left(n+1\right) - 1$.  
+\end{itemize} 
