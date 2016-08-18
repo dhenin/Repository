@@ -1,0 +1,24 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1]
+\begin{tiny}
+    \tkzDefPoint[label=below left:A](0,0){A}
+    \tkzDefPoint [label=below right:B](1.5,0){B}
+    \tkzDefPoint[label=above:C](0,2){C}
+\draw [black,fill=yellow!20] (A) --  (B) -- (C) -- cycle  ;
+\tkzMarkAngle[color=red, size=.6](C,B,A)
+\tkzLabelAngle[pos=.8,color=red,font=\tiny](A,B,C){40\textdegree}
+\tkzMarkRightAngle[color=red](C,A,B)
+\tkzLabelSegments[color=red,below=4pt](A,B){$3cm$}
+\end{tiny}
+\end{tikzpicture}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

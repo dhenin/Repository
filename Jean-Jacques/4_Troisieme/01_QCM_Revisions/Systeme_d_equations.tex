@@ -1,0 +1,87 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \usepackage{alterqcm}
+    \begin{document}
+\fi
+
+\begin{alterqcm}[lq=10cm]
+
+\AQquestion[br=2]{Le système     $ \qquad \left\lbrace \begin{array}{c}
+x + y = 5\\
+2x + 3y = 16\\
+\end{array} 
+  \right. $  \\                                      
+                   admet pour solution le couple\ldots}{%
+ {$(6 ; -1)$},
+ {$(1 ; -6)$},
+ {$(-1 ; 6)$}
+ }
+
+\AQquestion[br=2]{$E$ désigne le système    
+$\qquad \left\lbrace \begin{array}{c}
+        2x + y = 1\\
+      x - y = 2\\
+\end{array} 
+  \right. $   \\ 
+Pour résoudre $E$, on exprime $y$ en fonction de $x$ à l'aide de la $1^{re}$ équation et on remplace $y$  par cette expression dans la $2^{e}$ équation. On obtient les deux équations\ldots
+}{%
+ {$ \begin{array}{l}
+   y = 1 -2x\\
+      x - 1 -2x  = 2\\
+\end{array}$},
+ {$ \begin{array}{l}
+   y = 1 -2x\\
+      x - (1 -2x)  = 2\\
+\end{array}$},
+ {$ \begin{array}{l}
+y = 2x -1\\
+      x - (2x -1) = 2\\
+\end{array} $}
+ }
+
+\AQquestion[br=2]{Pour lire graphiquement la solution du système \centerline{$ \left\lbrace \begin{array}{c}
+-x + y = 5\\
+x + 2y = 1\\
+\end{array} 
+  \right. $ } \\on trace dans un repère, les droites d'équations\ldots}{%
+ {$y=x+5\qquad $ et $\quad y=\dfrac{1}{2} - \dfrac{1}{2} x$},
+  {$y=-x-5\quad $ et $\quad y=\dfrac{x}{2} - \dfrac{1}{2}$},
+ {$y=x+5\qquad $ et $\quad y=-2x+2$}
+ }
+
+\AQquestion[br=2]{Pour lire graphiquement la solution du système \centerline{$ \left\lbrace \begin{array}{c}
+-x + y = 5\\
+x + 2y = 1\\
+\end{array} 
+  \right. $ } \\on trace deux droite $(d)$ et $(d')$ dans un repère. La solution est donnée par\ldots}{%
+   {\begin{minipage}[t]{7cm} les abscisses des points d'intersection \\ de $(d)$ et $(d')$ avec l'axe des abscisses \end{minipage}},
+   {\begin{minipage}[t]{7cm} les ordonnées des points d'intersection\\ de $(d)$ et $(d')$ avec l'axe des ordonnées \end{minipage}},
+   {\begin{minipage}[t]{6cm} les coordonnées du point d'intersection de $(d)$ et $(d')$
+    \end{minipage}}
+ }
+
+\AQquestion[br=2]{Une personne dispose de 6€ ; elle peut dépenser cette somme soit en achetant 10 croissants et un cake soit en achetant 4 croissants et 2 cakes.\\
+Pour calculer le prix d'un croissant et celui d'un cake, on peut résoudre le système\ldots
+}{%
+ {$\left\lbrace \begin{array}{l}
+   10x +4y = 6\\
+      x +2y  = 6\\
+\end{array} \right.$},
+ {$\left\lbrace  \begin{array}{l}
+   10x + y = 6\\
+      4x +2y  = 6\\
+\end{array} \right. $},
+ {$\left\lbrace  \begin{array}{l}
+   10x +2y = 6\\
+      x +4y  = 6\\
+\end{array} \right. $}
+ }
+
+\end{alterqcm}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

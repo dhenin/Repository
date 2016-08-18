@@ -1,0 +1,167 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-2010-utf8.ltx}
+    \usepackage{frcursive}
+    \usepackage{calligra}
+    \begin{document}
+\fi
+
+\iffalse
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1]
+\begin{tiny}
+    \tkzDefPoint[label=below left:A](0,0){A}
+    \tkzDefPoint [label=below right:B](1.5,0){B}
+    \tkzDefPoint[label=above:C](0,2){C}
+\draw [black,fill=yellow!20] (A) --  (B) -- (C) -- cycle  ;
+\tkzMarkAngle[color=red, size=.6](C,B,A)
+\tkzLabelAngle[pos=.8,color=red,font=\tiny](A,B,C){40\textdegree}
+\tkzMarkRightAngle[color=red](C,A,B)
+\tkzLabelSegments[color=red,below=4pt](A,B){$3cm$}
+\end{tiny}
+\end{tikzpicture}
+\fi
+
+\begin{alterqcm}[lq=11cm]
+\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+                            Dans la situation ci-contre, \\
+                            pour calculer $AC$, on utilise\ldots
+                                 \end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{5cm}
+\begin{tikzpicture}[scale=.5,rotate=-15]
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:2.2){M}
+\tkzDefShiftPoint[A](30:3){N}
+\tkzDefShiftPoint[A](0:6){B}
+\tkzDefShiftPoint[A](30:8){C}
+\tkzDrawSegments(A,B B,C C,A M,N)
+\tkzDrawPoints(A,B,C,M,N)
+\tkzLabelPoints[left](A) \tkzLabelPoints[below](B) \tkzLabelPoints[right](C)
+\tkzLabelPoints[below](M) \tkzLabelPoints[above](N)
+\tkzLabelSegment[below,pos=.5,red](A,M){2}
+\tkzLabelSegment[below,pos=.5,red](M,B){4}
+\tkzLabelSegment[above,pos=.5,red](A,N){5}
+\end{tikzpicture}
+                                 \end{minipage}
+                                  }   
+\begin{tabular}{b{5cm}p{5cm}}
+\raisebox{25mm}{\box2} & {\box3}\\
+\end{tabular}
+}{%
+ {$\cos(\widehat{B})$},
+ {$\sin(\widehat{B})$}, 
+ {$\tan(\widehat{B})$}
+} 
+\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+                            Dans la situation ci-contre, \\
+                            le théorême de {\sc Thalès} permet d'écrire\ldots
+                                 \end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{5cm}
+\begin{tikzpicture}[scale=.4,rotate=-50]
+\tkzDefPoint(0,0){O}
+\tkzDefShiftPoint[O](0:-2.2){A}
+\tkzDefShiftPoint[O](30:-3){B}
+\tkzDefShiftPoint[O](0:6){D}
+\tkzDefShiftPoint[O](30:8){C}
+\tkzDrawSegments(A,B B,C A,D D,C)
+\tkzDrawPoints(A,B,C,D,O)
+\tkzLabelPoints[above right](O) \tkzLabelPoints[left](B) \tkzLabelPoints[right](C)
+\tkzLabelPoints[below](D) \tkzLabelPoints[above](A)
+%\tkzLabelSegment[below,pos=.5,red](A,M){2}
+%\tkzLabelSegment[below,pos=.5,red](M,B){4}
+%\tkzLabelSegment[above,pos=.5,red](A,N){5}
+\end{tikzpicture}
+                                 \end{minipage}
+                                  }   
+\begin{tabular}{p{5cm}b{5cm}}
+ {\box3} & \raisebox{25mm}{\box2} \\
+\end{tabular}
+}{%
+ {$\dfrac{OA}{OB} = \dfrac{OD}{OC} = \dfrac{AB}{CD}$},
+ {$\dfrac{OA}{OC} = \dfrac{OB}{OD} = \dfrac{AB}{CD}$}, 
+ {$\dfrac{OA}{OD} = \dfrac{OB}{OC} = \dfrac{AB}{CD}$}
+} 
+
+\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{6.5cm}
+                           Avec les données de la figure à main levée ci-contre, 
+                           on peut affirmer que la longueur de $FM$ est égale à\ldots
+                                 \end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
+\font\pc=cmitt10 \rm
+\begin{tikzpicture}[scale=.4,rotate=10,decoration={random   steps, amplitude=1pt,segment  length=3pt}]
+\begin{tiny}
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:-2.2){N}
+\tkzDefShiftPoint[A](40:-3){E}
+\tkzDefShiftPoint[A](40:5){F}
+\tkzDefShiftPoint[A](0:5){M}
+\draw[decorate,decoration=random steps,segment length=4.5mm] (E) -- (F) -- (M) -- (N) -- cycle ; 
+\tkzDrawPoints(A,E,F, M,N)
+%\tkzLabelPoints[above left](A) \tkzLabelPoints[below right ](E) \tkzLabelPoints[above right](F)
+%\tkzLabelPoints[above](N) \tkzLabelPoints[right](M)
+\draw (A) [above left] node  {\pc A} ;
+\draw (E) [below right ] node  {\pc E} ;
+\draw (F) [above right] node  {\pc F} ;
+\draw (M) [right] node  {\pc M} ;
+\draw (N) [above] node  {\pc N} ;
+\tkzLabelSegment[below right,pos=.5,red](A,E){\pc 3}
+\tkzLabelSegment[left,pos=.5,red](E,N){\pc  2}
+\tkzLabelSegment[above left ,pos=.5,red](A,F){\pc  5}
+\draw (2,-1.5) node []{ { {\pc (FM)//(EN)}}};
+\end{tiny}
+\end{tikzpicture}
+\end{minipage}
+                                  }   
+\begin{tabular}{p{3.5cm}b{7cm}}
+ {\box3} & \raisebox{25mm}{\box2} \\
+\end{tabular}
+}{%
+ {3,3},
+ {$\dfrac{10}{3}$}, 
+ {4}
+} 
+
+
+ \AQquestion[br=2]{$ABC$ est un triangle tel que $AB=3cm$ et $AC=4cm$.\\
+ $M$ est un point de $(AB)$ et $N$, un point de $(AC)$, tel que : 
+ $AM=1,5cm$ et $AN=2cm$\\
+ Pour pouvoir en déduire que : $(MN)/sslash (BC)$, il faut savoir aussi que\ldots}
+  {%
+   {\begin{minipage}[t]{6cm} $A,M,B \; \mathrm{ et } \;  A, N, C$ \\ sont dans le même ordre\end{minipage}},
+   {\begin{minipage}[t]{6cm}  $A,M,B \; \mathrm{ et } \; A, C, N$ \\ sont dans le même ordre
+    \end{minipage}},
+   {\begin{minipage}[t]{6cm}  $A,N,B \; \mathrm{ et } \; A, M, C$ \\ sont dans le même ordre
+    \end{minipage}}
+ }
+ 
+ \AQquestion[br=2]{Avec les données ci-dessous\ldots\\
+\begin{tikzpicture}[scale=.5]
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](0:4){B}
+\tkzDefShiftPoint[A](90:3){C}
+\tkzDefShiftPoint[A](0:6){M}
+\tkzDefShiftPoint[A](90:5){N}
+\tkzDrawSegments(A,N A,M  C,B M,N)
+%\tkzDrawPoints(A,B,C,M,N)
+\tkzLabelPoints[below left](A) \tkzLabelPoints[below](B) \tkzLabelPoints[left ](C)
+\tkzLabelPoints[below](M) \tkzLabelPoints[below left](N)
+\tkzLabelSegment[left,pos=.5,red](A,C){3}
+\tkzLabelSegment[below,pos=.5,red](A,B){4}
+\tkzLabelSegment[below,pos=.5,red](B,M){1}
+\end{tikzpicture}
+ }
+  {%
+   {\begin{minipage}[t]{6cm} on calcule $BC$ avec le théorème de {\sc Pythagore}, \end{minipage}},
+   {\begin{minipage}[t]{6cm} on calcule $BC$ avec le théorème de {\sc Thalès} 
+    \end{minipage}},
+   {\begin{minipage}[t]{6cm} on ne peut pas calculer $BC$
+    \end{minipage}}
+ }
+
+\end{alterqcm}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

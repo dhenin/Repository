@@ -1,0 +1,203 @@
+ \input{./preambule-2010-utf8.ltx}
+
+
+\ifdefined\COMPLETE
+\else
+    \newcommand{\COMPLETE}
+\fi                        % Autorise la compilation de illustrations
+                          % soit isolées, soit inluses 
+
+\begin{document}
+
+\newcommand{\chapitre}[1]{{\bf #1}\medskip}
+
+\chapitre{Chapitre 1}
+       \input{Developper_Factoriser.tex}
+\newpage
+
+\chapitre{Chapitre 2}
+       \input{Equations_Inequations.tex}
+\newpage
+
+\chapitre{Chapitre 3}
+       \input{Racines_carrees.tex}
+\newpage
+
+\chapitre{Chapitre 4}
+       \input{Fraction_et_PGCD.tex}
+\newpage
+
+\chapitre{Chapitre 5}
+       \input{Fonction_lineaire.tex}
+\newpage
+
+\chapitre{Chapitre 6}
+       \input{Fonction_affine.tex}
+\newpage
+
+\chapitre{Chapitre 7}
+      \input{Systeme_d_equations.tex}                              
+\newpage
+
+\chapitre{Chapitre 8}
+      \input{Statistiques.tex}       
+\newpage
+
+\chapitre{Chapitre 9}
+
+\vspace*{-9mm}
+\begin{alterqcm}[lq=11cm]
+
+ \AQquestion[br=2]{$ABC$ est un triangle rectangle en $C$. $\cos \widehat{B}$ est égal à\ldots}{%
+ {$\dfrac{AC}{AB}$},
+  {$\dfrac{BA}{BC}$},
+  {$\dfrac{BC}{BA}$}
+ }
+ 
+ \AQquestion[br=2]{$MNP$ est un triangle rectangle en $P$. $\sin \widehat{M}$ est égal à\ldots}{%
+ {$\dfrac{NP}{NM}$},
+  {$\dfrac{MN}{MP}$},
+  {$\dfrac{MP}{MN}$}
+ }
+ 
+ \AQquestion[br=2]{$EFG$ est un triangle rectangle en $F$. $\tan \widehat{G}$ est égal à\ldots}{%
+ {$\dfrac{FG}{FE}$},
+  {$\dfrac{EF}{EG}$},
+  {$\dfrac{FE}{FG}$}
+ }
+
+\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{6cm}
+                    $M$ est le point du quart de cercle \\
+                ci-contre de centre l'origine du repère \\
+                et de rayon 1.\\
+                Les coordonnées de $M$ sont\ldots
+\end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
+                                  \input{Coordonnees_30.tex}
+                                 \end{minipage}
+                                  }   
+\begin{tabular}{cc}
+\raisebox{-2cm}{\box3} & \box2\\
+\end{tabular}
+}{%
+ {$\big(\sin (30$\textdegree$) \; ; \;\cos (30$\textdegree$) \big)$},
+ {$\big(\cos (30$\textdegree$) \; ;\; \sin (30$\textdegree$) \big)$},
+ {$\big(\sin (30$\textdegree$) \; ; \; \tan (30$\textdegree$) \big)$}
+}
+
+ \AQquestion[br=2]{L'arrondi au degré de la mesure de l'angle aigu $\widehat{A}$ tel que $\tan (\widehat{A}) = 0,6$ est\ldots
+ }{%
+ {31\textdegree},
+  {37\textdegree},
+ {53\textdegree}
+ }  
+ 
+\AQquestion[br=2,pq=5mm]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+                            Dans la situation ci-contre,\\
+                            pour calculer $AB$, on utilise\ldots
+                                 \end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
+                                  \input{Usage_sin.tex}
+                                 \end{minipage}
+                                  }   
+\begin{tabular}{m{6cm}m{3.5cm}}
+{\box2} & \box3\\
+\end{tabular}
+}{%
+ {$\cos(\widehat{C})$},
+ {$\sin(\widehat{C})$}, 
+ {$\tan(\widehat{C})$}
+}
+ 
+\AQquestion[br=2,pq=5mm]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+                            Dans la situation ci-contre, \\
+                            pour calculer $AC$, on utilise\ldots
+                                 \end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
+                                  \input{Usage_tan.tex}
+                                 \end{minipage}
+                                  }   
+\begin{tabular}{m{6cm}m{3.5cm}}
+{\box2} & \box3\\
+\end{tabular}
+}{%
+ {$\cos(\widehat{B})$},
+ {$\sin(\widehat{B})$}, 
+ {$\tan(\widehat{B})$}
+} 
+
+ 
+ \AQquestion[br=2]{Quelque soit l'angle aigu de mesure $x$, \\
+ la valeur de $\cos^2 x + \sin^2 x$\ldots
+ }{%
+  { dépend de $x$ },
+   { est toujours égale à 1},
+   { est toujours égale à 2}
+}  
+
+
+ 
+ \AQquestion[br=2]{Quelque soit l'angle aigu de mesure $x$, \\
+ la valeur de $\tan x$ est égale à \ldots
+ }{%
+  { $(\sin x)(\cos x)$},
+   {$\dfrac{\cos x}{\sin x}$},
+   {$\dfrac{\sin x}{\cos x}$}
+}  
+
+
+\end{alterqcm}
+
+
+\chapitre{Chapitre 10}
+      \input{Thales.tex}       
+\newpage
+
+\chapitre{Chapitre 11}
+      \input{Espace.tex}       
+\newpage
+  
+\chapitre{Chapitre 12}
+      \input{Vecteurs_sans_repere.tex}  
+\newpage
+
+\chapitre{Chapitre 13}
+       \input{Vecteurs_dans_un_repere.tex}  
+\newpage
+
+\chapitre{Chapitre 14}
+        \input{Geometrie_plane.tex}
+\end{document}
+
+\begin{alterqcm}[correction=true]
+ \AQquestion[br=2]{La racine carrée de 16 est}{%
+ {8},
+ {4},
+ {-4}
+ }
+
+\AQquestion[br=3]{$\sqrt{(-5)^2}$}{%
+ {n'existe pas},
+ {est égal à -5},
+ {est égal à 5}
+ }
+
+\AQquestion[br=3]{$\left(3\sqrt{5}\right)^2$ est égal à}{
+{15},
+{$6\sqrt{10}$},
+{45}
+}
+
+\AQquestion[br=2]{$\sqrt{20}$ est le double de }{
+{$\sqrt{10}$},
+{$\sqrt{5}$},
+{$\frac{\sqrt{20}}{\sqrt{2}}$}
+}
+
+\AQquestion[br=3]{$\sqrt{6^2+8^2}$}{
+{14},
+{$\sqrt{28}$},
+{10}
+}
+\end{alterqcm}
+\end{document}

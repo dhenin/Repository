@@ -1,0 +1,36 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \begin{document}
+\fi
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1]
+\draw [color={gray!40},dash pattern=on 1pt off 1pt, xstep=5mm,ystep=5mm] (-0.1,-0.1) grid (1.5,1.5);
+\begin{tiny}
+    \tkzDefPoint[label=below left:0](0:0){O}
+    \tkzDefPoint (1:0){x}
+    \tkzDefPoint[label=right:M](30:1){M}
+\clip (-.5,-.5) rectangle (1.6,1.5);
+\draw[->] (0,0) -- (1.6,0);
+\foreach \x in {1}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt)  node[below] {$\x$};
+%
+\draw[->] (0,-0.1) -- (0,1.5);
+\foreach \y in {1}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt)  node[left] {$\y$}; 
+%
+%\draw (2pt,-7pt) node[left] {\footnotesize $0$};
+% \draw (0,0) circle (1) ;
+\draw (1,0) arc (0:90:1) ;
+\draw (0,0) -- (.866,.5) ; 
+\draw [dashed] (.866,0) -- (.866,.5) -- (0,.5)  ; 
+% \tkzMarkAngle[fill=purple,opacity=0.1,size=0.6](x,O,M)
+\tkzMarkAngle[color=red, size=0.4](x,O,M)
+\tkzLabelAngle[pos=.55,color=red,font=\tiny](x,O,M){30\textdegree}
+\end{tiny}
+\end{tikzpicture}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

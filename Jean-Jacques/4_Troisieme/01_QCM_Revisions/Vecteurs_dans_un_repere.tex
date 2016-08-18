@@ -1,0 +1,67 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-2010-utf8.ltx}   
+    \begin{document}
+\fi
+
+\begin{alterqcm}[lq=10cm]
+
+ \AQquestion[br=2]{Le vecteur représenté ci-dessous a pour coordonnées\ldots\\
+ \hspace*{3cm}\begin{tikzpicture}[scale=.3]
+\tkzInit[xmin=-2, xmax=4,ymin=-4,ymax=5]
+\tkzGrid[color={gray!40}]
+\tkzRep[ynorm=1,xlabel={\tiny $\vec{\imath}$},ylabel={\tiny $\vec{\jmath}$}]
+\tkzDrawX[noticks,right space=-.1] \tkzDrawY[noticks, up space=-.15] 
+\tkzDefPoints{0/0/O, 3/4/A, -1/-3/B} \tkzDrawPoints[shape=cross](O,A,B)
+\tkzLabelPoints[below left,font=\tiny](O) 
+\tkzLabelPoints[above left,font=\tiny](A) \tkzLabelPoints[above left,font=\tiny](B)
+\draw [thick, red,->] (A) -- (B) ; 
+\end{tikzpicture}}{%
+{$(4 ; 7)$},
+{$(-4 ; -7)$},
+{$(4 ; -7)$}
+ }
+ 
+  \AQquestion[br=2]{Dans un repère, les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ ont pour coordonnées respectives $\left( \begin{matrix}
+a\\b
+\end{matrix}\right)$ et $\left( \begin{matrix}
+c\\d
+\end{matrix}\right)$.\\
+ Si $\overrightarrow{u} = \overrightarrow{v}$, alors\ldots}{%
+ {$a=b$ et $c=d$},
+ {$a=d$ et $b=c$},
+ {$a=c$ et $b=d$}
+ }
+
+
+ \AQquestion[br=2]{Dans un repère, on considère les points $A(2;-3)$ et $B(-1;4)$. \\
+ Les coordonnées $(x ; y)$ du vecteur  $\overrightarrow{AB}$ sont alors\ldots}{%
+ {$x =2-(-1) $ et $y  = -3-4 $ },
+ {$x = -1- 2  $ et $y  = 4 -(-3) $ },
+ {$x =4-2  $ et $y  = -1 -(-3) $ }
+ }
+
+
+ \AQquestion[br=2]{Dans un repère, on considère les points $A(2;-3)$ et $B(-1;4)$. \\
+ Les coordonnées $(x_i ; y_i)$ du milieu $I$ de $[AB]$ sont alors\ldots}{%
+ {$x_i =\dfrac{2+(-1)}{2}$ et $y_i =\dfrac{-3+4}{2}$ },
+ {$x_i =\dfrac{2-(-1)}{2}$ et $y_i =\dfrac{-3-4}{2}$ },
+ {$x_i = 2+(-1)$ et $y_i =-3+4 $ }
+ }
+
+
+ \AQquestion[br=2]{Dans un repère, on considère les points $A(2;-3)$ et $B(-1;4)$. \\
+ La distance $AB$ est  alors\ldots}{%
+ {$ (2 - (-1))^2 + (-3-4)^2$},
+ {$ (2 - (-1)) + (-3-4)$},
+ {$ \sqrt{(2 - (-1))^2 + (-3-4)^2}$}
+ }
+
+
+\end{alterqcm}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

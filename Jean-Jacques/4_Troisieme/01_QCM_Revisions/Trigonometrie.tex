@@ -1,0 +1,29 @@
+\input{./preambule-sacha-utf8.ltx}
+\usepackage{alterqcm}
+\usetkzobj{all} 
+    \begin{document}
+
+
+\begin{alterqcm}[lq=10cm]
+
+\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{6cm}
+                    $M$ est le point du quart de cercle \\
+                ci-contre de centre l'origine du repère \\
+                et de rayon 1.\\
+                Les coordonnées de $M$ sont\ldots
+\end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
+                                  \input{Usage_sin.tex}
+                                 \end{minipage}
+                                  }   
+\begin{tabular}{p{3cm}b{6cm}}
+\box3 & \box2\\
+\end{tabular}
+}{%
+ {$\big(\sin (30$\textdegree$) \; ; \;\cos (30$\textdegree$) \big)$},
+ {$\big(\cos (30$\textdegree$) \; ;\; \sin (30$\textdegree$) \big)$},
+ {$\big(\sin (30$\textdegree$) \; ; \; \tan (30$\textdegree$) \big)$}
+}
+\end{alterqcm}
+
+    \end{document}

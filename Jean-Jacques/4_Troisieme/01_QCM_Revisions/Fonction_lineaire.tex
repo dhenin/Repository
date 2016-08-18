@@ -1,0 +1,123 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-2010-utf8.ltx}
+    \begin{document}
+\fi
+
+\thispagestyle{empty}
+\vspace*{-2mm}
+\begin{alterqcm}[lq=10cm]
+
+ \AQquestion[br=3]{Pour calculer l'image d'un nombre $x$ par la fonction linéaire de coefficient 4\ldots}{%
+ {on additionne 4 à $x$},
+ {on divise $x$ par 4},
+ {on multiplie $x$ par 4}
+ }
+ 
+
+ \AQquestion[br=1]{$f$ est une fonction linéaire.\\
+ l'écriture $f(2)=\dfrac{5}{4}$ signifie\ldots}
+  {%
+   {\begin{minipage}[t]{6cm} l'image de 2 par $f$ est $\dfrac{5}{4}$, \end{minipage}},
+   {\begin{minipage}[t]{6cm} l'image de $\dfrac{5}{4}$ par $f$ est 2,\end{minipage}},
+   {\begin{minipage}[t]{6cm} $f$ multiplié par 2 est égal à $\dfrac{5}{4}$.
+    \end{minipage}}
+ }
+
+ \AQquestion[br=3]{Les prix augmentent de 2,5\%. Si $x$ désigne le prix initial et $f(x)$ le prix après l'augmentation, alors $f$\ldots}
+  {%
+   {\begin{minipage}[t]{7cm} n'est pas une fonction linéaire, \end{minipage}},
+   {\begin{minipage}[t]{7cm} est la fonction linéaire de coefficient $\dfrac{2,5}{100}$,\end{minipage}},
+   {\begin{minipage}[t]{7cm} est la fonction linéaire de coefficient $1,025$.
+    \end{minipage}}
+ }
+
+ \AQquestion[br=1]{On note $V(x)$ le volume d'un cylindre de rayon $x$ et de hauteur 2 cm. La fonction $V$\ldots}
+  {%
+   {\begin{minipage}[t]{7cm} n'est pas une fonction linéaire, \end{minipage}},
+   {\begin{minipage}[t]{7cm} est la fonction linéaire de coefficient 4,\end{minipage}},
+   {\begin{minipage}[t]{7cm} est la fonction linéaire de coefficient $4\pi$.
+    \end{minipage}}
+ }
+
+ \AQquestion[br=2]{Dans un repère, la représentation graphique d'une fonction linéaire\ldots}
+  {%
+   {\begin{minipage}[t]{8cm} est une droite quelconque, \end{minipage}},
+   {\begin{minipage}[t]{8cm} est une droite qui passe par l'origine du repère,\end{minipage}},
+   {\begin{minipage}[t]{7cm} est un segment de droite.
+    \end{minipage}}
+ }
+
+ \AQquestion[br=1]{Dans un repère, la représentation graphique de la fonction linéaire de coefficient $a$ passe le point de coordonnées\ldots}
+  {%
+   {$(1;a)$},
+    {$(a;1)$},
+    {$(a;a)$}
+ }
+
+
+
+ \AQquestion[br=3]{Cette droite représente une fonction 
+ \hspace*{1cm}\hbox{\raise -1.3cm \hbox {\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=5mm,y=5mm,scale=.7]
+\draw [color={gray!40},dash pattern=on 1pt off 1pt, xstep=5mm,ystep=5mm] (-2.5,-2.5) grid (2.5,2.5);
+\draw[->,color=black] (-2.5,0) -- (2.5,0);
+\foreach \x in {-1,1}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0,-2.5) -- (0,2.5);
+\foreach \y in {-1,1}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\draw[color=black] (2pt,-7pt) node[left] {\footnotesize $0$};
+\draw [red] (-2,2) -- (2,-2) ; 
+\end{tikzpicture}}}\\
+ \vspace*{-1.1cm} linéaire de coefficient\ldots, \\
+ }
+  {%
+   {$a>0$},
+    {$a=0$},
+    {$a<0$}
+ }
+ 
+  \AQquestion[br=2]{Par la fonction ci-dessus, limage de -2\ldots}{%
+   {se lit sur l'zxe des abscisses,},
+    {se lit sur l'zxe des ordonnées,},
+    {ne peut pas se lire.}
+ }
+ 
+  
+  \AQquestion[br=2]{On dessine un rectangle $ABCD$ en diminuant de 20\% la longueur de chaque côté.\\
+  Le dessin obtenu est une réduction de $ABCD$ dans un rapport\ldots}{%
+   {0,2},
+    {0,8},
+    {1,2.}
+ }
+ 
+  
+  \AQquestion[br=2]{On agrandit un prisme droit dans le rapport $\sqrt{}3$.\\
+Son aire latérale est alors\ldots}{%
+   {multipliée par $\sqrt{}3$},
+    {multipliée par 3},
+    {divisée par 3}
+ }
+
+  
+  \AQquestion[br=3]{On réduit un cylindre  dans le rapport $\dfrac{1}{4}$.\\
+Son volume est alors multiplié par\ldots}{%
+   {$\dfrac{1}{4}$},
+   {$\dfrac{1}{16}$},
+   {$\dfrac{1}{64}$}
+ }
+    
+  
+  \AQquestion[br=2]{Le débit d'un fleuve est de 24 000 m$^3$.\\
+Ce débit est exprimé\ldots}{%
+   {en $m^3\times min$}, 
+   {en $m^3/ min$},
+   {en $min/m^3$}
+ }
+        
+\end{alterqcm}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

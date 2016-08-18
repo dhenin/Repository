@@ -1,0 +1,121 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-2010-utf8.ltx}
+    
+
+    \begin{document}
+\fi
+
+\begin{alterqcm}[lq=10cm]
+
+ \AQquestion[br=2]{Les vecteurs $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont égaux sur la figure\ldots}{%
+{
+\begin{tikzpicture}[scale=.5,rotate=-95]
+\begin{tiny}
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](-60:-4){B}
+\tkzDefShiftPoint[B](90:2){C}
+\tkzDefShiftPoint[A](90:2){D}
+\draw [->] (A) -- (B) ; \draw [->] (C) -- (D) ; 
+\tkzLabelPoints[left,font=\fontsize{8}{10}\selectfont](A) \tkzLabelPoints[right,font=\fontsize{8}{10}\selectfont](B) 
+\tkzLabelPoints[right,font=\fontsize{8}{10}\selectfont](C) \tkzLabelPoints[left,font=\fontsize{8}{10}\selectfont](D) 
+\end{tiny}
+\end{tikzpicture}
+},
+ {\begin{tikzpicture}[scale=.5,rotate=-95]
+\begin{tiny}
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](60:-4){B}
+\tkzDefShiftPoint[B](95:8){D}
+\tkzDefShiftPoint[A](85:1){C}
+\draw [->] (A) -- (B) ; \draw [->] (C) -- (D) ; 
+\tkzLabelPoints[below,font=\fontsize{8}{10}\selectfont](A) \tkzLabelPoints[above left,font=\fontsize{8}{10}\selectfont](B) 
+\tkzLabelPoints[below,font=\fontsize{8}{10}\selectfont](C) \tkzLabelPoints[above right,font=\fontsize{8}{10}\selectfont](D) 
+\end{tiny}
+\end{tikzpicture}},
+ {\begin{tikzpicture}[scale=.5,rotate=40]
+\begin{tiny}
+\tkzDefPoint(0,0){A}
+\tkzDefShiftPoint[A](-60:-4){B}
+\tkzDefShiftPoint[B](90:-2){C}
+\tkzDefShiftPoint[A](90:-2){D}
+\draw [->] (B) -- (A) ; \draw [->] (C) -- (D) ; 
+\tkzLabelPoints[right,font=\fontsize{8}{10}\selectfont](A) \tkzLabelPoints[left,font=\fontsize{8}{10}\selectfont](B) 
+\tkzLabelPoints[left,font=\fontsize{8}{10}\selectfont](C) \tkzLabelPoints[right,font=\fontsize{8}{10}\selectfont](D) 
+\end{tiny}
+\end{tikzpicture}}
+ }
+ 
+ \AQquestion[br=2]{Si $\overrightarrow{AM} = \overrightarrow{EK}$, alors\ldots}{%
+ {$AMEK$ est parallèlogramme},
+ {$AMKE$ est parallèlogramme},
+ {$KEMA$ est parallèlogramme}
+ }
+
+ \AQquestion[br=2]{Si $MNPQ$ est un parallélogramme, alors\ldots}{%
+ {$\overrightarrow{MP} = \overrightarrow{NQ}$},
+ {$\overrightarrow{MN} = \overrightarrow{PQ}$},
+ {$\overrightarrow{MQ} = \overrightarrow{NP}$}
+ }
+ 
+ 
+ \AQquestion[br=2]{Si $N$ est le symétrique de $M$ par rapport à $A$, alors\ldots}{%
+ {$\overrightarrow{AM} = \overrightarrow{AN}$},
+ {$\overrightarrow{MA} = \overrightarrow{AN}$},
+ {$\overrightarrow{MA} = \overrightarrow{NA}$}
+ }
+   
+
+ \AQquestion[br=2]{Pour démontrer que $I$ st le milieu de $[AB]$, il suffit de démontrer  que\ldots}{%
+ {$AI = IB$},
+ {$AB = \dfrac{1}{2} AB$},
+ {$\overrightarrow{AI} = \overrightarrow{IB}$}
+ }
+   
+   
+ \AQquestion[br=2]{D'après la relation de {\sc Chasles}\ldots}{%
+ {$\overrightarrow{MN} - \overrightarrow{NA} = \overrightarrow{MA}$},
+ {$\overrightarrow{AM} + \overrightarrow{AN} = \overrightarrow{MN}$},
+ {$\overrightarrow{MN} - \overrightarrow{AN} = \overrightarrow{MA}$}
+ }
+      
+   
+ \AQquestion[br=2]{$ABCD$ est un parallélogramme ; donc\ldots}{%
+ {$\overrightarrow{BA} - \overrightarrow{BD} = \overrightarrow{BC}$},
+ {$\overrightarrow{AB} + \overrightarrow{AD} = \overrightarrow{BD}$},
+ {$\overrightarrow{AB} - \overrightarrow{AD} = \overrightarrow{AC}$}
+ }
+    
+ \AQquestion[br=2]{Sur la figure ci-dessus, $ABCD$ est un carré de centre $I$.\\
+ $\overrightarrow{CD} - \overrightarrow{AI}$ n'est pas égal à\ldots\\
+\hspace*{3cm}\begin{tikzpicture}[scale=.5]
+\tkzDefPoint(0,0){A}
+\tkzDefPoint(4,0){B}
+\tkzDefMidPoint(A,C)\tkzGetPoint{I}
+\tkzDefSquare(A,B)\tkzGetPoints{C}{D}
+\tkzDrawSquare(A,B) \tkzDrawSegments(A,C B,D)
+\tkzLabelPoints[left,font=\fontsize{8}{10}\selectfont](A) \tkzLabelPoints[right,font=\fontsize{8}{10}\selectfont](B)
+\tkzLabelPoints[right,font=\fontsize{8}{10}\selectfont](C) \tkzLabelPoints[left,font=\fontsize{8}{10}\selectfont](D)
+ \tkzLabelPoints[above,font=\fontsize{8}{10}\selectfont](I)
+\end{tikzpicture}
+}{%
+ {$\overrightarrow{BI}$},
+ {$\overrightarrow{IC}$},
+ {$\overrightarrow{ID}$}
+ }
+
+ \AQquestion[br=2]{La composée de la symétrie de centre $E$ suivie de la symétrie de centre $F$ est\ldots}{%
+ {\begin{minipage}[t]{6cm}
+   La symétrie ayant pour centre le milieu du segment $[EF]$
+\end{minipage}},
+ {La symétrie axiale d'axe $(EF)$},
+ {La translation de vecteur $2\overrightarrow{EF}$}
+ }
+    
+\end{alterqcm}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

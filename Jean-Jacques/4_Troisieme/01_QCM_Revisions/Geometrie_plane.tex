@@ -1,0 +1,112 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-2010-utf8.ltx}   
+    \begin{document}
+\fi
+
+\begin{alterqcm}[lq=10cm]
+
+\AQquestion[br=2]{$ABC$ est le triangle équilatéral ci-dessous.\\
+\hspace*{3cm}
+\begin{tikzpicture}
+\tkzDefPoint(0,0){A}
+\tkzDefPoint(2,0){B}
+\tkzDefTriangle[equilateral](A,B)
+\tkzGetPoint{C}
+\tkzDrawPolygon(A,B,C)
+\tkzLabelPoints[below left,font=\scriptsize](A)
+\tkzLabelPoints[below right,font=\scriptsize](B)
+\tkzLabelPoints[above,font=\scriptsize](C)
+\end{tikzpicture}}
+{%
+{\begin{minipage}[t]{6cm} $A$ ne peut pas avoir pour image C par une rotation de centre $B$ \end{minipage}},
+{\begin{minipage}[t]{6cm} $A$ a pour image C par une rotation de centre $B$ et d'angle $60$\textdegree dans le sens contraire à celui des aiguilles d'une montre \end{minipage}},
+{\begin{minipage}[t]{6cm} $A$ a pour image C par une rotation de centre $B$ et d'angle $60$\textdegree dans le sens  des aiguilles d'une montre \end{minipage}}
+}
+ 
+  \AQquestion[br=2]{$ABC$ est un triangle tel que : $AB = 5 cm$, $AC=3cm$ et $\overbrace{BAC}=30$\textdegree. $A'$, $B'$, $C'$ sont les images respectives de $A$, $B$, $C$ par une rotation d'angle de $80$\textdegree. Alors\ldots}{%
+ {$A'B'=5cm$. $A'C'=3cm$ et $\overbrace{B'A'C'}=110$\textdegree },
+ {$A'B'=10cm$. $A'C'=6cm$ et $\overbrace{B'A'C'}=50$\textdegree },
+ {$A'B'=5cm$. $A'C'=3cm$ et $\overbrace{B'A'C'}=30$\textdegree }
+ }
+
+ 
+  \AQquestion[br=2]{Pour construire l'image d'un segment $[AB]$ par une rotation, il suffit de construire\ldots}{%
+ {les images de deux points quelconque de $AB$},
+ {le images de $A$ et $B$},
+ {l'image du milieu de $[AB]$}
+ }
+
+
+\AQquestion[br=2]{$A,B,M,N,C$ sont les points du cercle ci-dessous de centre O. Alors un autre angle de mesure $30$\textdegree est\ldots\\
+\hspace*{3cm}
+\begin{tikzpicture}[scale=.5]
+\tkzInit[ymin=-2.25,ymax=2.25,xmin=-2.25,xmax=2.25]
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(2,0){X} 
+\tkzDefPointBy[rotation=center O angle   0](X)
+\tkzDefPointBy[rotation=center O angle 110](X)   \tkzGetPoint{A}
+\tkzDefPointBy[rotation=center O angle 190](X)   \tkzGetPoint{B} 
+\tkzDefPointBy[rotation=center O angle -90](X)   \tkzGetPoint{C} 
+\tkzDefPointBy[rotation=center O angle  30](X)   \tkzGetPoint{M}          
+\tkzDefPointBy[rotation=center O angle -25](X)   \tkzGetPoint{N}
+\tkzGetPoint{P}      \tkzDefPointBy[rotation=center O angle 125](X)      
+%\tkzGetPoint{P'}     \tkzLabelCircle[above=4pt,font=\scriptsize](O,N)(120){$\mathcal{C}$}
+\tkzDrawCircle(O,X)
+%\tkzDrawSegment[dashed](O,P)
+%\tkzDrawPoints(A,O,N, M,P)\tkzLabelPoints[right,font=\scriptsize](A,N,M,P)
+\draw (N) -- (M) -- (B) -- (A) -- (C) -- (M) ;
+\draw (C) -- (O) -- (B) ; 
+%\tkzDrawPoints(O,A,B,C,M,N)
+\tkzDrawPoints[shape=cross out](O)
+\tkzLabelPoints[above,font=\scriptsize](A) \tkzLabelPoints[below left,font=\scriptsize](B)
+\tkzLabelPoints[below,font=\scriptsize](C) \tkzLabelPoints[above right,font=\scriptsize](M)
+\tkzLabelPoints[below right,font=\scriptsize](N)
+\tkzLabelPoints[right,font=\tiny](O)
+%
+% \tkzFillCircle[color=blue!20,opacity=.4](O,M)
+% \tkzLabelCircle[R,draw,fill=Gold, text width=2cm,text centered](O,3 cm)(-60) {Le cercle\\ $\mathcal{C}$}
+%
+\end{tikzpicture}
+}
+{%
+{$\overbrace{CMN}$},
+{$\overbrace{BOC}$},
+{$\overbrace{BMC}$}
+}
+ 
+  \AQquestion[br=2]{Sur la figure ci-dessus, l'angle  $\overbrace{BOC}$ \ldots}{%
+ {15\textdegree},
+ {30\textdegree},
+ {60\textdegree}
+ }
+
+ 
+\AQquestion[br=2]{Un décagone régulier est inscrit dans un cercle de centre $O$\\
+On passe d'un sommet au sommet suivant par une rotation de centre $O$ est d'angle\ldots}{%
+{36\textdegree},
+{72\textdegree},
+{108\textdegree}
+}
+ 
+\AQquestion[br=2]{$A,B,C$ sont trois sommets consécutifs d'un pentagone régulier. La mesure de l'angle $\overbrace{ABC}$ est\ldots}{%
+{54\textdegree},
+{72\textdegree},
+{108\textdegree}
+}
+    
+ 
+\AQquestion[br=2]{Un hexagone régulier est inscrit dans un cercle de rayon 5cm.\\
+Son côté mesure en cm\ldots}{%
+{5},
+{$\cos$ 30\textdegree},
+{$5 \sin 60$\textdegree}
+}
+
+\end{alterqcm}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

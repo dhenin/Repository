@@ -1,0 +1,124 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-2010-utf8.ltx}
+    \begin{document}
+\fi
+
+\begin{alterqcm}[lq=8cm %,correction]
+]
+ \AQquestion[br=2]{$f(x)$ est l'image d'un nombre $x$ par une fonction affine, lorsque\ldots}{%
+ {$f(x)=ax^2 + b$},
+ {$f(x)=ax + b$},
+ {$f(x)=a\dfrac{a}{x} + b$}
+ }
+ 
+ \AQquestion[br=3]{$f$ est la fonction affine $\quad x\longmapsto -2x +1$. \\
+ Alors, l'image de $\dfrac{1}{2}$ est\ldots}{%
+ {$\dfrac{1}{4}$},
+ {5},
+ {0}
+ }
+  
+
+ \AQquestion[br=2]{Dans un repère, la droite représentant la fonction affine $\quad x\longmapsto -2x +1$\ldots}
+  {%
+   {\begin{minipage}[t]{8cm} passe par l'origine du repère et le point $A(1;-2)$, \end{minipage}},
+   {\begin{minipage}[t]{8cm}  passe par les deux points $B(0;1)$ et $C(-1;3)$ 
+    \end{minipage}},
+   {\begin{minipage}[t]{8cm}  passe par les deux points $A(1;-2)$ et $B(0;1)$ 
+    \end{minipage}}
+ }
+
+
+ \AQquestion[br=3]{~}
+  {%
+   {\begin{minipage}[t]{9cm}  Aucune fonction linéaire n'est une fonction affine. \end{minipage}},
+   {\begin{minipage}[t]{9cm}  Certaines fonctions linéaires sont des fonctions affines. 
+    \end{minipage}},
+   {\begin{minipage}[t]{9cm}  Toute fonction linéaire est une fonction affine.
+    \end{minipage}}
+ }
+ 
+ \AQquestion[br=1]{Dans un repère, la droite de coefficient directeur -1 et d'ordonnée à l'origine 5 a pour équation\ldots}{%
+ { $ y=-x+5$},
+ {$y=5x-1$},
+ {$ y=x-5$}
+ }
+ 
+ \AQquestion[br=0]{Une droite de coefficient -1 est tracée sur la figure\ldots}{%
+{\raisebox{-1.5cm}{
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=5mm,y=5mm,scale=.7]
+\draw [color={gray!40},dash pattern=on 1pt off 1pt, xstep=5mm,ystep=5mm] (-1.1,-1.1) grid (2.1,4.1);
+\draw[->,color=black] (-1.1,0) -- (2.1,0);
+\foreach \x in {-1,1}
+     \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0,-1.1) -- (0,4.1);
+\foreach \y in {1}
+     \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\draw[color=black] (2pt,-7pt) node[left] {\footnotesize $0$};
+\draw[color=black] (0,1) node[left] {\footnotesize $1$};
+\draw[color=black] (1,0) node[below] {\footnotesize $1$};
+\draw [red] (-1,1) -- (2,4) ; 
+\end{tikzpicture}}
+}, 
+ {\raisebox{-1.5cm}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=5mm,y=5mm,scale=.7]
+\draw [color={gray!40},dash pattern=on 1pt off 1pt, xstep=5mm,ystep=5mm] (-1.1,-3.1) grid (2.1,2.1);
+\draw[->,color=black] (-1.1,0) -- (2.1,0);
+\foreach \x in {-1,1}
+     \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0,-3.1) -- (0,2.1);
+\foreach \y in {1}
+     \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\draw[color=black] (2pt,-7pt) node[left] {\footnotesize $0$};
+\draw[color=black] (0,1) node[left] {\footnotesize $1$};
+\draw[color=black] (1,0) node[below] {\footnotesize $1$};
+\draw [red] (-1,1) -- (1,-3) ; 
+\end{tikzpicture}
+}}, 
+ {\raisebox{-1.5cm}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=5mm,y=5mm,scale=.7]
+\draw [color={gray!40},dash pattern=on 1pt off 1pt, xstep=5mm,ystep=5mm] (-1.1,-1.1) grid (3.1,4.1);
+\draw[->,color=black] (-1.1,0) -- (3.1,0);
+\foreach \x in {-1,1}
+     \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+\draw[->,color=black] (0,-1.1) -- (0,4.1);
+\foreach \y in {1}
+     \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\draw[color=black] (2pt,-7pt) node[left] {\footnotesize $0$};
+\draw[color=black] (0,1) node[left] {\footnotesize $1$};
+\draw[color=black] (1,0) node[below] {\footnotesize $1$};
+\draw [red] (-1,3) -- (3,-1) ; 
+\end{tikzpicture}}
+} 
+}  
+
+ 
+ \AQquestion[br=3]{$f$ est la fonction affine $x\longmapsto 3x -1$.\\
+ Lorsque $x$ augmente de 2, $f(x)$\ldots}{%
+ {augmente de 2},
+ {augmente de 6},
+ {diminue de 6}
+ }
+ 
+ 
+ 
+ \AQquestion[br=2]{$f$ est la fonction affine $x\longmapsto 2x + 5$.\\
+ Lorsque $x$ augmente de 2, $f(x)$\ldots}{%
+ {augmente de 2},
+ {augmente de 6},
+ {diminue de 6}
+ }
+ 
+ 
+ \AQquestion[br=2]{$f$ est une fonction affine.\\
+ On sait que $f(3) = 4$ et $f(1)=10$\\
+ Le coefficient directeur de la droite représentant $f$ dans le repère est\ldots}{%
+ {$-3$},
+ {$3$},
+ {$ -\dfrac{1}{3}$}
+ }  
+\end{alterqcm}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
