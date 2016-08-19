@@ -4,9 +4,11 @@
     \begin{document}
 \fi
 
-\begin{alterqcm}[lq=8cm]
-
-
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=10cm,correction]
+\else
+    \begin{alterqcm}[lq=10cm]
+\fi
 
  \AQquestion[br=2]{On ne peut calculer la racine carrée d'un nombre $a$ que si\ldots}
   {%

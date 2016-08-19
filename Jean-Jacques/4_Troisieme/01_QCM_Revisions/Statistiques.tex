@@ -5,16 +5,21 @@
     \begin{document}
 \fi
 
-\begin{alterqcm}[lq=10cm]
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
+\fi
 
- \AQquestion[br=2]{Dans une classe, 12 élèves étudient l'anglais et 13 n'étudient pas l'anglais. La fréquence des élèves de cette classe qui étudient l'anglais est,\ldots}{%
+
+ \AQquestion[br=3]{Dans une classe, 12 élèves étudient l'anglais et 13 n'étudient pas l'anglais. La fréquence des élèves de cette classe qui étudient l'anglais est,\ldots}{%
  {$\dfrac{12}{13}$},
  {$\dfrac{25}{12}$},
  {$\dfrac{12}{25}$}
  }
  
 
- \AQquestion[br=2]{Voici les résultats à un devoir de mathématiques dans une classe de $3^{e}$.\\ \medskip 
+ \AQquestion[br=1]{Voici les résultats à un devoir de mathématiques dans une classe de $3^{e}$.\\ \medskip 
  \centerline{\begin{tabular}{|c|c|c|c|c|}
 \hline 
  Note     &  8  & 10  & 12 & 15 \\
@@ -43,14 +48,14 @@ Pour calculer la moyenne de ces notes, on effectue\ldots}{%
  {6}
  }
    
- \AQquestion[br=2]{La médiane de la série \\
+ \AQquestion[br=3]{La médiane de la série \\
  $2 - 4 - 5 - 6 - 7 - 8 $ est \ldots}{%
  {4},
  {6},
  {5,5}
  }
   
- \AQquestion[br=2]{Voici la répartition des âges des élèves d'une classe de $3^{e}$.\\ \medskip 
+ \AQquestion[br=3]{Voici la répartition des âges des élèves d'une classe de $3^{e}$.\\ \medskip 
  \centerline{\begin{tabular}{|c|c|c|c|}
 \hline 
  Âge $a$    &  $a < 14$   & $14 \leqslant a < 16 $ & $ a \geqslant 16 $ \\
@@ -65,7 +70,7 @@ Effectif  &  2  &  15   & 8  \\
     \end{minipage}}
  }
  
- \AQquestion[br=2]{L'étendue d'une série statistique est\ldots}
+ \AQquestion[br=3]{L'étendue d'une série statistique est\ldots}
   {%
    {\begin{minipage}[t]{6cm} la plus grande valeur du caractère \end{minipage}},
    {\begin{minipage}[t]{6cm}la plus petite valeur du caractère 

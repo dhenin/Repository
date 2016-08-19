@@ -6,24 +6,14 @@
     \begin{document}
 \fi
 
-\iffalse
-
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1]
-\begin{tiny}
-    \tkzDefPoint[label=below left:A](0,0){A}
-    \tkzDefPoint [label=below right:B](1.5,0){B}
-    \tkzDefPoint[label=above:C](0,2){C}
-\draw [black,fill=yellow!20] (A) --  (B) -- (C) -- cycle  ;
-\tkzMarkAngle[color=red, size=.6](C,B,A)
-\tkzLabelAngle[pos=.8,color=red,font=\tiny](A,B,C){40\textdegree}
-\tkzMarkRightAngle[color=red](C,A,B)
-\tkzLabelSegments[color=red,below=4pt](A,B){$3cm$}
-\end{tiny}
-\end{tikzpicture}
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
 \fi
 
-\begin{alterqcm}[lq=11cm]
-\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+
+\AQquestion[br=3]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
                             Dans la situation ci-contre, \\
                             pour calculer $AC$, on utilise\ldots
                                  \end{minipage}}                           
@@ -52,7 +42,7 @@
  {$\sin(\widehat{B})$}, 
  {$\tan(\widehat{B})$}
 } 
-\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+\AQquestion[br=3]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
                             Dans la situation ci-contre, \\
                             le théorême de {\sc Thalès} permet d'écrire\ldots
                                  \end{minipage}}                           
@@ -122,7 +112,7 @@
 } 
 
 
- \AQquestion[br=2]{$ABC$ est un triangle tel que $AB=3cm$ et $AC=4cm$.\\
+ \AQquestion[br=1]{$ABC$ est un triangle tel que $AB=3cm$ et $AC=4cm$.\\
  $M$ est un point de $(AB)$ et $N$, un point de $(AC)$, tel que : 
  $AM=1,5cm$ et $AN=2cm$\\
  Pour pouvoir en déduire que : $(MN)/sslash (BC)$, il faut savoir aussi que\ldots}
@@ -134,7 +124,7 @@
     \end{minipage}}
  }
  
- \AQquestion[br=2]{Avec les données ci-dessous\ldots\\
+ \AQquestion[br=1]{Avec les données ci-dessous\ldots\\
 \begin{tikzpicture}[scale=.5]
 \tkzDefPoint(0,0){A}
 \tkzDefShiftPoint[A](0:4){B}

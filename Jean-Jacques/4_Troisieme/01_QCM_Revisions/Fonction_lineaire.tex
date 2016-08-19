@@ -6,7 +6,13 @@
 
 \thispagestyle{empty}
 \vspace*{-2mm}
-\begin{alterqcm}[lq=10cm]
+
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=10cm,correction]
+\else
+    \begin{alterqcm}[lq=10cm]
+\fi
+
 
  \AQquestion[br=3]{Pour calculer l'image d'un nombre $x$ par la fonction linéaire de coefficient 4\ldots}{%
  {on additionne 4 à $x$},

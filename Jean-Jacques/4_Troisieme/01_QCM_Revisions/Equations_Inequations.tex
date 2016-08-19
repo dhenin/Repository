@@ -5,8 +5,13 @@
     \begin{document}
 \fi
 
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=10cm,correction]
+\else
+    \begin{alterqcm}[lq=10cm]
+\fi
 
-\begin{alterqcm}[lq=10cm]
+
 
  \AQquestion[br=2]{Pour résoudre l'équation $\qquad 1-3x=8x+5$,\\
  on peut se ramener à la résolution de l'équation\ldots}{%

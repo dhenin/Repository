@@ -4,7 +4,12 @@
     \begin{document}
 \fi
 
-\begin{alterqcm}[lq=10cm]
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
+\fi
+
 
  \AQquestion[br=2]{Le vecteur représenté ci-dessous a pour coordonnées\ldots\\
  \hspace*{3cm}\begin{tikzpicture}[scale=.3]
@@ -22,7 +27,7 @@
 {$(4 ; -7)$}
  }
  
-  \AQquestion[br=2]{Dans un repère, les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ ont pour coordonnées respectives $\left( \begin{matrix}
+  \AQquestion[br=3]{Dans un repère, les vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$ ont pour coordonnées respectives $\left( \begin{matrix}
 a\\b
 \end{matrix}\right)$ et $\left( \begin{matrix}
 c\\d
@@ -42,7 +47,7 @@ c\\d
  }
 
 
- \AQquestion[br=2]{Dans un repère, on considère les points $A(2;-3)$ et $B(-1;4)$. \\
+ \AQquestion[br=1]{Dans un repère, on considère les points $A(2;-3)$ et $B(-1;4)$. \\
  Les coordonnées $(x_i ; y_i)$ du milieu $I$ de $[AB]$ sont alors\ldots}{%
  {$x_i =\dfrac{2+(-1)}{2}$ et $y_i =\dfrac{-3+4}{2}$ },
  {$x_i =\dfrac{2-(-1)}{2}$ et $y_i =\dfrac{-3-4}{2}$ },
@@ -50,7 +55,7 @@ c\\d
  }
 
 
- \AQquestion[br=2]{Dans un repère, on considère les points $A(2;-3)$ et $B(-1;4)$. \\
+ \AQquestion[br=3]{Dans un repère, on considère les points $A(2;-3)$ et $B(-1;4)$. \\
  La distance $AB$ est  alors\ldots}{%
  {$ (2 - (-1))^2 + (-3-4)^2$},
  {$ (2 - (-1)) + (-3-4)$},

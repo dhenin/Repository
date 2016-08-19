@@ -4,8 +4,13 @@
     \begin{document}
 \fi
 
-\begin{alterqcm}[lq=8cm %,correction]
-]
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
+\fi
+
+
  \AQquestion[br=2]{$f(x)$ est l'image d'un nombre $x$ par une fonction affine, lorsque\ldots}{%
  {$f(x)=ax^2 + b$},
  {$f(x)=ax + b$},
@@ -45,7 +50,7 @@
  {$ y=x-5$}
  }
  
- \AQquestion[br=0]{Une droite de coefficient -1 est tracée sur la figure\ldots}{%
+ \AQquestion[br=3]{Une droite de coefficient -1 est tracée sur la figure\ldots}{%
 {\raisebox{-1.5cm}{
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=5mm,y=5mm,scale=.7]
 \draw [color={gray!40},dash pattern=on 1pt off 1pt, xstep=5mm,ystep=5mm] (-1.1,-1.1) grid (2.1,4.1);
@@ -92,7 +97,7 @@
 }  
 
  
- \AQquestion[br=3]{$f$ est la fonction affine $x\longmapsto 3x -1$.\\
+ \AQquestion[br=2]{$f$ est la fonction affine $x\longmapsto 3x -1$.\\
  Lorsque $x$ augmente de 2, $f(x)$\ldots}{%
  {augmente de 2},
  {augmente de 6},
@@ -101,7 +106,7 @@
  
  
  
- \AQquestion[br=2]{$f$ est la fonction affine $x\longmapsto 2x + 5$.\\
+ \AQquestion[br=3]{$f$ est la fonction affine $x\longmapsto 2x + 5$.\\
  Lorsque $x$ augmente de 2, $f(x)$\ldots}{%
  {augmente de 2},
  {augmente de 6},
@@ -109,7 +114,7 @@
  }
  
  
- \AQquestion[br=2]{$f$ est une fonction affine.\\
+ \AQquestion[br=1]{$f$ est une fonction affine.\\
  On sait que $f(3) = 4$ et $f(1)=10$\\
  Le coefficient directeur de la droite représentant $f$ dans le repère est\ldots}{%
  {$-3$},

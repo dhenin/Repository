@@ -4,7 +4,11 @@
     \begin{document}
 \fi
 
-\begin{alterqcm}[lq=11cm]
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
+\fi
 
  \AQquestion[br=2]{Une expression développée est\ldots}{%
  {$(x-1)(x+2)$},

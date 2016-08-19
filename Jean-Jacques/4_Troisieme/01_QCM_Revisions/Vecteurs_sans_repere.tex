@@ -6,9 +6,14 @@
     \begin{document}
 \fi
 
-\begin{alterqcm}[lq=10cm]
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
+\fi
 
- \AQquestion[br=2]{Les vecteurs $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont égaux sur la figure\ldots}{%
+
+ \AQquestion[br=3]{Les vecteurs $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont égaux sur la figure\ldots}{%
 {
 \begin{tikzpicture}[scale=.5,rotate=-95]
 \begin{tiny}
@@ -52,7 +57,7 @@
  {$KEMA$ est parallèlogramme}
  }
 
- \AQquestion[br=2]{Si $MNPQ$ est un parallélogramme, alors\ldots}{%
+ \AQquestion[br=3]{Si $MNPQ$ est un parallélogramme, alors\ldots}{%
  {$\overrightarrow{MP} = \overrightarrow{NQ}$},
  {$\overrightarrow{MN} = \overrightarrow{PQ}$},
  {$\overrightarrow{MQ} = \overrightarrow{NP}$}
@@ -66,21 +71,21 @@
  }
    
 
- \AQquestion[br=2]{Pour démontrer que $I$ st le milieu de $[AB]$, il suffit de démontrer  que\ldots}{%
+ \AQquestion[br=3]{Pour démontrer que $I$ st le milieu de $[AB]$, il suffit de démontrer  que\ldots}{%
  {$AI = IB$},
  {$AB = \dfrac{1}{2} AB$},
  {$\overrightarrow{AI} = \overrightarrow{IB}$}
  }
    
    
- \AQquestion[br=2]{D'après la relation de {\sc Chasles}\ldots}{%
+ \AQquestion[br=1]{D'après la relation de {\sc Chasles}\ldots}{%
  {$\overrightarrow{MN} - \overrightarrow{NA} = \overrightarrow{MA}$},
  {$\overrightarrow{AM} + \overrightarrow{AN} = \overrightarrow{MN}$},
  {$\overrightarrow{MN} - \overrightarrow{AN} = \overrightarrow{MA}$}
  }
       
    
- \AQquestion[br=2]{$ABCD$ est un parallélogramme ; donc\ldots}{%
+ \AQquestion[br=3]{$ABCD$ est un parallélogramme ; donc\ldots}{%
  {$\overrightarrow{BA} - \overrightarrow{BD} = \overrightarrow{BC}$},
  {$\overrightarrow{AB} + \overrightarrow{AD} = \overrightarrow{BD}$},
  {$\overrightarrow{AB} - \overrightarrow{AD} = \overrightarrow{AC}$}
@@ -104,7 +109,7 @@
  {$\overrightarrow{ID}$}
  }
 
- \AQquestion[br=2]{La composée de la symétrie de centre $E$ suivie de la symétrie de centre $F$ est\ldots}{%
+ \AQquestion[br=3]{La composée de la symétrie de centre $E$ suivie de la symétrie de centre $F$ est\ldots}{%
  {\begin{minipage}[t]{6cm}
    La symétrie ayant pour centre le milieu du segment $[EF]$
 \end{minipage}},

@@ -1,29 +1,168 @@
-\input{./preambule-sacha-utf8.ltx}
-\usepackage{alterqcm}
-\usetkzobj{all} 
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    \usetkzobj{all} 
+    \usepackage{alterqcm}
     \begin{document}
+\fi
+
+\vspace*{-9mm}
+
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
+\fi
 
 
-\begin{alterqcm}[lq=10cm]
+ \AQquestion[br=3]{$ABC$ est un triangle rectangle en $C$. $\cos \widehat{B}$ est égal à\ldots}{%
+ {$\dfrac{AC}{AB}$},
+  {$\dfrac{BA}{BC}$},
+  {$\dfrac{BC}{BA}$}
+ }
+ 
+ \AQquestion[br=1]{$MNP$ est un triangle rectangle en $P$. $\sin \widehat{M}$ est égal à\ldots}{%
+ {$\dfrac{NP}{NM}$},
+  {$\dfrac{MN}{MP}$},
+  {$\dfrac{MP}{MN}$}
+ }
+ 
+ \AQquestion[br=3]{$EFG$ est un triangle rectangle en $F$. $\tan \widehat{G}$ est égal à\ldots}{%
+ {$\dfrac{FG}{FE}$},
+  {$\dfrac{EF}{EG}$},
+  {$\dfrac{FE}{FG}$}
+ }
 
-\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{6cm}
+
+
+\AQquestion[br=2]{
+\setbox2=\hbox{\begin{minipage}[t]{6cm}
                     $M$ est le point du quart de cercle \\
                 ci-contre de centre l'origine du repère \\
                 et de rayon 1.\\
                 Les coordonnées de $M$ sont\ldots
-\end{minipage}}                           
-                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
-                                  \input{Usage_sin.tex}
-                                 \end{minipage}
-                                  }   
-\begin{tabular}{p{3cm}b{6cm}}
-\box3 & \box2\\
-\end{tabular}
+\end{minipage}} 
+\setbox3=\hbox{                  
+\begin{minipage}[b]{4cm}  
+ \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1,font=\tiny]
+\draw [color={gray!40},dash pattern=on 1pt off 1pt, xstep=5mm,ystep=5mm] (-0.1,-0.1) grid (1.5,1.5);
+\draw[->] (0,0) -- (1.6,0);
+\foreach \x in {1}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt)  node[below] {$\x$};
+\draw[->] (0,-0.1) -- (0,1.6);
+\foreach \y in {1}
+\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt)  node[left] {$\y$}; 
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(1,0){A}
+\tkzDefPoint(0,1){B}
+\tkzDrawSector(O,A)(B)
+\tkzDefPoint (.866,.5){M}
+\tkzLabelPoints[above right,font=\scriptsize](M) 
+\draw (1,0) arc (0:90:1) ;
+\draw (0,0) -- (.866,.5) ; 
+\draw [dashed] (.866,0) -- (.866,.5) -- (0,.5)  ; 
+\tkzMarkAngle[color=red, size=0.4](A,O,M)
+\tkzLabelAngle[pos=.55,color=red](A,O,M){30\textdegree}
+\end{tikzpicture}
+\end{minipage} 
+}                       
+\begin{tabular}{cc} \raisebox{-2cm}{\box3} & \box2\\ \end{tabular}
 }{%
  {$\big(\sin (30$\textdegree$) \; ; \;\cos (30$\textdegree$) \big)$},
  {$\big(\cos (30$\textdegree$) \; ;\; \sin (30$\textdegree$) \big)$},
  {$\big(\sin (30$\textdegree$) \; ; \; \tan (30$\textdegree$) \big)$}
 }
-\end{alterqcm}
 
+ \AQquestion[br=1]{L'arrondi au degré de la mesure de l'angle aigu $\widehat{A}$ tel que $\tan (\widehat{A}) = 0,6$ est\ldots
+ }{%
+ {31\textdegree},
+  {37\textdegree},
+ {53\textdegree}
+ }  
+ 
+\AQquestion[br=2,pq=5mm]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+                            Dans la situation ci-contre,\\
+                            pour calculer $AB$, on utilise\ldots
+                                 \end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1,font=\tiny]
+\tkzDefPoints{0/0/A,
+1/0/B,
+0/2.5/C}
+\tkzLabelPoints[left,font=\tiny](A) 
+\tkzLabelPoints[right,font=\tiny](B)
+\tkzLabelPoints[above,font=\tiny](C) 
+\draw [black,fill=yellow!20] (A) --  (B) -- (C) -- cycle  ;
+\tkzMarkAngle[color=red, size=.8](A,C,B)
+\tkzLabelAngle[pos=1,color=red](A,C,B){25\textdegree}
+\tkzMarkRightAngle[color=red](C,A,B)
+\tkzLabelSegments[color=red,right=4pt,rotate=-60](B,C){$7cm$}
+\end{tikzpicture}
+                                 \end{minipage}
+                                  }   
+\begin{tabular}{m{6cm}m{3.5cm}}
+{\box2} & \box3\\
+\end{tabular}
+}{%
+ {$\cos(\widehat{C})$},
+ {$\sin(\widehat{C})$}, 
+ {$\tan(\widehat{C})$}
+}
+ 
+\AQquestion[br=3,pq=5mm]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+                            Dans la situation ci-contre, \\
+                            pour calculer $AC$, on utilise\ldots
+                                 \end{minipage}}                           
+                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1]
+\begin{tiny}
+\tkzDefPoints{0/0/A,
+1.5/0/B,
+0/2/C}
+\tkzLabelPoints[left,font=\tiny](A) 
+\tkzLabelPoints[right,font=\tiny](B)
+\tkzLabelPoints[above,font=\tiny](C) 
+\draw [black,fill=yellow!20] (A) --  (B) -- (C) -- cycle  ;
+\tkzMarkAngle[color=red, size=.6](C,B,A)
+\tkzLabelAngle[pos=.8,color=red,font=\tiny](A,B,C){40\textdegree}
+\tkzMarkRightAngle[color=red](C,A,B)
+\tkzLabelSegments[color=red,below=4pt](A,B){$3cm$}
+\end{tiny}
+\end{tikzpicture}
+                             \end{minipage}
+                                  }   
+\begin{tabular}{m{6cm}m{3.5cm}}
+{\box2} & \box3\\
+\end{tabular}
+}{%
+ {$\cos(\widehat{B})$},
+ {$\sin(\widehat{B})$}, 
+ {$\tan(\widehat{B})$}
+} 
+
+ 
+ \AQquestion[br=2]{Quelque soit l'angle aigu de mesure $x$, \\
+ la valeur de $\cos^2 x + \sin^2 x$\ldots
+ }{%
+  { dépend de $x$ },
+   { est toujours égale à 1},
+   { est toujours égale à 2}
+}  
+
+
+ 
+ \AQquestion[br=3]{Quelque soit l'angle aigu de mesure $x$, \\
+ la valeur de $\tan x$ est égale à \ldots
+ }{%
+  { $(\sin x)(\cos x)$},
+   {$\dfrac{\cos x}{\sin x}$},
+   {$\dfrac{\sin x}{\cos x}$}
+}  
+
+
+\end{alterqcm}
+\ifdefined\COMPLETE
+\else
     \end{document}
+\fi

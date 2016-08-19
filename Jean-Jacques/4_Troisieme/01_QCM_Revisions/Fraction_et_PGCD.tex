@@ -4,10 +4,13 @@
     \begin{document}
 \fi
 
-\begin{alterqcm}[lq=8cm]
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=10cm,correction]
+\else
+    \begin{alterqcm}[lq=10cm]
+\fi
 
- \AQquestion[br=2
- 1]{$\left(\sqrt{2}\right)^2$, est un nombre \ldots}{%
+ \AQquestion[br=1]{$\left(\sqrt{2}\right)^2$, est un nombre \ldots}{%
  {entier,},
  {décimal non entier},
  {irrationnel}

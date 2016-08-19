@@ -5,9 +5,15 @@
     \begin{document}
 \fi
 
-\begin{alterqcm}[lq=10cm]
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
+\fi
 
-\AQquestion[br=2]{Le système     $ \qquad \left\lbrace \begin{array}{c}
+
+
+\AQquestion[br=3]{Le système     $ \qquad \left\lbrace \begin{array}{c}
 x + y = 5\\
 2x + 3y = 16\\
 \end{array} 
@@ -40,7 +46,7 @@ y = 2x -1\\
 \end{array} $}
  }
 
-\AQquestion[br=2]{Pour lire graphiquement la solution du système \centerline{$ \left\lbrace \begin{array}{c}
+\AQquestion[br=1]{Pour lire graphiquement la solution du système \centerline{$ \left\lbrace \begin{array}{c}
 -x + y = 5\\
 x + 2y = 1\\
 \end{array} 
@@ -50,7 +56,7 @@ x + 2y = 1\\
  {$y=x+5\qquad $ et $\quad y=-2x+2$}
  }
 
-\AQquestion[br=2]{Pour lire graphiquement la solution du système \centerline{$ \left\lbrace \begin{array}{c}
+\AQquestion[br=3]{Pour lire graphiquement la solution du système \centerline{$ \left\lbrace \begin{array}{c}
 -x + y = 5\\
 x + 2y = 1\\
 \end{array} 
