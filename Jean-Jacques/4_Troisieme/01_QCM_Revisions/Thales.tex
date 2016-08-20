@@ -6,6 +6,8 @@
     \begin{document}
 \fi
 
+%    \newcommand{\CORRECTION}
+
 \ifdefined\CORRECTION
     \begin{alterqcm}[lq=11cm,correction]
 \else
@@ -13,11 +15,12 @@
 \fi
 
 
-\AQquestion[br=3]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+\AQquestion[br=3]{\setbox2=\vtop{\hsize=45mm
                             Dans la situation ci-contre, \\
                             pour calculer $AC$, on utilise\ldots
-                                 \end{minipage}}                           
-                   \setbox3=\hbox{\begin{minipage}[b]{5cm}
+}                           
+%
+\setbox3=\vtop{\hsize=50mm
 \begin{tikzpicture}[scale=.5,rotate=-15]
 \tkzDefPoint(0,0){A}
 \tkzDefShiftPoint[A](0:2.2){M}
@@ -32,22 +35,19 @@
 \tkzLabelSegment[below,pos=.5,red](M,B){4}
 \tkzLabelSegment[above,pos=.5,red](A,N){5}
 \end{tikzpicture}
-                                 \end{minipage}
-                                  }   
-\begin{tabular}{b{5cm}p{5cm}}
-\raisebox{25mm}{\box2} & {\box3}\\
-\end{tabular}
+}   
+{\box2} {\raisebox{-18mm}{\box3}}
 }{%
  {$\cos(\widehat{B})$},
  {$\sin(\widehat{B})$}, 
  {$\tan(\widehat{B})$}
 } 
-\AQquestion[br=3]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
+
+\AQquestion[br=3]{\setbox2=\vtop{\hsize=50mm
                             Dans la situation ci-contre, \\
-                            le théorême de {\sc Thalès} permet d'écrire\ldots
-                                 \end{minipage}}                           
-                   \setbox3=\hbox{\begin{minipage}[b]{5cm}
-\begin{tikzpicture}[scale=.4,rotate=-50]
+                            le théorème de {\sc Thalès} permet d'écrire\ldots}                           %                           
+\setbox3=\vtop{\hsize=40mm
+\begin{tikzpicture}[scale=.3,rotate=-40]
 \tkzDefPoint(0,0){O}
 \tkzDefShiftPoint[O](0:-2.2){A}
 \tkzDefShiftPoint[O](30:-3){B}
@@ -57,28 +57,23 @@
 \tkzDrawPoints(A,B,C,D,O)
 \tkzLabelPoints[above right](O) \tkzLabelPoints[left](B) \tkzLabelPoints[right](C)
 \tkzLabelPoints[below](D) \tkzLabelPoints[above](A)
-%\tkzLabelSegment[below,pos=.5,red](A,M){2}
-%\tkzLabelSegment[below,pos=.5,red](M,B){4}
-%\tkzLabelSegment[above,pos=.5,red](A,N){5}
 \end{tikzpicture}
-                                 \end{minipage}
-                                  }   
-\begin{tabular}{p{5cm}b{5cm}}
- {\box3} & \raisebox{25mm}{\box2} \\
-\end{tabular}
+%
+}   
+ {\box2} $\quad$ {\raisebox{-20mm}{\box3} }
 }{%
  {$\dfrac{OA}{OB} = \dfrac{OD}{OC} = \dfrac{AB}{CD}$},
  {$\dfrac{OA}{OC} = \dfrac{OB}{OD} = \dfrac{AB}{CD}$}, 
  {$\dfrac{OA}{OD} = \dfrac{OB}{OC} = \dfrac{AB}{CD}$}
 } 
 
-\AQquestion[br=2]{\setbox2=\hbox{\begin{minipage}[t]{6.5cm}
+\AQquestion[br=2]{\setbox2=\vtop{\hsize=60mm
                            Avec les données de la figure à main levée ci-contre, 
                            on peut affirmer que la longueur de $FM$ est égale à\ldots
-                                 \end{minipage}}                           
-                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
+}                           
+                   \setbox3=\vtop{\hsize=35mm
 \font\pc=cmitt10 \rm
-\begin{tikzpicture}[scale=.4,rotate=10,decoration={random   steps, amplitude=1pt,segment  length=3pt}]
+\begin{tikzpicture}[scale=.4,rotate=7,decoration={random   steps, amplitude=1pt,segment  length=3pt}]
 \begin{tiny}
 \tkzDefPoint(0,0){A}
 \tkzDefShiftPoint[A](0:-2.2){N}
@@ -87,8 +82,6 @@
 \tkzDefShiftPoint[A](0:5){M}
 \draw[decorate,decoration=random steps,segment length=4.5mm] (E) -- (F) -- (M) -- (N) -- cycle ; 
 \tkzDrawPoints(A,E,F, M,N)
-%\tkzLabelPoints[above left](A) \tkzLabelPoints[below right ](E) \tkzLabelPoints[above right](F)
-%\tkzLabelPoints[above](N) \tkzLabelPoints[right](M)
 \draw (A) [above left] node  {\pc A} ;
 \draw (E) [below right ] node  {\pc E} ;
 \draw (F) [above right] node  {\pc F} ;
@@ -100,11 +93,8 @@
 \draw (2,-1.5) node []{ { {\pc (FM)//(EN)}}};
 \end{tiny}
 \end{tikzpicture}
-\end{minipage}
-                                  }   
-\begin{tabular}{p{3.5cm}b{7cm}}
- {\box3} & \raisebox{25mm}{\box2} \\
-\end{tabular}
+}   
+ {\box2} $\quad${\raisebox{-25mm}{\box3}}
 }{%
  {3,3},
  {$\dfrac{10}{3}$}, 
@@ -112,40 +102,37 @@
 } 
 
 
- \AQquestion[br=1]{$ABC$ est un triangle tel que $AB=3cm$ et $AC=4cm$.\\
+ \AQquestion[br=1]{$ABC$ est un triangle tel que $AB=3$cm et $AC=4$cm.\\
  $M$ est un point de $(AB)$ et $N$, un point de $(AC)$, tel que : 
- $AM=1,5cm$ et $AN=2cm$\\
- Pour pouvoir en déduire que : $(MN)/sslash (BC)$, il faut savoir aussi que\ldots}
+ $AM=1,5$cm et $AN=2$cm\\
+ Pour pouvoir en déduire que : $(MN)\sslash (BC)$, il faut savoir aussi que\ldots}
   {%
-   {\begin{minipage}[t]{6cm} $A,M,B \; \mathrm{ et } \;  A, N, C$ \\ sont dans le même ordre\end{minipage}},
-   {\begin{minipage}[t]{6cm}  $A,M,B \; \mathrm{ et } \; A, C, N$ \\ sont dans le même ordre
-    \end{minipage}},
-   {\begin{minipage}[t]{6cm}  $A,N,B \; \mathrm{ et } \; A, M, C$ \\ sont dans le même ordre
-    \end{minipage}}
+   {$A,M,B \; \mathrm{ et } \;  A, N, C$  sont dans cet ordre,},
+   {$A,M,B \; \mathrm{ et } \; A, C, N$   sont dans cet ordre,},
+   {$A,N,B \; \mathrm{ et } \; A, M, C$   sont dans cet ordre.}
  }
  
- \AQquestion[br=1]{Avec les données ci-dessous\ldots\\
+ \AQquestion[br=1]{Avec les données ci-contre\ldots $\qquad \qquad$
+\raisebox{-25mm}{ 
 \begin{tikzpicture}[scale=.5]
 \tkzDefPoint(0,0){A}
 \tkzDefShiftPoint[A](0:4){B}
-\tkzDefShiftPoint[A](90:3){C}
+\tkzDefShiftPoint[A](90:-3){C}
 \tkzDefShiftPoint[A](0:6){M}
-\tkzDefShiftPoint[A](90:5){N}
+\tkzDefShiftPoint[A](90:-5){N}
 \tkzDrawSegments(A,N A,M  C,B M,N)
 %\tkzDrawPoints(A,B,C,M,N)
-\tkzLabelPoints[below left](A) \tkzLabelPoints[below](B) \tkzLabelPoints[left ](C)
-\tkzLabelPoints[below](M) \tkzLabelPoints[below left](N)
+\tkzLabelPoints[above left](A) \tkzLabelPoints[above](B) \tkzLabelPoints[left ](C)
+\tkzLabelPoints[above](M) \tkzLabelPoints[left](N)
 \tkzLabelSegment[left,pos=.5,red](A,C){3}
-\tkzLabelSegment[below,pos=.5,red](A,B){4}
-\tkzLabelSegment[below,pos=.5,red](B,M){1}
-\end{tikzpicture}
+\tkzLabelSegment[above,pos=.5,red](A,B){4}
+\tkzLabelSegment[above,pos=.5,red](B,M){1}
+\end{tikzpicture}}
  }
   {%
-   {\begin{minipage}[t]{6cm} on calcule $BC$ avec le théorème de {\sc Pythagore}, \end{minipage}},
-   {\begin{minipage}[t]{6cm} on calcule $BC$ avec le théorème de {\sc Thalès} 
-    \end{minipage}},
-   {\begin{minipage}[t]{6cm} on ne peut pas calculer $BC$
-    \end{minipage}}
+   {on calcule $BC$ avec le théorème de {\sc Pythagore}, },
+   {on calcule $BC$ avec le théorème de {\sc Thalès},},
+   {on ne peut pas calculer $BC$}
  }
 
 \end{alterqcm}

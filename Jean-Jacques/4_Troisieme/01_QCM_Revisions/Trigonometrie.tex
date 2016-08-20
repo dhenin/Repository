@@ -7,44 +7,50 @@
     \begin{document}
 \fi
 
-\vspace*{-9mm}
+% \vspace*{-25mm}
+
+%\newcommand{\CORRECTION}
+
+% \thispagestyle{empty}
 
 \ifdefined\CORRECTION
-    \begin{alterqcm}[lq=11cm,correction]
+    \begin{alterqcm}[lq=10.5cm,correction]
 \else
-    \begin{alterqcm}[lq=11cm]
+    \begin{alterqcm}[lq=10.5cm]
 \fi
 
 
- \AQquestion[br=3]{$ABC$ est un triangle rectangle en $C$. $\cos \widehat{B}$ est égal à\ldots}{%
+
+ \AQquestion[br=3]{Soit $ABC$ un triangle rectangle en $C$. Alors $\cos \widehat{B}$ est égal à\ldots}{%
  {$\dfrac{AC}{AB}$},
-  {$\dfrac{BA}{BC}$},
-  {$\dfrac{BC}{BA}$}
+  {$\dfrac{AB}{BC}$},
+  {$\dfrac{BC}{AB}$}
  }
  
  \AQquestion[br=1]{$MNP$ est un triangle rectangle en $P$. $\sin \widehat{M}$ est égal à\ldots}{%
- {$\dfrac{NP}{NM}$},
+ {$\dfrac{NP}{MN}$},
   {$\dfrac{MN}{MP}$},
   {$\dfrac{MP}{MN}$}
  }
  
  \AQquestion[br=3]{$EFG$ est un triangle rectangle en $F$. $\tan \widehat{G}$ est égal à\ldots}{%
- {$\dfrac{FG}{FE}$},
+ {$\dfrac{FG}{EF}$},
   {$\dfrac{EF}{EG}$},
-  {$\dfrac{FE}{FG}$}
+  {$\dfrac{EF}{FG}$}
  }
 
 
 
 \AQquestion[br=2]{
-\setbox2=\hbox{\begin{minipage}[t]{6cm}
-                    $M$ est le point du quart de cercle \\
-                ci-contre de centre l'origine du repère \\
+\setbox2=\vtop{\hsize=6cm %\begin{minipage}[t]{6cm}
+                    $M$ est le point du quart de cercle 
+                ci-contre de centre l'origine du repère 
                 et de rayon 1.\\
                 Les coordonnées de $M$ sont\ldots
-\end{minipage}} 
-\setbox3=\hbox{                  
-\begin{minipage}[b]{4cm}  
+%\end{minipage}
+} 
+\setbox3=\vtop{\hsize=2cm                
+%\begin{minipage}[b]{4cm}  
  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1,font=\tiny]
 \draw [color={gray!40},dash pattern=on 1pt off 1pt, xstep=5mm,ystep=5mm] (-0.1,-0.1) grid (1.5,1.5);
 \draw[->] (0,0) -- (1.6,0);
@@ -65,9 +71,10 @@
 \tkzMarkAngle[color=red, size=0.4](A,O,M)
 \tkzLabelAngle[pos=.55,color=red](A,O,M){30\textdegree}
 \end{tikzpicture}
-\end{minipage} 
+%\end{minipage} 
 }                       
-\begin{tabular}{cc} \raisebox{-2cm}{\box3} & \box2\\ \end{tabular}
+%\begin{tabular}{cc} \raisebox{-2cm}{\box3} & \box2\\ \end{tabular}
+\fbox{\box2} $\quad$ {\fbox{\raisebox{-1.7cm} {\box3} }}
 }{%
  {$\big(\sin (30$\textdegree$) \; ; \;\cos (30$\textdegree$) \big)$},
  {$\big(\cos (30$\textdegree$) \; ;\; \sin (30$\textdegree$) \big)$},
@@ -80,61 +87,52 @@
   {37\textdegree},
  {53\textdegree}
  }  
- 
-\AQquestion[br=2,pq=5mm]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
-                            Dans la situation ci-contre,\\
-                            pour calculer $AB$, on utilise\ldots
-                                 \end{minipage}}                           
-                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1,font=\tiny]
+\AQquestion[br=2]{\setbox2=\vtop{\hsize=60mm
+                            Dans la situation ci-contre,
+                            pour calculer $AB$, on utilise\ldots}
+\setbox3=\vtop{\hsize=30mm
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1,font=\scriptsize]
 \tkzDefPoints{0/0/A,
-1/0/B,
-0/2.5/C}
-\tkzLabelPoints[left,font=\tiny](A) 
+0/1/B,
+-2.5/0/C}
+\tkzLabelPoints[right,font=\tiny](A) 
 \tkzLabelPoints[right,font=\tiny](B)
 \tkzLabelPoints[above,font=\tiny](C) 
 \draw [black,fill=yellow!20] (A) --  (B) -- (C) -- cycle  ;
 \tkzMarkAngle[color=red, size=.8](A,C,B)
 \tkzLabelAngle[pos=1,color=red](A,C,B){25\textdegree}
 \tkzMarkRightAngle[color=red](C,A,B)
-\tkzLabelSegments[color=red,right=4pt,rotate=-60](B,C){$7cm$}
-\end{tikzpicture}
-                                 \end{minipage}
-                                  }   
-\begin{tabular}{m{6cm}m{3.5cm}}
-{\box2} & \box3\\
-\end{tabular}
+\tkzLabelSegments[color=red,above right=4pt,rotate=30](B,C){7cm}
+\end{tikzpicture}}%
+\fbox{\box2} $\quad$ \fbox{\raisebox{-1cm}{\box3}}
 }{%
  {$\cos(\widehat{C})$},
  {$\sin(\widehat{C})$}, 
  {$\tan(\widehat{C})$}
 }
  
-\AQquestion[br=3,pq=5mm]{\setbox2=\hbox{\begin{minipage}[t]{5cm}
-                            Dans la situation ci-contre, \\
+\AQquestion[br=3]{\setbox2=\vtop{\hsize=60mm
+                            Dans la situation ci-contre, 
                             pour calculer $AC$, on utilise\ldots
-                                 \end{minipage}}                           
-                   \setbox3=\hbox{\begin{minipage}[b]{3cm}
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1]
-\begin{tiny}
+}                           
+                   \setbox3=\vtop{\hsize=25mm
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=10mm,y=10mm,scale=1,font=\scriptsize]
 \tkzDefPoints{0/0/A,
-1.5/0/B,
-0/2/C}
+0/1/B,
+2/0/C}
 \tkzLabelPoints[left,font=\tiny](A) 
-\tkzLabelPoints[right,font=\tiny](B)
-\tkzLabelPoints[above,font=\tiny](C) 
+\tkzLabelPoints[above,font=\tiny](B)
+\tkzLabelPoints[right,font=\tiny](C) 
 \draw [black,fill=yellow!20] (A) --  (B) -- (C) -- cycle  ;
-\tkzMarkAngle[color=red, size=.6](C,B,A)
-\tkzLabelAngle[pos=.8,color=red,font=\tiny](A,B,C){40\textdegree}
-\tkzMarkRightAngle[color=red](C,A,B)
-\tkzLabelSegments[color=red,below=4pt](A,B){$3cm$}
-\end{tiny}
+\tkzMarkAngle[color=red, size=.6](A,B,C)
+\tkzLabelAngle[pos=.8,color=red](A,B,C){40\textdegree}
+\tkzMarkRightAngle[color=red](B,A,C)
+\tkzLabelSegments[color=red,above left=5pt,rotate=90](A,B){3cm}
 \end{tikzpicture}
-                             \end{minipage}
                                   }   
-\begin{tabular}{m{6cm}m{3.5cm}}
-{\box2} & \box3\\
-\end{tabular}
+%\begin{tabular}{m{6cm}m{3.5cm}}
+\fbox {\box2} $\quad$ \fbox{\raisebox{-1cm}{\box3}}\\
+%\end{tabular}
 }{%
  {$\cos(\widehat{B})$},
  {$\sin(\widehat{B})$}, 
@@ -142,7 +140,7 @@
 } 
 
  
- \AQquestion[br=2]{Quelque soit l'angle aigu de mesure $x$, \\
+ \AQquestion[br=2]{Quel que soit l'angle aigu de mesure $x$, \\
  la valeur de $\cos^2 x + \sin^2 x$\ldots
  }{%
   { dépend de $x$ },
@@ -152,7 +150,7 @@
 
 
  
- \AQquestion[br=3]{Quelque soit l'angle aigu de mesure $x$, \\
+ \AQquestion[br=3]{Quel que soit l'angle aigu de mesure $x$, \\
  la valeur de $\tan x$ est égale à \ldots
  }{%
   { $(\sin x)(\cos x)$},

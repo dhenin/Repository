@@ -4,6 +4,8 @@
     \begin{document}
 \fi
 
+% \newcommand{\CORRECTION}
+
 \ifdefined\CORRECTION
     \begin{alterqcm}[lq=11cm,correction]
 \else
@@ -29,21 +31,21 @@
 {\begin{minipage}[t]{6cm} $A$ a pour image C par une rotation de centre $B$ et d'angle $60$\textdegree dans le sens  des aiguilles d'une montre \end{minipage}}
 }
  
-  \AQquestion[br=3]{$ABC$ est un triangle tel que : $AB = 5 cm$, $AC=3cm$ et $\overbrace{BAC}=30$\textdegree. $A'$, $B'$, $C'$ sont les images respectives de $A$, $B$, $C$ par une rotation d'angle de $80$\textdegree. Alors\ldots}{%
- {$A'B'=5cm$. $A'C'=3cm$ et $\overbrace{B'A'C'}=110$\textdegree },
- {$A'B'=10cm$. $A'C'=6cm$ et $\overbrace{B'A'C'}=50$\textdegree },
- {$A'B'=5cm$. $A'C'=3cm$ et $\overbrace{B'A'C'}=30$\textdegree }
+  \AQquestion[br=3]{Soit un point $P$ et $ABC$  un triangle tel que : $AB = 5 $cm, $AC=3$cm et $\widehat{BAC}=30$\textdegree. $A'$, $B'$, $C'$ sont les images respectives de $A$, $B$, $C$ par une rotation d'angle de $80$\textdegree de centre $P$. Alors\ldots}{%
+ {$A'B'=5$cm. $A'C'=3$cm et $\widehat{B'A'C'}=110$\textdegree ,},
+ {$A'B'=10$cm. $A'C'=6$cm et $\widehat{B'A'C'}=50$\textdegree ,},
+ {$A'B'=5$cm. $A'C'=3$cm et $\widehat{B'A'C'}=30$\textdegree .}
  }
 
  
   \AQquestion[br=2]{Pour construire l'image d'un segment $[AB]$ par une rotation, il suffit de construire\ldots}{%
- {les images de deux points quelconque de $AB$},
- {le images de $A$ et $B$},
- {l'image du milieu de $[AB]$}
+ {les images de deux points quelconque de $AB$,},
+ {le images de $A$ et $B$,},
+ {l'image du milieu de $[AB]$.}
  }
 
 
-\AQquestion[br=3]{$A,B,M,N,C$ sont les points du cercle ci-dessous de centre O. Alors un autre angle de mesure $30$\textdegree est\ldots\\
+\AQquestion[br=3]{$A,B,M,N,C$ sont les points du cercle ci-dessous de centre O. Alors un autre angle que l'angle $\widehat{BAC}$ de mesure 30\textdegree~ est\ldots\\
 \hspace*{3cm}
 \begin{tikzpicture}[scale=.5]
 \tkzInit[ymin=-2.25,ymax=2.25,xmin=-2.25,xmax=2.25]
@@ -68,44 +70,42 @@
 \tkzLabelPoints[below,font=\scriptsize](C) \tkzLabelPoints[above right,font=\scriptsize](M)
 \tkzLabelPoints[below right,font=\scriptsize](N)
 \tkzLabelPoints[right,font=\tiny](O)
-%
-% \tkzFillCircle[color=blue!20,opacity=.4](O,M)
-% \tkzLabelCircle[R,draw,fill=Gold, text width=2cm,text centered](O,3 cm)(-60) {Le cercle\\ $\mathcal{C}$}
-%
+\tkzMarkAngle[color=red, size=0.7](B,A,C)
+\tkzLabelAngle[pos=1,color=red,font=\scriptsize](B,A,C){30\textdegree}
 \end{tikzpicture}
 }
 {%
-{$\overbrace{CMN}$},
-{$\overbrace{BOC}$},
-{$\overbrace{BMC}$}
+{$\widehat{CMN}$,},
+{$\widehat{BOC}$,},
+{$\widehat{BMC}$.}
 }
  
-  \AQquestion[br=3]{Sur la figure ci-dessus, l'angle  $\overbrace{BOC}$ \ldots}{%
- {15\textdegree},
- {30\textdegree},
- {60\textdegree}
+  \AQquestion[br=3]{Sur la figure ci-dessus, l'angle  $\widehat{BOC}$ \ldots}{%
+ {15\textdegree,},
+ {30\textdegree,},
+ {60\textdegree.}
  }
 
  
-\AQquestion[br=1]{Un décagone régulier est inscrit dans un cercle de centre $O$\\
+\AQquestion[br=1]{Un décagone régulier est inscrit dans un cercle de centre $O$.\\
 On passe d'un sommet au sommet suivant par une rotation de centre $O$ est d'angle\ldots}{%
-{36\textdegree},
-{72\textdegree},
-{108\textdegree}
+{36\textdegree,},
+{72\textdegree,},
+{108\textdegree.}
 }
  
-\AQquestion[br=3]{$A,B,C$ sont trois sommets consécutifs d'un pentagone régulier. La mesure de l'angle $\overbrace{ABC}$ est\ldots}{%
-{54\textdegree},
-{72\textdegree},
-{108\textdegree}
+\AQquestion[br=3]{$A,B,C$ sont trois sommets consécutifs d'un pentagone régulier. La mesure de l'angle $\widehat{ABC}$ est\ldots}{%
+{54\textdegree,},
+{72\textdegree,},
+{108\textdegree.}
 }
     
  
-\AQquestion[br=1]{Un hexagone régulier est inscrit dans un cercle de rayon 5cm.\\
+\AQquestion[br=1]{Un hexagone régulier est inscrit dans un cercle de rayon 5 cm.\\
 Son côté mesure en cm\ldots}{%
-{5},
-{$\cos$ 30\textdegree},
-{$5 \sin 60$\textdegree}
+{5,},
+{$\cos$ 30\textdegree,},
+{$5 \sin 60$\textdegree.}
 }
 
 \end{alterqcm}
