@@ -1,0 +1,21 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-2010-utf8.ltx}   
+    \begin{document}
+\fi
+
+% \newcommand{\CORRECTION}
+
+\ifdefined\CORRECTION
+    \begin{alterqcm}[lq=11cm,correction]
+\else
+    \begin{alterqcm}[lq=11cm]
+\fi
+%-------------
+
+%-------------
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
