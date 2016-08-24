@@ -1,0 +1,602 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8_new.ltx}
+    \begin{document}
+\fi
+
+\section*{Langages fonctionnel, algébrique, géométrique, \\ et représentation graphique}
+
+\centerline{
+\begin{tabular}{|l|l|l|l|}
+\hline
+		\begin{minipage}{4.5cm}
+		Langage usuel
+		\end{minipage}
+	& 
+		\begin{minipage}{5cm}
+		Propriété algébrique
+		\end{minipage} 
+	& 
+		\begin{minipage}{5cm}
+		Propriété géométrique
+		\end{minipage} 
+	&
+		\begin{minipage}{3cm}
+		Graphique
+		\end{minipage} 
+	\\
+\hline
+		\begin{minipage}{4.5cm}
+		Fonction
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		Expression algébrique : \\ $f(x) = \cdots$
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		Représentation graphique $\mathcal{C}_f$, ensemble des points de coordonnées $\left(x,f\left(x\right)\right)$ 
+		\end{minipage}
+	& 
+		\begin{minipage}{3cm} \hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.5]
+\draw[->] (-2.3,0) -- (4.5,0);
+\foreach \x in {-2,-1,1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-1.5) -- (0,4.5);
+\foreach \y in {-1,1,2,3,4}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\clip(-2.3,-1.5) rectangle (4.5,4.5);
+\draw[smooth,samples=100,domain=-6.7:10.6] plot(\x,{(2*(\x)*(\x)-7*(\x)+5)/((\x)*(\x)-5*(\x)+7)});
+\draw [dashed] (0,2) -- (3,2); 
+\draw[dashed] (3,0) -- (3,2); 
+\begin{scriptsize}
+\draw (4,3) [above] node {$\mathcal{C}_f$};
+\draw (0,2) [left] node {$f(x)$};
+\draw (3,-0.1) [below] node {$x$};
+\end{scriptsize}
+\end{tikzpicture}
+		\end{minipage}
+\\
+\hline
+		\begin{minipage}{4.5cm}
+		$b$ est l'image par $f$ de $a$ ; \\
+		$a$ est un antécédent de $b$ par $f$.
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$f(a) = b$
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		Le point $M$ de coordonnées $\left(a ; b\right)$ est sur $\mathcal{C}_f$
+		\end{minipage}
+	&
+		\begin{minipage}{3cm} \hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.5]
+\draw[->] (-2.3,0) -- (4.5,0);
+\foreach \x in {-2,-1,1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-1.5) -- (0,4.5);
+\foreach \y in {-1,1,2,3,4}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\clip(-2.3,-1.5) rectangle (4.5,4.5);
+\draw[smooth,samples=100,domain=-6.7:10.6] plot(\x,{(2*(\x)*(\x)-7*(\x)+5)/((\x)*(\x)-5*(\x)+7)});
+\draw [dashed] (0,2) -- (3,2); 
+\draw[dashed] (3,0) -- (3,2); 
+\begin{scriptsize}
+\draw (4,3) [above] node {$\mathcal{C}_f$};
+\draw (0,2) [left] node {$b$};
+\draw (3,-0.1) [below] node {$a$};
+\draw (2.7,2) [above] node {$M$};
+\end{scriptsize}
+\end{tikzpicture}
+		\end{minipage}
+\\
+\hline
+		\begin{minipage}{4.5cm}
+		$f$ est paire
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$\forall x \in \mathcal{D}_f, f(-x) = f(x)$
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$\mathcal{C}_f$ admet l'axe des origines comme axe de symétrie
+		\end{minipage}
+	&
+		\begin{minipage}{3cm}
+		\vspace*{-.8cm} \hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=2cm,,scale=.5]
+\draw[->] (-3.5,0) -- (3.3,0) ; 
+\draw[->] (0,-1.2) -- (0,1.7); 
+\foreach \x in {-3,...,-1} {
+\draw (\x,0.1cm) -- (\x,-0.1cm) ; } 
+\foreach \x in {1,...,3} {
+\draw (\x,0.1cm) -- (\x,-0.1cm);  } 
+\foreach \y in {-1} {
+\draw (0.1cm,\y) -- (-0.1cm,\y) ; }
+\begin{scope}
+\clip (-3.5,-1) rectangle (3.3,2.5);
+\draw[samples=100] plot (\x,{cos(\x r)})  ;  
+\begin{scriptsize}
+\draw [dashed](-1,0) node [below] {$-x$} -- (-1,.54) -- (1,.54) -- (1,-0.06) node [below] {$x$}; 
+\draw (-1.5,.54) [above] node {$f(x)$};
+\end{scriptsize}
+\end{scope}
+\end{tikzpicture}
+		\end{minipage}
+\\
+\hline
+		\begin{minipage}{4.5cm}
+		$f$ est impaire
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$\forall x \in \mathcal{D}_f, f(-x) = -f(x)$
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$\mathcal{C}_f$ admet l'origine du repère comme centre de symétrie
+		\end{minipage}
+	&
+		\begin{minipage}{3cm} \hspace*{-.5cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=2cm,,scale=.3]
+\draw[->] (-5.3,0) -- (6,0) ; 
+\draw[->] (0,-1.5) -- (0,1.5); 
+\foreach \x in {-4,...,-1} {
+\draw (\x,0.1cm) -- (\x,-0.1cm) ; } 
+\foreach \x in {1,...,4} {
+\draw (\x,0.1cm) -- (\x,-0.1cm);  } 
+\foreach \y in {} {
+\draw (0.1cm,\y) -- (-0.1cm,\y) ; }
+% \node[below left=0.1cm] at (-0,0) {$0\strut$};
+\begin{scope}
+\clip (-6,-1.5) rectangle (6,1.5);
+\draw[samples=100,domain=-5.37:6] plot (\x,{-sin(\x r)})  ; 
+\begin{scriptsize}
+\draw [dashed](-4,0) node [above] {$-x$} -- (-4,-.756) -- (0,-.756)  ;
+\draw [dashed](4,0) node [below] {$x$} -- (4,.756) -- (0,.756) ;
+\draw (1.4,.756)  node [above] {$f(x)$};
+\draw (-1.5,-.8)  node [below] {$f(-x)$};
+\end{scriptsize}
+\end{scope}
+\end{tikzpicture}
+		\end{minipage}
+\\
+\hline
+		\begin{minipage}{4.5cm}
+		$f$ est $T$-périodique
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$\forall x \in \mathcal{D}_f, f\left(x + T\right) = f(x)$
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$C_f$ se reproduit, identique à elle-même, chaque intervalle de longueur $T$
+		\end{minipage}
+	&
+		\begin{minipage}{3cm}
+		\vspace*{-.3cm} \hspace*{-.35cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=.25cm,y=2cm,,scale=.5]
+\draw[->] (-12.5,0) -- (15,0) ; 
+\draw[->] (0,-.2) -- (0,2.7); 
+\foreach \x in {-10,-5,5,10} {
+\draw (\x,0.1cm) -- (\x,-0.1cm) ; } 
+\foreach \y in {.5,1,1.5,2} {
+\draw (0.1cm,\y) -- (-0.1cm,\y) ; }
+\begin{scope}
+\clip (-13,-.2) rectangle (14.3,3);
+\draw[smooth,samples=100,domain=-12.5:16.6] plot (\x,{-sin(\x r)+1.1})  ; 
+\draw [<->](-8,2.2) -- node [above] {T} (-1.5,2.2) ; 
+\begin{scriptsize}
+\end{scriptsize}
+\end{scope}
+\end{tikzpicture}
+	\end{minipage}
+\\
+\hline
+		\begin{minipage}{4.5cm}
+		$f$ est une fonction affine, de coefficient directeur $a$ \hbox{et d'ordonnée à l'origine $\! \: \! \! \!$ $b$}
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$f(x) = ax + b$
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$\mathcal{C}_f$ est une droite de pente $a$ passant par $\left(0;b\right)$
+		\end{minipage}
+	&
+		\begin{minipage}{3cm}
+		\hspace*{-1cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.6]
+\draw[->] (-.6,0) -- (5,0);
+\foreach \x in {1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) ; 
+\draw[->] (0,-.76) -- (0,4);
+\foreach \y in {1,2,3,}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\clip(-1.8,-1.4) rectangle (5,4);
+\draw [color=black,domain=-.6:5] plot(\x,{(\x)*.5 +.5 }); 
+\begin{scriptsize}
+\draw [->] (1,1)  --  node [below] {$\Delta x$} (3,1) ; 
+\draw [->] (3,1) -- node [right] {$\Delta y$} (3,2)  ;
+\draw (0,.7) node [left] {$b$};
+\draw (2.5,2.8) node [left] {$a=\dfrac{\Delta y}{\Delta x}$};
+\end{scriptsize}
+\end{tikzpicture}
+\vspace*{-.9cm}
+		\end{minipage}
+\\
+\hline
+		\begin{minipage}{4.5cm}
+		$f$ est une fonction trinôme du second degré
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$f(x) = ax^2 + bx + c$
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$C_f$ est une parabole
+		\end{minipage}
+	&
+		\begin{minipage}{3cm}
+		\hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,,scale=.5]
+\draw[->] (-2.8,0) -- (4,0) ; 
+\draw[->] (0,-2) -- (0,3); 
+\foreach \x in {-2,...,3} {
+\draw (\x,0.1cm) -- (\x,-0.1cm) ; } 
+\foreach \y in {-1,...,2} {
+\draw (0.1cm,\y) -- (-0.1cm,\y) ; }
+\begin{scope}
+\clip (-2,-2) rectangle (3,3);
+\draw[color=black,samples=100] plot ({\x},{\x*\x -(\x) -1 });
+\end{scope}
+\end{tikzpicture}
+		\end{minipage}
+\\
+\hline
+		\begin{minipage}{4.5cm}
+		$f$ est une fonction homographique
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$f(x) = \dfrac{ax + b}{cx + d}$
+		\end{minipage}
+	&
+		\begin{minipage}{5cm}
+		$\mathcal{C}_f$ est une hyperbole d'asymptote horizontale $y = \frac{a}{c}$ en $-\infty$ et en $+\infty$ et d'asymptote vertical $x = -\frac{d}{c}$
+		\end{minipage}
+	&
+		\begin{minipage}{3cm}
+		\hspace*{-.35cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,,scale=.35]
+\draw[->] (-4.4,0) -- (5.35,0) ; % x
+\draw[->] (0,-3) -- (0,4); % y
+\foreach \x in {-4,...,-1} {
+\draw (\x,0.1cm) -- (\x,-0.1cm) ; } 
+\foreach \x in {1,...,4} {
+\draw (\x,0.1cm) -- (\x,-0.1cm);  } 
+\foreach \y in {-2,-1,0,1,2,3,4} {
+\draw (0.1cm,\y) -- (-0.1cm,\y) ; }
+\begin{scope}
+\clip (-4.5,-3) rectangle (5.5,4);
+\draw[samples=100,domain=-4.4:.7] plot (\x,{1/(\x-.75)+.5})  ; 
+\draw[samples=100,domain=.72:5.3] plot (\x,{1/(\x-.75)+.5})  ; 
+\draw [color=red] (-4.4,.5) -- (5.3,.5)  ;
+\draw [color=red] (.75,-5) -- (.75,5)  ;
+\end{scope}
+\end{tikzpicture}
+		\end{minipage}
+\\
+\hline
+\end{tabular}
+}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\centerline{
+\begin{tabular}{|l|l|l|l|}
+\hline
+		\begin{minipage}{4cm}
+		Langage usuel
+		\end{minipage}
+	& 
+		\begin{minipage}{5.4cm}
+		Propriété algébrique
+		\end{minipage} 
+	& 
+		\begin{minipage}{5.1cm}
+		Propriété géométrique
+		\end{minipage} 
+	&
+		\begin{minipage}{3cm}
+		Graphique
+		\end{minipage} 
+	\\
+\hline
+\multirow{4}{4.5cm}{limites de $f$}
+	&
+		\begin{minipage}{5.4cm}
+		$ \displaystyle {\lim_{x \rightarrow \pm \infty}} \; f(x) = l$
+		\end{minipage}
+	&
+		\begin{minipage}{5.1cm}
+		$\mathcal{C}_f$ admet une asymptote horizontale d'équation $y = l$ en $\pm \infty$
+		\end{minipage}
+	&
+		\begin{minipage}{3cm} \hspace*{-.4cm}
+		\definecolor{ffqqqq}{rgb}{1,0,0}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.4]
+\draw[->] (2.9,3) -- (11.5,3);
+\foreach \x in {4,5,6,7,8,9,10,11} 
+\draw[shift={(\x,3)}] (0pt,2pt) -- (0pt,-2pt) ; 
+\draw[->] (5,2.5) -- (5,9);
+\foreach \y in {5,6,7,8}
+\draw[shift={(5,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;  
+\clip(3,3) rectangle (11.42,8.8);
+\draw[smooth,samples=1000,domain=5.01:12.3] plot(\x,{(4*(\x)-18)/((\x)-5)}); 
+\draw [color=red] (-10,4.1) -- (13,4.1) ;
+\draw(5,4.6) [left] node {$l$} ; 
+\end{tikzpicture}
+		\end{minipage}
+\\
+\cline{2-4}
+	&
+		\begin{minipage}{5.4cm}
+		$ \displaystyle {\lim_{x \rightarrow a}} \; f(x) = \pm \infty$
+		\end{minipage}
+	&
+		\begin{minipage}{5.1cm}
+		$\mathcal{C}_f$ admet une asymptote verticale d'équation $x = a$
+		\end{minipage}
+	&
+		\begin{minipage}{3cm} \hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.5]
+\draw[->] (-1.8,5) -- (5,5);
+\foreach \x in {-1,1,2,3,4}
+\draw[shift={(\x,5)}] (0pt,2pt) -- (0pt,-2pt) ; 
+\draw[->] (0,3.5) -- (0,11);
+\clip(-1.3,2) rectangle (5,11);
+\draw[smooth,samples=100,domain=-8.375:0.95] plot(\x,{((\x)*(\x)+3)/((\x)-1)});
+\draw[smooth,samples=100,domain=1.05:13.2] plot(\x,{((\x)*(\x)+3)/((\x)-1)});
+\draw [color=red] (1,3.5) -- (1,12.73);
+\begin{scriptsize}
+\draw (.7,4.9) [below] node {$a$};
+\end{scriptsize}
+\end{tikzpicture}
+\vspace*{-1.25cm}
+		\end{minipage}
+\\
+\cline{2-4}
+	&
+		\begin{minipage}{5.4cm}
+		$ \displaystyle {\lim_{x \rightarrow a}} \; f(x) = f(a)$
+		\end{minipage}
+	&
+		\begin{minipage}{5.1cm}
+		$\mathcal{C}_f$ est continue au point d'abscisse $a$. \\
+		$\mathcal{C}_f$ est « en un seul morceau, en un seul trait » autour du point d'abscisse $a$.
+		\end{minipage}
+	&
+		\begin{minipage}{3cm} \hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.5]
+\draw[->] (-2.35,0) -- (4.5,0);
+\foreach \x in {-2,-1,1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+\draw[->] (0,-1.5) -- (0,4.5);
+\foreach \y in {-1,1,2,3,4}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\clip(-2.35,-1.5) rectangle (4.5,4.5);
+\draw[smooth,samples=100,domain=-6.7:10.6] plot(\x,{(2*(\x)*(\x)-7*(\x)+5)/((\x)*(\x)-5*(\x)+7)});
+\draw [dashed] (0,2) -- (3,2); 
+\draw[dashed] (3,0) -- (3,2); 
+\begin{scriptsize}
+\draw (0,2) [left] node {$f(a)$};
+\draw (3,-0.1) [below] node {$a$};
+\end{scriptsize}
+\end{tikzpicture}
+		\end{minipage}
+\\
+\cline{2-4}
+	&
+		\begin{minipage}{5.4cm}
+		$ \displaystyle {\lim_{x \rightarrow \pm \infty}} \; \left[f(x) - \left(ax + b\right)\right] = 0$
+		\end{minipage}
+	&
+		\begin{minipage}{5.1cm}
+		La droite d'équation $y = ax + b$ est asymptote oblique à $\mathcal{C}_f$ en $\pm\infty$
+		\end{minipage}
+	&
+		\begin{minipage}{3cm}
+		\vspace*{-.9cm} \hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.4]
+\draw[->] (0,5) -- (8.5,5);
+\foreach \x in {2.5,3.5,4.5,5.5,6.5,7.5}
+\draw[shift={(\x,5)}] (0pt,2pt) -- (0pt,-2pt) ;
+\draw[->] (1.5,4) -- (1.5,10.5);
+\foreach \y in {5,6,7,8,9}
+\draw[shift={(1.5,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\clip(1,-1) rectangle (8.5,12.86);
+\draw[smooth,samples=100,domain=1.5:12.7] plot(\x,{((\x)*(\x)+3)/((\x)-1)});
+\draw [color=red,domain=2:80] plot(\x,{(\x)*.91+2.2 });
+\end{tikzpicture}
+	\vspace*{-2.5cm}
+		\end{minipage}
+\\
+\hline
+		\begin{minipage}{4cm}
+		$f$ est supérieure à $g$ sur l'intervalle $I$
+		\end{minipage}
+	& 
+		\begin{minipage}{5.4cm}
+		$\forall x \in I, f(x) \geqslant g(x)$ \\
+		\hspace*{.35cm} $\Longleftrightarrow f(x) - g(x) \geqslant 0$
+		\end{minipage} 
+	& 
+		\begin{minipage}{5.1cm}
+		$\mathcal{C}_f$ est au-dessus de $\mathcal{C}_g$ sur $I$
+		\end{minipage} 
+	&
+		\begin{minipage}{3cm}
+		\hspace*{-.95cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.6]
+\draw[->] (-.7,0) -- (5,0);
+\foreach \x in {1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) ; 
+\draw[->] (0,-.7) -- (0,4);
+\foreach \y in {1,2,3,}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\clip(-1.8,-.7) rectangle (3.5,4);
+\draw[smooth,samples=100,domain=-1.8:7.3] plot(\x,{(\x)*(\x)*(\x)-4*(\x)*(\x)+4*(\x)+1});
+\draw[smooth,samples=100,domain=-1.8:7.3] plot(\x,{(\x)*(\x)*(\x)-4*(\x)*(\x)+4*(\x)+.3});
+\begin{scriptsize}
+\draw (2.5,3) node {$\mathcal{C}_f$} ; 
+\draw (3,1) node {$\mathcal{C}_g$} ; 
+%\draw (4,3) node {$f$};
+\end{scriptsize}
+\end{tikzpicture}
+		\end{minipage} 
+	\\
+\hline
+		\begin{minipage}{4cm}
+		Nombre dérivé de $f$ \\ en $x = a$
+		\end{minipage}
+	& 
+		\begin{minipage}{5.4cm}
+		$f'(a) = \displaystyle {\lim_{h \rightarrow 0}} \; \dfrac{f(a + h) - f(a)}{h}$
+		\end{minipage} 
+	& 
+		\begin{minipage}{5.1cm}
+		$f'(a)$ est le coefficient directeur de la tangente à $\mathcal{C}_f$ au point d'abscisse $a$
+		\end{minipage} 
+	&
+		\begin{minipage}{3cm}
+		\hspace*{-.7cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=.5]
+\draw[->] (-.9,0) -- (6,0);
+\foreach \x in {1,2,3,4,5}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) ; 
+\draw[->] (0,-1) -- (0,4.2);
+\foreach \y in {1,2,3,}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+\clip(-1.7,-1) rectangle (6,4.2);
+\draw[smooth,samples=100,domain=-1.8:9.6] plot(\x,{(\x)*(\x)*(\x)-4*(\x)*(\x)+4*(\x)+1});
+\draw [color=black,samples=100,domain=-.1:9] plot(\x,{(\x)*.92-.936 });
+\begin{scriptsize}
+\draw[dashed] (2.2,-.1) node [below] {$a$} -- (2.2,1.1);
+\draw (2.4,3.2) node {$\mathcal{C}_f$};
+\end{scriptsize}
+\end{tikzpicture}
+		\end{minipage} 
+	\\
+\hline
+		\begin{minipage}{4cm}
+		Intégrale de $f$
+		\end{minipage}
+	& 
+		\begin{minipage}{5.4cm}
+		$\integrale{a}{b}{f(x) \!}{x}$
+		\end{minipage} 
+	& 
+		\begin{minipage}{5.1cm}
+		Aire algébrique du domaine $\left\{
+  \begin{array}{ll}
+    M\left(x;y\right) ; & a \leqslant x \leqslant b \\
+    & 0 \leqslant y \leqslant f(x) \\
+  \end{array}
+\right\}$
+		\end{minipage} 
+	&
+		\begin{minipage}{3cm} \hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,,scale=.7]
+\draw[->] (-2.3,0) -- (2.6,0) ; 
+\draw[->] (0,-.7) -- (0,3.1); 
+\foreach \x in {-1,1,2} {
+\draw (\x,0.1cm) -- (\x,-0.1cm) ; } 
+\foreach \y in {1,2} {
+\draw (0.1cm,\y) -- (-0.1cm,\y) ; }
+% \node[below left=0.1cm] at (-0,0) {$0\strut$};
+\begin{scope}
+%\clip (-11,-.2) rectangle (11,3);
+\draw[smooth,samples=100,domain=-1.9:2.5] plot (\x,{.3*(\x)^3-.3*(\x)^2-.5*(\x)+1.5})  ; 
+\fill [pattern=north east lines]  (-1,0) -- (-1,1) -- 
+ plot [domain=-1:1.6](\x,{.3*(\x)^3-.3*(\x)^2-.5*(\x)+1.5}) -- (1.6,0) -- cycle  ; 
+\begin{scriptsize}
+\draw (-1,-.1) node [below] {$a$} -- (-1,1.4)  ; 
+\draw (1.6,-.1) node [below] {$b$} -- (1.6,1.15);
+\end{scriptsize}
+\end{scope}
+\end{tikzpicture}
+		\end{minipage} 
+	\\
+\hline
+		\begin{minipage}{4cm}
+		Primitive $F$ de $f$ qui s'annule en $a$ 
+		\end{minipage}
+	& 
+		\begin{minipage}{5.4cm}
+		$F(x) = \integrale{a}{x}{f(t) \!}{t}$, $F(a) = 0$, \vspace*{.2cm} \\
+		$F'(x) = f(x)$
+		\end{minipage} 
+	& 
+		\begin{minipage}{5.1cm}
+		Aire algébrique du domaine $\left\{
+  \begin{array}{ll}
+    M\left(t;y\right) ; & a \leqslant t \leqslant x \\
+    & 0 \leqslant y \leqslant f(t) \\
+  \end{array}
+\right\}$
+		\end{minipage} 
+	&
+		\begin{minipage}{3cm} \hspace*{-.3cm}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,,scale=.7]
+\draw[->] (-2.3,0) -- (2.6,0) ; 
+\draw[->] (0,-.7) -- (0,3.1); 
+\foreach \x in {-1,1,2} {
+\draw (\x,0.1cm) -- (\x,-0.1cm) ; } 
+\foreach \y in {1,2} {
+\draw (0.1cm,\y) -- (-0.1cm,\y) ; }
+% \node[below left=0.1cm] at (-0,0) {$0\strut$};
+\begin{scope}
+% \clip (-11,-.2) rectangle (11,3);
+\draw[smooth,samples=100,domain=-1.9:2.5] plot (\x,{.3*(\x)^3-.3*(\x)^2-.5*(\x)+1.5})  ; 
+\fill [pattern=north east lines]  (-1,0) -- (-1,1) -- 
+ plot [domain=-1:1.6](\x,{.3*(\x)^3-.3*(\x)^2-.5*(\x)+1.5}) -- (1.6,0) -- cycle  ; 
+\begin{scriptsize}
+\draw (-1,-.1) node [below] {$a$} -- (-1,1.4)  ; 
+\draw (1.6,-.1) node [below] {$x$} -- (1.6,1.15);
+\end{scriptsize}
+\end{scope}
+\end{tikzpicture}
+		\end{minipage} 
+	\\
+\hline
+\end{tabular}
+}
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
