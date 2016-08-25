@@ -1,0 +1,281 @@
+\section{Les fonctions}
+\subsection{Les limites d'une fonction}
+
+\begin{bclogo}{Définitions}
+$\ast$ Limite finie d'une fonction en $+ \text{ ou } -\infty$ : présence d'une assymptote horizontale (d'équation $y=\ell$) à $\mathcal{C}_f$ en $+ \text{ ou } - \infty$.
+\[\lim\limits_{x \to +\infty} \dfrac{1}{x^n}=0\]
+\[\lim\limits_{x \to +\infty} \dfrac{1}{\sqrt{x}}=0\]
+
+
+$\ast$ Limite infinie d'une fonction à l'infini. Pas d'assymptote.
+\[\lim\limits_{x \to +\infty} x^n=+\infty\]
+\[\lim\limits_{x \to +\infty} \sqrt{x}=+\infty\]
+\[\lim\limits_{x \to -\infty} x^n=+\infty  \text{ ($n$ pair)}\]
+\[\lim\limits_{x \to +\infty} x^n=-\infty  \text{ ($n$ impair)}\]
+
+
+$\ast$ Cas particulier : \[\lim\limits_{x \to +\infty} f(x)-(ax+b) =0\]
+La droite d'équation $y=ax+b$ est assymptote oblique à $\mathcal{C}_f$ en $+ \infty$.
+
+$\ast$ Limite de $f(x)$ quand $x$ tend vers $a$ en $+\infty$ : présence d'une assymptote verticale ($x=a$) à $\mathcal{C}_f$.
+\[\lim\limits_{x \to 0^+} \dfrac{1}{x^n}= \lim\limits_{x \to 0^-} \dfrac{1}{x^n}=+\infty \text{ ($n$ pair)}\]
+\[\lim\limits_{x \to 0^+} \dfrac{1}{x^n}=+\infty \text{ et}  \lim\limits_{x \to 0^-} \dfrac{1}{x^n}=-\infty \text{ ($n$ impair)}\]
+
+$\ast$ Limite finie de la fonction en un réel $a$. $\lim\limits_{x \to a} f(x)=\ell$
+
+\end{bclogo}
+
+\medskip
+
+\subsection{Opérations sur les limites}
+\begin{bclogo}{Formes indéterminées}
+\[\;\left.\begin{array}{c}  \lim\limits_{x \to \alpha} f=+\infty \\ \lim\limits_{x\to \alpha } g =-\infty \end{array}\right\}\;\lim\limits_{x\to \alpha} f+g \text{ est indéterminée}\] 
+
+\[\;\left.\begin{array}{c}  \lim\limits_{x \to \alpha} f=\pm \infty \\ \lim\limits_{x\to \alpha } g =0 \end{array}\right\}\;\lim\limits_{x\to \alpha} f\times g \text{ est indéterminée}\] 
+
+\[\;\left.\begin{array}{c}  \lim\limits_{x \to \alpha} f=\pm \infty \\ \lim\limits_{x\to \alpha } g =\pm \infty \end{array}\right\}\;\lim\limits_{x\to \alpha} \frac{f}{g} \text{ est indéterminée}\] 
+
+\[\;\left.\begin{array}{c}  \lim\limits_{x \to \alpha} f=0 \\ \lim\limits_{x\to \alpha } g =0 \end{array}\right\}\;\lim\limits_{x\to \alpha} \frac{f}{g} \text{ est indéterminée}\] 
+\end{bclogo}
+
+
+\medskip 
+
+\begin{bclogo}{Limite d'une fonction polynôme ou d'une fonction rationnelle}
+$\ast$ \textbf{Règle 1} : en $\pm \infty$, la limite d'une fonction polynôme est égale à la limite de son terme de plus haut degré.
+
+$\ast$ \textbf{Règle 2} : en $\pm \infty$, la limite d'une fonction rationnelle (quotient de deux polynômes) est égale à la limite du quotient du terme de plus haut degré du numérateur par le terme de plus haut degré du dénominateur.
+
+\end{bclogo}
+
+\medskip
+\begin{bclogo}{Composé de deux fonctions}
+On note $f$, la composé de $u$ suivie de $v$ : \[f=v\circ u\]
+
+\[\;\left.\begin{array}{c}  \lim\limits_{x \to a} u(x)=b \\ \lim\limits_{x\to b } v(x) =c \end{array}\right\}\lim\limits_{x\to a} v\circ u(x) =c\] 
+
+\textbf{Remarque }: vérifier les domaines de définition. $u$, définie sur l'intervalle $I$ et $v$ définie sur l'intervalle $J$ tel que : $\forall x \in I, u(x) \in J$
+\end{bclogo}
+
+\subsection{Propriétés des limites}
+
+\medskip
+\begin{bclogo}{Unicité}
+Si $f$ admet une limite en $\alpha$, alors, cette limite est unique.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Théorèmes de comparaison}
+$\ast$ \textbf{Théorème 1} : au voisinage de $\alpha$, 
+
+Si $f(x)\geqslant u(x)$ et $\lim\limits_{x \to \alpha} u(x)=+ \infty$, alors, $\lim\limits_{x \to \alpha} f(x)=+\infty$ (1)
+
+Si $f(x)\leqslant v(x)$ et $\lim\limits_{x \to \alpha} u(x)=- \infty$, alors, $\lim\limits_{x \to \alpha} f(x)=-\infty$ (2)
+
+\medskip
+
+$\ast$ \textbf{Démonstrations (ROC)}
+
+(1) Soit, $\alpha =+\infty$. Tout intervalle $\left] M;+\infty\right[ $, où $M$ est un réel, contient tous les $u(x)$ pour $x$ assez grand.
+
+Or, au voisinage de $\alpha$, $f(x)\geqslant u(x)$. Donc, pour $x$ assez grand, tous les $f(x)$ sont contenus dans $\left]M;+\infty \right[$.
+
+Par définition,   \[\lim\limits_{x \to +\infty } f(x)=+\infty\]
+
+(2) Idem
+
+\medskip
+
+$\ast$ \textbf{Théorème 2} : au voisinage de $\alpha$,
+
+Si $\lim\limits_{x \to \alpha} |f(x)-\ell |\leqslant u(x)$ et $\lim\limits_{x \to \alpha} u(x) = 0$
+
+Alors, $\lim\limits_{x \to \alpha} f(x)=\ell$.
+
+\medskip
+$\ast$ \textbf{Théorème 3 : Théorème des gendarmes} : au voisinage de $\alpha$
+
+Si $u(x)\leqslant f(x) \leqslant v(x)$ et $\lim\limits_{x \to \alpha} u(x)=\lim\limits_{x \to \alpha} v(x)=\ell$,
+
+alors, $\lim\limits_{x \to \alpha} f(x)=\ell$.
+
+\medskip
+$\ast$ \textbf{Démonstration (ROC)}
+
+Soit, $\alpha=+\infty $.
+
+Pour $x>A$ : $u(x)\leqslant f(x)\leqslant v(x)$
+
+$\lim\limits_{x \to +\infty} u(x)=\ell $ signifie que pour $x>B$, $u(x)\in I$ avec $I$ intervalle contenant $\ell$.
+
+$\lim\limits_{x \to +\infty} v(x)=\ell$ signifie que pour $x>C$, $v(x)\in I$.
+
+Prenons $M$ le plus grand des nombres $A,B,C$. 
+\[\forall x\geqslant M, \text{on a} \left\lbrace\begin{array}{l} u(x)\leqslant f(x) \leqslant v(x) \\ u(x)\in I\\ v(x)\in I \end{array}\right. \]
+
+Donc $f(x)\in I$.
+
+Par définition, $\lim\limits_{x \to +\infty} f(x)=\ell$.
+
+\medskip
+$\ast$ \textbf{Comptabilité avec l'ordre}
+
+Au voisinage de $\alpha$ : si $f(x)\leqslant g(x)$ et $\lim\limits_{x \to \alpha} f(x)=\ell$ et $\lim\limits_{x \to \alpha} g(x)=\ell '$ 
+
+Alors, $\ell \leqslant \ell '$
+\end{bclogo}
+
+
+\subsection{Continuité}
+\begin{bclogo}{Définitions et théorèmes}
+$\ast$ Si $f$ est continue en $a$ : \[\lim\limits_{x\to a^-} f(x)=\lim\limits_{x\to a^+} f(x)=f(a)\].
+
+$\ast$ Si $f$ est dérivable en $a\in I$, alors $f$ est continue en $a$.
+
+$\ast$ Si $f$ est dérivable sur $I$, alors $f$ est continue sur $I$.
+
+\textbf{Remarque} : la réciproque est fausse, une fonction continue n'est pas toujours dérivable.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Démonstration \textbf{(ROC)} toute fonction dérivable est continue}
+$f$ est dérivable en $a$ signifie que, \boiteo{\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}=f'(a)}
+
+Soit $g$, la fonction définie sur un voisinage de $a$ par : \[g(x)=\frac{f(x)-f(a)}{x-a}\]
+avec $x\neq a$
+\[f(x)=(x-a)\times g(x) + f(a)\]
+
+\medskip
+
+$\lim\limits_{x\to a} x-a=0$  et $\lim\limits_{x\to a}g(x)=f'(a)$
+
+\medskip
+Donc $\lim\limits_{x\to a} f(x)=f(a)$
+
+\medskip
+Par définition, $f$ est continue en $a$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Cas particuliers}
+$\ast$ Les fonctions polynômes sont continues sur $\mathbb{R}$.
+
+$\ast$ Les fonctions rationnelles sont continues sur chacun des intervalles du domaine de définition.
+
+$\ast$ Les fonctions sinus et cosinus sont continues sur $\mathbb{R}$
+
+$\ast$ Toute fonction construite par addition, multiplication ou composition de fonctions continues est une fonction continue.
+
+$\ast$ La fonction racine carrée est définie sur $\left[  0;+\infty \right[$ et est dérivable sur $\left] 0;+\infty\right[$. 
+
+Selon le théorème, cette fonction est continue sur $\left] 0;+\infty\right[$. 
+
+Mais, sa limite en $0$ est $0$ donc elle est continue sur $\left[ 0;+\infty\right[$.
+\end{bclogo}
+
+
+\newpage
+
+\begin{bclogo}{Nombre dérivé}
+\boiteo{\lim\limits_{h\to 0}\frac{f(a+h)-f(a)}{h}=\ell}
+\[f(a+h)=f(a)+\ell h+h\varphi (h) \text{ avec } \lim\limits_{h\to 0} \varphi (h)=0\]
+
+Si ces propositions sont vraies, $f$ est dérivable en $a$ et $\ell $ est le nombre dérivé de $f$ en $a$ noté $f'(a)$.
+
+Si $f$ est dérivable en $a$, la courbe $\mathcal{C}_f$ admet au point $A(a;f(a))$ une tangente $\mathcal{T}$ dont le coefficient directeur est $f'(a)$. L'équation de $\mathcal{T}$ est : \boiteo{y=f'(a)\times (x-a)+f(a)}
+
+Si la limite du taux d'accroissement entre $a$ et $a+h$ de $f$ est $\pm \infty$, alors $f$ n'est pas dérivable. Il y a pas de tangente verticale en $a$. 
+
+Si les limites sont différentes à droite et à gauche, alors $f$ n'est pas dérivable en $a$. Il y a un point anguleux en $a$.
+
+\end{bclogo}
+
+
+\medskip
+
+\begin{bclogo}{Théorème des valeurs intermédiaires}
+Si $f$ est continue sur $\left[ a;b\right]$, alors, pour tout réel $k$ compris entre $f(a)$ et $f(b)$, il existe au moins un réel $c$ appartenant à $\left[a;b\right]$ tel que \[f(c)=k.\]
+ L'équation $f(x)=k$ admet au moins une solution dans $\left[ a;b\right]$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Théorème de bijection ou corollaire du theorème des valeurs intermédiaires}
+Si $f$ est continue et strictement croissante sur $\left[ a;b\right]$, $f(\left[ a;b\right])=\left[ f(a);f(b)\right]$.
+
+Alors,
+\begin{center} $\forall y\in \left[ f(a);f(b)\right]$, il existe un et un seul réel $c\in \left[ a;b\right]$ tel que $f(c)=y$.
+\end{center}
+
+L'équation $f(x)=y$ admet une et une seule solution dans $\left[ a;b\right]$. 
+
+Idem pour une fonction strictement décroissante.     $f(\left[ a;b\right])=\left[ f(b);f(a)\right]$.
+
+Toute fonction continue et strictement monotone sur un intervalle donné réalise une bijection... 
+\end{bclogo}
+
+
+\medskip
+
+\begin{bclogo}{\textbf{Démonstration (ROC)}}
+$\ast$ Supposons $f$ continue et strictement croissante sur $\left[a;b\right]$.
+
+$\ast$ Existence :
+
+$f$ est continue sur $\left[a;b\right]$. D'après le théorème des valeurs intermédiaires, $\forall y \in \left[ f(a);f(b)\right]$, l'équation $f(x)=y$ admet au moins une solution.  
+
+$\ast$ Unicité :
+
+Supposons que $f(c_1)=f(c_2)=y$ avec $c_1<c_2$. $f$ est strictement croissante sur $\left[ a;b\right]$, alors pour $c_1<c_2$ on a $f(c_1)<f(c_2)$. 
+
+Cela contredit la supposition $f(c_1)=f(c_2)=y$.
+
+Donc, il existe un seul réel $c$ tel que $f(c)=y$.
+\end{bclogo} 
+
+\medskip
+
+\subsection{Dérivation}
+
+\begin{bclogo}{Rappels}
+$\ast$ $f$ est constante si et seulement si $f'$ est nulle.
+
+$\ast$ $f$ est croissante si et seulement si $f'$ est positive.
+
+$\ast$ $f$ est décroissante si et seulement si $f'$ est négative.
+
+$\ast$ Si $f(a)$ est un extremum local de $f$ en $a$ alors, $f'(a)=0$. (réciproque fausse)
+
+$\ast$ Si $f'$ s'annule et change de signe en $a$ alors, $f(a)$ est un extremum local.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Dérivée d'une fonction composée}
+$g$ dérivable sur $J$ et $u$ dérivable sur $I$ tels que : $\forall x\in I, u(x)\in J$.
+
+Alors, $f=g\circ u$ est dérivable sur $I$ et on a $(g\circ u)'(x)=g'(u(x))\times u'(x)$
+
+\boiteo{(g\circ u)'=(g'\circ u)\times u'}
+\end{bclogo}
+
+\medskip
+
+
+\begin{bclogo}{Exemples importants}
+$u$, fonction positive et dérivable sur $I$. 
+
+$\ast$ $f=\sqrt{u}$ est dérivable et donne : $(\sqrt{u})'=\frac{u'}{2\sqrt{u}}$.
+
+$\ast$ $f=u^n$ est dérivable et donne : $(u^n)'=n\times u^{n-1}\times u'$
+\end{bclogo}
+
+
+
+
+
+
+

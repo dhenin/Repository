@@ -1,0 +1,254 @@
+\section{Suites}
+\subsection{Rappels sur les suites}
+
+\begin{bclogo}{Variations d'une suite}
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est croissante à partir du rang $n_0$ si et seulement si, pour tout $n\geqslant n_0$, $u_{n+1}\geqslant n_n$.
+
+\noindent
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est décroissante à partir du rang $n_0$ si et seulement si, pour tout $n\geqslant n_0$, $U_{n+1}\leqslant U_n$.
+
+\noindent
+$\ast$ Une suite $(u_n)_{n\in\mathbb{N}}$ est dite monotone si elle est croissante ou décroissante.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Etude du sens de variation d'une suite}
+$\ast$ Etude du signe de $u_{n+1}-u_n$.
+
+\noindent
+$\ast$ $u_n=f(n)$, si $f$ est monotone sur $\left[ 0;+\infty \right]$, alors la suite $(u_n)_{n\in\mathbb{N}}$ est monotone, de même variation que $f$ (formule explicite).
+
+\noindent
+$\ast$ Si $(u_n)_{n\in\mathbb{N}}$ est strictement positive, on peut comparer $\dfrac{u_{n+1}}{u_n}$ et 1. 
+
+Si $\dfrac{u_{n+1}}{u_n}>1$, $(u_n)_{n\in\mathbb{N}}$ est strictement croissante.
+
+Si $\dfrac{u_{n+1}}{u_n}<1$, $(u_n)_{n\in\mathbb{N}}$ est strictement décroissante.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Suites majorées, minorées, bornées...}
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est majorée s'il existe un réel $M$ tel que pour tout entier $n$, $u_n\leqslant M$.
+
+\noindent 
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est minorée s'il existe un réel $m$ tel que pour tout entier $n$, $u_n\geqslant m$.
+
+\noindent 
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est bornée si elle est à la fois majorée et minorée. 
+\end{bclogo}
+
+
+
+\subsection{Suites arithmétiques et suites géométriques}
+
+\begin{bclogo}{Suites arithmétiques}
+$\ast$ Une suite $(u_n)_{n\in\mathbb{N}}$ est arithmétique s'il existe un réel $r$ (la raison) indépendant de $n$ tel que, pour tout $n\in \mathbb{N}$, \[\boxed{u_{n+1}=u_n+r}\]. 
+
+\noindent
+$\ast$ Pour tous entiers $n$ et $p$, $u_n=u_p+(n-p)\times r$.
+
+\noindent
+$\ast$ $u_n=u_0+n.r$.
+
+\noindent
+$\ast$ $\lim\limits_{n \to +\infty} u_n= \left\lbrace\begin{array}{l}+\infty ,$ si $r>0 \\-\infty, $ si $ r<0 \end{array}\right.$
+
+\noindent
+$\ast$ Somme de termes consécutifs :
+\[\text{(nombre de termes)} \times \dfrac{1^{\text{er}} \text{terme} \times \text{dernier terme} }{2}\]
+
+Exemple :
+
+\boiteo{1+2+...+n=\dfrac{n\times (n+1)}{2}}
+\end{bclogo}
+
+
+\begin{bclogo}{Suites géométriques}
+$\ast$ Une suite $(u_n)_{n\in\mathbb{N}}$ est géométrique s'il existe un réel $q$ (la raison) indépendant de $n$ tel que, pour tout $n\in \mathbb{N}$, \[\boxed{u_{n+1}=u_n+q}\]. 
+
+\noindent
+$\ast$ Pour tous entiers $n$ et $p$, $u_n=u_p\times q^{n-q}$.
+
+\noindent
+$\ast$ $u_n=u_0\times q^n$.
+
+\noindent
+$\ast$ $\lim\limits_{n \to +\infty} q^n= \left\lbrace\begin{array}{l}+\infty ,$ si $q>1 \\0, $ si $ 0<q<1 \end{array}\right.$
+
+\noindent
+$\ast$ Somme de termes consécutifs :
+\[(1^{\text{er}}\text{termes}) \times \dfrac{1-q^{\text{nombre de termes}}}{1-q}\]
+
+Exemple :
+
+\boiteo{1+q^1+q^2+...+q^n=1\times \dfrac{1-q^{n+1}}{1-q}}
+
+Attention : nombre de termes $=n+1-1^{\text {er}} \text{terme}$
+\end{bclogo}
+
+
+
+\subsection{Démonstration par récurrence}
+
+\begin{bclogo}{Démonstration par récurrence}
+Pour démontrer que pour tout entier $n\geqslant n_0$, $P_n$ (proposition qui dépend de $n$) est vraie, il faut :
+
+\noindent
+$\ast$ \textbf{Initialisation} : vérifier que $P_{n_0}$ est vraie pour $n_0\geqslant 0$.
+
+\noindent
+$\ast$ \textbf{Hypothèse de récurrence} : considérer que $P_k$ est vraie pour un certain entier $k\geqslant n_0$.
+
+\noindent
+$\ast$ \textbf{Propriété d'hérédité} : démontrer que $P_{n+1}$ est vraie.
+
+\noindent
+$\ast$ \textbf{Conclusion} : pour tout $n\geqslant n_0$, $P_n$ est vraie.
+\end{bclogo}
+
+\subsection{Limite d'une suite}
+
+\begin{bclogo}{Limites d'une suite numérique $(u_n)_{n\in\mathbb{N}}$}
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ converge vers un réel $\ell$. Ceci signifie que tout intervalle contenant $\ell$ contient aussi tous les termes de la suite à partir d'un certain rang $p$.
+
+\[\lim\limits_{n \to +\infty} u_n=\ell \]
+
+$(u_n)_{n\in\mathbb{N}}$ est convergente et converge vers $\ell$.
+
+\noindent
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ a pour limite $+\infty$. Cela signifie que tout intervalle ouvert $\left] A;+\infty\right[$ contient tous les termes de la suite à partir d'un certain rang $p$. La suite est divergente.
+
+\noindent
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ a pour limite $-\infty$. Ceci signifie que tout intervalle ouvert $\left] -\infty ;B\right[ $ contient tous les termes de la suite à partir d'un certain rang $p$. La suite est divergente.
+
+\noindent
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ n'admet aucune limite. La suite est divergente.
+\end{bclogo}
+
+\newpage
+
+\begin{bclogo}{Suites monotones}
+$\ast$ Si une suite $(u_n)_{n\in\mathbb{N}}$ est croissante et non majorée, alors : \[\lim\limits_{n \to +\infty} u_n=+\infty\]
+
+\noindent
+$\ast$ Si une suite $(u_n)_{n\in\mathbb{N}}$ est décroissante et non minorée, alors : \[\lim\limits_{n \to +\infty} u_n=-\infty\]
+
+\noindent
+$\ast$ Une suite croissante et majorée est convergente.
+
+\noindent
+$\ast$ Une suite décroissante et minorée est convergente.
+\end{bclogo}
+\medskip
+
+\begin{bclogo}{\textbf{ROC 1} : limite d'une suite croissante non majorée}
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ n'est pas majorée : quelque soit le réel $A$, on peut trouver un entier $p$ tel que $u_p\geqslant A$.
+
+\noindent
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est croissante. Pour tout $n\geqslant p$: $\left\lbrace\begin{array}{l} u_n\geqslant u_p \\ u_n > A\end{array}\right.$.
+
+\noindent
+$\ast$ A partir du rang $p$, tous les termes de la suite sont dans $\left] A;+\infty \right[$.
+
+\noindent
+$\ast$ Conclusion : par définition, cela prouve : \[\boxed{\lim\limits_{n \to +\infty} u_n=+\infty}\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{\textbf{ROC 2} : limite d'une suite décroissante non minorée}
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ n'est pas minorée : quelque soit le réel $B$, on peut trouver un entier $p$ tel que $u_p\leqslant B$ 
+
+\noindent
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est décroissante. Pour tout $n\geqslant p$ : $\left\lbrace\begin{array}{l} u_n\leqslant u_p \\ u_n < B\end{array}\right.$.
+
+\noindent
+$\ast$ A partir du rang $p$, tous les termes de la suite sont dans $\left] -\infty ;B \right[$.
+
+\noindent
+$\ast$ Conclusion : par définition, cela prouve : \[\boxed{\lim\limits_{n \to +\infty} u_n=-\infty}\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{\textbf{ROC 3} : limite d'une suite croissante et majorée}
+$\ast$ Soit la suite $(u_n)_{n\in\mathbb{N}}$, croissante et majorée par un réel $M$. Notons $A$, le plus petit des majorants.
+
+\noindent
+$\ast$ Tout intervalle $\left] A-\alpha ; A+\alpha \right[$  contient au moins un terme $u_p$ de la suite. Sinon, $A-\alpha $ serait un majorant de la suite, ce qui contredit le fait que $A$ soit le plus petit des majorants.
+
+\noindent
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est croissante : pour tout $n\geqslant p$, $u_n \geqslant u_p$.
+
+\noindent
+$\ast$ \textbf{Conclusion} : l'intervalle $\left] A-\alpha ; A+\alpha \right[$ contient tous les termes de la suite à partir du rang $p$. Ceci est vrai, quel que soit le réel $\alpha > 0$. 
+
+Par définition, la suite $(u_n)_{n\in\mathbb{N}}$ converge et à pour limite $A$.
+\end{bclogo}
+
+\newpage
+
+\begin{bclogo}{\textbf{ROC 4} : limite d'une suite décroissante et minorée}
+$\ast$ Soit la suite $(u_n)_{n\in\mathbb{N}}$ décroissante et minorée par un réel $m$. Notons $B$, le plus grand des minorants.
+
+\noindent
+$\ast$ Tout intervalle $\left] B-\alpha ; B+\alpha \right[$  contient au moins un terme $u_p$ de la suite. Sinon, $B+ \alpha $ serait un minorant de la suite, ce qui contredit le fait que $B$ soit le plus grand des minorants.
+
+
+\noindent
+$\ast$ La suite $(u_n)_{n\in\mathbb{N}}$ est décroissante : pour tout $n\geqslant p$, $u_n \leqslant u_p$.
+
+\noindent
+$\ast$ \textbf{Conclusion} : l'intervalle $\left] B-\alpha ; B+\alpha \right[$ contient tous les termes de la suite à partir du rang $p$. Ceci est vrai, quelque soit le réel $\alpha > 0$. 
+
+Par définition, la suite $(u_n)_{n\in\mathbb{N}}$ converge et à pour limite $B$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Limite d'une suite géométrique}
+$\ast$ Soit $(u_n)_{n\in\mathbb{N}}$, une suite géométrique de raison $q$ non nulle. 
+
+\noindent
+Pour tout entier $n$ : \boiteo{u_n=u_0\times q^n}
+
+\noindent
+$\ast$ Si $|q|<1$, $\lim\limits_{n \to +\infty} q^n=0$
+
+\noindent
+$\ast$ Si $q>1$, $\lim\limits_{n \to +\infty} q^n=+\infty$
+
+\noindent
+$\ast$ Si $q=1$, $\lim\limits_{n \to +\infty} q^n=1$
+
+\noindent
+$\ast$ Si $q\leqslant -1$, $q^n$ n'a pas de limite.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Théorème d'encadrement (\og{}des gendarmes\fg{})}
+Soient trois suites $(u_n)_{n\in\mathbb{N}}$, $(v_n)_{n\in\mathbb{N}}$, $(w_n)_{n\in\mathbb{N}}$ telles que :
+ \[\forall n\geqslant n_0,\;\left.\begin{array}{c} v_n\leqslant u_n\leqslant w_n \\ \lim\limits_{n\to +\infty} v_n =\ell \\ \lim\limits_{n\to +\infty} w_n =\ell \end{array}\right\}\lim\limits_{n\to +\infty} u_n =\ell\] 
+\end{bclogo}
+
+
+
+\subsection{Suites adjacentes}
+
+\begin{bclogo}{Théorème et définition}
+Deux suites $(u_n)_{n\in\mathbb{N}}$ et $(v_n)_{n\in\mathbb{N}}$ sont adjacentes si et seulement si :
+
+\noindent
+$\ast$ $(u_n)_{n\in\mathbb{N}}$ est croissante.
+
+\noindent
+$\ast$ $(u_n)_{n\in\mathbb{N}}$ est décroissante.
+
+\noindent
+$\ast$ $\lim\limits_{n \to+\infty} u_n-v_n=0$
+
+\textbf{Théorème} : Si deux suites sont adjacentes alors elles convergent et elles ont la même limite.
+\end{bclogo}

@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage [utopia]{mathdesign} 
+\usepackage{geometry} %marge
+\geometry{hmargin=2cm,vmargin=2.5cm}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\pagestyle{fancy}
+\usepackage{graphicx} 
+\usepackage{xcolor}
+\usepackage[tikz]{bclogo}
+\usepackage{pst-text}
+\usepackage{pst-blur}
+
+\usepackage[frenchb]{babel}
+\definecolor{bleu}{rgb}{0.2,0.0,1}
+\definecolor{vert}{rgb}{0.2,0.8,0.3}
+\definecolor{rouge}{RGB}{88,0,0}
+\usepackage[colorlinks=true,linkcolor=rouge]{hyperref}
+\author{anneso}
+\parindent0pt
+\renewcommand{\Re}{\,\mathrm{Re}\,}
+\renewcommand{\Im}{\,\mathrm{Im}\,}
+\newcommand\I{\mathrm{i}}
+\newcommand\vect[1]{\overrightarrow{#1}}
+\newcommand\boiteo[1]{%
+\begin{center}
+    \shadowbox%[shadowcolor=gray, shadowsize=3pt]
+    {%
+        $\displaystyle #1$
+    }
+\end{center}
+}
+
+\definecolor{orange}{RGB}{232,208,157}
+%
+% jjd
+%
+%\usepackage{auto-pst-pdf}
+%\usepackage{pstricks-add}
+\setlength{\headheight}{14pt}
+\begin{document}
+
+
+\begin{titlepage}
+\iffalse
+\begin{pspicture}(2cm,0)(\paperwidth,24.7)
+%\rput(0.5\paperwidth,23{\psscalebox{2.5}{\pscharpath[linecolor=rouge,fillstyle=solid,fillcolor=orange,linewidth=0.7pt,blur=true]{\Huge\textbf{Fiches}}}}
+%  \rput(0.5\paperwidth,20.5){\psscalebox{2}{\pscharpath[linecolor=rouge,fillstyle=solid,fillcolor=orange,linewidth=0.7pt,blur=true]{\Huge\textbf{de Mathématiques}}}}
+  \rput(0.5\paperwidth,18){\psscalebox{3}{\bfseries Terminal S}}
+  \rput[Br](0.95\paperwidth,13.5){\Large Anne-Sophie \textsc{Philippe}}
+  \psframe[linecolor=orange, fillstyle=solid,fillcolor=orange](0,-5cm)(\paperwidth,13.2)
+  \psframe[linecolor=rouge,fillstyle=solid,fillcolor=rouge](0,13)(\paperwidth,13.4)
+  \rput(0.5\paperwidth, 6){\includegraphics{figureJMS.1}}
+ \end{pspicture}%
+ \fi
+\end{titlepage}
+
+
+\lhead{Table des matières}
+\thispagestyle{empty}
+\setcounter{page}{0}
+\tableofcontents
+
+\newpage
+
+\definecolor{suite}{RGB}{255,250,188}
+\presetkeys{bclogo}{arrondi=0.1, couleur =suite, logo=\bccrayon}{} 
+
+
+\input{cours/suites.tex}
+\definecolor{fonction}{RGB}{191,227,176}
+\presetkeys{bclogo}{arrondi=0.1, couleur =fonction, logo=\bcorne}{} 
+
+
+\input{cours/fonction.tex}
+
+\definecolor{exp}{RGB}{205,209,255}
+% \presetkeys{bclogo}{arrondi=0.1, couleur =exp, logo=\bcying}{}
+
+
+\input{cours/fonctexpequadif.tex}
+
+
+\definecolor{ln}{RGB}{203,212,212}
+\presetkeys{bclogo}{arrondi=0.1, couleur =ln, logo=\bcrosevents}{}
+
+\input{cours/fonctionln.tex}
+\definecolor{puiss}{RGB}{222,210,238}
+\presetkeys{bclogo}{arrondi=0.1, couleur =puiss, logo=\bctakecare}{}
+
+
+\input{cours/fonctionpuissance.tex}
+\definecolor{prod}{RGB}{204,197,220}
+\presetkeys{bclogo}{arrondi=0.1, couleur =prod, logo=\bcdodecaedre}{}
+
+
+\input{cours/produitscalaireplan.tex}
+
+\presetkeys{bclogo}{arrondi=0.1, couleur =prod, logo=\bccube}{}
+
+
+\input{cours/droiteespace.tex}
+\definecolor{comp}{RGB}{234,185,173}
+\presetkeys{bclogo}{arrondi=0.1, couleur =comp, logo=\bctrefle}{}
+
+\input{cours/nombrescomplexes.tex}
+\definecolor{int}{RGB}{244,222,180}
+\presetkeys{bclogo}{arrondi=0.1, couleur =int, logo=\bcplume}{}
+
+\input{cours/integration.tex}
+
+\definecolor{proba}{RGB}{227,244,180}
+\presetkeys{bclogo}{arrondi=0.1, couleur =proba, logo=\bcquestion}{}
+
+\input{cours/proba.tex}
+
+\end{document}

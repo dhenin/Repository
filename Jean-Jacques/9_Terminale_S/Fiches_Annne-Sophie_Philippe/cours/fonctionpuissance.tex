@@ -1,0 +1,89 @@
+\section{Fonctions puissances et croissances comparées}
+\subsection{Fonctions puissances $x^n$ et $\frac{1}{x^n}$}
+\begin{bclogo}{La fonction $x^n$}
+$\ast$ Si $n$ est pair, pour tout réel $x$, $f_n(-x)=f_n(x)$ donc $f_n$ est paire.
+
+$\ast$ Si $n$ est impaire, $f_n$ est impaire.
+
+$\ast$ $f'(x)=n.x^{n-1}$
+
+$\ast$ $f_n$ est croissante sur $\mathbb{R}$.
+\end{bclogo}
+
+\newpage
+
+\begin{bclogo}{La fonction $\frac{1}{x^n}$}
+$\ast$ $g_n$ est définie sur $\mathbb{R}^*$.
+
+$\ast$ Si $n$ est pair, $g_n(-x)=g_n(x)$ donc $g_n$ est impaire.
+
+$\ast$ $g'_n(x)=\frac{-n}{n+1}$
+
+$\ast$ $g_n$ est décroissante sur $]0;+\infty [$
+\end{bclogo}
+
+\subsection{Fonctions racine $n^{\text{ième}}$}
+\begin{bclogo}{Définitions}
+La fonction racine $n^{\text{ième}}$ est définie sur $[0;+\infty[$ par \[x\mapsto x^{\frac{1}{n}}=\sqrt[n]{x}\].
+
+La fonction racine $n^{\text{ième}}$ est dérivable sur $]0;+\infty[$ et sa dérivée est : \[x\mapsto \frac{1}{n}x^{\frac{1}{n}-1}\]
+
+La fonction racine $n^{\text{ième}}$ est continue sur $]0;+\infty[$. 
+\[\lim\limits_{x \to 0} x^{\frac{1}{n}}= \lim\limits_{x \to 0} e^{\frac{1}{n}\ln x}\]
+Or 
+\[\lim\limits_{x \to 0^+} \frac{1}{n} \ln x=-\infty \text{ et } \lim\limits_{x \to -\infty} e^X=0\]
+
+Donc
+\[\lim\limits_{x \to 0} x^{\frac{1}{n}}=0\]
+
+La fonction racine $n^{\text{ième}}$ est croissante et continue sur $[0;+\infty[$.
+\end{bclogo}
+
+\subsection{Croissances comparées}
+\begin{bclogo}{}
+\[\forall n\geqslant 1, \lim\limits_{x \to +\infty} \frac{\ln x}{x^n}=0 \text{ et } \lim\limits_{x \to +\infty} \frac{e^x}{x^n}=+\infty\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{}
+\[\forall n\geqslant 1, \lim\limits_{x \to 0} x^n \ln x=0 \text{ et } \lim\limits_{x \to -\infty} x^n e^x=0\]
+\end{bclogo}
+
+\subsection{Fonctions exponentielles de base}
+\begin{bclogo}{Définition}
+\[f_a(x)=a^x=e^{x\ln a}\]
+Si $a=1$, $f(a)$ est la fonction constante dégale à$1$.
+
+Si $a=e$, $f_e$ est la fonction $\exp$
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Dérivabilité}
+$f_a$ est dérivable sur $\mathbb{R}$ : \[f'_a(x)=\ln a\times e^{x.\ln a}=\ln a \times a^x\]
+
+Si $0< a< 1$ alors, $\ln a< 0$ donc $f'_a <0$. $f_a$ est décroissante sur $\mathbb{R}$.
+
+Si $a< 1$ alors, $\ln a> 0$ donc $f'_a> 0$. $f_a$ est croissante sur $\mathbb{R}$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Limites}
+$\ast$ Si $0<a<1$
+
+$\Rightarrow$ \[\lim\limits_{x \to +\infty} x \ln a=-\infty\] 
+\[\lim\limits_{X \to -\infty} e^X=0 \text{ donc } \lim\limits_{x \to +\infty} a^x=0\]
+
+$\Rightarrow$ \[\lim\limits_{x \to -\infty} x \ln a=+\infty\]
+\[\lim\limits_{X \to +\infty} e^X=+\infty \text{ donc } \lim\limits_{x \to -\infty} a^x=+\infty\]
+
+$\ast$ Si $a>1$
+
+$\Rightarrow$ \[\lim\limits_{x \to +\infty} x \ln a=+\infty\]
+\[\lim\limits_{X \to +\infty} e^X=+\infty \text{ donc } \lim\limits_{x \to +\infty} a^x=+\infty\]
+
+$\Rightarrow$ \[\lim\limits_{x \to -\infty} x \ln a=-\infty\]
+\[\lim\limits_{X \to -\infty} e^X=0 \text{ donc } \lim\limits_{x \to -\infty} a^x=0\]
+\end{bclogo}

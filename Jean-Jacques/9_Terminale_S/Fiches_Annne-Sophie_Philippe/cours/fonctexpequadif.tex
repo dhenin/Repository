@@ -1,0 +1,50 @@
+\section{Fonction exponentielle et équation différentielle}
+\begin{bclogo}{Définition}
+On dit que $f$, fonction dérivable sur un intervalle $I$, est solution de l'équation différentielle $y'=k.y$, lorsque $\forall x\in I$, $f'(x)=k.f(x)$.
+\end{bclogo}
+
+
+
+\begin{bclogo}{Fonction exponentielle}
+Il existe \emph{une et une seule fonction} dérivable sur $\mathbb{R}$ telle que $y'=y$ et $y(0)=1$ (condition initiale). C'est la fonction exponentielle.
+
+\begin{center}
+\begin{tabular}{ll}
+$\ast$ $(\exp )'=\exp $&$\ast$ $e^{a+b}=e^a \times e^b$\\
+
+$\ast$ $e^{2a}=\left[ e^a\right] ^2$&$\ast$ $e^{-a}=\frac{1}{e^a}$\\
+
+$\ast$ $e^{a-b}=\frac{e^a}{e^b}$&$\ast$ $\left( e^a\right) ^n=e^{n.a}$\\
+
+$\ast$ $e^0=1$
+\end{tabular}
+\end{center}
+$\ast$ La fonction exponentielle est strictement croissante sur $\mathbb {R}$
+
+$\ast$ $\lim\limits_{x\to +\infty} e^x=+\infty$ et $\lim\limits_{x\to -\infty} e^x=0$
+
+$\ast$ $\lim\limits_{h\to 0} \frac{e^h-1}{h}=1$
+
+$\ast$ $\lim\limits_{x\to +\infty} \frac{e^x}{x}=+\infty$ et $\lim\limits_{x\to -\infty} x.e^x=0$
+
+$\ast$ $\lim\limits_{x\to +\infty}\frac{e^x}{x^n}=+\infty$ et $\lim\limits_{x\to -\infty} x^n.e^x=0$
+
+$\ast$ Fonction composée $e^u$. $\left( e^u\right)'=u'.e^u$ 
+
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Equation $y'=a.y$}
+L'ensemble des solutions dans $\mathbb{R}$ de l'équation $y'=ay$ est l'ensemble des fonctions \[x\mapsto c.e^{ax}\] où $c$ est un réel quelconque.
+
+Il existe \emph{une unique solution} vérifiant la condition initiale $y'(x_0)=y_0$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Equation $y'=ay+b$}
+Les solutions de l'équation $(E):y'=a.y+b$ sont les fonctions définies sur $\mathbb{R}$, de la forme $f-\frac{b}{a}$ où $f$ est solution de $y'=ay$. C'est-à-dire
+\[x\mapsto Ce^{ax}-\frac{b}{a}\]
+où $C\in\mathbb{R}$. Si $y(x_0)=y_0$, $(E)$ admet \emph{une unique} solution.
+\end{bclogo}

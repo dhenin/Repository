@@ -1,0 +1,316 @@
+\section{Les nombres complexes}
+\subsection{Introduction aux nombres complexes}
+\begin{bclogo}{Définitions}
+
+
+Un nombre complexe est un nombre de la forme $x+\I y$, où $x$ et $y$ désignent des réels et $\I $ un nombre imaginaire vérifiant $\I ^2=-1$. L'ensemble des complexes est noté $\mathbb{C}$.
+
+Soit, un point $M$ de coordonées $(x;y)$, le nombre complexe $x+\I .y$ est l'affixe du point $M$ ou du vecteur $\vect{OM}$. \[z_M=x+\I .y \text{ ou } z_{OM}=x+\I .y\]
+
+Le point $M(x;y)$ est l'image du nombre $x+\I .y$.
+
+Le plan de repère orthonormal direct $(O,\vect{u},\vect{v})$ est appelé plan complexe.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Forme algébrique}
+$\ast$ Tout nombre $z$ admet une unique écriture de la forme $x+\I .y$ (forme algébrique) avec :
+
+$x$, partie réelle de $z$ notée $\Re (z)$.
+
+$y$, partie imaginaire de $z$ notée $\Im (z)$.
+
+$\ast$ Si $z\in \mathbb{R}$ alors, $\Im (z)=0$.
+
+$\ast$ Si $z$ est un imaginaire pur, $\Re (z)=0$.
+
+$\ast$ Si $z=z'$, $\Re (z)=\Re (z')$, $\Im (z)=\Im (z')$.
+
+$\ast$ Si $z=0$, $\Re (z)=\Im (z)=0$.
+ 
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Conjugué}
+Le conjugué de $z$ est le nombre $\overline{z}=x-\I .y$.
+
+$\ast$ $\overline{z}=z$
+
+$\ast$ $z+\overline{z}=2\times \Re (z)$
+
+$\ast$ $z-\overline{z}=\I \times 2\Im (z)$
+
+$\ast$ $z.\overline{z}=x^2+y^2$
+
+$\ast$ Si, $z\in \mathbb{R}$ alors $z=\overline{z}$
+
+$\ast$ Si, $z$ est imaginaire pur, alors, $\overline{z}=-z$
+\end{bclogo}
+
+\subsection{Calculs avec les nombres complexes}
+
+\begin{bclogo}{Sommes et produits}
+\[z+z'=(x+x')+\I (y+y')\]
+
+\[kz=kz+\I ky\]
+
+\[zz'=xx'-yy'+\I (xy'+x'y)\]
+
+\[-1z=-x-\I y=-z\]
+
+\[z-z'=z+(-z')\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Inverses et quotients}
+\[\frac{1}{z}=\frac{\overline{z}}{z\overline{z}}\]
+
+\[\frac{z}{z'}=\frac{z\overline{z'}}{z'\overline{z'}}\]
+Avec $z.\overline{z}=x^2+y^2$...
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Opérations sur les conjugués}
+$\ast$ Le conjugué d'une somme est égal à la somme des conjugués. \[\overline{z+z'}=\overline{z}+\overline{z'}\]
+
+$\ast$ Le conjugué d'un produit est égal au produit des conjugués. \[zz'=\overline{z}.\overline{z'}\]
+
+$\ast$ Le conjugué d'un quotient est égal au quotient des conjugués. \[\overline{\frac{z}{z'}}=\frac{\overline{z}}{\overline{z'}}\]
+
+$\ast$ \[\overline{z^n}=\overline{z}^n\]
+\end{bclogo}
+
+\subsection{Equation du second degré à coefficients réels}
+
+\begin{bclogo}{Théorème}
+\[\Delta=b^2-4ac\]
+
+Dans $\mathbb{C}$, l'équation $az^2+bz+c=0$ a toujours des solutions. (si $\Delta=0$, $z_1$ et $z_2$ sont confondus).
+
+\[z_1=\frac{-b-\delta}{2a} \text{ et }  z_2=\overline{z_1}=\frac{-b+\delta}{2a}\]
+
+avec $\delta ^2=\Delta$
+\end{bclogo}
+
+\subsection{Module et argument d'un nombre complexe}
+
+\begin{bclogo}{Coordonnées polaires}
+Les nombres polaires sont notés $(r,\alpha)$. 
+
+$\ast$ Pour $r>0$, $r=OM$.
+
+$\ast$ $\alpha$ est une mesure en radian de $(\vect{u},\vect{OM})$.
+
+$\ast$ Si $(r,\alpha)$ est un couple de coordonées de $M$, alors les coordonnées cartésiennes $(x,y)$ sont : \boiteo{x=r.\cos \alpha \text{ et } y=r.\sin \alpha}
+
+$\ast$ Réciproquement, si $M$ a pour coordonnées cartésiennes $(x,y)$ alors les coordonnées polaires $(r,\alpha)$ sont définies par : \boiteo{r=\sqrt{x^2+y^2}}
+
+\[\cos \alpha=\frac{x}{r} \text{ et } \sin \alpha=\frac{y}{r}\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Module d'un nombre complexe}
+Le module $z$ est le nombre réel positif noté $|z|$, défini par $|z|=\sqrt{x^2+y^2}$.
+
+Dans le plan complexe, $|z|=OM$
+
+$\ast$ Si $z$ est un nombre réel $x$, alors $|z|$ est la valeur absolue de $x$. $z=\sqrt{x^2}$.
+
+$\ast$ Si $|z|=0$, alors $z=0$.
+
+$\ast$ $z.\overline{z}=x^2+y^2$ avec $z=x+\I y$, alors $z.\overline{z}=|z|^2$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Arguments d'un nombre complexe non nul}
+Dans le plan complexe $z$ a pour image un point $M$. L'argument de $z$ est noté $\arg z$ et correspond à toute mesure en radians de l'angle $(\vect{u},\vect{OM})$.
+
+Un nombre complexe a une infinité d'arguments. Si $\theta$ est l'un d'entre eux, les réels $\theta +k2\pi$ sont des arguments de $z$. On note : $\arg (z)=\theta$ ($\mod 2\pi$ ou $[2\pi]$) ou $\arg (z)=\theta$.
+\end{bclogo}
+
+\newpage
+
+\begin{bclogo}{Forme trigonométrique d'un nombre complexe}
+\boiteo{z=r(\cos \theta +\I\sin \theta)}
+
+avec $r>0$, $r=|z|$ et $\theta=\arg (z)$.
+
+$\ast$ Deux nombres complexes sont égaux ssi ils ont le même module et le même argument à $2\pi$ près.
+
+$\ast$ Si $z=\ell (\cos \theta+\I \sin \theta)$ (avec $\ell >0$), alors $|z|=\ell$ et $\arg (z)=\theta$ $(\mod 2\pi)$.
+\end{bclogo}
+
+\subsection{Propriétés du module et des arguments}
+\begin{bclogo}{Propriétés}
+$\ast$ $|\overline{z}|=|z|$ $\arg (\overline{z})=\arg (z)$ $[2\pi]$.
+
+$\ast$ $|-z|=|z|$ $\arg (-z)=\arg (z) +\pi$ $[2\pi]$.
+
+$\ast$ $\forall z\in \mathbb{R}$, $z=0$ ou $\arg (z) =0$ ou $\arg (z) =\pi$ $[2\pi]$.
+
+$\ast$ Pour $z$ imaginaire pur, $\arg (z)=\frac{\pi}{2}$ ou $\arg (z)=\frac{-\pi}{2}$ $[2\pi]$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Opérations}
+$\ast$ \textbf{Théorème :}
+
+Soit $z=r(\cos \alpha +\I .\sin \alpha)$ et $z'=r'(\cos \beta+\I .\sin \beta)$ avec $r$ et $r'$ supérieurs à $0$.
+
+\begin{equation}\label{eq} zz'=rr'\left( \cos (\alpha +\beta ) +\I .\sin (\alpha +\beta )\right) \end{equation}
+\begin{equation}\label{equa}\frac{z}{z'}=\frac{r}{r'}\left( \cos (\alpha -\beta) +\I .\sin (\alpha -\beta)\right) \end{equation}
+
+$\ast$ \textbf{Démonstration ROC :}
+
+(\ref{eq})
+\[zz'= \left[ r(\cos \alpha +\I .\sin \alpha)\right] \times \left[ r'(\cos \beta+\I .\sin \beta)\right] \]
+\[zz'= rr'\left( \cos \alpha +\I .\sin \alpha\right) \times \left( \cos \beta+\I .\sin \beta\right) \]
+\[zz'=rr'\times \left[ \left( \cos \alpha .\cos \beta - \sin \alpha \sin \beta \right) +\I  \left( \cos \alpha .\sin \beta + \sin \alpha \cos \beta\right) \right] \]
+\[zz'=rr'\left( \cos (\alpha +\beta ) +\I .\sin (\alpha +\beta )\right) \]
+
+(\ref{equa})
+
+\[\frac{z}{z'}=Z\]
+avec $Z=\ell (\cos \theta + \sin \theta)$
+
+\[z=z'Z\]
+\[r(\cos \alpha +\I \sin \alpha) =r' \ell \left[ \cos (\beta + \theta)+\I \sin (\beta +\theta)\right] \]
+\[\Longleftrightarrow\;\left\lbrace\begin{array}{l} r=r'\ell \\ \alpha =\beta +\theta [2\Pi] \end{array}\right. \Longleftrightarrow\;\left\lbrace\begin{array}{l} \ell =\frac{r}{r'} \\ \theta=\alpha -\beta [2\pi] \end{array}\right.\]
+\[Z=\frac{z}{z'}=\frac{r}{r'}\left[ \cos (\alpha -\beta)+\I .\sin (\alpha -\beta)\right] \]
+
+\end{bclogo}
+
+\newpage
+
+\begin{bclogo}{Conséquences}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Produit&$|zz'|=|z|\times |z'|$&$\arg (zz')=\arg (z)+\arg (z')$ $[2\pi]$\\
+\hline
+Puissance&$|z^n|=|z|^n$ avec $n\in \mathbb{N}$&$\arg (z^n)=n.\arg (z)$ $[2\pi]$\\
+\hline
+Inverse&$|\dfrac{1}{z}|=\dfrac{1}{|z|}$&$\arg \left( \dfrac{1}{z}\right) =-\arg (z)$ $[2\pi]$\\
+\hline
+Quotient&$|\dfrac{z}{z'}|=\dfrac{|z|}{|z'|}$&$\arg \left( \dfrac{z}{z'}\right) =\arg (z)-\arg (z')$ $[2\pi]$\\
+\hline
+\end{tabular}
+\end{center}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Inégalité triangulaire}
+\boiteo{|z+z'|\leqslant |z|+|z'|}
+\end{bclogo}
+
+\subsection{Lien avec le plan complexe}
+
+\begin{bclogo}{Propriétés des affixes}
+$I$, milieu de $[AB]$ signifie que : \boiteo{z_I=\frac{z_A+z_B}{2}}
+
+$G$, barycentre de $\left\lbrace (A,\alpha); (B,\beta); (C,\gamma )\right\rbrace$ signifie que :
+\boiteo{z_G=\frac{\alpha z_A +\beta z_B+\gamma z_C}{\alpha +\beta +\gamma}}
+\end{bclogo} 
+
+\medskip
+
+\begin{bclogo}{Propriétés des modules}
+$A$ et $B$, deux points d'affixes $z_A$ et $z_B$.
+
+$\ast$ $AB=|z_A-z_B|$
+
+$\ast$ Si $A\neq B$, alors $(\vect{u},\vect{AB})=\arg (z_B-z_A) [2\pi]$
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Conséquences }
+$A,B,C,D$ quatre points distincts deux à deux d'affixes respectives $z_A,z_B,z_C,z_D$.
+\boiteo{(\vect{AB},\vect{CD})=\arg \left( \frac{z_D -z_C}{z_B-z_A}\right) [2\pi]}
+
+\end{bclogo}
+
+\subsection{Notation exponentielle}
+
+\begin{bclogo}{Définitions et propriétés}
+\boiteo{e^{\I \theta} =\cos \theta +\I \sin \theta}
+$\forall z \in \mathbb{C} \left\lbrace 0\right\rbrace $, de module $r$ et d'argument $\theta$, la forme exponentielle de $r$ s'écrit :\boiteo{z=r.e^{\I \theta}}
+
+\textbf{Propriétés :}
+
+$\ast$ $|e^\I \theta|=1$ et $\arg (e^{\I \theta} )=\theta$
+\medskip
+
+$\ast$ $e^{\I \theta}\times e^{\I \theta '}=e^{\I (\theta +\theta ')}$
+\medskip
+
+$\ast$ $\frac{e^{\I \theta}}{e^{\I \theta '}}=e^{\I (\theta-\theta ')}$
+\medskip
+
+$\ast$ $\overline{e^{\I \theta}}=e^{-\I \theta}$
+\medskip
+
+$\ast$ $(e^{\I \theta})^n=e^{\I .n.\theta}$
+
+\end{bclogo} 
+
+\medskip
+
+\begin{bclogo}{Formules de Moine et d'Euler}
+$\ast$ \textbf{Formule de Moine :} \boiteo{(\cos \alpha +\I .\sin \alpha )^n=\cos (n.\alpha ) +\I .\sin (n.\alpha )}
+\boiteo{ (\cos \alpha +\I .\sin \alpha )^n=\cos (n.\alpha ) -\I .\sin (n.\alpha )}
+
+$\ast$ \textbf{Formule d'Euler :} \boiteo{\cos \alpha = \frac{e^{\I .\alpha} + e^{-\I .\alpha}}{2}}
+\boiteo{\sin \alpha = \frac{e^{\I .\alpha} - e^{-\I .\alpha}}{2.\I }}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Equation paramétrique d'un cercle du plan complexe}
+$\mathcal{C}$, cercle de centre $\Omega$, d'affixe $\omega$ et de rayon $R$. $M$, d'affixe $z$.
+
+$M\in \mathcal{C} \Longleftrightarrow$ il existe $\theta \in \mathbb{R}$, tel que : \boiteo{z=R.e^{\I .\theta}+\omega}
+
+C'est l'équation paramétrique du cercle $\mathcal{C}$.
+\end{bclogo}
+
+\subsection{Nombres complexes et transformations}
+\begin{bclogo}{Translation}
+Soit $\vect{w}$, le vecteur d'affixe $b$. L'écriture complexe de la translation de vecteur $\vect{w}$ s'écrit : \boiteo{z'=z+b}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Homothétie}
+Soit $\Omega$, d'affixe $\omega$ et $k$, réel non nul. L'écriture complexe de l'homothétie de centre $\Omega$ et de rapport $k$ est  : \boiteo{z'=k.(z-\omega)+\omega}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Rotation}
+Soit $\Omega$, le point d'affixe $\omega$ et $\theta$, un réel. L'écriture complexe de la rotation de centre $\Omega$ et d'angle $\theta$ est : \boiteo{z'=e^{\I .\theta}.(z-\omega)+\omega}
+
+\textbf{Démonstration ROC :}
+
+Soit, $r$, la rotation de centre $\Omega$ et d'angle $\theta$.
+
+$\ast$ $M\neq \Omega$, $M'=r.M$ \[\Longleftrightarrow \Omega .M=\Omega .M' \text{ et, } (\vect{\Omega M},\vect{\Omega M'})=\theta\]
+\[\Longleftrightarrow |z-\omega|=|z'-\omega| \text{ et } \arg \left( \frac{z'-\omega}{z-\omega}\right) =\theta\]
+\[\Longleftrightarrow |\frac{z'-\omega}{z-\omega}|=1 \text{ et } \arg \left( \frac{z'-\omega}{z-\omega}\right) =\theta\]
+
+$\frac{z'-\omega}{z-\omega}$ est le nombre complexe de module $1$ et d'argument $\theta$.
+
+Donc, \[\frac{z'-\omega}{z-\omega}=e^{\I .\theta}\]
+\[z'-\omega = e^{\I .\theta}.(z-\omega )\]
+\[z'=e^{\I .\theta}.(z-\omega )+\omega\]
+
+$\ast$ $M=\Omega$ $\Longleftrightarrow$ $z=\omega$ donc $z'=\omega$.
+\end{bclogo}

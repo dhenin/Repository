@@ -1,0 +1,174 @@
+\section{Intégration}
+\subsection{Intégration des fonctions}
+\begin{bclogo}{Intégration d'une fonction positive}
+$\ast$ Soit une fonction $f$ continue et positive sur $[a;b]$. Le réel noté \[\int_{a}^{b} f(x)\,\mathrm{d}x\] est l'aire, en unité d'aire, du domaine $\mathbb{D}$ délimité par $\mathcal{C}_f$, l'axe des abscisses, les droites d'équations $x=a$ et $x=b$. $a$ et $b$ sont les bornes de l'intégrale.
+
+$\ast$ \textbf{Valeur moyenne : }la valeur moyenne de $f$ sur $[a;b]$ est : \boiteo{\mu =\frac{1}{b-a}\times \int_{a}^{b} f(x)\,\mathrm{d}x}
+
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Intégration d'une fonction de signe quelconque}
+$\ast$ Soit une fonction $f$ continue et négative sur $[a;b]$. \[\int_{a}^{b} f(x)\,\mathrm{d}x=-\text{aire} \mathcal{D}\]
+Où $\mathcal{D}$ est le domaine délimité par $\mathcal{C}_f$, l'axe des abscisses et les droites d'quation $x=a$ et $x=b$.
+
+
+$\ast$ La valeur moyenne se calcul de la même façon.
+\end{bclogo}
+
+\subsection{Propriétés de l'intégrale}
+
+\begin{bclogo}{Relation de Chasles}
+Soit $f$, fonction continue sur $[a;b]$ et $c\in [a;b]$. \[\int_{a}^{c}f(x)\,\mathrm{d}x+\int_{c}^{b}f(x)\,\mathrm{d}x=\int_{a}^{b}f(x)\,\mathrm{d}x\]
+
+Cas particulier : \[\int_{a}^{c}f(x)\,\mathrm{d}x+\int_{c}^{a}f(x)\,\mathrm{d}x=\int_{a}^{a}f(x)\,\mathrm{d}x=0\]
+\[\int_{a}^{c}f(x)\,\mathrm{d}x=-\int_{c}^{a}f(x)\,\mathrm{d}x\]
+\end{bclogo}
+
+
+\begin{bclogo}{Linéarité}
+\[\int_{a}^{b}f(x)\,\mathrm{d}x+\int_{a}^{b}g(x)\,\mathrm{d}x=\int_{a}^{b}f(x)+g(x)\,\mathrm{d}x\]
+\[\int_{a}^{b}\alpha f(x)\,\mathrm{d}x=\alpha \int_{c}^{b}f(x)\,\mathrm{d}x\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Positivité}
+Soit $f$, fonction continue sur $[a;b]$ avec $a\leqslant b$. Si $f$ est positive sur $[a;b]$ alors, $\int_{a}^{b}f(x)\,\mathrm{d}x\geqslant 0$
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Si $f$ est positive sur $I$&$a\leqslant b$, $\int_{a}^{b}f(x)\,\mathrm{d}x\geqslant 0$&$a\geqslant b$, $\int_{a}^{b}f(x)\,\mathrm{d}x\leqslant 0$\\
+\hline
+Si $f$ est négative sur $I$&$a\leqslant b$, $\int_{a}^{b}f(x)\,\mathrm{d}x\leqslant 0$&$a\geqslant b$, $\int_{a}^{b}f(x)\,\mathrm{d}x\geqslant 0$\\
+\hline
+\end{tabular}
+\end{center}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Conservation de l'ordre}
+Si $f\leqslant g$ sur $[a;b]$, alors $\int_{a}^{b}f(x)\,\mathrm{d}x\leqslant \int_{a}^{b} g(x)\,\mathrm{d}x$
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Inégalité de la moyenne}
+S'il existe deux réels $m$ et $M$ tels que $m\leqslant f\leqslant M$ sur $I$ et si $a\leqslant b$, alors : \[m(a-b)\leqslant \int_{a}^{b} f(x)\,\mathrm{d}x\leqslant M(b-a)\]
+
+S'il existe un réel $M$ tel que $|f|\leqslant M$ alors : \[\left| \int_{a}^{b}f(x)\,\mathrm{d}x\right| \leqslant M|a-b|\]
+\end{bclogo}
+
+\subsection{Primitive}
+
+\begin{bclogo}{Définition}
+Soit $f$ une fonction définie sur un intervalle $I$ de $\mathbb{R}$.
+On appelle primitive de $f$ sur $I$ toute fonction $F$ dérivable sur $I$ telle que, pour tout $x$ de $I$, $F'(x) = f(x)$.
+\end{bclogo}
+\medskip
+
+\begin{bclogo}{Quelques primitives importantes}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Fonction&Une primitive\\
+\hline
+$f(x)=a$&$F(x)=a.x$\\
+\hline
+$f(x)=x^n$&$F(x)=\dfrac{1}{n+1}.x^{n+1}$\\
+\hline
+$f(x)=\dfrac{1}{\sqrt{x}}$&$F(x)=2\sqrt{x}$\\
+\hline
+$f(x)=\cos x$&$F(x)=\sin x$\\
+\hline
+$f(x)=\sin x$&$F(x)=-\cos x$\\
+\hline
+$f(x)=1+\tan ^2 x=\dfrac{1}{\cos ^2x}$&$F(x)=\tan x$\\
+\hline
+$f(x)=\dfrac{1}{x}$&$F(x)=\ln x$\\
+\hline
+$f(x)=\exp (x)$&$F(x)=\exp (x)$\\
+\hline
+\end{tabular}
+\end{center}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Primitives de fonctions "composées"}
+Soient $u$ et $v$, deux fonctions admettant pour primitives respectives $U$ et $V$ sur un intervalle $I$ et $g$, une fonction admettant une primitive $G$ sur l'intervalle $J$ contenant $u(I)$.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$f=au+bv$&$F=aU+bV$\\
+\hline
+$f=u'\times g\circ u$&$F=G\circ u$\\
+\hline
+$f=u'.u^n$&$F=\dfrac{1}{n+1}.u^{n+1}$\\
+\hline
+$f=\dfrac{u'}{\sqrt{u}}$&$F=2\sqrt{u}$\\
+\hline
+$f=u'.\cos (u)$&$F=\sin u$\\
+\hline
+$f=u' \sin (u)$&$F=-\cos u$\\
+\hline
+$f=\dfrac{u'}{u}$&$F=\ln u$\\
+\hline
+$f=u'.e^{u}$&$F=e^{u}$\\
+\hline
+\end{tabular} 
+\end{center}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Existence des primitives}
+\textbf{Théorème :} Si $f$ est une fonction continue sur un intervalle $I$ alors $f$ admet des primitives sur $I$.
+
+Si $F$ est une primitive de $f$ sur $I$, alors les primitives de $f$ sur $I$ sont les fonctions de la forme $F(x)+k$. Pour tout couple $(x_0,y_0)$, il existe une unique primitive $F_0$ de $f$ sur $I$ telle que $F_0(x_0)=y_0$.
+\end{bclogo}
+
+\subsection{Intégrale et primitive}
+
+\begin{bclogo}{Théorème}
+Soit $f$, une fonction continue sur un intervalle $I$ et $a$, un réel quelconque de $I$. La fonction $\phi$ définie sur $I$ par $\phi (x)=\int_{a}^{x} f(t)d(t)$ est l'unique primitive de $f$ qui s'annule en $a$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Remarques}
+$\phi$ est dérivable sur $I$de dérivée $f$.
+
+Les solutions de l'équation différentielle $y'=f(t)$ sont les fonctions : $\phi (x)=\int_{x}^{a} f(t)\mathrm{d}t+k$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Calcul d'une intégrale à l'aide des primitives}
+\[\int_{a}^{b} f(x)\,\mathrm{d}x=F(b)-F(a)\]
+\end{bclogo}
+
+\medskip
+
+\subsection{Intégration par parties}
+\begin{bclogo}{Théorème}
+\boiteo{\int_{a}^{b} u(x).v'(x)\,\mathrm{d}x=\left[ u(x).v(x)\right]_{a}^{b} - \int_{a}^{b} u'(x).v(x)\,\mathrm{d}x}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Démonstration ROC}
+$(u.v)'=u'v+uv'$ donc, $uv'=(uv)'-u'v$. 
+
+$u$, $v$, $u'$, $v'$ sont continues, donc $uv$, $u'v$ et $uv'$ sont continues aussi.
+
+Par linéarité de l'intégrale :
+\[\int_{a}^{b} u(x).v'(x)\,\mathrm{d}x= \int_{a}^{b}(uv)'(x)\,\mathrm{d}x-\int_{a}^{b}u'(x)v(x)\,\mathrm{d}x\]
+
+\[\left[ u(x) v(x)\right]_{a}^{b}-\int_{a}^{b} u'(x)v(x)\,\mathrm{d}x\]
+\end{bclogo} 

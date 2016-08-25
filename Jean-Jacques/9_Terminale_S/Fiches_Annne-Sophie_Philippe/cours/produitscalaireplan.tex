@@ -1,0 +1,116 @@
+\section{Les produits scalaires}
+\subsection{Produits scalaires dans le plan}
+\begin{bclogo}{Propriétés}
+$\ast$ Si $\vect{u}$ et $\vect{v}$ sont non nuls, alors, \boiteo{\vect{u}\cdot \vect{v}=||\vect{u}||\times ||\vect{v}||\times \cos(\vect{u}\cdot\vect{v})}
+
+$\ast$ $\vect{u}\cdot \vect{v}=xx'+yy'$
+
+$\ast$ $\vect{u}\cdot \vect{v}=\frac{1}{2}\left( ||\vect{u}+\vect{v}||^2-||\vect{u}||^2-||\vect{v}||^2\right) $
+
+$\ast$ $\left( k\vect{u}\right) \cdot \vect{v}=k\left( \vect{u}\cdot \vect{v}\right) =\vect{u}\left( k\vect{v}\right)$ 
+
+$\ast$ $\vect{u}\cdot \left( \vect{v}+\vect{w}\right)=\vect{u}\cdot \vect{v}+\vect{u}\cdot \vect{w}$ 
+
+$\ast$ Dire que deux vecteurs sont orthogonaux signifie que l'un des deux est nul ou que les segments sont perpendiculaires. $\vect{u}\cdot \vect{v}=0$
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Théorème}
+$\ast$ \textbf{Théorème d'Al Kashi} : dans un triangle ABC, (longueurs a,b,c), \boiteo{a^2=b^2+c^2-2ab\times \cos(\widehat{A})}
+
+$\ast$ \textbf{Théorème de la médiane} : $I$ milieu de $\left[AB\right]$, \boiteo{MA^2+MB^2=\vect{MA}^2+\vect{MB}^2 =2MI^2+\frac{1}{2}AB^2}
+\end{bclogo} 
+
+\medskip
+
+\begin{bclogo}{Définitions}
+$\ast$ Une droite de vecteur normal $\vect{n}(a;b)$ a une équation de la forme $ax+by+c=0$ où $c$, est un réel. Et réciproquement, l'ensemble des points du plan dont les coordonnées vérifient l'équation $ax+by+c=0$ est une droite de vecteur normal $\vect{n}(a;b)$.
+
+$\ast$ La distance du point $A$ à la droite $d$ est égale à \boiteo{AH=\frac{|ax_A+by_A+c|}{\sqrt{a^2+b^2}}}
+ où $H$ est le projeté orthogonal de $A$ sur $d$.
+
+$\ast$ $\mathcal{C}$ est le cercle de centre $I(\alpha ;\beta )$ et de rayon $\mathbb{R}$. Une équation de $\mathcal{C}$ est \boiteo{(x-\alpha)^2+(y-\beta)^2=R^2} 
+avec $R^2=IM^2$.
+
+$\ast$ Le cercle $\mathcal{C}$ de diamètre $\left[ AB\right]$  est l'ensemble des points $M$ tels que : $\vect{MA}\cdot \vect{MB}=0$.
+\end{bclogo} 
+
+\medskip
+
+
+\subsection{Produits scalaires dans l'espace}
+\begin{bclogo}{Définitions}
+$P$, plan; $(O;\vec{\imath};\vec{\jmath})$, un repère orthonormal de ce plan; $\vec{k}$, vecteur normal à $P$. $||\vec{\imath}||=||\vec{\jmath}||=||\vec{k}||=1$ et $\vec{\imath}\vec{\jmath}=\vec{\imath}\vec{k}=\vec{\jmath}\vec{k}=0$. $(\vec{\imath},\vec{\jmath},\vec{k})$, base orthonormale de l'espace.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Produit scalaire dans une base orthonormale}
+$\ast$ $\vect{u} (x;y;z)$ et $\vect{v}(x';y';z')$
+
+$\ast$ $\vect{u}\cdot \vect{v}=xx'+yy'+zz'$
+
+$\ast$ $||\vect{u}||=\sqrt{x^2+y^2+z^2}$
+
+$\ast$ $A(x_A;y_A;z_A)$ et $B(x_B;y_B;z_B)$
+
+\boiteo{AB=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}}
+\end{bclogo}
+
+
+\medskip
+
+\begin{bclogo}{Equation cartésienne d'un plan dans un repère orthonormal}
+Dans un repère orthonormal :
+
+$\ast$ Un plan de vecteur normal $\vect{n}(a;b;c)$ a une équation de la forme \boiteo{ax+by+cz+d=0}
+
+$\ast$ L'ensemble des point de l'espace  dont les coordonnées vérifient l'équation $ax+by+cz+d=0$ est un plan de vecteur normal $\vect{n}(a;b;c)$ 
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Distance d'un point à un plan}
+$P$, plan d'équation $ax+by+cz+d=0$ et $A(x_A;y_A;z_A)$, point de l'espace. Distance de $A$ à $P$ : 
+
+\boiteo{AH=\frac{|ax_A+by_A+cy_A+d|}{\sqrt{a^2+b^2+c^2}}}
+ où $H$ est le projeté orthogonal de $A$ sur $P$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Demi-espace}
+$\ast$ L'ensemble des points $M(x;y;z)$ de l'espace tels que $ax+by+cz+d\geqslant 0$ (respectivement $>0$) est un demi-espace fermé (respectivement ouvert) de frontière le plan $P$.
+
+$\ast$ L'ensemble des points $M(x;y;z)$ de l'espace tels que $ax+by+cz+d\leqslant 0$ (respectivement $<0$) est un demi-espace fermé (respectivement ouvert) de frontière le plan $P$.
+\end{bclogo}
+
+
+\medskip
+
+\begin{bclogo}{Plan médiateur d'un segment}
+L'ensemble des points de l'espace équidistants de $A$ et de $B$ est un plan passant par le milieu de $\left[ AB\right] $ et perpendiculaire à la droite $(AB)$ : plan médiateur de $\left[ AB\right] $.
+\end{bclogo}
+
+\newpage
+
+\begin{bclogo}{Plans parallèles et perpendiculaires}
+$P: ax+by+cz+d=0$ et $Q: a'x+b'y+c'z+d'=0$
+
+Les plans $P$ et $Q$ sont parallèles ssi les triplets $(a;b;c)$ et $(a';b';c')$ sont proportionnels (vecteurs normaux colinéaires).
+
+Les plans $P$ et $Q$ sont perpendiculaires ssi $aa'+bb'+cc'=0$ (vecteurs normaux orthogonaux).
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Sphère et produit scalaire}
+La sphère de centre $I(\alpha ; \beta ; \gamma)$ et de rayon $R$ a pour équation : \boiteo{(x-\alpha )^2+(y-\beta )^2+(z-\gamma )^2=R^2}
+
+La sphère de diamètre $\left[ AB\right] $ est l'ensemble des points $M$ de l'espace tels que $\vect{MA}\cdot \vect{MB}=0$.
+\end{bclogo}
+
+
+
+

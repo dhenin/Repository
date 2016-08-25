@@ -1,0 +1,85 @@
+\section{Fonction logarithme népérien}
+
+\begin{bclogo}{Propriétés}
+\begin{center}
+\begin{tabular}{ll}
+
+$\ast$ $\ln (1)=0$&$\ast$ $\ln (e)=1$\\
+
+$\ast$ $e^{\ln (a)}=a$&$\ast$ $\ln (e^a)=a$\\
+
+$\ast$ $\ln (a\times b)=\ln (a)+\ln (b)$&$\ast$ $\ln \left( \frac{a}{b}\right) =\ln (a)-\ln (b)$\\
+
+$\ast$ $\ln \left( \frac{1}{a}\right) =-\ln (a)$&$\ast$ $\ln \sqrt{a}=\frac{1}{2}\ln (a)$\\
+
+$\ast$ $\ln (a^n)=n\times \ln(a)$
+\end{tabular}
+\end{center}
+\end{bclogo}
+\medskip
+
+
+\begin{bclogo}{Etude de la fonction}
+$\ast$ La fonction $\ln$ est définie et continue sur $\left] 0;+\infty\right[$.
+
+$\ast$ $\forall x\in \left] 0;+\infty\right[,\;\ln '(x)=\frac{1}{x}$.
+
+$\ast$ La fonction $\ln$ est croissante sur $\left]0;+\infty\right[$.
+
+$\ast$ $\lim\limits_{x\to +\infty} \ln (x)=+\infty$ et $\lim\limits_{x\to 0} \ln (x)=-\infty$
+
+$\ast$ $\lim\limits_{x\to +\infty} \frac{\ln (x)}{x}=0$ et $\lim\limits_{x\to 0} x.\ln (x)=0$
+
+$\ast$ $\lim\limits_{x\to 1} \frac{\ln (x)}{x-1}=1$ et $\lim\limits_{x\to 0} \frac{\ln (x+1)}{x}=1$
+
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{\textbf{Démonstration (ROC)}}  
+Soit $a>0$, démontrons que $\lim\limits_{h\to 0}\frac{\ln (a+h)-\ln (a)}{h}=\frac{1}{a}$ ou $\lim\limits_{x\to 0}\frac{\ln (a)-\ln (x)}{a-x}=\frac{1}{a}$.
+
+\vspace{0.3cm}
+
+Posons $A=\ln (a)$, $a=e^A$ et $X=\ln (x)$, $x=e^X$.
+
+\vspace{0.3cm}
+
+$\frac{\ln (a)-\ln (x)}{a-x}=\frac{A-X}{e^A-e^X}=\frac{1}{\frac{e^A-e^X}{A-X}}$.
+
+\vspace{0.3cm}
+
+Comme $\ln$ est continue sur $\left] 0;+\infty\right[$, $\lim\limits_{x\to a} \ln (x)=\ln (a)$.
+
+\vspace{0.3cm}
+
+$\lim\limits_{X\to \ln (a)} \frac{e^A-e^X}{A-X}= \lim\limits_{X\to A} \frac{e^A-e^X}{A-X}=\exp '(A)=\exp (A)=\exp (\ln (a))=a$.
+
+\vspace{0.3cm}
+
+$\lim\limits_{x\to a} \frac{\ln (a)-\ln (x)}{a-x}=\lim\limits_{X\to A} \frac{1}{\frac{e^A-e^X}{A-X}}=\frac{1}{a}$.
+
+\vspace{0.3cm}
+
+D'où $\ln$ est dérivable en $a>0$ et $\ln '(a)=\frac{1}{a}$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Fonction $\ln \circ u$}
+\[(\ln \circ u)'(x)=\frac{u'(x)}{u(x)}\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Fonction logarithme décimale}
+$\log(x)=\frac{\ln (x)}{\ln (10)}$
+
+Cette fonction a les mêmes propriétés algébriques que $\ln$.
+\end{bclogo}
+
+
+
+
+
+

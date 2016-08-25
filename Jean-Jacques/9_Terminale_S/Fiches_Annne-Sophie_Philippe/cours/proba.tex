@@ -1,0 +1,291 @@
+\section{Les probabilités}
+\subsection{Introduction aux probabilités}
+\begin{bclogo}{Définitions}
+$\ast$ $\Omega = \left\lbrace \omega _{1}, \omega _{2},..., \omega _{n}\right\rbrace $ est l'ensemble des résultats d'une expérience aléatoire. On l'appelle univers. Un événement est une partie de $\Omega$. Lorsque $\omega$ appartient à l'événement $A$, on dit qu'il réalise $A$. $\oslash$ est un évenement impossible. $\Omega$ est l'évènement certain. Un événement élémentaire est constitué d'un seul résultat.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Probabilité d'un événement}
+La probabilité de l'événement $A$ est notée $p(A)$. 
+
+$0\leqslant p(A)\leqslant1$
+
+$p(\Omega )=1$
+
+$p(\oslash )=0$.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Définitions}
+$\ast$ L'espérance de la loi de probabilité est : \boiteo{\mu =\sum _{i=1}^{n} p_i.\omega _i}
+
+où, pour tout $i\in\{1,2\ldots,n\}$, $p_i$ est la probabilité de l'évènement $\omega_i$.
+
+$\ast$ La variance de la loi de probabilité est : \boiteo{V= \sum _{i=1}^n p_i (\omega _i -\mu )^2 =\left( \sum _{i=1}^n p_i \omega _i ^2\right) -\mu ^2}
+
+$\ast$ L'écart type de la loi de probabilité est : \boiteo{\sigma =\sqrt{V}}
+\end{bclogo}
+
+\medskip
+
+
+
+\medskip
+
+\begin{bclogo}{Cas de l'équiprobabilité}
+Lorsque la loi de probabilité associe à tous les résultats d'une expérience la même probabilité, on parle de loi équirépartie et la situation est dite d'équiprobabilité.
+\boiteo{p(A) =\frac{\text{nombre de résultats de A}}{\text{nombre de résultats de } \omega}}
+\end{bclogo}
+
+\subsection{Calculs de probabilités}
+\begin{bclogo}{Probabilité de la réunion, de l'intersection d'événements}
+$A\cap B$ est l'événement formé des résultats qui réalisent à la fois $A$ et $B$.
+
+$A\cup B$ est l'événement formé des résultats qui réalisent au moins un des événements $A$ ou $B$.
+
+\boiteo{p(A\cup B)=p(A)+p(B)-p(A\cap B)}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Probabilité de l'événement contraire}
+L'événement contraire de $A$ est l'événement formé des résultats qui ne réalisent pas $A$. On le note $\overline{A}$. 
+
+$p(\overline{A})=1-p(A)$
+\end{bclogo}
+
+\subsection{Variable aléatoire}
+\begin{bclogo}{Loi de probabilité d'une variable aléatoire}
+Une loi de probabilité est définie sur $\Omega$. 
+
+$\Omega '= {x_1 ,x_2,...x_n}$ est l'ensemble des valeurs prises par une variable aléatoire $X$.
+
+Loi de probabilité de la variable aléatoire $X$ sur $\Omega '$ associe à chaque valeur $x_i$ la probabilité de l'événement ($X=x_i$).
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Espérence, variance, écart-type d'une variable aléatoire}
+Espérence : \boiteo{E(X)=\sum _{i=1}^m x_i p_i}
+
+Variance : \boiteo{V(X)=\sum _{i=1}^m p_i \left[ x_i -E(X)\right] ^2 =\sum _{i=1}^m p_i x_i ^2 -\left[ E(X)\right] ^2}
+
+Ecart-type : \boiteo{\sigma (X)=\sqrt{V(X)}}
+\end{bclogo}
+
+\section{Dénombrement et lois de probabilité}
+\subsection{Dénombrement}
+
+\begin{bclogo}{Tirages successifs}
+$\ast$ Avec remise :
+
+On tire un jeton d'une urne, on note son numéro puis on le remet dans l'urne. On effectue $p$ tirages ($p\geqslant1$) dits successifs avec remise. Le nombre de $n$ listes ordonnées de $p$ éléments de l'urne est \[n^p\]
+
+$\ast$ Sans remise : 
+
+On tire un jeton de l'urne contenant $n$ jetons, on note le numéro mais on ne le remet pas dans l'urne. On effectue $p$ tirage. Le nombre d'arrangements de $p$ éléments de l'urne est : \[n\times (n-1)\times ...\times (n-p+1)\]
+
+$\ast$ Cas particulier : les permutations. 
+
+Lorsque $p=n$, tous les jetons de l'urne ont été tirés. Le nombre d'arrangements de l'urne est : \[n\times (n-1)\times ...\times 1=n!\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Tirages simultannés}
+On tire simultanément $p$ jetons de l'urne. On obtient un ensemble de $p$ éléments purs parmi $n$ que l'on appelle combinaison. Le nombre de combinaisons de $p$ éléments parmi $n$ est noté $\binom{n}{p}$, on le lit $p$ parmi $n$ et il est égal à : \[\binom{n}{p} =\frac{n\times (n-1)\times (n-2)\times \ldots\times (n-p+1)}{p!}=\frac{n!}{p!(n-p)!}\]
+
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Coefficients binômiaux}
+$\ast$ Pour tout entier $n$ non nul, $\binom{n}{0}=1$, $\binom{n}{1}=n$, $\binom{n}{n}=1$.
+
+$\ast$ Pour tout entier $p$ avec $0\leqslant p\leqslant n$ on a \[\binom{n}{p}=\binom{n}{n-p}\]
+
+$\ast$ Pour $1\leqslant p\leqslant n-1$, la \textbf{Relation de Pascal} \[\binom{n}{p}=\binom{n-1}{p-1}+\binom{n-1}{p}\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Triangle de Pascal}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+&0&1&2&3&4&5&6&7\\
+\hline
+0&1&&&&&&&\\
+\hline
+1&1&1&&&&&&\\
+\hline
+2&1&2&1&&&&&\\
+\hline
+3&1&3&3&1&&&&\\
+\hline
+4&1&4&6&4&1&&&\\
+\hline
+5&1&5&10&10&5&1&&\\
+\hline
+6&1&6&15&20&15&6&1&\\
+\hline
+7&1&7&21&35&35&21&7&1\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$\binom{n-1}{p-1}$ $+$&$\binom{n-1}{p}$\\
+\hline
+&$=$ $\binom{n}{p}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Formule du binôme de Newton}
+\[(a+b)^n=\sum _{p=0} ^{n} \binom{n}{p} a^p b^{n-p}\]
+
+\[(a+b)^n =\binom{n}{0} a^0 b^n +\binom{n}{1} a^1 b^{n-1} + \binom{n}{2} a^2 b^{n-2}+\cdots+\binom{n}{n-1} a^{n-1} b^{1}+ \binom{n}{n} a^n b^{0}\]
+
+\[(a+b)^n=b^n+n.a.b^{n-1}+\binom{n}{2} a^2 b^{n-2}+\cdots+n.a^{n-1}b+a^n\]
+\end{bclogo}
+
+\subsection{Exemples de lois discrètes}
+\begin{bclogo}{Loi de Bernouilli}
+$\ast$ L'épreuve de Bernouilli :
+
+C'est une expérience aléatoire qui ne comporte que 2 issus $S$ et $\overline{S}$.
+
+$S$ correspond au succès : $p=p(S)$.
+
+$\overline{S} =E$ correspond à l'échec : $q=1-p=p(\overline{S})$.
+
+$\ast$ Loi de Bernouilli : 
+
+Soit une épreuve de Bernouilli d'issues $S$ (de probabilité $p$) et $E$ (de probabilité $q=1-p$) et $X$, la variable aléatoire qui prend la valeur $1$ quand $S$ est réalisée et $0$ sinon. Par définition, cette variable aléatoire suit la loi de Bernouilli de paramètre $p$. 
+
+On a : $E(X)=p$ et $V(X)=pq$
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{La loi binomiale}
+$\ast$ Un schéma de Bernouilli est la répétition de $n$ épreuves de Bernouilli identiques et indépendantes.
+
+La variable aléatoire $X$ à valeurs dans $\{0;1;2;\ldots;n\}$ associe à chaque liste le nombre de succès.
+
+Par définition, $X$ suit la loi binomiale de paramètres $n$ et $p$.
+
+On note : $\mathcal{B} (n;p)$ et $p=p(S)$.
+
+$\ast$ Caractéristiques : 
+
+Soit $X$, une variable aléatoire qui suit la loi binomiale $\mathcal{B}(n,p)$.
+
+Pour $k\in \{0;1;\ldots;n\}$, \boiteo{p(X=k)=\binom{n}{k} p^k\times (1-p)^{n-k}}
+
+$E(X)=np$ et $V(X)=np(1-p)$
+\end{bclogo}
+
+
+
+\subsection{Lois de probabilité continue}
+\begin{bclogo}{Quand l'intervalle est un univers}
+Une expérience prend ses valeurs dans un intervalle et peut atteindre n'importe quel nombre de cet intervalle.
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Densité}
+On appelle densité de probabilité sur l'intervalle $I$, toute fonction $f$ définie sur $I$ et vérifiant :
+
+$f$ est continue et positive sur $I$
+
+On définit la loi de probabilité $P$ de densité $f$ sur $I$ associant à tout intervalle $[a;b]$ de $I$ :
+\[P([a;b])=\int _a ^b f(x)dx\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{La loi uniforme}
+On appelle loi uniforme sur $I=[a;b]$, la loi de probabilité continue sur $I$ dont la fonction $f$ de densité est constante égale à $\frac{1}{b-a}$
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{La loi exponentielle}
+On appelle loi exponentielle de paramètre $\lambda$, la loi continue admettant pour densité la fonction définie sur $ \mathbb{R}^+$ par : \[f(x)=\lambda e^{-\lambda x}\]
+avec $\lambda >0$.
+
+Pour tout intervalle $[\alpha ;\beta]$ de $\mathbb{R}^+$ : \[p([\alpha ,\beta])=\int _{\alpha} ^{\beta} \lambda e^{-\lambda x}dx\]
+\[p([\alpha ,\beta ])=\left[ -e^{-\lambda x}\right] _{\alpha } ^{\beta }\]
+\boiteo{p([\alpha ,\beta ])=-e^{-\lambda \beta }+e^{-\lambda \alpha }}
+\end{bclogo}
+
+\section{Probabilités conditionnelles}
+
+\subsection{Les probabilités conditionnelles}
+\begin{bclogo}{Définition}
+$A$ et $B$ sont deux événements d'une même expérience aléatoire, avec $p(A)\neq 0$. La probabilité que l'événement $B$ se réalise est : \[p_A(B)=\frac{p(A\cap B)}{p(A)}\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Probabilité d'une intersection}
+\[p(A\cap B)=p_A(B)\times p(A)\]
+ou
+\[p(A\cap B)=p_B(A)\times p(B)\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Formule des probabilités totales}
+Les événements $\Omega_1, \Omega_2,\ldots\Omega_n$ forment une partition de l'univers $\Omega$ quand :
+
+les $\Omega_i$ sont deux à deux disjoints
+
+la réunion des $\Omega_i$ est l'univers $\Omega$
+
+Formule des probabilités totales :
+
+\[p(A)=p(A\cap \Omega_1)+p(A\cap \Omega_2)+\ldots+p(A\cap \Omega_n)\]
+\[p_{\Omega_1}(A)\times p(\Omega_1)+p_{\Omega_2}(A)\times p(\Omega_2)+\ldots+p_{\Omega_n}(A)\times p(\Omega_n)\]
+\end{bclogo} 
+
+\subsection{Indépendance}
+
+\begin{bclogo}{Définition}
+Si deux événements $A$ et $B$ sont indépendants, alors :\[p(A\cap B)=p(A)\times p(B)\]
+
+Si $p(A)\neq 0$, alors $p_A(B)=p(B)$
+
+Deux événements de probabilités non nulles, incompatibles ne sont pas indépendants :
+
+\[\forall A\cap B =\oslash, \left. \begin{array}{l} p(A\cap B)=0\\ p(A)\times p(B)\neq 0\end{array}\right\} \text{ donc } p(A\cap B) \neq p(A)\times p(B)\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Expériences aléatoires indépendantes}
+Soit une expériencen succession de $n$ expériences aléatoires indépendantes $E_1,E_2,E_3\ldots,E_n$. Une issue de l'expérience est une liste $(e_1,e_2,\ldots,e_n)$. Soit $\Omega_i$ et $p_i$ l'univers et la loi de probabilité de l'expérience $E_i$.
+\[p(e_1,e_2,\ldots,e_n)=p_1(E_1)\times p_2(E_2)\times \cdots \times p_n(E_n)\]
+\end{bclogo}
+
+\medskip
+
+\begin{bclogo}{Variables aléatoires indépendantes}
+Soient $X$ et $Y$, deux variables aléatoires discrètes sur un univers $\Omega$. 
+
+$X$ prend pour valeurs : $x_1,x_2,\ldots,x_p$
+
+$Y$ prend pour valeurs : $y_1,y_2,\ldots,y_k$
+
+Dire que $X$ et $Y$ sont indépendantes signifie que : pour tout $i\in {1;2;\ldots;p}$ et pour tout $j\in {1;2;\ldots;k}$, les événements $(X=x_i)$ et $(Y=y_i)$ sont indépendants. \[p\left[ (X=x_i)\cap (Y=y_j)\right] =p(X=x_i)\times p(Y=y_j)\]
+\end{bclogo}
