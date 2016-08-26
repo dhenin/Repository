@@ -1,0 +1,210 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{lmodern} %  fourier
+
+% \usepackage{extsizes}
+
+\usepackage[svgnames]{xcolor}   % before tikz or tkz
+
+\colorlet{darkgreen}{green!40!black} 
+\definecolor{VertClair}{rgb}{0.4,0.8,0} 
+\definecolor{bistre}{rgb}{.75,.50,.30}
+\definecolor{Maroon}{rgb}{0.5,0.0,0.0}%{.80,.80,.95}
+\definecolor{fondpaille}{cmyk}{0,0,0.1,0}
+\definecolor{ecranTI}{RGB}{198,218,164} 
+\colorlet{darkgreen}{green!40!black}  
+
+\usepackage{tikz}
+\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-base}
+\usepackage{pgfplots}
+% \usepackage{wasysym} % Conflit avec amsmath
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{multirow,bigdelim, bigstrut}
+\usepackage{fullpage}
+\usepackage[T1]{fontenc}
+%\usepackage[utf8ttf]{inputenc}
+% \usepackage{ttfucs}
+% \DeclareTruetypeFont{shortfontname}{TI-83}
+
+\usepackage{pifont}
+\usepackage[frenchb]{babel}
+\usepackage{here}
+\usepackage{eurosym}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsfonts}  % amsmath only with fourier
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage[xcas]{tablor}
+\usetkzobj{circles}
+\usepackage{transparent}
+\usepackage{mathrsfs}
+\usepackage{frcursive}
+\usepackage{fp}                      % Dimension des pictures plus large
+
+\usetikzlibrary{calc}
+
+\usetikzlibrary[patterns] % ConTEXt when using TikZ
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+
+\usepackage{tkz-tab}
+\usetikzlibrary{decorations.pathreplacing} 
+\usetikzlibrary{backgrounds} % Pour papier millimétré
+
+\usetikzlibrary{patterns}
+\usetkzobj{all}
+
+% \usepackage{marginnote}
+
+\usepackage{enumerate}
+%\usepackage{enumitem}
+
+\usepackage{multind}
+% \makeindex{général}
+\makeindex{concepts}
+
+
+
+\usepackage{multicol}
+\usepackage{mathtools}
+\usepackage{array}  % Améliore considérablement les tableaux
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows,calc,matrix,fit,shapes}
+\usetikzlibrary{backgrounds}
+\usepackage{pgfbaselayers}
+% \usetikzlibrary{fit,shapes}
+\usepackage{pgfplots}
+% \usepackage{variations} % Tableaux de variation (60, 230) 
+\usepackage{tabvar}     % Tableaux de variation (240) 
+\usepackage{stmaryrd}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{manfnt}
+ \usepackage{tkz-tukey} % appelle tkz-base qui lui appelle tkz-arith
+ \usetikzlibrary{patterns,shapes,plotmarks,arrows} % librairies qui peuvent être utiles
+
+\setlength{\parindent}{0cm}
+
+\newtheorem{theorem}{Théorème}[section]
+
+\newcommand{\scrA}{\mathscr{A}}
+\newcommand{\scrL}{\mathscr{L}}
+\newcommand{\scrC}{\mathscr{C}}
+\newcommand{\scrP}{\mathscr{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+%\newcommand{\lb}{\left\lbrace}
+%\newcommand{\rb}{\right\rbrace}
+\newcommand{\lb}{\bigg\lbrace}
+\newcommand{\rb}{\bigg\rbrace}
+
+\usepackage{pstricks}
+% \usepackage{variations}
+
+% Nécessaires pour les fiches quatrième
+
+\usepackage{scrextend}
+\usepackage[normalem]{ulem}  % Por barrer du texte 
+\usetikzlibrary{matrix}
+
+\addtokomafont{labelinglabel}{\sffamily}
+
+\usepackage{colortbl} % xcolor est chargé automatiquement
+
+\renewcommand{\CancelColor}{\red}
+
+\newcommand{\intitule}[1]{{\huge \centerline {\textcolor{red}{#1\\ \bigskip}}}}
+\newcommand{\vocabulaire}[1]{\textcolor{darkgreen}{#1}}
+\newcommand{\Asavoir}[1]{\textcolor{red}{#1}}
+\newcommand{\methode}[1]{\textcolor{blue}{#1}}
+
+\newcommand{\TextSoulign}[2]{\textcolor{#1}{\underline{\textcolor{black}{#2}}}}
+
+\newcolumntype{M}[1]{>{\raggedright}m{#1}}
+
+\usepackage{xargs}
+\ifdefined\somme\else
+\newcommandx{\somme}[3][1=,2=,3=]{\displaystyle{\sum_{#1}^{#2}} \; #3}
+\fi
+
+% Ci-dessous multicol 
+\makeatletter
+\newdimen\multi@col@width
+\newdimen\multi@col@margin
+\newcount\multi@col@count
+\multi@col@width=0pt
+\tikzset{
+  multicol/.code={%
+    \global\multi@col@count=#1\relax
+    \global\let\orig@pgfmatrixendcode=\pgfmatrixendcode
+    \global\let\orig@pgfmatrixemptycode=\pgfmatrixemptycode
+    \def\pgfmatrixendcode##1{\orig@pgfmatrixendcode%
+      ##1%
+      \pgfutil@tempdima=\pgf@picmaxx
+      \global\multi@col@margin=\pgf@picminx
+      \advance\pgfutil@tempdima by -\pgf@picminx
+      \divide\pgfutil@tempdima by #1\relax
+      \global\multi@col@width=\pgfutil@tempdima
+      \pgf@picmaxx=.5\multi@col@width
+      \pgf@picminx=-.5\multi@col@width
+      \global\pgf@picmaxx=\pgf@picmaxx
+      \global\pgf@picminx=\pgf@picminx
+      \gdef\multi@adjust@position{%
+        \setbox\pgf@matrix@cell=\hbox\bgroup
+        \hfil\hskip-\multi@col@margin
+        \hfil\hskip-.5\multi@col@width
+        \box\pgf@matrix@cell
+        \egroup
+      }%
+      \gdef\multi@temp{\aftergroup\multi@adjust@position}%
+      \aftergroup\multi@temp
+    }
+    \gdef\pgfmatrixemptycode{%
+      \orig@pgfmatrixemptycode
+      \global\advance\multi@col@count by -1\relax
+      \global\pgf@picmaxx=.5\multi@col@width
+      \global\pgf@picminx=-.5\multi@col@width
+      \ifnum\multi@col@count=1\relax
+       \global\let\pgfmatrixemptycode=\orig@pgfmatrixemptycode
+      \fi
+    }
+  }
+}
+\makeatother
+
+% Ajout 2016 aout 15  pour qcm 
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+%\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Attention change la largeur des caractères
+\usepackage{alterqcm}
+\usepackage[%
+      a4paper,%
+      textwidth=19cm,%
+      top=.5cm,%
+      bottom=.5cm,%
+      headheight=25pt,%
+      headsep=12pt,%
+      footskip=25pt]{geometry}%
+%\topmargin=-.9 cm
+%\headheight=0.5cm
+%\headsep=1.2 cm                  % PDA avait mis 0.8cm
+%\textwidth=16cm			         % 16.5cm prcdemment 
+\textheight=27cm
+%\evensidemargin=1 cm             % PDA avait mis 0
+%\oddsidemargin=-.3 cm              % PDA avait mis 0
+%\topskip=0cm                    % PDA avait mis 0
+      
+\usepackage[frenchb]{babel}
+\usepackage{amsmath}   % pour \dfrac
+\usepackage{tikz}                                   %
+\usepackage{tkz-tab,tkz-euclide,tkz-fct,tkz-base}    % Pour les graphiques ch 2
+\usetkzobj{all}                                   
+% \usepackage[export=tkz]{texgraph}
+
+\parindent0pt
