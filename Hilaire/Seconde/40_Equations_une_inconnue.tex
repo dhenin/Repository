@@ -599,33 +599,26 @@ Le taux de placement est de $ 5\% $.
 \subsubsection{Exemple \no 5}
 
 
-\definecolor{xdxdff}{rgb}{0.49,0.49,1}
-\definecolor{ttqqqq}{rgb}{0.2,0,0}
-\definecolor{ffffff}{rgb}{1,1,1}
-\definecolor{zzttqq}{rgb}{0.6,0.2,0}
-\definecolor{qqqqff}{rgb}{0,0,1}
 \begin{tikzpicture}[scale=.5]
-
-\tkzDefPoint [label=above left:$A$](0,6){A} 
-\tkzDefPoint [label=above right:$B$](10,6){B} 
-\tkzDefPoint [label=below right:$C$](10,0){C}
-\tkzDefPoint [label=below left:$D$](0,0){D}
-\tkzDefPoint [label=below right:$E$](1,5){E}
-\tkzDefPoint [label=below left:$F$](9,5){F}
-\tkzDefPoint [label=above left:$G$](9,1){G}
-\tkzDefPoint [label=above right:$H$](1,1){H}
-
-\fill[pattern color=zzttqq,fill=zzttqq,pattern=north east lines] (0,6) -- (10,6) -- (10,0) -- (0,0) -- cycle;
-\fill[line width=0pt,color=ffffff,fill=ffffff,fill opacity=1.0] (1,5) -- (9,5) -- (9,1) -- (1,1) -- cycle;
-
-\tkzDrawPoints[size=2,color=black](A,B,C,D,E,F,G,H)
-\draw [color=black] (A)--node[midway,above]{$10m$}(B) -- (C) -- (D) --node[midway,left]{$6m$} (A)  ; 
-\draw [color=black] (E)--(F) -- (G) -- (H) -- cycle ; 
+\tkzDefPoint [label=above left:$D$](0,6){D}    
+\tkzDefPoint [label=above right:$C$](10,6){C} 
+\tkzDefPoint [label=below right:$B$](10,0){B} 
+\tkzDefPoint [label=below left:$A$](0,0){A}  
+\tkzDefPoint [label=below right:$H$](1,5){H} 
+\tkzDefPoint [label=below left:$G$](9,5){G}  
+\tkzDefPoint [label=above left:$F$](9,1){F}   
+\tkzDefPoint [label=above right:$E$](1,1){E} 
+\fill[pattern color=red!40,fill=red!40,pattern=north east lines] (0,6) -- (10,6) -- (10,0) -- (0,0) -- cycle;
+\fill[line width=0pt,color=white,fill=white,fill opacity=1.0] (1,5) -- (9,5) -- (9,1) -- (1,1) -- cycle;
+\tkzDrawPolygon(A,B,C,D) \tkzDrawPolygon(E,F,G,H)
+\tkzLabelPoint [above right](E) {$E$}
+\tkzLabelPoint [above left](F) {$F$}
+\tkzLabelPoint [below left](G) {$G$}
+\tkzLabelPoint [below right](H) {$H$}
 \draw [color=black, very thick, <->] (0,4) -- node[midway,above]{\Large $\mathbf{x}$} (1,4) ;  
-
 \end{tikzpicture}
 
-Déterminer la longueur de la bande hachurée pour que l'aire du rectangle EFGH soit égale aux trois quarts de l'aire du rectangle ABCD. \\
+Déterminer la largeur de la bande hachurée pour que l'aire du rectangle EFGH soit égale aux trois quarts de l'aire du rectangle ABCD. \\
 
 \textbf{1) Choix de l'inconnue} \\
 
@@ -675,12 +668,31 @@ La longueur de la bande hachurée est de 0,5m.
 
 \subsubsection{Exemple \no 6}
 
-À 10 heures, Sylvain part à bibyclette de A et se dirige vers B. Il route à $15$ km/h.
+À 10 heures, Sylvain part à bicyclette de A et se dirige vers B. Il roule à $15$ km/h.
 
 À 10h30, Sylvette part de B et se dirige vers A. Elle roule à $10$ km/h.
 
-
 Sylvain et Sylvette se rencontrent en C pour pique-niquer.
+
+Le chemin parcouru par Sylvain est le double de celui effectué par Sylvette.
+
+\bigskip 
+
+\centerline{
+\begin{tikzpicture}[scale=.5]
+\tkzDefPoints{0/0/A,  
+              10/0/C,
+              15/0/B,
+               5/0/D}             
+\draw (A) -- (B) ; 
+\tkzDrawPoints(A,B,C,D) 
+\tkzLabelPoints[below](A,B,C) 
+\tkzMarkSegments[mark=s||](A,D D,C C,B)
+\end{tikzpicture}
+}
+
+\bigskip 
+
 
 Quelle heure est-il alors ?\\
 
