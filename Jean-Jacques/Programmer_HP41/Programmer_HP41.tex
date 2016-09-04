@@ -1,0 +1,4660 @@
+\documentclass[10pt,english,french]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a5paper]{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=1cm,headheight=1cm,headsep=0.5cm,footskip=1cm}
+\pagestyle{empty}
+\setcounter{secnumdepth}{-2}
+\setcounter{tocdepth}{-2}
+\usepackage{calc}
+\usepackage{units}
+\usepackage{textcomp}
+\usepackage{pmboxdraw}
+\usepackage{ifsym}
+\usepackage{amsbsy}
+% \usepackage[xdvi]{graphicx}
+\usepackage{graphicx}
+\usepackage{setspace}
+\onehalfspacing
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\noun}[1]{\textsc{#1}}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage[greek,francais]{babel}
+\let\textquotedbl="
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\def\hp41{\texttt{\textbf{\textsc{\small HP-41}}}}
+\def\hpCV{\texttt{\textbf{\textsc{\small HP-41CV}}}}
+\def\X{\textsf{\textbf{\small X}} }
+\def\Y{\textsf{\textbf{\small Y}} }
+\def\Z{\textsf{\textbf{\small Z}} }
+\def\T{\textsf{\textbf{\small T}} }
+\def\L{\textsf{\textbf{\small L}} }
+\newcommand{\disp}[1]{\textsf{\textbf{\textsc{\footnotesize#1}}}}
+\newcommand{\touche}[1]{\setlength{\fboxrule}{1.3pt}\setlength{\fboxsep}{1pt}\fbox{\textsf{\textbf{\tiny{#1}}}}}
+\newcommand{\fct}[1]{\textsf{\textbf{\textsc{\scriptsize{#1}}}}}
+\newcommand{\reg}[1]{\textsf{{\small{#1}}}}
+\AtBeginDocument{
+  \def\labelitemi{\normalfont\bfseies{--}}
+}
+
+
+\addto\extrasfrench{\providecommand{\og}{\leavevmode\flqq~}\providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}}
+
+\AtBeginDocument{
+  \def\labelitemi{\normalfont\bfseries{--}}
+}
+
+\makeatother
+
+\usepackage{babel}
+\addto\extrasfrench{\providecommand{\og}{\leavevmode\flqq~}\providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}}
+
+\begin{document}
+\noindent \begin{center}
+\pagestyle{plain}\fancyhead[C]{}\thispagestyle{empty}\textsf{\textbf{\Huge \includegraphics[width=1\textwidth]{Illustrations/000_Recto}}}
+\par\end{center}{\Huge \par}
+
+\pagebreak{}
+
+\thispagestyle{empty}\includegraphics[width=0.8\textwidth]{Illustrations/00A_don}
+
+\pagebreak{}\thispagestyle{empty}
+
+
+\title{\textsf{\textbf{\Huge Programmer HP-41\vfill{}
+}}{\Huge{} }}
+
+
+\author{\textsf{\textbf{\huge par}}{\huge }\\
+{\huge{} }\\
+{\huge{} }\textsf{\textbf{\huge Philippe Descamps}}{\huge }\\
+{\huge{} }\\
+{\huge{} }\textsf{\textbf{\huge et}}{\huge }\\
+{\huge{} }\\
+{\huge{} }\textsf{\textbf{\huge Jean-Jacques Dhénin}}}
+
+
+\date{\vfill{}
+ \includegraphics[width=2cm]{Illustrations/001_PSI}\\
+ Édition du P.S.I.\\
+ 1982}
+
+\maketitle
+\noindent \begin{center}
+\newpage{}\thispagestyle{empty}~\vfill{}
+ ~\includegraphics[width=10cm]{Illustrations/002_Arrivee}~\vfill{}
+ \newpage{}
+\par\end{center}
+
+\noindent \begin{center}
+\setcounter{page}{5}\vfill{}
+S O M M A I R E
+\par\end{center}
+
+\vfill{}
+
+
+\noindent \begin{center}
+\begin{tabular}{rlr}
+\multicolumn{2}{r}{} & Pages\tabularnewline
+ &  & \tabularnewline
+\multicolumn{2}{l}{Introduction} & 7\tabularnewline
+ &  & \tabularnewline
+\multicolumn{2}{l}{Chapitres :} & \tabularnewline
+I & - Le langage symbolique  & 9\tabularnewline
+II & - Test et drapeaux & 17\tabularnewline
+III & - Face à la pile  & 37\tabularnewline
+IV & - Hasard nécessaire & 63\tabularnewline
+V & - Sur tous les tableaux  & 67\tabularnewline
+VI & - L'alpha et l'oméga  & 95\tabularnewline
+ &  & \tabularnewline
+\multicolumn{2}{l}{Annexes :} & \tabularnewline
+1 & - Solution des exercices & 115\tabularnewline
+2 & - Obtention des fonctions & 119\tabularnewline
+3 & - Description des fonctions & 123\tabularnewline
+4 & - Drapeaux & 134\tabularnewline
+5 & - Procédures avec code barres & 136\tabularnewline
+\end{tabular}\vfill{}
+\newpage{}~\newpage{}
+\par\end{center}
+
+\fancyhead[CE]{\emph {PROGRAMMER HP-41}}
+
+\noindent \begin{center}
+\textsf{\vfill{}
+}\textsf{\textbf{\huge{} INTRODUCTION}}\textsf{\vfill{}
+} 
+\par\end{center}
+
+
+\section*{{\normalsize POURQUOI LIRE CE LIVRE ?}}
+
+\smallskip{}
+
+\begin{itemize}
+\item Parce que vous possédez un \hp41 et que vous désirez tirer le meilleur
+parti de votre investissement ; 
+\item parce que, ayant lu le manuel vous vous interrogez encore pour savoir
+si vous pourrez programmer la belle application dont vous rêvez et
+que vous utiliserez quotidiennement ; 
+\item parce que vous avez peu de temps et que vous désirez devenir rapidement
+efficace sans trop vous fatiguer ; 
+\item parce que vous êtes affectés par le discours abusif des ''parlant
+Basic'' et que vous souhaitez être rassurés sur la puissance du \hp41
+; 
+\item parce que vous êtes curieux. 
+\end{itemize}
+\medskip{}
+
+
+
+\section*{{\normalsize COMMENT UTILISER CE LIVRE ?}}
+
+\smallskip{}
+
+
+Si vous êtes \textbf{studieux}, nous vous proposons le processus suivant
+: 
+\begin{enumerate}
+\item Poser N=l 
+\item Lisez la page N 
+\item \emph{Si} vous avez tout compris \emph{alors} N=N+l 
+\item \emph{\small Si}{\small{} le livre est terminé }\emph{\small alors}{\small{}
+arrêter }\emph{\small sinon}{\small }\\
+{\small{} continuer à l'instruction 2. }{\small \par}
+\end{enumerate}
+\newpage{}
+
+\fancyhead[CO]{\emph {INTRODUCTION}}
+
+
+
+Si vous êtes \textbf{primesautier} et que l'algorithme précèdent vous
+effraye, ouvrez vite le livre au hasard et feuilletez-le jusqu'à ce
+que vous ayez fait une découverte, ce qui ne saurait tarder.
+
+Si vous êtes \textbf{pressé}, les index et les annexes vous permettront
+de retrouver rapidement l'information dont vous avez un urgent besoin,
+et de sortir de l'incertitude qui nuit à la profondeur de votre sommeil.
+
+Si vous êtes \textbf{paresseux}, recopiez bestialement les procédures
+qui fleurissent dans ces pages. Avec un peu de chance vous en trouverez
+une qui vous conviendra.
+
+Si vous êtes \textbf{indépendant}, oubliez les conseils qui précèdent
+et décidez vous-même de la manière dont vous consulterez cet ouvrage.
+
+\medskip{}
+
+
+Quelle que soit la méthode adoptée, travaillez toujours avec \hp41
+à vos côtés.
+
+Les programmes présentés n'excèdent généralement pas quarante instructions.
+Ils sont donc rapidement introduits au clavier. Suivez-en pas à pas
+l'exécution (fonction \fct{SST}) et utilisez au maximum la fonction
+\fct{AVIEW} pour vérifier constamment le contenu des différents registres.
+
+Notre but (ambitieux) est d'être à la fois instructif et distrayant.
+Programmer est un plaisir que nous souhaitons vous faire partager.\vfill{}
+ \newpage{}
+
+\fancyhead[CO]{\emph { }}
+
+\noindent \begin{center}
+\textsf{\textbf{\Large CHAPITRE I }}
+\par\end{center}{\Large \par}
+
+\noindent \begin{center}
+\textsf{\huge LE LANGAGE SYMBOLIQUE}
+\par\end{center}{\huge \par}
+
+\vfill{}
+
+
+\textsf{\textbf{\Huge ~}}\includegraphics[width=11cm]{Illustrations/003_Langage_Symbolique}
+
+\newpage{}\fancyhead[CO]{\emph {LE LANGAGE SYMBOLIQUE}}
+
+Lorsqu'en septembre 1979 le \hp41 apparut en France, il représentait
+un étonnant saut qualitatif dans le domaine des ordinateurs de poche.
+Le premier de sa catégorie il autorisait l'introduction, le traitement
+et l'affichage de chaînes de caractères. La voie était ouverte pour
+un dialogue complet entre le calculateur et son utilisateur, dialogue
+que favorisait encore les possibilités sonores du système.
+
+Aussi importantes que soient ces caractéristiques elles ne représentent
+que la partie immergée de l'iceberg. L'existence d'un clavier et d'un
+affichage alphabétique conduit à d'autres caractéristiques, certaines
+immédiates, et d'autres plus profondes et plus riches liées à l'architecture
+du calculateur.
+
+La première caractéristique est l'affichage ''en clair'', et non
+plus en code, des fonctions programmées. L'appellation de ''langage
+machine spécialisés'', utilisé jusqu'ici pour les calculatrices programmables,
+est maintenant inadéquat. Tout juste peut-on parler pour le \hp41
+de langage d'assemblage spécialisé. En fait, en développant ce calculateur
+\noun{Hewlett-packard} a élaboré un langage évolué original qui lui
+confère un ensemble de propriétés qui restent, à l'heure où nous écrivons
+ces lignes, uniques.
+
+De la compréhension de ces possibilités dépendra la façon dont vous
+utiliserez votre \hp41 : comme une calculette hypertrophiée ou comme
+un ordinateur puissant dont la souplesse vous évitera de nombreuses
+heures de navigation à l'estime. Vous pourrez (devrez!) structurer
+vos programmes.
+
+Affirmer que le langage \hp41 est un langage évolué surprendra certains.
+Il est donc nécessaire d'étayer cette thèse d'un nombre raisonnable
+d'arguments.
+
+
+\section*{{\normalsize CE LANGAGE EST UN LANGAGE INTERPRÉTÉ}}
+
+Les instructions que vous introduisez dans la mémoire de la machine
+ne sont pas immédiatement compréhensibles par le microprocesseur.
+Avant d'être exécutées elles doivent être traduites et décomposées
+en une série (parfois très complexe) de micro-instructions qui peuvent,
+elles, être appréhendées par la ''puce'' du \hp41cette opération
+de décryptage se nomme l'interprétation.\newpage{}
+
+\hfill{}\includegraphics[width=9cm]{Illustrations/004_Basque}\hfill{}
+
+À titre d'exemple l'exécution de \fct{RCL 30} (rappel en \X du contenu
+du 30ème registre de donnée) va déclencher une impressionnante cascade
+d'opérations :
+\begin{itemize}
+\item Calcul de l'adresse réelle du registre\textsf{\noun{\small{} 30}}{\small ,
+dont la localisation dépend de la taille de la mémoire. }{\small \par}
+\item Vérification de l'existence de ce registre, avec le cas échéant l'affichage
+du message {}``\disp{NONEXISTENT}'' et arrêt de l'exécution (si
+le drapeau\textsf{\noun{\small{} 25}}{\small{} n'est pas armé). }{\small \par}
+\end{itemize}
+\noindent Si la montée de la pile opérationnelle n'est pas autorisée
+par l'instruction qui précède (\fct{CLX}, \fct{$\mathbf\Sigma+$},
+\fct{$\mathbf\Sigma-$}) il y a alors chargement du contenu du registre
+adressé dans \X, sinon s'effectue un décalage préalable de la pile
+vers le haut avant l'exécution de cette opération.
+
+Que vous ayez suivi ou non le détail de la man½uvre (que nous avons
+outrageusement simplifié) vous êtes à même de percevoir la différence
+entre une instruction en langage évolué (\fct{RCL 30}) et le langage
+machine (tous les calculs et transferts de valeurs que le microprocesseur
+vient d'exécuter pour vous). $ $
+
+
+\section*{{\normalsize LE HP-41 DISPOSE D'UN LANGAGE SYMBOLIQUE}}
+
+Un ordinateur, quel qu'il soit, occupe les trois quarts de son temps
+à rechercher des informations dans\newpage{}
+
+\noindent un coin de sa mémoire pour les transférer ailleurs. Il se
+peut qu'au passage ces informations soient modifiées mais ce n'est
+pas absolument nécessaire !
+
+Pour effectuer ces transferts le microprocesseur doit connaître les
+positions de départ et d'arrivée des informations, ce que l'on nomme
+les adresses absolues.
+
+Il existe deux types d'informations : 
+\begin{itemize}
+\item Les \emph{données} : valeurs numériques ou groupe de caractères ; 
+\item Les \emph{instructions}, dont 1'enchaînement constitue un programme. 
+\end{itemize}
+Au niveau du langage machine ces adresses sont toutes numériques.
+Mais l'utilisateur moyen n'a rien d'un microprocesseur, il lui est
+plus facile de retenir des mots que des numéros : les programmeurs
+préfèrent les symboles aux nombres.
+
+Le microprocesseur doit donc effectuer la tâche fastidieuse consistant
+à mettre en correspondance le symbole et l'adresse absolue qui lui
+permettra d'atteindre 1'information désignée. Il peut le faire par
+l'intermédiaire de catalogues comparables dans le principe à l'agenda
+qui vous permet quotidiennement de retrouver un n\textdegree{} de
+téléphone à partir du nom d'un individu.
+
+On peut donc mesurer le degré dévolution d'un langage par son degré
+de symbolisme. Afin de mieux situer le langage \hp41 nous reproduisons
+le tableau donné par \noun{Daniel-Jean David}, dans \noun{\textquotedblright{}Programmer
+en Pascal}\textquotedblright{} (Éditions du \noun{P.S.I.}), en le
+complétant quelque peu :
+
+\noindent \begin{center}
+{\footnotesize }\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+\textbf{\textsc{\footnotesize Objets}}{\footnotesize{} } & \multicolumn{5}{c||}{\textbf{\textsc{\footnotesize Langages}}}\tabularnewline
+\hline 
+ & \textbf{\textsc{\footnotesize Langage}}{\footnotesize{} } & \textbf{\textsc{\footnotesize Basic}}{\footnotesize{} } & \textbf{\textsc{\footnotesize Fortan}}{\footnotesize{} } & \textbf{\textsc{\footnotesize HP-41}}{\footnotesize{} } & \textbf{\textsc{\footnotesize Pascal}}\tabularnewline
+ & \textbf{\textsc{\footnotesize Machine}}{\footnotesize{} } &  &  &  & \tabularnewline
+\hline 
+\textsc{\footnotesize Variables}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize SYM}{\footnotesize{} } & \textsc{\footnotesize SYM}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize SYM}\tabularnewline
+\hline 
+\textsc{\footnotesize Sous-programmes}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize SYM}{\footnotesize{} } & \textsc{\footnotesize SYM}{\footnotesize{} } & \textsc{\footnotesize SYM}\tabularnewline
+\hline 
+\textsc{\footnotesize Etiquettes}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize SYM}{\footnotesize{} } & \textsc{\footnotesize NUM}\tabularnewline
+\hline 
+\textsc{\footnotesize Constantes}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize NUM}{\footnotesize{} } & \textsc{\footnotesize SYM}\tabularnewline
+\hline
+\end{tabular}
+\par\end{center}{\footnotesize \par}
+
+On constate que le langage \hp41 y occupe une position originale
+non dépourvue d'intérêt.
+
+\newpage{}
+
+Dire que les sous-programmes et les étiquettes sont symboliques signifie
+que l'on peut écrire la séquence suivante d'instructions :
+
+\noindent \begin{flushleft}
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=5cm]{Illustrations/005_Etiquettes}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}
+
+Ce qui, sans commentaire additionnel est incomparablement plus explicite
+que l'équivalent Basic :
+
+
+
+\begin{tabular}{|l|}
+\hline 
+\texttt{10 GOSUB 500}\tabularnewline
+\texttt{20 GOSUB 1000}\tabularnewline
+\texttt{30 GOSUB 3000} \tabularnewline
+\texttt{40 GOSUB 2000}\tabularnewline
+\texttt{50 GOSUB 3000} \tabularnewline
+\texttt{60 GOTO 20}\tabularnewline
+\texttt{79 END}\tabularnewline
+\hline
+\end{tabular}
+
+
+\section*{{\normalsize LE LANGAGE DU HP-41 EST MODULAIRE}}
+
+Dans le monde de la micro-informatique \hp41 est la seule machine
+qui autorise 1'implantation en mémoire d'un nombre indéterminé de
+programmes. Chacun peut être créé, modifié, effacé et (si on dispose
+de périphérique de masse) lu ou écrit indépendamment.
+
+À cette indépendance physique s'oppose une dépendance logique. Tout
+programme peut commander l'exécution d'un groupe d'instructions appartenant
+à un autre programme il suffit que cette séquence débute par une étiquette
+alphabétique : \disp{LBL "X..."}{\small{} et s'achève par }\disp{RTN}{\small{}
+ou}\textsf{\small{} }\disp{END}{\small .}{\small \par}
+
+Il est alors possible de décomposer un programme complexe en une série
+de sous-unités (elles-mêmes décomposables en blocs plus simples) selon
+les sains principes de la programmation descendante. Les problèmes
+posés par la manipulation élémentaire des données sont\newpage{}ainsi
+renvoyés au niveau d'appels les plus profonds et ne viennent plus
+noyer 1'architecture logique du programme clairement détaillée aux
+niveaux supérieurs.
+
+Cette façon de faire offre de multiples avantages : Il devient très
+difficile de commettre des erreurs de conception dans l'agencement
+des opérations nécessaires à la résolution d'un problème. Si malgré
+tout, cela advenait, cette erreur serait rapidement localisée parmi
+un nombre restreint d'instructions.
+
+Il est également possible de tester individuellement chacun des blocs
+pour vérifier que les sorties obtenues correspondent bien aux valeurs
+espérées pour un jeu de données d'essais proposées en entrée.
+
+\hfill{}\includegraphics[width=10cm]{Illustrations/006_Procedures}\hfill{}
+
+En conclusion, \hp41 dispose d'un langage interprété puissant. Chaque
+problème peut être décomposé en sous-unités indépendantes facilement
+programmables, chacune est désignée par un nom symbolique qui décrit
+sa fonction et simplifie son repérage.
+
+
+\section*{{\normalsize PROGRAMMATION SUR LE HP-41}}
+
+Il existe deux niveaux de programmation sur \hp41 : 
+\begin{description}
+\item [{{-}}] Les \textbf{\small programmes proprement dits}{\small ,
+constitués en fait d'une succession d'appels de procédures éventuellement
+\newpage{}entrecoupés de tests. Toujours orienté vers la résolution
+d'un problème spécifique, le programme résume la part que nous nommerons
+\textquotedbl{}stratégique\textquotedbl{} de l'art du programmeur.
+Compréhensible à la simple lecture, un programme doit avoir une documentation
+interne par le biais des étiquettes et des commentaires (nous verrons
+par la suite comment introduire des remarques dans le corps du programme). }{\small \par}
+\item [{{-}}] Les \textbf{\small procédures}{\small{} (ou sous-programmes
+de traitement). Elles représentent le versant \textquotedbl{}tactique\textquotedbl{}
+de la programmation. Une procédure est courte, rapide, elle économise
+au maximum l'espace programmable et altére le moins possible 1'espace
+des variables. Elle correspond à l'exécution d'une tâche unique. }{\small \par}
+\end{description}
+Elle est souvent suffisamment générale pour être utilisée de multiples
+fois par un même programme, voire par des programmes distincts. Elle
+est donc susceptible d'être maintenue en mémoire de façon permanente.
+Ce fait impose une standardisation des méthodes de programmation,
+source d'une importante économie d'effort. Si une procédure répond
+à tous ces critères elle peut être considérée comme une nouvelle fonction
+du langage \hp41 démonstration de 1'ultime qualité de ce langage
+: sa plasticité, son évolutivité.\newpage{}~\newpage{}
+
+\fancyhead[CO]{}
+
+\begin{center}
+\textsf{\textbf{\LARGE CHAPITRE \mbox{II}}}
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+\textsf{\huge TESTS ET DRAPEAUX}
+\par\end{center}{\huge \par}
+
+\vfill{}
+
+
+\hfill{}\includegraphics[width=11cm]{Illustrations/007_Drapeaux}\hfill{}
+
+\vfill{}
+ \newpage{}
+
+\fancyhead[CO]{\emph {TESTS ET DRAPEAUX}}
+
+Au tout début de la rédaction de ce livre il était prévu que ce chapitre,
+en raison de sa relative complexité, vienne clore 1'ouvrage. Il nous
+est rapidement apparu qu'il était indispensable de maîtriser les concepts
+qu'il décrit pour pouvoir programmer \hp41 . Nous vous présentons
+donc sans plus tarder : les outils de la décision.
+
+Pour les anglo-saxons le mot \textquotedbl{}computer\textquotedbl{}
+désigne littéralement un calculateur. Parce qu'il ne fait pas référence
+à la notion de calcul, 1'équivalent français, ordinateur, nous semble
+plus significatif.
+
+Ordonner implique la nécessité d'effectuer des choix. À chaque instant
+le déroulement des opérations est déterminé par les instructions programmées
+mais également par les événements antérieurs. L'ordinateur est amené
+à prendre des décisions : il sait faire des tests.
+
+\hp41 dispose de dix tests arithmétiques et quatre tests sur les
+indicateurs binaires (drapeaux).\smallskip{}
+
+
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=4cm]{Illustrations/008_Tests}\tabularnewline
+\hline
+\end{tabular}
+
+\smallskip{}
+
+
+Remarque : Les fonctions \fct{ISG} et \fct{DSE} ne seront pas évoquées
+dans ce chapitre. Elles se comportent cependant comme des tests.
+
+Ces tests sont binaires car la réponse aux questions posées est obligatoirement
+\textsf{\small \disp{OUI}}{\small{} ou }\textsf{\small \disp{NON}}{\small{}
+.}{\small \par}
+
+\newpage{}
+
+\bigskip{}
+ \hfill{}\includegraphics[width=10cm]{Illustrations/009_Peut_etre}\hfill{}
+
+\textbf{ }\textbf{\small Si la réponse au test est oui alors l'instruction
+qui suit est exécutée}{\small . }{\small \par}
+
+La phrase : \textquotedbl{}\emph{Si} tu as un zéro de conduite,
+\emph{alors} tu auras deux desserts!\textquotedbl{} s'écrit en langage
+\hp41 courant :
+
+\bigskip{}
+ \begin{tabular}{|c|}
+\hline 
+\includegraphics[width=9cm]{Illustrations/010_Dessert}\tabularnewline
+\hline
+\end{tabular}
+
+\bigskip{}
+
+
+La clef d'une bonne utilisation des tests réside dans le choix de
+l'instruction qui suit. Ainsi dans 1'exemple qui précéde une ligne
+de texte vient en modifier une autre transformant le sens du message.
+Contrairement à d'autres langages celui du \hp41 autorise à faire
+suivre un test par une fonction quelconque.
+
+L'exemple qui suit illustre comment placer simplement la plus petite
+de deux valeurs initialement en \reg{X}{\small{} et }\reg{Y}{\small .}{\small \par}
+
+\bigskip{}
+ \begin{tabular}{|c|}
+\hline 
+\includegraphics[width=2cm]{Illustrations/011_X_est_plus_petite}\tabularnewline
+\hline
+\end{tabular}
+
+\smallskip{}
+
+
+Dans un troisième exemple 1'exécution du programme\newpage{}
+
+\noindent est interrompue pour demander l'introduction d'une valeur
+si le registre \reg{X} est nul :\smallskip{}
+
+
+%
+\framebox{\begin{minipage}[c]{3.2cm}%
+\includegraphics[width=2.8cm]{Illustrations/012_Intro_si_nul}%
+\end{minipage}}
+
+\smallskip{}
+
+
+{\small Remarque : Cette séquence est très utile pour initialiser
+un registre. L'arrêt du programme ne se produira que s'il est nécessaire.
+La tactique utilisée dans ce cas est de préparer une action qui, en
+fonction du test, sera exécutée ou non.}{\small \par}
+
+Bien souvent, hélas, une seule instruction est insuffisante. Il faut
+alors introduire une rupture de séquence en utilisant \fct{XEQ}{\small{}
+ou} {\small \fct{GTO}.}{\small \par}
+
+\textit{L'appel d'un bloc d'instructions par }\fct{XEQ}{\small{} }\textit{\small (doit
+être préféré au simple branchement }{\small \fct{GTO}}\textit{\small .
+Après l'exécution de la séquence le programme continue en séquence,
+facilitant sa lecture.}{\small \par}
+
+L'instruction {\small \fct{GTO} doit être réservée au cas où le programme
+diverge en deux \textquotedbl{}pavés\textquotedbl{} terminaux
+totalement distincts.}{\small \par}
+
+
+\section*{{\small LES DRAPEAUX ET LA DESCRIPTION DE L'ENVIRONNEMENT}}
+
+\hp41 est un automate complexe. C'est un système dont le comportement
+est totalement déterminé par construction. Ses transitions d'un état
+à un autre sont reproductibles ; soumis à une même excitation il réagit
+toujours de la même façon.
+
+C'est essentiellement dans l'utilisation des drapeaux que cet aspect
+présente un intérêt. \hp41 {\small dispose du nombre confortable
+de 56 drapeaux qui lui permettent de mémoriser et d'analyser ce que
+nous appellerons l'environnement logique.}{\small \par}
+
+
+\section*{{\normalsize DES DRAPEAUX POUR COMMÉMORER L'ÉVÉNEMENT}}
+
+Un drapeau est essentiellement une mémoire mais, contrairement aux
+registres de données, ce ne sont pas des valeurs numériques qui sont
+stockées mais des événements.
+
+\newpage{}
+
+Chaque indicateur peut prendre deux valeurs logiques : 
+\begin{itemize}
+\item il peut être \textbf{armé} (en anglais : \disp{SET}) in{\small diquant
+que l'événement a eu lieu, }{\small \par}
+\item il peut être \textbf{désarmé} (en anglais : \disp{CLEAR}{\small )
+si 1'événement ne s'est pas produit. }{\small \par}
+\end{itemize}
+Même si, et ce serait regrettable, vous n'utilisez jamais les drapeaux,
+\hp41 les manipule lui-même pour son propre compte.
+
+Parmi les 56 indicateurs disponibles, 26 sont gérés uniquement par
+la machine, 19 sont partagés entre elle et vous. Enfin les onze premiers
+(de \textsf{\small 00}{\small{} à }\textsf{\small 10}{\small ) vous
+appartiennent en propre.}{\small \par}
+
+Pour avoir un panorama complet des utilisations possibles des drapeaux
+le mieux est d'observer comment les manipule un orfèvre en la matière
+: le calculateur lui-même.
+
+
+\section*{{\normalsize LES 26 DRAPEAUX INTERNES}}
+
+Ce domaine réservé s'étend des indicateurs \textsf{\small 30}{\small{}
+à }\textsf{\small 55}{\small . Si vous tentez de modifier 1'état de
+ces drapeaux par les instructions }\fct{SF}{\small{} (Set Flag) ou
+}\fct{CF}{\small{} (Clear Flag) \hp41 vous répondra avec une mauvaise
+foi évidente {}``\disp{NONEXISTENT}'' ; pourtant chacun de ces
+indicateurs a une fonction bien déterminée et leur existence ne peut
+faire l'objet d'aucun doute.}{\small \par}
+
+\smallskip{}
+
+
+Examinons-les en détail :
+
+\smallskip{}
+
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}30}}}{\footnotesize{}
+- Ce drapeau indique au calculateur qu'une lecture de catalogue est
+en cours. Les }{\small fonctions} du clavier sont alors redéfinies
+: la touche \touche{R/S} arrête ou reprend la liste des fonctions
+; \touche{SST} ou \touche{BST} permettent d'avancer ou de reculer
+dans la liste, la touche \touche{ $\leftarrow$} fait sortir du mode
+catalogue. Les autres touches son inopérantes ; le seul rôle qui leur
+est laissé est de pouvoir servir de \textquotedbl{}frein\textquotedbl{}
+pour ralentir la vitesse du défilement. Notons, au passage, que cette
+possibilité de redéfinir le clavier sera exploitée encore davantage
+par certaines extensions comme le module \textsc{timer}. S'il est
+impossible de modifier l'état de ces drapeaux directement, il est
+par contre intéressant de les tester. En ce qui concerne l'indicateur
+\textsf{30}, comme il n'est pas possible d'interro-\newpage{}ger
+le calculateur pendant un catalogue, la réponse à la question \fct{FS? 30}{\small{}
+sera toujours \disp{NON}. Ceci sera pour nous d'un grand intérêt
+dans les programmes, comme nous le verrons tout à l'heure.}{\small \par}
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{\small 31}}}{\small{}
+à }\texttt{\textbf{\textsc{\small 35}}}{\small{} - Ces indicateurs
+sont réservés au dialogue avec les périphériques connectables par
+l'intermédiaire de la boucle}\textsc{\small{} hp-il}{\small{} . Comme
+nous ne traiterons pas des périphériques dans ce livre ces cinq drapeaux
+seront par prudence ignorés.}{\small \par}
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{\small 36}}}{\small{}
+à  - Ces drapeaux servent à définir le format d'affichage des nombres.
+Ce sont de curieux drapeaux internes car ils sont en pratique modifiés
+par l'utilisateur. Ces modifications ne s'effectuent pas par le biais
+des fonctions \fct{SF} ou \fct{CF}, mais par 1'intermédiaire des
+instructions de formatage : \fct{FIX}}, {\small \fct{SCI} et \fct{ENG}.
+Ils illustrent parfaitement le rôle de mémoire que peuvent jouer les
+indicateurs binaires. Les quatre drapeaux }\textsf{\small 36}{\small{}
+à }\textsf{\small 39}{\small{} conservent le nombre de décimales à
+afficher, pour cela la numérotation binaire est utilisée :}{\small \par}
+
+\smallskip{}
+ \hfill{}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+N\textdegree{}  & Valeur du bit  & \multicolumn{9}{c|}{Nb de décimales} & \tabularnewline
+\hline 
+ &  & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9\tabularnewline
+\hline 
+39  & 1  & 0  & 1  & 0  & 1  & 0  & 1  & 0  & 1  & 0  & 1\tabularnewline
+\hline 
+38  & 2  & 0  & 0  & 1  & 1  & 0  & 0  & 1  & 1  & 0  & 0\tabularnewline
+\hline 
+37  & 4  & 0  & 0  & 0  & 0  & 1  & 1  & 1  & 1  & 0  & 0\tabularnewline
+\hline 
+36  & 8  & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 1  & 1\tabularnewline
+\hline
+\end{tabular}\hfill{}\smallskip{}
+
+
+Une règle générale peut être déduite de cet exemple : pour mémoriser,
+à 1'aide des drapeaux, un état parmi $n$ possibles il est nécessaire
+d'utiliser $d$ drapeaux avec : $d=\nicefrac{\log n}{\log2}$, $d$
+étant arrondi à l'entier supérieur. Pour dix états possibles (de 0
+à 9 décimales) on obtient : $\nicefrac{\log10}{\log2}=\nicefrac{1}{0,301}=1,585$.
+D'où $d=4$
+
+\noindent \begin{flushleft}
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{\small 40}}}{\small{}
+et }\texttt{\textbf{\textsc{\small 41}}}{\small{} - Comme les quatre
+drapeaux précédents ils ne sont jamais modifiés par le calculateur.
+Leur rôle\newpage{} est de définir le mode \fct{FIX}, \fct{SCI}
+ou \fct{ENG} de l'affichage en fonction du code :}
+\par\end{flushleft}{\small \par}
+
+\smallskip{}
+ \hfill{}
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+N\textdegree{}  & \texttt{\textsc{SCI}}  & \fct{FIX}  & \texttt{\textsc{ENG}}\tabularnewline
+\hline 
+40  & 0  & 0  & 1\tabularnewline
+\hline 
+  & 0  & 1  & 0\tabularnewline
+\hline
+\end{tabular}\hfill{}\smallskip{}
+
+
+Comme il existe trois modes d'affichage, la règle énoncée ci-dessus
+confirme que deux drapeaux sont nécessaires.
+
+Si les indicateurs \textsf{\small 36}{\small{} à  étaient accessibles
+à 1'utilisateur, définir un affichage scientifique avec trois décimales
+pourrait se faire grâce à la séquence :}{\small \par}
+
+{\small \disp{CF 36 CF 37 SF 38 SF 39}} (Nombre de décimales)
+
+{\small \disp{CF 40 CF 41}} (Mode scientifique)
+
+On comprend que les concepteurs du \hp41 aient préféré offrir à 1'utilisateur
+les fonctions \fct{FIX}, \texttt{\textsc{ENG}} et \texttt{\textsc{SCI}}.
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{\small 42}}}{\small{}
+et }\texttt{\textbf{\textsc{\small 4}}}{\small 3 - Ce sont encore
+des drapeaux modifiables par le biais d'instructions spéciales pour
+définir 1'environnement de travail du \hp41 . Ils précisent quelle
+est 1'unité d'angle utilisée. Trois unités étant disponibles }\texttt{\textsc{\small DEGre}}{\small ,
+}\texttt{\textsc{\small RADian}}{\small{} ou }\texttt{\textsc{\small GRADe}}{\small{}
+deux drapeaux sont encore nécessaires pour mémoriser le mode courant
+suivant un code comparable à celui utilisé pour le mode d'affichage
+:}{\small \par}
+
+\smallskip{}
+ \hfill{}
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+N\textdegree{}  & \texttt{\textsc{DEG}}  & \texttt{\textsc{RAD}}  & \texttt{\textsc{GRAD}}\tabularnewline
+\hline 
+42  & 0  & 0  & 1\tabularnewline
+\hline 
+43  & 0  & 1  & 0\tabularnewline
+\hline
+\end{tabular}\hfill{}\smallskip{}
+
+
+Le mode d'affichage ou 1'unité d'angle choisie sont clairement visibles
+à l'affichage, mais un programme qui s'exécute ne peut consulter cet
+affichage. Nous vous proposons donc une courte séquence qui insérée
+
+\newpage{}
+
+\noindent dans un programme vous permettra de connaître le mode actuellement
+sélectionné :
+
+\smallskip{}
+ \begin{tabular}{|c|}
+\hline 
+\includegraphics[width=3cm]{Illustrations/014_Dire_mode}\tabularnewline
+\hline
+\end{tabular}\hfill{}\smallskip{}
+
+
+En fin d'exécution le registre \reg{X} contient 0 si l'unité d'angle
+est le grade, la fonction \fct{SIGN} n'a pas été exécutée et le doublement
+du registre \reg{X} par la fonction \fct{STO+X} n'a pas modifié
+grand chose.
+
+Si 1'unité est le radian le contenu de \reg{X} est 1, la fonction
+\fct{SIGN} étant cette fois prise en compte mais pas \fct{STO+X}.
+Enfin dans le cas où il s'agit de degrés, les deux fonctions qui suivent
+les tests donnent 2 comme résultat final.
+
+La même séquence, légèrement modifiée, vous permettra d'obtenir sous
+forme de chiffre de 0 à 2 le format d'affichage courant, nous vous
+laissons le soin de 1'établir.
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{44}}}\texttt{\textbf{
+}}- Ce drapeau est remis à zéro par le calculateur au moment de la
+mise sous tension. Il est armé par l'instruction \fct{ON}. Son rôle,
+modeste, est d'éviter 1'extinction du calculateur après les fatidiques
+dix minutes d'inactivité. Une fois levé le seul moyen de le désarmer
+est d'éteindre le calculateur. En programmation il représente donc
+le cas très particulier d'un indicateur à usage unique !
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{45
+à 47}}}\texttt{\textbf{ }}- Ces trois drapeaux, tout comme l'indicateur
+30, sont toujours désarmés quand 1'utilisateur les teste. Ils concernent
+des fonctions intimes du calculateur :
+
+Le \texttt{\textbf{\textsc{45}}} indique qu'un nombre ou une chaîne
+de caractères est en cours d'introduction, la chose est concrétisée
+à 1'écran par le tiret qui suit la valeur déjà introduite. Le comportement
+de la touche d'effacementest également modifié, si ce drapeau est
+armé seul le dernier caractère affiché sera éliminé.
+
+L'indicateur \texttt{\textbf{\textsc{46}}} joue un rôle identique
+mais lors de l'introduction d'instructions nécessitant plusieurs\pagebreak{}frappes
+de touches.
+
+Le drapeau \texttt{\textbf{\textsc{47}}} indique quant à lui que la
+touche jaune vient d'être enfoncée, il est matérialisé à 1'affichage
+par 1'indication \texttt{\textsc{SHIFT}}.
+
+\smallskip{}
+ \hfill{}\includegraphics[width=7cm]{Illustrations/015_Shift}\hfill{}\smallskip{}
+
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{
+48}}} - Cet indicateur précise si le calculateur est ou non en mode
+alpha. Quand ce mode est actif l'indication \disp{\tiny ALPHA} apparaît
+à droite de 1'affichage, le contenu du registre \reg{ALPHA} est visualisé,
+et le clavier est complètement redéfini, chaque touche codant maintenant
+pour un caractère alphabétique ou une fonction spécifique. L'état
+de ce drapeau peut être modifié soit en agissant sur la bascule \touche{ALPHA}
+en haut du clavier, soit par les fonctions \fct{AON} et \fct{AXOFF}.
+Il peut être testé en cours de programme, enfin le calculateur le
+désarme à la mise sous tension ou lors du passage en mode programme.
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{
+49}}} - L'indicateur de décharge de la batterie. Il est associé à
+1'affichage de \disp{\tiny BAT} à gauche de 1'écran.
+
+\smallskip{}
+ \hfill{}\includegraphics[width=9cm]{Illustrations/016_Dynamo}{\small \hfill{}}{\small \par}
+
+Si vous avez à exécuter un long programme en utilisant \hp41 de façon
+autonome, surtout s'il est équipé d'accumulateurs et non de piles,
+vous pouvez placer à cer-\newpage{}
+
+\noindent tains endroits stratégiques de ce programme la séquence
+:
+
+\smallskip{}
+
+
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=2cm]{Illustrations/017_OFF}\tabularnewline
+\hline
+\end{tabular}
+
+\smallskip{}
+
+
+\noindent qui éteindra le calculateur avant qu'il ne plonge de lui-même
+dans un profond coma avec perte complété de la mémoire\textquotedbl{}permanente\textquotedbl{}.
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{
+50}}} - Ce drapeau indique au calculateur si un message a été placé
+à 1'affichage par les fonctions \fct{VIEW} ou \fct{AVIEW}. S'il
+est armé, le calculateur exhibe le registre \reg{X} en mode numérique,
+le registre \reg{ALPHA}  en mode alphabétique ou promène le canard
+(\textsf{\textsc{\includegraphics[width=3mm]{Illustrations/018_Canard}}})
+à l'écran si un programme s'exécute.
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{
+51}}} à \texttt{\textbf{\textsc{54}}} - Encore quatre drapeaux qui
+resteront pour vous toujours à 1'état zéro. Le calculateur, lui s'en
+sert pour savoir que la touche \fct{SST}vient d'être pressée (indicateur
+51) ou se souvenir que l'on est en mode programme (indicateur 52),
+dans ce cas il affiche 1'instruction sur laquelle est arrêté le pointeur
+programme et considére toute pression de touche comme une instruction
+à insérer dans le texte du programme. \hp41 peut savoir (indicateur
+53) si un périphérique est prêt à poursuivre un fructueux dialogue
+(l'imprimante a-t-elle vidé son tampon, une carte a-t-elle été introduite
+dans le lecteur ? ). Enfin 1'indicateur 54 indique qu'une pause (\fct{PSE})
+s'exécute.
+
+\texttt{\textbf{\textsc{\footnotesize \textifsymbol[ifgeo]{96}}}}\texttt{\textbf{\textsc{
+55}}} - Si vous ne disposez pas d'une imprimante cet indicateur sera
+pour vous toujours désarmé. Dans le cas contraire il sera armé dés
+la mise sous tension de 1'appareil si un périphérique imprimant est
+connecté.
+
+La description que vous venez de lire nous a paru indispensable à
+une bonne compréhension des mécanismes internes de \hp41 . La description
+de ces drapeaux faite dans le manuel reste difficilement compréhensible.
+Nous avons tenté d'être plus explicite.
+
+\newpage{}
+
+
+\section*{{\normalsize DES DRAPEAUX PLUS ACCESSIBLES}}
+
+Examinons maintenant ce qu'il est possible de faire avec les indicateurs
+\fct{F00}  à \fct{F29} directement accessibles à 1'utilisateur.
+
+En s'appuyant sur la description qui précède, nous pouvons classer
+les applications possibles en deux catégories : 
+\begin{itemize}
+\item la mémorisation d'une option à long terme. C'est le cas des drapeaux
+\fct{F21} (arrêt ou non après les fonctions \fct{VIEW} et \fct{AVIEW}),
+\fct{F24} (autorisation des dépassements en cours de calcul), \fct{F26}
+(activation du signal sonore), \fct{F27} (mode \disp{\tiny USER}),
+\fct{F28} et \fct{F29} (point ou virgule décimale, séparateur de
+groupe de chiffre). 
+\item la détection d'un événement transitoire, nécessitant généralement
+un traitement rapide. Entrent dans cette catégorie, les drapeaux \fct{F22}
+(détection d'entrée numérique), \fct{F23} (détection d'entrée alphabétique),
+\fct{F25} \texttt{\textsc{F25}} (détection d'erreur). 
+\end{itemize}
+C'est dans cette seconde catégorie que se place le cas très important
+d'un drapeau utilisé comme variable logique pour mettre en mémoire
+le résultat d'un test.
+
+Les choses se passent selon le schéma suivant :
+
+\smallskip{}
+
+
+\begin{tabular}{c}
+\hline 
+\multicolumn{1}{|c|}{\includegraphics[width=3cm]{Illustrations/019_Variable_logique}}\tabularnewline
+\hline
+\end{tabular}
+
+\smallskip{}
+
+
+Le drapeau choisi est préalablement désarmé, puis, en fonction du
+résultat du test, il est éventuellement réarmé.
+
+Cette méthode est utile : 
+\begin{itemize}
+\item quand les valeurs testées ne sont pas celles qui doivent être traitées.
+Entre le test initial et le traitement il faut alors modifier le contenu
+de la pile. Après cette modification un deuxième test, portant sur
+1'état du drapeau, est effectué pour tenir compte du résultat du premier
+; 
+\item quand le test est effectue dans une procédure, et le traitement résultant
+pris en compte par le programme\newpage{} appelant. Il peut s'agir
+en particulier de la détection d'une erreur ; 
+\item pour réaliser la structure \texttt{\textsc{SI...ALORS...SINON}}. On
+obtient dans ce cas une séquence du type : \smallskip{}
+
+\end{itemize}
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=4cm]{Illustrations/020_SI_ALORS}\tabularnewline
+\hline
+\end{tabular}\smallskip{}
+
+
+Les applications des drapeaux sont donc multiples. Il vous faut les
+connaître toutes si vous désirez obtenir le maximum de votre \hp41
+. Et si les considérations qui précèdent ne vous ont pas trop effrayées
+voyez la suite...\vfill{}
+ \hfill{}
+
+\begin{center}
+\includegraphics[width=10cm]{Illustrations/021_Totem_41}\hfill{}\vfill{}
+
+\par\end{center}
+
+L'ensemble des exemples étudiés jusqu'à maintenant
+
+\noindent \newpage{}concerne l'exécution d'une instruction si une
+condition unique \emph{EST} vérifiée. Schématiquement cela correspond
+à :
+
+\smallskip{}
+ \hspace{2cm}\includegraphics[width=4cm]{Illustrations/022_Test_oui}\smallskip{}
+
+
+La première question que nous aborderons est 1'exécution d'une instruction
+si une condition \emph{N'EST PAS} vérifiée. Cette opération correspond
+à la négation logique. En voici le schéma :
+
+\smallskip{}
+
+
+\hspace{2cm}\includegraphics[width=4cm]{Illustrations/023_Test_non}
+
+\smallskip{}
+
+
+La méthode la plus immédiate pour obtenir ce résultat est de remplacer
+le test initial par un autre qui teste la condition inverse. Nous
+sommes alors ramené au cas de figure précédent pour lequel 1'instruction
+est exécutée si la condition est vérifiée. Le tableau qui suit donne
+les tests disponibles et leurs contraires :
+
+\medskip{}
+
+
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=6cm]{Illustrations/024_Tests}\tabularnewline
+\hline
+\end{tabular}
+
+\smallskip{}
+
+
+\newpage{}
+
+Hélas, nous constatons que la méthode n'est pas universelle. Certaines
+instructions de test n'ont pas de négation. Il existe cependant un
+procédé général pour obtenir 1'inversion d'un test, il suffit d'utiliser
+un \textquotedbl{}\textbf{négateur universel}\textquotedbl{}.
+
+Derrière ce nom pompeux se cache simplement un test dont la réponse
+est toujours négative. Nous avons adopté 1'instruction \fct{FS? 30}.
+Toujours en utilisant notre notation schématique on obtient :
+
+\smallskip{}
+
+
+\hspace{2cm}\includegraphics[width=4cm]{Illustrations/025_Negateur}
+
+\smallskip{}
+
+
+Si la réponse au test est négative le calculateur saute le pas suivant
+(\fct{FS? 30}) et exécute l'instruction qui suit. Dans le cas contraire
+\fct{FS? 30} sert littéralement de tremplin et l'instruction n'est
+pas exécutée. Comme exemple, la séquence :
+
+\smallskip{}
+
+
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=2cm]{Illustrations/026_X_sup_0}\tabularnewline
+\hline
+\end{tabular}
+
+\smallskip{}
+
+
+est rigoureusement équivalente à\fct{$X\geq0?$}, l'un des tests qui
+font défaut au calculateur.
+
+
+\section*{{\normalsize DE PLUS EN PLUS FORT\ldots{}}}
+
+\textquotedbl{} \textit{\small Et maintenant, Mesdames et Messieurs,
+nous avons le plaisir et l'avantage de vous présenter un numéro exceptionnel
+: l'exécution conditionnelle d'une instruction en fonction des résultats
+conjoints de deux tests !}{\small{} \textquotedbl{}. (Silence sous
+le chapiteau, les tambours roulent, sur la piste les artistes se concentrent).}{\small \par}
+
+Pour réaliser ce tour de force \hp41 ne dispose pas (encore) d'instructions
+microprogrammées. Il va falloir innover.
+
+\newpage{}
+
+Examinons préalablement le résultat de la mise en séquence de deux
+tests que nous appellerons \disp{T1} et \disp{T2} T2. Le schéma
+d'exécution est le suivant :
+
+\smallskip{}
+
+
+\hspace{2cm}\includegraphics[width=4.5cm]{Illustrations/027_Double_test}
+
+\smallskip{}
+
+
+L'instruction \disp{inst}{\small{} est exécutée si : }{\small \par}
+\begin{itemize}
+\item \disp{T1} n'est pas vérifié. (Quel que soit le résultat de \disp{T2}) 
+\item \disp{T1} et \disp{T2} sont simultanément vérifiées. 
+\end{itemize}
+Dans le monde de la logique Booléenne cette fonction
+
+porte le nom d'implication et admet la table de vérité suivante :
+
+\smallskip{}
+
+
+\hspace{2cm}\begin{tabular}{|c|c|c|}
+\hline 
+\texttt{\textbf{\textsc{\small T1}}}{\small{} } & \texttt{\textbf{\textsc{\small T2}}}{\small{} } & \texttt{\textbf{\textsc{\small INST}}}\tabularnewline
+\hline 
+non  & non  & exécutée\tabularnewline
+non  & oui  & exécutée\tabularnewline
+oui  & non  & non exécutée\tabularnewline
+oui  & oui  & exécutée\tabularnewline
+\hline
+\end{tabular}
+
+\smallskip{}
+
+
+Transposée en langage courant cette fonction correspond à des phrases
+du type :
+
+\textquotedbl{} \textit{Si le fait qu'un animal soit un batracien
+implique que c'est un vertébré alors les zoologistes sont des gens
+raisonnables} \textquotedbl{}.
+
+Dans le cas d'une grenouille la première et la seconde conditions
+sont vérifiées (ligne 4 de la table de la vérité) et nous ne mettrons
+pas en doute la raison des
+
+\newpage{}
+
+\noindent zoologistes.
+
+Il en est de même pour une araignée (ligne 1) ou un gorille (ligne
+2) qui ne sont pas des batraciens. Pour ceux-ci, <<être ou non vertébré\textquotedbl{}
+laisse les zoologistes raisonnables.
+
+Cependant, à la suite de notre récent voyage sur Mars, nous avons
+eu la chance de capturer un \textsc{Kroaq}. Cette charmante bestiole
+est à l'évidence un batracien, mais n'a pas de vertébre (??).
+
+Lorsque nous avons présenté l'animal aux zoologistes il ne fut pas
+nécessaire de nous reporter à la ligne 3 de la table de vérité pour
+comprendre, à leurs airs hagards, que les zoologistes n'étaient plus
+des gens raisonnables.
+
+Quittons notre zoo imaginaire pour revenir aux préoccupations plus
+terre à terre des pauvres programmeurs.
+
+L'implication est une des fonctions logiques les plus difficiles à
+appréhender. I1 serait préférable de disposer, à la place, des deux
+fonctions fondamentales de la logique booléenne : les fonctions \fct{ET}
+et \fct{OU}.
+
+
+\section*{{\normalsize LA FONCTION OU}}
+
+Le \fct{OU} logique est vérifié si l'une, au moins, des deux conditions
+qu'il relie, est vérifiée. Elle admet donc la table de vérité suivante
+:
+
+\smallskip{}
+
+
+\hspace{2cm}\begin{tabular}{|c|c|c|}
+\hline 
+\texttt{\textbf{\textsc{\small T1}}}{\small{} } & \texttt{\textbf{\textsc{\small T2}}}{\small{} } & \texttt{\textbf{\textsc{\small INST}}}\tabularnewline
+\hline 
+non  & non  & non exécutée\tabularnewline
+non  & oui  & exécutée\tabularnewline
+oui  & non  & exécutée\tabularnewline
+oui  & oui  & exécutée\tabularnewline
+\hline
+\end{tabular}
+
+\smallskip{}
+
+
+En pratique la fonction \fct{OU} peut se déduire de l'implication
+:
+
+\disp{T1} ou \disp{T2} peut aussi s'écrire :
+
+\disp{NON T1} implique \disp{T2} ou encore
+
+\disp{NON T2} implique \disp{T1}.
+
+\newpage{}
+
+Il suffit donc pour obtenir un OU de prendre 1'inverse de 1'un des
+tests et de le faire suivre par le second.
+
+Ainsi \fct{$X\geq 0?$} est équivalent à \fct{$X > 0?$}\texttt{\textbf{\textsc{
+OU }}}\fct{$X = 0?$}, et donc à \fct{$X < 0?$} implique \fct{$X = 0?$}
+
+Nous obtenons donc deux nouveaux équivalents de notre instruction
+manquante :
+
+\smallskip{}
+
+
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=2.5cm]{Illustrations/028_Xgte0}\tabularnewline
+\hline
+\end{tabular}\smallskip{}
+
+
+et\smallskip{}
+
+
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=2.5cm]{Illustrations/029_Xinf_0}\tabularnewline
+\hline
+\end{tabular}\smallskip{}
+
+
+Et nous conclurons péremptoirement en affirmant que :
+
+<<\texttt{\textit{Si ce n'est pas un batracien OU si c'est un vertébré
+alors les zoologistes sont raisonnables}}».
+
+
+\section*{{\normalsize LA FONCTION ET}}
+
+L'obtention de la fonction \fct{ET}  nous demandera un peu plus d'effort.
+(Le roulement de tambour s'intensifie, une légère angoisse étreint
+le public.)
+
+I1 existe heureusement une relation, due à \noun{DE MORGAN} qui relie
+les fonctions \fct{ET}  et \fct{ET}  :
+
+\disp{T1 ET T2 = NON (NON T1 ou NON T2)}
+
+Comment faire avaler çà à \hp41 ? Avec de l'ordre et de la méthode,
+on peut.
+
+Pour le lecteur attentif, en vertu de tout ce qui précède, il est
+évident que :
+
+\disp{T1 ET T2 = NON (T1 implique NON T2)}
+
+Pour obtenir la négation de l'implication entre parenthèses, nous
+utiliserons le négateur universel.
+
+Voyons la chose sur un exemple. Nous désirons exécuter 1'instruction
+\disp{BEEP} si le drapeau 01 \emph{ET} le drapeau 02\newpage{}
+
+\noindent sont simultanément armés. On pourrait écrire :\smallskip{}
+
+
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=3cm]{Illustrations/030_Fonction_ET_A}\tabularnewline
+\hline
+\end{tabular}\smallskip{}
+
+
+Nous préférons :\smallskip{}
+
+
+\begin{tabular}{|c|}
+\hline 
+\includegraphics[width=3cm]{Illustrations/031_Fonction_ET_B}\tabularnewline
+\hline
+\end{tabular}\smallskip{}
+
+
+L'exécution en est plus rapide, la séquence utilise un octet de moins
+et fait l'économie d'une étiquette numérique. (Coups de cymbales,
+musique. Sur la piste les artistes saluent pour répondre aux acclamations
+du public. Merci).
+
+Mais le spectacle continue. Nous vous proposons un petit exercice
+pour faire la synthèse de ce chapitre.
+
+En utilisant deux drapeaux, il faut écrire quatre procédures de telle
+sorte qu'aucune d'entre elles ne puisse être exécutée deux fois de
+suite.
+
+La première procédure ajoute \textquotedbl{}A\textquotedbl{} au
+contenu du registre alpha (instruction \textquotedbl{} A\textquotedbl{}),
+la seconde ajoute \textquotedbl{}B\textquotedbl{}(\textquotedbl{}
+B\textquotedbl{}), la troisième et la quatrième ajoutent respectivement
+\textquotedbl{}C\textquotedbl{} et \textquotedbl{}D\textquotedbl{}.
+
+Chaque procédure se termine par \fct{AVIEW}, \fct{RTN}. Il sera
+pratique d'utiliser les étiquettes alphabétiques locales (\fct{LBL A},
+\fct{LBL B}, \fct{LBL C} et \fct{LBL D}) pour désigner ces procédures.
+
+À l'exécution vous pourrez obtenir des chaines de caractères du type
+: \textquotedbl{}\disp{ACDBDCACB}\textquotedbl{}, mais pas \textquotedbl{}\disp{ABBCAAD}\textquotedbl{}
+qui contient des séquences de lettres identiques.
+
+Avant que les feux de la rampe ne se rallument pour\newpage{}
+
+\noindent la suite du spectacle, un conseil. Si une instruction vous
+semble faire cruellement défaut, ne baissez pas les bras. Un peu de
+réflexion, un brin d'astuce et surtout une lecture attentive des bons
+auteurs, vous permettront toujours de franchir l'obstacle.
+
+Vaincre une difficulté n'est pas perdre son temps. C'est ainsi qu'on
+s'élève peu à peu vers les sommets de la programmation. Un grand pas
+pour vous, un petit pas pour 1'humanité.
+
+\newpage{}~\newpage{}\fancyhead[CO]{}
+
+\begin{center}
+\textsf{\textbf{\LARGE CHAPITRE \mbox{III} }}
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+\textsf{\Huge FACE À LA PILE}
+\par\end{center}{\Huge \par}
+
+\vfill{}
+
+
+\hfill{}\includegraphics{Illustrations/032_Face_Pile}\hfill{}
+
+\newpage{}
+
+\fancyhead[CO]{\emph {FACE À LA PILE}}
+
+Avant d'aborder toute programmation il est essentiel de se pencher
+longuement sur la pile opérationnelle à quatre registres. Cette pile
+est le c½ur du système. Toutes les valeurs doivent transiter par elle
+et c'est en son sein que s'effectue la majorité des opérations. Il
+est donc nécessaire de la maîtriser complètement et de pouvoir suivre
+en permanence le ballet des valeurs dans les registres.
+
+La pile opérationnelle, associée à la notation polonaise inverse,
+est la constante qui, depuis leur origine, caractérise les calculateurs
+\noun{Hewlett-Packard}.
+
+Au dos d'\noun{HP-35} se trouvait déjà un petit aide-mémoire fort
+susceptible de désorienter les téméraires acquéreurs de cette première
+calculatrice sophistiquée. Nous ne pouvons résister au plaisir de
+vous le présenter.
+
+\noindent \begin{flushleft}
+\vfill{}
+
+\par\end{flushleft}
+
+\selectlanguage{english}%
+\includegraphics[width=3cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/033_HP35_Dos_us}\foreignlanguage{french}{\hfill{}\vfill{}
+}
+
+\selectlanguage{french}%
+\hfill{}\includegraphics[width=8cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/034_Dos_fr}\hfill{}\vfill{}
+ \newpage{}
+
+\newpage{}\hfill{}\includegraphics[width=5cm]{Illustrations/035_Barbu}\includegraphics[width=3.2cm]{Illustrations/036_HP-35}\vfill{}
+
+
+Les choses ont depuis quelque peu évolué. Le stockage d'une valeur
+en mémoire n'inhibe plus la montée de la pile. L'opération exponentiation
+est maintenant \touche{$\boldmath Y^{x}$} et non plus \touche{$\boldmath X^{y}$}$ $,
+apparemment plus logique, mais en opposition complète avec l'ordre
+de lecture des formules. Enfin l'extension, sur \hp41 , des opérations
+de rappel de stockage et d'échange, ainsi que l'arithmétique directe
+dans la pile, en a considérablement accru la maniabilité et la puissance.
+
+Ce livre aurait pu s'intituler <<tout faire dans la pile>>. En effet,
+la quasi totalité des procédures que nous allons développer n'utilise
+que les cinq registre : \reg{L}, \reg{X}, \reg{Y}, \reg{Z}, \reg{T}
+qui la constituent.
+
+Pourquoi ce parti pris ?
+
+Ce n'est pas uniquement par esprit sportif, pour le simple plaisir
+de faire <<tenir dans la pile>> un algorithme complexe, ce plaisir
+existe, sans conteste, mais l'effort accompli est rapidement rentabilisé
+pour trois raisons : 
+\begin{itemize}
+\item une \textbf{économie de temps} : l'accès aux registres mémoire est
+sur ce type de calculateurs relativement lent (avant toute opération
+le microprocesseur doit en permanence tester l'existence des registres
+adressés). Cette opération ne concerne pas les registres de la pile
+toujours présents quelle que soit la partition choisie ; 
+\item une \textbf{économie d'espace} : ne pas utiliser un registre pour
+stocker un résultat intermédiaire, c'est le rendre \newpage{}disponible
+pour autre chose ; 
+\item mais surtout travailler dans la pile, c'est \textbf{éviter d'accroitre
+la complexité de la gestion de la mémoire}, et pouvoir utiliser une
+procédure sans avoir à la modifier pour tenir compte de l'implantation
+des variables du programme appelant. 
+\end{itemize}
+Ainsi les paramètres d'une procédure sont transmis par la pile, les
+calculs effectués dans la pile, les résultats finalement récupérés
+à partir de la pile : la procédure forme alors un tout insécable,
+transposable, universel.
+
+
+\section*{{\normalsize LE LOGIGRAPHE}}
+
+La résolution des problèmes que nous allons aborder nécessite une
+utilisation optimale des mouvements de la pile. Il est donc utile
+de disposer d'un outil qui permette d'obtenir rapidement ces solutions
+optimales.
+
+Avant de décrire cet outil et pour mieux vous en faire sentir l'intérêt,
+nous vous proposons un petit exercice:
+
+À partir de la situation de droite il faut obtenir celle de gauche
+en n'utilisant que deux instructions
+
+\begin{tabular}{cc}
+\texttt{\textsc{T = 4}}  & \texttt{\textsc{T = 3}}\tabularnewline
+\texttt{\textsc{Z = 3}}  & \texttt{\textsc{Z = 4}}\tabularnewline
+\texttt{\textsc{Y = 2}}  & \texttt{\textsc{Y = 1}}\tabularnewline
+\texttt{\textsc{X = 1}}  & \texttt{\textsc{X = 2}}\tabularnewline
+\end{tabular}
+
+Si vous pouvez résoudre ce problème en moins de 10 secondes vous pouvez
+allègrement sauter la suite de ce chapitre ! Dans le cas contraire,
+vous tirerez profit de l'utilisation du \emph{Logigraphe.}
+
+Considérons nos quatre registres dans la position initiale suivante
+:
+
+\begin{tabular}{|c|}
+\hline 
+\texttt{\textsc{T = a}}\tabularnewline
+\hline 
+\texttt{\textsc{Z = b}}\tabularnewline
+\hline 
+\texttt{\textsc{Y = c}}\tabularnewline
+\hline 
+\texttt{\textsc{X = d}}\tabularnewline
+\hline
+\end{tabular}
+
+L'analyse combinatoire nous indique que le nombre de permutations
+possibles de 4 éléments est égal à $4!$
+
+\newpage{}
+
+\includegraphics[angle=90,width=12cm]{Illustrations/037_Logigraphe}\newpage{}
+
+\noindent soit 24 états possibles.
+
+Le logigraphe est une représentation dans l'espace, sous la forme
+d'un graphe sagittal de cet ensemble de positions. La transition de
+l'une à l'autre s'effectue grâce aux instructions \fct{X<>Y} (double
+flèche \texttt{\textbf{\textsc{\ensuremath{\leftrightarrow}}}}),
+\fct{RDN} (flèche simple \texttt{\textbf{\textsc{\textdownarrow{}}}}
+) ou \fct{R\textuparrow{}} opération inverse de la précédente.
+
+Il se présente sous la forme de deux ensembles hexagonaux superposés.
+Sur chaque hexagone se greffent trois cycles, chacun correspondant
+à une permutation circulaire complète des éléments de la pile (quatre
+\fct{RDN} successifs). On passe d'un cycle à l'autre par la fonction
+\fct{X<>Y} qui modifie l'ordre des valeurs.
+
+L'utilisation du logigraphe est simple : on code la position finale
+désirée, soit \textquotedbl{}cdab\textquotedbl{} pour l'exemple
+qui précède, puis on repère cette combinaison sur le logigraphe, on
+cherche alors le plus court chemin qui relie cette combinaison à la
+position initiale. Toujours dans notre exemple on obtient la séquence
+\fct{RDN}\texttt{\textbf{\textsc{, }}}\fct{RDN}\texttt{\textbf{\textsc{,}}}\fct{X<>Y},
+\fct{RDN}\texttt{\textbf{\textsc{, }}}\fct{RDN}\texttt{\textbf{\textsc{,}}}\fct{X<>Y}\texttt{\textbf{\textsc{ }}}
+
+\includegraphics[width=6cm]{Illustrations/038_Chemin}
+
+Cette séquence d'instructions est celle que nous aurions utilisée
+si nous disposions d'une \noun{HP-65} ou \noun{67}. Mais \hp41 dispose
+d'une instruction générale d'échange de registre qui nous permet d'obtenir
+deux nouvelles fonctions de permutation de registre de la pile : \fct{X<>Z}\texttt{\textbf{\textsc{
+}}}\fct{X<>T}\texttt{\textbf{\textsc{.}}}
+
+Si on reporte ces fonctions sur le logigraphe on voit que ces deux
+instructions créent de véritables court-circuit à travers la structure.
+En les utilisant la séquence précédente de six instructions se ramène
+à deux : \fct{X<>Z}\texttt{\textbf{\textsc{,}}}\fct{RDN}.\newpage{}
+
+Pour écrire les programmes qui composent ce livre le logigraphe nous
+a apporté une aide irremplaçable et nous trouvons inconcevable de
+commencer la rédaction d'un programme sans en avoir une copie sur
+la table de travail.
+
+À titre d'exemple de mouvements dans la pile nous vous proposons une
+première procédure : \fct{TRIST} (\textsc{TRI ST}ack, mélange affreux
+mais pas triste de français et d'anglais). Son but est d'\emph{ordonner
+4 valeurs contenues dans les registres de la pile}.
+
+\smallskip{}
+
+
+\includegraphics{Illustrations/039_Trist}\smallskip{}
+
+
+Si le drapeau 00 est désarmé cette procédure prend fin à la ligne
+20. Si ce drapeau est armé les pas 21 et 22 ont pour effet d'inverser
+le contenu de la pile (voyez le logigraphe) ce qui fournit un classement
+par ordre croissant de \reg{X} à \reg{T}.
+
+
+\section*{{\normalsize OPÉRATIONS ET REGISTRE L}}
+
+\textbf{Postulat} : tout traitement arithmétique simple de quatre
+valeurs peut toujours être traité dans la pile.
+
+Avant de développer ce principe fondamental et ses applications, nous
+devons préciser le rôle de chacun des registres de la pile opérationnelle.
+
+
+\subsection*{{\normalsize Le registre X}}
+
+C'est le point nodal, le lieu où tout converge. C'est l'ombilic de
+la pile. Bien que sur \hp41 ce registre ait perdu, grâce aux fonctions
+\fct{VIEW} et \fct{AVIEW}, son rôle de fenêtre de communication
+étroite, il reste impliqué dans la totalité des opérations arithmétiques,
+logiques, ou de transfert de valeurs, effectuées par la machine. Les
+problèmes posés par l'utilisation de la pile se ramènent pour l'essentiel
+à placer dans le registre \reg{X} la bonne valeur au bon moment.
+
+
+\subsection*{{\normalsize Le registre Y}}
+
+Il est un peu le faire valoir du précédent. Son rôle est plus restreint
+pour deux raisons : 
+\begin{itemize}
+\item de nombreuses opérations ne demandent qu'un seul argument parmi les
+fonctions disponibles neuf d'entre elles seulement utilisent conjointement
+le registre \reg{Y}  et le registre \reg{X} (\textbf{\small +, -,
+{*}, /, Y$^{x}$, , , \textgreek{S}+, \textgreek{S}-} ). 
+\item l'extension des opérations d'arithmétique directe à tous les registres
+de la pile fait que le registre \reg{Y} n'est plus obligatoirement
+l'opérande de ces opérations. 
+\end{itemize}
+
+\subsection*{{\normalsize Le registre T}}
+
+Il allie la puissance à la fragilité. Toute valeur contenue dans ce
+registre est finalement vouée à deux destins contraires soit son élimination
+pure et simple lors de l'introduction dans la pile d'une nouvelle
+valeur, soit sa duplication après une opération combinant \reg{X}
+et \reg{Y}.
+
+À propos du registre \reg{T}, nous ne pouvons résister au plaisir
+de vous présenter un ancêtre de l'utilisation de la pile opérationnelle
+qui sévissait déjà à l'époque lointaine où les calculateurs n'étaient
+pas programmables, voici l'algorithme de \textsc{HORNER} de résolution
+des polynômes :
+
+$x^{4}+3x^{3}-6x^{2}+4x-1$
+
+Ceci est un polynôme de degré quatre qui a bien voulu nous servir
+d'exemple. Le problème est d'obtenir rapidement sa valeur pour un
+$x$ donné.
+
+Ce polynôme peut être réécrit sous la forme : 
+
+$\left(\left(\left(x+3\right)\times x\right)+\left(-6\right)\right)\times x+561$
+
+ce qui n'apparait pas immédiatement comme une simplification, notons
+cependant que le calculateur n'effectue plus d'élévation de puissance
+mais uniquement des additions et des multiplications, opérations beaucoup
+plus rapides. La notation polonaise inverse n'utilisant pas de parenthèses
+on peut espérer une écriture plus simple, enfin, surpéme raffinement,
+les propriétés du registre T nous permettront de n'introduire qu'une
+fois la valeur de la variable qui sera reproduite à chaque opération.
+
+L'algorithme devient finalement :
+
+\begin{singlespace}
+\noindent \medskip{}
+\textsf{\footnotesize Saturer la pile (et en particulier T) avec la
+valeur de la variable X}{\footnotesize \par}
+
+\noindent \textsf{\footnotesize (\disp{X }\touche{ENTER$\uparrow$}\touche{ENTER$\uparrow$}\touche{ENTER$\uparrow$})}{\footnotesize \par}
+
+\noindent \textsf{\footnotesize RÉPÉTER Introduire le coefficient
+de rang N (par ordre décroissant) avec son signe }{\footnotesize \par}
+\end{singlespace}
+
+\begin{singlespace}
+\textsf{\footnotesize Additionner }{\footnotesize \par}
+
+\textsf{\footnotesize Multiplier }{\footnotesize \par}
+\end{singlespace}
+
+\begin{singlespace}
+\noindent \textsf{\footnotesize JUSQU'À ce qu'il n'y ait plus de coefficients. }{\footnotesize \par}
+
+\noindent \textsf{\footnotesize Ajouter la constante avec son signe. }{\footnotesize \par}
+
+\noindent \textsf{\footnotesize FIN}{\footnotesize \par}
+\end{singlespace}
+
+Pour notre polynôme nous obtenons :\label{Pb1}\smallskip{}
+
+
+%
+\framebox{\begin{minipage}[c]{3.2cm}%
+\includegraphics[width=3cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/040_Horner}%
+\end{minipage}}\smallskip{}
+
+
+C'est simple, rapide, élégant et toujours d'actualité ! Mais revenons
+à nos registres.
+
+
+\subsection*{{\normalsize Le registre Z}}
+
+Il a pour seule particularité de n'avoir rien de particulier. C'est
+par excellence le registre de stockage des résultats intermédiaires.
+
+\newpage{}\includegraphics[width=8cm]{Illustrations/041_Bourse}\textbf{\small \hfill{}}{\small \par}
+
+
+\subsection*{{\normalsize Le registre L}}
+
+Fait-il vraiment partie de la pile ? Il semblerait que non. L'instruction
+\fct{CLST} (\textsc{CLear STack}) ne l'efface pas et, si vous disposez
+de l'imprimante il est ignoré par l'instruction \fct{PRSTK} qui affiche
+le contenu de la pile.
+
+Logiquement, cependant, la réponse est affirmative : Toutes les opérations,
+à l'exception de l'arithmétique directe, chargent dans \reg{L} le
+contenu de \reg{X}.
+
+Ce registre reste cependant un îlot de stabilité dans l'univers tourbillonnant
+de la pile. Seules les instructions \fct{LASTX} et \fct{X<>L} permettent
+de réintroduire la valeur qu'il contient dans le carrousel. Il apparaît
+donc tout désigné pour jouer le rôle d'un accumulateur\ldots{}
+
+Après cette brève présentation des personnages, mettons les en scène
+sur un scénario classique.
+
+
+\section*{{\normalsize RÉFLEXION AU SECOND DEGRÉ}}
+
+Le manuel de l'utilisateur des pages 135 à 138 présente deux versions
+d'un programme de résolution d'équations du second degré. La seconde
+version, destinée à montrer l'utilité des sous-programmes, permet
+une économie de 7 lignes sur les 45 que compte la première.
+
+La version que nous vous proposons effectue ce travail en 14 lignes
+(70\% d'économie) et, avantage supplémentaire, aucun registre extérieur
+à la pile n'est utilisé.
+
+\newpage{}
+
+Mais examinons d'abord la version proposée par \noun{Hewlett-Packard}
+: le sous-programme calcule le déterminant, $DELTA=b^{2}-4ac$, et,
+après un tronc commun, pour chaque racine on ajoute ou retranche ce
+déterminant à la valeur $-b$, le programme se termine par la traditionnelle
+division par $2a$. Comme à l'école !
+
+Il n'est pas question de critiquer le classicisme de cette méthode,
+mais sans refaire les mathématiques on peut pousser un peu plus loin
+l'analyse pour réécrire la formule sous une forme plus agréable sinon
+pour l'élève moyen du moins pour le calculateur :
+
+\[
+x=\frac{-b+\sqrt{b^{2}-4ac}}{2a}\]
+
+
+Peut s'écrire également :
+
+\[
+x=\frac{-b}{2a}+\sqrt{\frac{b^{2}}{4a^{2}}-\frac{c}{a}}\]
+
+
+avec $E=\nicefrac{-b}{2a}$ et $F=c/a$
+
+\[
+x=E+\sqrt{E^{2}-F}\]
+
+
+Il n'y a donc que 2 expressions à calculer à partir des 3 valeurs
+a, b, c. Nous disposons de 5 registres dans la pile, c'est donc plus
+qu'il n'en faut.
+
+Si à l'entrée de la procédure a est en X, b en Y et c en Z : 
+\begin{itemize}
+\item $\nicefrac{c}{a}$ s'obtient par \fct{CHS}, \fct{ST/Z}
+\item $\nicefrac{b}{2a}$ s'obtient par \fct{ST+X}\texttt{\textbf{\textsc{,
+}}}\fct{/}
+\end{itemize}
+L'exécution de la fonction $x^{2}$ nous donne en \reg{X} $\nicefrac{b^{2}}{4a}$
+et $\nicefrac{-b}{2a}$ est sauvegardée en L. Il faut rappeler cette
+dernière valeur pour préparer le calcul des deux racines par \fct{LASTX},
+\fct{STO T}, \fct{RDN}.
+
+Calculons pour finir notre pseudo-déterminant que l'on additionne
+et soustrait pour obtenir nos racines :
+
+\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4.5cm}%
+\includegraphics[width=4cm]{Illustrations/042_Corneil}%
+\end{minipage}}
+
+\smallskip{}
+
+
+Cet exemple vous aura permis d'apprécier la souplesse que confère
+l'arithmétique directe dans la pile. Il démontre également que le
+manuel n'est pas parole d'évangile mais constitue cependant une bonne
+base de départ pour développer votre curiosité.
+
+
+\section*{{\normalsize LA CHASSE AU FORMAT}}
+
+Si on associe maintenant les indicateurs binaires, le registre \reg{L}
+, et l'arithmétique directe dans la pile, on peut obtenir de très
+jolies choses.
+
+Imaginons qu'une procédure modifie le nombre de décimales affichées,
+nous désirons cependant restaurer l'affichage initial. Il est alors
+indispensable de connaitre ce nombre de décimales avant de le modifier.
+Pouvons-nous arracher au calculateur ce renseignement précieux?
+
+Il existe ainsi que nous l'avons vu dans le chapitre II, mais codé
+sous forme binaire par les indicateurs 36 à 39. Rappelons que chaque
+drapeau indique une puissance de 2 et qu'il suffit d'additionner la
+valeur correspondante si l'indicateur est armé.
+
+C'est ce que réalise la procédure \fct{FM?} (\textsc{\noun{ForMat?}})
+en testant successivement ces quatre drapeaux. Cette procédure ne
+demande aucun paramètre d'entrée, le nombre de décimales est renvoyé
+dans \reg{X}, les registres \reg{T} et \reg{L} sont perdus :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3cm]{Illustrations/043_FM}%
+\end{minipage}}\smallskip{}
+
+
+La fonction \fct{SIGN} au pas 02 a deux buts : placer la valeur 0
+dans le registre \reg{L} qui va nous servir d'accumulateur et initialiser
+à 1 ($2^{0}$) le registre \reg{X}. Des pas 04 à 14 le drapeau correspondant
+à la puissance de 2 présentée en \reg{X} est testé et s'il est armé
+cette valeur est ajoutée au registre\reg{L}. L'instruction \fct{ST+ X}
+double ce registre et permet de passer à la puissance de 2 suivante.
+En fin de programme le résultat final est replacé dans \reg{X} par
+la fonction \fct{X<>L}. Le contenu de \reg{L} au retour de la procédure
+est donc toujours égal à 8.
+
+Résumons les avantages apportés par l'arithmétique directe dans la
+pile : 
+\begin{itemize}
+\item ces opérations ne perturbent pas l'ordre de la pile, un seul registre
+est modifié. (Le contenu du registre \reg{L} est préservé) 
+\item si l'opérateur est impérativement en \reg{X}, l'opérande peut, lui,
+se situer dans l'un quelconque des registres de la pile (y compris
+en \reg{X} comme nous venons de le voir). 
+\end{itemize}
+Toujours dans le domaine de l'arithmétique classique voici un autre
+exemple de l'utilisation du registre \reg{L} comme accumulateur :
+\textbf{le changement de base}.
+
+L'homme a dix doigts, et comme il ne s'est pas abaissé à compter avec
+ses orteils la numération qu'il utilise est dite en base 10. En fait
+toutes les bases sont envisageables, un ordinateur comptera en base
+2, et
+
+\newpage{}
+
+\noindent s'il existait des composants électroniques à trois états
+stables on pourrait envisager d'utiliser la base trois.
+
+La procédure suivante permet d'obtenir la représentation en base $b$
+d'un nombre en base 10, avec $b$ compris entre 1 et 99.
+
+Pendant l'exécution du programme, la pile contient : N nombre en base
+10, $b$ base d'arrivée, Nb le nombre en base $b$, $10^{i}$ où i
+est la puissance de $b$ en cours de calcul.
+
+Si $b$ est supérieur à 10, chaque chiffre de la nouvelle base est
+exprimé sur deux chiffres.\smallskip{}
+
+
+\noindent \begin{flushleft}
+\framebox{%
+\begin{minipage}[t]{10.2cm}%
+\includegraphics[width=10cm]{Illustrations/044_10_b}%
+\end{minipage}}\smallskip{}
+
+\par\end{flushleft}
+
+\newpage{}Pour utiliser cette fonction il faut introduire la base
+puis le nombre et terminer avec \fct{XEQ "10-b"}. Le résultat est
+alors présenté en \reg{X}. Les contenus des registres \reg{Z}, \reg{T}
+et \reg{L} sont perdus. La base b est conservée en \reg{Y}.
+
+\emph{Exemple} :
+
+\disp{~2} \touche{ENTER$\uparrow$} \disp{255} \texttt{\textbf{\textsc{\textrightarrow
+}}}\disp{11111111} 
+
+\disp{16} \touche{ENTER$\uparrow$} \disp{255} \texttt{\textbf{\textsc{\textrightarrow
+}}}\disp{1515} 
+
+Dans ce deuxième exemple la base étant supérieure à 10 caque groupe
+de deux chiffres représente un seul chiffre dans la base d'arrivée,
+le résultat est donc 15 15 soit FF dans la notation hexadécimale.
+
+À titre d'entraînement, pour vous échauffer les neurones, voici un
+petit exercice :
+
+Soit la suite :
+
+\disp{10 - 11 - 12 - 13 - 14 - 15 - 20 - XX - 30 } 
+
+Quelle peut être la valeur représentée par \disp{XX} ?
+
+
+\section*{{\normalsize À LA {}``MOD'' DE CHEZ NOUS}}
+
+Après cette étude des quatre opérations arithmétiques nous allons
+nous intéresser à des fonctions plus complexes dont \hp41 est abondamment
+pourvu. L'une d'ellela fonction \fct{MOD} (\textsc{MODulo}) avec
+laquelle nous allons explorer le riche domaine du calcul fractionnaire.
+
+Sous ce mystérieux nom de modulo se cache une opération connue de
+tous les écoliers : le reste de la division entière.
+
+Souvenez-vous :
+
+En 7 combien de fois trois, il y va 2 fois. Je pose 2. 2 fois 3 égale
+6, ôté de 7 il reste 1.
+
+On peut utiliser un langage plus évolué et dire que \emph{7 est congrue
+à 1 modulo 3}.
+
+Enfin si vous introduisez dans le calculateur la séquence : \disp{7}
+\touche{ENTER$\uparrow$} \disp{3} \fct{XEQ "MOD"}, le résultat
+sera 1.
+
+Écolier, mathématicien, calculateur ont tous trois fait la même opération.
+
+Pour mieux saisir l'utilité de cette fonction nous lions développer
+un logiciel de traitement des fractions. Notre point de départ a été
+le programme \textquotedbl{}\emph{PPCM, PGCD, et approximation fractionnaire
+d'un nombre décimal}\textquotedbl{}, présenté dans la bibliothèque
+mathématique, destinée aux calculatrices \noun{HP-67} et \noun{97}
+et très exactement localisé des pages 12 à 15.
+
+Ce programme calcule : 
+\begin{itemize}
+\item le Plus Grand Commun Diviseur, \textsc{\small pgcd} ; 
+\item le Plus Petit Commun Multiple, \textsc{\small ppcm} ; 
+\item la forme réduite d'une fraction ; 
+\item les valeurs $s$ et $t$ solutions de l'équation : $a\times s+b\times t=pgcd(a,b)$
+; 
+\item la fraction entière approchant au mieux un nombre décimal donné. 
+\end{itemize}
+Pour effectuer toutes ces opérations le programme fourni par \noun{Hewlett-Packard}
+utilise 199 instructions et 7 registres de données. Sur \hp41 nous
+effectuerons les mêmes fonctions en 86 instructions sans déborder
+de la pile opérationnelle.
+
+Envisageons d'abord le calcul du\textsc{ pgcd}. L'algorithme utilisé
+est celui d'\noun{Euclide}, célèbre géométricien grec qui, tout en
+postulant, poursuivit parallèlement des recherches en arithmétique.
+
+Le principe est le suivant : on remplace le dénominateur par le reste
+de la division entière (le modulo) et le numérateur par le dénominateur.
+Si le nouveau dénominateur est nul le calcul s'arrête et le numérateur
+est alors égal au \textsc{pgcd}. Sinon on réitère l'opération sur
+le nouveau rapport. Il est aisé d'écrire le sous-programme de 6 lignes.\medskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{6.5cm}%
+\includegraphics[width=6cm]{Illustrations/045_SP_PGCD}%
+\end{minipage}}
+
+\medskip{}
+
+
+Le couple de valeurs initiales $a$ et $b$ est introduit en \reg{X}
+et \reg{Y}, dans un ordre quelconque. En fin d'exécution le registre
+\reg{X} contient $0$ et le registre \reg{Y}le \textsc{pgcd}. On
+ne peut pas faire plus concis !
+
+Le \textsc{pgcd} est habituellement utilisé pour obtenir la forme
+réduite d'une fraction (on dit aussi simplifier).
+
+Il est donc important et opportun de modifier légèrement notre séquence
+pour obtenir la fraction $\nicefrac{a'}{b'}$ réduite en divisant
+les deux termes de la fraction par leur \textsc{pgcd}. Pour parvenir
+à ce résultat il nous faut d'abord sauvegarder les valeurs a et b
+dans les registres \reg{Z} et \reg{T}. On obtient finalement :\medskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{9.2cm}%
+\includegraphics[width=9cm]{Illustrations/046_RF}%
+\end{minipage}}\medskip{}
+
+
+Sauriez-vous retrouver l'unique instruction à ajouter à cette séquence
+pour calculer le Plus Petit Commun Multiple ?
+
+Rappelions que ce dernier est égal au rapport du produit des deux
+nombres par leur \textsc{pgcd}, ou encore au produit du numérateur
+de la fraction ($a$) par le dénominateur de la fraction réduite ($b'$).
+La valeur $b'$ est actuellement en \reg{X} et le numérateur a est
+présent en \reg{Z}, il a en effet été recopié par \reg{T} lors de
+l'addition effectuée au pas 11.
+
+L'instruction à ajouter est donc simplement :\medskip{}
+
+
+\framebox{%
+\begin{minipage}[c][1cm]{3cm}%
+\texttt{\textbf{\textsc{15 ST{*} Z}}}%
+\end{minipage}}\medskip{}
+
+
+Suivi de \fct{16 END} pour clore la procédure.
+
+Voyons sur un exemple le fonctionnement de l'ensemble : soit la fraction
+$\nicefrac{91}{65}$, calculer sa forme réduite, le \textsc{ppcm}
+et le \textsc{pgcd} de ses deux termes :
+
+\disp{91} \touche{ENTER$\uparrow$} \disp{65 XEQ "RF"}\texttt{\textbf{\textsc{
+\textrightarrow{} }}}\disp{5} dénominateur fraction réduite.
+
+\newpage{}
+
+\begin{tabular}{|c|crl}
+\cline{1-1} 
+\texttt{\textbf{\textsc{RND}}}  & \textrightarrow{}  & \texttt{\textbf{\textsc{7}}} & Numérateur fraction réduite\tabularnewline
+\cline{1-1} 
+\texttt{\textbf{\textsc{RND}}}  & \textrightarrow{}  & \texttt{\textbf{\textsc{455}}} & PPCM\tabularnewline
+\cline{1-1} 
+\texttt{\textbf{\textsc{RND}}}  & \textrightarrow{}  & \texttt{\textbf{\textsc{13}}} & PGCD\tabularnewline
+\cline{1-1} 
+\end{tabular}\medskip{}
+
+
+L'heure est venue de nous préoccuper du calcul de $s$ et $t.$ Comme
+pour la résolution des équations du second degré, il faudra reconsidérer
+l'algorithme classique et proposer une autre méthode, peut-être moins
+immédiate pour le calculateur humain, mais mieux adaptée à la machine.
+
+L'équation de départ : $a\times s+b\times t=PGCD(a,b)$ peut être
+réécrite en divisant les deux membres par le \textsc{pgcd}.
+
+On obtient $ $ \foreignlanguage{english}{$a'$} les termes de la
+fraction réduite, que nous savons maintenant calculer. Nous allons
+donner successivement à $t$ les valeurs entières 0, 1, -1, 2, -2\ldots{}
+et calculer $s=\frac{(1-b'\times t)}{a'}$ jusqu'à ce que $s$ prenne
+une valeur entière.\medskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{10cm}%
+\includegraphics[width=9.5cm]{Illustrations/047_ST}%
+\end{minipage}}
+
+\newpage{}En fin de calcul $s$ est en \reg{X} et t en \reg{Y}.
+
+\emph{Exemple} : toujours avec les valeurs 91 et 65 :\medskip{}
+
+
+\begin{tabular}{cc}
+\disp{91} \touche{ENTER$\uparrow$} \disp{65}\texttt{\textbf{\textsc{ }}} & \disp{XEQ "ST"}\texttt{\textbf{\textsc{ \textrightarrow{} }}}2
+valeur de S\tabularnewline
+ & \fct{X<>Y} \texttt{\textbf{\textsc{\textrightarrow{} }}}3 valeur
+de T\tabularnewline
+\end{tabular}\medskip{}
+
+
+Nous obtenons bien :
+
+$91\times(-2)+65\times3=13$ : \textsc{pgcd} ($91$, $65$)
+
+Dans la suite de nos travaux, inspirés de ceux d'\noun{Hercule}, nous
+vous avons annoncé le calcul de la fraction approchant au mieux, compte-tenu
+de la précision du calculateur, un nombre décimal donné.
+
+L'algorithme employé dans ce programme utilise une méthode de fraction
+continue. Ne nous demandez pas de vous l'expliquer en détail, nous
+ne sommes pas certains d'avoir nous-mêmes tout compris !
+
+Le programme, par contre, fonctionne fort bien :\medskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{7cm}%
+\includegraphics[width=6.5cm]{Illustrations/048_DF}%
+\end{minipage}}\medskip{}
+
+
+Les instructions 21 à 25 utilisent les possibilités alphanumériques
+du calculateur pour afficher clairement à chaque approximation la
+fraction obtenue. Si les valeurs affichées défilent trop vite à vos
+yeux vous pouvez armer manuellement le drapeau 21, le calculateur
+s'arrêtera alors à chaque itération.
+
+\newpage{}
+
+\noindent {\small Nous donnerons comme exemple les approximations
+fractionnaires du nombre $\boldmath\pi$}\smallskip{}
+
+
+\disp{SF 21 $\boldmath\pi$ XEQ "DF"}\texttt{\textbf{\textsc{ \textrightarrow{}
+}}}\disp{22/7}\smallskip{}
+
+
+\begin{tabular}{ccc}
+\touche{R/S}  & \texttt{\textbf{\textsc{\textrightarrow{}}}}  & \texttt{\textbf{\textsc{333/106}}}\tabularnewline
+\end{tabular}
+
+\begin{tabular}{ccc}
+\touche{R/S}  & \texttt{\textbf{\textsc{\textrightarrow{}}}}  & \texttt{\textbf{\textsc{355/113}}}\tabularnewline
+\end{tabular}
+
+\begin{tabular}{ccc}
+\touche{R/S}  & \texttt{\textbf{\textsc{\textrightarrow{}}}}  & \texttt{\textbf{\textsc{104348/33215}}}\tabularnewline
+\end{tabular}
+
+\begin{tabular}{ccc}
+\touche{R/S}  & \texttt{\textbf{\textsc{\textrightarrow{}}}}  & \texttt{\textbf{\textsc{33215}}}\tabularnewline
+\end{tabular}\smallskip{}
+
+
+La dernière valeur affichée est le dénominateur de la dernière fraction
+obtenue par \hp41 le numérateur est en Y. Cette approximation est
+la meilleure que peut fournir le calculateur du fait de sa connaissance
+limitée des décimales de $\boldsymbol{}\pi$.
+
+Il a fallu près de 15 siècles pour passer de la première approximation
+qui est celle d'\noun{Archimède} à la dernière calculée par votre
+\hp41 en 6 secondes !
+
+Nous avons rempli notre contrat mais nous ne pouvons résister à la
+tentation d'en rajouter un peu. Voici sans commentaire (en est-il
+besoin ? ) un groupe de procèdures très brèves qui vous permettront
+d'effectuer additions, soustractions, multiplications et divisions
+sur des fractions. La fraction opérande est à l'entrée en \reg{T}
+et \reg{Z}, la fraction opérateur en \reg{Y} et \reg{X}. Le résultat
+final est également en \reg{Y} et \reg{X}.\medskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4cm}%
+\includegraphics[width=3.5cm]{Illustrations/049_Op_fract}%
+\end{minipage}}
+
+\emph{\newpage{}Problème} : quelle résistance mettre en parallèle
+avec une autre de 100 ohms pour obtenir une valeur finale de 80 ohms
+?\medskip{}
+
+
+\begin{tabular}{ccc}
+On sait que  & $ $$\nicefrac{1}{R'}+\nicefrac{1}{R"}=\nicefrac{1}{Rt}$  & et donc\tabularnewline
+ & $\nicefrac{1}{R"}=\nicefrac{1}{Rt}-\nicefrac{1}{R'}$  & \tabularnewline
+\end{tabular}\medskip{}
+
+
+Il vous suffit d'exécuter :\medskip{}
+
+
+\disp{1} \touche{ENTER$\uparrow$} \disp{80} 
+
+\touche{ENTER$\uparrow$} \disp{1} \touche{ENTER$\uparrow$} \disp{100}
+(deuxième fraction)\medskip{}
+
+
+\disp{XEQ "F-"} \texttt{\textbf{\textsc{\textrightarrow{} }}}\disp{400}
+valeur recherchée.\medskip{}
+
+
+Vous pouvez vous assurer au passage que le numérateur est bien égal
+à 1, la fraction étant réduite à la suite de l'appel de \fct{RF}.
+
+La fonction modulo semble donc fort pratique, cependant, dans certains
+cas elle s'avère insuffisante. Il est parfois souhaitable d'obtenir
+non seulement le reste de la division mais aussi son quotient. Il
+est dit dans le manuel (pp. 11) : <<\emph{Si vous avez besoin d'une
+fonction qui n'est pas microprogrammée, vous pouvez écrire un programme
+répondant à nce besoin.} >>
+
+Écrivons donc la procèdure \fct{DIV} (Division entière) en lui imposant
+les spécifications suivantes : 
+\begin{itemize}
+\item entrée : dividende en \reg{Y}, diviseur en \reg{X} ; 
+\item sortie : quotient en \reg{X}, reste en \reg{Y}, le diviseur est
+sauvegardé en \reg{L} ; 
+\item conservation des registres \reg{Z} et \reg{T}. 
+\end{itemize}
+Pourrons-nous respecter ces contraintes drastiques ? Vous le saurez
+en deux épisodes :\medskip{}
+
+
+\textbf{Premier épisode :}\medskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4cm}%
+\includegraphics[width=3.5cm]{Illustrations/050_DIV}%
+\end{minipage}}\medskip{}
+
+
+Voilà une procèdure brève et élègante, vérifions qu'elle donne de
+bons résultats :
+
+\disp{13} \touche{ENTER$\uparrow$} \disp{3 XEQ "DIV"} \texttt{\textbf{\textsc{\textrightarrow{}
+}}}\disp{4} le quotient
+
+\begin{tabular}{rcl}
+\touche{X<>Y}  & \texttt{\textbf{\textsc{\textrightarrow{}}}}  & \disp{1} Le reste\tabularnewline
+\touche{LASTx}  & \texttt{\textbf{\textsc{\textrightarrow{}}}}  & \disp{3} Le reste\tabularnewline
+\end{tabular}\medskip{}
+
+
+Etes-vous satisfait ? N'y aurait-il pas un léger défaut ? Cherchez-le,
+nous vous donnons rendez-vous dans quelques instants pour en discuter.\medskip{}
+
+
+\textbf{Deuxième épisode :}\medskip{}
+
+
+Hé oui ! vous avez bien vu, quand on reprend l'exemple qui précède
+en affichant $9$décimales on découvre l'horrible vérité : le reste
+n'est pas égal à $1$ mais à \noun{0.999999999}. Une erreur d'un milliardième
+peut avoir des conséquences dramatiques surtout si \hp41 compte sur
+ses décimales pour effectuer des opérations spécifiques (voir au chapitre
+suivant le problème des codes de contrôle).
+
+Il nous faut donc rédiger une nouvelle version, moins brève, moins
+élégante, mais plus exacte. Pour éviter les décimales erronées nous
+sommes contraints d'effectuer un arrondi en remplaçant le pas 08 du
+programme précédent par :\medskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4cm}%
+\includegraphics[width=3.5cm]{Illustrations/051_Pas_08}%
+\end{minipage}}\medskip{}
+
+
+Voilà un programme bien rafiscotché : nous renonçons au passage à
+conserver le diviseur dans le registre \reg{L}. En contrepartie cette
+procédure calcule un résultat toujours exact. C'est néanmoins avec
+tristesse que nous renonçons aux spécifications initiales, si vous
+trouvez une solution satisfaisante à ce problème, n'hésitez pas à
+nous en faire part.
+
+Cette histoire a une morale : quand vous effectuez des calculs arithmétiques
+placez-vous toujours en \fct{FIX 9} pour vérifier si par hasard le
+calculateur ne vous présenterait pas, sous un emballage irréprochable,
+une marchandise frelatée.
+
+\newpage{}
+
+
+\section*{{\normalsize QUELLES COMBINAISONS !}}
+
+Une autre fonction originale de \hp41 est la fonction factorielle
+(\fct{FACT}).
+
+Factorielle de N, (notée aussi $N!$) est le résultat du produit des
+N premiers entiers.
+
+Nous connaissons tous l'histoire du sage de l'Inde qui demanda comme
+salaire un grain de blé sur la première case d'un échiquier, deux
+grains de blé sur la seconde, quatre sur la suivante et ainsi de suite
+en doublant le nombre de grains sur chaque case jusqu'à la soixante
+quatrième. L'opération n'était pas mauvaise mais il aurait pu s'enrichir
+encore plus vite en dédaignant l'exponentielle pour lui préférer la
+factorielle.
+
+En effet, si $2^{64}$ est égal à $1,8E19$, $64!$ vaut $1,8E89$
+(c'est probablement ce genre de résultat qui justifie le point d'exclamation
+comme symbole de l'opération factorielle).
+
+Cette opération est à la base de l'analyse combinatoire dont le but
+est de dénombrer les états que peuvent prendre un nombre fini d'objets.
+$N!$ est égal au nombre de permutations distinctes de N objets.
+
+Pour connaître le nombre de configurations de la pile opérationnelle
+à quatre registres il nous a suffi de faire :
+
+\disp{4 XEQ "FACT"} \textrightarrow{} \disp{24}
+
+Si on prend en compte un cinquième registre \reg{L} ) le nombre de
+permutations est alors de 120. Nous vous laissons le soin de tracer
+le logigraphe correspondant.
+
+Une autre valeur intéressante est le nombre de combinaisons de $k$
+objets pris parmi $n$. On peut ainsi calculer le nombre de mains
+qu'il est possible d'obtenir au jeu de bridge sachant que chaque main
+est constituée de 13 cartes tirées d'un paquet de 52.
+
+La formule qui permet d'effectuer ce calcul est la suivante :
+
+\smallskip{}
+
+
+$\left(\begin{array}{c}
+n\\
+k\end{array}\right)$=$\frac{n!}{k!\left(n-k\right)!}$\newpage{}
+
+C'est assez barbare mais cela se programme fort bien :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4cm}%
+\includegraphics[width=3.5cm]{Illustrations/052_CB}%
+\end{minipage}}\smallskip{}
+
+
+Nous pouvons maintenant résoudre le problème posé plus haut :\smallskip{}
+
+
+\disp{52} \touche{ENTER$\uparrow$} \disp{13 XEQ "CB"}\texttt{\textbf{\textsc{
+\textrightarrow{} }}}\disp{6,35E11}\texttt{\textbf{\textsc{ }}}
+
+\smallskip{}
+
+
+Si vous êtes joueur de bridge traitez avec respect les mains qui vous
+échoient, elles représentent la réalisation d'un événement qui n'avait
+qu'une chance sur 635 milliards de se produire, et donc potentiellement.
+unique.
+
+Pour les amateurs de curiosités mathématiques voici deux charmants
+problèmes dont la résolution nécessitera l'utilisation de CB :
+\begin{itemize}
+\item \noindent Le piquet est un jeu de cartes où la seule annonce autorisée
+est \textquotedbl{}Dix de blanc\textquotedbl{}. Cela signifie
+que parmi les douze cartes qui lui ont été distribuées le joueur ne
+possède aucune figure. Quelle est la probabilité de faire cette annonce
+sachant que le Piquet se joue avec 32 cartes ?
+\item Lorsqu'une équation a de nombreuses solutions évidentes il peut être
+plus passionnant de déterminer leur nombre que leurs valeurs. Combien
+l'équation : $X+Y+Z+T=13$ a-t-elle de solutions entières, strictement
+positives ?
+\end{itemize}
+Puisque nous avons abordé le terrain des probabilités terminons avec
+une ultime application de la procédure CB.
+
+La loi Binomale permet de calculer la probabilité\[
+\]
+
+
+\newpage{}qu'un événement favorable se réalise k fois sur n épreuves
+indépendantes en fonction de la probabilité p d'apparition de l'évènement
+pour chaque épreuve.
+
+Dans une famille de six enfants combien a-t-on de chances de n'avoir
+que des filles ? La réponse est donnée par la formule :\smallskip{}
+
+
+$p=\left(\begin{array}{c}
+n\\
+k\end{array}\right)\times\left(1-p\right)^{n-k}$\smallskip{}
+
+
+Dans le programme \fct{LBN} (\textsc{Loi BiNomiale}) nous calculerons
+d'abord les termes exponentiels avant l'appel de \fct{CB}.\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3cm]{Illustrations/053_LBN}%
+\end{minipage}}\smallskip{}
+
+
+Spécifications : 
+\begin{itemize}
+\item Entrée $n$ en \reg{Z}, $k$ en \reg{Y}, $p$ en \reg{X} ;
+\item sortie $p$ en \reg{X} ;
+\item Les registres \reg{T} et \reg{L} sont perdus. 
+\end{itemize}
+Nous pouvons maintenant résoudre nos problèmes familiaux :\smallskip{}
+
+
+\disp{6} \touche{ENTER$\uparrow$} (Nombre d'épreuves, ici le nombre
+d'enfants, sic)
+
+\disp{6} \touche{ENTER$\uparrow$} (Nombre de fois où l'évènement
+se réalise)
+
+\disp{0,5} (Probabilité d'avoir une fille)
+
+\disp{XEQ "LBN"} \textrightarrow\texttt{\textbf{\textsc{{} }}}\disp{0,0156}\texttt{\textbf{
+}}soit une chance sur 64.\smallskip{}
+
+
+En pratique, le calcul qui précède est probablement faux : la probabilité
+d'avoir une fille est un peu supérieure à 1/2 (environ 0,52) et surtout,
+il n'est sûr du tout que les \textquotedbl{}tirages\textquotedbl{}
+successifs soient indépendants !
+
+
+\section*{{\normalsize CONCLUSION :}}
+
+Nous espérons que la description des nombreuses procédures qui précèdent
+vous ont permis de découvrir les possibilités très étendues de la
+pile opérationnelle. Nous aurions pu multiplier les exemples à l'infini,
+mais l'épaisseur d'un livre est nécessairement limitée. Nul doute
+qu'une de ces procédures vous sera utile un jour, et si, malgré tout,
+vous n'y trouvez pas votre bonheur écrivez donc vos propres fonctions
+pour mieux accroître la puissance et le confort d'utilisation de votre
+\hp41 .
+
+\newpage{}
+
+\fancyhead[CO]{}
+
+\begin{center}
+\textsf{\textbf{\Large CHAPITRE \mbox{IV}}}
+\par\end{center}{\Large \par}
+
+\noindent \begin{center}
+\textsf{\Huge HASARD NÉCESSAIRE }
+\par\end{center}{\Huge \par}
+
+\vfill{}
+
+
+\includegraphics[width=12cm]{Illustrations/054_Holmes}\newpage{}\fancyhead[CO]{HASARD NÉCESSAIRE}
+
+Nous nous sommes longtemps torturé l'esprit pour savoir dans quel
+chapitre placer les deux procédures indispensables qui suivent. La
+solution a soudain jailli de nos têtes surmenées : il suffisait de
+créer un chapitre supplémentaire, le voici :
+
+\textbf{Nous traiterons ici du hasard}. Le hasard est partout il gouverne
+nos vies. Aussi bien dans nos jeux (Loto, Tiercé) que dans des activités
+plus sérieuses comme la recherche scientifique, voire la politique.
+
+Pour savoir maîtriser le hasard il faut pouvoir le simuler. Comment
+y parvenir, en utilisant un outil aussi fortement déterministe qu'un
+ordinateur ?
+
+Le hasard selon certains n'est que la mesure de notre ignorance, il
+nous suffira de demander au calculateur d'effectuer une suite d'opérations
+suffisamment complexe pour que le résultat nous paraisse \textquotedbl{}imprévisible\textquotedbl{}.
+
+Cela ne suffit pas, si la valeur initialement fournie au calculateur
+est toujours la même, le calcul, aussi compliqué soit-il, fournira
+toujours les mêmes résultats. Il faut donc initialiser le processus
+aléatoire. Comme le calculateur est incapable de le faire c'est à
+l'homme que reviendra la tâche d'accomplir le premier pas sur le chemin
+du hasard.
+
+Des deux procédures annoncées, la première \fct{HSD} (\textsc{HaSarD})
+nous permettra d'introduire une \textquotedbl{}semence\textquotedbl{}
+dans un registre du calculateur, et la seconde \fct{GAG} (\textsc{\small Générateur
+Aléatoire Général}) utilisera et modifiera cette valeur au cours des
+tirages successifs.
+
+\fct{HSD} teste si le registre \reg{R00} contient un nombre à partie
+fractionnaire non nul. Si le test est vérifié, \fct{HSD} se branche
+sur \fct{GAG} histoire de brouiller un peu les pistes. Dans le cas
+contraire (nombre entier ou chaine de caractères dans \reg{R00})
+le calculateur s'interrompt pour vous demander une semence. La validité
+de cette semence est vérifiée par un retour en début de programme.
+
+\framebox{%
+\begin{minipage}[c]{7cm}%
+\includegraphics[width=6.5cm]{Illustrations/055_HSD}%
+\end{minipage}}
+
+\begin{singlespace}
+La procédure \fct{GAG} demande un paramètre d'entrée un peu particulier
+: c'est un nombre qui en regroupe deux. L'un occupe la partie entière,
+l'autre les trois premiers chiffres de la partie fractionnaire, on
+peut représenter la chose sous le format nnn,mmm (ce que nous appellerons
+un code de contrôle).
+
+À partir de ce code, \fct{GAG} renvoie un nombre entier aléatoire,
+compris entre nnn et mmm bornes incluses, en, \reg{X}. Un nombre
+aléatoire compris, lui, entre 0 et 1 bornes exclues, est également
+retourné en \reg{T}. Les registres \reg{Y} et \reg{Z}sont respectés,
+\reg{L} est perdu.
+
+\textbf{Mode d'emploi de l'ensemble} : dès les premiers pas d'un programme
+utilisant des nombres aléatoires, on appelle \fct{CSD}. Si cette
+procédure estime que le contenu de \reg{R00}peut être utilisé comme
+semence il n'y a pas d'interruption du programme.
+
+Quand on désire obtenir un nombre aléatoire entre $nnn$ et $mmm$,
+on crée le code nnn, mmm suivi de \disp{XEQ "GAG"}. Précisons que
+l'ordre des valeurs $nnn$ et $mmm$ est indifférent. Ainsi les codes
+,003 et 3 renverrons tous deux un nombre parmi 0, 1, 2 ou 3. La deuxième
+forme est donc pour des raisons d'encombrement nettement préférable.
+
+Mais il est temps de commencer la lecture du chapitre suivant dans
+lequel vous trouverez précisément une procédure \fct{MEL} lui utilise
+\fct{GAG} ; est-ce un hasard ?...\newpage{}
+\end{singlespace}
+
+~\newpage{}
+
+\fancyhead[CO]{}
+
+\begin{center}
+\textsf{\textbf{\LARGE CHAPITRE \mbox{V}}}
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+\textsf{\Huge SUR TOUS LES TABLEAUX }
+\par\end{center}{\Huge \par}
+
+\vfill{}
+
+
+\includegraphics[width=12cm]{Illustrations/056_Velasquez}\newpage{}
+
+\fancyhead[CO]{SUR TOUS LES TABLEAUX}
+
+Parmi les variables traitées en informatique certaines sont solitaires
+: le rayon d'un cercle, le rapport d'un tiercé ou l'omniprésent âge
+du capitaine.
+
+Mais, supposons que nous nous intéressions subitement à plusieurs
+capitaines, à une statistique sur les rapports du tiercé pendant un
+an, ou à une famille de cercles. Ce n'est plus une seule valeur qui
+retient notre attention mais un ensemble. Nous chercherons à manipuler
+cet ensemble comme un tout ou à découvrir certaines propriétés qui
+lient ces valeurs entre elles.
+
+\begin{singlespace}
+Cette suite de nombres ou de chaînes de caractères, pour des raisons
+de commodité, sera située dans un groupe de registres consécutifs.
+
+Pour le \textbf{mathématicien} un tel ensemble prend le nom de vecteur.
+L'\textbf{in\-for\-ma\-ti\-cien} parlera, lui, plus volontiers de
+tableau.
+
+Au cours de ce chapitre nous préciserons comment traiter ces groupes
+de valeurs, et définir une série de procédures générales de traitement.
+\end{singlespace}
+
+\begin{singlespace}
+
+\section*{{\normalsize S'EFFACER}}
+\end{singlespace}
+
+\begin{singlespace}
+Pour illustrer ces notions, débutons par un exemple simple : la remise
+à zéro d'un ensemble de mémoires. Le \hp41 dispose de quatre fonctions
+d'effacement :
+\end{singlespace}
+\begin{itemize}
+\begin{singlespace}
+\item \fct{CLX} pour effacer le registre \reg{X} ;
+\item \fct{CLST} pour effacer la pile opérationnelle;
+\item \fct{CL$\Sigma$} pour effacer les registres statistiques;
+\item \fct{CLRG} pour remettre à zéro la totalité des mémoires.\end{singlespace}
+
+\end{itemize}
+\begin{singlespace}
+Mais aucune de ces fonctions ne permet d'effacer électivement un groupe
+de registres défini par l'utilisateur.
+\end{singlespace}
+
+Plaçons-nous dans un cas particulier : nous désirons effacer les registres
+de \reg{R11} à \reg{R15}. Il est possible d'écrire le programme
+:
+
+\framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{Illustrations/057_TCL1}%
+\end{minipage}}
+
+\pagebreak{}
+
+\textbf{\textsl{Spécification de }}\fct{\textsl TCL1} \textbf{\textsl{:}}
+ 
+\begin{itemize}
+\item \emph{données initiales} : aucunes ; 
+\item \emph{données finales} : aucunes ; 
+\item \emph{modifications} : perte du registre \reg{T}. 
+\end{itemize}
+Un tel programme remplit bien la tâche que nous nous sommes assignée.
+Il ne saurait cependant être considéré comme une procédure générale.
+En effet si les cinq registres à effacer ne sont plus situés entre
+\reg{R11} et \reg{R15}, i l sera nécessaire de réécrire un nouveau
+programme.
+
+Envisageons maintenant le cas, encore plus particulier, de l'effacement
+d'un unique registre : si l'emplacement de ce registre est connu au
+moment de l'écriture du programme, la solution est immédiate. Mais
+si l'adresse du registre doit être calculée, s'il s'agit d'une variable,
+il \textbf{EFFACER}n'est pas possible de l'indiquer directement dans
+le programme.
+
+On peut cependant déposer cette adresse calculée dans un registre
+dont l'adresse sera directement précisée à l'ordinateur. Ce dernier
+devra aller chercher à cette adresse l'adresse finale. Pour cela,
+il est nécessaire d'intercaler l'ordre \fct{IND} (indirect) pour
+mettre le calculateur au courant de ce tour de passe-passe. Remarque
+: cette technique est d'ailleurs la seule qui autorise l'accès aux
+registres de rang supérieur à 99.
+
+Ainsi, après avoir placé dans \reg{X} le numéro d'un registre, la
+séquence 
+
+\noindent \begin{flushleft}
+\framebox{%
+\begin{minipage}[c]{3.2cm}%
+\includegraphics[width=3cm]{Illustrations/058_ind}%
+\end{minipage}}
+\par\end{flushleft}
+
+\noindent \begin{flushleft}
+effacera le contenu de ce registre.
+\par\end{flushleft}
+
+Nous avons progressé vers la solution de notre problème puisque nous
+sommes maintenant capable d'atteindre, par une instruction, n'importe
+quel point de l'espace mémoire.
+
+Pour accèder successivement à plusieurs points nous pourrions répéter
+plusieurs fois la séquence précédente en faisant varier le contenu
+de Y. Il est de loin préférable de faire appel à un autre outil puissant
+: \texttt{\textbf{les boucles}}\texttt{\textbf{\textsc{.}}}
+
+\newpage{}
+
+Sur \hp41 les boucles ont généralement la structure suivante :
+
+\noindent \begin{center}
+\includegraphics[width=6.5cm]{Illustrations/059_Structure} 
+\par\end{center}
+
+\noindent Les tenants de la programmation structurée diront, fort
+doctement, que cette boucle est du type \textsc{faire jusqu'à}\ldots{}
+Il existe un autre type de boucle : \textsc{tant que\ldots{} faire},
+que nous envisagerons par la suite.
+
+Revenons à notre procédure de nettoyage. Elle a maintenant besoin,
+pour s'exécuter, de deux paramêtres : l'adresse du premier registre
+à effacer (la base du bloc) et celle du dernier (le sommet)
+
+Nous pouvons écrire la deuxième version de \fct{TCL}\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4cm}%
+\includegraphics[width=3.5cm]{Illustrations/060_TCL2}%
+\end{minipage}}\smallskip{}
+
+
+\textbf{\textsl{Spécifications de }}\fct{\textsl TCL2}
+\begin{itemize}
+\item \emph{données initiales} : adresse de la base du tableau en \reg{X},
+adresse du sommet en \reg{Y} ; 
+\item \emph{dounées finales} : aucune ; 
+\item \emph{modifications} : perte du registre \reg{T}, la valeur finale
+en \reg{X} est supérieure d'une unité à celle de \reg{Y} inchangée. 
+\end{itemize}
+Le pas 03 utilise l'adressage indirect pour effacer le registre dont
+l'adresse est présente dans \reg{Y}. 
+
+Les pas 05 et 06 augmentent d'une unité cette adresse (on parle également
+de pointeur pour désigner cette valeur que l'on incrémente), la fonction
+\fct{SIGN} est ici équivalente à deux instructions : \fct{CLX},
+\fct{1}, elle est plus rapide et utilise un octet de moins.
+
+Enfin, le pas 06 vérifie que l'adresse finale n'est pas atteinte.
+On retrouve bien la structure de boucle (\textsc{faire\ldots{}jusqu'à})
+telle que nous venons de la schématiser.
+
+Cette procédure est parfaitement satisfaisante : quelle que soit l'adresse
+initiale et le nombre de registres à effacer elle pourra fonctionner.
+En fait, elle n'utilise pas à fond toutes les caractéristiques du
+\hp41 . L'opération d'incrémentation suivie d'un test est à ce point
+courante qu'une instruction spéciale a été prévue Incrémentation et
+Saut si plus Grand : \fct{ISG}.
+
+Nous avons, dans \fct{TCL2}, utilisé deux registres pour ranger initialement
+les deux paramêtres de contrôle : les adresses de début et de fin.
+
+L'instruction \fct{ISG} regroupe ces deux données en un seul registre
+: 
+\begin{itemize}
+\item l'adresse de la base constitue la partie entière ; 
+\item l'adresse du sommet, dont la valeur ne peut excéder 3 chiffres, est
+située dans la zône fractionnaire. 
+\end{itemize}
+L'ensemble forme un code : $ddddd,fff$ qui délimite ainsi une zône
+de la mémoire des données.
+
+Cette notation est générale, elle est également utilisée par les périphériquess,
+mémoires de masse et imprimante, aussi l'adopterons-nous. Désormais,
+nous désignerons un tableau en mémoire par ce paramêtre : \texttt{\textbf{le
+code de contrôle}}.
+
+Il ne nous reste plus qu'à utiliser ces nouvelles normes pour écrire
+une troisième (et dernière) version de \fct{TCL} :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[t]{4cm}%
+\includegraphics[width=3.5cm]{Illustrations/061_TCL}%
+\end{minipage}}\smallskip{}
+
+
+\textbf{\textsl{Spécification }}\fct{\textsl TCL} : 
+\begin{itemize}
+\item \emph{données initiales} : code de contrôle en \reg{X} ; 
+\item  \emph{données finales} : aucunes ; 
+\item \emph{modifications} : le registre \reg{X} est perdu, le registre
+\reg{X} prend finalement la valeur 0. 
+\end{itemize}
+Ce dernier programme comporte également l'instruction \fct{SIGN},
+mais son rôle est maintenant de placer notre code de boucle dans le
+registre \reg{L}. Le but de la man?uvre étant de perturber la pile
+opérationnelle le moins possible. Effectivement, une fois \fct{TCL}
+exécutée, les registres \reg{Y}, \reg{Z} et \reg{T} sont restés
+inchangés.
+
+On aurait pu, pour parvenir au même résultat, utiliser au pas 02 l'instruction
+\fct{STO L} plus naturelle, mais rappelons nous notre philosophie
+générale : une procédure doit être optimisée au maximum, elle doit
+être brève et former un bloc sur lequel il n'y aura plus à revenir.
+C'est une nouvelle fonction du langage de votre \hp41 , au même titre
+que \fct{LOG} ou \fct{PROMPT}, vous ne savez pas (et nous non plus)
+comment ces fonctions ont été programmées, vous avez également le
+droit d'oublier quelle suite d'instructions compose votre procédure.
+Par contre, il est impératif d'en noter soigneusemelit les conditions
+d'utilisation : paramêtres d'entrée, résultats, modification des registres
+de la pile aussi bien que de la mémoire donnée, altération de l'état
+des indicateurs binaires\ldots{}
+
+Nous avons maintenant entre nos mains tous les outils nécessaires
+et suffisants à la création d'un ensemble
+
+\newpage{}
+
+\noindent homogène de procédures de manipulations des tableaux. Nous
+vous làissons le soin d'ouvrir le feu!
+
+
+\section*{{\normalsize EN RAJOUTER} }
+
+Pour bien vérifier que vous avez saisi, écrivez une procédure qui
+fait la somme de tous les éléments d'un tableau. Pour pimenter la
+chose cette procédure doit conserver les valeurs présentes en \reg{Y}
+et en \reg{Z}. Le paramêtre de boucle $ddd,fff$ est à l'entrée dans
+\reg{X}, en fin d'exécution la somme obtenue est renvoyée dans ce
+même registre. Travaillez bien avant de regarder la suite !\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4.2cm}%
+\includegraphics[width=3.5cm]{Illustrations/062_TSM}%
+\end{minipage}}
+
+\smallskip{}
+
+
+Le programme \fct{TSM} ressemble à \fct{TCL} comme un frère, seule
+la partie traitement est modifiée (c'est un minimum) : le pas \disp{05 STO IND L}
+est remplacé par 3 instructions. On aurait pu envisager d'écrire simplement
+\fct{+} à la place de \fct{ST + Y}, \fct{RDN}. En fait, cela conduit
+droit à la catastrophe !
+
+Souvenons nous que notre précieux paramêtre de boucle est dans \reg{L},
+toute opération effectuée sur le registre \reg{X} va de la façon
+la plus implacable écraser le contenu de \reg{L}. La suite, s'il
+y en a une, est irracontable. Heureusement l'arithmétique directe
+dans les registres, étendue à la pile opérationnelle, permet de faire
+l'opération sans modifier le contenu de \reg{L}.
+
+Comme application de cette procédure nous vous proposons la brève
+séquence d'instructions qui suit. Elle nous permettra d'introduire
+en mémoire, sous forme de
+
+\newpage{}tableau, la suite des N premiers nombres entiers\disp{05 STO IND L}.\smallskip{}
+
+
+%
+\framebox{\begin{minipage}[c]{3.7cm}%
+\includegraphics[width=3.5cm]{Illustrations/063_Suite}%
+\end{minipage}}\smallskip{}
+
+
+Si vous exécutez cette procédure avec le nombre 10 initialement en
+\reg{X} vous obtiendrez \emph{in fine} : l dans le registre \reg{R01},
+2 dans \reg{R02}, etc\ldots{} jusqu'à l0. Le code de contrôle de
+ce bloc de valeur sera $1,010.$
+
+Introduisez maintenant ce code de contrôle en \reg{X} puis exécutez
+\fct{ISN} : vous obtenez 55. D'autres essais sur différents nombres
+de valeurs vous convaincront que la somme des N premiers nombres entiers
+est donnée par la formule :
+
+\smallskip{}
+
+
+$s\left(n\right)=\frac{n\times\left(n+1\right)}{2}$\smallskip{}
+
+
+%
+\begin{minipage}[c]{6cm}%
+\includegraphics[width=5.8cm]{Illustrations/064_Somme}%
+\end{minipage}\smallskip{}
+
+
+
+\section*{{\normalsize UN MAXIMUM !} }
+
+La partie traitement qui occupe le centre de nos boucles peut être
+aussi diverse qu'il est possible de l'imaginer.
+
+Nous venons d'effectuer des stockages (\fct{TCL} et \fct{SUITE}),
+des opérations arithmétiques (\fct{TSM}), voici maintenant un exemple
+qui utilise un test.
+
+\begin{singlespace}
+\fct{TMX} recherche dans un tableau la plus grande des valeurs et
+renvoie son adresse. En cours de fonctionnement la pile doit contenir
+: 
+\end{singlespace}
+\begin{itemize}
+\begin{singlespace}
+\item le code de contrôle de la boucle ; 
+\item la valeur maximum actuelle ; 
+\item l'adresse de cette valeur ; 
+\item l'élément du tableau que l'on est en train de comparer. \end{singlespace}
+
+\end{itemize}
+Tout cela fait beaucoup, mais pas trop. Il nous reste même un registre
+pour conserver quelque trace de l'ancien contenu de la pile. Pour
+pouvoir nous en sortir il nous faudra cependant tirer le maximum des
+propriétés de la pile, cela n'est plus pour vous effrayer (puisque
+vous avez lu le chapitre précédent).
+
+Voici le programme :
+
+\framebox{%
+\begin{minipage}[c]{3.7cm}%
+\includegraphics[width=3.5cm]{Illustrations/065_TMX}%
+\end{minipage}}
+
+Ce programme est déjà un peu plus long et plus complexe que les précédents.
+Découpons-le en tranches.\pagebreak{}
+
+\begin{singlespace}
+Les pas 02 à 04 (\disp{X}, \disp{RCL Y}, \disp{SIGN}, \disp{RDN})
+ne servent qu'à sauvegarder le contenu de \reg{Y} dans \reg{L},
+nous espérons l'y retrouver à la fin des opérations. Puis des pas
+05 à 07 (\disp{RCL X}, \disp{RCL IND X}, \touche{ENTER$\uparrow$})
+la pile est manipulée pour avoir la configuration suivante : 
+\end{singlespace}
+\begin{itemize}
+\begin{singlespace}
+\item \reg{T} = pointeur du maximum courant ; 
+\item \reg{Z} = code de boucle (pointe sur la valeur à comparer) ; 
+\item \reg{Y} = valeur maximum courante ; 
+\item \reg{X} = valeur à comparer. \end{singlespace}
+
+\end{itemize}
+\begin{singlespace}
+Au début de la procédure la base du tableau est utilisée comme valeur
+maximum.
+\end{singlespace}
+
+La boucle de traitement commence au pas 08. Au pas 09 (\fct{CLX})
+le registre \reg{X} est effacé, c'est une opération de nettoyage,
+et immédiatement une nouvelle valeur à comparer au maximum est rappellée
+(\fct{RCL IND Z}).
+
+\begin{singlespace}
+Un test est alors effectué : 
+\end{singlespace}
+\begin{itemize}
+\begin{singlespace}
+\item {\small si ce nouveau nombre est inférieur au maximum actuellement
+en Y, on achève ce tour de boucle sans rien modifier (branchement
+à l'étiquette 02) ; }{\small \par}
+\item {\small dans le cas contraire, nous avons deux choses à faire :}{\small \par}
+\end{singlespace}
+
+\begin{itemize}
+\begin{singlespace}
+\item {\small remplacer le maximum précédent, maintenant déchu, par son
+challenger, un simple \fct{X $\leftrightarrow $Y} suffit, }{\small \par}
+\item {\small puis remplacer le pointeur dans \reg{T} par l'adresse de
+notre nouveau maximum qui se trouve actuellement en \reg{Y}. }{\small \par}\end{singlespace}
+
+\end{itemize}
+\begin{singlespace}
+\item {\small Ceci pourrait être obtenu par des mouvements de la pile du
+style : \fct{R$\uparrow$}, \fct{CLX}, \fct{RCL T}, \fct{RDN}.
+Il est cependant possible de faire plus court. Les pas 14 et 15 (\fct{LASTx},
+\fct{+}) suffisent car ils utilisent les propriètés des registres
+\reg{T} et\reg{L}. Le rappel de \fct{LASTx} éjecte de la pile l'ancien
+pointeur, l'opération \fct{+} replace \reg{X} dans \reg{L} (souvenons-nous
+que nous tenons à préserver cette valeur) et fait descendre automatiquement
+la pile, ce qui a pour effet de dédoubler non moins automatiquement
+la nouvelle adresse dans \reg{X}. }{\small \par}\end{singlespace}
+
+\end{itemize}
+\ldots{}Et on recommence jusqu'à ce que toutes les valeurs de notre
+tableau aient été testées. Les pas 14 et 15 nous évoquent irrésistiblement
+le geste élégant du prestidigitateur qui, d'un mouvement sec et imperceptible,
+vous change une dame de pique en as de c?ur. Finalement les instructions
+18 à 21 (\fct{CLX}, \fct{LASTx}, \fct{R$\uparrow $}) remettent
+un peu d'ordre dans la pile, la valeur dans \reg{L} retrouve sa place
+en \reg{Y} ; l'adresse du maximum est amenée en \reg{X} et le maximum
+du tableau est placé en \reg{Z}. Ces pas pourraient paraître superflus,
+il n'en est rien, leur rôle capital est de veiller sur votre confort,
+restaurer au maximum l'état antérieur de la pile et placer le résultat
+attendu là où on a coutume de retrouver tous les résultats : en \reg{X}
+! Cela, croyez-nous, vous évitera bien des migraines.
+
+
+\section*{{\normalsize S'INTRODUIRE }}
+
+Le lecteur attentif peut se demander d'où proviennent tous ces nombres
+que nous ne cessons de manipuler dans les entrailles de la mémoire
+?
+
+La réponse est fort simple : nous les y avons placés, et pour cela
+bien sûr, nous avons utilisé une procédure ! Pour introduire un tableau
+en mémoire on pourrait utiliser comme précédemment un contrôleur de
+boucle de type $ddd,fff$. Mais cela nous obligerait à connaître initialement
+la dimension, c'est-à-dire le nombre d'éléments, de notre vecteur.
+Ce paramêtre peut très bien ne pas être immédiatement disponible et,
+quand il l'est, il peut y avoir une erreur dans le compte des éléments.
+Il n'y a rien de plus frustrant que de voir le calculateur attendre
+une $n+1^{i\grave{e}me}$ donnée dont on ne dispose pas où, à l'inverse,
+nous abandonner lâchement bien qu'il nous reste encore des nombres
+à introduire.
+
+La solution que nous adopterons sera de convenir d'un signe indiquant
+la fin de l'introduction. Dans ces conditions, le seul paramêtre dont
+le calculateur aura besoin est l'adresse de la base du tableau.
+
+Quel peut être ce signe ? Un chiffre clef comme zéro?
+
+Un nombre caractéristique comme $\pi$ ? Si vous adoptez cette solution
+ayez la certitude, en vertu de la loi de la tartine de beurre (dite
+de l'emm\ldots{} maximum ! ), que vous aurez un jour à introduire
+ces valeurs et qu'alors le programme s'achèvera sans se soucier de
+votre désespoir (notons que la chose survient en général lors d'une
+démonstration visant à prouver combien est fiable le programme).
+
+Le deuxième écueil est de choisir une clef de terminaison trop compliquée,
+de l'oublier, et d'être forcé de vous replonger dans la liste du programme
+pour retrouver (ah oui ! C'est vrai.) les dix derniers chiffres de
+votre numéro de sécurité sociale !
+
+Une nouvelle fois restons logiques et simples : puisqu'il n'y a plus
+rien à rentrer, ne rentrons rien. Votre calculateur est suffisamment
+sophistiqué pour faire la différence entre ce rien et tout le reste.
+Il utilise pour cela un drapeau.
+
+De même que le calculateur gère automatiquement de nombreux mouvements
+de la pile opérationnelle, il manipule aussi pour son propre compte
+certains indicateurs, parmi. lesquels celui qui nous occupe : le drapeau
+22. Ce dernier est toujours désarmé à la mise sous tension du calculateur.
+Dès qu'une entrée numérique est effectuée il s'arme sans que l'utilisateur
+ait à intervenir. Il suffit alors de tester l'état de l'indicateur
+pour que le programme puisse faire la distinction entre deux situations
+: une valeur vient d'être introduite ou non.
+
+Après cette disgression sur les indicateurs binaires, revenons à notre
+procédure d'entrée : Elle ne compte pas moins de 35 instructions,
+décidément nos programmes prennent de l'embonpoint.
+
+Sa logique n'est pas cependant plus complexe que celles des procédures
+précédentes en voici la liste :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{7.2cm}%
+\includegraphics[width=7cm]{Illustrations/066_TEN}%
+\end{minipage}}\smallskip{}
+
+
+Sur le plan de l'architecture ce programme comporte une boucle du
+type \textsc{tant que \ldots{} faire}. Le test de sortie au pas 15
+précède en effet l'incrémentation de la boucle. Il est donc parfaitement
+possible de n'introduire aucune valeur. Mais, d'une part, ce n'est
+pas le but recherché, et d'autre part le code de contrôle renvoyé
+est bien curieux, l'adresse du sommet est inférieur à celle de la
+base !
+
+\begin{center}
+\hfill{}%
+\begin{minipage}[c]{6cm}%
+\includegraphics[width=5.8cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/067_Fracas}%
+\end{minipage}\smallskip{}
+
+\par\end{center}
+
+Et voici le mode d'utilisation : Avant l'appel de la procédure l'adresse
+de la base du tableau doit se trouver en \reg{X}.
+
+À chaque tour de boucle le calculateur s'arrête en affichant le rang
+de la donnée à introduire. S'il y a encore des entrées à effectuer,
+introduisez la valeur et frappez \touche{R/S}, sinon il suffit de
+frapper directement \touche{R/S}. La procédure s'achève avec en \reg{X}
+le code de contrôle du tableau. Le registre \reg{Y} est conservé.
+
+En sus des instructions de commande et test des drapeaux, ce programme
+comporte des instructions de manipulation de chaînes de caractères.
+Le lecteur peu familiarisé avec ces dernières pourra se reporter au
+chapitre suivant.
+
+Il est clair que la procédure que nous venons de développer pourrait
+être plus brève, mais ce serait au détriment de sa souplesse d'utilisation.
+C'est sur ce critère qu'elle a été optimisée : la conservation du
+format d'affichage en utilisant \fct{FM?} mérite bien la perte de
+quelques octets.
+
+L'optimisation du nombre de pas, primordiale aux temps héroïques des
+calculatrices de faible capacité, reste une bonne habitude. Elle doit
+cependant céder la place au confort. Si vous pouvez réduire le nombre
+de pas ou la taille d'une instruction sans modifier le mode d'utilisation
+ou augmenter le nombre de registres nécessaires, n'hésitez pas à le
+faire. Dans le cas contraire, ne prenez cette peine qu'en cas de force
+majeure : lorsque s'affichent à l'écran les fatidiques \disp{"PACKING TRY AGAIN"}
+ce qui, compte-tenu de la capacité maximum de 2,2 Ko du \hp41  \texttt{\textbf{\textsc{C/V}}}
+(soit une moyenne de 1100 instructions programmables) devient rarissime.
+
+
+\section*{{\normalsize À CORPS ET A TRI} }
+
+Nous allons maintentint travailler nos tableaux au corps. Jusqu'à
+présent nous n'avons fait que les explorer, ou les créer. Nous allons
+maintenant les transformer.
+
+Une opération très souvent effectuée sur un tableau est le tri. Une
+des plus nobles activités de l'humanité est d'ordonner, de diminuer
+l'entropie qui l'environne. Classer est à l'origine de toute science.
+En marge de ces considérations philosophiques il faut noter que trier
+des valeurs peut s'avérer extrêmement utile.
+
+Les informaticiens depuis quelques 21 millions de minutes que cette
+noble corporation s'active, ont utilisé une part non négligeable de
+ce temps à mettre au point des algorithmes de tri : par insertion,
+par bulles ou par sélection, méthodes de \noun{Shell} et de \noun{Shell-Metzner}.
+Nous avons le choix des armes, aussi nous intéresserons nous surtout
+aux contraintes à imposer à notre procédure.
+
+Elle doit, avant tout, respecter les standards que nous nous sommes
+efforcés d'établir : le passage en entrée du code de contrôle {\small $ddd,fff$}
+doit suffir pour désigner la zône de la mémoire sur laquelle va porter
+le tri. Comme corrolaire nous nous interdirons d'utiliser un seul
+registre de donnée (en dehors bien entendu du bloc à trier), le mot
+d'ordre est encore et toujours \emph{: <<Tout dans la pile >>} !
+
+Nous vous proposons d'utiliser l'algorithme de sélection. C'est un
+compromis satisfaisant entre l'efficacité et la complexité. Il consiste
+à sélectionner le plus grand élément du vecteur et à échanger cet
+élément avec celui situé à la base du tableau. On considère alors
+le sous-tableau ayant un élément de moins que le précédent (l'élément
+déjà classé) et on répète l'opération. Les itérations s'achèvent quand
+le sous-tableau ne contient plus qu'un élément, obligatoirement le
+minimum.
+
+Il ne vous reste plus qu'à programmer tout cela, essayez, c'est encore
+plus simple quand on sait que c'est possible.
+
+Lorsque vous y serez parvenu, vous n'aurèz plus qu'à sauter le paragraphe
+qui suit. À moins que la curiosité ne vous pousse à comparer votre
+½uvre à celle que nous vous proposons (un détail pour stimuler cette
+curiosité notre procédure n'utilise que onze instructions ! )\smallskip{}
+
+
+%
+\framebox{\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/068_TRI}%
+\end{minipage}}\smallskip{}
+
+
+Si nous avons écrit la procédure \fct{TMX} c'est pour nous en servir
+! Nous commençons à récolter les fruits de notre dur labeur. Connaissant
+l'algorithme, l'écriture de ce programme n'a pris que cinq minutes,
+ceci est possible car \fct{TMX} est un sous-programme \textquotedbl{}propre\textquotedbl{}
+et qu'il préserve le contenu de \reg{Y}.
+
+Sur cet exemple on commence à apprécier la puissance du calculateur
+et de son langage : un investissement initial limité pour créer des
+procédures bien léchées est toujours rentable. Nous avons souvent
+entendu des programmeurs vanter les perfectionnements de leur langage\ldots{}
+pour regretter aussitôt de ne pouvoir disposer de telle ou telle fonction
+et d'être contraint de réécrire dans chaque programme des sous-programmes
+parfois très complexes.
+
+Avec \hp41 vous n'aurez jamais de tels regrets. Grâce à son architecture
+unique tous vos programmes pourront utiliser les procédures déjà écrites
+comme n'importe quelle fonction du langage.
+
+
+\section*{{\normalsize À VOS RANGS\ldots{}}}
+
+Revenons à nos procédures. \fct{TRI} classe les valeurs, mais leurs
+positions d'origine sont perdues, or pour certaines applications il
+est essentiel de conserver cette information. Si vous devez classer
+N joueurs en
+
+\noindent fonction de leur score la prucédure \fct{TRI} ne vous sera
+pas d'une grande utilité. Vous pourrez certes connaître rapidement
+le score du troisième joueur, mais vous ne pourrez plus dire qui est
+le troisième. \fct{TMX}
+
+La procédure suivante : \fct{TRN} (Tableau Rang) va remplacer les
+valeurs d'un tableau par leur rang sans modifier leur position. Cette
+procédure fonctionne avec satisfaction si les valeurs contenues dans
+le tableau sont toutes positives.
+
+À chaque tour de boucle le calculateur sélectionne la plus grande
+valeur du tableau et la remplace par son rang affecté d'un signe négatif.
+C'est impératif si on veut que le calculateur ne mélange pas allègrement
+les valeurs non encore classées (positives) avec le rang de celles
+qui le sont déjà.
+
+Cette procédure, vous vous en doutiez, fait à nouveau appel à \fct{TMX}.
+Mais un léger problème se pose. \fct{TMX} ne conserve qu'un seul
+registre et une brève analyse nous montre que nous aurons besoin de
+conserver deux valeurs : le code du tableau qu'utilise \fct{TMX}
+et un compteur qui nous indiquera le rang de la valeur retenue. Allons-nous
+être contraints d'utiliser un registre mémoire pour stocker une de
+ces valeurs ? Il n'en est rien, avec un peu d'astuce il est possible
+de conserver toute l'information au prix d'une légère perte de temps.
+
+Reprenons \fct{TMX}. À la fin de cette procédure la pile contient
+les valeurs suivantes : 
+
+\begin{tabular}{lcl}
+- \reg{T} & = & Code de contrôle {}``consommé'' ; \tabularnewline
+- \reg{Z} & = & Valeur maximum ; \tabularnewline
+- \reg{Y} & = & Registre sauvegardé ; \tabularnewline
+- \reg{X} & = & dresse de la valeur maximum. \tabularnewline
+\end{tabular}
+
+Le code dans T contient, dans sa partie décimale, mais aussi dans
+sa partie entière (à une unité près) l'adresse de fin du tableau.
+Si nous disposons par ailleurs du nombre d'éléments de ce dernier
+il nous est alors possible de reconstituer le code initial. Ce nombre
+d'éléments constituera la partie fractionnaire du compteur de boucle
+préservé en \reg{Y}.
+
+Le programme \fct{RNG} s'il ne pose pas de problème \textquotedbl{}stratégique\textquotedbl{}
+est donc relativement complexe sur le plan tactique\textquotedbl{}
+:\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{7.2cm}%
+\includegraphics[width=7cm]{Illustrations/069_TRN}%
+\end{minipage}}\smallskip{}
+
+
+
+\section*{{\normalsize UN PROBLÈME DE TAILLE }}
+
+Ne cherchez pas \fct{TNB} parmi les procédures déjà écrites, vous
+ne la trouveriez pas. C'est maintenant à vous de la réaliser. Son
+but est de calculer le nombre d'éléments d'un tableau à partir de
+son code de contrôle.
+
+Ses spécifications sont les suivantes : 
+\begin{itemize}
+\item le code d'un tableau est initialement en \reg{X} ; 
+\item après exécution de \fct{TNB} le nombre d'éléments du tableau a remplacé
+ce code ; 
+\item les registres \reg{Y} et \reg{Z} sont préservés. 
+\end{itemize}
+Ne regardez pas la suite avant d'avoir un peu souffert :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{Illustrations/070_TNB}%
+\end{minipage}}\smallskip{}
+
+
+C'est une procédure très utile qui mérite d'être individualisée.
+
+Un autre exercice intéressant consiste maintenant à suivre l'exécuti\texttt{\textbf{\textsc{P}}}\ensuremath{\leftrightarrow}\texttt{\textbf{\textsc{S}}}on
+de \fct{TRN} et de comprendre comment il fonctionne. Pour être franc
+nous ne sommes pas très sûrs d'avoir nous-mêmes compris, et pourtant
+il tourne !
+
+
+\section*{{\normalsize PAS DE BONHEUR SANS MÉLANGE}}
+
+Après avoir mis de l'ordre dans nos tableaux, il est tentant de procéder
+à l'opération inverse qui consiste à les mettre en désordre. L'utilité
+de cette opération ne peut vous échapper si vous savez que le poker
+se joue avec cinq cartes ou si vous êtes un statisticien en quête
+de permutations aléatoires pour la réalisation d'un schéma d'expérience.
+
+La structure du programme \fct{TML} (Tableau MéLange) est la copie
+conforme de la procédure \texttt{\fct{TRI}}. Mais au lieu d'appeller
+\fct{TMX} nous appellerons \fct{GAG} : au lieu de sélectionner sur
+un critère précis l'élément à permuter, nous le choisissons au hasard.\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{Illustrations/071_TML}%
+\end{minipage}}\smallskip{}
+
+
+Cet exemple nous montre la force des structures logiques et l'économie
+de temps et de moyens qu'apporte leur utilisation rationnelle. Tout
+ceci n'est possible que parce que les standards adoptés pour \hp41
+sont tout à la fois cohérents et harmonieux et que nos efforts portent
+sur le respect de ces normes.
+
+Une programmation correcte dans un langage déterminé ne peut se faire
+qu'en suivant la pente naturelle du langage. Un algorithme limpide
+en langage APL pour \hp41 peut aboutir à un programme incompréhensible
+s'il est traduit littéralement en \noun{Basic} ou en Pasca\noun{l}.
+
+\newpage{}
+
+
+\section*{{\normalsize S'AFFICHER}}
+
+Après avoir inconsidérément modifié un tableau il est bon de pouvoir
+le vismaliser, ne serait-ce que pour profiter des cogitations du calculateur.
+
+La structure de \fct{TAF} (Tableau AFfichage) nous sera d'emblée
+familière : c'est un balayage simple du tableau analogue à ce que
+nous avons déjà vu pour \fct{TCL} et \fct{TSM}. Les seuls problèmes
+que nous rencontrerons sont liés à la présentation de l'affichage.
+Nous allons retrouver les instructions de manipulation de caractères
+et de drapeaux que nous avions déjà utilisées pour la procédure \fct{TEN}.
+
+Nous désirons obtenir le format d'affichage suivant :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{2.5cm}%
+\includegraphics[width=2cm]{Illustrations/072_NNN}%
+\end{minipage}}\smallskip{}
+
+
+NNN sera le rang dans le tableau de la valeur actuellement affichée,
+il doit être chargé dans le registre alpha en \fct{FIX 9}. La valeur
+correspondante sera par contre affichée avec le nombre de décimales
+défini avant l'appel de la procédure, pour cela, vous vous en doutiez,
+nous allons réutiliser \fct{FM?}\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4.2cm}%
+\includegraphics[width=3.5cm]{Illustrations/073_TAF}%
+\end{minipage}}
+
+\newpage{}Si vous trouvez que les valeurs défilent trop rapidement
+à votre gré, souvenez-vous que vous pouvez armer le drapeau 21 avant
+d'exécuter cette procédure, l'instruction \fct{AVIEW} provoquera
+alors un arrêt à l'affichage de chaque valeur.
+
+\includegraphics[width=10cm]{Illustrations/074_Modele}
+
+
+\section*{{\normalsize COPIES CONFORMES\ldots{}}}
+
+Avant d'abandonner les tableaux à une dimension voici deux ultimes
+procédures qui opèrent sur deux tableaux. Le but de la première est
+de recopier un tableau en mémoire à partir d'une nouvelle adresse.
+Le code de contrôle du tableau initial est présent en \reg{Y} et
+la base de sa copie en X. Une analyse rapide (et peut-être incomplète
+! ) du problème nous amène à écrire le programme suivant :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{8.5cm}%
+\includegraphics[width=8cm]{Illustrations/075_TCO1}%
+\end{minipage}}\smallskip{}
+
+
+\newpage{}Cette procédure est satisfaisante si les aires occupées
+par les deux tableaux ne se chevauchent pas. Que se passe-t-il dans
+le cas contraire ?
+
+Si l'adresse de base du tableau initial est inférieure à celle du
+tableau de départ ce dernier est en partie écrasé mais sa recopie
+est intégrale. Dans le cas contraire c'est la catastrophe ! La procédure
+modifie la partie supérieure du tableau, non encore recopiée, et on
+aboutit à une duplication d'une partie de l'information, le reste
+étant définitivement perdu.
+
+Le programme \fct{TCO1} est donc totalement proscrit dans ce cas
+de figure. Pour résoudre le problème dans cette situation il faudrait
+balayer le tableau source non plus de bas en haut mais de haut en
+bas.
+
+Cette nécessité va nous conduire à étudier en détail une deuxième
+fonction de contrôle de boucle : \fct{DSE} (Décrémentation et Saut
+si Egalité).
+
+Comme \fct{ISG}, la fonction \fct{DSE} utilise un paramêtre $ddd,fff$,
+ddd représentant cette fois l'adresse du haut du tableau. Mais le
+test de sortie étant un test d'égalité si fff est égal à l'adresse
+de la base du tableau ce dernier registre ne sera pas traité dans
+la boucle. Pour obtenir un balayage complet du vecteur le code de
+contrôle doit donc être égal à $ddd,(fff-l)$.
+
+Cette structure qui rompt un peu avec les normes que nous avons jusqu'ici
+recontrées a probablement été introduite pour être compatible avec
+l'instruction \fct{DSZ} (Décrémentation et Saut si Zéro) qui existait
+sur les calculatrices antérieures \noun{HP-67} et \noun{97}.
+
+\includegraphics[width=11cm]{Illustrations/076_Trapeze}
+
+\newpage{}
+
+\framebox{%
+\begin{minipage}[c]{9cm}%
+\includegraphics[width=8cm]{Illustrations/077_TCO}%
+\end{minipage}}\pagebreak{}
+
+Cette procédure, en plus de son intérêt utilitaire, peut constituer
+le c½ur d'un embryon de base de données. La possibilité de déplacer
+une partie du contenu de la mémoire permet d'écraser un certain nombre
+de registres (décalage vers le bas) ou inversement d'ouvrir une nouvelle
+zone pour y insérer des données (décalage vers le haut) .
+
+
+\section*{{\normalsize \ldots{}ET LIBRE ÉCHANGE }}
+
+Nous achèverons ce panorama des procédures de gestion de tableaux
+par un sous-programme aussi bref qu'utile, dédié aux nostalgiques
+de la fonction \smallskip{}
+\fct{P$\leftrightarrow $S} du HP-67.
+
+Cette fonction permet d'échanger le contenu de deux tableaux indépendants.
+Les paramêtres d'entrée sont, bien entendu, constitués par les codes
+de contrôle de ces tableaux, la procédure s'achève quand l'un de ces
+codes est \textquotedbl{}dépassé\textquotedbl{} :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4cm}%
+\includegraphics[width=3.5cm]{Illustrations/078_T_ech}%
+\end{minipage}}
+
+\newpage{}
+
+
+\section*{{\normalsize DOUBLE ENTRÉE EN TRAITS SIMPLES }}
+
+Nous venons de terminer l'étude des vecteurs à une dimension, et nous
+sommes en mesure de commencer à nous préoccuper de véritables tableaux
+à double entrée. De même que nous avons défini un tableau comme un
+ensemble de valeurs, on peut définir une matrice comme un ensemble
+de vecteurs, chaque vecteur constituant une ligne de la matrice.
+
+Le problème est plus ardu que précédemment car une seconde dimension
+s'introduit dans l'espace mémoire linéaire du calculateur.
+
+Heureusement nous ne sommes pas allés au bout des possibilités de
+l'instructicn \fct{ISG}, cette dernière peut en effet utiliser un
+incrément variable différent de 1. Pour illustrer cette capacité nous
+vous proposons l'expérience suivante :
+
+En utilisant \fct{TEN} chargez en mémoire à partir du registre \reg{R01}
+les chiffres de l à 8. La procédure renvoit le code du vecteur : 1,008.
+Ajoutez maintenant à ce code 2 E-5 et exécutez la procédure \fct{TCL}.
+Si vous vérifiez maintenant le contenu des registres par la séquence
+: \disp{1,008 XEQ "GAG"} vous pourrez observer que les nombres impairs
+et seulement eux ont été annulés ! La procédure \fct{TCL} n'efface
+plus qu'un registre sur deux. La valeur $2E-5$ que nous avons ajoutée
+à la suite du code de contrôle est appellée le pas ou l'incrément.
+Nous pouvons représenter le vecteur initial sous la forme suivante
+:
+
+\smallskip{}
+
+
+\begin{tabular}{|ccc|ccc|}
+\hline 
+R01  & =  & 1  & R02  & =  & 2\tabularnewline
+R03  & =  & 3  & R04  & =  & 4\tabularnewline
+R05  & =  & 5  & R06  & =  & 6\tabularnewline
+R07  & =  & 7  & R08  & =  & 8\tabularnewline
+\hline
+\end{tabular}\smallskip{}
+
+
+\noindent ce qui peut être considéré comme une matrice à 4 lignes
+et 2 colonnes. Exécutée avec le paramêtre $1,00802$ la procédure
+\fct{TCL} n'a effacé que la première colonne.
+
+Le code de contrôle complété par l'incrément recèle donc tous les
+éléments nécessaires et suffisants à la définition d'une matrice :
+son domaine d'implantation en mémoire caractérisé par l'adresse de
+base ($ddd$) et celle du sommet ($fff$) ainsi que son nombre de
+colonnes ($cc$). Comme nous l'avons montré dans l'exemple précédent,
+ce code de contrôle est en fait celui du premier vecteur colonne.
+
+\newpage{}
+
+Ces prémisses achévées notre ligne de conduite sera simple : pouvoir
+utiliser toutes les procédures décrites pour les vecteurs sur les
+éléments (ligne, colonne ou totalité) d'une matrice.
+
+Dans l'exemple ci-dessus, nous avons utilisé la procédure \fct{TCL}
+sur la première colonne. De façon analogue le traitement d'un autre
+élément se fera en calculant préalablement, par une fonction, le code
+de contrôle spécifique de cet élément.
+
+Certaines de ces fonctions génératrices de code de contrôle sont parfaitement
+triviales, ne comportant que de rares instructions. Elles pourraient
+être introduites en séquence dans le programme principal mais il est
+préférable pour des raisons de clarté de les conserver sous forme
+de procédures.
+
+Contrôle de matrice : \fct{CMM} 
+
+Si l'on souhaite balayer l'ensemble des éléments d'une matrice le
+plus simple est de la considérer comme un vecteur unique dont le code
+de contrôle est celui qui définit la matrice mais débarrassé de son
+incrément. Donc :
+
+\smallskip{}
+
+
+%
+\framebox{\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/079_CMM}%
+\end{minipage}}\smallskip{}
+
+
+Sans commentaire !
+
+Contrôle de colonne : \fct{CMC} 
+
+Cette procédure (est-ce possible) est encore plus simple que la précédente:
+il suffit d'ajouter au code de contrôle matrice (en \reg{X}) l'indice
+de $0$ à $C-1$ de la colonne choisie (en \reg{Y}) pour obtenir
+le code de contrôle de cette colonne :
+
+\framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{Illustrations/080_CMC}%
+\end{minipage}}
+
+\newpage{}
+
+Contrôle ligne : \fct{CML} 
+
+Cette procédure est plus complexe que les précédentes car la totalité
+du code matrice initial est remanié :
+
+\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{Illustrations/081_CML}%
+\end{minipage}}\smallskip{}
+
+
+Nous attirons plus particulièrement votre attention sur les instructions
+05 à 07. Elles permettent, sans modifier la pile (le registre \reg{L}
+est cependant détruit), d'extraire rapidement le nombre de colonnes
+(l'incrément) du code de contrôle de matrice. L'avantage de ce processus
+est d'être valide même si l'incrément est absent, c'est-à-dire égal
+à l par défaut.
+
+Un autre problème à résoudre au cours des manipulations de matrice
+est la localisation d'un élément à partir de ses coordonnées. La pratique
+a montré que la séquence suivante était raisonnablement efficace si
+le numéro de ligne est en \reg{Z}, le numéro de colonne en \reg{Y}
+et le code matrice en \reg{X}.\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4.2cm}%
+\includegraphics[width=3.5cm]{Illustrations/082_CMP1}%
+\end{minipage}}\smallskip{}
+
+
+Cette\textquotedbl{}procédure\textquotedbl{} renvoie non seulement
+en partie entière l'adresse de l'élément recherché mais restitue en
+fait le code de contrôle du segment de ligne qui va de l'élément au
+bord droit de la matrice, ce qui pourrait être utile pour en explorer
+la partie triangulaire supérieure. Cependant, le contenu du registre
+\reg{T} est perdu. Si vous tenez à le conserver, nous vous proposons
+une seconde version presque aussi brève :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4.2cm}%
+\includegraphics[width=3.5cm]{Illustrations/083_CMP}%
+\end{minipage}}\smallskip{}
+
+
+Pour achever ce groupe de procédures voici l'opération inverse de
+la précédente : À partir de l'adresse en \reg{Y} et du code matrice
+en \reg{X} retrouver les coordonnées du point.\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{4.2cm}%
+\includegraphics[width=3.5cm]{Illustrations/084_COO}%
+\end{minipage}}\smallskip{}
+
+
+Grâce aux puissantes propriétés de \fct{DIV} la procédure \fct{COO}
+préserve les registres \reg{Z} et \reg{T}.
+
+
+\section*{{\normalsize CONCLUSION }}
+
+Nous avons essayé d'obtenir des procédures compactes et rapides. Avec
+les cinq dernières fonctions vous pouvez traiter les matrices avec
+une grande facilité, quel que soit leur emplacement en mémoire.
+
+Pour être utilisées avec efficacité, ces fonctions exigent un certain
+entraînement. Mais après cette brève période d'adaptation vous pourrez
+aborder sans peur, tout problème de calcul matriciel, et créer des
+programmes sans reproche.
+
+\newpage{}
+
+~\fancyhead[CO]{}\newpage{}
+
+\begin{center}
+\textsf{\textbf{\LARGE CHAPITRE \mbox{VI}}}
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+\textsf{\Huge L'ALPHA ET L'OMÉGA}{\Huge{} }
+\par\end{center}{\Huge \par}
+
+\vfill{}
+
+
+\includegraphics[width=12cm]{Illustrations/085_Alpha}\newpage{}
+
+\fancyhead[CO]{L'ALPHA ET L'OMÉGA}
+
+\hp41 est doté d'un écran \textquotedbl{}cristaux liquide\textquotedbl{}
+permettant l'affichage simultané de 12 caractères. Chaque caractère
+est formé sur une matrice de 14+3 segments. Toutes les possibilités
+d'affichage ($2^{14}=16384$) n'ont pas été retenues. Seuls 60 caractères
+sont actuellement disponibles à l'affichage \hp41.
+
+Vous avez sans doute noté qu'il était nécessaire de presser la touche
+\touche{ALPHA} pour accèder à ces lettres et ces symboles.
+
+Rappelons également qu'il suffit de penser à retourner le calculateur
+pour avoir l'image du clavier alpha !
+
+L'utilisation des caractères alphanumériques se fait selon trois axes
+: 
+\begin{itemize}
+\item la programmation ; 
+\item des textes de commentaires ; 
+\item la manipulation de chaînes de caractères. 
+\end{itemize}
+
+\section*{{\normalsize LA PROGRAMMATION }}
+
+À la base de toute écriture d'un programme sur \hp41 se situe l'obtention
+des mnémoniques correspondant aux fonctions. Il est donc indispensable
+d'avoir pratiqué les exemples du manuel de l'utilisateur et de s'être
+assuré au moyen de l'annexe 3 que toutes les méthodes d'obtention
+des fonctions ne posent plus de problèmes.
+
+\hp41 peut faire des commentaires en cours de programme. C'est en
+effet un des rares micropoches capable d'afficher un texte tout en
+continuant à travailler. Cela évite de s'abimer dans la contemplation
+de l'écran dans l'attente du flash d'information. De plus, cela peut
+constituer une aide importante à la mise au point des programmes.
+Il est utile d'indiquer l'opération que le calculateur effectue :
+\texttt{\textsc{\small JE TRIE}}{\small , }\texttt{\textsc{\small JE
+CLASSE}}{\small , }\texttt{\textsc{\small JE NUMEROTE}}{\small , }\texttt{\textsc{\small JE
+DORS\ldots{}}}{\small \par}
+
+D'autre part, n'oubliez pas de prévoir un temps d'affichage minimum
+(une seconde) pour permettre la lecture d'un message. Ce temps peut
+être allongé en intercalant des pauses (\fct{PSE}{\small ) dans le
+cours du programme.}{\small \par}
+
+Enfin, il est bon d'insérer des remarques dans le corps du programme
+pour faciliter sa mise au point et sa maintenance. \hp41 ne dispose
+pas de fonction spécifique dans ce but, mais il est possible d'en
+obtenir un excellent succédané : il suffit de faire précéder la chaîne
+de caractères par l'instruction \fct{FS? 30}. Ce drapeau étant, ainsi
+que nous l'avons déjà signalé, toujour, désarmé pour l'utilisateur,
+le message qui le suit ne sera jamais pris en compte lors de l'exécution
+du programme.
+
+Si la liste des remarques est plus longue, par exemple lors de la
+description des variables en tête du programme, il est préférable
+de court-circuiter l'ensemble par un branchement inconditionnel (\fct{GTO}).
+
+\framebox{%
+\begin{minipage}[c]{6cm}%
+\includegraphics[width=5.8cm]{Illustrations/086_Exemple}%
+\end{minipage}}
+
+
+\section*{{\normalsize LES TEXTES COMMENTAIRES }}
+
+\begin{singlespace}
+\noindent Ces commentaires constituent l'essentiel du dialogue entre
+vous et le calculateur.
+\end{singlespace}
+
+\begin{singlespace}
+
+\subsection*{\noindent \emph{\hp41 }\emph{\small pose une question à laquelle
+l'utilisateur doit répondre pour que le programme se poursuive}\emph{. }}
+\end{singlespace}
+
+La fonction à utiliser dans ce cas est \fct{PROMPT}. Il est également
+possible d'utiliser la fonction \fct{AVIEW} avec l'indicateur 21
+préalablement armé, si vous envisagez j'utiliser un jour une imprimante
+et que vous souhaitez voir s'imprimer l'intitulé de la question.
+
+\emph{Exemples} : 
+\begin{itemize}
+\item si la réponse est numérique : \\
+\smallskip{}
+ \framebox{%
+\begin{minipage}[c]{4.2cm}%
+\includegraphics[width=3.5cm]{Illustrations/087_Semence}%
+\end{minipage}} 
+\item si la réponse est un texte : \\
+\smallskip{}
+ \framebox{%
+\begin{minipage}[c]{4.2cm}%
+\includegraphics[width=3.5cm]{Illustrations/088_Oui_Non}%
+\end{minipage}} 
+\end{itemize}
+Quelques conseils pour vos questions : 
+\begin{itemize}
+\item Évitez les messages trop longs \\
+ \emph{Exemple} : \disp{INENVISAGEABLE} \\
+ qui après défilement n'a plus tout à fait le sens désiré. 
+\item Évitez les messages trop courts \\
+ \emph{Exemple} : \disp{?} \\
+ qui est très \noun{Basic} mais pas très explicite. 
+\item Précisez, si possible, les unités ou les formats. \\
+ \emph{Exemple} : \\
+\smallskip{}
+ \framebox{%
+\begin{minipage}[c]{4.2cm}%
+\includegraphics[width=3.5cm]{Illustrations/089_HHMMSS}%
+\end{minipage}} 
+\item Pour les questions répétitives il est bon de créer une boucle qui
+précise le rang d'entrée de la valeur. C'est ce que nous avons fait
+avec la procédure \fct{TEN} (page: nnn) et ce que nous ferons en
+atteignant \fct{ATEN}. 
+\end{itemize}
+Un dernier cas à envisager est celui des \emph{menus}. Un menu est
+un ensemble d'options proposées à l'utilisateur qui doit en sélectionner
+une. L'affichage de \hp41 étant constitué d'une unique ligne, les
+options seront proposées séquentiellement :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{5cm}%
+\includegraphics[width=4.8cm]{Illustrations/090_Menus}%
+\end{minipage}}\smallskip{}
+
+
+Cette présentation est cependant assez lente et peut finir par lasser
+l'utilisateur averti qui connaît par c½ur les codes des options.
+
+Il est préférable d'utiliser la seconde formule que voici :\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{5cm}%
+\includegraphics[width=4.8cm]{Illustrations/091_Formule}%
+\end{minipage}}\smallskip{}
+
+
+Si l'utilisateur frappe \touche{R/S} sans introduire de valeur alors
+le menu lui sera présenté puis la question à nouveau posée.\smallskip{}
+
+
+%
+\begin{minipage}[c]{10cm}%
+\includegraphics[width=9.5cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/092_HP_Menu}%
+\end{minipage}\smallskip{}
+
+
+
+\subsection*{\emph{\normalsize \hp41 vous répond }}
+
+Les conseils, que nous vous donnerons, sont le reflet de ceux proposés
+pour les interrrogations.
+
+Les réponses seront documentées de la même façon, en précisant, si
+nécessaire, les unités choisies.
+
+Une réponse est généralement constituée de trois éléments : 
+\begin{itemize}
+\item le descriptif indiquant succintement de quoi ils'agit ; 
+\item une valeur numérique ; 
+\item les unités. 
+\end{itemize}
+Ces trois éléments sont placés successivement (voir plus loin la concaténation)
+dans le registre \reg{ALPHA} par une séquence d'instructions du type
+:\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{3.3cm}%
+\includegraphics[width=3.5cm]{Illustrations/093_Temp}%
+\end{minipage}}\smallskip{}
+
+
+Il est important de se souvenir que la fonction \fct{ARCL} place
+dans le registre \reg{ALPHA} un nombre dans le format (\fct{FIX},
+\fct{SCI}, \fct{ENG}) et avec le nombre de décimales actuellement
+sélectionné. Il faut donc vérifier que ce format permet d'obtenir
+un affichage propre. Il est également souhaitable d'arrondir le nombre
+à afficher (\fct{RND}) pour éviter de contempler une suite de décimales,
+résultat des approximations parfois douteuses du calculateur.
+
+Voici d'autres exemples de sorties :
+
+\framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{Illustrations/094_Metres}%
+\end{minipage}}
+
+\emph{Remarque} : Il est toujours utile de complèter l'affichage par
+un signal sonore qui attire l'attention et souligne le texte. Nous
+proposons un son grave pour les indications d'erreur et un son aigu
+pour les messages interrogatifs.
+
+
+\section*{{\normalsize STRUCTURE DU REGISTRE \reg{ALPHA}}}
+
+\begin{singlespace}
+Contrairement à la petite phrase du manuel de l'utilisateur p36, le
+registre \texttt{\textsc{ALPHA}} n'est pas équivalent au registre
+\reg{X} de la pile opérationnelle. Pour mieux saisir ces différences,
+nous allons effectuer quelques manipulations. Placez préalablement
+
+\disp{"A"} dans \reg{R01} : \touche{ALPHA} \disp{A ASTO 01} 
+
+\disp{"B"} dans \reg{R02} : \disp{B ASTO 02} \touche{ALPHA}\smallskip{}
+
+
+Effectuez maintenant la séquence :\smallskip{}
+\disp{RCL 01} \disp{RCL 02} \disp{STO 02} \disp{VIEW 02} \smallskip{}
+
+\end{singlespace}
+
+Le registre 02 contient toujours {}``B''. Nous allons effectuer
+une séquence apparemment semblable avec :\smallskip{}
+
+
+\begin{singlespace}
+\touche{ALPHA} \disp{ARCL 01} \disp{ARCL 02} \disp{ASTO 02}
+\touche{ALPHA} \disp{VIEW 02} \smallskip{}
+
+\end{singlespace}
+
+Le registre 02 contient maintenant \disp{"AB"}. Il est visible que
+les deux suites d'instructions ne sont pas équivalentes. D'une part
+pour le registre \reg{ALPHA} il y a eu \emph{concaténation} (voir
+plus loin le détail de ce travail), d'autre part la pile opérationnelle
+a une structure
+
+\texttt{\textsc{lifo}} (\textsc{Last In First Out)} en français :
+« les derniers seront les premiers». Le registre \reg{ALPHA}, quant
+à lui est du type \texttt{\textsc{fifo}} (\textsc{First In First Out})
+en français : «faites la queue comme tout le monde ! »
+
+Mais ce n'est pas la seule subtilité ; reprenons l'exemple du manuel
+p. 36 :
+
+\touche{ALPHA} \disp{"Ex"}\touche{SPACE}\texttt{\textsc{ }}\disp{ASTO 01 "DE"}
+\touche{SPACE}\texttt{\textsc{ }}\disp{ASTO 02 "DECALAGE"} \disp{ASTO 03}
+\touche{CLA} 
+
+\disp{ARCL 01 ARCL 02 ARCL 03} 
+
+On obtient à l'affichage : {}``\disp{X DE DECALA} {}``
+
+Il y a de la fuite dans les idées !
+
+Que nous apprend cet exemple ? Chaque registre contient au plus 6
+caractères (manuel page 55) c'est pourquoi nous perdons le \textquotedbl{}\texttt{\textsc{GE}}\textquotedbl{}
+de \textquotedbl{}\texttt{\textsc{DECALAGE}}\textquotedbl{}.
+
+Le \textquotedbl{}\texttt{\textsc{E}}\textquotedbl{} de \textquotedbl{}\texttt{\textsc{EX}}\textquotedbl{}
+est lui présent dans le registre \reg{ALPHA} mais n'apparaît pas
+à l'affichage limité à 12 caractères. Une double-pression sur le \touche{ALPHA}ramènera
+à l'écran en éliminant le tiret d'attente.
+
+
+\section*{{\normalsize ON COUPE ET ON COLLE }}
+
+Envisageons maintenant les chaînes de caractères comme des objets
+que \hp41 peut manipuler au même titre que les valeurs numériques.
+Les trois seules opérations possibles sur les chaînes sont la \emph{troncature},
+la \emph{concaténation} et les \emph{tests}.
+
+
+\subsection*{{\small La troncature }}
+
+Nous venons d'observer le phénomène dans l'exemple qui précède. Il
+nous reste à dompter cet animal un peu rétif. En examinant les possibilités
+offertes pour tronçonner les chaînes il apparaît à l'évidence que
+dans sa version de base \hp41 n'a pas été conçu pour le traitement
+de texte.
+
+Il existe deux façons de découper le contenu du registre \reg{ALPHA}
+: le stockage dans une mémoire et la fonction \fct{ASHF} (\textsc{Alpha
+SHiFt} : glissement du registre \reg{ALPHA}). Dans les deux cas la
+césure se fait entre le sixième et le septième caractère. Travaillant
+ensemble ces deux fonctions permettent cependant de stocker en mémoire
+la totalité du registre \reg{ALPHA}.
+
+Pour illustrer la chose, et puisque nous ne vous avions point proposé
+de procédure depuis fort longtemps, en voici une qui vous permettra
+de placer en mémoire une succession de chaînes.
+
+\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{11cm}%
+\includegraphics[width=10cm]{Illustrations/095_ATEN}%
+\end{minipage}}\smallskip{}
+
+
+Cette procédure est longue mais elle fait beaucoup de choses : 
+\begin{itemize}
+\item Les paramêtres d'entrée sont le registre de base de la matrice de
+texte en \reg{X} et le nombre maximum de caractères d'une chaîne.
+Ce dernier paramêtre va servir à déterminer le nombre de registres
+nécessaires au stockage d'une ligne de texte. 
+\item Les pas 0l à 18 sont destinés à diverses opérations, mettre en mémoire
+le format, préparer les pointeurs, déterminer le nombre N de registres
+affectés à une ligne, et passer en mode alpha. 
+\item Du pas 19 au pas 38 se situe la boucle d'interrogation, sa structure
+est très proche de celle de \fct{TEN}, ici encore la terminaison
+des entrées se fait en pressant directement \touche{R/S} mais c'est
+cette fois le drapeau 23 qui est testé. 
+\item Les instructions 29 à 35 constituent une secon\textsc{ascii}de boucle,
+imbriquée dans la première, dont le rôle est de découper le contenu
+de \reg{ALPHA} et de le charger dans N registres consécutifs. 
+\item Les lignes 39 à 55 terminent la tâche en calculant le code de la matrice
+finale dont le nombre de lignes est égal au nombre de lignes de texte
+introduites et le nombre de colonnes (l'incrément du code de contrôle)
+précise le nombre de registres requis pour la mise en mémoire d'une
+ligne. 
+\end{itemize}
+
+\subsection*{\newpage{}{\small La concaténation }}
+
+La nécessité de reconstituer les chaînes est évidente. Cette opération,
+la concaténation, consiste donc à enchaîner les chaînes les unes derrière
+les autres.
+
+Si \hp41 tronque mal, il concatène fort bien grâce aux deux {}``instructions''
+\fct{ARCL} et {}``\textbf{\scriptsize \textSFviii{}}''. Si nous
+avons mis des guillemets à \emph{instructions} c'est pour préciser
+que n'est pas une instruction mais un caractère.
+
+Un peu particulier ce caractère puisqu'il n'apparaîtra jamais à l'affichage.
+Placé au début d'une ligne de texte en mode programme il indique que
+les caractères qui le suivent doivent se placer à la suite du contenu
+courant de \reg{ALPHA} et non le remplacer. En mode direct cette
+instruction place derrière la chaîne affichée le tiret d'attente,
+le contenu de \reg{ALPHA} peut alors être complété ou corrigé.
+
+La fonction \fct{ARCL}cache elle aussi des propriètés particulières,
+c'est bien plus qu'une instruction de rappel du contenu d'un registre.
+Si le registre adressé contient une valeur numérique \fct{ARCL} se
+livre à un intense travail de codage pour transformer l'expression
+numérique de ce nombre en son image en code \textsc{ascii}.
+
+Si vous effectuez la séquence d'opérations suivante :
+
+\touche{XEQ}\texttt{\textsc{ }}\disp{"CLA" FIX 4 $\pi $}\touche{ALPHA}\texttt{\textsc{
+}}\disp{ARCL X ASTO X {$\boldmath \nicefrac{1}{x}$}}
+
+\noindent le calculateur vous répond \touche{ALPHA}, le 3,1416
+qu'affiche le registre \reg{X} n'est plus un nombre mais la suite
+de six caractères 3, la virgule, l etc\ldots{}
+
+Ces notions sont arides, faisons une pause pour s'amuser un peu. Voici
+un petit programme qui vous permettra de faire pénétrer \hp41 dans
+le monde de la littérature.
+
+Le \emph{cadavre exquis} est un {}``exercice de style'' qui fit
+fureur à la période faste de l'\texttt{\textsc{oulipo}} (\textsc{OUvroir
+de LItérature POtentielle}, nous ne sommes pas les seuls à user d'abréviations
+barbares) auquel participèrent des noms célèbres comme \textsc{Georges
+Perec}, \textsc{Raymond Quenaux}.
+
+Tombé un peu en désuétude si ce n'est dans le domaine enfantin, il
+s'agit pour un groupe de personnes d'écrire chacun un morceau de phrase
+dans l'ignorance de ce qui précède et de ce qui va suivre.
+
+La phrase achevée, on place le tout bout à bout et on lit à haute
+et intelligible voix le résultat final. Ce dernier a, généralement,
+la clarté d'un vers de \textsc{Nostradamus} ou d'un message de \textsc{Pierre
+Dac} émis par la \texttt{\textsc{bbc}} durant la dernière guerre.
+
+\hp41 grâce à sa prodigieuse faculté d'oublier ce qu'il vient d'exécuter
+quelques millisecondes plus tôt, pourra tout seul créer pour vous
+ces phrases inoubliables.\smallskip{}
+
+
+\framebox{%
+\begin{minipage}[c]{7.8cm}%
+\includegraphics[width=7.5cm]{Illustrations/096_KDVX}%
+\end{minipage}}\newpage{}
+
+\framebox{%
+\begin{minipage}[c]{7.8cm}%
+\includegraphics[width=7.5cm]{Illustrations/097_KDVX_data}%
+\end{minipage}}
+
+Plus prosaïquement voici une nouvelle procédure qui vient compléter
+\fct{ATEN} puisqu'elle permet, à partir du code de contrôle généré
+par cette dernière, de reconstituer et d'afficher les lignes précédemment
+mises en mémoire.
+
+\framebox{%
+\begin{minipage}[c]{7.8cm}%
+\includegraphics[width=7.5cm]{Illustrations/098_ATAF}%
+\end{minipage}}
+
+Nous retrouvons des techniques éprouvées pour traitement des tableaux
+: l'appel à \fct{CMM} et l'extraction de l'incrément par la séquence
+\fct{FRC}, \fct{ISG X}, \fct{INT}. Nous attirons également votre
+attention sur l'utilisation du négateur \fct{FS? 30} pour inverser
+le sens de sortie par \fct{ISG} au pas 15.
+
+Pouvons-nous aller plus loin dans le traitement des chaînes ? La réponse
+est positive si on sacrifie deux facteurs importants : l'espace et
+le temps. Un tel sacrifice est, bien sûr, relatif.
+
+Le but de la procédure qui suit est de décomposer à nouveau le registre
+\reg{ALPHA} pour constituer un vecteur de caractères, un registre
+pour chaque caractère (c'est le sacrifice d'espace) et malgré les
+efforts désespérés du programmeur, cette procédure n'est pas très
+rapide (c'est le sacrifice de temps).
+
+Cette procédure travaille entièrement dans la pile mais, nouvelle
+concession, elle ne peut traiter que des chaînes n'excédant pas 18
+caractères :
+
+\framebox{%
+\begin{minipage}[c]{9cm}%
+\includegraphics[width=8.5cm]{Illustrations/099_A-C}%
+\end{minipage}}
+
+La procédure reçoit en \reg{X} l'adresse de base du futur tableau
+de caractères, et dans \reg{ALPHA} la chaîne à décomposer.
+
+Les pas 02 à 13 constituent une séquence d'initialisation : préparation
+et stockage dans \texttt{\textsc{L}} de ce qui deviendra le code de
+contrôle, chargement dans les registres \reg{Y}, \reg{Z} et \texttt{\textsc{T}}
+du contenu de \reg{ALPHA} (d'où la limite à 18 caractères) et création
+d'une chaîne vide dans \reg{X} (il ne faut pas confondre une chaîne
+vide de zéro caractère avec un espace qui lui, bien que tout aussi
+invisible, est un caractère.
+
+Comme il n'y a plus de place dans la pile pour y installer un compteur,
+un sous-programme 00 est appellé trois fois pour traiter le contenu
+de chacun des registres \reg{Y}, \reg{Z}, \texttt{\textsc{T}}. Après
+ces trois appels le code de contrôle final est généré. Cette séquence
+tient compte également du cas particulier du registre \reg{ALPHA}
+initialement vide, dans ce cas, le tableau est réduit à un seul registre
+qui contient un caractère vide. C'est une option. On aurait pu choisir
+de signaler ce cas en renvoyant 0 en \reg{X} à la place d'un code
+de contrôle. Vous choisirez en fonction de votre application.
+
+Venons-en maintenant au sous-programme 00 qui constitue le c?ur de
+l'ensemble, il est lui-même constitué d'une boucle qui traite les
+uns après les autres les caractères présents dans le registre \reg{Y}.
+
+Cette boucle est du type \texttt{\textsc{TANT QUE (condition) FAIRE}},
+le' test de sortie (\fct{X=Y?} : le registre \reg{Y} est-il vide
+?) est donc placé en début de boucle.
+
+Puis des pas 34 à 42 prend place une série de concaténations et de
+troncatures dont le but est d'isoler le caractère le plus à gauche
+du registre \reg{Y} et de replacer dans ce même registre la chaîne
+initiale débarrassée de ce caractère. En regard des instructions du
+programme nous avons figuré l'évolution du contenu du registre \reg{ALPHA}.
+On constate que le registre mémoire adressé par \reg{L}, qui doit
+finalement recevoir le caractère isolé, est utilisé transitoirement
+comme registre tampon.
+
+Une fois converti en tableau de caractères, et disposant du code de
+contrôle de ce dernier, quelles opérations peut-on effectuer ? 
+\begin{itemize}
+\item Connaître la longueur de la chaîne : il suffit de placer le code de
+contrôle en \reg{X} et d'appeller \fct{TNB} ; 
+\item Replacer la totalité de la chaîne dans \reg{ALPHA}. Il nous faudra
+pour cela créer une procédure très simple : \\
+ \framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{Illustrations/100_C-A}%
+\end{minipage}} 
+\item Le code de contrôle est initialement en \reg{X}. En fin de procédure
+la chaîne est reconstituée dans \reg{ALPHA}, seul le registre \reg{L}
+a été modifié. 
+\item - Il est également possible de ne rappeler dans \reg{ALPHA} qu'une
+fraction de la chaîne initiale, c'est ce que fait la procédure suivante
+: \\
+ \framebox{%
+\begin{minipage}[c]{3.5cm}%
+\includegraphics[width=3.3cm]{Illustrations/101_AFRC}%
+\end{minipage}} 
+\item Le registre \reg{X} contient initialement le code de contrôle du
+vecteur de caractère, le registre \reg{Y} contient lui un code $dd,0ff$
+indiquant les rangs du premier et du dernier caractère de la sous-chaîne.
+En fin d'exécution cette sous-chaîne est dans \reg{ALPHA} et dans
+\reg{X} on retrouve son code de contrôle. 
+\end{itemize}
+Voici un bref exemple d'utilisation de ces procédures :
+
+\touche{ALPHA} \disp{DECAMETRE} \touche{ALPHA} \disp{2 XEQ "A-C"}
+
+\hp41 vous répond \textsf{\small 2,010}{\small{} vous indiquant que
+les caractères de la chaîne sont conservés dans les registres }\textsf{\small 02}{\small{}
+à }\textsf{\small 10}{\small . Le registre \reg{ALPHA} contient maintenant
+}{}``\textsf{\small E}''{\small , dernier caractère du mot introduit.
+Sauvegardons le code de contrôle dans }\reg{R01}{\small{} (\fct{STO 01})
+et appelons \fct{TNB}. La réponse quasi} immédiate est \textsf{\small 9}{\small ,
+effectivement }\textsf{\small {}``DECAMETRE}'' {\small comprend
+bien neuf lettres !}{\small \par}
+
+Introduisons maintenant la séquence : \disp{6,009 RCL 0 XEQ "AFRC"}
+{\small . Un coup d'½il dans le registre \reg{ALPHA}, on y lit }{}``\textsf{\small ETRE}''{\small .
+Poursuivons par}\disp{4,006 RCL 01 XEQ "AFRC"}{\small , nous obtenons
+cette fois }{}``\textsf{\small AME}''{\small . Vous doutiez-vous
+qu'un banal instrument de mesure contenait potentiellement de tels
+concepts philosophiques ?}{\small \par}
+
+
+\subsection*{{\normalsize TESTER LES CHAÎNES }}
+
+Les tests de chaînes, comme les numériques s'effectuent à l'aide des
+registres \reg{X} et \reg{Y}. On en déduit donc que, ne pourront
+être testées, que des chaînes de longueur inférieure ou égale à six
+caractères.
+
+Seuls sont disponibles les tests d'égalité ou d'inégalité (\fct{X=Y?}
+et \fct{X\ensuremath{\neq}Y?} ) le tri alphabétique pour être réalisable
+doit faire appel à des techniques sophistiquées qui dépassent largement
+le cadre de cet ouvrage (nous renvoyons le lecteur intéressé aux articles
+et ouvrages donnés en bibliographie).
+
+Ceci étant, toutes les méthodes décrites dans le deuxième chapitre
+concernant les tests d'égalité sont entièrement transposables aux
+chaînes, en particulier, les techniques de branchement indirect sont
+valides puisque les étiquettes peuvent être alphabétiques aussi bien
+que numériques.
+
+Voyons-en un exemple très utile avec la procédure suivante.
+
+Le choix d'une option se ramène souvent à une simple alternative qui
+demande comme réponse : \textsf{\emph{\small OUI}}{\small{} ou }\textsf{\emph{\small NON}}{\small .
+Quand le problème se pose il suffit de placer dans le registre \reg{ALPHA}
+l'intitulé de la question et de le faire suivre par }\disp{XEQ "O/N"}{\small ,
+au retour de la procédure l'indicéateur 23 est armé si l'utilisateur
+a répondu }{}``\textsf{\small O}{\small '' et désarmé s'il a répondu
+}{}``\textsf{\small N}''{\small{} :}{\small \par}
+
+\framebox{%
+\begin{minipage}[c]{11.5cm}%
+\includegraphics[width=11cm]{Illustrations/102_O-N}%
+\end{minipage}}
+
+\newpage{}
+
+Le \textsf{\small drapeau 23}{\small{} est utilisé pour vérifier qu'une
+entrée}{\small \par}
+
+a été effectuée, dans le cas contraire, la boucle sur l'étiquette
+\disp{LBL 00}{\small{} se poursuit et le message clignote à l'affichage.
+Si un caractère est introduit le }\textsf{\small drapeau 23}{\small{}
+s'arme, le caractère est placé dans\reg{L} et l'appel indirect est
+effectué pour un branchement à }{}``\textsf{\small N}''{\small{}
+qui désarme l'i}\textsf{\small ndicateur 23}{\small , ou à }{}``{\small O''
+qui le conserve. Le tout s'effectue sous la haute garde de l'i}\textsf{\small ndicateur
+25}{\small{} qui veille à la validité des entrées.}{\small \par}
+
+Pour être exhaustif voici la façon de résoudre un ultime problème
+: les registres du \hp41 sont banalisés, ils peuvent contenir aussi
+bien une valeur numérique qu'un fragment de chaîne. Si vous désirez
+savoir, en cours de programme, si un registre contient l'une ou l'autre
+de ces deux catégories de variable il vous suffit de rappeller en
+\reg{X} et d'effectuer la fonction \fct{SIGN}. Dans le cas d'une
+chaîne le contenu de \reg{X} sera nul, la chaîne étant sauvegardée
+dans \reg{L}. La fonction \fct{SIGN} est la seule qui soit susceptible
+d'agir sur les chaînes comme sur les nombres.
+
+\newpage{}\fancyhead[CO]{}~
+
+\newpage{}
+
+\begin{center}
+\textsf{\LARGE ANNEXES \bigskip{}
+}
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+%
+\begin{minipage}[c]{0.5\textwidth}%
+\begin{flushleft}
+\textsf{\LARGE Solution des exercices }
+\par\end{flushleft}{\LARGE \par}
+
+\begin{flushleft}
+\textsf{\LARGE Obtention des fonctions }
+\par\end{flushleft}{\LARGE \par}
+
+\begin{flushleft}
+\textsf{\LARGE Description des fonctions }
+\par\end{flushleft}{\LARGE \par}
+
+\begin{flushleft}
+\textsf{\LARGE Drapeaux }
+\par\end{flushleft}{\LARGE \par}
+
+\begin{flushleft}
+\textsf{\LARGE Procèdures et code-barre }
+\par\end{flushleft}%
+\end{minipage}\textsf{\LARGE{} }
+\par\end{center}{\LARGE \par}
+
+\appendix
+\begin{center}
+~%dummy comment inserted by tex2lyx to ensure that this paragraph is not empty
+
+\par\end{center}
+
+\newpage{}~
+
+\begin{center}
+\newpage{}\textsf{\LARGE ANNEXE 1}{\LARGE{} }
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+\textsf{\textbf{\Huge Solution des exercices }}
+\par\end{center}{\Huge \par}
+
+
+\section*{\emph{\normalsize SÉQUENCE DE LETTRES NON RÉPÉTITIVES}{\normalsize{} }}
+
+Quatre lettres sont proposées, donc deux drapeaux suffiront pour mémoriser
+la dernière lettre introduite en utilisant le code suivant :
+
+\noindent \begin{center}
+\begin{tabular}{ccc}
+\texttt{\small Lettre}{\small{} } & \texttt{\textsc{\small F01}}{\small{} } & \texttt{\textsc{\small F02}}\tabularnewline
+\texttt{\textsc{\small A}}{\small{} } & \texttt{\textsc{\small 0}}{\small{} } & \texttt{\textsc{\small 0}}\tabularnewline
+\texttt{\textsc{\small B}}{\small{} } & \texttt{\textsc{\small 0}}{\small{} } & \texttt{\textsc{\small 1}}\tabularnewline
+\texttt{\textsc{\small C}}{\small{} } & \texttt{\textsc{\small 1}}{\small{} } & \texttt{\textsc{\small 0}}\tabularnewline
+\texttt{\textsc{\small D}}{\small{} } & \texttt{\textsc{\small 1}}{\small{} } & \texttt{\textsc{\small 1}}\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\noindent Les 4 sous-programmes sont alors :
+
+\noindent \begin{center}
+\begin{tabular}{cccc}
+%
+\begin{minipage}[t]{2cm}%
+\textsf{\textbf{\small 01 LBL A}}{\small \par}
+
+\textsf{\textbf{\small 02 FC?C 01}}{\small \par}
+
+\textsf{\textbf{\small 03 FS? 02}}{\small \par}
+
+\textsf{\textbf{\small 04 \textquotedblright{}{\tiny \bf \textSFviii}{}\textquotedblright{}}}{\small \par}
+
+\textsf{\textbf{\small 05 CF 02}}{\small \par}
+
+\textsf{\textbf{\small 06 AVIEW}}{\small \par}
+
+\textsf{\textbf{\small 07 RTN}}{\small{} }%
+\end{minipage} & %
+\begin{minipage}[t]{2cm}%
+\textsf{\textbf{\small 08 LBL B}}{\small \par}
+
+\textsf{\textbf{\small 09 FC?C 01}}{\small \par}
+
+\textsf{\textbf{\small 10 FC? 02}}{\small \par}
+
+\textsf{\textbf{\small 11 \textquotedblright{}{\tiny \bf \textSFviii}{}B\textquotedblright{}}}{\small \par}
+
+\textsf{\textbf{\small 12 SF 02}}{\small \par}
+
+\textsf{\textbf{\small 13 AVIEW}}{\small \par}
+
+\textsf{\textbf{\small 14 RTN}}%
+\end{minipage} & %
+\begin{minipage}[t]{2cm}%
+\textsf{\textbf{\small 15 LBL C}}{\small \par}
+
+\textsf{\textbf{\small 16 FC?C 02}}{\small \par}
+
+\textsf{\textbf{\small 17 FC? 01}}{\small \par}
+
+\textsf{\textbf{\small 18 \textquotedblright{}{\tiny \bf \textSFviii}{}C\textquotedblright{}}}{\small \par}
+
+\textsf{\textbf{\small 19 SF 01}}{\small \par}
+
+\textsf{\textbf{\small 20 AVIEW}}{\small \par}
+
+\textsf{\textbf{\small 21 RTN}}%
+\end{minipage} & %
+\begin{minipage}[t]{2cm}%
+\textsf{\textbf{\small 22 LBL D}}{\small \par}
+
+\textsf{\textbf{\small 23 FS? 01}}{\small \par}
+
+\textsf{\textbf{\small 24 FC? 02}}{\small \par}
+
+\textsf{\textbf{\small 25 \textquotedblright{}{\tiny \bf \textSFviii}{}D\textquotedblright{}}}{\small \par}
+
+\textsf{\textbf{\small 26 SF 01}}{\small \par}
+
+\textsf{\textbf{\small 27 SF 02}}{\small \par}
+
+\textsf{\textbf{\small 28 AVIEW}}{\small \par}
+
+\textsf{\textbf{\small 29 END}}%
+\end{minipage}\tabularnewline
+\end{tabular} 
+\par\end{center}
+
+La fonction booléenne utilisée est un \fct{NAND}{\small{} (}\fct{NON ET}{\small ),
+l'instruction''}{\tiny \bf \textSFviii}''{\small{} n'est effectuée
+que si }\fct{NON (F01 et F02)} ce qui peut aussi s'écrire \fct{NON F01 OU NON F02}{\small{}
+ou encore }\fct{F01 implique NON F02}{\small \ldots{} et c'est pourquoi
+votre \hp41 est muette.}{\small \par}
+
+\fancyhead[CO]{SOLUTION DES EXERCICES}
+
+
+\section*{\emph{\normalsize LA SUITE MYSTERIEUSE}{\normalsize{} }}
+
+Le fait que ce problème soit posé comme application du changement
+de base en facilite grandement la résolution.
+
+La suite est constituée par différentes représentations du nombre
+\textsf{\textsc{\emph{12}}} dans les bases de \textsf{\textsc{\emph{12}}}
+à \textsf{\textsc{\emph{4}}}. La valeur à trouver est donc l'expression
+de \textsf{\textsc{\emph{12}}} en base \textsf{\textsc{\emph{5}}}
+:
+
+\disp{5}\textsf{\textsc{ }}\touche{ENTER$\uparrow$} \disp{12 XEQ "10-b"}\textsf{\textsc{\emph{
+\textrightarrow{} 22}}}\textsf{\textsc{ }}
+
+Moralité : en cas de problème il est bon de consulter la base.
+
+
+\section*{\emph{\normalsize AU PIQUET !}{\normalsize{} }}
+
+La solution est pour le probabiliste moyen absolumeht évidente : 
+\begin{itemize}
+\item le nombre de mains possibles est égal aux nombres de combinaisons
+de 12 éléments parmi 32, donc : \\
+\disp{32}\textsf{\textsc{ }}\touche{ENTER$\uparrow$} \disp{12 XEQ "CB"}\textsf{\textsc{\emph{
+\textrightarrow{} 225792840}}} 
+\item si on retire les têtes, soit \textsf{\small 12}{\small{} cartes, il
+en reste }\textsf{\small 20}{\small . Le nombre de mains justifiant
+l'annonce }{}``1{\small 0 de blanc'' est donc :}\\
+{\small{} }\disp{20}\textsf{\textsc{ }}\touche{ENTER$\uparrow$}
+\disp{12 XEQ "CB"}\textsf{\textsc{\emph{\small{} \textrightarrow{}
+125970}}}{\small{} }{\small \par}
+\end{itemize}
+Il suffit de faire maintenant la division de ces deux valeurs pour
+découvrir que l'annonce se produit en gros une fois sur 1800 mains
+distribuées. Pour deux joueurs, à raison d'une donne toute les 5 minutes,
+cet événement se produit en moyenne une fois toutes les 70 heures.
+Bonne nuit !
+
+\underbar{P.S.} Ce problème est extrait du livre : {}``La chance
+et les jeux de hasard'' de Marcel Boll (sic) !
+
+
+\section*{\emph{\normalsize LA SOLUTION AU NOMBRE DE SOLUTIONS}}
+
+Ce problème est dû à Pierre Berloquin responsable, entre autres, des
+jeux mathématiques du Monde.
+
+La solution jaillit quand on découvre que 13 peut en fait s'écrire:
+
+\textsf{\small 1+1+1+1+1+1+1+1+1+1+1+1+1 = 13}{\small{} }{\small \par}
+
+Parmi ces \textsf{\small 12}{\small{} signes + il suffit d'en sélectionner
+3 pour isoler 4 sommes de }\textsf{\small 1}{\small{} (c'est-à-dire
+4 entiers). Si nous choisissons le 4e, le 7e et le 8e, nous obtenons
+une solution :}{\small \par}
+
+\textsf{\small 4 + 3 + 2 + 4 = 13}{\small{} }{\small \par}
+
+Il y a donc autant de solutions que de combinaisons de 3 signes +
+parmi 12 donc : 
+
+\disp{12}\textsf{\textsc{ }}\touche{ENTER$\uparrow$} \disp{3 XEQ "CB"}\textsf{\textsc{\emph{
+\textrightarrow{} 220}}} 
+
+Pour les anxieux, la liste des 220 solutions a été déposée sous pli
+scellé chez \noun{Maître Dumatheux}.
+
+\newpage{}\fancyhead[CO]{}~
+
+\newpage{}
+
+\begin{center}
+\textsf{\LARGE ANNEXE 2}{\LARGE{} }
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+\textsf{\textbf{\Huge Obtention des fonctions }}
+\par\end{center}{\Huge \par}
+
+
+\section*{{\normalsize LA FONCTION} \touche{\large XEQ} }
+
+La méthode universelle pour obtenir la totalité des fonctions consiste
+à utiliser \fct{XEQ}{\small .}{\small \par}
+
+Le processus est le suivant : 
+\begin{itemize}
+\item en mode calcul, pressez la touche XEQ immédiatement suivie de \touche{ALPHA}; 
+\item éppelez maintenant le nom de la fonction désirée (uniquement le nom,
+tel qu'il apparaît au catalogue 3) et quittez le mode \reg{ALPHA}.
+\\
+ \emph{Ex} : \touche{XEQ} \touche{ALPHA} \disp{SIN}  \touche{ALPHA};\\
+ \touche{XEQ} \touche{ALPHA}  \disp{FC?} \touche{ALPHA}. 
+\end{itemize}
+Si la fonction ne demande pas de paramètre (cas de \fct{SIN}{\small{}
+dans l'exemple qui précède, elle est immédiatement exécutée en mode
+calcul ou enregistrée en mode programmation.}{\small \par}
+
+Si la fonction est paramétrée (cas de \fct{FC?}{\small ) le calculateur
+affiche alors de un à trois tirets d'interrogation pour l'introduction
+de ce paramètre.}{\small \par}
+
+Dans ce cas plusieurs possibilités sont à envisager ! 
+\begin{itemize}
+\item il s'agit d'un appel indirect: pressez immédiatement la touche jaune.
+Le calculateur affiche \fct{IND}{\small{} à la suite du nom de la
+fonction toujours suivi des tirets interrogatifs ; }{\small \par}
+\item il s'agit d'un adressage direct. Trois cas sont alors possibles :
+
+\begin{itemize}
+\item le paramètre est numérique. Introduisez le nombre de chiffres exigé.
+Dès l'entrée du chiffre ultime la fonction est exécutée ou mémorisée.
+Si le paramètre est compris entre \textsf{\textsc{\small 01}}{\small{}
+et }\textsf{\textsc{\small 10}}{\small , les 10 touches supérieures
+du clavier peuvent être utilisées ; }{\small \par}
+\item le paramètre est alphanumérique (nom de procédurev ou de programme).
+Pressez la touche \touche{ALPHA}, frappez le nom désiré, puis à
+nouveau \touche{ALPHA}qui déclenche l'exécution ou la mise en mémoire
+; 
+\item le paramètre est l'indication d'un registre de la pile. Pressez tout
+d'abord la touche \touche{?} (point décimal), le calculateur affiche
+\textsf{\textsc{\small ST}}{\small{} (pour }\textsf{\textsc{\small STACK}}{\small{}
+: en français}\textsf{\textsc{\small{} PILE}}{\small ) suivi d'un seul
+tiret. Il vous reste à précaser le registre voulu en appuyant sur
+la touche correspondante :}\\
+{\small{} }\begin{tabular}{ccc}
+\textsf{\textsc{\small -}}{\small{} } & \textsf{\textsc{\small STO}} & pour le registre \reg{L}\tabularnewline
+\textsf{\textsc{\small -}}{\small{} } & \textsf{\textsc{\small 6}} & pour le registre \reg{X}\tabularnewline
+-  & \reg{X} & pour le registre \reg{Y}\tabularnewline
+\textsf{\textsc{\small -}}{\small{} } & \textsf{\textsc{\small 1}}{\small{} } & pour le registre \reg{Z} \tabularnewline
+\textsf{\textsc{\small -}}{\small{} } & \textsf{\textsc{\small 9}}{\small{} } & pour le registre \reg{T} \tabularnewline
+\end{tabular}{\small \par}
+\end{itemize}
+\end{itemize}
+L'avantage de la fonction \fct{XEQ}{\small{} est sa généralité. Son
+utilisation présente cependant quelques inconvénients : }{\small \par}
+\begin{itemize}
+\item la frappe de l'intitulé complet de la fonction peut devenir fastidieuse
+si le mnémonique est long et si la fonction est fréquemment utilisée
+; 
+\item la recherche de la fonction appellée peut être relativement longue
+si plusieurs modules d'application sont connectés. 
+\end{itemize}
+
+\section*{{\normalsize L'ASSIGNATION }}
+
+Pour éviter ces deux inconvénients il est possible d'appeler le nom
+d'une fonction en ne pressant qu'une seule touche. Le nom de cette
+fonction doit avoir été préalablement assignée à l'aide de la commande
+\fct{ASN}{\small{} :}{\small \par}
+
+- une assignation commence par la séquence de touche :
+
+\touche{\textifsymbol[ifgeo]{96}} \touche{ASN} \touche{ALPHA}
+
+\noindent à la suite de cette séquence le nom de la fonction, tel
+qu'il apparaît au catalogue 3, est épellé. Si la fonction demande
+un paramètre, ce dernier ne peut pas être précisé au moment de l'assignation.
+
+Quand l'intitulé de la fonction a été intégralement introduit, on
+presse à nouveau la bascule \touche{ALPHA}. \textsf{\textbf{\textsc{\small \newpage{}}}}{\small \par}
+
+\hp41 affiche alors un tiret interrogatif. Il ne vous reste plus
+qu'à presser la touche à laquelle vous souhaitez affecter la fonction,
+pour achever l'assignation. Le nombre qui apparaît alors à l'écran
+indique la localisation de la touche choisie : le chiffre des dizaines
+précisant sur le clavier la ligne considérée et celui des unités le
+rang sur cette ligne de la touche choisie. Si la touche \touche{SHIFT}{\small{}
+a été utilisée, le nombre est alors négatif.}{\small \par}
+
+Le rappel d'une fonction assignée peut se faire à tout moment à condition
+que le calculateur soit en mode \disp{\tiny USER}{\small . Dans le
+cas où la fonction appelée exige un paramètre} ce dernier sera introduit
+à la suite du nom de la fonction comme il est indiqué au paragraphe
+précédent.
+
+
+\section*{{\normalsize LES OPTIONS DÉFAUT }}
+
+Pour vous simplifier la tâche, Hewlett-Packard, a préassigné au clavier
+68 fonctions et commandes directement accessibles. Presser la touche
+correspondante, éventuellement après la touche \touche{\textifsymbol[ifgeo]{96}}
+(\fct{SHIFT}{\small ) reste la plus simple méthode d'appel d'une
+fonction.}{\small \par}
+
+\newpage{}\fancyhead[CE]{}~\fancyhead[CO]{}~
+
+\newpage{}
+
+\begin{center}
+\textsf{\LARGE ANNEXE 3}
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+\textsf{\textbf{\Huge Description des fonctions }}
+\par\end{center}{\Huge \par}
+
+\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/103_124}\newpage{}
+
+\fancyhead[CO]{DESCRIPTION DES FONCTIONS}
+
+\includegraphics[width=12cm]{Illustrations/104_125}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/105_126}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/106_127}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/107_128}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/108_129}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/109_130}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/110_131}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/111_132}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/112_133}
+
+\newpage{}\fancyhead[CO]{DRAPEAUX}
+
+\begin{center}
+\textsf{\LARGE ANNEXE 4}
+\par\end{center}{\LARGE \par}
+
+\begin{center}
+\textsf{\textbf{\Huge Drapeaux }}
+\par\end{center}{\Huge \par}
+
+\textsf{\textsc{\footnotesize \bigskip{}
+}}{\footnotesize \par}
+
+\begin{singlespace}
+\noindent \begin{flushleft}
+\textsf{\textbf{\textsc{\scriptsize }}}\begin{tabular}{|r|l|c|l|l|}
+\hline 
+\textsf{\textbf{\textsc{\scriptsize N\textdegree{}}}} & \textsf{\textbf{\textsc{\scriptsize signification}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{1.7cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize fonctions}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize d'accès}}}\end{singlespace}
+%
+\end{minipage} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2.5cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+État à la}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize mise }}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize sous}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize tension}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Modifé}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize par}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize hp-41}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\hline
+\textsf{\textbf{\textsc{\scriptsize 0-10}}} & \textsf{\textbf{\textsc{\scriptsize Défini par l'utilisateur}}} & \textsf{\textbf{\textsc{\scriptsize sf cf fs?c fc?c}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2.5cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+Conservé par la}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize mémoire permanente}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage} & \textsf{\textbf{\textsc{\scriptsize non}}}\tabularnewline
+\cline{1-2} \cline{4-4} 
+\textsf{\textbf{\textsc{\scriptsize 11}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+Éxécution automatique}}}{\scriptsize \par}
+\end{singlespace}
+
+\textsf{\textbf{\textsc{\scriptsize des programmes}}}{\scriptsize \par}
+
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage} &  & \textsf{\textbf{\textsc{\scriptsize Désarmé}}} & \tabularnewline
+\cline{1-2} \cline{5-5} 
+\textsf{\textbf{\textsc{\scriptsize 12-17}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Utilsé par les pé\-ri\-phé\-ri\-ques}}}\end{singlespace}
+%
+\end{minipage} &  &  & \textsf{\textbf{\textsc{\scriptsize Variable}}}\tabularnewline
+\cline{1-2} \cline{5-5} 
+\textsf{\textbf{\textsc{\scriptsize 18-20}}} & \textsf{\textbf{\textsc{\scriptsize Non encore défini}}} &  &  & \textsf{\textbf{\textsc{\scriptsize Non}}}\tabularnewline
+\cline{1-2} \cline{4-5} 
+\textsf{\textbf{\textsc{\scriptsize 21}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Arrêt d'éxécution avec view et
+aview}}}\end{singlespace}
+%
+\end{minipage} &  & \textsf{\textbf{\textsc{\scriptsize Variable}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+Oui}}}{\scriptsize \par}
+\end{singlespace}
+
+\textsf{\textbf{\textsc{\scriptsize prend l'état du flag 55}}}{\scriptsize \par}
+
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\cline{1-2} \cline{4-5} 
+\textsf{\textbf{\textsc{\scriptsize 22}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+Une valeur numérique a été entrée au clavier}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage} &  & \textsf{\textbf{\textsc{\scriptsize Désarmé}}} & \textsf{\textbf{\textsc{\scriptsize oui}}}\tabularnewline
+\cline{1-2} 
+\textsf{\textbf{\textsc{\scriptsize 23}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+Idem 22 pour chaîne de caractères}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage} &  &  & \tabularnewline
+\cline{1-2} \cline{5-5} 
+\textsf{\textbf{\textsc{\scriptsize 24}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Inhibe arrêt en cas de dépassement
+de capacité $\nicefrac{+}{-}9.999999999E99$ pris par défaut. Sauf
+division par zéro}}}\end{singlespace}
+%
+\end{minipage} &  &  & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+Non, n'est pas désarmé par R/S contrairement à ce que dit le manuel
+p164}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\hline
+\end{tabular}
+\par\end{flushleft}{\scriptsize \par}
+\end{singlespace}
+
+\newpage{}
+
+\begin{singlespace}
+\noindent \begin{center}
+\textsf{\textbf{\textsc{\scriptsize }}}\begin{tabular}{|r|l|c|l|l|}
+\hline 
+\textsf{\textbf{\textsc{\scriptsize N\textdegree{}}}} & \textsf{\textbf{\textsc{\scriptsize signification}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{1.7cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize fonctions}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize d'accès}}}\end{singlespace}
+%
+\end{minipage} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2.5cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+État à la}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize mise }}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize sous}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize tension}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Modifé}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize par}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize hp-41}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\hline
+\textsf{\textbf{\textsc{\scriptsize 25}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+Inhibe l'arrêt en cas d'errur (instruction non éxécutée}}}{\scriptsize \par}
+
+\textsf{\textbf{\textsc{\scriptsize \smallskip{}
+}}}\end{singlespace}
+%
+\end{minipage} & \textsf{\textbf{\textsc{\scriptsize sf cf fs?c fc?c}}} & \textsf{\textbf{\textsc{\scriptsize Désarmé}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Désarmé à la première erreur}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\cline{1-2} \cline{4-5} 
+\textsf{\textbf{\textsc{\scriptsize 26}}} & \textsf{\textbf{\textsc{\scriptsize Signal sonore actif}}} &  & \textsf{\textbf{\textsc{\scriptsize Armé}}} & \textsf{\textbf{\textsc{\scriptsize Non}}}\tabularnewline
+\cline{1-2} \cline{4-4} 
+\textsf{\textbf{\textsc{\scriptsize 27}}} & \textsf{\textbf{\textsc{\scriptsize Mode user}}} &  & \textsf{\textbf{\textsc{\scriptsize Mémoire permanente}}} & \tabularnewline
+\cline{1-2} 
+\textsf{\textbf{\textsc{\scriptsize 28}}} & \textsf{\textbf{\textsc{\scriptsize Point décimal ou virgule}}} &  &  & \tabularnewline
+\cline{1-2} 
+\textsf{\textbf{\textsc{\scriptsize 29}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Séparateur de groupe de trois
+chiffres}}}\end{singlespace}
+%
+\end{minipage} &  &  & \tabularnewline
+\hline
+\textsf{\textbf{\textsc{\scriptsize 30}}} & \textsf{\textbf{\textsc{\scriptsize Catalogue en cours}}} & \textsf{\textbf{\textsc{\scriptsize Aucune}}} & \textsf{\textbf{\textsc{\scriptsize Désarmé}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Désarmé pour l'utilisateur}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\cline{1-2} \cline{4-5} 
+\textsf{\textbf{\textsc{\scriptsize 31-35}}} & \textsf{\textbf{\textsc{\scriptsize Périphérique HP-IL}}} &  & \textsf{\textbf{\textsc{\scriptsize ?}}} & \textsf{\textbf{\textsc{\scriptsize Non}}}\tabularnewline
+\cline{1-4} 
+\textsf{\textbf{\textsc{\scriptsize 36-41}}} & \textsf{\textbf{\textsc{\scriptsize Format d'affichage}}} & \textsf{\textbf{\textsc{\scriptsize Fix sci eng}}} & \textsf{\textbf{\textsc{\scriptsize Mémoire permanente}}} & \tabularnewline
+\cline{1-3} 
+\textsf{\textbf{\textsc{\scriptsize 42-43}}} & \textsf{\textbf{\textsc{\scriptsize Mode trigonométrique}}} & \textsf{\textbf{\textsc{\scriptsize Deg rad grad}}} &  & \tabularnewline
+\cline{1-4} 
+\textsf{\textbf{\textsc{\scriptsize 44}}} & \textsf{\textbf{\textsc{\scriptsize Inhibe l'auto-extinction}}} & \textsf{\textbf{\textsc{\scriptsize On}}} & \textsf{\textbf{\textsc{\scriptsize Désarmé}}} & \tabularnewline
+\cline{1-3} \cline{5-5} 
+\textsf{\textbf{\textsc{\scriptsize 45}}} & \textsf{\textbf{\textsc{\scriptsize Entrée de donnée}}} &  &  & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Toujours désarmé pour l'utilisateur}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\cline{1-2} 
+\textsf{\textbf{\textsc{\scriptsize 46}}} & \textsf{\textbf{\textsc{\scriptsize Entrée de fonction}}} & \textsf{\textbf{\textsc{\scriptsize Aucune}}} &  & \tabularnewline
+\cline{1-2} 
+\textsf{\textbf{\textsc{\scriptsize 47}}} & \textsf{\textbf{\textsc{\scriptsize Shift}}} &  &  & \tabularnewline
+\cline{1-3} \cline{5-5} 
+\textsf{\textbf{\textsc{\scriptsize 48}}} & \textsf{\textbf{\textsc{\scriptsize Alpha}}} & \textsf{\textbf{\textsc{\scriptsize Aon aoff}}} &  & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Désarmé par touche prgm}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\hline
+\textsf{\textbf{\textsc{\scriptsize 49}}} & \textsf{\textbf{\textsc{\scriptsize Batterie}}} &  & \textsf{\textbf{\textsc{\scriptsize Variable}}} & \textsf{\textbf{\textsc{\scriptsize Oui}}}\tabularnewline
+\hline
+\textsf{\textbf{\textsc{\scriptsize 50}}} & \textsf{\textbf{\textsc{\scriptsize Message à l'affichage}}} & \textsf{\textbf{\textsc{\scriptsize View aview cld}}} & \textsf{\textbf{\textsc{\scriptsize Désarmé}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{2cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Toujours désarmé pour l'utilisateur}}}\end{singlespace}
+%
+\end{minipage}\tabularnewline
+\cline{1-3} 
+\textsf{\textbf{\textsc{\scriptsize 51}}} & \textsf{\textbf{\textsc{\scriptsize Sst en cours}}} & \textsf{\textbf{\textsc{\scriptsize Aucune}}} &  & \tabularnewline
+\cline{1-3} 
+\textsf{\textbf{\textsc{\scriptsize 52}}} & \textsf{\textbf{\textsc{\scriptsize Mode programme}}} & \textsf{\textbf{\textsc{\scriptsize Prgm}}} &  & \tabularnewline
+\cline{1-3} 
+\textsf{\textbf{\textsc{\scriptsize 53}}} & \textsf{\textbf{\textsc{\scriptsize Fonction I/O}}} & \textsf{\textbf{\textsc{\scriptsize Aucune}}} &  & \tabularnewline
+\cline{1-2} 
+\textsf{\textbf{\textsc{\scriptsize 54}}} & \textsf{\textbf{\textsc{\scriptsize Pause en cours}}} &  &  & \tabularnewline
+\hline
+\textsf{\textbf{\textsc{\scriptsize 55}}} & \textsf{\textbf{\textsc{\scriptsize }}}%
+\begin{minipage}[c]{3cm}%
+\begin{singlespace}
+\textsf{\textbf{\textsc{\scriptsize Imprimante thermique présente}}}\end{singlespace}
+%
+\end{minipage} &  & \textsf{\textbf{\textsc{\scriptsize Variable}}} & \textsf{\textbf{\textsc{\scriptsize Oui}}}\tabularnewline
+\hline
+\end{tabular}\newpage{}\textsf{\LARGE ANNEXE 5}
+\par\end{center}{\LARGE \par}
+\end{singlespace}
+
+\begin{center}
+\textsf{\textbf{\Huge Pocèdures et code-barre}}
+\par\end{center}{\Huge \par}
+
+\newpage{}
+
+\fancyhead[CO]{PROCÈDURES ET CODE-BARRE}
+
+\includegraphics[width=12cm]{Illustrations/115_137}\newpage{}
+
+\includegraphics[width=12cm]{Illustrations/116_138}\newpage{}
+
+\includegraphics[width=12cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/117_139}\newpage{}\includegraphics[width=11cm]{Illustrations/119_141}\newpage{}\includegraphics[width=11cm]{Illustrations/120_142}\newpage{}\includegraphics[width=11cm]{Illustrations/121_143}\newpage{}\includegraphics[width=11cm]{Illustrations/122_144}\newpage{}\includegraphics[width=11cm]{Illustrations/123_145}\newpage{}\includegraphics[width=11cm]{Illustrations/124_146}\newpage{}\includegraphics[width=11cm]{Illustrations/125_147}\newpage{}\includegraphics[width=11cm]{Illustrations/126_148}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/127_149}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/128_150}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/129_151}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/130_152}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/131_153}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/132_154}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/133_155}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/134_156}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/135_157}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/136_158}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/137_159}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/138_160}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/139_161}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/140_162}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/141_163}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/142_164}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/143_165}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/144_166}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/145_167}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/146_168}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/147_169}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/148_170}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/149_171}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/150_172}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/151_173}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/152_174}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/153_175}\newpage{}
+
+\fancyhead[C]{}\pagestyle{empty}
+
+\includegraphics[width=11cm]{Illustrations/154_Au_revoir}\newpage{}
+
+\fancyhead[C]{}\includegraphics[width=0.9\paperwidth]{Illustrations/154_verso}
+\end{document}
