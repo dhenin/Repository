@@ -61,15 +61,32 @@
 
 \begin{document}
 \noindent \begin{center}
-\pagestyle{plain}\fancyhead[C]{}\thispagestyle{empty}\textsf{\textbf{\Huge \includegraphics[width=1\textwidth]{Illustrations/000_Recto}}}
+%\pagestyle{plain}\fancyhead[C]{}\thispagestyle{empty}
+% \pagestyle{empty}
+\pagenumbering{gobble}
+%
+\textsf{\textbf{\Huge \includegraphics[width=1\textwidth]{Illustrations/000_Recto}}}
 \par\end{center}{\Huge \par}
 
-\pagebreak{}
+ \newpage{}
+  ~
+\clearpage
+ \setcounter{page}{0} 
+ \pagenumbering{arabic} 
 
-\thispagestyle{empty}\includegraphics[width=0.8\textwidth]{Illustrations/00A_don}
 
-\pagebreak{}\thispagestyle{empty}
 
+\pagestyle{plain}\fancyhead[C]{}\thispagestyle{empty}
+
+\vfill
+ \centerline {\Huge \bf Programmer HP-41}
+ 
+ \newpage{}
+ 
+\thispagestyle{empty}
+\includegraphics[width=0.8\textwidth]{Illustrations/00A_don} \nopagebreak 
+
+% \pagebreak{}\thispagestyle{empty}
 
 \title{\textsf{\textbf{\Huge Programmer HP-41\vfill{}
 }}{\Huge{} }}
@@ -91,7 +108,7 @@
 
 \maketitle
 \noindent \begin{center}
-\newpage{}\thispagestyle{empty}~\vfill{}
+\thispagestyle{empty}~\vfill{}
  ~\includegraphics[width=10cm]{Illustrations/002_Arrivee}~\vfill{}
  \newpage{}
 \par\end{center}
@@ -1309,7 +1326,7 @@ pour vous, un petit pas pour 1'humanité.
 
 Avant d'aborder toute programmation il est essentiel de se pencher
 longuement sur la pile opérationnelle à quatre registres. Cette pile
-est le c½ur du système. Toutes les valeurs doivent transiter par elle
+est le c?ur du système. Toutes les valeurs doivent transiter par elle
 et c'est en son sein que s'effectue la majorité des opérations. Il
 est donc nécessaire de la maîtriser complètement et de pouvoir suivre
 en permanence le ballet des valeurs dans les registres.
@@ -1323,20 +1340,13 @@ susceptible de désorienter les téméraires acquéreurs de cette première
 calculatrice sophistiquée. Nous ne pouvons résister au plaisir de
 vous le présenter.
 
-\noindent \begin{flushleft}
-\vfill{}
+% \includegraphics[width=3cm]{Illustrations/033_HP35_Dos_us}
 
-\par\end{flushleft}
+\bigskip
 
-\selectlanguage{english}%
-\includegraphics[width=3cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/033_HP35_Dos_us}\foreignlanguage{french}{\hfill{}\vfill{}
-}
+\centerline{\includegraphics[width=9cm]{Illustrations/034_Dos_fr}}
 
-\selectlanguage{french}%
-\hfill{}\includegraphics[width=8cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/034_Dos_fr}\hfill{}\vfill{}
- \newpage{}
-
-\newpage{}\hfill{}\includegraphics[width=5cm]{Illustrations/035_Barbu}\includegraphics[width=3.2cm]{Illustrations/036_HP-35}\vfill{}
+\hfill{}\includegraphics[width=5cm]{Illustrations/035_Barbu}\includegraphics[width=3.2cm]{Illustrations/036_HP-35}\vfill{}
 
 
 Les choses ont depuis quelque peu évolué. Le stockage d'une valeur
@@ -1577,10 +1587,9 @@ de rang N (par ordre décroissant) avec son signe }{\footnotesize \par}
 
 Pour notre polynôme nous obtenons :\label{Pb1}\smallskip{}
 
-
 %
 \framebox{\begin{minipage}[c]{3.2cm}%
-\includegraphics[width=3cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/040_Horner}%
+\includegraphics[width=3cm]{Illustrations/040_Horner}%
 \end{minipage}}\smallskip{}
 
 
@@ -2872,10 +2881,11 @@ pas le but recherché, et d'autre part le code de contrôle renvoyé
 est bien curieux, l'adresse du sommet est inférieur à celle de la
 base !
 
+
 \begin{center}
 \hfill{}%
 \begin{minipage}[c]{6cm}%
-\includegraphics[width=5.8cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/067_Fracas}%
+\includegraphics[width=5.8cm]{Illustrations/067_Fracas}%
 \end{minipage}\smallskip{}
 
 \par\end{center}
@@ -2957,7 +2967,7 @@ curiosité notre procédure n'utilise que onze instructions ! )\smallskip{}
 
 %
 \framebox{\begin{minipage}[c]{3.5cm}%
-\includegraphics[width=3.3cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/068_TRI}%
+\includegraphics[width=3.3cm]{Illustrations/068_TRI}%
 \end{minipage}}\smallskip{}
 
 
@@ -3312,7 +3322,7 @@ incrément. Donc :
 
 %
 \framebox{\begin{minipage}[c]{3.5cm}%
-\includegraphics[width=3.3cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/079_CMM}%
+\includegraphics[width=3.3cm]{Illustrations/079_CMM}%
 \end{minipage}}\smallskip{}
 
 
@@ -3569,11 +3579,11 @@ Si l'utilisateur frappe \touche{R/S} sans introduire de valeur alors
 le menu lui sera présenté puis la question à nouveau posée.\smallskip{}
 
 
+
 %
 \begin{minipage}[c]{10cm}%
-\includegraphics[width=9.5cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/092_HP_Menu}%
+\includegraphics[width=9.5cm]{Illustrations/092_HP_Menu}%
 \end{minipage}\smallskip{}
-
 
 
 \subsection*{\emph{\normalsize \hp41 vous répond }}
@@ -4649,8 +4659,45 @@ chiffres}}}\end{singlespace}
 \includegraphics[width=12cm]{Illustrations/115_137}\newpage{}
 
 \includegraphics[width=12cm]{Illustrations/116_138}\newpage{}
+\includegraphics[width=12cm]{Illustrations/117_139}\newpage{}
+\includegraphics[width=12cm]{Illustrations/118_140}\newpage{}
+\includegraphics[width=12cm]{Illustrations/119_141}\newpage{}
+\includegraphics[width=11cm]{Illustrations/120_142}\newpage{}
+\includegraphics[width=11cm]{Illustrations/121_143}\newpage{}
+\includegraphics[width=11cm]{Illustrations/122_144}\newpage{}
+\includegraphics[width=11cm]{Illustrations/123_145}\newpage{}
+\includegraphics[width=11cm]{Illustrations/124_146}\newpage{}
+\includegraphics[width=11cm]{Illustrations/125_147}\newpage{}
+\includegraphics[width=11cm]{Illustrations/126_148}\newpage{}
 
-\includegraphics[width=12cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/117_139}\newpage{}\includegraphics[width=11cm]{Illustrations/119_141}\newpage{}\includegraphics[width=11cm]{Illustrations/120_142}\newpage{}\includegraphics[width=11cm]{Illustrations/121_143}\newpage{}\includegraphics[width=11cm]{Illustrations/122_144}\newpage{}\includegraphics[width=11cm]{Illustrations/123_145}\newpage{}\includegraphics[width=11cm]{Illustrations/124_146}\newpage{}\includegraphics[width=11cm]{Illustrations/125_147}\newpage{}\includegraphics[width=11cm]{Illustrations/126_148}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/127_149}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/128_150}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/129_151}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/130_152}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/131_153}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/132_154}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/133_155}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/134_156}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/135_157}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/136_158}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/137_159}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/138_160}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/139_161}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/140_162}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/141_163}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/142_164}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/143_165}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/144_166}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/145_167}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/146_168}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/147_169}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/148_170}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/149_171}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/150_172}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/151_173}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/152_174}\newpage{}\includegraphics[width=11cm]{/Users/dhenin/Desktop/HP41/Livre/Illustrations/153_175}\newpage{}
+\includegraphics[width=11cm]{Illustrations/127_149}\newpage{}
+\includegraphics[width=11cm]{Illustrations/128_150}\newpage{}
+\includegraphics[width=11cm]{Illustrations/129_151}\newpage{}
+\includegraphics[width=11cm]{Illustrations/130_152}\newpage{}
+\includegraphics[width=11cm]{Illustrations/131_153}\newpage{}
+\includegraphics[width=11cm]{Illustrations/132_154}\newpage{}
+\includegraphics[width=11cm]{Illustrations/133_155}\newpage{}
+\includegraphics[width=11cm]{Illustrations/134_156}\newpage{}
+\includegraphics[width=11cm]{Illustrations/135_157}\newpage{}
+\includegraphics[width=11cm]{Illustrations/136_158}\newpage{}
+\includegraphics[width=11cm]{Illustrations/137_159}\newpage{}
+\includegraphics[width=11cm]{Illustrations/138_160}\newpage{}
+\includegraphics[width=11cm]{Illustrations/139_161}\newpage{}
+\includegraphics[width=11cm]{Illustrations/140_162}\newpage{}
+\includegraphics[width=11cm]{Illustrations/141_163}\newpage{}
+\includegraphics[width=11cm]{Illustrations/142_164}\newpage{}
+\includegraphics[width=11cm]{Illustrations/143_165}\newpage{}
+\includegraphics[width=11cm]{Illustrations/144_166}\newpage{}
+\includegraphics[width=11cm]{Illustrations/145_167}\newpage{}
+\includegraphics[width=11cm]{Illustrations/146_168}\newpage{}
+\includegraphics[width=11cm]{Illustrations/147_169}\newpage{}
+\includegraphics[width=11cm]{Illustrations/148_170}\newpage{}
+\includegraphics[width=11cm]{Illustrations/149_171}\newpage{}
+\includegraphics[width=11cm]{Illustrations/150_172}\newpage{}
+\includegraphics[width=11cm]{Illustrations/151_173}\newpage{}
+\includegraphics[width=11cm]{Illustrations/152_174}\newpage{}
+\includegraphics[width=11cm]{Illustrations/153_175}\newpage{}
+
 
 \fancyhead[C]{}\pagestyle{empty}
 
