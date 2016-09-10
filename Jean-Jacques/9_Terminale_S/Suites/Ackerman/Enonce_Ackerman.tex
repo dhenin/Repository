@@ -1,0 +1,38 @@
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule.ltx}
+    \begin{document}
+\fi
+
+La fonction d'Ackerman 
+
+Cette fonction $A$ est une fonction de deux entiers naturels définie ainsi :
+
+$ A(0,n)= n+1$  pour tout  $n \in  \mathbb{N} $ 
+
+$A(m+1,0)= A(m,1)$ pour tout  $m \in  \mathbb{N} $ 
+
+$A(m+1,n+1)= A(m,A(m+1,n))$  pour tous $m$ et $n$ de $ \mathbb{N} $ 
+
+\begin{enumerate}
+
+\item Calculer $A(0,0)$, $A(0,1)$ et $ A(1,0)$.
+
+\item Calculer $A(m,n)$ pour $m \leqslant 2$  $ n \leqslant 4$. Vous présenterez les résultats dans un tableau.
+
+\item Émettre des conjonctures sur les expressions de $A(1,n)$, $A(2,n)$ en fonction de $n$ et les démontrer.
+
+\item Compléter votre tableau par le calcul de $A(3,n)$ pour $n \leqslant 4$.  
+
+\item Démontrer que $A(3,n)= 2^{n+3}-3$  pour tout $n \geqslant 0$.
+
+\end{enumerate}
+
+{\it La définition de cette fonction peut paraître curieuse puisqu'elle fait appel à elle-même ! 
+c'est une fonction dite « récursive » qui joue un rôle important en informatique notamment pour tester directement les performances d'un langage de programmation.}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

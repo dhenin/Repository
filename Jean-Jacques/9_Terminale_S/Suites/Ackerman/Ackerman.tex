@@ -1,0 +1,29 @@
+\input{./preambule.ltx}
+
+\usepackage{diagbox}
+\frenchbsetup{StandardItemLabels=true, CompactItemize=false, ReduceListSpacing=true}
+
+
+\ifdefined\COMPLETE
+\else
+    \newcommand{\COMPLETE}
+\fi                        % Autorise la compilation de illustrations
+                          % soit isolées, soit inluses 
+
+\ifdefined\CORRECTION
+\else
+%    \newcommand{\CORRECTION}
+\fi                        
+
+\begin{document}
+
+\vspace*{5cm}
+
+\input{Enonce_Ackerman.tex}
+
+\newpage
+
+\input{Correction_Ackerman.tex}
+              
+\end{document}
+

@@ -1,0 +1,219 @@
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule.ltx}
+\usepackage{diagbox}
+\frenchbsetup{StandardItemLabels=true, CompactItemize=false, ReduceListSpacing=true}
+    \begin{document}
+\fi
+
+
+\centerline{\huge \bf Fonction Ackerman}
+
+\bigskip
+
+\begin{enumerate}
+
+
+\item On a $A(0,n) = n+1$ pour tout $n \in \mathbb{N}$.
+
+Pour $n=0$, on a donc \fbox{$A(0,0) = 0 + 1 = 1$}
+
+\begin{itemize}
+\item De même, pour  $n=1$, on  \fbox{$A(0,1) = 1 + 1 = 2$}
+
+\item On a $A(n+1,0) = A(m,1)$  pour tout  $m \in \mathbb{N}$.
+
+Pour  $m=0$, on a $A(0+1,0) = A(1, 0) = A(0,1)$
+
+Ainsi, d'après le point précèdent, \fbox{$A(1,0)=2$}
+\end{itemize} 
+
+\bigskip 
+
+\item ~ \\
+% \renewcommand{\arraystretch}{1.8}
+\begin{tabular}{l|l}
+\begin{tabular}{|c|c|c|c|}
+\hline
+        \diagbox%[width=10em]
+        {n}{m}
+             &  0 & 1 &  2 \\
+\hline             
+       0    &  1 & 2 &  3 \\    
+\hline       
+       1    &  2 & 3 &  5 \\
+\hline       
+       2    &  3 & 4 &  7 \\
+\hline       
+       3    &  4 & 5 &  9 \\
+\hline       
+       4   &   5 & 6 & 11 \\
+\hline
+\multicolumn{4}{c}{}
+\end{tabular} % \medskip 
+ &
+                          \begin{minipage}{8cm}
+                          \begin{itemize}
+                          \item $A(0,n) = n +1$ pour tout $n \in \mathbb{N}$.\\
+                                   Donc $A(0,0) = 1 $ d'après 1. \\
+                                            $A(0,1) = 2 $ d'après 1. \\
+                                            $A(0,2) = 3 $ ,  $A(0,3) = 4 $ ,   $A(0,4) = 5 $                                               
+                         \item $A(m+1, 0) = A(m,1)$ pour tout $m \in \mathbb{N}$.\\
+                                 Donc, $A(1,0 = A(0,1) = 2$
+                          \end{itemize}          
+                          \end{minipage} \\
+ \hline
+ & \\
+ Pour $m=n=0 $, $ \quad A(1,1)$  &
+                             Pour $m=1, n=0$, $ \quad  A(2,1) $ \\
+$  \qquad \qquad = A\left(0,A(1,0)\right) = A(0,2) = 3$ &
+                             $\qquad   = A\left(1,A(2,0)\right)= A(1,3) = 5$ \\
+ & \\                             
+ \hline 
+ & \\
+ Pour $m=0, n=1 $, $ \quad A(1,2)$  &
+                             Pour $m=1, n=1$, $ \quad  A(2,2) = A\left(1,A(2,1)\right)  $ \\
+$  \qquad = A\left(0,A(1,1)\right) = A(0,3) = 4$ &
+                             $\qquad   = A(1,5) = A\left(0,A(1,4)\right) = A(0,6) = 7$ \\
+ & \\                             
+ \hline
+ & \\
+ Pour $m=0, n=2 $, $ \quad A(1,3)$  &
+                             Pour $m=1, n=2$, $ \quad  A(2,3) = A\left(1,A(2,2)\right)  $ \\
+$  \qquad = A\left(0,A(1,2)\right) = A(0,4) = 5$ &
+                             $\qquad   = A(1,7) = A\left(0,A(1,6)\right) = \ldots = 9$ \\
+ & \\                             
+ \hline
+ & \\
+ Pour $m=0, n=3 $, $ \quad A(1,4)$  &
+                             Pour $m=1, n=3$, $ \quad  A(2,4)= \ldots = 11$ \\
+$  \qquad = A\left(0,A(1,3)\right) = A(0,5) = 6$ & \\
+ & \\                             
+ \hline                                                
+\end{tabular}
+
+
+\bigskip 
+
+
+\item ~
+\begin{itemize}
+\item Montrons que $A(1,n) = n+2 $ pour tout $n \in \mathbb{N}$ \\
+
+\underline{Initialisation} : pour $n=0$, on a  $ \left\lbrace 
+                                                                       \begin{array}{rl}
+                                                                       A(1,0) & = 2 \\
+                                                                       n+2    & =2  \\
+                                                                       \end{array}
+                                                                    \right. $ \\
+ D'où $A(1,0) = 0 + 2 = 2$, ainsi la propriété est initialisée.
+ 
+ \bigskip 
+ 
+ \underline{Hérédité} :  \\
+ $  \begin{array}{rll}
+                                         A (1, n+1) & = A\left(0, A(1,n)\right)  & \qquad \mathrm{Par\; hypothèse\; de\; récurrence} \\
+                                                          & = A (0, n+2)  & \qquad \mathrm{Par\;définition} \\
+                                                          & = n + 3 \\
+                                        \end{array} $ \\
+Donc, la propriété est héréditaire . \\
+
+Donc $\forall n \in  \mathbb{N}, A(1,n) = n+ 2 $            
+
+\newpage                
+
+\item              Montrons que $A(2,n) = 2n+3$   
+
+\underline{Initialisation} :  pour $n=0$, on a  $ \left\lbrace 
+                                                                       \begin{array}{rl}
+                                                                       A(2,0) & = 3 \\
+                                                                       2n + 3    & =2  \\
+                                                                       \end{array}
+                                                                    \right. $ \\
+ D'où $A(2,0) = 0 + 3 = 2$, ainsi la propriété est initialisée.
+
+ \underline{Hérédité} :  \\
+  $  \begin{array}{rll}
+                                         A (2, n+1) & = A\left(1, A(2,n)\right)  & \qquad \mathrm{Par\; hypothèse\; de\; récurrence} \\
+                                                          & = A (1, 2n+3)  & \qquad \mathrm{d'après \;la \;première \;partie \;de\;la\;question} \\
+                                                          & = 2n + 5 & \qquad \mathrm{en \; simplifiant \; pour} \\
+                                                          & = 2(n+1) +3   & \qquad \mathrm{montrer \; que \; l'on \; a \; fini} \\
+                                        \end{array} $ \\
+Donc, la propriété est héréditaire . \\   
+
+Donc $\forall n \in  \mathbb{N}, A(2,n) = 2n+ 3 $           
+                                   
+\end{itemize}
+
+\item  ~ 
+
+\begin{tabular}{l|l}
+\begin{tabular}{|c|c|}
+\hline
+        \diagbox{n}{m} & 3 \\
+\hline        
+        0 & 5 \\
+\hline
+        1  & 13 \\
+\hline
+         2 &  29 \\
+\hline
+         3 & 61 \\
+\hline
+         4 & 125 \\
+%          4   &   5 & 6 & 11 \\
+\hline
+\multicolumn{2}{c}{}         
+\end{tabular}  &  \begin{minipage}{8cm}
+                           $\begin{array}{lll}
+                           A(3,0)  & = A(2,1)                       &  = 5 \\
+                           A(3,1)  & = A\left(2, A(3,0)\right) & = A(2,5) \\
+                                      &                                      & = 2\times 5 + 3 = 13 \\
+                            A(3,2)  & = A\left(2, A(3,1)\right) & = A(2,13) \\
+                                      &                                      & = 2\times 13 + 3 = 29 \\                          
+                            A(3,3)  & = A\left(2, A(3,2)\right) & = A(2,29) \\
+                                      &                                      & = 2\times 29 + 3 = 61 \\           
+                            A(3,4)  & = A\left(2, A(3,3)\right) & = A(2,61) \\
+                                      &                                      & = 2\times 61 + 3 = 125 \\          
+                           \end{array}
+                           $        
+                          \end{minipage} \\                       
+\end{tabular}
+  
+\bigskip 
+
+\item Montrons que   $A(3,n) = 2^{n+3} -3 $ 
+
+\underline{Initialisation} :  pour $n=0$, on a  $ \left\lbrace 
+                                                                       \begin{array}{rl}
+                                                                       A(3,0) & = 5 \\
+                                                                       2^{0+3} - 3    & = 8 -3 = 5  \\
+                                                                       \end{array}
+                                                                    \right. $ \\
+ D'où $A(3,0) = 2^{0+3} - 3 $,  la propriété est initialisée.
+
+ \underline{Hérédité} :  \\
+  $  \begin{array}{rll}
+                                         A (3, n+1) & = A\left(2, A(3,n)\right)  & \qquad \mathrm{Par\; hypothèse\; de\; récurrence} \\
+                                                          & = A (2, 2^{n+3}-3)  & \qquad \mathrm{d'après \;la \;seconde \;partie \;de\;la\;question 3 } \\
+                                                          & = 2(2,2^{n+3}-3)+3   &  \\                                                          
+                                                          & = 2 \times 2^{n+3} -6 + 3 & \qquad \mathrm{en \; développant} \\
+                                                          & =   2^{(n+1)+3 } -3  & \qquad \mathrm{en \; simplifiant} \\
+                                        \end{array} $ 
+                                        
+ \bigskip 
+                                       
+Donc, la propriété est héréditaire.
+
+ \bigskip 
+
+Donc $\forall n \in  \mathbb{N}, A(3,n) = 2^{n+3} - 3 $         
+
+
+\end{enumerate}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

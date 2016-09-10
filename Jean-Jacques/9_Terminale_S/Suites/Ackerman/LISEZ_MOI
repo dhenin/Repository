@@ -1,0 +1,28 @@
+Contenu du répertoire : 
+
+LISEZ_MOI                Ce fichier lui-même 8O)
+
+Ackerman.c               Source du programme C qui calcule A(0,0) a A (2,10) 
+
+Ackerman.py              Programme python qui calcule par récurrence A(m,n) 
+                         ligne de commande : python Ackerman.py 2 3 
+
+Ackerman.tex             Source tex de l'énoncé + correction 
+
+Enonce_Ackerman.tex     Comme son nom l'indique
+
+Correction_Ackerman.tex Comme son nom l'indique
+
+Do_tableau_1.sh         Produit les valeurs du premier tableau 
+                        en utilisant Ackerman.py
+
+Do_tableau_2.sh         Produit les valeurs du deuxieme tableau 
+                        en utilisant Ackerman.py
+Makefile                
+	make Ackerman   compile le fichier Ackerman.c
+        make clean      supprime tout l'inutile sauf les pdf 
+	make clean_all  supprime tout l'inutile même les pdf
+			et le programme Ackerman
+	 
+Scan_DM_Nolwenn.jpg     Le DM original
+preambule.ltx 		Le préambule de Sacha
