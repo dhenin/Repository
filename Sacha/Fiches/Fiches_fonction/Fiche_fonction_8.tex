@@ -1,0 +1,29 @@
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}   
+    \usepackage{variations}
+    \begin{document}
+\fi
+
+% pour modifier la taille, modifier le scale 
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (3.5,3) -- (13,3);
+\foreach \x in {4,5,6,7,8,9,10,11,12} 
+\draw[shift={(\x,3)}] (0pt,2pt) -- (0pt,-2pt) ; 
+\draw[->] (5,2.5) -- (5,8.5);
+\foreach \y in {5,6,7,8}
+\draw[shift={(5,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;  
+\clip(3.5,3) rectangle (12.32,12.68);
+\draw[smooth,samples=1000,domain=5.5:12.3] plot(\x,{(4*(\x)-18)/((\x)-5)}); 
+\draw [color=red] (0,4.1) -- (13,4.1) ;
+\draw(5,4.3) [left] node {$l$} ; 
+
+
+
+\end{tikzpicture}
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

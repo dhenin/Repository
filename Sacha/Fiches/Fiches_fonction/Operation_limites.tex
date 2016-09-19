@@ -1,0 +1,51 @@
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}   
+    \usepackage{variations}
+    \begin{document}
+\fi
+
+
+ 
+\begin{table}[ht]
+\caption{Limite du produit $u \times v$}
+
+\begin{center}
+{\renewcommand{\arraystretch}{1.5}
+ \setlength{\doublerulesep}{0pt}
+% Attention au ! avant le filet gras vertical  
+\begin{tabular}{!{\vrule width 1.5pt}c!{\vrule width 1.5pt}c|c|c|c|c!{\vrule width 1.5pt}}
+\hline \hline \hline % ---------------
+$u\downarrow \rightarrow$ & $l'>0$ & $l'< 0$ &  $l'=0$ &  $+\infty $ & $-\infty $  \\
+\hline \hline \hline % ---------------
+$ l > 0 $ & 
+             \multicolumn{3}{c|}{\multirow{3}{*}{$l \times l'$}} 
+                                                      &  $+\infty $ & $-\infty $  \\
+\cline {1-1}  \cline {5-6} % -------     ------------         
+$ l < 0 $ & 
+             \multicolumn{3}{c|}{} 
+                                                      &  $-\infty $ & $+\infty $  \\
+\cline {1-1}  \cline {5-6} % -------     ------------ 
+$ l = 0 $ & 
+             \multicolumn{3}{c|}{} 
+                                                      & \multicolumn{2}{c!{\vrule width 1.5pt}}{ \bf ??}  \\
+\hline % ---------------
+ $+\infty $ &  $+\infty $ &  $-\infty $ & 
+                                       \multirow{2}{*}{ \bf ??} 
+                                                        &  $+\infty $ & $-\infty $  \\                                                      
+\cline {1-3}  \cline {5-6}
+ $-\infty $ &  $-\infty $ &  $+\infty $ & 
+                                       
+                                                  &  $-\infty $ & $+\infty $  \\                                                      
+\hline \hline \hline % ---------------
+\end{tabular}
+}
+\end{center}
+\label{tab:multicol}
+\end{table}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

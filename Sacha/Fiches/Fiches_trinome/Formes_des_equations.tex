@@ -1,0 +1,107 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    
+\frenchbsetup{StandardLists=true} % à inclure si on utilise \usepackage[french]{babel}
+\usepackage{enumitem}   
+
+    \begin{document}
+\fi
+
+\centerline{\huge \bf « Formes » des trinômes du 2\up{nd} degré} 
+
+\bigskip 
+
+\begin{enumerate}
+
+
+\item \textcolor{red}{Formes :}
+
+Il existe 3 formes :
+
+
+\begin{itemize} [label=$\bullet$]
+\item la \textcolor{red}{forme développée :} $\; ax^2 + bx + c$ 
+\item   la \textcolor{red}{forme factorisée :} $\quad a(x-x_1) x-x_2)$ ou $a(x-x_0)^2$ 
+\item  la \textcolor{red}{forme canonique:} $\;\; a(x-\alpha)^2 + \beta$ 
+     \end{itemize}
+
+\item \textcolor{red}{Passer d'une forma à l'autre :}
+
+Pour passer de \textcolor{darkgreen}{\sc FD} à  \textcolor{darkgreen}{\sc FF :}
+
+\color{blue}{
+\begin{itemize} [label=]
+\item \underline{Étape 1} : On résout l'équation $ax^2 + bx +c = 0$.
+\item   \underline{Étape 2} : Selon le signe de $\Delta$ : 
+
+\begin{tabular}{M{3cm}|M{5cm}|M{5cm}}
+\multicolumn{1}{c|}{Si $ \Delta < 0$} & \multicolumn{1}{c|}{Si $ \Delta = 0$} &  \multicolumn{1}{c}{Si $ \Delta > 0$} \\
+$\bullet$ Il n'y a pas de forme factorisée 
+              & $\bullet$  Après avoir identifié \\la solution $x_0$, on a : \\
+                                 $ax^2 + bx +c = a (x -x_0)^2 $  
+                          & $\bullet$  Après avoir identifié \\les solutions $x_1$ et $x_2$, on a :
+                                       $ax^2 + bx +c = a (x -x_1) (x-x_2) $  \\
+\end{tabular}
+ \end{itemize} }
+ 
+\bigskip 
+
+ Pour passer de \textcolor{darkgreen}{\sc FD} à  \textcolor{darkgreen}{\sc FC :}
+
+\color{blue}{
+\begin{itemize} [label=]
+\item \underline{Étape 1} : On calcule \textcolor{darkgreen}{$\alpha = \dfrac{-b}{2a}$} et  \textcolor{darkgreen}{$\beta = f(\alpha)$}
+\item   \underline{Étape 2} : On a $ax^2 +bx +c = a(x-\alpha)^2 +\beta$
+ \end{itemize} }
+  
+\bigskip 
+
+  Pour passer de \textcolor{darkgreen}{\sc FF} à  \textcolor{darkgreen}{\sc FD :}
+  
+\color{blue}{
+On applique les règles de distributivité (ordre de calcul : puissance, multiplication, addition)
+ }
+ 
+\bigskip 
+ 
+  Pour passer de \textcolor{darkgreen}{\sc FF} à  \textcolor{darkgreen}{\sc FC :}
+
+\color{blue}{
+\begin{itemize} [label=]
+\item \underline{Étape 1} :  On passe de {\sc FF} à {\sc FD}
+\item   \underline{Étape 2} : On passe de {\sc FD} à {\sc FC}
+ \end{itemize} }
+ 
+\bigskip 
+     
+  Pour passer de \textcolor{darkgreen}{\sc FC} à  \textcolor{darkgreen}{\sc FD :}
+  
+\color{blue}{
+On applique les règles de distributivité (ordre de calcul : puissance, multiplication, addition)
+ }
+  
+\bigskip 
+
+  Pour passer de \textcolor{darkgreen}{\sc FC} à  \textcolor{darkgreen}{\sc FF :}
+
+\color{blue}{
+\begin{itemize} [label=]
+\item \underline{Étape 1} :  On passe de {\sc FC} à {\sc FD}
+\item   \underline{Étape 2} : On passe de {\sc FD} à {\sc FF}
+ \end{itemize} }
+     
+           
+\end{enumerate}
+
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
+
+\item [] \textcolor{blue}{Étape préliminaire : On vérifie que l'on n'a pas d'identité remarquable}
+
+\underline {Ex} : $x^2 -2 x + 1 = 0 $ 
+\end{itemize}

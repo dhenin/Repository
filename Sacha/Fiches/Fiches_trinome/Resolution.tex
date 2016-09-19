@@ -1,0 +1,91 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}
+    
+\frenchbsetup{StandardLists=true} % à inclure si on utilise \usepackage[french]{babel}
+\usepackage{enumitem}   
+
+    \begin{document}
+\fi
+
+\centerline{\color{red} \huge \bf « Résolution » des équations du 2\up{nd} degré} 
+
+\medskip 
+
+\centerline{\color{red} \huge \bf $ax^2 + bx +c = 0$} 
+
+\bigskip 
+
+\begin{itemize}[label=]
+
+\item  \textcolor{blue}{Étape préliminaire : On vérifie que l'on n'a pas d'identité remarquable} 
+
+% by placing rules in the first line the \parbox[t] 
+% code aligns on the rule (so effectively at the top of the first real line 
+% rather than its baseline)
+
+\parbox[t]{1cm}{\hrule height 0pt width 0pt%
+\underline {Ex} :} 
+%
+\parbox[t]{10cm}{\hrule height 0pt width 0pt%
+$\begin{array}{l}
+\star  x^2 -2 x + 1 = 0 
+        \xLeftrightarrow{\text{id. rem.}} (x-1)^2 = 0
+        \xLeftrightarrow{\text{eq. prod nul.x}} x-1 = 0 
+        \Longleftrightarrow x=1 \\
+\star        x^2 -2x -3 = 0 \longrightarrow \text{Pas d'identité remarquable} \\                                  
+\end{array} $ } 
+
+\bigskip 
+
+\item  \textcolor{blue}{Étape 1 : On calcule $\Delta = b^2 -4ac$}
+
+\parbox[t]{1cm}{\hrule height 0pt width 0pt \underline {Ex} :} 
+%
+\parbox[t]{10cm}{\hrule height 0pt width 0pt $\begin{array}{l}
+\star \text{Pour } x^2 -2x -3 = 0 \text{, on a } \Delta = (-2)^2 -4 \times 1 \times (-3) = 4 + 12 = 16\\
+\star \text{Pour } 7x^2 +x +9 = 0\text{, on a } \Delta = (1)^2 -4 \times 7 \times (9) = 1-252 = -251\\
+\star \text{Pour } x^2 -2x +1 = 0 \text{, on a } \Delta = (-2)^2 -4 \times 1 \times (1) = 0\\       
+\end{array} $}
+
+
+\bigskip 
+
+\item  \textcolor{blue}{Étape 2 : On calcule le signe de $\Delta$}
+
+\parbox[t]{1cm}{\hrule height 0pt width 0pt \underline {Ex} :} 
+%
+\parbox[t]{10cm}{\hrule height 0pt width 0pt $\begin{array}{l}
+\star \text{Pour } x^2 -2x -3 = 0 \text{, on a } \Delta > 0\\
+\star \text{Pour } 7x^2 +x +9 = 0\text{, on a } \Delta < 0\\
+\star \text{Pour } x^2 -2x +1 = 0 \text{, on a } \Delta = 0\\       
+\end{array} $}
+
+
+\bigskip 
+
+\item  \textcolor{blue}{Étape 3 : Selon le signe de $\Delta$, on conclut : }
+
+\color{blue}{
+\begin{tabular}{M{3cm}|M{4cm}|M{4cm}}
+\multicolumn{1}{c|}{Si $ \Delta < 0$} & \multicolumn{1}{c|}{Si $ \Delta = 0$} &  \multicolumn{1}{c}{Si $ \Delta > 0$} \\
+ Alors n'y a pas de forme factorisée 
+              & Alors l'équation admet une solution unique :
+                   \hspace*{.75cm}$ x_0 = \dfrac{-b}{2a}$
+                          & Alors l'équation admet deux solutions :
+                             \hspace*{.75cm} $x_1 = \dfrac{-b-\sqrt{\Delta}}{2a}$ 
+                              \hspace*{.75cm} $x_2 = \dfrac{-b+\sqrt{\Delta}}{2a} $\\
+\end{tabular}}
+
+\item  \textcolor{blue}{Étape 4  : On note $\mathcal{S}=\lbrace ...  \rbrace $} 
+\end{itemize}
+
+
+
+
+
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

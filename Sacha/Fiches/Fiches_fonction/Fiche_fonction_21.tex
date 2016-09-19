@@ -1,0 +1,37 @@
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}   
+    \usepackage{variations}
+    \begin{document}
+\fi
+
+\shorthandoff{:}\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=2cm,,scale=1]
+\draw[->] (-5,0) -- (5.5,0) ; 
+\draw[->] (0,-1.5) -- (0,1.5); 
+
+\foreach \x in {-4,...,-1} {
+\draw (\x,0.1cm) -- (\x,-0.1cm) ; } 
+
+\foreach \x in {1,...,4} {
+\draw (\x,0.1cm) -- (\x,-0.1cm);  } 
+
+\foreach \y in {-1} {
+\draw (0.1cm,\y) -- (-0.1cm,\y) ; }
+
+\node[below left=0.1cm] at (-0,0) {$0\strut$};
+\begin{scope}
+\clip (-5,-1) rectangle (5,5);
+\draw[samples=100] plot (\x,{cos(\x r)})  ; 
+
+\draw [dashed](-1,0) node [below] {$-x$} -- (-1,.54) -- (1,.54) -- (1,0) node [below] {$x$};  
+
+\begin{scriptsize}
+\draw (-1.2,.54) [above] node {$f(x)$};
+\end{scriptsize}
+\end{scope}
+\end{tikzpicture}\shorthandon{:}
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

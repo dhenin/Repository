@@ -1,0 +1,25 @@
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}   
+    \usepackage{variations}
+    \begin{document}
+\fi
+
+% pour modifier la taille, modifier le scale 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1]
+\draw[->] (1,5) -- (8,5);
+\foreach \x in {2.5,3.5,4.5,5.5,6.5,7.5}
+\draw[shift={(\x,5)}] (0pt,2pt) -- (0pt,-2pt) ;
+\draw[->] (1.5,4.5) -- (1.5,10);
+\foreach \y in {5,6,7,8,9}
+\draw[shift={(1.5,\y)}] (2pt,0pt) -- (-2pt,0pt);
+\clip(1,-1) rectangle (8,12.73);
+\draw[smooth,samples=100,domain=2:12.2] plot(\x,{((\x)*(\x)+3)/((\x)-1)});
+\draw [color=red,domain=2:8] plot(\x,{(\x)*.91+2.2 });
+\end{tikzpicture}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
