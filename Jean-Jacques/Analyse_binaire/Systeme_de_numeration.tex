@@ -1,0 +1,93 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule_Analyse_binaire.ltx}
+    \begin{document}
+\fi
+\chapter{Systèmes de numération}
+
+\section{Généralités}
+
+Il est aisé, connaissant la base du système de numération utilisé,
+d'exprimer un nombre dans un autre système. Il suffit pour cela d'exprimer
+les chiffres et les poids dans le système de numération choisi.
+
+Exemples~:
+\begin{itemize}
+\item Dans le système à base « six » ~$(0,1,2,3,4,5)$ le nombre « 324 » est
+représenté en décimal par :
+
+\begin{center}
+$3\times(6)^{2}+2\times(6)+4=124$
+\end{center}
+\item Transposons le nombre $3243312_{5}$ dans le système hexadécimal (base
+16), en passant par le système décimal.
+
+\begin{eqnarray*}
+3243312_{5} & = & 3\times(5)^{6}+2\times(5)^{5}+4\times(5)^{4}+3\times(5)^{3}+3\times(5)^{2}+1\times(5)+2\\
+ & = & 56082_{10}
+\end{eqnarray*}
+
+Pour calculer la valeur en base 16, on effectue les divisions successives
+par « 16 » ~du nombre décimal :
+
+\begin{center}
+\begin{tabular}{lrrr}
+56082  & \multicolumn{1}{|l}{16} &  & \tabularnewline
+\cline{1-2} \cline{4-4} 
+080  & 3505  & \multicolumn{1}{|l}{16} & \tabularnewline
+\cline{1-1} \cline{3-3} 
+00082  & \multicolumn{1}{l}{030} & 219  & \multicolumn{1}{|l}{16}\tabularnewline
+\hline 
+000(2)  & 145  & 059  & (13) \tabularnewline
+ & 0(1)  & (11)  & (D) \tabularnewline
+ &  & (B)  & \tabularnewline
+\end{tabular}
+\end{center}
+
+D'où
+
+\begin{center}
+${\rm 3243312}_{5}={\rm DB12}_{16}$
+\end{center}
+\end{itemize}
+
+\section{Numération binaire}
+
+La correspondance entre nombres binaires et décimaux s'établit aisément
+selon les tableaux suivants~:
+
+\begin{center}
+\begin{tabular}{|r|r|c|lcr|r|}
+\hline 
+\multicolumn{1}{|c|}{\emph{ décimal}} & \multicolumn{1}{|c||}{\emph{ binaire}} &  & \multicolumn{3}{|c|}{\emph{ décimal}} & \multicolumn{1}{|c|}{\emph{ binaire}}\tabularnewline
+\hline 
+1  & 1  &  &  &  & 2  & 10 \tabularnewline
+2  & 10  &  & $2^{2}$  & =  & 4  & 100 \tabularnewline
+3  & 11  &  & $2^{3}$  & =  & 8  & 1000 \tabularnewline
+4  & 100  &  & $2^{4}$  & =  & 16  & 10000 \tabularnewline
+5  & 101  &  & $2^{5}$  & =  & 32  & 100000 \tabularnewline
+6  & 110  &  & $2^{6}$  & =  & 64  & 1000000 \tabularnewline
+7  & 111  &  & $2^{7}$  & =  & 128  & 10000000 \tabularnewline
+8  & 1000  &  & $2^{8}$  & =  & 256  & 100000000 \tabularnewline
+9  & 1001  &  & $2^{9}$  & =  & 512  & 1000000000 \tabularnewline
+10  & 1010  &  & $2^{10}$  & =  & 1024  & 10000000000 \tabularnewline
+11  & 1011  &  & $2^{11}$  & =  & 2048  & 100000000000 \tabularnewline
+12  & 1100  &  & $2^{12}$  & =  & 4096  & 1000000000000 \tabularnewline
+13  & 1101  &  &  &  &  & \tabularnewline
+14  & 1110  &  &  &  &  & \tabularnewline
+15  & 1111  &  &  &  &  & \tabularnewline
+16  & 10000  &  &  &  &  & \tabularnewline
+\hline 
+\end{tabular}
+\end{center}
+
+Pour passer d'un nombre binaire, au même nombre exprimé dans le système
+à base $b=(2)^{n}$, on groupe les chiffres binaires $n$ par $n$
+en partant de la droite, puis on remplace chacun des groupes obtenus
+à la place qu'il occupe par le chiffre du système à base $(2)^{n}$
+qui lui correspond.
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

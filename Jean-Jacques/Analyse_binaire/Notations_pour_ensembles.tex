@@ -1,0 +1,274 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule_Analyse_binaire.ltx}
+    \begin{document}
+\fi
+
+\chapter*{Notations pour les ensembles }
+
+Il est incontestable que les mathématiques ont une base expérimentale,
+et malgré l'abstraction que leur confère la pensée, leur valeur ne
+peut être complète que lorsqu'elles reviennent aux sources et aboutissent
+à des applications pratiques.
+
+Des considérations générales montrent que la pensée logique se caractérise,
+fondamentalement, par la possibilité élémentaire d'identification
+qui gouverne le jugement et détermine les actions à entreprendre en
+fonction de connaissances acquises. L'identification peut revêtir
+deux aspects différents suivant les conditions qui la déterminent.
+
+\begin{itemize}
+\item C'est d'une part la synthèse, qui n'est en somme que l'identification
+globale d'un tout particulier, 
+\item et d'autre part, l'analyse, qui consiste en une identification par
+décomposition d'un tout en ses éléments constitutifs déjà identifiés
+eux-mêmes.
+\end{itemize}
+
+L'analyse et la synthèse expriment, en fait, un même cheminement parcouru
+dans deux sens différents.
+
+La pensée peut ainsi évoluer, s'élever, se perfectionner, puisqu'il
+lui est possible, à tout instant, de modifier sa progression et de
+revenir sur ses pas lorsque la voie empruntée s'avère sans issue.
+Analyse et synthèse donnent à la pensée une liberté essentielle qui
+l'autorise à une remise en cause permanente de l'acquis en fonction
+des éléments nouveaux retenus au cours de son évolution.
+
+Exprimés sous forme mathématique, nous retrouvons, à la base de la
+théorie des ensembles, ces procédés élémentaires d'analyse et de synthèse
+qui traduisent les deux courants inverses et complémentaires suivant
+lesquels s'élabore le processus d'identification dans la pensée logique.
+
+L'identification d'un ensemble ou d'une collection quelconque d'objets
+n'est rendue possible que par la définition qui en est donnée.
+
+\begin{itemize}
+\item Il est possible d'établir une liste nominative de tous les objets
+ou éléments identifiés qui le constituent. Dans ce cas, l'ensemble
+est défini en \emph{extension}.
+\item Il est possible, également, de préciser une ou plusieurs propriétés
+nécessaires et suffisantes auxquelles satisfont tous les éléments
+de l'ensemble. L'ensemble est défini en \emph{compréhension}.
+\end{itemize}
+
+L'ensemble « $E_{c}$ » des chiffres $1,\:3\:,5\:,7\:,9$ par
+exemple, est défini en extension, alors que l'ensemble « $E_{i}$ » des
+nombres impairs, se trouve par contre défini en compréhension, puisque
+tout élément qui appartient à « $E{i}$ » possède nécessairement
+la propriété d'être un nombre ayant la qualité d'être impair. Si « $n_{i}$ » est
+un nombre impair, nous disons que « $n_{i}$ » appartient à l'ensemble
+« $E_{i}$ » et nous écrivons :
+\medskip
+\begin{center}
+\fbox{\parbox[c]{0.08\columnwidth}{%
+$n_{i}\in E_{i}$%
+}}
+\end{center}
+
+\medskip
+
+
+Si « $n_{p}$ » est un nombre pair, nous disons que « $n_{p}$ » 
+n'appartient pas à « $E_{i}$ » , et nous écrivons :
+
+\medskip
+
+
+\begin{center}
+\fbox{\begin{minipage}[c]{0.2\columnwidth}%
+\begin{center}
+$n_{p}\notin E_{i}$
+\end{center}%
+\end{minipage}}
+\end{center}
+
+\medskip
+
+
+L'ensemble « $E_{c}$ » est constitué des chiffres impairs $1,3,5,7,9,$
+chacun de ces éléments appartient à « $E_{i}$ » sans constituer
+la totalité des éléments de ce dernier. Nous disons alors que l'ensemble
+« $E_{c}$ » est inclus dans l'ensemble « $E_{i}$ » et
+nous écrivons~:
+
+\medskip
+
+
+\begin{center}
+\fbox{\begin{minipage}[c]{0.2\columnwidth}%
+\begin{center}
+$E_{c}\subseteq E_{i}$
+\end{center}%
+\end{minipage}}
+\end{center}
+
+
+\medskip
+
+
+L'inclusion de « $E_{c}$ » dans « $E_{i}$ » implique que
+tout élément «  $x$  » appartenant à « $E_{c}$ »  ap\-par\-tient
+également à « $E_{i}$ » ~. L'implication s'écrit à l'aide d'un
+signe égal complété par une flèche ($\Longrightarrow$) dirigé dans
+le sens de l'implication. Dans le cas considéré, nous écrivons :
+\medskip
+\begin{center}
+\fbox{\begin{minipage}[c]{0.3\columnwidth}%
+\begin{center}
+si $E_{c}\subseteq E_{i}$, $(x\in E_{c})\Longrightarrow(x\in E_{i})$
+\end{center}%
+\end{minipage}}
+\end{center}
+\medskip
+et nous lisons : si « $E_{c}$ » est inclus dans « $E_{i}$ » ~,
+« $x$ » appartenant à « $E_{c}$ » implique que «  $x$
+ » appartient à « $E_{i}$ » ~.
+
+Si deux ensembles sont égaux ($E_{i}=E_{j}$), l'implication est valable
+dans les deux sens. Tout élément de « $E_{i}$ » appartient à
+« $E_{j}$ » et réciproquement. Nous écrivons alors~:
+\medskip
+\begin{center}
+\fbox{\begin{minipage}[c]{0.3\columnwidth}%
+\begin{center}
+si $E_{i}=E_{j}$, $(x\in E_{i})\Longleftrightarrow(x\in E_{j})$
+\end{center}%
+\end{minipage}}
+\end{center}
+\medskip
+Définissons l'ensemble « $E_{9}$ » des neufs premiers nombres
+entiers $1,2,3,4,5,6,7,8,9$. Cet ensemble contient les éléments $2,4,6,8$,
+qui n'appartiennent pas à « $E_{i}$ » ~. « $E_{9}$ » n'est
+donc pas inclus dans « $E_{i}$ » et nous écrivons~:
+\medskip
+\begin{center}
+\fbox{\begin{minipage}[c]{0.2\columnwidth}%
+\begin{center}
+$E_{9}\not\subseteq E_{i}$
+\end{center}%
+\end{minipage}}
+\end{center}
+\medskip
+Deux ensembles sont égaux s'ils contiennent exactement les mêmes éléments.
+Pour vérifier que deux ensembles sont égaux il faut donc s'assurer
+que tout élément du premier appartient au second et que tout élément
+du second appartient au premier.
+
+Il y a donc lieu de noter également l'utilisation courante des signes
+équivalents à des phrases telles que : « quel que soit\ldots{} » ($\forall$)
+ou « il existe\ldots » ($\exists$).
+
+\medskip
+
+\begin{center}
+\textit{$\forall a$, signifie : quel que soit « $a$ » ~.}
+
+\medskip
+
+\textit{$\exists x$, signifie : il existe « $x$ » ~.}  
+\end{center}
+
+\medskip
+
+En utilisant tous les éléments communs à deux ensembles « $A$ » et
+« $B$ » ~, il est possible de constituer un ensemble « $I$ » ~.
+Nous disons que « $I$ » représente l'\textit{intersection} des
+ensembles « $A$ » et « $B$ » et nous écrivons~:
+\medskip
+\begin{center}
+\fbox{\begin{minipage}[c]{0.2\columnwidth}%
+\begin{center}
+$I=A\cap B$
+\end{center}%
+\end{minipage}}
+\end{center}
+\medskip
+\begin{center}
+\fbox{\begin{minipage}[c]{0.5\columnwidth}%
+\begin{center}
+$(x\in A$ et $x\in B)\Longleftrightarrow(x\in I)$
+\end{center}%
+\end{minipage}}
+\end{center}
+\medskip
+Nous pouvons également rassembler ou réunir la totalité des éléments
+appartenant aux ensembles « $A$ » et « $B$ » ~. Nous définissons
+alors {\samepage un nouvel ensemble « $R$ » qui est la \textit{réunion
+des ensembles} « $A$ » et « $B$ » et nous écrivons~:
+
+\nopagebreak\medskip
+
+\begin{center}
+\fbox{\begin{minipage}[c]{0.2\columnwidth}%
+\begin{center}
+$R=A\cup B$
+\end{center}%
+\end{minipage}}
+\end{center}
+\medskip
+\nopagebreak
+
+Nous en déduisons les implications :
+\medskip
+\begin{center}
+$(x\in A)\Longrightarrow(x\in R)$
+\end{center}
+\medskip
+\begin{center}
+$(x\in B)\Longrightarrow(x\in R)$ 
+\end{center}
+\medskip
+Si à l'élément générique « $a$ » d'un ensemble « $A$ » nous
+faisons correspondre un élément « $b$ » ~, et un seul, de l'ensemble
+« $B$ » ~, « $b$ » est appelé image de « $a$ » ~. Si tout
+élément de « $B$ » est l'image d'un ou de plusieurs éléments
+de « $A$ » ~, nous disons que la correspondance est une \textit{application
+de l'ensemble « $A$ » sur l'ensemble « $B$ » ~}. Si, seuls
+certains éléments de « $B$ » sont des éléments de « $A$ » ~,
+la correspondance est une application de « $A$ » dans « $B$ » ~.
+Si l'application est réciproque et biunivoque, elle prend le nom de
+\textit{bijection}.
+
+Nous pouvons établir, entre les éléments d'un ensemble, des relations
+de composition interne dont nous allons définir les propriétés élémentaires
+parmi lesquelles : \textit{la réflexivité}, \textit{la symétrie} et
+\textit{la transitivité}.
+
+Soit « ${\cal R}$ » une relation de composition interne :
+\begin{itemize}
+\item « ${\cal R}$ » est une relation réflexive si nous pouvons écrire
+$A\;{\cal R}\;A$,
+\item « ${\cal R}$ » possède la propriété de symétrie si $(A\;{\cal R}\;B)\Longleftrightarrow(B\;{\cal R}\;A)$,
+\item « ${\cal R}$ » est une relation transitive si $(A\;{\cal R}\;C$
+et $C\;{\cal R}\;B)\Longrightarrow(A\;{\cal R}\;B)$.
+\end{itemize}
+Lorsqu'une relation « ${\cal R}$ » ~possède simultanément les trois
+propriétés, nous disons que c'est une relation d'\emph{équivalence}.
+
+Nous pouvons aussi définir dans l'ensemble « $E$ » ~des \emph{lois
+de composition internes} si à tout couple d'éléments $(a,b)\in E$
+nous faisons correspondre un élément $d\in E$ tel que $d=a\circ b)$.
+\begin{itemize}
+\item La loi est commutative si $a\circ b=b\circ a$,
+\item elle est associative si $a\circ b\circ c=(a\circ b)\circ c=a\circ(b\circ c)$. 
+\end{itemize}
+L'élément « $e\in E$ » est appelé \textit{élément neutre} de
+la loi interne « $\circ$ » de « $E$ » si $\forall x\in E$,
+nous pouvons écrire $e\circ x=x\circ e=x$.
+
+L'élément « $a\in E$ » est appelé \textit{élément absorbant}
+de la la loi interne « $\circ$ » ~de « $E$ » ~, si $\forall x\in E$ » ~,
+nous pouvons écrire :
+
+\begin{center}
+$a\circ x=x\circ a=a$
+\end{center}
+
+L'existence d'un certain nombre de lois dont les propriétés sont posées
+comme axiomes, définit dans un ensemble, une structure algébrique.
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi

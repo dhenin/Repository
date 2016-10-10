@@ -1,0 +1,74 @@
+
+    \input{./preambule_Analyse_binaire.ltx}
+
+\iffalse 
+\documentclass[12pt,a4paper,oneside,french]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\pagestyle{headings}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{babel}
+\makeatletter
+\addto\extrasfrench{%
+   \providecommand{\og}{\leavevmode\flqq~}%
+   \providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}%
+}
+
+\makeatother
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{graphicx}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=true,pdfborder={0 0 1},backref=section,colorlinks=false,pdfpagemode=FullScreen]
+ {hyperref}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+% \usepackage{/Users/dhenin/Desktop/jjd} 
+\topmargin=-.9 cm
+\headheight=0.5cm
+\headsep=1.2 cm                  % PDA avait mis 0.8cm
+\textwidth=17cm         %  16.5cm prÅcÅdemment
+\textheight=24cm
+\evensidemargin=1 cm             % PDA avait mis 0
+\oddsidemargin=-.3 cm              % PDA avait mis 0
+\topskip=0cm                    % PDA avait mis 0
+
+\columnwidth=\textwidth
+
+\setlength {\parindent} {5mm}
+
+\makeatother
+
+\fi 
+\begin{document}
+
+
+
+\ifdefined\COMPLETE
+\else
+    \newcommand{\COMPLETE}
+\fi                        % Autorise la compilation de illustrations
+           
+
+\input{Notations_pour_ensembles.tex}
+
+\input{Systeme_de_numeration.tex}
+
+\input{Analyse_binaire.tex}
+
+\input{Simplifications_de_fonctions.tex}
+
+\end{document}
