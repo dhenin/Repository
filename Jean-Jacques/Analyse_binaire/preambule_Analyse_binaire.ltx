@@ -64,6 +64,11 @@
 \usepackage{diagbox}
 
 \usepackage{enumitem}
+
+\usepackage{xargs}
+\ifdefined\somme\else
+\newcommand{\somme}[3]{\displaystyle{\sum_{#1}^{#2}} \; #3}
+\fi
 %%%%   
 
 \iffalse 
@@ -195,10 +200,7 @@
 
 \newcolumntype{M}[1]{>{\raggedright}m{#1}}
 
-\usepackage{xargs}
-\ifdefined\somme\else
-\newcommandx{\somme}[3][1=,2=,3=]{\displaystyle{\sum_{#1}^{#2}} \; #3}
-\fi
+
 
 % Ci-dessous multicol 
 \makeatletter
