@@ -1,0 +1,149 @@
+\input{./preambule.ltx}
+\usepackage{amsmath,bm}
+%\usepackage{graphicx}
+%\usepackage{animate}
+\usepackage[tikz]{bclogo}
+\usepackage{texgraph}
+
+
+
+\begin{document}
+
+\newcommand{\titre}[1]{\begin{center}{\Large\textcolor{red}{#1}}\end{center}}
+
+\newcommand{\paragraphe}[1]{\large\textcolor{red}{#1}}
+
+\newcommand{\NBVert}[1]{\large\textcolor{DarkGreen}{#1}}
+
+\newcommand{\Attention}[3]{
+\begin{bclogo}[%
+%epBarre = 0,
+%couleurBarre = white,
+barre = none,
+couleurBord=white,%
+logo=\bcattention,% 
+margeG = -1,% 
+margeD = 1,%
+marge = 15%
+]{\textcolor{#1}{$\quad$ #2}}
+#3
+\end {bclogo}
+}
+
+\titre{Représentation graphique\\
+\bigskip
+des suites\ldots \hspace*{3cm} Récurrentes $(u_{n+1} = au_n +b)$}
+ 
+
+
+\setbox5=\hbox{\parbox[b][4em][t]{0.2\textwidth}{
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,scale=.5]
+\draw[->] (-0.7,0) -- (6,0);
+\foreach \x in {,1,2,3,4,5}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->] (0,-0.7) -- (0,5);
+\draw[color=black] (0pt,-8pt) node[left] {\footnotesize $0$};
+\clip(-1,-0.7) rectangle (6,5);
+\draw [color=red] (0,1)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=red] (0.98,1.65)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=red] (2,2.33)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=red] (3,3)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=red] (4.02,2.68)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\draw [color=red] (5.02,4.35)-- ++(-1.0pt,-1.0pt) -- ++(2.0pt,2.0pt) ++(-2.0pt,0) -- ++(2.0pt,-2.0pt);
+\begin{pgfonlayer}{background}   
+\draw[step=1mm,ultra thin,AntiqueWhite!10] (-0.7,-0.7) grid (6,5);
+\draw[step=5mm,very thin,AntiqueWhite!30]  (-0.7,-0.7) grid (6,5);
+\draw[step=1cm,very thin,AntiqueWhite!50](-0.7,-0.7) grid (6,5);
+\draw[step=5cm,thin,AntiqueWhite]         (-0.7,-0.7) grid (6,5);
+\end{pgfonlayer}
+\end{tikzpicture}}}
+
+\setbox1=\hbox{\parbox[t][4em][t]{0.25\textwidth}{\centerline{\underline{Explicites}}
+On trace la représentation graphique de la fonction associée, en plaçant les points dont l'abscisse est entière, et \underline{sans relier les points}.
+
+\box5
+}}
+
+\setbox2=\hbox{\parbox[b][4em][t]{0.20\textwidth}{$u_{n+1} = b$,\\
+                                                   on est dans le \\
+                                                   cas explicite \\      
+                                              }}
+                                                   
+\setbox3=\hbox{
+\begin{texgraph}[file,name=suite_02,export=tkz]
+Include "papiers.mac";
+Graph image = [
+Fenetre(-.9+12*i, 12-.9*i, 1+i),Marges(0,0,0,0),
+papier(milli,-1-i,12+12*i,
+[subsubgridcolor :=beige,
+subgridcolor:=antiquewhite,
+gridcolor :=bisque]
+),
+Arrows:=1,
+Axes(0,1 +i),
+Arrows:=0,
+u0:=11,nb:=15, Width:=6,
+Color:=darkseagreen, Droite(1,-1,0), 
+LabelAngle:=0, Label (2+i, "$y=x$") ,
+Color:=red,  tMin:=-1, tMax:=12, Width:=8, 
+              Cartesienne((3/4)*x+1),
+LabelAngle:=0, Label (6+4.3*i, "$y=\frac{3x}{4}+1$"),              
+Width:=6, Color:=gray,
+suite((3/4)*x+1, u0,nb),
+Color:=black,LabelAngle:=0, 
+Label(8.5+9.25*i, "$U_1$", 
+      7.5+7.93*i, "$U_2$",  
+      6.6+6.95*i, "$U_3$",   
+      5.7+6.21*i, "$U_4$",   
+      5.3+5.66*i, "$U_5$")   
+];
+\end{texgraph}}
+
+
+\setbox4=\hbox{\begin{texgraph}[file,name=Suite03,export=pgf]
+Include "papiers.mac";
+Graph image = [
+Fenetre(-3+12*i, 12-.9*i, 1+i),Marges(0,0,0,0),
+papier(milli,-3-i,12+12*i,
+          [subsubgridcolor :=beige,
+              subgridcolor :=antiquewhite,
+                 gridcolor :=bisque]
+      ),
+  Arrows:=1,
+  Axes(0,1 +i),
+  Arrows:=0,
+  u0:=-2,nb:=15, Width:=6,
+Color:=darkseagreen, Droite(1,-1,0), 
+ Label (2+i, "$y=x$"),
+Color:=red,  tMin:=-3, tMax:=11, Width:=8, 
+              Cartesienne(-1*(3/4)*x+7),
+ Label (-2+9.6*i, "$y=\frac{-3x}{4}+7$"),              
+ Width:=6, Color:=gray,
+             suite(-1*(3/4)*x+7, u0,nb),
+Color:=black,LabelAngle:=0, 
+Label(-5/2+8.5*i, "$U_1$", 
+        9+.7*i,   "$U_2$",  
+        .8+6.8*i, "$U_3$",   
+         7+2.2*i,   "$U_4$",   
+       2.5+5.66*i, "$U_5$"
+)   
+];
+\end{texgraph}}
+
+\begin{tabular}{c|c|c|c}
+ &  \\
+\multirow{8}{0.25\textwidth}{\box1}   & $a = 0 $ & $a > 0$ (escalier) & $a < 0 $ (escargot) \\
+ \cline {2-4}
+ & \multirow{6}{0.20\textwidth} {\box2} & \multicolumn{2}{l}{$\bullet$ On trace la courbe ($\mathcal{C}$) de la fonction associée $y=ax+b$ } \\
+ & & \multicolumn{2}{l}{$\bullet$ On place $u_0$ sur l'axe de abscisses. } \\
+ & & \multicolumn{2}{l}{$\bullet$ On trace la perpendiculaire jusqu'à ($\mathcal{C}$).} \\
+ & & \multicolumn{2}{l}{$\bullet$ On « bascule » sur $y=x$. } \\
+ & & \multicolumn{2}{l}{$\bullet$ On recommence les points 3 et 4 autant qu'il le faut } \\    
+ & &  \scalebox{.3}{\box3} & \scalebox{.3}{\box4} \\
+\end{tabular}
+
+
+
+\end{document}
+
+

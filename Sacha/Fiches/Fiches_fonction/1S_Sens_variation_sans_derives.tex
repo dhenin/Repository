@@ -1,0 +1,64 @@
+\input{./preambule.ltx}\usepackage{amsmath,bm}
+%\usepackage{graphicx}
+%\usepackage{animate}
+\usepackage[tikz]{bclogo}
+
+
+
+\begin{document}
+
+\newcommand{\titre}[1]{\begin{center}{\Large\textcolor{red}{#1}}\end{center}}
+
+\newcommand{\paragraphe}[1]{\large\textcolor{red}{#1}}
+
+\newcommand{\NBVert}[1]{\large\textcolor{DarkGreen}{#1}}
+
+\newcommand{\Attention}[3]{
+\begin{bclogo}[%
+%epBarre = 0,
+%couleurBarre = white,
+barre = none,
+couleurBord=white,%
+logo=\bcattention,% 
+margeG = -1,% 
+margeD = 1,%
+marge = 15%
+]{\textcolor{#1}{$\quad$ #2}}
+#3
+\end {bclogo}
+}
+
+\titre{Sens de variations de fonctions\\
+\bigskip
+ (sans les dérivées)}
+ 
+
+Étudier chaque fonction suivante, en donnant ses variations sur l'ensemble demandé (si un ensemble contient plusieurs intervalles, on étudiera la fonction sur chaque intervalle)
+
+
+$f_1(x) = \sqrt{x} -3$ sur $D_{f_1}$ \\
+
+ $f_2(x) = -2 \sqrt{x} +5 $ sur $D_{f_2}$ \\
+
+$f_3(x) = 1 - \dfrac{2}{x}$ sur $D_{f_3}$ \\
+
+ $f_4(x) = \dfrac{2}{3x} $ sur $D_{f_4}$ \\
+
+$f_5(x) = \sqrt{x -3}$ sur $D_{f_5}$ \\
+
+$f_6(x) = -2 \sqrt{1-2x} $ sur $D_{f_6}$ \\
+
+$f_7(x) = \sqrt{x^2 -1}$ sur $D_{f_7}$ \\
+
+ $f_8(x) =  \dfrac{1}{x -2}  $ sur $D_{f_8}$ \\
+
+$f_9(x) = \dfrac{1}{1-2x}$ sur $D_{f_9}$ \\
+
+ $f_{10}(x) = \dfrac{1}{\sqrt{x}} $ sur $D_{f_{10}}$.
+
+
+
+
+\end{document}
+
+

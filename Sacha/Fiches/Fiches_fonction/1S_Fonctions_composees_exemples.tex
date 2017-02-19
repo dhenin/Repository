@@ -1,0 +1,127 @@
+\input{./preambule.ltx}\usepackage{amsmath,bm}
+%\usepackage{graphicx}
+%\usepackage{animate}
+\usepackage[tikz]{bclogo}
+
+
+
+\begin{document}
+
+\newcommand{\titre}[1]{\begin{center}{\Large\textcolor{red}{#1}}\end{center}}
+
+\newcommand{\paragraphe}[1]{\large\textcolor{red}{#1}}
+
+\newcommand{\NBVert}[1]{\large\textcolor{DarkGreen}{#1}}
+
+\newcommand{\Attention}[3]{
+\begin{bclogo}[%
+%epBarre = 0,
+%couleurBarre = white,
+barre = none,
+couleurBord=white,%
+logo=\bcattention,% 
+margeG = -1,% 
+margeD = 1,%
+marge = 15%
+]{\textcolor{#1}{$\quad$ #2}}
+#3
+\end {bclogo}
+}
+
+\titre{Fonctions composées (associées)\\
+\bigskip
+Exemples rédigés}
+
+\paragraphe{Méthode} : \begin{itemize}
+\item On décompose la fonction en « blocs » simples, 
+\item on applique les règles de composition  \underline{de droite à gauche}.
+\end{itemize}
+
+\bigskip 
+
+\paragraphe{Exemple n°1} : Soit $f : x \mapsto \sqrt{x-2}$,   $\quad$   $f$ définie sur $[ 2 ; +\infty [$ . 
+
+\NBVert{Au brouillon : $f$, c'est $\sqrt{\textcolor{white}{X}}\quad  \text{\fbox{de}} \quad x -2$} .
+
+On pose $g(X) = \sqrt{X}$ et $h(x)= x - 2$ 
+
+On a donc $f = g \circ h $ 
+
+On sait que $h$ est croissante sur  $[2; +\infty[$ .\\
+On sait que composer par $ X \mapsto  \sqrt{X} $ ne change pas le sens de variation.
+
+donc $ g \circ h $  est croissante sur  $[ 2 ; +\infty [$ 
+
+
+\Attention{Red}{à l'ordre quand on décompose en blocs !}
+
+\paragraphe{Exemple n°2} :
+
+Soit $f:x\mapsto  - \dfrac{2}{3x}$,  $\quad$   $f$ définie sur $]-\infty ; 0 [ \cup ]0 ; +\infty[$.
+
+\Attention{Blue}{On cherche toujours les variations sur un intervalle, donc un ensemble « sans trou »}
+
+\underline{Sur $]0;+\infty[$} :
+
+\NBVert {Au brouillon : $f$, c'est $-\dfrac{2}{3}$ \fbox{$\;\times\:$} $\dfrac{2}{x}$} .
+
+On pose $g(x) = -\dfrac{2}{3}$ et $h(x) = \dfrac{1}{x}$ . 
+
+On a $f=g$ \fcolorbox{blue}{white}{$\;\times\;$}$h$ .\\
+On sait que $h$ est décroissante sur $]0;+\infty[$.
+
+Or, multiplier par une constante négative change le sens de variation. 
+
+Donc $g\times h$ est croissante.
+
+On en conclut que $f$ est croissante sur $]0; +\infty[$. 
+
+\underline{Remarque } : Le résultat est le même sur $]-\infty ; 0[$ . 
+
+\newpage
+
+\paragraphe{Exemple n°3 : un peu plus long\ldots}
+
+Soit $f:x\mapsto  - \dfrac{\sqrt{3}}{\sqrt{x^2+1}+8}$,  $\quad$   définie sur $\mathbb{R}$.
+
+Dans un premier temps, on s'intéresse aux variations de $f$ sur $[0, +\infty[$
+
+\NBVert{au brouillon, on a $f$, c'est $-\sqrt{3} \times \dfrac{1}{\sqrt{x^2+1}+8}$,\\
+donc $\-\sqrt{3} \times \left(\dfrac{1}{\ldots} \text{ et } \sqrt{x^2+1}+8\right)$ \\
+donc $\-\sqrt{3} \times \left(\dfrac{1}{\ldots} \text{ et } \left(\sqrt{x^2+1}  \text{ et }  8\right)\right)$ \\             
+donc $\-\sqrt{3} \times \left(\dfrac{1}{\ldots} \text{ et } 
+         \left(\left(\sqrt{\textcolor{white}{X}}   \text{ et }        {x^2+1}\right)  \text{ et }  8\right)\right)$ \\  
+}                    
+
+On pose $\left\lbrace \begin{array}{l@{\,:\,}l}
+                        g & x \mapsto \sqrt{3} \\
+                        h & x \mapsto \dfrac{1}{x} \\
+                        i & x \mapsto \sqrt{x} \\
+                    \end{array}    \right. $  $\qquad$ et $ \left\lbrace \begin{array}{l@{\,:\,}l}
+                                                                        j & x \mapsto x^2 + 1 \\
+                                                                        k & x \mapsto 8 \\
+                                                                          \end{array}    \right. $ 
+                                                                          
+On a $f = g \times \left( h \circ \left(\left(i \circ j\right)+k\right)\right)$
+
+\Attention{Blue}{Quand il y a des parenthèses, elles sont prioritaires !}
+{\textcolor{Blue}{\bf Mais on va toujours de droite à gauche.}}
+
+On sait que $j : x \mapsto x^2 +1$.
+
+Or, la composition par $x \mapsto \sqrt{x}$ ne modifie pas le sens de variation. Donc $i \circ j$ est croissante.
+
+Or, ajouter une constante à une fonction ne change pas son sens de variation, donc $(i \circ j) +k$ est croissante.
+
+Or, la composition par $x \mapsto \dfrac{1}{x}$ inverse le sens de variation, donc $h\circ \left(\left(i\circ j\right)+k\right)$ est décroissante. 
+
+Or, la multiplication par une constante négative change le sens de variation.
+
+Donc, $g \times \left( h\circ \left(\left(i\circ j\right)+k\right) \right)$ est croissante. 
+
+On en conclut que $f$ est croissante. 
+
+
+\end{document}
+
+

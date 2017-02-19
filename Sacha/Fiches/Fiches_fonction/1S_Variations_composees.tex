@@ -1,0 +1,64 @@
+\input{./preambule.ltx}\usepackage{amsmath,bm}
+%\usepackage{graphicx}
+%\usepackage{animate}
+\usepackage[tikz]{bclogo}
+
+
+
+\begin{document}
+
+\newcommand{\titre}[1]{\begin{center}{\Large\textcolor{red}{#1}}\end{center}}
+
+\newcommand{\paragraphe}[1]{\large\textcolor{red}{#1}}
+
+\newcommand{\NBVert}[1]{\large\textcolor{DarkGreen}{#1}}
+
+\newcommand{\Attention}[3]{
+\begin{bclogo}[%
+%epBarre = 0,
+%couleurBarre = white,
+barre = none,
+couleurBord=white,%
+logo=\bcattention,% 
+margeG = -1,% 
+margeD = 1,%
+marge = 15%
+]{\textcolor{#1}{$\quad$ #2}}
+#3
+\end {bclogo}
+}
+
+\titre{Variations de fonctions\\
+\bigskip
+ composées (ou associées)}
+ 
+ Soient $f$ et $g$ deux fonctions. Soient $\lambda$ et $k$ deux réels, \underline{avec $\lambda \neq 0$}
+ 
+ 
+\paragraphe{1) Somme (affinité)} : 
+
+Si $g(x) = f(x) + k$, alors $f$ et $g$ ont le même sens de variations.
+
+\paragraphe{2) Produit} : 
+
+\begin{tabular}{c|c}
+\multicolumn{2}{l}{Si $g(x) = \lambda f(x)$, alors\ldots} \\
+\\
+\underline{Si $\lambda > 0$} & \underline{Si $\lambda < 0$} \\
+$f$ et $g$ ont le même sens & $f$ et $g$ont des sens de \\
+de variations & variations contraires \\
+\end{tabular}
+
+\paragraphe{3) Composition par $\sqrt{\textcolor{white}{X}}$} :
+\begin{itemize}
+\item Si $g(x) = \sqrt{f(x)}$, alors $f$ et $g$ ont le même sens de variations.
+
+\item Si $g(x) = \dfrac{1}{f(x)}$, alors $f$ et $g$ ont des  sens de variations contraires.
+
+\end{itemize} 
+
+\paragraphe{À retenir } : La multiplication par un nombre négatif et le passage à l'inverse changent les variations.
+
+\end{document}
+
+
