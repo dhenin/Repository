@@ -1,0 +1,518 @@
+\ifdefined\COMPLETE
+\else
+    \input{./preambule_Analyse_binaire.ltx}
+    \begin{document}
+\fi
+\chapter{Systèmes de numération}
+
+\section{Généralités}
+
+Qu'est-ce que la numération décimale ? \\
+Qu'est-ce qu'un nombre décimal ?\ldots 
+
+Le problème de la représentation des nombres, à l'aide de symboles simples et facilement utilisables, s'est posé dès les premiers âges. Il semble que l'habitude de compter sus ses doigts ait conduit l'homme au système décimal. 
+
+Les documents les plus anciens relatifs à un système sexagésimal créé par les \textsc{Chaldéens}, remontent à environ 3.000 ans avant \textsc{J.-C}\ldots. La représentation décimale, probablement trouvée par les Indiens et transmise par les Arabes, comprend dix symboles dont le zéro. Il s'écrivent actuellement $(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)$. On attribue à chaque chiffre ou symbole d'un nombre décimal, un poids qui est une puissance de dix, fonction de la position du chiffres comptée à partir de la droite. 
+
+Par exemple : le nombre « $6384$ » représente la somme :
+
+\[ 6 \times (10)^3 + 3 \times (10)^2 + 8 \times (10) + 4 \] 
+
+Il est aisé, connaissant la base du système de numération utilisé,
+d'exprimer un nombre dans un autre système. Il suffit pour cela d'exprimer
+les chiffres et les poids dans le système de numération choisi.
+
+Exemples~:
+
+-- Dans le système à base « six » ~$(0,1,2,3,4,5)$ le nombre « 324 » est
+représenté en décimal par :
+
+\[ 3\times(6)^{2}+2\times(6)+4=124 \]
+
+Reprenons le nombre « $6384_{10}$ » dans le système décimal et exprimons-le dans le système à base « six ». 
+
+Nous aurons alors, en tenant compte du fait que le nombre « $6$» est représenté par « $10$ », \\
+que « $8$ » est représenté par « $12$ » et « $10$ » par « $14$ » :
+
+\[ 10 \times (14)^3 + 3 \times (14)^2 + 12 \times (13) + 4 \]
+
+Mais il faut, dans ce cas, se référer aux tables d'addition et de multiplication relative au système à base « six ».
+
+\newpage 
+
+Soit pour la table d'addition : 
+
+\medskip
+
+\begin{tabular}{rr@{\hspace*{1.5cm}}rr@{\hspace*{1.5cm}}rr@{\hspace*{1.5cm}}rr@{\hspace*{1.5cm}}}
+ 2 + 1 = & 3     & 3 + 1 = & 4      & 4 + 1 = & 5      & 5 + 1 = & 10 \\
+ 2 + 2 = & 4     & 3 + 2 = & 5      & 4 + 2 = & 10     & 5 + 2 = & 11 \\
+ 2 + 3 = & 5     & 3 + 3 = & 10     & 4 + 3 = & 11     & 5 + 3 = & 12 \\
+ 2 + 4 = & 10    & 3 + 4 = & 11     & 4 + 4 = & 12     & 5 + 4 = & 13 \\
+ 2 + 5 = & 11    & 3 + 5 = & 12     & 4 + 5 = & 13     & 5 + 5 = & 14 \\
+\end{tabular}
+
+\medskip
+
+et pour la table de multiplication : 
+
+\medskip
+
+\begin{tabular}{rr@{\hspace*{1.5cm}}rr@{\hspace*{1.5cm}}rr@{\hspace*{1.5cm}}rr@{\hspace*{1.5cm}}}
+ 2 $\times$  2 = & 4     & 3 $\times$  2 = & 10     & 4 $\times$  2 = & 12     & 5 $\times$  2 = & 14 \\
+ 2 $\times$  3 = & 10    & 3 $\times$  3 = & 13     & 4 $\times$  3 = & 20     & 5 $\times$  3 = & 23 \\
+ 2 $\times$  4 = & 12    & 3 $\times$  4 = & 20     & 4 $\times$  4 = & 24     & 5 $\times$  4 = & 32 \\
+ 2 $\times$  5 = & 14    & 3 $\times$  5 = & 23     & 4 $\times$  5 = & 32     & 5 $\times$  5 = & 41 \\
+\end{tabular}
+
+\medskip
+
+D'où les multiplications :
+
+\[\begin{array}[t]{c@{\hspace*{1.5cm}}c@{\hspace*{1.5cm}} c@{\hspace*{1.5cm}} c@{\hspace*{1.5cm}}  }
+\begin{array}[t]{r} 
+14 \\
+\times 12 \\ 
+\hline 
+32 \\
+14{\;\;}\\
+\hline
+212 \\
+\end{array} 
+ & \begin{array}[t]{r} 
+    14 \\
+    \times 14 \\ 
+    \hline 
+    104\\
+    14{\;\;}\\
+    \hline
+    244 \\
+    \times {\quad} 3 \\
+    \hline
+    1220\\ 
+  \end{array}  &  \begin{array}[t]{r} 
+                    244 \\
+                    \times 14 \\ 
+                    \hline 
+                    1504\\
+                    244{\;\;}\\
+                 \hline
+                    4344 \\
+            \times {\quad} 10 \\
+                \hline
+                    43440\\ 
+              \end{array}  & \begin{array}[t]{rr} 
+                               &  43440 \\
+                             + &   1220\\
+                             + &    212 \\
+                             + &      4 \\
+                             \hline 
+                             & 45320 \\
+                             \end{array}  \\
+ \end{array} 
+\]
+
+Le nombre correspondant à $6\;384_{10}$ décimal, s'écrit dans le système à base « six » :
+
+\medskip 
+
+\centerline{ \fbox { $45\;320_6$ } }
+
+\medskip 
+
+Pour revenir au système décimal nous pouvons calculer la somme : 
+
+\[ 4 \times (6)^4 + 5 \times (6)^3 + 3 \times (6)^2 / 2 \times (6) + 0 = 6\;384_{10} \]
+
+en utilisant dans ce cas les tables d'addition et de multiplication du système décimal.
+
+Il est conseillé, cependant, pour éviter l'établissement des tables d'addition ou de multiplication d'un système particulier de numération, d'opérer toujours dans le système décimal en prenant ce système comme intermédiaire pour passer de l'expression d'un nombre dans une base « $a$ » à l'expression du même nombre dans un système de base « $b$ ».
+
+Il suffit alors de connaître la correspondance des symboles utilisés   pour les même chiffres dans les trois systèmes. Ces symboles sont généralement identiques pour les chiffres de « $0$ » à « $9$ », et au delà, on utilise des lettres dans l'ordre alphabétique en partant de « $A$ ». Dans le système hexadécimal, par exemple, les seize chiffres sont successivement :
+
+\[ 0, 1, 2, 3, 4, 5, 6 , 7, 8, 9, A, B, C, D, E, F. \] 
+
+
+Pour pouvoir transposer un nombre entier, $N_a = \alpha_n \alpha_{n-1} \alpha_{n-2}\ldots \alpha_2 \alpha_1 \alpha_0$, du système de numération à base « $a$ » dans le système de à base « $c$ » en passant par le système décimal, il suffit de tenir compte successivement des relations suivantes : 
+
+\begin{alignat*}{6} 
+ N_{10} &=&  \alpha_n(a)^n &+& \alpha_{n-1}(a)^{n-1} &+  \ldots +& \alpha_2(a)^2 &+&  \alpha_1(a) &+& \alpha_0  \\
+N_{10} &=& \gamma_q(c)^q &+& \gamma_{q-1}(c)^{q-1} &+  \ldots +& \gamma_2(c)^2 &+&  \gamma_1(c) &+& \gamma_0\\
+\end{alignat*}
+
+Les chiffres $\alpha_n \alpha_{n-1} \ldots  \alpha_1 \alpha_0$ ainsi que la base « $a$ » sont exprimés dans le système décimal.
+
+Pour calculer :   $\gamma_q\, \gamma_{q-1} \,\ldots\,\gamma_1 \, \gamma_0$ dans la base « $c$ » on effectue dans le système décimal la division entière de « $N_{10}$ » par « $c$ »; le quotient obtenu est égal à : 
+
+\[
+      \gamma_q(c)^{q-1} +   \gamma_{q-12} (c)^{q-2} + \ldots + \gamma_2 (c) + \gamma_1 
+ \]
+
+et le reste est égal à « $\gamma_0$ ».
+
+En divisant à nouveau le quotient par « $c$ », obtient comme reste « $\gamma_1$ » et ainsi de suite jusqu'à  « $\gamma_q$. Il suffit ensuite d'écrire les chiffres $\gamma_0, \gamma_1,\ldots, \gamma_{q-1},\gamma_q$ dans le système à base « $c$ » pour exprimer le nombre donné dans ce système. 
+
+\[ N_c =  \gamma_q\, \gamma_{q-1}\,  \gamma_{q-2}\,\ldots\,\gamma_1 \, \gamma_0 \]  
+
+
+
+\textsl{Exemple}. -- Transposons le nombre $3243312_{5}$ dans le système hexadécimal (base
+16), en passant par le système décimal.
+
+
+\[ \begin{array}{rcl}
+3243312_{5} :  & N_{10} = & 3\times(5)^{6}+2\times(5)^{5}+4\times(5)^{4}+3\times(5)^{3}+3\times(5)^{2}+1\times(5)+2\\
+\end{array} \]
+
+
+ \centerline {\fbox{$N_{10}  =  56082_{10}$}}
+ 
+ \bigskip 
+ 
+Pour calculer la valeur en base 16, on effectue les divisions successives
+par « 16 » ~du nombre décimal :
+
+
+\[ 
+\begin{array}{lrcrcr}
+56082  & \multicolumn{1}{|l}{16} \\
+ \cline{2-2} 
+080  & 3505  && \multicolumn{1}{|l}{16} \\
+\cline {4-4} 
+\;\;0082  & \multicolumn{1}{l}{030} & & 219  & & \multicolumn{1}{|l}{16}\\
+\cline {6-6} 
+\quad \; 0(2)  & 145  &&  059  &&  (13) \\
+\multicolumn{3}{r}{0(1){\;}} & \multicolumn{2}{r}{(11){\;}}   & (D) \\
+ & &  & \multicolumn{2}{r}{(B){\;}}   \\
+\end{array} 
+\]
+
+
+D'où
+
+\centerline {\fbox{$N_{16} =  DB12$} }
+
+\bigskip 
+
+Dans le cas où le nombre transposé n'est pas entier,on peut toujours traiter la partie entière par la méthode précédente.
+La partie fractionnaire $0, \alpha_{-1} \alpha_{-2} \ldots\alpha_{-n}$ peut s'écrire dans le système décimal :
+
+\[ m_{10} =  \alpha_{-1}(a)^{-1} +  \alpha_{-2}(a)^{-2} +  \ldots + \alpha_{-(n-1)}(a)^{-(n-1)} +  \alpha_{-n}(a)^{-n} \]
+
+ou, en partant de la case « $c$ » :
+
+\[ m_{10} =  \gamma_{-1}(c)^{-1} +  \gamma_{-2}(c)^{-2} +  \ldots + \gamma_{-(q-1)}(c)^{-(q-1)} +  \gamma_{-q}(c)^{-q} \]
+
+Pour exprimer « $m_{10}$ » à partir de la base  « $a$ », il suffit de calculer, dans le système décimal, la somme  $\somme{i=1}{i}{\alpha_{-i}(a)^{-i}}$.
+
+Pour calculer les chiffres $\gamma{-1}\; \gamma{-2}\; \ldots \gamma{-q}\;  $ du système à base « $c$ » on peur, en constatant  
+que chaque chaque chiffre « $\gamma_{-i}$ » est inférieur à « $c$ », opérer de la façon suivante : 
+
+On multiplie « $m_{10}$ »  par « $c$ » 
+
+\[ c \times m_{10} = \gamma_{-1} + \dfrac{\gamma_{-2}}{c} +   \dfrac{\gamma_{-3}}{(c)^2}  +   \ldots + \dfrac{\gamma_{-(q-1)}}{(c)^{q-2}} +   \dfrac{\gamma_{-q}}{(c)^{q-1}}  \]
+
+On constate alors que la partie entière de « $c\times m_{10}$ » est égale « $\gamma_{-1}$ ». Il suffit de retrancher ce chiffre et de multiplier à nouveau par « $c$ » le nombre fractionnaire obtenu afin de déterminer « $\gamma_{-2}$ » partie entière du produit, et ainsi de suite jusqu'à « $\gamma_{-q}$ ».
+
+\textsl{Exemple.} -- En passant par le système décimal, transposer le nombre fractionnaire à base  « $5$ » \fbox{$0,1223033_5$} dans le système octal (base 8). On se limitera aux décimales significatives. 
+
+\[ m_{10} = 1 . (5)^{-1} + 2 . (5)^{-2} + 2 . (5)^{-3} + 3 . (5)^{-4} + 0 + 3 . (5)^{-6} + 3 . (5)^{-7} \] 
+
+\[
+\begin{array}{rl@{\hspace*{2cm}}l}
+     (5)^{-1} = & 0,2         & \text{le nombre } m_{10} \text{est donc égal à} \\ 
+     (5)^{-2} = & 0,04        &  m_{10} = 0,3010304 \\ 
+     (5)^{-3} = & 0,008       & \text{et dans ce nombre on peut se limi-} \\ 
+     (5)^{-4} = & 0,0016      & \text{ter aux cinq premières décimales : } \\ 
+     (5)^{-5} = & 0,00032     & \multicolumn{1}{c}{$\multirow{3}{*}{\fbox{$m_{10} = 0,30103_{10}$}}$}  \\ 
+     (5)^{-6} = & 0,000064    &   \\ 
+     (5)^{-7} = & 0,0000128   &   \\ 
+\end{array}
+\]
+
+Pour trouver l'expression de ce nombre dans le système octal on effectue les multiplications suivante : 
+
+\[
+\begin{array}{r@{\hspace*{2cm}}l}
+0,30103 \times 8 = (2), 40824 & \text{Ce qu idonne dans le système à} \\
+0,40824 \times 8 = (3), 26592 & \text{base « huit »} \\
+0,26592 \times 8 = (2), 12736 & \multicolumn{1}{c}{$\multirow{4}{*}{\fbox{$0,232101_8$}}$}  \\
+0,12736 \times 8 = (1), 01888   \\
+0,01888 \times 8 = (0), 15104   \\
+0,15104 \times 8 = (1), 20832  \\
+\end{array}
+\]
+
+\newpage 
+
+
+\section{Numération binaire}
+
+Si nous considérons des éléments pouvant présenter deux états d'équilibre, tels que « relais » ou « circuits électroniques » saturés, la numération binaire, qui ne comprend que deux chiffres (0 et 1), se révèle du plus grand intérêt.
+
+Dans le système de numération binaire, qui a été conçu au 17$^e$ siècle par \textsc{Leibnitz}, les tables d'addition et de multiplication se réduisent aux expressions particulièrement simple suivantes :
+
+\[ 1 + 1 = 10 \quad \text{ et } \quad 1 \times 1 = 1 \]
+
+
+La correspondance entre nombres binaires et décimaux s'établit aisément
+selon les tableaux suivants~:
+
+\begin{center}
+\begin{tabular}{|r|r|c|lcr|r|}
+\cline{1-2} \cline{4-7}
+\multicolumn{1}{|c|}{\emph{ décimal}} & \multicolumn{1}{|c|}{\emph{ binaire}}  & &  \multicolumn{3}{|c|}{\emph{ décimal}} & \multicolumn{1}{|c|}{\emph{ binaire}}   \\
+\cline{1-2} \cline{4-7}
+1  & 1  &  &  &  & 2  & 10 \\
+2  & 10  &  & $2^{2}$  & =  & 4  & 100 \\
+3  & 11  &  & $2^{3}$  & =  & 8  & 1000 \\
+4  & 100  &  & $2^{4}$  & =  & 16  & 10000 \\
+5  & 101  &  & $2^{5}$  & =  & 32  & 100000 \\
+6  & 110  &  & $2^{6}$  & =  & 64  & 1000000 \\
+7  & 111  &  & $2^{7}$  & =  & 128  & 10000000 \\
+8  & 1000  &  & $2^{8}$  & =  & 256  & 100000000 \\
+9  & 1001  &  & $2^{9}$  & =  & 512  & 1000000000 \\
+10  & 1010  &  & $2^{10}$  & =  & 1024  & 10000000000 \\
+11  & 1011  &  & $2^{11}$  & =  & 2048  & 100000000000 \\
+12  & 1100  &  & $2^{12}$  & =  & 4096  & 1000000000000 \\
+13  & 1101  &  &  &  &  & \\
+14  & 1110  &  &  &  &  & \\
+15  & 1111  &  &  &  &  & \\
+16  & 10000  &  &  &  &  & \\
+\cline{1-2} \cline{4-7}
+\end{tabular}
+\end{center}
+
+\[
+     \begin{array}{|@{\hspace*{.5cm}}l@{\hspace*{.5cm}} | @{\hspace*{.5cm}}l@{\hspace*{.5cm}}|}
+     \multicolumn{2}{c}{\textsl{nombres fractionnaires}} \\[1mm]
+     \hline
+     \multicolumn{1}{|c}{\textsl{décimal}} &   \multicolumn{1}{c|}{\textsl{binaire}} \\
+     \hline 
+      2^{-1} = 0,5                & 0,1 \\
+      2^{-1} = 0,25               & 0,01 \\
+      2^{-1} = 0,125              & 0,001 \\
+      2^{-1} = 0,0625             & 0,0001 \\
+      2^{-1} = 0,031255           & 0,00001 \\
+      2^{-1} = 0,015625           & 0,000001 \\
+      2^{-1} = 0,00781255         & 0,0000001 \\
+      2^{-1} = 0,003906255       & 0,00000001\\
+     \hline 
+     \end{array} 
+\] 
+
+\bigskip 
+
+Il est aisé de  passer d'un nombre binaire, au même nombre exprimé dans le système
+à base $b=(2)^{n}$, on groupe les chiffres binaires $n$ par $n$
+en partant de la virgule, on complète éventuellement par des zéros,  puis on remplace chacun des groupes obtenus
+à la place qu'il occupe par le chiffre du système à base $(2)^{n}$ qui lui correspond.
+
+\newpage 
+
+\textsl{Exemple} -- Exprimer le nombre binaire $1101011,11111$ dans le système octal, base $8=(2)^3$; puis hexadécimal base $16=(2)^4$. 
+
+Pour le système octal, on groupe les chiffres binaires trois par trois à partir de la virgule :
+
+\[ \begin{array}{@{\hspace*{5mm}}ccl} 
+\multicolumn{3}{c}{001 \quad 101 \quad 011 \quad , 111 \quad  110} \\[1mm]
+001 & \text{correspond à}  & 1_{8} \\ 
+011 & \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & 3_{8} \\ 
+101 & \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & 5_{8} \\ 
+110 & \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & 6_{8} \\ 
+111 & \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & 7_{8} \\ 
+\end{array} 
+\]
+
+d'où le nombre octal correspondant \fbox{$153,76_8$} 
+
+Dans le système hexadécimal, on opère de la même manière mais en groupant les chiffres binaires par quatre puisque $16=(2)^4$.
+
+\[ \begin{array}{@{\hspace*{5mm}}ccl} 
+\multicolumn{3}{c}{0110 \quad 1011 \quad  , 1111 \quad  1000} \\[1mm]
+0110 & \text{correspond à}  & 6_{16} \\ 
+1011 & \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & B_{16} \\ 
+1000 & \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & 8_{16} \\ 
+1111& \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & F_{16} \\ 
+\end{array} 
+\]
+
+Le nombre hexadécimal  correspondant s'écrit donc :  \fbox{$6B,F8_{16}$ } 
+
+
+Pour passer d'un système à base $(2)^n$, $n$ entier, au système binaire, il suffit de replacer chaque chiffre, à la place qu'il occupe, par les $n$ chiffres binaires qui le représentent en complétant éventuellement les chiffres de plus haut poids par des zéros.
+
+\textsl{Exemple} --Exprimer le nombre $2123,12_4$ dans le système binaire; 
+
+\[ \begin{array}{@{\hspace*{5mm}}ccl} 
+2_4 & \text{correspond à}  & 10_2 \\ 
+2_4 & \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & 01_2 \\ 
+3_4 & \multicolumn{1}{r}{\text{»\hspace*{1cm}»}}  & 11_2 \\ 
+\end{array} 
+\]
+
+
+d'où le nombre binaire : 
+\medskip
+
+\[
+\begin{array}{ccccccccccccc}
+2 && 1 && 2 && 3 && && 1 && 2 \\
+10 && 01 && 10 && 11 &&, && 01 && 10 \\
+\end{array}
+\]
+
+soit \hfill \fbox{$10011011,011$} \hfill
+
+\newpage 
+
+\subsection{Exercices d'application relatifs au premier chapitre}
+
+\begin{enumerate} [label=\arabic*$^\circ$]
+
+\item Exprimer dans le système binaire, octal, puis hexadécimal les nombres $\pi \simeq 3,1416$ et $e \simeq 2,7183$ en conservant la précision relative donnée. 
+
+\textsl{Réponse : }
+
+\medskip
+
+\[
+\begin{array}{l@{\hspace*{1mm}}cl}
+\pi_2    & = & 11,001001000011111_2 \\
+\pi_8    & = & 3,11037_8 \\
+\pi1{16} & = & 3,243E_{16} \\
+\exp_2   & = & 10, 101101111110001_2 \\
+\exp_8   & = & 2,55761_8\\
+\exp_{16} & = & 2,B7E2_{16} \\   
+\end{array}
+\]
+
+\medskip 
+
+\item Exprimer le nombre $12221,3201_4$ dans les systèmes binaire, octal, hexadécimal et décimal en conservant la précision relative. 
+
+\textsl{Réponse : }
+\medskip
+
+\[
+\begin{array}{r@{\hspace*{0mm}}l}
+     110101001,&11100001_2\\
+     651,&702_8 \\
+     1A9,&E1_{16} \\
+     425,&88_{10}\\       
+\end{array}
+\]
+
+\medskip 
+
+
+\item On donne dans le système à base « $5$ » le nombre $4334,123_5$. Exprimer ce nombre dans le système décimal, puis dans le système à base « $9$ ».
+
+
+\textsl{Réponse : }
+\medskip
+
+\[
+\begin{array}{r@{\hspace*{0mm}}l}
+     594,& 304_{10}\\
+     730,&2655_9\\    
+\end{array}
+\]
+
+\item Établir les tables de multiplication et d'addition dans le système octal, puis effectuer, dans ce système, les opérations suivantes : 
+
+\medskip
+
+\[
+\begin{array}{rcr@{\hspace*{0mm}}lc@{\hspace*{15mm}}rcrc@{\hspace*{15mm}}rc@{\hspace*{3mm}}|r}
+a) & & 1634507,&323 && b) & & 3571&&c)  & 16043& 25 \\
+\cline {12-12} 
+  & + & 4372513,&714 && & \times & 427 &&\\
+\cline {2-4} \cline{7-8}
+\end{array}
+\]
+
+\medskip 
+
+\textsl{Réponse : }
+
+\[
+\begin{array}{l} 
+   a)\quad  6227223,237_8 \\
+   b)\quad  2022337_8 \\
+   c) \quad 527_8 \\      
+\end{array}
+\]
+
+\newpage 
+
+\item Exprimer successivement, dans le système décimal, les trois nombres suivant : 
+
+\[   10111101,101_2, \qquad 573,2_8, \qquad 2F6,8_{16} \]
+
+
+\textsl{Réponse : }
+
+
+\[ 189,625_{10}, \qquad 329,25_{10}, \qquad 758,5_{10} \]
+
+
+\item Effectuer, dans le système binaire, la multiplication suivante : 
+
+\[ \left\lbrace \begin{array}{r} 
+                  10110110,11 \\
+                  \times 1101,1\\
+                \end{array} 
+   \right\rbrace
+\]
+
+et vérifier le résultat obtenu en opérant dans le système décimal.
+
+\textsl{Réponse : }
+
+\[ 100110100011,001 \qquad \text{ soit } \qquad 2467,125 \] 
+                
+
+\item Calculer $\ln(2)$ dans le systèmes binaire, en utilisant 10 chiffres après la virgule, et en additionnant les termes de la série 
+
+\[ \ln \left(\dfrac{1}{1-x}\right) = x + \dfrac{x^2}{2} + \dfrac{x^3}{3} + \ldots + \dfrac{x^n}{n} + \ldots \text{ avec } x = + \dfrac{1}{2}
+ \]
+
+\textsl{Réponse : }
+
+
+\[ 0,1011000001 \qquad \text{ soit } \qquad 0,69 \] 
+
+\item Exprimer le nombre $43222,14_5$ dans le système décimal. 
+
+\textsl{Réponse : }
+
+\[2937,36_{10} \]
+
+\item Exprimer le nombre $553124_6$ dans le système décimal. 
+
+\textsl{Réponse : }
+ 
+ \[ 46060_{10} \]
+
+\item Exprimer le nombre décimal $19,877_{10}$ dans le système de numération à base « $7$ » 
+
+\textsl{Réponse : }
+ 
+ \[ 111644_7 \]
+ 
+ \item Exprimer le nombre décimal $77,819_{10}$ dans le système à base « $3$ » puis dans le système à base « $9$ ». 
+ 
+ \[ 10221202012_3 \qquad \text{ soit } \qquad 127665_9 \] 
+
+\end{enumerate}
+
+
+\centerline { \hfill \hbox to 4cm  { \hrulefill } \hfill }
+
+\medskip 
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
