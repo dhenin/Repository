@@ -2,9 +2,12 @@
 \input{algorithme.tex}      \newpage \stepcounter{chapter}
 \input{variables.tex}       \newpage \stepcounter{chapter}
 \input{affectation.tex}
+
 \input{lineaire.tex}                 \setcounter{footnote}{0}
-               \newpage
-\input{permutation.tex}     \newpage \stepcounter{chapter}
+
+%               \newpage
+\input{permutation.tex}     % \newpage \stepcounter{chapter}
+\iffalse
 \input{conditionnel.tex}             \setcounter{footnote}{0}
 \input{if.tex}              \newpage
 \input{emboite.tex}                  \setcounter{footnote}{0}
@@ -20,7 +23,7 @@
 \input{complexite2.tex}     \newpage     
 			   % Ne pas valider la ligne ci-dessous. Meme chapitre.
 			   % \addtocounter{chapter}{1} \setcounter{section}{0}
-
+\fi
 \input{kmag.tex}           \newpage \stepcounter{chapter}
 \input{kmag1.tex}   
 % \include {gra.simplexe}     \newpage % \stepcounter{chapter}
