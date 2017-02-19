@@ -1,0 +1,33 @@
+
+\ifdefined\COMPLETE
+\else
+    \input{./preambule-sacha-utf8.ltx}   
+    \usepackage{variations}
+    \begin{document}
+\fi
+
+% pour modifier la taille, modifier le scale 
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->] (-.5,0) -- (5,0);
+\foreach \x in {1,2,3,4}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) ; 
+\draw[->] (0,-.5) -- (0,4);
+\foreach \y in {1,2,3,}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) ;
+
+\clip(-1.8,-1.4) rectangle (5,4);
+\draw [color=red,domain=-.5:5] plot(\x,{(\x)*.5 +.5 });
+\draw [->] (1,1)  --  node [below] {$\Delta x$} (3,1) ; 
+\draw [->] (3,1) -- node [right] {$\Delta y$} (3,2)  ; 
+
+\begin{scriptsize}
+\draw (0,.7) node [left] {$b$};
+\draw (2,2) node [left] {$a=\dfrac{\Delta y}{\Delta x}$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\ifdefined\COMPLETE
+\else
+    \end{document}
+\fi
