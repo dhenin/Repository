@@ -1,0 +1,98 @@
+\input{./preambule.ltx}\usepackage{amsmath,bm}
+%\usepackage{graphicx}
+%\usepackage{animate}
+\usepackage[tikz]{bclogo}
+
+
+
+\begin{document}
+
+\newcommand{\titre}[1]{\begin{center}{\Large\textcolor{Black}{#1}}\end{center}}
+
+\newcommand{\paragraphe}[1]{\large\textcolor{blue}{#1}}
+
+\newcommand{\NBVert}[1]{\large\textcolor{DarkGreen}{#1}}
+
+\newcommand{\Attention}[3]{
+\begin{bclogo}[%
+%epBarre = 0,
+%couleurBarre = white,
+barre = none,
+couleurBord=white,%
+logo=\bcattention,% 
+margeG = -1,% 
+margeD = 1,%
+marge = 15%
+]{\textcolor{#1}{$\quad$ #2}}
+#3
+\end {bclogo}
+}
+
+\titre{\bf Plus petit commun multiple (\textsc{ppcm})}
+ 
+
+\textbf{Définitions. — On appelle multiple commun à deux ou plusieurs nombres entiers tout nombre multiple de chacun d'eux.} 
+
+Ainsi 60 est un multiple commun à 6, 10 et 15. \\
+Il y a toujours une infinité de multiples communs à plusieurs nombres (en particulier le produit de ces nombres et ses multiples).
+
+\textbf{ Le plus petit des multiples communs à plusieurs nombres s'appelle leur plus petit commun multiple.}\\ 
+En abrégé \textsc{ppcm}.\\
+ Il est facile de vérifier que le  \textsc{ppcm} de 6, 10 et 15 est égal à 30. 
+ 
+\textbf{ Multiples communs à deux nombres factorisés.} \label{Multiples_communs}
+
+ Il résulte immédiatement de la condition de divisibilité (\label{Quotient_exact}) que : 
+ 
+\textbf{  Pour qu'un nombre entier soit un multiple commun à deux nombres entiers A et B, il faut et il suffit qu'il contienne tous les facteurs premiers contenus dans A et dans B, chacun d'eux étant affecté d'un exposant au moins égal à son plus grand exposant dans A et B. } 
+
+Ainsi les nombres : $360 =2^3 \times 3^2 \times  5$  et $500 = 2^2 \times  5^3$ admettent pour multiples communs : \\
+
+ $2^3 \times 3^2 \times 5^3  = 27\,000, \quad 2^4 \times 3^2 \times 5^3 \times 7 = 126\, 000$.
+ 
+  
+Le plus petit des multiples communs s'obtient, donc en prenant seulement les facteurs contenus dans les deux nombres et en affectant chacun d'eux de l'exposant le plus petit possible. D'où : 
+
+
+\textbf{Règle. — Le \textsc{ppcm} de deux nombres entiers décomposés en facteurs premiers s'obtient en faisant le produit de tous les facteurs contenus dans les deux nombres, chacun d'eux étant affecté de son plus grand exposant.}
+
+ Ainsi le \textsc{ppcm}  des nombres 360 et 500 est égal à : 
+ 
+ \centerline{$2^3 \times 3^2 \times 5^3 = 9\,000$}
+ 
+Nous voyons d'autre part que les multiples communs aux deux nombres contiennent tous les facteurs premiers
+de leur \textsc{ppcm} avec de exposants  au moins égaux à ceux de ce \textsc{ppcm}. D'où : 
+
+\textbf{Théorème. — Les multiples communs d deux nombres entiers sont les multiples de leur \textsc{ppcm}.}\label{Multiples_du_ppcm}
+
+  Ainsi les multiples communs à 360 et à 500 sont les multiples de leur  \textsc{ppcm} : 9~000.  Leur liste commence donc par : 
+  
+  \centerline{9~000, 18~000, 27~000, 36~000, etc. }
+
+\textbf{\textsc{pgcd} et \textsc{ppcm} de plusieurs nombres.} — Les conditions nécessaire et suffisantes des \ref{Diviseurs_communs} et \ref{Multiples_communs} s'étendent à plusieurs nombres. Il en est par suite de même des règles du \textsc{pgcd} et \textsc{ppcm}  ainsi que des théorèmes \ref{Diviseur_du_pgcd}  et \ref{Multiples_du_ppcm}
+
+
+\textsc{Exemple} — \textit {Calculer le \textsc{pgcd} et \textsc{ppcm}  des nombres 300, 360 et 480. Établir la liste de leurs diviseurs communs et celle de leurs multiples communs.}
+
+ Décomposons ces nombres en facteurs premiers : 
+ 
+ $300 = 2^2  \times  3 \times  5^2 ; \qquad 360 = 2^3  \times 3^2  \times  5; \qquad 480= 2^5 \times 3 \time 5 $\\
+  Leur\textsc{pgcd} est égal à : \\
+  \centerline {$ 2^2 \times 3 \times 5 = 60 $}.\\
+  
+ Leur \textsc{ppcm}  est égal à : \\
+ 
+  \centerline {$ 2^5 \times 3^2 \times 5^2 = 7\,200 $}.\\
+
+
+  La liste de leurs diviseurs communs est la liste des diviseurs de 60 :\\
+    \centerline { 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60. } 
+    
+    La liste de leurs multiples communs est la liste des multiples de 7~200 :   \\
+   
+       \centerline { 7~200, 14~400, 21~600, 28~800, etc.}  
+
+
+\end{document}
+
+

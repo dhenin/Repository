@@ -1,0 +1,130 @@
+\input{./preambule.ltx}\usepackage{amsmath,bm}
+%\usepackage{graphicx}
+%\usepackage{animate}
+\usepackage[tikz]{bclogo}
+
+
+
+\begin{document}
+
+\newcommand{\titre}[1]{\begin{center}{\Large\textcolor{Black}{#1}}\end{center}}
+
+\newcommand{\paragraphe}[1]{\large\textcolor{blue}{#1}}
+
+\newcommand{\NBVert}[1]{\large\textcolor{DarkGreen}{#1}}
+
+\newcommand{\Attention}[3]{
+\begin{bclogo}[%
+%epBarre = 0,
+%couleurBarre = white,
+barre = none,
+couleurBord=white,%
+logo=\bcattention,% 
+margeG = -1,% 
+margeD = 1,%
+marge = 15%
+]{\textcolor{#1}{$\quad$ #2}}
+#3
+\end {bclogo}
+}
+
+\titre{\bf EXERCICES}
+ 
+
+ 
+
+
+-- Calculer le \textsc{pgcd} des nombres suivants : 
+
+\begin{tabular}{lllll}
+$\cdot 168 \text{ et } 360 $ & 
+    $  \cdot  252    \text{ et }  684 $ & 
+        $  \cdot 336    \text{ et }  462 $ & 
+            $  \cdot  1~840    \text{ et } 1~260 $ & 
+                $  \cdot  18~150     \text{ et }  23~23850 $ \\
+$\cdot  33~390   \text{ et }  58~800 $ & 
+    $ \cdot  315, 819  \text{ et } 924 $ & 
+        $ \cdot  252,  693  \text{ et } 945 $ & 
+            $  \cdot  2~520,  3~150  \text{ et } 4~410 $ &
+                 $  \cdot  7~560,  10~080  \text{ et }12~096 $ \\
+\end{tabular}
+
+— Établir la liste des diviseurs communs ana nombres : 
+
+ $  \cdot  4~200      \text{ et }  5~880 \quad  \cdot 1~440   \text{ et } 1~764 \quad 
+   \cdot  3~7890,  4~320  \text{ et } 5~184 \quad   \cdot10~584,  11~520 \text{ et }13~104 $                
+
+-- Calculer le \textsc{ppcm} et les trois multiples communs les plus simples de :
+
+\begin{tabular}{lll}
+ $  \cdot 360    \text{ et } 504  $& $   \cdot 252   \text{ et } 672  $&$ \cdot 972  \text{ et } 1~134 $ \\ 
+ $   \cdot 720    \text{ et } 900  $&$  \cdot  168,  252  \text{ et }336 $&$  \cdot 120,  180 \text{ et } 270 $ \\
+\end{tabular}
+
+                   
+
+$\cdot$ 1\degre Calculer le \textsc{pgcd} et le \textsc{ppcm} des nombres 576 et 1 080.\\
+2\degre  Comparer le produit des deux résultats au produit des deux nombres. Énoncer le résultat obtenu. 
+ 
+ 
+$\cdot$ 1\degre Calculer le \textsc{pgcd} et le \textsc{ppcm}  des nombres 99 et 140.\\
+2\degre  Quel est le \textsc{ppcm}. de deux nombres premiers entre eux ? 
+
+ 
+$\cdot$ 1\degre Calculer le \textsc{pgcd} et le \textsc{ppcm}   des nombres 144 et 180. \\
+2\degre  Que deviennent les résultats précédents lorsqu'on multiplie (ou lorsqu'on divise) les deux nombres par 6 ? Généraliser. 
+
+$\cdot$ Démontrer que, si un nombre en divise deux autres, il divise leur somme, leur différence et le reste de leur division. 
+
+
+$\cdot$  La division de deux nombres se fait exactement. Quel est leur \textsc{pgcd} et quel est leur \textsc{ppcm}? Exemple : 6 375 et 375. 
+
+$\cdot$  Montrer que la liste des diviseurs communs à deux nombres est la même que celle du plus petit de ces nombres et du reste de leur division. Que peut-on dire des \textsc{pgcd}? 
+
+\textsc{Application}. -- Remplacer la recherche du \textsc{pgcd} de 792 et 240 par la recherche du \textsc{pgcd} de deux nombres plus simples. Répéter cette opération afin d'obtenir un \textsc{pgcd} évident (Méthode des divisions successives.) 
+
+$\cdot$   Utiliser la méthode indiquée à la question  précédente pour la recherche du \textsc{pgcd} des nombres 2~021 et 2~679.
+ 
+$\cdot$  Trouver deux nombres non divisibles l'un par l'autre sachant que leur \textsc{pgcd} est égal à 336 et leur somme égale à 2~688. 
+ 
+$\cdot$  Par quel nombre inférieur à 100 faut-il diviser 29~687 et 35~312 pour obtenir pour restes respectifs 47 et 32. Quels sont alors les quotients ? 
+
+$\cdot$  En divisant 809 et 1~024 chacun par un certain nombre, on trouve le même quotient et pour restes respectifs 27 et 35. Reconstituer les deux divisions. 
+ 
+$\cdot$  On a planté des arbres également espacés sur le pourtour d'un terrain triangulaire dont les côtés mesurent 144 m,  180 m et 240 m. Sachant qu'il y a un arbre à chaque sommet et que la distance de deux arbres consécutifs est comprise entre 4 mètres et 10 mètres, calculer le nombre d'arbres plantés. 
+ 
+$\cdot$    Un ouvrier a touché pour trois mois successifs : 462 €, 528 € et 594 €. Trouver son salaire journalier sachant que c'est un nombre entier d'euros compris entre 20 € et 30 €. Trouver le nombre de jours de travail effectués chaque mois. 
+ 
+$\cdot$  On a fait carreler une pièce rectangulaire de 4,20 m sur 2,24 m. Sachant que les carreaux employés ont un côté compris entre 10 cm et 25 cm, calculer la longueur de leur côté et leur nombre. 
+
+$\cdot$  On veut partager en coupons d'égale longueur quatre pièces d'étoffe mesurant respectivement 17,50 m, 28 mètres, 31,50 m et 42 mètres. Trouver la plus grande longueur possible pour chaque coupon et le nombre total de ces coupons. 
+ 
+$\cdot$   Deux règles égales de 504 mm de longueur sont graduées l'une en 72 parties, l'autre en  126 parties. On tfait coïncider  leurs extrémités. Déterminer les traits de division qui coïncident.
+ 
+$\cdot$  Trouver les multiples commues à 6, 8 et 10 compris entre 500 et 1000. 
+
+$\cdot$  Trouver les trois nombres les plus simples divisibles par les 10 premiers nombres entiers. 
+ 
+$\cdot$  Quel est le plus petit nombre qui donne 7 pour reste quand on le divise par 12, par 15 ou par 16 ? 
+ 
+$\cdot$  Trouver un nombre qui donne 16 pour reste quand on le divise par 24 ou par 32, et 8 pour reste lorsqu'on le divise par 20. 
+ 
+$\cdot$   Trouver le plus petit nombre qui, divisé par 5, 6 ou 8, donne respectivement pour restes 4, 5 et 7. 
+
+$\cdot$   Deux cyclistes roulent dans le même sens sur une piste. Le premier fait un tour en 1 minute 45 secondes et le second en 1 minute 36 secondes. Sachant qu'ils sont partis ensemble de la ligne de départ, on demande après combien de temps passeront-ils ensemble cette ligne de départ. Combien de tours chacun d'eux aura-t-il effectuée ? 
+
+$\cdot$   Des pavés rectangulaires qui ont 12 cm de large et 21 cm de long ont servi à paver entièrement une place carrée. Calculer le côté de cette place sachant qu'il mesure un nombre entier de mètres compris entre 30 mètres et 60 mètres. 
+  
+$\cdot$  Trois règles graduées de 960 mm de long sont placées côte à côte de façon que leurs extrémités coïncident. Les divisions ont pour longueurs respectives 10 mm, 12 mm et 16 mm. Déterminer les traits de division qui coïncident sur les trois règles. 
+  
+$\cdot$   Une personne a acheté un certain nombre entier de mètres d'étoffe à 6,50 € le mètre. Elle paye exactement avec des billets de 10 €. Sachant que la dépense totale n'excède pu 200 €, trouver le nombre de mètres achetés. 
+   
+$\cdot$   Un enfant compte ses timbres-poste par 12, par 16 et par 20. Il lui en reste 8 à chaque fois. En les comptant par 13, il ne lui en reste plus. Combien possède-t-il de timbres?
+    
+$\cdot$   En comptant les élèves d'une école par 9, 10 ou 12, il en reste respectivement 8, 9 et 11. En les comptant par 11, n'en reste pas. Trouver le nombre d'élèves de l'école.
+
+$\cdot$   Des autobus partent d'un mime point dans quatre directions différentes. Les départs se font respectivement dans chaque direction toutes les 5 minutes, 8 minutes, 12 minutes et 18 minutes. Un départ simultané a lieu à 7 heures le matin. Quelles sont les heures des autres départs simultanés de la journée ? 
+
+\end{document}
+
+

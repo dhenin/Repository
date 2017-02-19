@@ -1,0 +1,171 @@
+\input{./preambule.ltx}\usepackage{amsmath,bm}
+%\usepackage{graphicx}
+%\usepackage{animate}
+\usepackage[tikz]{bclogo}
+\frenchbsetup{StandardLists=true}
+\usepackage{enumitem}
+
+
+\begin{document}
+
+\newcommand{\titre}[1]{\begin{center}{\Large\textcolor{Black}{#1}}\end{center}}
+
+\newcommand{\paragraphe}[1]{\large\textcolor{black}{#1}}
+
+\newcommand{\NBVert}[1]{\large\textcolor{DarkGreen}{#1}}
+
+\newcommand{\Attention}[3]{
+\begin{bclogo}[%
+%epBarre = 0,
+%couleurBarre = white,
+barre = none,
+couleurBord=white,%
+logo=\bcattention,% 
+margeG = -1,% 
+margeD = 1,%
+marge = 15%
+]{\textcolor{#1}{$\quad$ #2}}
+#3
+\end {bclogo}
+}
+
+\titre{\bf Décomposition d'un nombre entier en facteurs premiers}
+ 
+
+ 
+\paragraphe{ \textbf{1. Théorème. — Tout nombre entier non premier peut se décomposer en un produit de facteurs premiers.}} 
+
+ 
+ 
+  Considérons le nombre 315. Il est divisible par 3 : 
+  
+  \begin{tabular}{l@{\hspace{2cm}}l}
+  $315=3 \times 105$   & Or: $105 = 3 \times  35 $  d'où : \\
+  $ 315=3 \times 3 \times 35 $ & Et puisque $35 =  5 \times  7$,\\
+  $315 = 3 \times 3 \times 5 \times 7$ & Soit $315= 3^2 \times 5 \times  7$.\\
+  \end{tabular}
+  
+
+  Le nombre 315 est décomposé en un produit de facteurs premiers.
+  
+  
+  \textbf{La décomposition d'un nombre en facteurs premiers ne peut se faire que d'une seule manière.}
+  
+  Ainsi, nous aurions pu écrire : $315 = 15 \times 21$. 
+  
+  Comme $15 = 3 \times 5$ et $21 = 3 \times 7$, nous obtenons :
+  
+   $315 = 3 \times 5 \times 3 \times 7 =   3^2 x 5 \times 7$.
+  
+  
+  Nous retrouvons la même décomposition. Cette opération est appelée factorisation. Le nombre $3^2 \times 5 \times 7$ est dit factorisé. 
+  
+  
+\textbf{Disposition pratique.} — La première méthode employée  conduit à la disposition pratique suivante : 
+
+\centerline{
+\begin{tabular}{r|l@{\hspace{3cm}}r|l@{\hspace{3cm}}r|l}
+315 & 3 & 360 & 2 & 1\,400 & 2 \\
+105& 3 & 180 & 2 & 700& 2 \\
+35& 5 & 90& 2 & 350&2 \\
+7& 7 & 45 & 3 & 175& 5 \\
+1 & & 15& 3 & 35& 5 \\
+& &  5 & 5 & 7 & 7 \\
+& &  1& & 1 & \\
+\multicolumn{2}{l}{$315 = 3^2 \times 5 \times 7$ }& 
+\multicolumn{2}{l}{$360 = 2^3 \times 3^2 \times 5$ }& 
+\multicolumn{2}{l}{$1\,400= 2^3 \times 5^2 \times 7$ }\\
+\end{tabular}}
+
+On écrit à gauche d'un trait vertical le nombre à décomposer et les différente quotients jusqu'à 1 et à droite là différents diviseurs premiers successifs.
+
+\textsc{Remarque} - Il est évident que le nombre premier 1 ne peut jouer le rôle de facteur premier dans la factorisation d'un nombre. 
+ 
+ 
+\textbf{Produit de deux nombres factorisés. }
+
+Soit à effectuer le produit : $(2^3 \times 3^4 \times 5^2) \times (2^4 \times 3^2 \times 7)$.
+
+Ce produit s'écrit :  $2^3 \times 3^4 \times 5^2 \times 2^4 \times 3^2 \times 7$.
+
+Soit\footnote{Le produit de deux ou plusieurs puissances d'un même nombre est la puissance de ce nombre dont l'exposant est la somme des exposants des facteurs.} :  $2^7 \times 3^6 \times 5^2 \times 7$.
+
+\textbf{Le produit de deux nombres factorisés contient tous les facteurs contenus dans les deux nombres, chacun d'eux étant affecté d'un exposant égal à la somme des exposants qu'il a dans chacun des deux nombres. }
+
+Cette règle se générale pour plusieurs facteurs et permet de calculer les puissances d'un nombre : 
+
+\textsc{Exemple :} 
+
+\begin{enumerate}
+[label=\arabic*$^\circ$]
+%[label=\arabic*\degre]
+\item $(2^3 \times 3 \times 5^2) \times (2 \times 3^4 \times 5^2 ) \times (3^2 \times 7)
+           = 2^4 \times 3^7 \times 5^4  \times 7$.
+\item  $(2^8 \times 3^4  \times 5^2)^2  =2^6 \times 3^8 \times 5^4$.
+\item  $ (2^4 \times 3 \times 7^2)^3 = 2^{12} \times 3^3 \times 7^6$.    
+\end{enumerate}
+
+\textbf {Quotient exact de deux nombres factorisés.} — Considérons les nombres :
+
+ \centerline{$2^7 \times 3^4 \times 5^3 \text{  et  } 2^4 \times 3^2$}
+ 
+ On peut, d'après la règle précédente, écrire : 
+ 
+ \centerline{$2^7 \times 3^4 \times 5^3 = (2^4 \times 3^2) \times (2^3 \times 3^2 \times 5^3)$ .}
+ 
+ Soit: $2^7 \times 3^4 \times 5^3 \div (2^4 \times 3^2) = (2^3 \times 3^2 \times 5^3)$
+ 
+\textbf{\label{Quotient_exact}
+Le quotient de deux nombres factorisés contient les facteurs du dividende, chacun d'eux étant affecté d'un exposant de la différence des exposants qu'il a dans le dividende et le diviseur.}
+ 
+ Nous voyons apparaître la condition : 
+ 
+ \textbf{Pour qu'un nombre entier A soit divisible par un nombre entier B (ou soit multiple de B), il faut et il suffit qu'il contienne tous les facteurs premiers de B avec des exposants au moins égaux à ceux de B.} 
+ 
+ 
+\titre{\bf EXERCICES}
+
+
+• Établir la liste et le nombre des diviseurs de 54. Grouper par deux les diviseurs dont le produit est 54 et montrer qu'il suffit de rechercher le plus petit nombre de chaque groupe. 
+
+
+-- Reprendre le môme problème pour les nombres : 
+
+
+$ \bullet\, 80 \quad  \bullet 108   \quad  \bullet 128  \quad  \bullet  252  \quad  \bullet  84  \quad  \bullet  250  \quad  \bullet 288  \quad  \bullet  315  \quad  \bullet  36  \quad  \bullet 100  \quad  \bullet 144  \quad  \bullet 225 $
+
+
+Reconnaître si les  les nombres entiers sont premier suivants sont premiers et donner s'il y a lieu leur plus petit  diviseur premier :
+
+$  \bullet  79  \quad  \bullet  107 \quad  \bullet  143  \quad  \bullet 173 \quad  \bullet  83 \quad  \bullet  149 \quad  \bullet  181 \quad  \bullet  221 \\
+\bullet 89 \quad  \bullet 167 \quad  \bullet 187 \quad  \bullet  241 \quad  \bullet  97 \quad  \bullet 179 \quad  \bullet~193 \quad  \bullet~283$. 
+
+
+• Montrer que tout nombre premier supérieur à 5 est obligatoirement terminé par 1, 3, 7 ou 9. 
+
+--  Décomposer en facteurs premiers les nombres entiers suivants : 
+
+
+$\bullet   108 \quad \bullet  144  \quad \bullet  2\,520  \quad  \bullet    8\,000  \quad  \bullet    84  \quad  \bullet  250  \quad  \bullet  884  \quad \bullet  5\,740  \quad \bullet  176  \quad  \bullet  294 \quad \bullet  7 920 \quad\bullet 1 053\\
+\bullet  36 \times 42    \quad  \bullet  72 \times  77  \quad \bullet   108 \times 75 \quad \bullet  84 \times 25 \times 121 \quad \bullet  36 \times  27 \times 143 \quad  \bullet   65 \times 49 \times 24 \\ \bullet  108^2  \quad \bullet   252^3 \quad \bullet 24^2 \times  33^3  \times 11^5 $
+   
+   
+--  Calculer les nombres :  
+
+
+$\bullet \,  2^2 \times 3 \times  7 \quad \bullet  2 \times 3^2 \times 5 \times 7 \quad \bullet  2^3 \times 3 \times 5 \times 11 \quad \bullet  3^2 \times 5^2 \times 11  \quad \bullet  3^2 \times  7 \times 11 \times 13 \quad \bullet  2^2 \times 7^3  \times 11 \times 17$.
+
+\newpage 
+
+- Effectuer en laissant les résultats sous forme décomposée : 
+
+ $\bullet\, (2^2 \times 3^4 \times  5) \times (2 \times  3  \times 7^2)$ \\
+ $\bullet\, (2^2 \times 3^4  \times  5) \times  (3^2  \times 7  \times 11^3) \times (5  \times 11^2)$\\
+ $\bullet\,  (2^4  \times 3^2 \times 7 \times 11^3)^2$\\ 
+ $\bullet\, (2  \times  3^4  \times 7^3  \times 11^2)^3$ \\
+ $\bullet\, (2^5  \times  3^2 \times 5^2 \times 7^2) : (2^3 \times 5  \times 7^2)$ \\
+ $\bullet\, (2^7 \times  3^2  \times  5^4  \times 11) : (2^7  \times 3  \times  5^2)$. 
+
+\end{document}
+
+

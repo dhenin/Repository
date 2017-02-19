@@ -1,0 +1,101 @@
+\input{./preambule.ltx}\usepackage{amsmath,bm}
+%\usepackage{graphicx}
+%\usepackage{animate}
+\usepackage[tikz]{bclogo}
+
+
+
+\begin{document}
+
+\newcommand{\titre}[1]{\begin{center}{\Large\textcolor{Black}{#1}}\end{center}}
+
+\newcommand{\paragraphe}[1]{\large\textcolor{blue}{#1}}
+
+\newcommand{\NBVert}[1]{\large\textcolor{DarkGreen}{#1}}
+
+\newcommand{\Attention}[3]{
+\begin{bclogo}[%
+%epBarre = 0,
+%couleurBarre = white,
+barre = none,
+couleurBord=white,%
+logo=\bcattention,% 
+margeG = -1,% 
+margeD = 1,%
+marge = 15%
+]{\textcolor{#1}{$\quad$ #2}}
+#3
+\end {bclogo}
+}
+
+\titre{\bf Plus grand commun diviseur (\textsc{pgcd})}
+ 
+
+\textbf {Définitions. On appelle diviseur commun à deux ou plusieurs nombres entiers tout nombre qui divise chacun d'eux.}
+
+
+Pour obtenir la liste des diviseurs communs à plusieurs nombres, on peut établir la liste des diviseurs de chacun d'eux et prendre les nombres communs à ces listes : 
+
+
+\textsc{Exemple.} -- Les diviseurs des nombres 30, 45 et 75 sont respectivement : 
+
+\medskip 
+
+\centerline{ 
+  \begin{minipage}{0.48\textwidth} 
+                 1, 2, 3, 5, 6, 10, 15, 30 \\
+                 1, 3, 5, 9, 15,45 \\
+                 1, 3, 5, 15, 25, 75.
+\end{minipage}                 
+              }      
+
+   Leurs diviseurs communs sont 1, 3, 5, 15. 
+
+\textbf{Le plus grand des diviseurs communs à plusieurs nombres s'appelle leur plus grand commun diviseur,\\ en abrégé \textsc{pgcd}}
+
+On voit ainsi que le \textsc{pgcd} de 30, 45 et 75 est 15.
+
+ \textbf {Diviseurs communs à deux nombres factorisés.} \label{Diviseurs_communs}
+
+La condition de divisibilité (\ref{Quotient_exact}), montre, pour qu'un nombre soit un diviseur d'un nombre A, il faut et il suffit qu'il ne contienne que des facteurs contenus dans A, chacun d'eux étant affecté d'un exposant au plus égal à son exposant dans A. en résulte que : 
+
+\textbf{Pour qu'un nombre entier soit un diviseur commun à deux nombres entiers A et B, il faut et il suffit qu'il ne contienne que des facteurs premiers communs à  A et B, chacun d'eux étant affecté d'un exposant au plus égal à son plus petit exposant dans A et B.}
+
+ Ainsi les nombres : $720 = 2^4 \times 3^2 \times 5$  et $1\,512 = 2^3 \times 3^3 \times  7 $ admettront pou diviseurs communs : $3,\quad  2^3=8, \quad 2^2\times 3=12, \quad 2^3 \times 3=24$. 
+
+Le plus grand des diviseurs s'obtient donc en prenant, tous  les facteurs communs et en affectant chacun d'eux de l'exposant le plus grand possible. D'où : 
+
+
+\textbf{Règle. — Le \textsc{pgcd} de deux nombres entiers décomposé en facteurs premiers s'obtient en faisant le produit des facteurs communs aux deux nombres, chacun d'eux étant affecté de son plus petit exposant.}
+
+Ainsi le \textsc{pgcd} de $720 = 2^4 \times 3^2 \times 5$  et $1\,512 = 2^3 \times 3^3 \times 7$ est égal à : 
+
+\smallskip 
+
+\centerline {$2^3 \times 3^2 = 72$.}
+
+D'autre part, nous voyons que les diviseurs communs aux nombres 720 et 1~512 ne contiennent que des facteurs premiers contenus dans leur \textsc{pgcd} avec des exposants au plus égaux à ceux de ce \textsc{pgcd}. Il en résulte que : 
+
+\textbf{Théorème. — Les diviseurs communs à deux nombres entiers sont les diviseurs de leur \textsc{pgcd}} \label{Diviseur_du_pgcd}
+
+Ainsi la liste des diviseurs communs à 720 et 1~512 est la liste des diviseurs de leur \textsc{pgcd} : 72. Soit : 
+
+\centerline{1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72.}
+
+\textbf{ Nombres premiers entre eux. -- On appelle nombres premiers entre eux deux nombres entiers qui n'admettent comme diviseur commun que le nombre 1.}
+
+Autrement dit, leur \textsc{pgcd} est égal à 1. 
+
+Les nombres $36 = 2^2 \times 3^2$ et $25 = 5^2$ sont premiers entre eux. 
+
+\textit{Il en est ainsi chaque fois que deux nombres décomposés an facteurs premiers ne contiennent pas de facteur commun.}
+ 
+\textbf{Théorème. — Lorsqu'on divise deux nombres entiers par leur  \textsc{pgcd}, les quotients obtenus sont premiers entre eux.}
+
+ Soient par exemple les nombres : $2^3 \times 3^2 \times 7^3$ et $2^3 \times 3^4 \times 5$. Divisons-les par leur  \textsc{pgcd} qui est : $2^8 \times 3^2$. Les quotients sont respectivement : $2^2 \times 7^3$ et $3^2 \times 5$. Ces quotients n'ont pas de facteur premier commun. Ils sont donc premiers entre eux 
+
+
+
+\end{document}
+
+
